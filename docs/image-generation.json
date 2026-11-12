@@ -4,202 +4,399 @@
   "style": "Use case: illustration-story. Asset type: a single landscape illustration for a Chinese literary science fiction timeline website about The Three-Body Problem. Output one finished 2:1 panoramic image, ideally 1536x768 or wider; no panels, no frame, no title, no lettering, no numerals, no logos, no watermark. Premium painterly science fiction book illustration, realistic architecture and materials, fine restrained brush texture, subtle film grain, enormous sense of scale, disciplined composition, quiet awe rather than generic action poster. Muted charcoal, cold steel blue, warm parchment highlights with a restrained ember accent, naturalistic light. Keep all important objects inside the central 80% so a 2:1 website crop remains readable. ",
   "images": [
     {
+      "slug": "trisolaris-cycle",
+      "event": "e1",
+      "file": "img/generated/trisolaris-cycle-v2.jpg",
+      "alt": "严寒的乱纪元中，干仓里贮存着脱水皮卷，天空只有三颗遥远飞星",
+      "caption": "乱纪元 · 脱水贮存与三颗飞星（游戏意象）",
+      "note": "冷冻场景不应同时出现三轮近距太阳；三日凌空会造成熔岩级高温。用游戏中的脱水贮存和远处飞星表达文明轮回，不确指真实三体人的外貌。",
+      "scene": "A Three-Body VR GAME representation of a freezing Chaotic Era, NOT an asserted portrait of real alien anatomy. From inside the thick stone doorway of a dry-storage warehouse, look out over an abandoned frost-covered plain toward a few other squat, thick-walled storehouses. In the sheltered foreground are orderly stacks of thin leathery dehydrated rolls, mostly featureless folded skins with ambiguous outlines, not human corpses, no faces and no exposed organs. Outside, the sky is deep cold twilight with ONLY THREE TINY DISTANT STAR-LIKE POINTS representing the far-away suns, NOT three visible solar disks. No large sun, no warm sunset, no lava, no normal green plants, no live robed aliens. Blue frost and absolute stillness. The warehouse and rolls are visualizations from the human-designed game; keep morphology abstract.",
+      "width": 1536,
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/trisolaris-cycle.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: A Three-Body VR GAME representation of a freezing Chaotic Era, NOT an asserted portrait of real alien anatomy. From inside the thick stone doorway of a dry-storage warehouse, look out over an abandoned frost-covered plain toward a few other squat, thick-walled storehouses. In the sheltered foreground are orderly stacks of thin leathery dehydrated rolls, mostly featureless folded skins with ambiguous outlines, not human corpses, no faces and no exposed organs. Outside, the sky is deep cold twilight with ONLY THREE TINY DISTANT STAR-LIKE POINTS representing the far-away suns, NOT three visible solar disks. No large sun, no warm sunset, no lava, no normal green plants, no live robed aliens. Blue frost and absolute stillness. The warehouse and rolls are visualizations from the human-designed game; keep morphology abstract.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/santi/015.html"
+      ]
+    },
+    {
       "slug": "red-coast",
       "event": "e5",
       "mode": "replace",
       "alt": "冬日山顶上，钢架支撑的红岸射电天线朝向落日，研究员站在栏杆旁",
-      "caption": "红岸基地 · 向太阳借一只耳朵",
+      "caption": "红岸基地 · 雷达峰上的抛物面天线（场景概念图）",
       "scene": "Red Coast secret radio base in the forested mountains of northeast China in the early 1970s, winter dusk. A huge steerable metal parabolic RADIO DISH on a tall steel truss and industrial support building stands on a rocky mountain summit above dark conifers and snow. It is a constructed military radio telescope pointing toward the low sun, emphatically NOT the modern FAST dish embedded in a valley. A small Chinese woman scientist in a plain olive work coat stands by a railing seen from behind, dwarfed by the instrument. Warm amber light catches the lattice and the last sunlight disappears behind ridges. Somber, isolated, historically grounded. No propaganda text or banners.",
       "file": "img/generated/red-coast.jpg",
       "width": 1536,
-      "height": 768
-    },
-    {
-      "slug": "trisolaris-cycle",
-      "event": "e1",
-      "mode": "replace",
-      "alt": "三颗太阳照耀下的荒原上，脱水的人形皮卷与文明遗迹静默相伴",
-      "caption": "乱纪元 · 文明在三颗太阳下等待重生",
-      "scene": "The harsh alien surface of Trisolaris under three distinctly separated suns: one large low amber sun, one smaller white sun and a distant third bright sun. A ruined monumental observatory and layered remnants of successive civilizations stretch into a frozen rocky desert. In the foreground, carefully stacked flattened dry ochre skin rolls on a stone shelf suggest dehydrated alien inhabitants, non-gory, their anatomy ambiguous and emphatically not human corpses. A few small robed figures are carrying the rolls into a stone shelter. Stark landscape, blue frost with amber light, long shadows and scale. Avoid earthlike lush vegetation.",
-      "file": "img/generated/trisolaris-cycle.jpg",
-      "width": 1536,
-      "height": 768
+      "height": 768,
+      "prompt": "Use case: illustration-story. Asset type: a single landscape illustration for a Chinese literary science fiction timeline website about The Three-Body Problem. Output one finished 2:1 panoramic image, ideally 1536x768 or wider; no panels, no frame, no title, no lettering, no numerals, no logos, no watermark. Premium painterly science fiction book illustration, realistic architecture and materials, fine restrained brush texture, subtle film grain, enormous sense of scale, disciplined composition, quiet awe rather than generic action poster. Muted charcoal, cold steel blue, warm parchment highlights with a restrained ember accent, naturalistic light. Keep all important objects inside the central 80% so a 2:1 website crop remains readable. Scene: Red Coast secret radio base in the forested mountains of northeast China in the early 1970s, winter dusk. A huge steerable metal parabolic RADIO DISH on a tall steel truss and industrial support building stands on a rocky mountain summit above dark conifers and snow. It is a constructed military radio telescope pointing toward the low sun, emphatically NOT the modern FAST dish embedded in a valley. A small Chinese woman scientist in a plain olive work coat stands by a railing seen from behind, dwarfed by the instrument. Warm amber light catches the lattice and the last sunlight disappears behind ridges. Somber, isolated, historically grounded. No propaganda text or banners.",
+      "canonical_note": "保留山顶抛物面天线、金属基座与林海；设备外观属概念设计，不用现代 FAST 代替。",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/santi/035.html"
+      ]
     },
     {
       "slug": "sophon-engineering",
       "event": "e10",
-      "mode": "replace",
-      "alt": "巨大的二维薄膜笼罩三体行星，表面细密电路正在被蚀刻",
-      "caption": "智子工程 · 在展开的质子上蚀刻电路",
-      "scene": "Sophon engineering above an alien planet: a single gigantic unfolded proton appears as an almost transparent ultra-thin spherical membrane enclosing a planet, the curved edge visible against space. Its near surface is etched with impossibly fine luminous integrated-circuit paths arranged in precise branching geometries, not text. Small fabrication craft provide scale. The planet's horizon and three distant stars are visible THROUGH the translucent film. Convey a planetary-scale computing substrate being etched before folding to subatomic size, no ordinary space probe or rocket as the main subject. Copper traces and delicate ice-blue light against black.",
-      "file": "img/generated/sophon-engineering.jpg",
+      "file": "img/generated/sophon-engineering-v2.jpg",
+      "alt": "展开的质子形成包裹行星的镜面球壳，众多飞船在其表面蚀刻电路",
+      "caption": "智子工程 · 包裹行星的二维质子与电路蚀刻",
+      "note": "加工时二维质子弯成镜面球壳，将三体行星包在内部；不是可透视行星的蓝色防护罩。",
+      "scene": "Sophon manufacturing seen from OUTSIDE the fully enclosed spherical shell made from a single two-dimensionally unfolded proton. This ultrathin perfect mirror membrane has wrapped around and completely HIDDEN the alien planet inside it. Show a gigantic smooth silver mirrored spherical shell, reflecting a warped starfield on its exterior; its surface is being etched with extraordinarily fine circuit traces. Many tiny fabrication spacecraft move immediately above its surface, a few close enough to see as utilitarian specks. The bulk of the sphere extends beyond one edge of the banner to emphasize planet-scale size. No view through the membrane, no visible blue planet or clouds beneath, no transparent blue forcefield, no thick metallic tiles, no giant sci-fi city attached. A single external sun provides grazing reflected light; the enclosed world receives no direct sunlight at this stage. Delicate copper circuit filaments on a silver mirror, not a glowing energy dome.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/sophon-engineering.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: Sophon manufacturing seen from OUTSIDE the fully enclosed spherical shell made from a single two-dimensionally unfolded proton. This ultrathin perfect mirror membrane has wrapped around and completely HIDDEN the alien planet inside it. Show a gigantic smooth silver mirrored spherical shell, reflecting a warped starfield on its exterior; its surface is being etched with extraordinarily fine circuit traces. Many tiny fabrication spacecraft move immediately above its surface, a few close enough to see as utilitarian specks. The bulk of the sphere extends beyond one edge of the banner to emphasize planet-scale size. No view through the membrane, no visible blue planet or clouds beneath, no transparent blue forcefield, no thick metallic tiles, no giant sci-fi city attached. A single external sun provides grazing reflected light; the enclosed world receives no direct sunlight at this stage. Delicate copper circuit filaments on a silver mirror, not a glowing energy dome.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/santi/033.html"
+      ]
+    },
+    {
+      "slug": "three-body-game",
+      "event": "e12",
+      "file": "img/generated/three-body-game.jpg",
+      "alt": "三体游戏中的朝歌，巨型石制单摆环绕黑色金字塔，短暂恒纪元带来温暖",
+      "caption": "三体游戏 · 朝歌、巨摆与短暂的恒纪元",
+      "note": "以游戏朝歌的金字塔、石塔和巨摆替代无法对应情节的奇幻金色山峰。",
+      "scene": "The first Three-Body VR game civilization at Chaoge in a short Stable Era: a gigantic dark stone EGYPTIAN-SHAPED PYRAMID palace rises on an immense open plain. Around it stand multiple STONE PENDULUM STRUCTURES each dozens of metres high: two thin stone towers support a bridge, a huge roughly hewn stone pendulum hangs by a thick bundle of ropes beneath that bridge. Small groups of ancient Chinese armored soldiers pull auxiliary ropes to keep the pendulums moving. Show two or three readable pendulums and distant ones receding toward the palace. One ordinary-size low warm sun, gentle amber daylight and a temporarily hospitable ground, no giant golden fantasy mountain range, no Gothic castle and no three simultaneous close suns. A few small ancient-robed human game avatars provide scale. The combination is intentionally anachronistic because it is the novel's VR game, not historical China.",
+      "width": 1536,
+      "height": 768,
+      "revision": 1,
+      "previous_file": "img/golden.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: The first Three-Body VR game civilization at Chaoge in a short Stable Era: a gigantic dark stone EGYPTIAN-SHAPED PYRAMID palace rises on an immense open plain. Around it stand multiple STONE PENDULUM STRUCTURES each dozens of metres high: two thin stone towers support a bridge, a huge roughly hewn stone pendulum hangs by a thick bundle of ropes beneath that bridge. Small groups of ancient Chinese armored soldiers pull auxiliary ropes to keep the pendulums moving. Show two or three readable pendulums and distant ones receding toward the palace. One ordinary-size low warm sun, gentle amber daylight and a temporarily hospitable ground, no giant golden fantasy mountain range, no Gothic castle and no three simultaneous close suns. A few small ancient-robed human game avatars provide scale. The combination is intentionally anachronistic because it is the novel's VR game, not historical China.",
+      "reference_sources": [
+        "https://dodobook.com/index.php?id=books%2Fliucixin%2Fsanti%2F007"
+      ]
     },
     {
       "slug": "countdown",
       "event": "e14",
-      "mode": "add",
-      "alt": "深夜实验室里，科学家透过镜片凝视一道只有自己能看见的幽微光痕",
-      "caption": "倒计时 · 只有一个人能看见的威胁",
-      "scene": "A Chinese nanomaterials scientist in his forties, ordinary dark shirt, alone at a dim early-2000s optics laboratory bench at night, seen in close three-quarter profile. In foreground his camera lens and eyeglasses catch a subtle uncanny amber segmented luminous reflection, suggestive of an intrusive countdown but deliberately illegible and without actual numerals. Behind him, precise optical instruments and a metal laboratory apparatus recede into soft blue darkness. His expression is quiet shock and exhausted concentration. Subtle psychological science-fiction dread, no horror gore, no giant floating digital UI, no glowing cyberpunk eyes.",
-      "file": "img/generated/countdown.jpg",
+      "file": "img/generated/countdown-v2.jpg",
+      "alt": "汪淼在书桌前查看黑白风景照片，照片中央出现异常倒计时",
+      "caption": "幽灵倒计时 · 数字先出现在汪淼拍摄的照片中",
+      "note": "倒计时先出现在汪淼拍摄的照片、后进入其视野；不应画成旁人可见的发光眼镜或外部悬浮界面。",
+      "scene": "An early-2000s Chinese scientist's home study, Wang Miao seated at a simple desk at night, looking down in disbelief at freshly developed BLACK-AND-WHITE LANDSCAPE PHOTOGRAPHS. His ordinary film SLR camera lies beside them. Close enough to read one central photograph: over its otherwise normal monochrome landscape is a single precise small pale numerical inscription reading EXACTLY '1187:27:16', like impossible light recorded on the photographic emulsion, not handwritten and not printed on a digital screen. This is the ONLY text in the entire image. The photograph is the visual focus, the man's worried face is secondary in three-quarter profile. Other photos remain unlettered. A quiet desk lamp, ordinary books and camera materials. NO glowing eyes, NO glowing glasses, NO external holographic countdown in the air, NO cyberpunk laboratory, no unexplained extra digits. The anomaly exists on HIS photographic print.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/countdown.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: An early-2000s Chinese scientist's home study, Wang Miao seated at a simple desk at night, looking down in disbelief at freshly developed BLACK-AND-WHITE LANDSCAPE PHOTOGRAPHS. His ordinary film SLR camera lies beside them. Close enough to read one central photograph: over its otherwise normal monochrome landscape is a single precise small pale numerical inscription reading EXACTLY '1187:27:16', like impossible light recorded on the photographic emulsion, not handwritten and not printed on a digital screen. This is the ONLY text in the entire image. The photograph is the visual focus, the man's worried face is secondary in three-quarter profile. Other photos remain unlettered. A quiet desk lamp, ordinary books and camera materials. NO glowing eyes, NO glowing glasses, NO external holographic countdown in the air, NO cyberpunk laboratory, no unexplained extra digits. The anomaly exists on HIS photographic print.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/santi/006.html"
+      ]
+    },
+    {
+      "slug": "human-computer",
+      "event": "e16",
+      "file": "img/generated/human-computer.jpg",
+      "alt": "秦始皇站在金字塔高处俯瞰平原，密集士兵举黑白旗构成人列计算机",
+      "caption": "人列计算机 · 用黑白旗帜组成逻辑电路",
+      "note": "这一节点应出现人列阵和旗帜运算，不能仅以孤立金字塔代替。",
+      "scene": "The Human Computer in the Three-Body VR game. Elevated viewpoint from the upper sloped terrace of a monumental pyramid, overlooking an unimaginably vast LEVEL PLAIN filled to the horizon with perfectly organized blocks of ancient Chinese infantry. In the nearest ranks individual soldiers each hold a small BLACK OR WHITE flag; the patterns form logical rectangular gate groups and broad bus-like corridors with tiny mounted messengers. Distant ranks become fine alternating dark-and-light stippled patterns, suggesting thirty million soldiers without drawing a readable number. At the edge of the foreground terrace a Chinese emperor in dark Qin ceremonial robes and a few small Western early-modern scholar avatars look down, not the main subject. ONE sun in a normal sky during computation, no people burning, no fire sea, no modern microchips, no neon circuits on the ground. Sweep and order of a human computation landscape, fine realistic flags and stone.",
+      "width": 1536,
+      "height": 768,
+      "revision": 1,
+      "previous_file": "img/pyramid.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: The Human Computer in the Three-Body VR game. Elevated viewpoint from the upper sloped terrace of a monumental pyramid, overlooking an unimaginably vast LEVEL PLAIN filled to the horizon with perfectly organized blocks of ancient Chinese infantry. In the nearest ranks individual soldiers each hold a small BLACK OR WHITE flag; the patterns form logical rectangular gate groups and broad bus-like corridors with tiny mounted messengers. Distant ranks become fine alternating dark-and-light stippled patterns, suggesting thirty million soldiers without drawing a readable number. At the edge of the foreground terrace a Chinese emperor in dark Qin ceremonial robes and a few small Western early-modern scholar avatars look down, not the main subject. ONE sun in a normal sky during computation, no people burning, no fire sea, no modern microchips, no neon circuits on the ground. Sweep and order of a human computation landscape, fine realistic flags and stone.",
+      "reference_sources": [
+        "https://www.99csw.com/book/576/18074.htm"
+      ]
+    },
+    {
+      "slug": "cosmic-axioms",
+      "event": "e17",
+      "file": "img/generated/cosmic-axioms.jpg",
+      "alt": "暮色中的杨冬墓前，老年叶文洁与年轻罗辑交谈，一只褐蚁爬过墓碑",
+      "caption": "两条公理 · 暮色墓园中的叶文洁与罗辑",
+      "note": "该场景是早年墓前谈话，不是两百年后持锹掘墓；地球天空也不应画成三轮太阳。",
+      "scene": "At Yang Dong's modest grave in an ordinary Beijing-area cemetery at dusk before the Trisolaran crisis is publicly known. Two people only: elderly Chinese woman Ye Wenjie with short graying hair and a plain dark coat, and young Chinese male academic Luo Ji in ordinary contemporary clothes, quietly talking beside a small simple dark tombstone. A fresh bouquet lies at its base. In the sharp foreground a SMALL BROWN ANT crawls along the rough edge of a carved groove in the tombstone, the two humans gently softer in the middle distance, conveying the ant's small-scale witness to a cosmic conversation. Normal terrestrial evening sky with faint stars; NO three suns, NO shovel, NO freshly dug grave, NO gun, NO futuristic machinery. Do not put readable names or text on the stone; oblique grooves may be visible but unlettered. Sober naturalistic cemetery, grass and low distant trees, warm fading horizon.",
+      "width": 1536,
+      "height": 768,
+      "revision": 1,
+      "previous_file": "img/graves.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: At Yang Dong's modest grave in an ordinary Beijing-area cemetery at dusk before the Trisolaran crisis is publicly known. Two people only: elderly Chinese woman Ye Wenjie with short graying hair and a plain dark coat, and young Chinese male academic Luo Ji in ordinary contemporary clothes, quietly talking beside a small simple dark tombstone. A fresh bouquet lies at its base. In the sharp foreground a SMALL BROWN ANT crawls along the rough edge of a carved groove in the tombstone, the two humans gently softer in the middle distance, conveying the ant's small-scale witness to a cosmic conversation. Normal terrestrial evening sky with faint stars; NO three suns, NO shovel, NO freshly dug grave, NO gun, NO futuristic machinery. Do not put readable names or text on the stone; oblique grooves may be visible but unlettered. Sober naturalistic cemetery, grass and low distant trees, warm fading horizon.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/heiansenlin/001.html"
+      ]
     },
     {
       "slug": "guzheng-operation",
       "event": "e18",
-      "mode": "add",
-      "alt": "巴拿马运河中的巨轮穿过横跨两岸的纳米丝，船体开始分层错开",
-      "caption": "古筝行动 · 运河上看不见的琴弦",
-      "scene": "Operation Guzheng in the Panama Canal. A large aging rust-red ocean cargo vessel passes slowly through a narrow straight section of canal between green tropical banks. A series of almost invisible horizontal nanofilament wires, parallel and evenly spaced, are stretched between slim support posts on opposite banks. At the bow, just a few thin layers of steel begin to shear and slip out of alignment while the rear of the ship is still intact. Wide elevated three-quarter perspective looking along the canal, industrial realism, taut stillness before collapse. No ship name, no explosions, no lasers, no visible people being harmed, no blood. Show horizontal slicing rather than a ship cut into two vertical halves.",
-      "file": "img/generated/guzheng-operation.jpg",
+      "file": "img/generated/guzheng-operation-v2.jpg",
+      "alt": "黑色船体、白色上层建筑的审判日号穿过运河钢柱，水平薄片开始前后错动",
+      "caption": "古筝行动 · 黑色巨轮被切成半米厚的水平薄片",
+      "note": "原文为黑色船体与白色上层建筑；切片沿水平方向逐层前冲，不是锈红散货船的普通甲板。",
+      "scene": "Operation Guzheng exactly as a novel-based external non-gory scene: a huge 60,000-ton ocean vessel with a BLACK HULL and WHITE SUPERSTRUCTURE passes along a narrow straight section of the Panama Canal in warm low daylight. No giant radio antenna remains on its deck. On the two canal banks stand TWO STRAIGHT STEEL SUPPORT COLUMNS. The nanofilaments between them are essentially INVISIBLE, no thick glowing wire fence. Just after the upper bow and superstructure pass the support line, thin HORIZONTAL SLICES about half a metre thick begin to slide forward relative to lower slices, like the upper layers of a stack of cards pushed ahead. Several seams are visible at the white superstructure and black bow, while the aft remains coherent. Strong diagonal three-quarter view shows both banks and the shear geometry. No modern red bulk carrier, no container stacks, no ship name, no blood, no people being visibly cut, no laser beams or huge explosion.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/guzheng-operation.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: Operation Guzheng exactly as a novel-based external non-gory scene: a huge 60,000-ton ocean vessel with a BLACK HULL and WHITE SUPERSTRUCTURE passes along a narrow straight section of the Panama Canal in warm low daylight. No giant radio antenna remains on its deck. On the two canal banks stand TWO STRAIGHT STEEL SUPPORT COLUMNS. The nanofilaments between them are essentially INVISIBLE, no thick glowing wire fence. Just after the upper bow and superstructure pass the support line, thin HORIZONTAL SLICES about half a metre thick begin to slide forward relative to lower slices, like the upper layers of a stack of cards pushed ahead. Several seams are visible at the white superstructure and black bow, while the aft remains coherent. Strong diagonal three-quarter view shows both banks and the shear geometry. No modern red bulk carrier, no container stacks, no ship name, no blood, no people being visibly cut, no laser beams or huge explosion.",
+      "reference_sources": [
+        "https://www.99csw.com/book/576/18088.htm",
+        "https://www.bidutuijian.com/books/santi/031.html"
+      ],
+      "refinement_prompt": "Use case: precise-object-edit. Correct ONLY the ship design and the visible cutting outcome in the supplied Panama Canal illustration, preserving its cinematic realistic painterly rendering, wide 2:1 format, black hull / white added superstructure, canal, both banks, two vertical steel columns and warm low daylight. The ship is JUDGMENT DAY from the original Three-Body novel: a 60,000-ton OIL TANKER CONVERTED INTO A COMMUNICATIONS BASE. It must NOT look like a luxury passenger liner. Remove the long curved terraces, passenger balcony decks and tiered cruise-ship bow. Use an industrial deep BLACK TANKER HULL with a long lower working deck, pipes, low tank fittings, and irregular boxy added WHITE utility compartments and an aft industrial bridge/superstructure. The large dish has already been removed for the transit, so no giant dish. Show the action AFTER the upper bow and added superstructure have passed through INVISIBLE horizontal nanofilaments: several half-metre-thick HORIZONTAL STEEL LAYERS of the forward ship and white structures have slipped several metres FORWARD relative to the lower layers, visibly out of alignment like a pushed stack of cards. The ship is starting to deform and veer toward one bank; aft remains more coherent. Thin steel layer edges and shear seams should be legible, NOT ordinary intact decks and NOT a vertical split in two halves. No text, no passenger ship styling, no red hull, no container stacks, no glowing laser wires, no giant explosion, no visible injured people or blood. This must read as a converted industrial oil tanker being horizontally sheared, not a pristine cruise ship passing a canal."
     },
     {
       "slug": "wallfacers",
       "event": "e23",
-      "mode": "replace",
-      "alt": "联合国圆形会场里，四位面壁者在聚光灯下并肩而坐",
-      "caption": "面壁计划 · 四个人，四个无法窥见的世界",
-      "scene": "The Wallfacer appointment inside a vast United Nations-style semicircular assembly chamber in the near future. Four different adult men sit far apart at a long austere wooden table, dwarfed by rows of delegates receding into shadow: a silver-haired Western statesman in a dark suit, a stocky Latin American leader, a lean British scientist with glasses, and a younger slightly disheveled Chinese academic. Seen from the rear-side of the chamber, human figures small relative to the architecture. Narrow warm pools of light isolate the four seats. Quiet political tension and terrible responsibility, no flags with readable symbols, no screens with text, no recognizable actors.",
-      "file": "img/generated/wallfacers.jpg",
+      "file": "img/generated/wallfacers-v2.jpg",
+      "alt": "联合国秘书长在主席台公布面壁者，罗辑仍坐在台下第五排",
+      "caption": "面壁计划 · 第四个名字，从台上指向观众席",
+      "note": "公布罗辑时他在台下第五排，不能画成四位面壁者已并排就座的展示台。",
+      "scene": "The moment the fourth Wallfacer is announced in the United Nations General Assembly hall. A petite middle-aged Asian woman, Secretary-General Say, stands at the lectern on the raised platform, extending her hand toward a startled young Chinese academic Luo Ji still SITTING among the delegates in the FIFTH ROW near an aisle. Frame from an elevated rear-side position so both lectern and that audience seat are readable, without a close-up. Three previously announced male Wallfacers stand unobtrusively to one side of the platform, not seated as a four-man panel: a silver-haired American statesman, a stocky brown-skinned Venezuelan leader, a lean British scholar. The real hall has a dominant huge warm YELLOW-GOLD WALL behind the lectern with a restrained circular UN-like emblem and a dark star-patterned ceiling, not a futuristic circular arena. Rows of normal diplomatic seats. No four men lined up behind one long table, no live text or captions, no flag labels. Political solemnity and the small academic involuntarily singled out.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/wallfacers.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: The moment the fourth Wallfacer is announced in the United Nations General Assembly hall. A petite middle-aged Asian woman, Secretary-General Say, stands at the lectern on the raised platform, extending her hand toward a startled young Chinese academic Luo Ji still SITTING among the delegates in the FIFTH ROW near an aisle. Frame from an elevated rear-side position so both lectern and that audience seat are readable, without a close-up. Three previously announced male Wallfacers stand unobtrusively to one side of the platform, not seated as a four-man panel: a silver-haired American statesman, a stocky brown-skinned Venezuelan leader, a lean British scholar. The real hall has a dominant huge warm YELLOW-GOLD WALL behind the lectern with a restrained circular UN-like emblem and a dark star-patterned ceiling, not a futuristic circular arena. Rows of normal diplomatic seats. No four men lined up behind one long table, no live text or captions, no flag labels. Political solemnity and the small academic involuntarily singled out.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/heiansenlin/009.html"
+      ]
+    },
+    {
+      "slug": "great-ravine",
+      "event": "e31",
+      "file": "img/generated/great-ravine.jpg",
+      "alt": "大低谷时期，沙尘遮蔽的平原上，逃荒人群从干裂农田间缓缓走过",
+      "caption": "大低谷 · 沙漠化、饥荒与漫长的逃荒路",
+      "note": "大低谷是环境恶化、农业崩溃与饥荒；不能用外星烈焰、巨大太阳和熔岩城景代指。",
+      "scene": "Earth during the Great Ravine, a climate-and-famine catastrophe rather than an alien attack. A vast northern Chinese plain under a harsh but NORMAL-SIZED pale terrestrial sun seen through heavy tan dust. Abandoned cracked farmland is turning into scattered sand patches; a dry irrigation channel, a few dead trees, an idle agricultural machine and distant ordinary concrete buildings swallowed by haze. A long slow line of small weary refugees carrying practical cloth bundles crosses the landscape toward the horizon, fully clothed, no close-up suffering, no corpses or gore. Quiet environmental collapse and scarcity. Dusty ochre, muted gray and desaturated sky. NO giant red sun, no lava rivers, no burning alien palace, no space battle, no three suns, no mushroom cloud. Documentary-scale sober realistic painterly scene.",
+      "width": 1536,
+      "height": 768,
+      "revision": 1,
+      "previous_file": "img/inferno.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: Earth during the Great Ravine, a climate-and-famine catastrophe rather than an alien attack. A vast northern Chinese plain under a harsh but NORMAL-SIZED pale terrestrial sun seen through heavy tan dust. Abandoned cracked farmland is turning into scattered sand patches; a dry irrigation channel, a few dead trees, an idle agricultural machine and distant ordinary concrete buildings swallowed by haze. A long slow line of small weary refugees carrying practical cloth bundles crosses the landscape toward the horizon, fully clothed, no close-up suffering, no corpses or gore. Quiet environmental collapse and scarcity. Dusty ochre, muted gray and desaturated sky. NO giant red sun, no lava rivers, no burning alien palace, no space battle, no three suns, no mushroom cloud. Documentary-scale sober realistic painterly scene.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/heiansenlin/035.html",
+        "https://www.bidutuijian.com/books/heiansenlin/036.html"
+      ]
     },
     {
       "slug": "orbital-renaissance",
       "event": "e32",
       "mode": "replace",
       "alt": "地球弧线之上，轨道船坞、太空电梯与成列星舰展现复兴中的人类文明",
-      "caption": "复兴年代 · 人类重新仰望星空",
+      "caption": "复兴年代 · 太空电梯与轨道工程（概念图）",
       "scene": "Human civilization's optimistic orbital renaissance two centuries after the crisis: Earth curves along the lower edge with sunlit clouds and tiny city lights on the terminator. An elegant slender space elevator ribbon rises into a large orbital harbor, several long utilitarian fusion starships are under construction in skeletal dry docks. A few transports give perspective. No battle, no explosions. Majestic but plausible hard-sci-fi engineering, warm sunrise against cool blue Earth, fine metallic textures, an ambitious civilization rebuilding its confidence.",
       "file": "img/generated/orbital-renaissance.jpg",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "prompt": "Use case: illustration-story. Asset type: a single landscape illustration for a Chinese literary science fiction timeline website about The Three-Body Problem. Output one finished 2:1 panoramic image, ideally 1536x768 or wider; no panels, no frame, no title, no lettering, no numerals, no logos, no watermark. Premium painterly science fiction book illustration, realistic architecture and materials, fine restrained brush texture, subtle film grain, enormous sense of scale, disciplined composition, quiet awe rather than generic action poster. Muted charcoal, cold steel blue, warm parchment highlights with a restrained ember accent, naturalistic light. Keep all important objects inside the central 80% so a 2:1 website crop remains readable. Scene: Human civilization's optimistic orbital renaissance two centuries after the crisis: Earth curves along the lower edge with sunlit clouds and tiny city lights on the terminator. An elegant slender space elevator ribbon rises into a large orbital harbor, several long utilitarian fusion starships are under construction in skeletal dry docks. A few transports give perspective. No battle, no explosions. Majestic but plausible hard-sci-fi engineering, warm sunrise against cool blue Earth, fine metallic textures, an ambitious civilization rebuilding its confidence.",
+      "canonical_note": "保留为复兴时期轨道建设的概念表达，不把未明确命名的船坞或舰船认定为原著某一型号。",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/029.html",
+        "https://www.bidutuijian.com/books/heiansenlin/036.html"
+      ]
     },
     {
       "slug": "staircase-project",
       "event": "e37",
-      "mode": "replace",
-      "alt": "微小的帆式探测器沿着深空中一连串核爆闪光加速远行",
-      "caption": "阶梯计划 · 把一个大脑送向星海",
-      "scene": "The Staircase Project in deep space: an extremely small scientific probe with a broad, thin metallic radiation sail and a tiny central payload capsule, no person visible. Far behind the sail, a long chain of separated diminishing nuclear-pulse flashes recedes diagonally into distant black space, each flash a discrete amber-white starburst, not a continuous rocket exhaust. The sail catches the light with delicate metallic creases. Emphasize tiny fragile payload versus overwhelming interstellar distance. Solitary and poignant, restrained wide composition, no giant brain or human head floating in space, no near planet, no readable text.",
-      "file": "img/generated/staircase-project.jpg",
+      "file": "img/generated/staircase-project-v2.jpg",
+      "alt": "巨型辐射帆像横卧的降落伞向前运动，四根长帆索向后伸向极远处的载荷",
+      "caption": "阶梯计划 · 巨帆与五百千米长的帆索",
+      "note": "巨帆以四根长帆索向后拖曳小球舱；载荷不在帆心，核爆按次序发生。",
+      "scene": "The Staircase Project from the original novel: an enormous light flexible RADIATION SAIL with the shape of an open PARACHUTE laid horizontally along its direction of travel. The sail is far ahead, its convex canopy facing the direction of travel toward the upper-right. FOUR extremely fine taut tether lines extend BACKWARD from its rim toward the lower-left and continue far out of frame to a payload FIVE HUNDRED KILOMETRES BEHIND. The 45-centimetre spherical brain capsule is not visible at this viewpoint because it is impossibly small and distant; emphatically NO payload capsule at the sail's centre and NO spacecraft hub mounted on the canopy. A single discrete nuclear-pulse flash a few kilometres behind the sail illuminates its translucent metallic fabric; do NOT show a row of many simultaneous nuclear fireballs. Dark interplanetary space, a tiny faint Jupiter can be far away, no foreground planet. The huge sail and very long receding four lines convey fragility, not a conventional compact solar-sail probe.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/staircase-project.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: The Staircase Project from the original novel: an enormous light flexible RADIATION SAIL with the shape of an open PARACHUTE laid horizontally along its direction of travel. The sail is far ahead, its convex canopy facing the direction of travel toward the upper-right. FOUR extremely fine taut tether lines extend BACKWARD from its rim toward the lower-left and continue far out of frame to a payload FIVE HUNDRED KILOMETRES BEHIND. The 45-centimetre spherical brain capsule is not visible at this viewpoint because it is impossibly small and distant; emphatically NO payload capsule at the sail's centre and NO spacecraft hub mounted on the canopy. A single discrete nuclear-pulse flash a few kilometres behind the sail illuminates its translucent metallic fabric; do NOT show a row of many simultaneous nuclear fireballs. Dark interplanetary space, a tiny faint Jupiter can be far away, no foreground planet. The huge sail and very long receding four lines convey fragility, not a conventional compact solar-sail probe.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/009.html",
+        "https://www.bidutuijian.com/books/sishenyongsheng/010.html"
+      ]
     },
     {
       "slug": "doomsday-battle",
       "event": "e41",
-      "mode": "add",
-      "alt": "微小镜面水滴穿透密集的人类舰队，冷光划过接连破裂的战舰",
-      "caption": "末日之战 · 一滴水，击碎整个舰队",
-      "scene": "The Doomsday Battle in deep black space. Thousands of immense human starships arranged in disciplined parallel rows recede into the distance, their dark angular hulls catching cold sunlight. One tiny perfect mirror-finish droplet shaped object in the close foreground, rounded bulb and tapering tail, brutally simple and utterly smooth. Behind it a line of several ships has been cleanly pierced, with localized incandescent fractures and scattered fragments. The tiny invulnerable droplet contrasts with monumental failing machinery. Cosmic scale and chilling asymmetry; avoid giant fireball filling the image, avoid laser beams and airplane dogfights. The droplet is not liquid water splashing.",
-      "file": "img/generated/doomsday-battle.jpg",
+      "file": "img/generated/doomsday-battle-v2.jpg",
+      "alt": "远离地球的深空里，水滴沿舰队矩形队列穿行，被击中的战舰依次红炽爆裂",
+      "caption": "末日之战 · 被逐列贯穿的联合舰队",
+      "note": "战场不在地球近地轨道；按矩形列队与相继红炽、聚变爆炸表现，去掉画面中近在咫尺的地球。",
+      "scene": "The Doomsday Battle in the outer solar system, with NO EARTH or any nearby planet visible. A vast rectangular arrangement of 2,000 human interstellar warships is represented as regimented long parallel rows receding into black space. Along the nearest long row, successive ships first glow dull red at punctures, then a few brilliant compact nuclear-fusion fireballs expand; behind the advancing strike are sparse cooling dark-red metal droplets. The attacker is a very small 3.5-metre perfect MIRROR DROPLET, round head and sharp tail, with a subtle luminous propulsion halo. It is seen in nearer foreground but remains small compared to the kilometre-scale fleet, no giant fluid splash. Various human ship silhouettes are allowed; include some polished DISC-shaped main hulls coupled to separate CYLINDRICAL engine assemblies for Asian-fleet craft, not a fleet of terrestrial aircraft carriers. No Earth horizon, no close gas giant, no laser projectile fired by the droplet. Restrained terrifying asymmetry, the ships are in open vacuum.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/doomsday-battle.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: The Doomsday Battle in the outer solar system, with NO EARTH or any nearby planet visible. A vast rectangular arrangement of 2,000 human interstellar warships is represented as regimented long parallel rows receding into black space. Along the nearest long row, successive ships first glow dull red at punctures, then a few brilliant compact nuclear-fusion fireballs expand; behind the advancing strike are sparse cooling dark-red metal droplets. The attacker is a very small 3.5-metre perfect MIRROR DROPLET, round head and sharp tail, with a subtle luminous propulsion halo. It is seen in nearer foreground but remains small compared to the kilometre-scale fleet, no giant fluid splash. Various human ship silhouettes are allowed; include some polished DISC-shaped main hulls coupled to separate CYLINDRICAL engine assemblies for Asian-fleet craft, not a fleet of terrestrial aircraft carriers. No Earth horizon, no close gas giant, no laser projectile fired by the droplet. Restrained terrifying asymmetry, the ships are in open vacuum.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/heiansenlin/041.html"
+      ]
     },
     {
       "slug": "dark-battle",
       "event": "e43",
-      "mode": "add",
-      "alt": "五艘孤独的星舰散落在深空中，蓝色空间号在无声残骸旁继续远航",
-      "caption": "黑暗战役 · 人类第一次成为彼此的猎人",
-      "scene": "Five isolated enormous human interstellar ships hang far apart in empty deep space, no nearby planet. The nearest survivor is a long steel-blue vessel with dim windows; in the middle distance one intact-looking vessel is dark and lifeless, another has a localized ruptured hull, two others are small silhouettes. A sparse debris field and barely visible amber expanding shock shell imply a battle that has already ended. The scene should feel silent, cold and morally desolate rather than exciting. No external atmosphere, no flames streaming in space, no visible bodies, no text. Strong negative space separates the five vessels.",
-      "file": "img/generated/dark-battle.jpg",
+      "file": "img/generated/dark-battle-v2.jpg",
+      "alt": "蓝色空间号船员穿着航天服悬浮在已抽成真空的舱内，远方目标只是一点光",
+      "caption": "黑暗战役 · 抽成真空的舰舱与遥远的对手",
+      "note": "五舰间距达数十万千米，不能画成近距离混战；蓝色空间号以舱内真空防御次声攻击。",
+      "scene": "The Dark Battle aboard BLUE SPACE, just after it has protected its crew from an infrasonic nuclear strike by EVACUATING THE SHIP'S AIR. Inside a clean, smooth, rounded spacecraft compartment, several crew members FLOAT wearing SEALED SPACESUITS WITH CLOSED HELMETS, firmly clipped to handholds; no uncovered faces or ordinary seated passengers. A broad transparent section of hull looks out into nearly empty interstellar space. The other warships are hundreds of thousands of kilometres away, so outside there is only one tiny distant silent flash and a few faint star-like points, absolutely NO group of five big ships close together. A restrained unlettered navigation display shows a handful of small separated dots, no text. Mood of silent calculation and survival, no hull breach, no blast wave travelling through air, no fire inside. Realistic understated white-gray interior and cold starlight. This is the prepared surviving ship, not a ship whose crew is dead.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/dark-battle.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: The Dark Battle aboard BLUE SPACE, just after it has protected its crew from an infrasonic nuclear strike by EVACUATING THE SHIP'S AIR. Inside a clean, smooth, rounded spacecraft compartment, several crew members FLOAT wearing SEALED SPACESUITS WITH CLOSED HELMETS, firmly clipped to handholds; no uncovered faces or ordinary seated passengers. A broad transparent section of hull looks out into nearly empty interstellar space. The other warships are hundreds of thousands of kilometres away, so outside there is only one tiny distant silent flash and a few faint star-like points, absolutely NO group of five big ships close together. A restrained unlettered navigation display shows a handful of small separated dots, no text. Mood of silent calculation and survival, no hull breach, no blast wave travelling through air, no fire inside. Realistic understated white-gray interior and cold starlight. This is the prepared surviving ship, not a ship whose crew is dead.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/heiansenlin/045.html"
+      ]
     },
     {
       "slug": "swordholder",
       "event": "e44",
-      "mode": "add",
-      "alt": "年迈的执剑人独坐地下控制室，手边的开关映出两个文明的命运",
-      "caption": "执剑人 · 一只手，维系两个世界的和平",
-      "scene": "Luo Ji as a middle-aged-to-older Chinese man, seated in profile alone in a deep underground deterrence control room. A small handheld dead-man control rests firmly in his hand on the arm of a plain chair, connected by a short cable; it is emphatically not a sword. The room is almost empty: a large pale concrete wall, one narrow cool light strip, a restrained dim status indicator with no readable UI. No window into space. Compose the man small in a vast oppressive architectural void. Grave calm, isolation and unwavering resolve, warm skin against slate gray shadow, realistic unheroic ordinary face, no famous actor likeness.",
-      "file": "img/generated/swordholder.jpg",
+      "file": "img/generated/swordholder-v2.jpg",
+      "alt": "极高的纯白半圆大厅中，白发罗辑背对镜头盘腿坐地，右手握着红色条状开关",
+      "caption": "执剑人 · 白色大厅中的罗辑与红色开关",
+      "note": "修正为白发、黑色中山装、盘腿坐地、右手红色条状开关和半弧白墙；保留用户要求的高墙、后上方广角和人物渺小感。",
+      "scene": "Use case: precise-object-edit. Edit the provided panoramic illustration of a tiny man inside a gigantic pure-white hall, keeping its 2:1 composition, PURE WHITE palette, vast empty floor, extraordinarily high walls extending out of frame, elevated rear ultra-wide 12 mm camera and tiny human scale. Make these corrections to match Luo Ji in the original novel Death's End: REMOVE THE CHAIR COMPLETELY. The elderly man is sitting CROSS-LEGGED DIRECTLY ON THE WHITE FLOOR, straight back, facing away from the camera toward a huge blank gently CURVED SEMICIRCULAR white wall. The entire hall is semicircular, not a rectangular box: replace the back wall's sharp corners with a continuous broad convex-looking curved wall wrapping around the scene, faintly translucent like white ice. All surfaces remain white. His long, neatly combed hair is pure white; show the back of his head and a hint of long white hair at his neck, no face. He wears a neat BLACK CHINESE ZHONGSHAN / MAO SUIT, not a Western suit or casual jacket, and his right hand rests near his right knee holding a tiny RED ELONGATED BATON-LIKE control switch, not a literal sword. His sitting body is a small stable triangular/T-shaped silhouette with crossed legs; no chair, no stool, no cushion, no furniture anywhere. Human height only 5–7 percent of total frame height. The camera is high above and far behind him, and we see the back and top of his head, shoulders and his crossed-leg posture. The enormous white curved walls rise at least a hundred metres, far beyond the TOP OF THE FRAME. NO CEILING IS VISIBLE. He is the only small dark point in an overwhelming white architectural void. No straight rectangular room corners, no gray concrete, no light fixtures, no panels or screens, no windows, no text, logos or watermark. Soft high-key diffuse light, delicate near-white shading only, quiet solemn loneliness. Retain realistic restrained painterly architectural rendering.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/swordholder.jpg",
+      "prompt": "Use case: precise-object-edit. Edit the provided panoramic illustration of a tiny man inside a gigantic pure-white hall, keeping its 2:1 composition, PURE WHITE palette, vast empty floor, extraordinarily high walls extending out of frame, elevated rear ultra-wide 12 mm camera and tiny human scale. Make these corrections to match Luo Ji in the original novel Death's End: REMOVE THE CHAIR COMPLETELY. The elderly man is sitting CROSS-LEGGED DIRECTLY ON THE WHITE FLOOR, straight back, facing away from the camera toward a huge blank gently CURVED SEMICIRCULAR white wall. The entire hall is semicircular, not a rectangular box: replace the back wall's sharp corners with a continuous broad convex-looking curved wall wrapping around the scene, faintly translucent like white ice. All surfaces remain white. His long, neatly combed hair is pure white; show the back of his head and a hint of long white hair at his neck, no face. He wears a neat BLACK CHINESE ZHONGSHAN / MAO SUIT, not a Western suit or casual jacket, and his right hand rests near his right knee holding a tiny RED ELONGATED BATON-LIKE control switch, not a literal sword. His sitting body is a small stable triangular/T-shaped silhouette with crossed legs; no chair, no stool, no cushion, no furniture anywhere. Human height only 5–7 percent of total frame height. The camera is high above and far behind him, and we see the back and top of his head, shoulders and his crossed-leg posture. The enormous white curved walls rise at least a hundred metres, far beyond the TOP OF THE FRAME. NO CEILING IS VISIBLE. He is the only small dark point in an overwhelming white architectural void. No straight rectangular room corners, no gray concrete, no light fixtures, no panels or screens, no windows, no text, logos or watermark. Soft high-key diffuse light, delicate near-white shading only, quiet solemn loneliness. Retain realistic restrained painterly architectural rendering.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/018.html"
+      ]
     },
     {
       "slug": "deterrence-city",
       "event": "e46",
-      "mode": "replace",
-      "alt": "威慑纪元的树形城市里，苏醒的程心站在步道上望向柔和灯火",
-      "caption": "威慑纪元 · 从漫长冬眠中醒来的和平世界",
-      "scene": "A Chinese woman in her early thirties with simple shoulder-length dark hair, plain soft cream clothing, seen from behind on a pedestrian walkway, newly awakened into the peaceful deterrence era. Around her is a vast gentle underground future city, with immense branching TREE-LIKE architectural columns supporting layered homes amid real greenery, translucent walkways and small distant pedestrians. Soft artificial daylight high above creates a serene sky-like canopy. No medieval temples, no mythological figures, no palace costume, no flying car traffic. Painterly architectural realism, humane and beautiful but slightly fragile.",
-      "file": "img/generated/deterrence-city.jpg",
+      "file": "img/generated/deterrence-city-v2.jpg",
+      "alt": "程心站在地表树形城市最高的枝形街道上，头顶是无遮蔽的夜空",
+      "caption": "威慑纪元 · 地表巨树城市上的星空",
+      "note": "威慑和平后城市已经回到地表；程心所在最高树枝之上就是星空，没有地下洞顶。",
+      "scene": "Cheng Xin newly awakened in the Deterrence Era stands on the HIGHEST branch-like elevated street of a gigantic TREE-SHAPED ARCHITECTURAL CITY ON THE EARTH'S SURFACE, looking up at real stars in an OPEN NIGHT SKY. The heavy industry has moved into space and the natural ground far below has recovered with forests and grassland. Artificial giant trunks branch out to support many luminous LEAF-LIKE BUILDINGS and suspended branch streets, architectural structures rather than ordinary living giant trees. A young Chinese woman in plain soft pale clothing is seen from behind near a subtle railing, small relative to the city. Above her there is absolutely NO CEILING, dome, underground cavern, overhead structural canopy or low floating roof: only the starry sky and a few distant branches below horizon. Warm building lights glow among cool blue night air; not a cyberpunk traffic scene. The planet has one normal Moon at most, no extra suns. Contemplative open-air peaceful civilization.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/deterrence-city.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: Cheng Xin newly awakened in the Deterrence Era stands on the HIGHEST branch-like elevated street of a gigantic TREE-SHAPED ARCHITECTURAL CITY ON THE EARTH'S SURFACE, looking up at real stars in an OPEN NIGHT SKY. The heavy industry has moved into space and the natural ground far below has recovered with forests and grassland. Artificial giant trunks branch out to support many luminous LEAF-LIKE BUILDINGS and suspended branch streets, architectural structures rather than ordinary living giant trees. A young Chinese woman in plain soft pale clothing is seen from behind near a subtle railing, small relative to the city. Above her there is absolutely NO CEILING, dome, underground cavern, overhead structural canopy or low floating roof: only the starry sky and a few distant branches below horizon. Warm building lights glow among cool blue night air; not a cyberpunk traffic scene. The planet has one normal Moon at most, no extra suns. Contemplative open-air peaceful civilization.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/013.html"
+      ]
     },
     {
       "slug": "fourth-dimension",
       "event": "e51",
-      "mode": "add",
-      "alt": "宇航员置身四维碎片中，封闭的飞船与水滴内部层层展开",
-      "caption": "四维碎片 · 封闭的内部，第一次向人类敞开",
-      "scene": "An artistic visualization of entering a FOUR-DIMENSIONAL space fragment: two tiny astronauts on a minimal tether float beside a massive sealed interstellar ship whose overlapping outer hull and nested rooms, mechanical assemblies and cables can all be seen simultaneously, like an impossible continuous cutaway with folded perspectives. In the near foreground a mirror droplet probe appears opened without a physical cut, its concentric internal machinery exposed by the higher-dimensional viewpoint. Subtle geometric transparent folds in dark space, muted violet-blue and pale copper illumination. Clearly conceptual rather than a literal scientific diagram. No magic portal ring, no fantasy runes, no text.",
-      "file": "img/generated/fourth-dimension.jpg",
+      "file": "img/generated/fourth-dimension-v2.jpg",
+      "alt": "四维视角意象中，飞船的封闭舱室与管线同时敞开在观察者面前",
+      "caption": "四维碎片 · 三维封闭空间在高维视角中敞开（意象图）",
+      "note": "强调可直接看见封闭空间内部；不擅自给水滴设计齿轮式机械核心，不把四维画成破碎镜片或魔法门。",
+      "scene": "A clearly conceptual artistic visualization of the original novel's four-dimensional viewpoint, not a literal claim to render four dimensions. Two small spacesuited human explorers float near an ordinary sealed human STARSHIP. Its smooth intact outer hull, successive inner rooms, pipework, wiring and tiny interior objects are all SIMULTANEOUSLY VISIBLE and seem accessible from an extra direction, an impossible continuous nested spatial cutaway without physical holes or torn metal. Keep one coherent spacecraft with recognizable compartments rather than a kaleidoscope of unrelated fragmented mirrored shards. Offset depth and gently repeated nested perspectives convey higher-dimensional openness. In the distance a very small intact mirror droplet can be shown, but DO NOT invent its internal gears, engine or concentric mechanical core. Black space and cold starlight, subtle copper illumination of human interior structures. No portal ring, magic runes, glass fracture field, dimensional labels or neon wormhole.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/fourth-dimension.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: A clearly conceptual artistic visualization of the original novel's four-dimensional viewpoint, not a literal claim to render four dimensions. Two small spacesuited human explorers float near an ordinary sealed human STARSHIP. Its smooth intact outer hull, successive inner rooms, pipework, wiring and tiny interior objects are all SIMULTANEOUSLY VISIBLE and seem accessible from an extra direction, an impossible continuous nested spatial cutaway without physical holes or torn metal. Keep one coherent spacecraft with recognizable compartments rather than a kaleidoscope of unrelated fragmented mirrored shards. Offset depth and gently repeated nested perspectives convey higher-dimensional openness. In the distance a very small intact mirror droplet can be shown, but DO NOT invent its internal gears, engine or concentric mechanical core. Black space and cold starlight, subtle copper illumination of human interior structures. No portal ring, magic runes, glass fracture field, dimensional labels or neon wormhole.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/025.html"
+      ]
+    },
+    {
+      "slug": "photoid-strike",
+      "event": "e53",
+      "file": "img/generated/photoid-strike.jpg",
+      "alt": "三体星系的一颗恒星被光粒击中后剧烈膨胀，外层物质向太空喷出",
+      "caption": "光粒打击 · 被引爆的三体恒星",
+      "note": "光粒打击目标是恒星，不是对行星地表的普通轰炸；用恒星失稳代替橙色岩石地景。",
+      "scene": "A distant telescopic-style visualization of the PHOTOID STRIKE on one of the three stars in the Trisolaran system. The main subject is a STAR undergoing catastrophic rapid expansion: its incandescent surface ruptures outward in a vast uneven luminous shell of plasma, with fine ejecta streaming into surrounding black space. Two other stars are only small remote points well separated from this explosion; do not show three equal suns arranged as a logo. A barely visible tiny planetary silhouette near the expanding envelope conveys the loss of a planetary civilization without invented alien cities. The photoid itself is not an enormous glowing rock or spaceship: its impact is inferred from the stellar catastrophe, not a laser beam. No view from a planet's surface, no landscape, no Earth, no three ordinary planets presented as the system's defining three bodies. Cosmic scale, clinical terrifying light, white-gold plasma against deep black.",
+      "width": 1536,
+      "height": 768,
+      "revision": 1,
+      "previous_file": "img/lightgrain.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: A distant telescopic-style visualization of the PHOTOID STRIKE on one of the three stars in the Trisolaran system. The main subject is a STAR undergoing catastrophic rapid expansion: its incandescent surface ruptures outward in a vast uneven luminous shell of plasma, with fine ejecta streaming into surrounding black space. Two other stars are only small remote points well separated from this explosion; do not show three equal suns arranged as a logo. A barely visible tiny planetary silhouette near the expanding envelope conveys the loss of a planetary civilization without invented alien cities. The photoid itself is not an enormous glowing rock or spaceship: its impact is inferred from the stellar catastrophe, not a laser beam. No view from a planet's surface, no landscape, no Earth, no three ordinary planets presented as the system's defining three bodies. Cosmic scale, clinical terrifying light, white-gold plasma against deep black.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/036.html"
+      ]
     },
     {
       "slug": "bunker-cities",
       "event": "e54",
       "mode": "replace",
       "alt": "木星背日面的深空中，多座圆柱太空城排列在巨行星的阴影里",
-      "caption": "掩体计划 · 把城市藏进木星的阴影",
+      "caption": "掩体计划 · 木星背后的太空城（构型概念图）",
       "scene": "Bunker Era space cities in the SHADOW of Jupiter. Jupiter is a gigantic mostly dark disk occupying the upper left half, with a thin sunlit amber crescent and faint bands just at the limb; the Sun is hidden BEHIND Jupiter. Several long cylindrical enclosed space habitats with lit longitudinal window bands and ring docking structures float in the foreground darkness, clear three-dimensional engineering and small connecting transport craft. Habitats are in space, not on Jupiter's surface, no ice cave or ground. Cool blue metallic hulls, subtle interior gold, enormous fragile shelters against the planet's night side.",
       "file": "img/generated/bunker-cities.jpg",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "prompt": "Use case: illustration-story. Asset type: a single landscape illustration for a Chinese literary science fiction timeline website about The Three-Body Problem. Output one finished 2:1 panoramic image, ideally 1536x768 or wider; no panels, no frame, no title, no lettering, no numerals, no logos, no watermark. Premium painterly science fiction book illustration, realistic architecture and materials, fine restrained brush texture, subtle film grain, enormous sense of scale, disciplined composition, quiet awe rather than generic action poster. Muted charcoal, cold steel blue, warm parchment highlights with a restrained ember accent, naturalistic light. Keep all important objects inside the central 80% so a 2:1 website crop remains readable. Scene: Bunker Era space cities in the SHADOW of Jupiter. Jupiter is a gigantic mostly dark disk occupying the upper left half, with a thin sunlit amber crescent and faint bands just at the limb; the Sun is hidden BEHIND Jupiter. Several long cylindrical enclosed space habitats with lit longitudinal window bands and ring docking structures float in the foreground darkness, clear three-dimensional engineering and small connecting transport craft. Habitats are in space, not on Jupiter's surface, no ice cave or ground. Cool blue metallic hulls, subtle interior gold, enormous fragile shelters against the planet's night side.",
+      "canonical_note": "保留木星背后避击空间与圆柱形太空城概念；不据此声称所有城市始终固定在阴影里。",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/038.html",
+        "https://www.bidutuijian.com/books/sishenyongsheng/042.html"
+      ]
     },
     {
       "slug": "fairy-tales",
       "event": "e57",
       "mode": "add",
       "alt": "一本打开的童话书中，画师的平面王国、饕餮海与深水王子的倒影连成一幅画",
-      "caption": "三个童话 · 把生路藏进故事",
+      "caption": "三个童话 · 画师、渡海与违背透视的王子（意象图）",
       "scene": "A single cohesive poetic still life of an open old illustrated storybook on a dark wooden desk, its pages flowing seamlessly into one miniature fairytale landscape: at left a delicate royal painter's easel pulls a distant castle into a completely flat ink painting; in the middle a tiny pale boat crosses a dark sea between sheer cliffs, subtle silver soap-like ripples on the water; at right an immense distant prince-like silhouette rises above the horizon, reflected in the sea, fairy-tale perspective. A small warm reading lamp lights the foreground parchment, deep blue and muted old gold. No legible writing anywhere, no fake alphabets. One scene, not three separate panels. Evoke encoded scientific ideas without diagram labels or exaggerated cartoon characters.",
       "file": "img/generated/fairy-tales.jpg",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "prompt": "Use case: illustration-story. Asset type: a single landscape illustration for a Chinese literary science fiction timeline website about The Three-Body Problem. Output one finished 2:1 panoramic image, ideally 1536x768 or wider; no panels, no frame, no title, no lettering, no numerals, no logos, no watermark. Premium painterly science fiction book illustration, realistic architecture and materials, fine restrained brush texture, subtle film grain, enormous sense of scale, disciplined composition, quiet awe rather than generic action poster. Muted charcoal, cold steel blue, warm parchment highlights with a restrained ember accent, naturalistic light. Keep all important objects inside the central 80% so a 2:1 website crop remains readable. Scene: A single cohesive poetic still life of an open old illustrated storybook on a dark wooden desk, its pages flowing seamlessly into one miniature fairytale landscape: at left a delicate royal painter's easel pulls a distant castle into a completely flat ink painting; in the middle a tiny pale boat crosses a dark sea between sheer cliffs, subtle silver soap-like ripples on the water; at right an immense distant prince-like silhouette rises above the horizon, reflected in the sea, fairy-tale perspective. A small warm reading lamp lights the foreground parchment, deep blue and muted old gold. No legible writing anywhere, no fake alphabets. One scene, not three separate panels. Evoke encoded scientific ideas without diagram labels or exaggerated cartoon characters.",
+      "canonical_note": "保留童话合成意象；王子的大形象表达反常透视，不表示他追光奔跑，也不把书本布景当成真实会面场景。",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/030.html",
+        "https://www.bidutuijian.com/books/sishenyongsheng/031.html",
+        "https://www.bidutuijian.com/books/sishenyongsheng/032.html"
+      ]
     },
     {
       "slug": "solar-flattening",
       "event": "e63",
-      "mode": "replace",
-      "alt": "二向箔扩张成巨大的二维平面，太阳与行星的内部纹理被逐层摊开",
-      "caption": "二向箔 · 太阳系成为一幅没有厚度的画",
-      "scene": "The solar system undergoing two-dimensional collapse, a poetic hard science-fiction scene. An immense razor-thin luminous planar sheet cuts diagonally through black space. On the sheet, the Sun has unfolded into concentric golden flat layers like an intricate anatomical cross-section, with Earth's blue continents and Jupiter's colored internal bands stretched into delicate two-dimensional spreading patterns along the same plane. At its advancing edge some small distant planets remain volumetric spheres, contrasting 3D with a truly flat plane. View obliquely at a shallow angle so the sheet has no perceptible thickness. Tiny escaping spacecraft silhouettes near the far edge. Not a side-on galaxy photo, not a black hole, no bright generic nebula background.",
-      "file": "img/generated/solar-flattening.jpg",
+      "file": "img/generated/solar-flattening-v2.jpg",
+      "alt": "二维太阳呈现明亮核心、宽阔辐射区与外侧对流区，行星内部也在无厚度平面中展开",
+      "caption": "二维化 · 太阳与行星的内部向平面展开",
+      "note": "二维太阳主要分为三个宽环层；二维空间不是有矩形边框的实体板材，也不应把太阳画成密集年轮。",
+      "scene": "Use case: illustration-story. A single cinematic painterly panoramic 2:1 science-fiction illustration of the SOLAR SYSTEM COLLAPSING INTO TWO DIMENSIONS, based on the novel Death's End. In deep black space, a gigantic completely FLAT ELLIPTICAL SUN dominates the lower-left to centre. It has only THREE BROAD RADIAL ZONES: a white-gold almost featureless luminous central core; a wide red-orange radiative zone full of fine turbulent cellular motions; and an outer golden convection zone patterned with repeated loop-like cells. Wispy flat golden prominences extend past its outer rim. Do NOT make a stack of objects: all three zones are regions of ONE single thickness-free disk, as though the Sun's complete interior has opened into a plane. A much smaller FLATTENED BLUE-WHITE EARTH with unfolded interior patterns appears far to the right in the SAME infinite plane. View from a shallow oblique angle so both worlds are clearly flat ellipses without thickness. There is NO rectangular sheet, no tabletop, board, card, framed diagram, perimeter edge, visible platform or physical paper connecting the worlds: the intervening space is simply black. Around the worlds the black space has a subtle strange flowing turbulence, poetic and vast, not a literal scientific diagram. No labels, text, arrows, border, watermark or spaceship close-up. Restrained high-detail literary sci-fi painting, compelling cosmic scale. The Sun's THREE wide zones must be readable, not dozens of narrow concentric tree rings. The image is a conceptual visualization of the novel's dimensional collapse; do not add a black hole or a whirlpool funnel.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/solar-flattening.jpg",
+      "prompt": "Use case: illustration-story. A single cinematic painterly panoramic 2:1 science-fiction illustration of the SOLAR SYSTEM COLLAPSING INTO TWO DIMENSIONS, based on the novel Death's End. In deep black space, a gigantic completely FLAT ELLIPTICAL SUN dominates the lower-left to centre. It has only THREE BROAD RADIAL ZONES: a white-gold almost featureless luminous central core; a wide red-orange radiative zone full of fine turbulent cellular motions; and an outer golden convection zone patterned with repeated loop-like cells. Wispy flat golden prominences extend past its outer rim. Do NOT make a stack of objects: all three zones are regions of ONE single thickness-free disk, as though the Sun's complete interior has opened into a plane. A much smaller FLATTENED BLUE-WHITE EARTH with unfolded interior patterns appears far to the right in the SAME infinite plane. View from a shallow oblique angle so both worlds are clearly flat ellipses without thickness. There is NO rectangular sheet, no tabletop, board, card, framed diagram, perimeter edge, visible platform or physical paper connecting the worlds: the intervening space is simply black. Around the worlds the black space has a subtle strange flowing turbulence, poetic and vast, not a literal scientific diagram. No labels, text, arrows, border, watermark or spaceship close-up. Restrained high-detail literary sci-fi painting, compelling cosmic scale. The Sun's THREE wide zones must be readable, not dozens of narrow concentric tree rings. The image is a conceptual visualization of the novel's dimensional collapse; do not add a black hole or a whirlpool funnel.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/045.html"
+      ]
     },
     {
       "slug": "black-domain",
       "event": "e65",
-      "mode": "replace",
-      "alt": "低光速黑域笼罩的恒星系里，一艘飞船悬在暗淡红光与弯曲星光之间",
-      "caption": "黑域 · 把恒星与文明一同封进低光速的牢笼",
-      "scene": "A conceptual illustration of a reduced-light-speed BLACK DOMAIN surrounding the DX3906 star system, NOT an ordinary black hole. A small dim warm red-gold star and its tiny blue-gray planet are enclosed within an immense subtly defined dark spherical boundary. Sparse background starlight is strongly bent and compressed into a faint arc at the boundary. A tiny human spacecraft drifts INSIDE, its engine a faint blue point, unable to escape. Restrained mysterious atmosphere, extreme emptiness and isolation, no bright accretion disk, no astrophysical jets, no wormhole tunnel or magic portal. Quiet contemplative sense of trapped time.",
-      "file": "img/generated/black-domain.jpg",
+      "file": "img/generated/black-domain-v2.jpg",
+      "alt": "从黑域内部望出去，远方星光因穿越低光速界面与视界扭曲成纷繁银线",
+      "caption": "黑域 · 视界之外，可望不可即的银线星空",
+      "note": "采用书中黑域内部的银线星空，而不是把黑域画成普通黑洞或可见的玻璃防护球。",
+      "scene": "A view FROM INSIDE the DX3906 BLACK DOMAIN through an unlettered human spacecraft viewport. Beyond the restrained dark edge of the window, the external STARFIELD IS TRANSFORMED INTO MANY FINE SILVER CURVING LINES by light passing through the slow-light interface and black-hole horizon, as described in the novel. The silver filaments form a vast distant distorted sky, not a tangled physical net immediately outside the window. Keep a small dim warm star and a faint blue planet edge inside the enclosed system if useful, secondary to the unreachable silver-lined universe. No visible transparent spherical forcefield shell or glass bubble around an entire solar system, no accretion disk, no bright jets, no wormhole entrance, no lightning cloud or laser beams. Quiet confinement and altered optics. A pair of small human silhouettes in the dark cabin can be suggested but no detailed faces. Literary conceptual visualization of the stated optical effect, not a scientific explanatory diagram.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/black-domain.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: A view FROM INSIDE the DX3906 BLACK DOMAIN through an unlettered human spacecraft viewport. Beyond the restrained dark edge of the window, the external STARFIELD IS TRANSFORMED INTO MANY FINE SILVER CURVING LINES by light passing through the slow-light interface and black-hole horizon, as described in the novel. The silver filaments form a vast distant distorted sky, not a tangled physical net immediately outside the window. Keep a small dim warm star and a faint blue planet edge inside the enclosed system if useful, secondary to the unreachable silver-lined universe. No visible transparent spherical forcefield shell or glass bubble around an entire solar system, no accretion disk, no bright jets, no wormhole entrance, no lightning cloud or laser beams. Quiet confinement and altered optics. A pair of small human silhouettes in the dark cabin can be suggested but no detailed faces. Literary conceptual visualization of the stated optical effect, not a scientific explanatory diagram.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/047.html"
+      ]
     },
     {
       "slug": "miniature-universe",
       "event": "e68",
-      "mode": "replace",
-      "alt": "小宇宙中的麦田、白屋与一只五公斤生态球，在有限的光里保留生命",
-      "caption": "647 号宇宙 · 最后留下的五公斤生命",
-      "scene": "Universe 647, the intimate ending of a vast cosmic story. In the foreground on a simple wooden table stands a small clear round glass ECOSPHERE, realistically only about 20 centimeters across, with water, a few tiny fish, a little aquatic grass and sediment. Its sphere catches soft light. Beyond the table a small plain white house, a modest golden wheat field and a narrow green path occupy a peaceful tiny self-contained landscape. A distant almost imperceptible perfectly straight boundary hints at the finite pocket universe. No giant spectacular galaxy or nebula. The mood is tender, restrained, unresolved; life rather than a confirmed cosmic restart. Warm pale sunlight, muted green and parchment gold, a few leaves moving gently. No people necessary.",
-      "file": "img/generated/miniature-universe.jpg",
+      "file": "img/generated/miniature-universe-v2.jpg",
+      "alt": "空无一物的小宇宙中，半米直径的生态球发着微光，球内水球、小鱼与微型陆地失重漂浮",
+      "caption": "647 号宇宙 · 黑暗中留下的五公斤生命",
+      "note": "结尾搬空物质后只余生态球和信息漂流瓶；生态球约半米，内部水球与微型陆地失重，不能画成麦田桌上的小鱼缸。",
+      "scene": "The FINAL MOMENT of Universe 647 AFTER its fields, house, soil, furniture and other mass have been returned. A SINGLE TRANSPARENT SPHERICAL ECOHABITAT about HALF A METRE in diameter FLOATS WEIGHTLESS IN COMPLETE EMPTY DARKNESS. Inside it are SEVERAL SEPARATE FLOATING SPHERICAL WATER GLOBULES, some holding tiny fish and some green algae, plus TWO SMALL FLOATING PIECES OF LAND topped with delicate green grass. They float independently in zero gravity: absolutely no horizontal aquarium waterline, no fishbowl base and no aquarium sediment covering a flat bottom. A very small LIGHT SOURCE fixed at the sphere's TOP shines as its miniature sun and illuminates the tiny ecosystem with soft natural light. Farther away and almost invisible in blackness is a small plain METAL RECTANGULAR INFORMATION CONTAINER, not a glass bottle; it is secondary, just a faint edge reflection. No house, wheat field, table, planet, starfield, nebula, giant external sun or extra glowing spheres. The sphere is moderately prominent within the panorama so the water globules and two grassy islets are readable, surrounded by overwhelming black empty space. Tender and unresolved survival, no text.",
       "width": 1536,
-      "height": 768
+      "height": 768,
+      "revision": 2,
+      "previous_file": "img/generated/miniature-universe.jpg",
+      "prompt": "Use case: illustration-story. One standalone 2:1 panoramic illustration for a Chinese literary science-fiction timeline of Liu Cixin's Three-Body trilogy. Create a fresh scene following the source constraints below; do not import film or television designs. Premium restrained realistic painterly science-fiction book art, fine material detail, quiet powerful composition, muted steel-blue, charcoal and warm parchment/copper accents when appropriate to the specified scene. Readable at website banner size, main subjects safely within the central 90 percent. No panels, frame, labels, logos or watermarks. No lettering unless an exact numerical inscription is explicitly requested below. Original-novel facts take precedence over visual spectacle. Scene: The FINAL MOMENT of Universe 647 AFTER its fields, house, soil, furniture and other mass have been returned. A SINGLE TRANSPARENT SPHERICAL ECOHABITAT about HALF A METRE in diameter FLOATS WEIGHTLESS IN COMPLETE EMPTY DARKNESS. Inside it are SEVERAL SEPARATE FLOATING SPHERICAL WATER GLOBULES, some holding tiny fish and some green algae, plus TWO SMALL FLOATING PIECES OF LAND topped with delicate green grass. They float independently in zero gravity: absolutely no horizontal aquarium waterline, no fishbowl base and no aquarium sediment covering a flat bottom. A very small LIGHT SOURCE fixed at the sphere's TOP shines as its miniature sun and illuminates the tiny ecosystem with soft natural light. Farther away and almost invisible in blackness is a small plain METAL RECTANGULAR INFORMATION CONTAINER, not a glass bottle; it is secondary, just a faint edge reflection. No house, wheat field, table, planet, starfield, nebula, giant external sun or extra glowing spheres. The sphere is moderately prominent within the panorama so the water globules and two grassy islets are readable, surrounded by overwhelming black empty space. Tender and unresolved survival, no text.",
+      "reference_sources": [
+        "https://www.bidutuijian.com/books/sishenyongsheng/049.html"
+      ]
     }
   ],
   "encoding": {
@@ -219,6 +416,32 @@
     "img/sage.jpg",
     "img/stair.jpg",
     "img/tianyan.jpg",
-    "img/voyager.jpg"
-  ]
+    "img/voyager.jpg",
+    "img/generated/black-domain.jpg",
+    "img/generated/countdown.jpg",
+    "img/generated/dark-battle.jpg",
+    "img/generated/deterrence-city.jpg",
+    "img/generated/doomsday-battle.jpg",
+    "img/generated/fourth-dimension.jpg",
+    "img/generated/guzheng-operation.jpg",
+    "img/generated/miniature-universe.jpg",
+    "img/generated/solar-flattening.jpg",
+    "img/generated/sophon-engineering.jpg",
+    "img/generated/staircase-project.jpg",
+    "img/generated/swordholder.jpg",
+    "img/generated/trisolaris-cycle.jpg",
+    "img/generated/wallfacers.jpg",
+    "img/golden.jpg",
+    "img/graves.jpg",
+    "img/inferno.jpg",
+    "img/lightgrain.jpg",
+    "img/pyramid.jpg"
+  ],
+  "canonical_review": {
+    "date": "2026-11-12",
+    "total": 26,
+    "redrawn": 19,
+    "retained": 7,
+    "audit": "docs/illustration-audit.md"
+  }
 }
