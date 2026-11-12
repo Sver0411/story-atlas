@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三体 · 完整故事时间线 | 68 个时间点与图解</title>
+<meta name="description" content="《三体》三部曲全部情节的真实时间顺序时间线，不分部次，只问先后。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="orbits" aria-hidden="true">
+    <span class="o1"></span>
+    <span class="o2"></span>
+    <span class="o3"></span>
+    <span class="core"></span>
+  </div>
+  <div class="mast-inner">
+    <p class="hero-kicker">地球往事<span class="sep">/</span>黑暗森林<span class="sep">/</span>死神永生</p>
+    <h1><em>三体</em><span>时间线</span></h1>
+    <p class="hero-deck">
+      从君士坦丁堡的最后一夜，到宇宙之外的五公斤生态球。<br>
+      68 个时间点，一部被拆成刻度的三部曲。<br>
+      没读过原著的人，读下来也就读完了整个故事。
+    </p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>68 个时间点 · 21 幅配图</span><i></i>
+      <span>1453 — 时间尽头</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">序</span>
+      <span class="era-sub">Before the Signal · 一切尚未开始</span>
+    </div>
+
+    <section class="event" id="e1" style="--c:#6b645a"
+      data-color="#6b645a" data-era="序 · 三体世界" data-short="两百次重生" data-label="远古 · 无纪年">
+      <div class="ev-when">远古 · 无纪年<em>三体世界</em></div>
+      <h2>两百次重生</h2>
+      <p>距地球四光年，半人马座三星。三颗太阳在彼此的引力中做无规律的三体运动，有时相距遥远，行星上便进入漫长的寒夜；有时三颗太阳同时升起，地表温度升到上千度；有时行星被甩出去，又被拉回来。三体人没有稳定的天空，他们进化出了脱水的能力：乱纪元来临时，把身体的水分排干，变成一张薄薄的皮卷，卷起来堆进山洞，等恒纪元再泡进水里复活。可即便如此，文明仍一次次被抹去，又一次次从石器和火堆里爬起——游戏中呈现过第 137 号、第 183 号、第 191 号文明，有的造出了蒸汽机，有的建起了金字塔，有的算出了三体问题无解，然后统统归零。两百多次轮回之后，三体人得出了同一个结论：这颗行星迟早会毁灭，他们必须找到一个新家。</p>
+      <figure class="ev-fig"><img src="img/dehydrated.jpg" alt="白色人形冰雕般的脱水人群" loading="lazy"><figcaption>乱纪元 · 脱水的人在严寒中卷成皮卷　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e2" style="--c:#7a5a38"
+      data-color="#7a5a38" data-era="公元纪元" data-short="魔法师之死" data-label="1453 年 5 月 29 日">
+      <div class="ev-when">1453 年 5 月 29 日<em>君士坦丁堡</em></div>
+      <h2>魔法师之死</h2>
+      <p>拜占庭的最后一日。奥斯曼大军围城，苏丹穆罕默德二世一筹莫展，因为城里有一个人能穿墙而过、隔空取人首级——女魔法师狄奥伦娜。她出身妓院，某天忽然发现自己能把手伸进墙里，从另一侧取出东西。苏丹召见她，许以重金，她只要一样：免死。城破前夜，她被要求去取守城将领的首级，她走进石墙，再也没有出来——法术在那一刻失灵了。她被当作骗子处死。真相要到五百年后才被理解：她接触到的是一片四维空间碎片，在那片空间里，三维世界的墙壁是敞开的。而那片碎片，恰好在 1453 年 5 月 29 日漂离了地球。人类第一次触到高维，却把它当成了巫术，还杀死了唯一懂得使用它的人。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">红岸</span>
+      <span class="era-sub">Red Coast · 1967 — 2007</span>
+    </div>
+
+    <section class="event" id="e3" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="父亲的死" data-label="1967 年 · 北京">
+      <div class="ev-when">1967 年<em>北京</em></div>
+      <h2>父亲的死</h2>
+      <p>批斗会上，物理学教授叶哲泰被四个十几岁的女学生用皮带轮流抽打。他不肯低头，至死不肯承认“相对论是资产阶级的”。妻子绍琳上台揭发他，说他“用唯心主义毒害青年”。女儿叶文洁站在台下，看着父亲的血一滴一滴落在讲台上。父亲死后，母亲改嫁，妹妹叶文雪在武斗中被打死。叶文洁被下放到内蒙古生产建设兵团，后来又转到大兴安岭的林场。她二十三岁，已经不再相信任何宏大的词。</p>
+    </section>
+
+    <section class="event" id="e4" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="寂静的春天" data-label="1968 年 · 大兴安岭">
+      <div class="ev-when">1968 年<em>大兴安岭</em></div>
+      <h2>寂静的春天</h2>
+      <p>在林场，叶文洁遇到《大生产报》记者白沐霖。他借给她一本英文书——蕾切尔·卡逊的《寂静的春天》，书里写人类用农药杀死了鸟、鱼、昆虫，最后杀死自己。叶文洁第一次读到“人类是在毁灭自己”这样的句子，觉得被人说中了心事。白沐霖要写一封信反映林场的问题，让她帮忙抄写。信寄出后出了事，上面来查，白沐霖为了自保，说信是叶文洁写的，还揭发她“偷看禁书”。叶文洁被关押、审讯、批斗，在零下三十度的夜里被人往身上泼水。她后来在回忆里说：那是我第一次知道，人可以为了活下去，把另一个人推下去。</p>
+    </section>
+
+    <section class="event" id="e5" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="太阳的耳朵" data-label="1969 年 · 红岸基地">
+      <div class="ev-when">1969 年<em>大兴安岭</em></div>
+      <h2>太阳的耳朵</h2>
+      <p>叶文洁因为一篇关于太阳活动的论文，被红岸基地的政委雷志成看中，调入这个绝密工程。红岸对外是监听站，实际任务是寻找外星文明。基地里有一面巨大的抛物面天线，能把信号打进太空。叶文洁在这里读到一个被忽略的理论：太阳的日冕层在某些条件下会像一面巨大的透镜，把地球发出的电波放大上亿倍，射向恒星际。也就是说，人类不需要造一个太阳那么大的发射器，只要对着太阳喊，太阳会替你把声音传出去。她做了计算，做了试验，证明这是真的。人类第一次拥有了向宇宙喊话的能力——而这个能力一直摆在所有人面前，只是没人相信它。</p>
+      <figure class="ev-fig"><img src="img/tianyan.jpg" alt="山谷中的巨型射电望远镜" loading="lazy"><figcaption>中国天眼 FAST · 口径 500 米　图：实景照片</figcaption></figure>
+    </section>
+
+    <section class="event" id="e6" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="第一次呼喊" data-label="1971 年 · 红岸基地">
+      <div class="ev-when">1971 年<em>红岸基地</em></div>
+      <h2>第一次呼喊</h2>
+      <p>叶文洁趁基地设备检修、监控最松的时刻，把发射功率调到最大，将一段包含地球文明信息的电波射向太阳。她按了大约八秒钟。信号被日冕层放大、反射，以光速飞向宇宙深处。她知道这违反了一切纪律，也知道这可能永远没有回音。她甚至没有想清楚自己希望有回音，还是希望没有。八年后，回音来了，来的却是一句警告。</p>
+    </section>
+
+    <section class="event" id="e7" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="不要回答" data-label="1979 年 · 三体世界">
+      <div class="ev-when">1979 年<em>三体世界</em></div>
+      <h2>不要回答</h2>
+      <p>四光年外，三体世界，1379 号监听员。他住在恒温舱里，一生没有见过真正的太阳，工作是监听宇宙中可能存在的文明信号。他收到那条来自地球的电波，立刻明白了全部后果：只要回复，自己的坐标就会暴露，然后被一个更强大的文明吞掉。可他也知道，三体世界正在走向毁灭，而他这样的低级监听员随时可能被处决。他厌倦了。他回了一段极短的话，用尽了他所有的勇气：<span class="hl">“不要回答！不要回答！不要回答！”</span>他以为对面会懂。</p>
+    </section>
+
+    <section class="event" id="e8" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="叶文洁的回答" data-label="1979 年 · 红岸基地">
+      <div class="ev-when">1979 年<em>红岸基地</em></div>
+      <h2>叶文洁的回答</h2>
+      <p>叶文洁收到了警告，也读懂了警告背后的恐惧——一个文明在害怕另一个文明，这本身就说明了很多。她没有犹豫，把功率推到极限，回了一段更长的话：<span class="hl">“到这里来，我将帮助你们获得这个世界。我的文明已无力解决自己的问题，需要你们的力量来介入。”</span>按下发射键的那一刻，她觉得自己在替人类做一件正确的事。三十年后她在审讯室里说：我点燃了火，却控制不了它。她没有说后悔，只是说，如果再来一次，她还是会按下去。</p>
+    </section>
+
+    <section class="event" id="e9" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="杀夫" data-label="1979 年 · 雷达峰">
+      <div class="ev-when">1979 年<em>雷达峰</em></div>
+      <h2>杀夫</h2>
+      <p>叶文洁在红岸与总工程师杨卫宁结婚，生下女儿杨冬。杨卫宁是她父亲的学生，温和、木讷，是真心待她好的人。1979 年，政委雷志成在设备检修记录里发现了她私自向太阳发射信号的痕迹，杨卫宁也在场。他们约她到雷达峰顶谈这件事。站在悬崖边，叶文洁看着两个背对她检查安全绳的男人，做出了决定。她割断了绳索。两个人从几百米高的悬崖上坠下去，没有喊出声。她站在崖边，风很大，她摸了摸自己的肚子——那里有杨冬。这是她第一次亲手杀人，也是她彻底跨过那条线的一刻。此后她再也没有回头。</p>
+    </section>
+
+    <section class="event" id="e10" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="舰队与智子" data-label="1979 年后 · 三体世界">
+      <div class="ev-when">1979 年后<em>三体世界</em></div>
+      <h2>舰队与智子</h2>
+      <p>三体世界决定倾尽全部资源入侵地球。他们建造了第一舰队，一千艘战舰，航程四百五十年。但四百年太长了，长到人类可能在这期间发生技术爆炸，反过来超过他们。于是他们启动了“智子工程”：把一个质子二维展开，蚀刻成一台超级计算机，再折叠回十一维，以光速发射到地球。两颗智子先于舰队抵达太阳系，一颗钻进加速器，把粒子对撞的结果搅乱，让人类永远无法突破高能物理；一颗悬在所有人头顶，看得见一切、听得见一切，唯独读不到人的思想。剑与锁，同时出鞘。人类还有四百年，但四百年里，他们只能原地踏步。</p>
+      <figure class="ev-fig"><img src="img/drop-earth.jpg" alt="水滴形探测器悬停在地球轨道" loading="lazy"><figcaption>探测器抵达太阳系　插画：B 站同人作品</figcaption></figure>
+      <figure class="ev-fig"><img src="img/voyager.jpg" alt="深空探测器概念图" loading="lazy"><figcaption>先行者 · 以光速飞向太阳系的探测器　图：NASA/JPL-Caltech</figcaption></figure>
+    
+      <div class="ev-sub"><h3><span>其一</span>把一个质子展开</h3><p>智子的制造方式近乎神迹：把一个质子从十一维展开到二维，它的面积会大到一个城市那么大，像一张铺开的薄膜。三体人在上面蚀刻集成电路，刻完之后再把它折叠回十一维——于是它重新变成一个质子大小的东西，却是一台超级计算机。它没有质量，能以光速飞行，能穿透任何物质。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>两颗，两种工作</h3><p>三体世界造了两颗。一颗留在母星，负责计算和通讯；另一颗（后来是两颗）被发射到地球。到地球后，一颗钻进高能加速器的管道，把粒子对撞的结果搅乱——人类每次实验都得到不同的数据，物理学的基础被抽走了；另一颗悬在空中，看得见一切、听得见一切。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>唯一的盲区</h3><p>智子能读任何一本书、任何一台电脑、任何一句话，唯独读不到人的思想。人类很快想明白了这一点，于是把所有赌注押在这个唯一的盲区上——这是面壁计划的全部逻辑起点。三体世界也知道这一点，所以他们开始学着理解人心。</p></div></section>
+
+    <section class="event" id="e11" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="内奸" data-label="1985 年 · 地球">
+      <div class="ev-when">1985 年<em>地球</em></div>
+      <h2>内奸</h2>
+      <p>叶文洁在西北某地遇到伊文斯，一个因为目睹石油泄漏而彻底绝望的富二代。他相信人类是地球的癌症，必须被清除。两人一拍即合，创立地球三体组织（ETO）。伊文斯出钱，叶文洁出思想，总部设在六万吨巨轮“审判日”号上，靠着智子的实时通讯与三体世界联络。组织很快分裂成三派：降临派，希望三体人毁灭人类，伊文斯是领袖；拯救派，希望三体人来改造人类，多为高级知识分子；幸存派，提前为三体人服务，换取自己活命。人类第一次有了内奸，而且是最深的那一种——他们并不恨人类，只是对人类失望透顶，失望到宁愿让一个外星文明来接管。</p>
+    </section>
+
+    <section class="event" id="e12" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="三体游戏" data-label="1985 年后 · 地球">
+      <div class="ev-when">1985 年后<em>ETO</em></div>
+      <h2>三体游戏</h2>
+      <p>ETO 开发了一款名为《三体》的虚拟现实游戏，用来筛选对三体世界有认同感的人。玩家戴上 V 装具，进入一个荒诞的世界：周文王用阴阳五行解释太阳的运行，墨子造出巨大的机械宇宙模型，哥白尼在教皇面前论证三颗太阳的规律，牛顿、莱布尼茨、冯·诺依曼轮番登场。玩家会经历乱纪元的严寒、三日凌空的大火、大撕裂的地壳崩裂，一次次死去，一次次重来。能通关的人，说明他已经理解并接受了三体世界的绝望——这样的人，会被邀请参加一场真实的聚会。</p>
+      <figure class="ev-fig"><img src="img/golden.jpg" alt="金色山峰与巨日" loading="lazy"><figcaption>恒纪元 · 短暂的温暖　插画：三体艺术插画集</figcaption></figure>
+    
+      <div class="ev-sub"><h3><span>其一</span>周文王</h3><p>游戏的第一关，玩家遇到周文王。他用阴阳五行解释太阳的运行，预测下一次恒纪元的时间。他算错了，文明在严寒中毁灭。玩家第一次体验到：在这个世界里，连“规律”本身都可能是错的。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>墨子</h3><p>第二关，墨子造了一个巨大的机械宇宙模型，用齿轮和轴承模拟三颗太阳的运动。模型运转得很好，直到三日凌空，一切被烧成灰。墨子至死相信，只要模型足够精确，就能预测未来。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>哥白尼</h3><p>第三关，哥白尼在教皇面前论证：这个世界有三颗太阳，它们的运动没有规律。他被烧死，但他说的（基本上）是对的。玩家在这里第一次接近真相：三体世界的问题不是技术不够，是物理本身无解。</p></div>
+      <div class="ev-sub"><h3><span>其四</span>人列计算机</h3><p>最后一关，秦始皇的三千万士兵组成人列计算机，用黑白旗帜做逻辑运算，试图算出三体问题的稳定解。运算进行到一半，一颗太阳升起，方阵被烤成焦土。三千万人，算了几个时辰，答案还没出来。</p></div></section>
+
+    <section class="event" id="e13" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="内斗" data-label="2007 年 · ETO">
+      <div class="ev-when">2007 年<em>ETO</em></div>
+      <h2>内斗</h2>
+      <p>ETO 从来不是铁板一块。降临派以伊文斯为首，主张让三体人彻底毁灭人类；拯救派以申玉菲为首，希望三体人来“改造”人类，保留文明。两派的矛盾在古筝行动前夜爆发：潘寒奉伊文斯之命暗杀了申玉菲，尸体被丢在科学边界的会议室里。叶文洁这时才发现，自己创立的组织早已不听她的了——她点燃了火，火却烧向了别处。她对前来质问的汪淼说：我累了。这场内斗让人类看清了一件事：叛徒之间也会互相背叛，而且比对待敌人更狠。</p>
+    </section>
+
+    <section class="event" id="e14" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="倒计时" data-label="2007 年 · 北京">
+      <div class="ev-when">2007 年<em>北京</em></div>
+      <h2>倒计时</h2>
+      <p>纳米科学家汪淼被警官史强拉进“科学边界”案件：近一年，一批顶尖科学家接连自杀，遗书里都写着“物理学不存在了”。汪淼被请去卧底，接触这个神秘学术组织。很快，他发现自己拍的照片上出现了一串倒计时，从一百多个小时开始跳。他去看医生，做检查，用 1200 倍显微镜看自己的视网膜，什么也没有。倒计时只在他一个人的眼睛里。与此同时，全世界的高能加速器都出现了无法解释的异常：同样的实验，结果每次都不一样。人类探索微观世界的路，被人从另一头堵死了。</p>
+    </section>
+
+    <section class="event" id="e15" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="宇宙闪烁" data-label="2007 年 · 北京">
+      <div class="ev-when">2007 年<em>北京</em></div>
+      <h2>宇宙闪烁</h2>
+      <p>科学边界的成员申玉菲告诉汪淼：停下纳米项目，倒计时就会停。汪淼不信，坚持实验，倒计时归零。那一夜，他按申玉菲的指示，在凌晨三点到郊外观测宇宙背景辐射。他戴上一副特制的 3K 眼镜，看见整个天空在他眼前闪烁——那不是星光的闪烁，是整个宇宙的亮度在同步明灭，节奏像一段摩尔斯电码。而且只有他看得见：他让同伴看，同伴只看见普通的夜空。宇宙在为他一个人演戏。那一刻他明白了：敌人不在四光年外，敌人已经在这里，而且它的能力远超人类想象。</p>
+    </section>
+
+    <section class="event" id="e16" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="人列计算机" data-label="2007 年 · 三体游戏">
+      <div class="ev-when">2007 年<em>三体游戏</em></div>
+      <h2>人列计算机</h2>
+      <p>汪淼在游戏里见到了最震撼的一幕：秦始皇的三千万士兵列成方阵，每人手持黑白两面旗帜，按照冯·诺依曼的设计组成一台“人列计算机”，用旗帜的翻转做逻辑运算，去计算三体问题的稳定解。运算进行到一半，一颗太阳升起，方阵被烤成焦土。他还见到了三体世界的真相：那颗行星曾经有过灿烂的文明，但一次次被三颗太阳毁灭。游戏通关后，汪淼被邀请参加 ETO 的聚会。在那里，他见到了一个坐在轮椅上、平静得像一潭水的老人——叶文洁。她说的第一句话是：欢迎你，同志。</p>
+      <figure class="ev-fig"><img src="img/pyramid.jpg" alt="红色天空下的金字塔" loading="lazy"><figcaption>三体游戏 · 被雪埋起的金字塔　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e17" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="两条公理" data-label="2007 年 · 杨冬墓前">
+      <div class="ev-when">2007 年<em>杨冬墓前</em></div>
+      <h2>两条公理</h2>
+      <p>女儿杨冬自杀后，叶文洁在墓前遇到罗辑——杨冬生前的同学，一个混日子的社会学教授。她平静地讲了自己一生的思考，把它叫作“宇宙社会学”，并给出两条公理：第一，生存是文明的第一需要；第二，文明不断增长和扩张，但宇宙中的物质总量保持不变。罗辑问，就这两条？她说，还有两个重要概念：猜疑链和技术爆炸。两个文明无法确认对方是否善意，也无法确认对方是否把自己当成威胁，猜疑会一层层叠加，永远无法解除；而技术爆炸意味着，一个弱小的文明可能在几百年内超过你。罗辑当时只当是一位老人的呓语，随口答应了她的建议：去研究这门学问。这几句话，日后成了人类唯一的武器。</p>
+      <figure class="ev-fig"><img src="img/graves.jpg" alt="墓碑、三颗星与持锹的人" loading="lazy"><figcaption>杨冬墓前 · 三颗星悬在墓园上空　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e18" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="古筝行动" data-label="2007 年 · 巴拿马运河">
+      <div class="ev-when">2007 年<em>巴拿马运河</em></div>
+      <h2>古筝行动</h2>
+      <p>人类决定夺取“审判日”号上的三体通讯数据。硬攻不行，船上有自毁装置。方案是用汪淼的纳米材料“飞刃”——一种只有头发丝千分之一粗、却能切开钢铁的丝——在巴拿马运河两岸拉起几十道，间距半米。行动当天，“审判日”号缓缓驶入运河，船体从船首开始被均匀地切成薄片，像被一把无形的琴弦剖开。船上的人、设备、硬盘，全部一分为二。人类拿到了三体世界的全部情报：智子的存在、舰队的航程、ETO 的名单，以及三体人对人类的判断——你们是虫子。行动代号“古筝”，因为那艘船就像被琴弦切开。</p>
+    </section>
+
+    <section class="event" id="e19" style="--c:#8c2b26"
+      data-color="#8c2b26" data-era="公元纪元" data-short="逮捕" data-label="2007 年 · 雷达峰">
+      <div class="ev-when">2007 年<em>雷达峰</em></div>
+      <h2>逮捕</h2>
+      <p>叶文洁在雷达峰被捕。她没有反抗，只是要求再看一眼那面巨大的天线。审讯中她讲了很多：父亲的血、红岸的雪、白沐霖的背叛、那个“不要回答”的夜晚。她说自己不后悔，只是没想到事情会变成这样。她说，人类的问题不是科技不够，是人心坏了，她只是想请一个外力来修理它。审讯员问她，你凭什么替全人类做这个决定？她沉默了很久，说：我没有替谁决定，我只是开了一扇门。她被带走时，天正在下雪。此后她再没有走出监狱。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">危机纪元</span>
+      <span class="era-sub">Crisis Era · 公元 201X — 22XX</span>
+    </div>
+
+    <section class="event" id="e20" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="危机公开" data-label="危机纪元 1 年 · 联合国">
+      <div class="ev-when">危机纪元 1 年<em>联合国</em></div>
+      <h2>危机公开</h2>
+      <p>古筝行动拿到的情报被各国高层消化了整整三个月。随后，联合国召开特别大会，向全世界直播：三体舰队已经起航，四百五十年后抵达太阳系；智子已经在地球，人类的一切都在它的监视之下；三体人的目的不是殖民，是灭绝。会场里没有人说话，只有译员的耳机里传来此起彼伏的叹息。人类历史从这一天起翻页，此后的每一年都叫“危机纪元”。所有的从容、争论与傲慢，在这一天结束了。散会时，一位代表在走廊里说了一句话，被记者录了下来：我们不是进入了一个新时代，我们是走进了一间没有出口的房间。</p>
+    </section>
+
+    <section class="event" id="e21" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="智子锁死" data-label="危机纪元 1 年 · 地球">
+      <div class="ev-when">危机纪元 1 年<em>地球</em></div>
+      <h2>智子锁死</h2>
+      <p>智子的可怕之处不在于它是一台计算机，而在于它能钻进任何地方。它潜伏在加速器的管道里，替人类“做”实验：粒子对撞的结果被它随意篡改，规律变成了随机，物理学的基础被抽走。它还能听见任何一句话，看见任何一个角落，从联合国会议室到地下三百米的密室。人类所有的计划、图纸、密码，在它面前都是透明的。唯一的例外是人的大脑——思想不能被读取。于是人类把所有赌注押在了这唯一的不透明地带，这也是后来“面壁计划”的全部逻辑起点。</p>
+    </section>
+
+    <section class="event" id="e22" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="逃亡主义" data-label="危机纪元 1 年 · 地球">
+      <div class="ev-when">危机纪元 1 年<em>地球</em></div>
+      <h2>逃亡主义</h2>
+      <p>危机公开后，全球出现两种思潮：失败主义认为人类必败，不如及时行乐；逃亡主义主张造一批飞船，送一部分人逃向深空。逃亡主义很快遇到一个无解的问题：谁走，谁留？抽签？财富？权力？任何方案都会立刻引发战争。各国最终立法宣布逃亡主义非法，理由是人类必须团结一致正面迎战。这个决定在当时看是唯一可行的，但它关上了一扇门——一百多年后，当人类发现正面迎战必败时，已经没有退路。</p>
+    </section>
+
+    <section class="event" id="e23" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="四个面壁者" data-label="危机纪元 3 年 · 联合国">
+      <div class="ev-when">危机纪元 3 年<em>联合国</em></div>
+      <h2>四个面壁者</h2>
+      <p>既然思想无法被窥探，人类决定把赌注押在四个人的大脑里。面壁计划启动，四位面壁者被授予不受质疑的权力：他们可以调用全球资源，可以撒谎，可以不解释任何一句话，因为只要不说出来，智子就无从得知。四个人是：泰勒，前美国国防部长，一个相信技术能解决一切的人；雷迪亚兹，委内瑞拉总统，靠铁腕统治国家；希恩斯，英国物理学家，脑科学专家；罗辑，一个混日子的社会学教授，被选中只是因为他和叶文洁有过一次谈话。三体世界随即启动了“破壁计划”，为每一位面壁者配备一名破壁人。</p>
+      <figure class="ev-fig"><img src="img/sage.jpg" alt="盘坐的老者" loading="lazy"><figcaption>面壁者 · 思维是不透明的最后堡垒　插画：三体艺术插画集</figcaption></figure>
+    
+      <div class="ev-sub"><h3><span>01</span>泰勒 · 量子幽灵舰队</h3><p>前美国国防部长，一个相信技术能解决一切的人。他的方案是用球状闪电制造“宏原子”，让太空军士兵在被宏原子击中后进入量子态——肉体消失，意识以量子态留存，成为一支打不死的幽灵舰队。他秘密招募了上万名士兵，告诉他们：你们会为人类而死，但不会真正死去。</p></div>
+      <div class="ev-sub"><h3><span>02</span>雷迪亚兹 · 恒星级氢弹</h3><p>委内瑞拉总统，靠铁腕和反美立场上台。他的方案是在水星上布置大量恒星级氢弹，等三体舰队到达时引爆，让水星减速坠入太阳，引发太阳的连锁反应，把整个太阳系变成一片火海。这不是防御，是同归于尽的讹诈——他要让三体人相信，人类宁可毁灭自己，也不肯投降。</p></div>
+      <div class="ev-sub"><h3><span>03</span>希恩斯 · 思想钢印</h3><p>英国物理学家、脑科学专家。他发明了“思想钢印”：在人脑神经元层面写入一条信念，此后无论遇到什么，这条信念都不会动摇。他给太空军士兵打上“人类必胜”。表面上这是在提振士气，实际上他真正想印进去的，是另一句话。</p></div>
+      <div class="ev-sub"><h3><span>04</span>罗辑 · 什么都不做</h3><p>一个混日子的社会学教授，被选中只是因为他和叶文洁有过一次谈话。他没有计划，没有基地，没有军队。他行使面壁者权力，只要了一座北欧庄园和一个梦里的姑娘，然后在那儿住了五年。奇怪的是，三体世界唯一想杀的人就是他——因为只有他，让三体世界感到不安。</p></div></section>
+
+    <section class="event" id="e24" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="破壁人" data-label="危机纪元 3 年 · 联合国">
+      <div class="ev-when">危机纪元 3 年<em>面壁计划</em></div>
+      <h2>破壁人</h2>
+      <p>面壁计划启动的同一天，三体世界启动了破壁计划。破壁人的任务不是暗杀，而是识破——他们要在全人类面前，把面壁者藏在脑子里的计划一层层剥开，证明它是什么、为什么不可能成功。三体世界为每位面壁者配备了一名破壁人，而且往往是最了解他的人：妻子、助手、多年好友。这不是技术上的对抗，而是心理上的围猎。破壁人甚至不需要赢，他们只需要让面壁者自己承认：这条路走不通。这是三体世界对人类最精准的一击——他们不缺力量，他们缺的是对人心的理解，而他们正在学习。</p>
+    </section>
+
+    <section class="event" id="e25" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="拒绝" data-label="危机纪元 3 年 · 联合国">
+      <div class="ev-when">危机纪元 3 年<em>联合国</em></div>
+      <h2>拒绝</h2>
+      <p>罗辑在大会上当场拒绝：“我只是个普通人，我不干，你们找错人了。”会场安静了几秒，然后投票，全票通过，无视他的拒绝——面壁者的任命不需要本人同意。他冲出会场，在台阶上被一名 ETO 刺客用枪击中胸口，子弹擦过心脏，史强把他从鬼门关拖了回来。醒来后，他对联合国代表提了两个要求：给我一座北欧的庄园，再帮我找一个人——我梦里的那个姑娘。全世界都以为他疯了。只有他自己知道，他是在用面壁者的权力，换最后几年安稳日子。</p>
+    </section>
+
+    <section class="event" id="e26" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="陨石子弹" data-label="危机纪元 3—12 年 · 太空军">
+      <div class="ev-when">危机纪元 3—12 年<em>太空军</em></div>
+      <h2>陨石子弹</h2>
+      <p>章北海，太空军政委，父亲是开国将军。他做过一个判断：人类若继续走化学火箭的路，四百年后必败；真正的出路是无工质辐射推进，而这条路线被三位航天界元老死死压着。他没有辩论，没有写报告。他在三个不同的城市，用陨石打磨的子弹，把这三个人分别射杀。陨石子弹没有膛线、没有弹道特征，法医只能判定为“陨石击中”。案子成了悬案。他这么做，是因为他知道，在智子的监视下，任何关于“人类必败”的言论都会被定性为失败主义，任何关于推进路线的争论都会拖上几十年。他一个人替全人类做了这个决定，然后什么也没说。</p>
+    
+      <div class="ev-sub"><h3><span>其一</span>三次</h3><p>第一次在国际航天大会的会场外，一位主张化学推进的元老被一块“从天而降的陨石”击中后脑。第二次在另一个城市的研究所停车场。第三次在第三次。三次都发生在公开场合，三次都被判定为意外——因为子弹是陨石做的，没有膛线，没有弹道，法医只能写“陨石击中”。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>为什么是陨石</h3><p>章北海研究过弹道学。普通子弹会被追查到枪、追查到人；而陨石子弹在进入人体后会碎裂，无法比对，也无法从伤口判断射距。他花了两年时间收集陨石，自己打磨，自己装填。整个过程没有第二个人知道。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>他的判断</h3><p>他不是疯子。他算过：如果人类继续走化学火箭的路，四百年后到达战场的舰队会在半小时内被摧毁；如果走无工质辐射推进，人类才有一线机会。而那三位元老掌握着航天预算的分配权，只要他们活着，路线就不会改。他没有别的办法。</p></div></section>
+
+    <section class="event" id="e27" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="梦中的姑娘" data-label="危机纪元 4 年 · 北欧庄园">
+      <div class="ev-when">危机纪元 4 年<em>北欧庄园</em></div>
+      <h2>梦中的姑娘</h2>
+      <p>联合国真的找到了她：中央美院的学生庄颜，和罗辑梦里的画一模一样，连眼角的痣都对得上。他们在北欧的庄园里住了五年，种花、画画、看极光，有了一个女儿。罗辑知道她是被安排来的，从一开始就知道，但他选择相信——他对自己说，就算是假的，五年也够本了。五年后的一个早晨，联合国的人来了，告诉他：庄颜和孩子已经被送进冬眠，什么时候醒，取决于他什么时候开始工作。罗辑在雪地里站了很久，然后回到屋里，开始画那张他一直没画完的图。</p>
+    </section>
+
+    <section class="event" id="e28" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="咒语" data-label="危机纪元 8 年 · 太阳系">
+      <div class="ev-when">危机纪元 8 年<em>太阳系</em></div>
+      <h2>咒语</h2>
+      <p>罗辑在雪夜里对着星空，向一颗编号 187J3X1 的恒星发出了一条信息：它的坐标。没有解释，没有警告，只有一串位置数据。这是他能想到的唯一验证方式——如果宇宙社会学的推论正确，一个坐标被广播出去的恒星，会被某个文明摧毁。他把一颗恒星当成实验品，也把人类的命运押在了这个实验上。发完之后，他在雪地里坐了一夜。第二天，他对外宣布：我要冬眠。</p>
+    </section>
+
+    <section class="event" id="e29" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="冬眠" data-label="危机纪元 8 年 · 冬眠中心">
+      <div class="ev-when">危机纪元 8 年<em>冬眠中心</em></div>
+      <h2>冬眠</h2>
+      <p>罗辑进入冬眠。他给出的理由是：要亲眼看到结果。如果理论错了，人类还有两百年，他醒不醒都一样；如果理论对了，人类还有一线生机，而那一线生机只有他能握住。冬眠舱合上之前，他看了一眼窗外的雪，说了一句：如果她醒了，告诉她我在未来等她。没有人知道“她”是庄颜，还是别的什么。舱门关上，指示灯变绿，他把自己交给了一个还没有答案的问题。</p>
+    </section>
+
+    <section class="event" id="e30" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="增援未来" data-label="危机纪元 12 年 · 太空军">
+      <div class="ev-when">危机纪元 12 年<em>太空军</em></div>
+      <h2>增援未来</h2>
+      <p>章北海加入“增援未来”计划，与另外三名军官一起进入冬眠，约定在末日之战前夕苏醒。他对外的理由是：未来的战争需要懂历史的人。冬眠前，他把所有能做的事都做完了——三颗陨石子弹，几份关于战舰结构的报告，还有和几位舰队指挥官恰到好处的交情。他没有告诉任何人，他已经在为逃跑做准备。他知道这会被后人称为叛逃，但他更知道，如果没有人逃，人类就真的一个也不剩。</p>
+    </section>
+
+    <section class="event" id="e31" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="大低谷" data-label="危机纪元 20 年 · 地球">
+      <div class="ev-when">危机纪元 20 年<em>地球</em></div>
+      <h2>大低谷</h2>
+      <p>三体危机带来的恐慌、经济崩溃、秩序瓦解，把世界拖进长达六十年的萧条。各国把资源全部投入太空军备，民生被彻底榨干；粮食短缺，城市变成废墟，人们在废墟里种土豆；瘟疫、饥荒、内战轮番上演，全球人口锐减。这是人类自己造成的第二次灾难——敌人还在四光年外，人类先被自己的恐惧压垮了。后来有人总结说，大低谷证明了一件事：一个文明在面对外部威胁时，最可能死于内部。</p>
+      <figure class="ev-fig"><img src="img/inferno.jpg" alt="燃烧的城市与巨日" loading="lazy"><figcaption>大低谷 · 文明倒退的六十年　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e32" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="文艺复兴" data-label="危机纪元 80 年 · 地球">
+      <div class="ev-when">危机纪元 80 年<em>地球</em></div>
+      <h2>文艺复兴</h2>
+      <p>走出大低谷的人类重新振作，喊出那句口号：<span class="hl">“给岁月以文明，而不是给文明以岁月。”</span>意思是，宁可活得短一点，也要活得像个文明，而不是为了活下去把自己变成野兽。随后是技术爆炸式的复兴：太空电梯、地下城、恒星级战舰、基因改造、可控核聚变。人类重新相信自己能赢，媒体开始讨论“舰队到达时我们要怎么庆祝”。而这，恰恰是三体世界最恐惧的东西——技术爆炸。他们不怕现在的人类，只怕四百年后的人类。所以他们才派了智子。</p>
+      <figure class="ev-fig"><img src="img/game-color.jpg" alt="色彩浓烈的抽象风景" loading="lazy"><figcaption>技术爆炸 · 复兴年代　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e33" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="破壁 · 泰勒" data-label="危机纪元 10—50 年">
+      <div class="ev-when">危机纪元 10—50 年<em>联合国</em></div>
+      <h2>破壁 · 泰勒</h2>
+      <p>泰勒的计划听上去像神话：用球状闪电制造“宏原子”，把太空军士兵变成量子态的幽灵，让他们在死后仍然能攻击三体舰队。他为此申请了天文数字的预算，建立了秘密基地。破壁人找到了他，平静地拆穿了这个计划：这支幽灵舰队永远不会存在，因为这个计划从一开始就不是为了赢，而是为了让士兵去送死——泰勒相信，只有让人类付出足够惨烈的代价，才能激起同仇敌忾。计划被公开的第二天，泰勒在联合国广场上开枪自杀。他是第一个被自己的计划杀死的面壁者。</p>
+    
+      <div class="ev-sub"><h3><span>破壁</span>一场三个小时的公开处刑</h3><p>泰勒的破壁人是一个瘦弱的人，在联合国大会上站起来，平静地说了一句：我是泰勒的破壁人。他用三个小时，把泰勒的计划一层一层剥开——那支幽灵舰队永远不会存在，因为量子态的士兵无法被控制，也无法被召回；泰勒真正想做的，是让上万名士兵在实验中死去，用他们的死亡激起全人类的愤怒和同仇敌忾。他说：泰勒先生不是要打赢这场战争，他是要用一场屠杀，让人类愿意去打这场战争。会场安静得能听见空调声。</p></div>
+      <div class="ev-sub"><h3><span>结局</span>广场上的枪声</h3><p>计划被公开的第二天，泰勒在联合国广场上开枪自杀。他留下一句话：我做了我认为正确的事。人类第一次意识到，面壁者的疯狂不是因为他们疯了，而是因为他们比谁都清楚，常规手段赢不了。</p></div></section>
+
+    <section class="event" id="e34" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="破壁 · 雷迪亚兹" data-label="危机纪元 10—50 年">
+      <div class="ev-when">危机纪元 10—50 年<em>联合国</em></div>
+      <h2>破壁 · 雷迪亚兹</h2>
+      <p>雷迪亚兹在水星布置了足以引爆太阳的恒星级氢弹。他的计划不是打赢，而是同归于尽：三体舰队敢来，他就点燃太阳，让整个太阳系变成一座坟墓。他相信，一个不怕死的文明才能吓住敌人。破壁人揭穿他之后，他被召回国内接受审判。他走下飞机时，等待他的是自己的人民——他们用石头砸他，砸了很久。他是第一个被自己保护的人杀死的面壁者。他至死没有辩解，因为他知道，他的计划确实会让这些人死。</p>
+    
+      <div class="ev-sub"><h3><span>破壁</span>一个数字的漏洞</h3><p>雷迪亚兹的破壁人在听证会上，他只用一个事实就拆穿了整个计划：以人类当时的生产能力，雷迪亚兹根本造不出足以引爆太阳的氢弹，他手里的数量远远不够。所以那些氢弹不是武器，是道具——雷迪亚兹要的不是同归于尽，是让三体人相信他敢同归于尽。这是一个虚张声势的赌局。</p></div>
+      <div class="ev-sub"><h3><span>结局</span>石头</h3><p>真相公开后，雷迪亚兹被召回国内接受审判。他走下飞机时，等待他的是几十万愤怒的同胞。他们向他扔石头，砸了很久。他倒在机场的水泥地上，至死没有辩解——因为他知道，他的计划如果成功，死的也会是这些人。</p></div></section>
+
+    <section class="event" id="e35" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="破壁 · 希恩斯" data-label="危机纪元 10—50 年">
+      <div class="ev-when">危机纪元 10—50 年<em>联合国</em></div>
+      <h2>破壁 · 希恩斯</h2>
+      <p>希恩斯发明了“思想钢印”：在人的大脑里打入一个不可动摇的信念，此后无论遇到什么，这个信念都不会动摇。他给太空军士兵打上“人类必胜”。破壁人是他的妻子、日本科学家山杉惠子。她在全世界的注视下揭穿了他真正的目的——那不是胜利的信念，而是逃亡的信念：他要制造一批永远相信“必须逃”的人，让他们在末日之战时驾驶飞船离开。计划被叫停，希恩斯被审判，但钢印族已经存在。多年后，当“自然选择”号驶向深空时，人们才明白他赢了。</p>
+    
+      <div class="ev-sub"><h3><span>破壁</span>妻子走上台</h3><p>希恩斯的破壁人是他的妻子、日本科学家山杉惠子。她在全世界面前走上台，说：我是希恩斯的破壁人。然后她揭示了那个被藏了二十年的秘密：希恩斯给士兵打的钢印不是“人类必胜”，而是“人类必败，必须逃亡”。他要制造一批永远相信逃亡的人，让他们在末日之战时驾驶飞船离开，为人类留下火种。他用胜利的口号，掩盖了一个逃亡的计划。</p></div>
+      <div class="ev-sub"><h3><span>结局</span>钢印族</h3><p>希恩斯的面壁者身份被终止，思想钢印被宣布为非法。但为时已晚——已经有上万名士兵被打上了钢印，他们分散在太空军的各个舰队里，平时和常人无异，一旦触发条件，就会毫不犹豫地选择逃亡。多年后，当“自然选择”号驶向深空时，人们才明白，希恩斯赢了。</p></div></section>
+
+    <section class="event" id="e36" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="只送大脑" data-label="危机纪元 177 年 · PIA">
+      <div class="ev-when">危机纪元 177 年<em>PIA</em></div>
+      <h2>只送大脑</h2>
+      <p>PIA 局长托马斯·维德提出阶梯计划：用一系列核爆推动一艘只有辐射帆的探测器，借三体舰队的航迹飞向敌人。可载荷只有半吨，装不下一个人，也装不下一台像样的设备。会议室里沉默了很久，维德说：只送一个大脑。他的理由冷酷而准确——三体人会对人类的大脑感兴趣，因为它无法被智子读懂；一个活着的大脑，是唯一能穿过智子监视网送进敌人内部的东西。方案通过的那一刻，会议室里没有人说话，所有人都知道，这意味着要有一个活人被取出大脑。</p>
+    </section>
+
+    <section class="event" id="e37" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="阶梯计划" data-label="危机纪元 177 年 · 程心">
+      <div class="ev-when">危机纪元 177 年<em>阶梯计划</em></div>
+      <h2>阶梯计划</h2>
+      <p>云天明是一个即将死于癌症的人。他意外得到一笔巨款，做的唯一一件事，是买下一颗恒星——DX3906——送给程心，他大学时暗恋的女孩，然后签下安乐死同意书。程心找到他时，他正准备走进安乐死舱。她劝他把大脑捐给阶梯计划，说他会成为人类历史上最伟大的人，说她会负责。他答应了，只提了一个条件：你要负责。发射那天，探测器偏离预定航线，消失在深空，人类以为计划失败。程心不知道，他其实被三体舰队截获了——那颗大脑，将在敌人的世界里醒来。</p>
+      <figure class="ev-fig"><img src="img/stair.jpg" alt="黑白画面中的两个人影" loading="lazy"><figcaption>阶梯计划 · 把一个人送进黑暗　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e38" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="苏醒" data-label="危机纪元 205 年 · 冬眠中心">
+      <div class="ev-when">危机纪元 205 年<em>冬眠中心</em></div>
+      <h2>苏醒</h2>
+      <p>罗辑醒来，世界已经变了。187J3X1 早在几十年前就被摧毁，他成了“咒语”的验证者，被尊为神明，画像挂满大街，人们叫他“救世主”。但紧接着，一颗水滴到达太阳系，末日之战爆发，人类舰队全军覆没。人们发现他的咒语救不了自己，一夜之间把他从神坛上扔下来。他走在街上，有人朝他扔石头，骂他是骗子，说那颗恒星本来就要爆炸。他没有辩解，只是回到住处，开始写一份没人愿意看的方案。</p>
+    </section>
+
+    <section class="event" id="e39" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="顿悟" data-label="危机纪元 205 年 · 雪地">
+      <div class="ev-when">危机纪元 205 年<em>太阳轨道</em></div>
+      <h2>顿悟</h2>
+      <p>罗辑在雪地工程的核弹布置图上工作了几个月。某天深夜，他盯着那张图，忽然想通了一件事：宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音。在这片森林里，任何暴露自己存在的生命，都将很快被消灭。而他现在手里握着的，就是那把能让猎人开枪的枪——只要把三体世界的坐标广播出去，三体世界就会被更大的猎人杀死。他需要的不是武器，是一个让对方相信他会开枪的姿态。他在雪地里笑了很久，然后站起来，开始布置那盘棋。</p>
+      <figure class="ev-fig"><img src="img/darkforest.jpg" alt="幽暗森林中透下的光" loading="lazy"><figcaption>黑暗森林 · 每个文明都是带枪的猎人　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e40" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="雪地工程" data-label="危机纪元 205 年 · 太阳轨道">
+      <div class="ev-when">危机纪元 205 年<em>太阳轨道</em></div>
+      <h2>雪地工程</h2>
+      <p>罗辑要求执行“雪地工程”：向太阳轨道发射大量核弹，引爆后形成尘埃云，用来反射光线、显示三体舰队的航迹。这是一个看上去毫无意义的观测项目，耗资巨大，却被批准了——因为人们想给这个“骗子”一点事做，也想让他闭嘴。没有人知道，这些核弹还有另一个用途：它们的位置经过精确计算，一旦同时引爆，尘埃云会包裹太阳，让太阳的电波放大功能失效。而罗辑手里，握着另一件东西：三体世界的坐标。</p>
+    </section>
+
+    <section class="event" id="e41" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="末日之战" data-label="危机纪元 205 年 · 太阳系">
+      <div class="ev-when">危机纪元 205 年<em>太阳系</em></div>
+      <h2>末日之战</h2>
+      <p>一颗形似水滴的探测器抵达太阳系。它的表面光滑得像一面镜子，没有任何武器，也没有任何天线。人类两千艘恒星级战舰列队相迎，以为那是和平的信物，有人已经开始准备欢迎仪式。水滴没有减速。它以锐角转向——那种转向需要的加速度，人类的物理学做不到——然后以撞击为武器，一艘一艘地穿透战舰。不到半小时，整支舰队变成了一条横跨数十万公里的碎片带。太阳被智子封锁，人类失去了最后的火种。只有“量子”号和“青铜时代”号侥幸逃离。</p>
+      <figure class="ev-fig"><img src="img/mantis.jpg" alt="机械臂捕获镜面水滴" loading="lazy"><figcaption>“螳螂”号捕获水滴　图：三体宇宙官方概念图</figcaption></figure>
+    
+      <div class="ev-sub"><h3><span>其一</span>列队</h3><p>人类舰队排成一个整齐的矩形阵列，两千艘恒星级战舰，每艘间距数十公里，像一场阅兵。指挥官的想法是：以整齐的队形展示人类的决心。没有人在意，这样的队形在实战中意味着什么。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>水滴</h3><p>那颗探测器只有卡车大小，表面光滑得像一面镜子，反射率接近百分之百，没有任何武器、天线、推进器。它以锐角转向——那种转向需要的加速度，超过人类已知的任何材料强度。人类这才意识到，它不是来谈判的。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>半小时</h3><p>水滴以撞击为武器，从一艘船穿到另一艘船，速度不减。它不需要爆炸，不需要瞄准要害，只需要穿过。半小时后，两千艘战舰变成一条横跨数十万公里的碎片带，太阳系第三旋臂上多了一圈金属尘埃。</p></div>
+      <div class="ev-sub"><h3><span>其四</span>两艘幸存者</h3><p>“量子”号和“青铜时代”号在编队最外侧，舰长在最后一刻下令进入“深海状态”——全员浸泡在加速液里，承受极限加速，逃离战场。他们是唯一活下来的两艘船，也是后来人类审判的对象。</p></div></section>
+
+    <section class="event" id="e42" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="前进四" data-label="危机纪元 205 年 · 亚洲舰队">
+      <div class="ev-when">危机纪元 205 年<em>亚洲舰队</em></div>
+      <h2>前进四</h2>
+      <p>就在水滴发起攻击前，“自然选择”号突然加速，脱离编队，向深空逃去。执行舰长章北海伪造了一份“最高统帅部命令”，解除了原舰长的指挥权，然后在全舰广播里喊出那四个字：自然选择，前进四。三千名船员在震惊中成为人类最后的火种。四艘战舰紧随其后追了上去——它们不是去阻止他，而是想跟着他一起逃。那一刻，人类终于承认了一件事：正面迎战，是死路。</p>
+    </section>
+
+    <section class="event" id="e43" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="黑暗战役" data-label="危机纪元 205 年 · 星舰地球">
+      <div class="ev-when">危机纪元 205 年<em>星舰地球</em></div>
+      <h2>黑暗战役</h2>
+      <p>五艘战舰在深空中组成了“星舰地球”。他们很快发现一个残酷的事实：燃料和食物只够一艘船飞到下一个恒星系。没有人下令，没有人开会，猜疑链在真空中生效了——谁先动手，谁就能活。“终极规律”号首先发动攻击，随后是一场混战，五艘船互相开火。章北海的“自然选择”号被击穿，他在最后一刻对身边人说：<span class="hl">“没关系的，都一样的。”</span>最后活下来的是“蓝色空间”号。人类第一次在宇宙中实践了黑暗森林法则，而对手是自己人。</p>
+    
+      <div class="ev-sub"><h3><span>其一</span>终极规律号 · 先开火的人</h3><p>五艘船里，它第一个动手。舰长判断：谁先开火，谁就能活。它用次声波氢弹同时攻击另外四艘船——这种武器能杀死船内所有生物，却几乎不损伤船体。一击之后，四艘船变成了四具漂在太空里的棺材，船体完好，物资完好。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>自然选择号 · 章北海之死</h3><p>章北海的船是被第一批击中的。他在警报响起的几秒钟内就明白了一切，没有下令反击，也没有试图逃。他对身边仅剩的几个人说：“没关系的，都一样的。”然后整艘船陷入寂静。他一生都在为人类保留火种，最后死在人类自己手里。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>蓝色空间号 · 装死的人</h3><p>褚岩在战斗开始前就让全员穿上了真空服，关闭了生命维持系统的信号。次声波氢弹打过来时，船里没有活体信号，被判定为已死亡。等终极规律号靠近、准备接管时，蓝色空间号突然启动，反杀。它是唯一活下来的船。</p></div>
+      <div class="ev-sub"><h3><span>其四</span>企业号与深空号</h3><p>两艘船在第一批攻击中就被清空，没有人来得及反应。它们后来被蓝色空间号回收，成了零件和补给。五个舰长、一万多名船员，最后只剩下蓝色空间号上的三千人——这就是星舰地球的全部人口。</p></div></section>
+
+    <div class="era-divider">
+      <span class="era-name">威慑纪元</span>
+      <span class="era-sub">Deterrence Era · 平衡的六十年</span>
+    </div>
+
+    <section class="event" id="e44" style="--c:#2f4a6b"
+      data-color="#2f4a6b" data-era="危机纪元" data-short="执剑人" data-label="危机纪元 208 年 · 太阳轨道">
+      <div class="ev-when">危机纪元 208 年<em>太阳轨道</em></div>
+      <h2>执剑人</h2>
+      <p>罗辑在太阳轨道上引爆了雪地工程的核弹。尘埃云包裹太阳，太阳的电波放大功能失效，但核爆本身产生的电磁辐射，以太阳为中心，向宇宙广播了三体世界的坐标。他对着天空说了一句话：现在，我们可以谈谈了。三体舰队转向了。威慑建立，罗辑成为第一任执剑人。他住进地下深处的控制室，面对一面白墙，手握开关，一守就是五十四年。五十四年里，他没有睡过一个安稳觉，也没有和任何人说过一句真心话。</p>
+    
+      <div class="ev-sub"><h3><span>其一</span>威慑是什么</h3><p>罗辑手里握着的是三体世界的坐标。只要他把坐标广播出去，宇宙中某个更强大的文明就会来清理三体世界——同时，太阳系的坐标也会暴露。所以这不是一件武器，是一根绑在两个文明身上的引线。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>为什么有效</h3><p>因为三体人不想死。他们花了两百多个轮回才走到今天，他们比人类更珍惜自己的文明。罗辑赌的就是这一点：一个不怕死的疯子，能吓住一个不想死的文明。五十四年里，三体舰队一直停在太阳系边缘，没有前进一步。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>代价</h3><p>罗辑住在地下几百米深的控制室里，面对一面白墙，手握开关，每天二十四小时。他不能生病，不能睡着，不能离开。五十四年，他没有和任何人说过一句真心话。世界感谢他，也害怕他——一个能决定两个世界生死的老人，本身就是一种威胁。</p></div></section>
+
+    <section class="event" id="e45" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="和平" data-label="威慑纪元 1 年 · 地球">
+      <div class="ev-when">威慑纪元 1 年<em>地球</em></div>
+      <h2>和平</h2>
+      <p>威慑建立后，三体世界开始向人类输入技术：可控核聚变、基因修复、太空电梯的升级方案。智子也不再随意窥视，人类重新拥有了隐私。世界迅速繁荣起来，树屋、软衣、舒适的地下城，艺术和爱情重新成为生活的主题。人们相信，爱可以解决一切，两个文明可以共存。只有罗辑还坐在那间地下控制室里，手边是那把剑的开关。世界感谢他，也开始害怕他——一个能决定两个世界生死的老人，本身就让人不安。人们开始在私下里说：他太老了，他太冷酷了，他不该再握着那把剑。也是在这六十年里，三体世界通过智子与人类建立了某种日常的联系：智子化身为一个穿着和服的日本女性，出现在会议、谈判、电视上，彬彬有礼，笑容得体。她教人类三体人的礼仪，也学习人类的茶道和诗歌。很多人真的相信，两个文明可以这样一直相处下去。</p>
+    </section>
+
+    <section class="event" id="e46" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="六十年后" data-label="威慑纪元 61 年 · 冬眠中心">
+      <div class="ev-when">威慑纪元 61 年<em>冬眠中心</em></div>
+      <h2>六十年后</h2>
+      <p>程心在威慑纪元 61 年苏醒。她是因为阶梯计划受到辐射损伤而冬眠的，也是为了一个约定：云天明说过，他会在未来等她。她醒来时，世界已经和平了六十年，人们穿着柔软的衣服，住在树屋里，相信爱可以解决一切。她走进城市，看见孩子们在阳光下奔跑，看见情侣在河边接吻，看见没有军队、没有警报的街道。她哭了。有人在旁边轻声说：这一切，都是因为罗辑博士。然后那人又补了一句：可他也该歇歇了。</p>
+      <figure class="ev-fig"><img src="img/awaken.jpg" alt="持剑的女子" loading="lazy"><figcaption>威慑纪元 · 和平的六十年　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e47" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="竞选" data-label="威慑纪元 62 年 · 地下城">
+      <div class="ev-when">威慑纪元 62 年<em>地下城</em></div>
+      <h2>竞选</h2>
+      <p>罗辑要卸任，人类需要一个新的执剑人。候选人里，程心的呼声最高。她的竞选纲领只有两个字：爱。她说，她相信两个文明可以共存，她不会轻易按下那个按钮，因为那意味着两个世界的毁灭。人们被她打动——在一个和平了六十年的世界里，冷酷才是异类，善良才是美德。她以压倒性优势当选。投票结果公布那天，有人在地下城的广场上放了一整夜的烟花。没有人去想一个问题：执剑人需要的，恰恰不是善良。</p>
+    </section>
+
+    <section class="event" id="e48" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="交剑" data-label="威慑纪元 62 年 · 地下城">
+      <div class="ev-when">威慑纪元 62 年<em>地下城</em></div>
+      <h2>交剑</h2>
+      <p>交接仪式在地下深处的控制室举行。罗辑已经一百多岁，走路需要人扶。他把那个小小的发射开关放进程心手里，只说了一句：“孩子，你看。”然后转身走进人群。人群中有人鼓掌，有人流泪，有人小声说“他终于可以休息了”。他走了几步，回头看了一眼那扇门，又继续往前走。五十四年，他每天面对同一面白墙，手里握着两个文明的生死，没有一个人替他分担过一秒。现在，他把剑交出去了。</p>
+    </section>
+
+    <section class="event" id="e49" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="十分钟" data-label="威慑纪元 62 年 · 引力波发射站">
+      <div class="ev-when">威慑纪元 62 年<em>引力波发射站</em></div>
+      <h2>十分钟</h2>
+      <p>程心接过控制权。她坐在那把椅子上，手心出汗。几分钟后，警报响了：十颗水滴同时从不同方向冲向地球。它们的目标不是城市，是分布在全球的引力波发射器。程心的手放在按钮上，只要按下去，三体世界的坐标就会被广播出去，两个文明同归于尽。她想起了那些树屋、那些孩子、那些在阳光下接吻的情侣。她按不下去。十座发射器在几分钟内被逐个摧毁。威慑中止。她坐在椅子上，看着屏幕上跳动的红色警告，什么也做不了。三体世界赌赢了。</p>
+      <figure class="ev-fig"><img src="img/drop-window.jpg" alt="舷窗中的水滴" loading="lazy"><figcaption>水滴逼近 · 威慑失效的那一刻　图：三体宇宙官方概念图</figcaption></figure>
+    </section>
+
+    <section class="event" id="e50" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="大移民" data-label="威慑后数月 · 澳大利亚">
+      <div class="ev-when">威慑后数月<em>澳大利亚</em></div>
+      <h2>大移民</h2>
+      <p>三体世界通过智子向全人类下达命令：所有人迁往澳大利亚，一年内完成。几十亿人被驱赶、被分配、被计数。飞机、轮船、步行，人们带着能带走的一切涌向那片大陆。澳大利亚的每一寸土地都挤满了人，帐篷连成海，配给站前排着几公里的队。程心在人群中，看见一个母亲把孩子举过头顶，让孩子看看这片即将属于别人的土地。有人问她：我们为什么要听他们的？她说：因为我们没有剑了。</p>
+    
+      <div class="ev-sub"><h3><span>其一</span>四十亿人</h3><p>三体世界要求全人类在一年内迁往澳大利亚。四十亿人，带着能带走的一切，涌向那片大陆。飞机、轮船、徒步，路上死了很多人，没有人统计。到达之后，所有人被分配编号，按编号领取配给。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>帐篷城市</h3><p>澳大利亚的城市容纳不下这么多人，人们在郊外搭起帐篷，帐篷连成海，一直延伸到地平线。淡水、食物、药品全部配给，每天排队几公里。有人在帐篷里出生，有人在帐篷里死去，都没有名字，只有编号。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>一句话</h3><p>程心在人群里听见一个母亲对孩子说：别怕，我们只是暂时住在这里。她后来回忆，那是她听过的最残忍的一句话——因为所有人都知道，这不是暂时的，这是永久的。</p></div></section>
+
+    <section class="event" id="e51" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="四维碎片" data-label="威慑后 1 年 · 四维碎片">
+      <div class="ev-when">威慑后 1 年<em>四维碎片</em></div>
+      <h2>四维碎片</h2>
+      <p>在太阳系边缘，“蓝色空间”号和“万有引力”号正在追捕与被追捕。它们误入了一片四维空间碎片——在那里，三维世界的墙壁是敞开的，人能看见飞船内部的每一个零件，也能从外面伸手进去。船员们第一次体会到“上帝视角”：在四维里，三维的一切都是摊开的。他们利用这个优势，从内部摧毁了跟踪他们的水滴——那颗在末日之战中无敌的探测器，在四维空间里只是一张薄纸。</p>
+    
+      <div class="ev-sub"><h3><span>里面</span>上帝视角</h3><p>进入四维空间后，船员们发现三维世界的一切都是敞开的：他们能看见飞船内部的每一个零件、每一根导线，也能把手臂伸进封闭的舱室里取出东西。他们在四维里“看”到了水滴的内部结构——那个在三维世界无坚不摧的探测器，在四维里只是一张薄薄的纸。</p></div>
+      <div class="ev-sub"><h3><span>然后</span>从内部拆掉它</h3><p>他们把手伸进水滴内部，破坏了它的核心。水滴在三维世界里炸开，像一只被从里面戳破的气球。这是人类第一次真正杀死一个三体世界的造物。但四维碎片正在坍塌，他们必须在它消失前回到三维——晚一步，就会被永远留在那个正在收缩的空间里。</p></div></section>
+
+    <section class="event" id="e52" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="引力波广播" data-label="威慑后 1 年 · 万有引力号">
+      <div class="ev-when">威慑后 1 年<em>万有引力号</em></div>
+      <h2>引力波广播</h2>
+      <p>摧毁水滴后，“万有引力”号启动了船上的引力波天线，把三体世界的坐标向宇宙广播出去。这是人类第一次真正意义上的反击。广播发出的那一刻，舰上没有人欢呼，所有人都知道，这意味着三体世界会被毁灭，也意味着太阳系迟早会以同样的方式被毁灭——因为广播的同时，地球的坐标也暴露了。他们救了自己，也把母星推上了名单。</p>
+    </section>
+
+    <section class="event" id="e53" style="--c:#5a3a6b"
+      data-color="#5a3a6b" data-era="威慑纪元" data-short="光粒" data-label="威慑后 4 年 · 三体星系">
+      <div class="ev-when">威慑后 4 年<em>三体星系</em></div>
+      <h2>光粒</h2>
+      <p>四年后，一颗被加速到接近光速的“光粒”穿过三体星系的一颗恒星。恒星炸开，冲击波扫过三颗行星，把它们在烈焰中汽化。曾经拥有一百九十余次文明的三体世界，只剩下远征在外的舰队和少数逃往宇宙深处的飞船。一个文明就这样被抹去，像擦掉黑板上的一行字。地球上的望远镜记录下了全过程：一颗恒星突然变亮，然后消失。人们在屏幕前沉默了很久，因为他们知道，下一个就是自己。但三体世界并没有完全灭绝——在被摧毁之前，他们已经秘密建造了第二舰队，一艘艘光速飞船早已驶向宇宙深处。那个在四光年外挣扎了两百多个轮回的文明，最终以另一种方式活了下来。</p>
+      <figure class="ev-fig"><img src="img/lightgrain.jpg" alt="橙红色星球表面与天空中的天体" loading="lazy"><figcaption>光粒 · 一颗恒星被点燃　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <section class="event" id="e54" style="--c:#1f5d57"
+      data-color="#1f5d57" data-era="广播纪元" data-short="掩体计划" data-label="广播纪元 2 年 · 木星">
+      <div class="ev-when">广播纪元 2 年<em>木星</em></div>
+      <h2>掩体计划</h2>
+      <p>掩体计划动工。人类在木星背后的轨道上建造了几十座太空城，利用木星巨大的体积挡住光粒的直线冲击。城市建在木星的阴影里，永远背对太阳，靠核聚变供能，靠封闭生态循环。工程持续了几十年，耗尽了太阳系最后的资源。人们搬进去，结婚、生子、老去，在一个人造的穹顶下过着平静的生活。他们相信，只要躲在木星背后，就能活下来。没有人愿意去想另一个问题：如果来的不是光粒呢？</p>
+      <figure class="ev-fig"><img src="img/frozen.jpg" alt="漂浮的冰块与岩石" loading="lazy"><figcaption>掩体 · 躲在木星背后的冰封世界　插画：三体艺术插画集</figcaption></figure>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">广播纪元</span>
+      <span class="era-sub">Broadcast Era · 坐标已暴露</span>
+    </div>
+
+    <section class="event" id="e55" style="--c:#1f5d57"
+      data-color="#1f5d57" data-era="广播纪元" data-short="三条路" data-label="广播纪元 1 年 · 地球">
+      <div class="ev-when">广播纪元 1 年<em>地球</em></div>
+      <h2>三条路</h2>
+      <p>三体星系毁灭后，人类知道自己也上了名单。三条路摆在面前：掩体计划，在木星背后建造太空城，用木星挡住光粒的冲击；黑域计划，把太阳系变成低光速黑洞，让光速降到每秒十几公里，任何打击都进不来，代价是永远出不去；光速飞船计划，造出能以光速逃离的船，这是唯一能真正逃生的路，但它产生的航迹可能暴露坐标。前两条被采纳，第三条被立法禁止。人类选择了“躲”，而不是“跑”。</p>
+    
+      <div class="ev-sub"><h3><span>其一</span>掩体计划</h3><p>在木星背后建造几十座太空城，利用木星巨大的体积挡住光粒的直线冲击。工程浩大，但技术上可行，人类最终选择了它。代价是：它只能挡光粒。如果敌人用的是别的东西，掩体就是一口棺材。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>黑域计划</h3><p>把太阳系的光速降低到每秒十几公里，整个星系变成一个低光速黑洞。任何外部打击都进不来，因为进入者也会被减速。代价是：里面的人永远出不去，文明把自己关进了一座监狱，用永恒的囚禁换取安全。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>光速飞船</h3><p>用曲率驱动扭曲飞船后方的空间，让飞船“乘着”空间波前进。这是唯一能真正逃生的方案。但它有一个致命问题：飞船加速时会在空间里留下航迹，像雪地上的脚印，可能暴露母星的坐标。人类因此立法禁止了它。</p></div></section>
+
+    <section class="event" id="e56" style="--c:#1f5d57"
+      data-color="#1f5d57" data-era="广播纪元" data-short="云天明的世界" data-label="广播纪元 7 年 · 三体世界">
+      <div class="ev-when">广播纪元 7 年<em>三体世界</em></div>
+      <h2>云天明的世界</h2>
+      <p>云天明的大脑被三体舰队截获后，三体人把它植入了一具克隆身体，让他活了过来。他被研究、被审问，也被迫讲述人类的一切。他讲《三国演义》，讲《红楼梦》，讲地球上的雨和雪。三体世界的元首喜欢听故事，于是他成了三体文明里唯一的“童话作家”。他在那里生活了几十年，学会了三体人的思维方式，也看见了他们的另一面：一个在死亡线上挣扎了上百次的文明，冷酷、高效，却也会为一句诗沉默很久。他把这些年的观察，全部压缩进了三个童话里。</p>
+    </section>
+
+    <section class="event" id="e57" style="--c:#1f5d57"
+      data-color="#1f5d57" data-era="广播纪元" data-short="三个童话" data-label="广播纪元 7 年 · 拉格朗日点">
+      <div class="ev-when">广播纪元 7 年<em>拉格朗日点</em></div>
+      <h2>三个童话</h2>
+      <p>云天明的大脑被三体人复活、重塑，甚至有了新的身体。他成了三体世界中的一个异类，被允许与地球通话一次。在智子的安排下，他与程心在拉格朗日点相见。他不能明说，因为智子在听，只能讲三个童话：《王国的新画师》，讲一个画师能把立体的东西画进平面的画；《饕餮海》，讲一片海里的人不能上岸，一上岸就会死；《深水王子》，讲一个速度极快、能追上光的人。他把人类唯一的生路藏进了三个孩子的故事里，然后转身离开。程心在返回的飞船上一遍遍复述，生怕忘掉一个字。</p>
+    
+      <div class="ev-sub"><h3><span>其一</span>《王国的新画师》</h3><p>一个王国来了位画师，他的画能把立体的东西画进平面，被画进去的东西再也出不来。国王让他画公主，公主走进画里，再也没有回来。后来整个王国都被画进了那幅画，变成一张没有厚度的图画。人类后来明白：这就是二向箔——把三维空间“画”成二维。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>《饕餮海》</h3><p>一片海里的人不能上岸，上岸就会死。海里有饕餮鱼，会吃掉一切漂浮的东西。主角为了救岛上的人，造了一艘船，却发现船一离开海面就会被鱼群撕碎。所以他们只能留在海里，永远不出去。人类后来明白：这就是黑域——低光速区域里的人一旦出去，就会被外界的光速毁灭。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>《深水王子》</h3><p>一个王子跑得极快，快到能追上光。他追上了一束光，跟着它消失在远方，再也没有回来。人类后来明白：这就是光速飞船——只有以光速飞行，才能逃离黑暗森林的打击。三个故事，三条生路，全都藏在一个将死之人讲的童话里。</p></div></section>
+
+    <section class="event" id="e58" style="--c:#1f5d57"
+      data-color="#1f5d57" data-era="广播纪元" data-short="解读" data-label="广播纪元 8 年 · 地球">
+      <div class="ev-when">广播纪元 8 年<em>地球</em></div>
+      <h2>解读</h2>
+      <p>人类用了很久才读懂那三个童话。画师的“空灵画派”，能把三维的东西画进二维的画——那是二向箔，一种把空间维度降低的武器；饕餮海里不能上岸的鱼，是黑域里的人，一旦出去就会被外界的光速毁灭；深水王子的速度，是光速飞船。三个故事，三条生路。而其中最关键的“光速飞船”，被人类自己立法禁止了。解读报告送到联合国那天，会议室里没有人说话。有人小声说：我们是不是把自己关在了门里？</p>
+    
+      <div class="ev-sub"><h3><span>过程</span>几百个人，几年时间</h3><p>人类组织了几百名专家：文学家分析叙事结构，符号学家拆解意象，物理学家判断哪些概念在理论上成立。最初所有人都以为这只是三个哄孩子的故事，直到有人发现“画进平面”和二维化的数学模型完全吻合。解读持续了几年，每确认一个隐喻，会议室里就沉默一次——因为每确认一个，就意味着人类错过了一条生路。</p></div>
+      <div class="ev-sub"><h3><span>结论</span>三条路，只走了一条</h3><p>最终结论是：画师=二向箔（必须离开三维），饕餮海=黑域（不能出去），深水王子=光速飞船（唯一的逃生方式）。而光速飞船计划，早在几十年前就被人类自己立法禁止了。解读报告的最后一行写着：我们读懂了答案，但答案已经作废。</p></div></section>
+
+    <div class="era-divider">
+      <span class="era-name">掩体纪元</span>
+      <span class="era-sub">Bunker Era · 最后的日常</span>
+    </div>
+
+    <section class="event" id="e59" style="--c:#a8823c"
+      data-color="#a8823c" data-era="掩体纪元" data-short="反物质子弹" data-label="掩体纪元 10 余年 · 星环城">
+      <div class="ev-when">掩体纪元 10 余年<em>星环城</em></div>
+      <h2>反物质子弹</h2>
+      <p>维德没有放弃。他在星环城秘密建造光速飞船，用反物质子弹武装自己，与政府对抗。星环城成了一个独立王国，城墙上是电磁炮，地下是船坞。程心以“圣母”的身份赶到星环城，站在他面前，要求他放弃。她说：你这样做，会毁掉一切，会让人类提前暴露。维德看着她，问了一句：你是认真的吗？程心说是。于是他放下了枪。</p>
+    </section>
+
+    <section class="event" id="e60" style="--c:#a8823c"
+      data-color="#a8823c" data-era="掩体纪元" data-short="维德之死" data-label="掩体纪元 10 余年 · 星环城">
+      <div class="ev-when">掩体纪元 10 余年<em>星环城</em></div>
+      <h2>维德之死</h2>
+      <p>维德在被捕前说了最后一句话：<span class="hl">“失去人性，失去很多；失去兽性，失去一切。”</span>然后他被处决。光速飞船计划就此终止，已经建成的船体被封存。人类放弃了自己唯一的生路，而且是以最善良的名义。程心后来无数次回想那一刻，她始终认为自己做了对的选择——她不能为了逃跑而让几十万人去死。这正是最可怕的地方：她的每一个选择，都符合人类的道德；而人类的道德，在宇宙里是最昂贵的东西。</p>
+    </section>
+
+    <section class="event" id="e61" style="--c:#a8823c"
+      data-color="#a8823c" data-era="掩体纪元" data-short="守墓人" data-label="掩体纪元 60 余年 · 冥王星">
+      <div class="ev-when">掩体纪元 60 余年<em>冥王星</em></div>
+      <h2>守墓人</h2>
+      <p>罗辑成为冥王星地球文明博物馆的守墓人。他把《蒙娜丽莎》从墙上取下来，说这幅画就当是人类的墓碑。他在这里整理人类留下的一切：一幅画、一首诗、一台机器、一个孩子的玩具、一段录音。有人问他，你后悔吗？他说，我只是做了该做的事。一个曾经握着两个文明生死的人，最后的工作是给文明收尸。他每天擦拭那些展柜，等一个不会来的参观者。</p>
+    </section>
+
+    <section class="event" id="e62" style="--c:#a8823c"
+      data-color="#a8823c" data-era="掩体纪元" data-short="歌者" data-label="掩体纪元 66 年 · 歌者文明">
+      <div class="ev-when">掩体纪元 66 年<em>歌者文明</em></div>
+      <h2>歌者</h2>
+      <p>歌者是宇宙中的一个“清理者”，职责是清扫那些暴露了坐标的文明。它每天的工作就是查看星图，标记，然后向长老申请清理许可。太阳系的坐标在它的清单上躺了很久，申请批下来的那天，它甚至有点高兴——这意味着今天的任务很简单。它哼着一首歌，从库存里取出一片二向箔，随手丢向那个星系。在歌者的文明里，这只是一次例行的保洁，成本极低，不需要理由，也不需要向任何人解释。宇宙的残酷不在于恶意，而在于这种彻底的、漫不经心的漠然。</p>
+    </section>
+
+    <section class="event" id="e63" style="--c:#a8823c"
+      data-color="#a8823c" data-era="掩体纪元" data-short="二向箔" data-label="掩体纪元 66 年 · 太阳系">
+      <div class="ev-when">掩体纪元 66 年<em>太阳系</em></div>
+      <h2>二向箔</h2>
+      <p>歌者文明在路过太阳系时，随手向这里丢出了一片二向箔。那是一片只有银行卡大小的透明薄膜，看起来无害，甚至有点漂亮。它落向太阳，然后开始“熨”这个星系：凡是接触到它的三维空间，都会向二维坍缩。歌者甚至没有为这个决定停顿一秒，就像人类踩死一只蚂蚁，不需要理由，也不需要汇报。在宇宙的尺度上，一个文明的灭亡，只是一次例行的清理。</p>
+      <figure class="ev-fig"><img src="img/edge-galaxy.jpg" alt="侧视星系，看起来像被压扁的一张薄片" loading="lazy"><figcaption>侧视星系 · 三维被摊平成二维的样子　图：NASA/JPL-Caltech</figcaption></figure>
+    
+      <div class="ev-sub"><h3><span>其一</span>一片薄膜</h3><p>二向箔是一片被封装的二维空间，只有银行卡大小，透明、柔软，看起来像一片会飘的玻璃纸。它的外面有一层力场封套，一旦封套解除，里面的二维空间就会向外扩散，把接触到的三维空间“吸”进二维。</p></div>
+      <div class="ev-sub"><h3><span>其二</span>逃逸速度</h3><p>二维化的过程不可逆，而且速度越来越快。在二维化的空间里，物体的逃逸速度等于光速——也就是说，只有以光速飞行，才能逃出去。人类的飞船达不到这个速度，所以整个太阳系里，没有一艘船能逃掉。</p></div>
+      <div class="ev-sub"><h3><span>其三</span>一幅画</h3><p>地球先被摊开，海洋变成一片蓝色的平面，大陆的轮廓像墨迹一样散开；然后是木星，它的条纹被拉成一圈圈彩色的涟漪；最后是太阳，变成一张薄薄的金色圆盘。整个太阳系变成一幅没有厚度的画，静静地挂在黑暗里。</p></div></section>
+
+    <section class="event" id="e64" style="--c:#a8823c"
+      data-color="#a8823c" data-era="掩体纪元" data-short="二维化" data-label="掩体纪元 66 年 · 冥王星">
+      <div class="ev-when">掩体纪元 66 年<em>冥王星</em></div>
+      <h2>二维化</h2>
+      <p>太阳系从三维被“熨”成二维。地球、木星、一切，都变成一幅没有厚度的画。罗辑站在冥王星上，看着太阳变成一张薄薄的金色圆盘，看着木星的花纹被摊开成一圈圈彩色的涟漪。程心和艾 AA 乘“星环”号以光速逃离，回头看见整个太阳系正在被摊开，像一幅正在完成的画。那是人类文明最后的肖像：一幅画，挂在一间没有墙的房间里。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">银河纪元</span>
+      <span class="era-sub">Galaxy Era · 时间开始失效</span>
+    </div>
+
+    <section class="event" id="e65" style="--c:#4a4a58"
+      data-color="#4a4a58" data-era="银河纪元" data-short="黑域" data-label="银河纪元 · DX3906">
+      <div class="ev-when">银河纪元<em>DX3906</em></div>
+      <h2>黑域</h2>
+      <p>程心与艾 AA 抵达 DX3906——云天明送给她的那颗星星。她们在那里遇到“万有引力”号的后裔关一帆。就在此时，附近的“死线”扩散，低光速区域包裹了整个星系，DX3906 变成了一座黑域。飞船无法加速到逃逸速度，时间在这里变慢，外面的一秒钟，里面可能是几年。他们被困住了。在这里，他们看见了宇宙的“田园时代”：十维的宇宙曾经像一首诗，光速曾经是无限的，文明之间可以坦然相见。为了活下去，文明一次次把自己关进更低的维度。</p>
+      <figure class="ev-fig"><img src="img/blackhole.jpg" alt="黑洞与其喷流" loading="lazy"><figcaption>黑洞 · 光也逃不出去的边界　图：NASA/JPL-Caltech</figcaption></figure>
+    </section>
+
+    <section class="event" id="e66" style="--c:#4a4a58"
+      data-color="#4a4a58" data-era="银河纪元" data-short="错过" data-label="1890 万年后 · DX3906">
+      <div class="ev-when">1890 万年后<em>DX3906</em></div>
+      <h2>错过</h2>
+      <p>在黑域里，时间几乎静止。等他们出来时，外面已经过去了一千八百九十万年。DX3906 变了，天空变了，连恒星的位置都变了。他们在一块石头上找到了云天明和艾 AA 留下的字：我们度过了幸福的一生。云天明等过程心，等了很久，最后和艾 AA 在一起了。程心与关一帆，成了宇宙里最后两个迟到的人。她在石头前站了很久，然后说：我们走吧。</p>
+    </section>
+
+    <section class="event" id="e67" style="--c:#22222a"
+      data-color="#22222a" data-era="宇宙之外" data-short="归零者" data-label="宇宙之外 · 归零者">
+      <div class="ev-when">宇宙之外<em>回归运动</em></div>
+      <h2>归零者</h2>
+      <p>在宇宙的某个尺度上，一群被称为“归零者”的文明向所有小宇宙发出了广播。他们相信，宇宙原本是十维的田园，是无数文明的战争一次次把维度降低，把质量偷走，才变成今天这副千疮百孔的样子。他们要求所有躲在小宇宙里的文明归还质量，让宇宙重新坍缩、重新爆发，回到那个光速无限、星辰无尽的时代。这是一个近乎宗教的信念，也是一场豪赌：如果质量不够，宇宙会永远膨胀下去，所有文明一起死。程心听到了这段广播，然后看着手里那个五公斤的生态球。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">宇宙之外</span>
+      <span class="era-sub">647 Universe · 归还</span>
+    </div>
+
+    <section class="event" id="e68" style="--c:#22222a"
+      data-color="#22222a" data-era="宇宙之外" data-short="五公斤" data-label="647 号宇宙">
+      <div class="ev-when">647 号宇宙<em>回归运动</em></div>
+      <h2>五公斤</h2>
+      <p>在宇宙之外的 647 号小宇宙里，程心、关一帆与智子重逢。这里有一座房子、一片田野、一个永远不会落下的太阳。回归运动向所有小宇宙广播：宇宙的质量不足，无法坍缩，请归还你们带走的一切。他们决定归还，只留下一个五公斤的生态球——里面有水、有鱼、有一小片草，是程心最后舍不得放下的东西。宇宙是否还能坍缩，是否会重启，没有人知道。故事在这里停住，像一束电波消失在黑暗里。</p>
+      <figure class="ev-fig"><img src="img/nebula.jpg" alt="三叶星云" loading="lazy"><figcaption>三叶星云 · 宇宙重启前的最后一片星云　图：NASA/JPL-Caltech</figcaption></figure>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 68</span>
+        </div>
+        <div class="rail-era" id="railNow">远古 · 无纪年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“给岁月以文明，而不是给文明以岁月。”</p>
+  <p class="tiny">
+    按事件真实发生的先后重排，不分部次，只问先后。<br>
+    部分时间为书中纪元换算所得，取近似值。<br>
+    配图：三体宇宙官方概念图、B 站同人插画、NASA 公共领域图片
+  </p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+</body>
+</html>
