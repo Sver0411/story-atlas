@@ -1,0 +1,224 @@
+{
+  "date": "2026-11-12",
+  "tool": "built-in image_gen",
+  "style": "Use case: illustration-story. Asset type: a single landscape illustration for a Chinese literary science fiction timeline website about The Three-Body Problem. Output one finished 2:1 panoramic image, ideally 1536x768 or wider; no panels, no frame, no title, no lettering, no numerals, no logos, no watermark. Premium painterly science fiction book illustration, realistic architecture and materials, fine restrained brush texture, subtle film grain, enormous sense of scale, disciplined composition, quiet awe rather than generic action poster. Muted charcoal, cold steel blue, warm parchment highlights with a restrained ember accent, naturalistic light. Keep all important objects inside the central 80% so a 2:1 website crop remains readable. ",
+  "images": [
+    {
+      "slug": "red-coast",
+      "event": "e5",
+      "mode": "replace",
+      "alt": "冬日山顶上，钢架支撑的红岸射电天线朝向落日，研究员站在栏杆旁",
+      "caption": "红岸基地 · 向太阳借一只耳朵",
+      "scene": "Red Coast secret radio base in the forested mountains of northeast China in the early 1970s, winter dusk. A huge steerable metal parabolic RADIO DISH on a tall steel truss and industrial support building stands on a rocky mountain summit above dark conifers and snow. It is a constructed military radio telescope pointing toward the low sun, emphatically NOT the modern FAST dish embedded in a valley. A small Chinese woman scientist in a plain olive work coat stands by a railing seen from behind, dwarfed by the instrument. Warm amber light catches the lattice and the last sunlight disappears behind ridges. Somber, isolated, historically grounded. No propaganda text or banners.",
+      "file": "img/generated/red-coast.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "trisolaris-cycle",
+      "event": "e1",
+      "mode": "replace",
+      "alt": "三颗太阳照耀下的荒原上，脱水的人形皮卷与文明遗迹静默相伴",
+      "caption": "乱纪元 · 文明在三颗太阳下等待重生",
+      "scene": "The harsh alien surface of Trisolaris under three distinctly separated suns: one large low amber sun, one smaller white sun and a distant third bright sun. A ruined monumental observatory and layered remnants of successive civilizations stretch into a frozen rocky desert. In the foreground, carefully stacked flattened dry ochre skin rolls on a stone shelf suggest dehydrated alien inhabitants, non-gory, their anatomy ambiguous and emphatically not human corpses. A few small robed figures are carrying the rolls into a stone shelter. Stark landscape, blue frost with amber light, long shadows and scale. Avoid earthlike lush vegetation.",
+      "file": "img/generated/trisolaris-cycle.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "sophon-engineering",
+      "event": "e10",
+      "mode": "replace",
+      "alt": "巨大的二维薄膜笼罩三体行星，表面细密电路正在被蚀刻",
+      "caption": "智子工程 · 在展开的质子上蚀刻电路",
+      "scene": "Sophon engineering above an alien planet: a single gigantic unfolded proton appears as an almost transparent ultra-thin spherical membrane enclosing a planet, the curved edge visible against space. Its near surface is etched with impossibly fine luminous integrated-circuit paths arranged in precise branching geometries, not text. Small fabrication craft provide scale. The planet's horizon and three distant stars are visible THROUGH the translucent film. Convey a planetary-scale computing substrate being etched before folding to subatomic size, no ordinary space probe or rocket as the main subject. Copper traces and delicate ice-blue light against black.",
+      "file": "img/generated/sophon-engineering.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "countdown",
+      "event": "e14",
+      "mode": "add",
+      "alt": "深夜实验室里，科学家透过镜片凝视一道只有自己能看见的幽微光痕",
+      "caption": "倒计时 · 只有一个人能看见的威胁",
+      "scene": "A Chinese nanomaterials scientist in his forties, ordinary dark shirt, alone at a dim early-2000s optics laboratory bench at night, seen in close three-quarter profile. In foreground his camera lens and eyeglasses catch a subtle uncanny amber segmented luminous reflection, suggestive of an intrusive countdown but deliberately illegible and without actual numerals. Behind him, precise optical instruments and a metal laboratory apparatus recede into soft blue darkness. His expression is quiet shock and exhausted concentration. Subtle psychological science-fiction dread, no horror gore, no giant floating digital UI, no glowing cyberpunk eyes.",
+      "file": "img/generated/countdown.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "guzheng-operation",
+      "event": "e18",
+      "mode": "add",
+      "alt": "巴拿马运河中的巨轮穿过横跨两岸的纳米丝，船体开始分层错开",
+      "caption": "古筝行动 · 运河上看不见的琴弦",
+      "scene": "Operation Guzheng in the Panama Canal. A large aging rust-red ocean cargo vessel passes slowly through a narrow straight section of canal between green tropical banks. A series of almost invisible horizontal nanofilament wires, parallel and evenly spaced, are stretched between slim support posts on opposite banks. At the bow, just a few thin layers of steel begin to shear and slip out of alignment while the rear of the ship is still intact. Wide elevated three-quarter perspective looking along the canal, industrial realism, taut stillness before collapse. No ship name, no explosions, no lasers, no visible people being harmed, no blood. Show horizontal slicing rather than a ship cut into two vertical halves.",
+      "file": "img/generated/guzheng-operation.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "wallfacers",
+      "event": "e23",
+      "mode": "replace",
+      "alt": "联合国圆形会场里，四位面壁者在聚光灯下并肩而坐",
+      "caption": "面壁计划 · 四个人，四个无法窥见的世界",
+      "scene": "The Wallfacer appointment inside a vast United Nations-style semicircular assembly chamber in the near future. Four different adult men sit far apart at a long austere wooden table, dwarfed by rows of delegates receding into shadow: a silver-haired Western statesman in a dark suit, a stocky Latin American leader, a lean British scientist with glasses, and a younger slightly disheveled Chinese academic. Seen from the rear-side of the chamber, human figures small relative to the architecture. Narrow warm pools of light isolate the four seats. Quiet political tension and terrible responsibility, no flags with readable symbols, no screens with text, no recognizable actors.",
+      "file": "img/generated/wallfacers.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "orbital-renaissance",
+      "event": "e32",
+      "mode": "replace",
+      "alt": "地球弧线之上，轨道船坞、太空电梯与成列星舰展现复兴中的人类文明",
+      "caption": "复兴年代 · 人类重新仰望星空",
+      "scene": "Human civilization's optimistic orbital renaissance two centuries after the crisis: Earth curves along the lower edge with sunlit clouds and tiny city lights on the terminator. An elegant slender space elevator ribbon rises into a large orbital harbor, several long utilitarian fusion starships are under construction in skeletal dry docks. A few transports give perspective. No battle, no explosions. Majestic but plausible hard-sci-fi engineering, warm sunrise against cool blue Earth, fine metallic textures, an ambitious civilization rebuilding its confidence.",
+      "file": "img/generated/orbital-renaissance.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "staircase-project",
+      "event": "e37",
+      "mode": "replace",
+      "alt": "微小的帆式探测器沿着深空中一连串核爆闪光加速远行",
+      "caption": "阶梯计划 · 把一个大脑送向星海",
+      "scene": "The Staircase Project in deep space: an extremely small scientific probe with a broad, thin metallic radiation sail and a tiny central payload capsule, no person visible. Far behind the sail, a long chain of separated diminishing nuclear-pulse flashes recedes diagonally into distant black space, each flash a discrete amber-white starburst, not a continuous rocket exhaust. The sail catches the light with delicate metallic creases. Emphasize tiny fragile payload versus overwhelming interstellar distance. Solitary and poignant, restrained wide composition, no giant brain or human head floating in space, no near planet, no readable text.",
+      "file": "img/generated/staircase-project.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "doomsday-battle",
+      "event": "e41",
+      "mode": "add",
+      "alt": "微小镜面水滴穿透密集的人类舰队，冷光划过接连破裂的战舰",
+      "caption": "末日之战 · 一滴水，击碎整个舰队",
+      "scene": "The Doomsday Battle in deep black space. Thousands of immense human starships arranged in disciplined parallel rows recede into the distance, their dark angular hulls catching cold sunlight. One tiny perfect mirror-finish droplet shaped object in the close foreground, rounded bulb and tapering tail, brutally simple and utterly smooth. Behind it a line of several ships has been cleanly pierced, with localized incandescent fractures and scattered fragments. The tiny invulnerable droplet contrasts with monumental failing machinery. Cosmic scale and chilling asymmetry; avoid giant fireball filling the image, avoid laser beams and airplane dogfights. The droplet is not liquid water splashing.",
+      "file": "img/generated/doomsday-battle.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "dark-battle",
+      "event": "e43",
+      "mode": "add",
+      "alt": "五艘孤独的星舰散落在深空中，蓝色空间号在无声残骸旁继续远航",
+      "caption": "黑暗战役 · 人类第一次成为彼此的猎人",
+      "scene": "Five isolated enormous human interstellar ships hang far apart in empty deep space, no nearby planet. The nearest survivor is a long steel-blue vessel with dim windows; in the middle distance one intact-looking vessel is dark and lifeless, another has a localized ruptured hull, two others are small silhouettes. A sparse debris field and barely visible amber expanding shock shell imply a battle that has already ended. The scene should feel silent, cold and morally desolate rather than exciting. No external atmosphere, no flames streaming in space, no visible bodies, no text. Strong negative space separates the five vessels.",
+      "file": "img/generated/dark-battle.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "swordholder",
+      "event": "e44",
+      "mode": "add",
+      "alt": "年迈的执剑人独坐地下控制室，手边的开关映出两个文明的命运",
+      "caption": "执剑人 · 一只手，维系两个世界的和平",
+      "scene": "Luo Ji as a middle-aged-to-older Chinese man, seated in profile alone in a deep underground deterrence control room. A small handheld dead-man control rests firmly in his hand on the arm of a plain chair, connected by a short cable; it is emphatically not a sword. The room is almost empty: a large pale concrete wall, one narrow cool light strip, a restrained dim status indicator with no readable UI. No window into space. Compose the man small in a vast oppressive architectural void. Grave calm, isolation and unwavering resolve, warm skin against slate gray shadow, realistic unheroic ordinary face, no famous actor likeness.",
+      "file": "img/generated/swordholder.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "deterrence-city",
+      "event": "e46",
+      "mode": "replace",
+      "alt": "威慑纪元的树形城市里，苏醒的程心站在步道上望向柔和灯火",
+      "caption": "威慑纪元 · 从漫长冬眠中醒来的和平世界",
+      "scene": "A Chinese woman in her early thirties with simple shoulder-length dark hair, plain soft cream clothing, seen from behind on a pedestrian walkway, newly awakened into the peaceful deterrence era. Around her is a vast gentle underground future city, with immense branching TREE-LIKE architectural columns supporting layered homes amid real greenery, translucent walkways and small distant pedestrians. Soft artificial daylight high above creates a serene sky-like canopy. No medieval temples, no mythological figures, no palace costume, no flying car traffic. Painterly architectural realism, humane and beautiful but slightly fragile.",
+      "file": "img/generated/deterrence-city.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "fourth-dimension",
+      "event": "e51",
+      "mode": "add",
+      "alt": "宇航员置身四维碎片中，封闭的飞船与水滴内部层层展开",
+      "caption": "四维碎片 · 封闭的内部，第一次向人类敞开",
+      "scene": "An artistic visualization of entering a FOUR-DIMENSIONAL space fragment: two tiny astronauts on a minimal tether float beside a massive sealed interstellar ship whose overlapping outer hull and nested rooms, mechanical assemblies and cables can all be seen simultaneously, like an impossible continuous cutaway with folded perspectives. In the near foreground a mirror droplet probe appears opened without a physical cut, its concentric internal machinery exposed by the higher-dimensional viewpoint. Subtle geometric transparent folds in dark space, muted violet-blue and pale copper illumination. Clearly conceptual rather than a literal scientific diagram. No magic portal ring, no fantasy runes, no text.",
+      "file": "img/generated/fourth-dimension.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "bunker-cities",
+      "event": "e54",
+      "mode": "replace",
+      "alt": "木星背日面的深空中，多座圆柱太空城排列在巨行星的阴影里",
+      "caption": "掩体计划 · 把城市藏进木星的阴影",
+      "scene": "Bunker Era space cities in the SHADOW of Jupiter. Jupiter is a gigantic mostly dark disk occupying the upper left half, with a thin sunlit amber crescent and faint bands just at the limb; the Sun is hidden BEHIND Jupiter. Several long cylindrical enclosed space habitats with lit longitudinal window bands and ring docking structures float in the foreground darkness, clear three-dimensional engineering and small connecting transport craft. Habitats are in space, not on Jupiter's surface, no ice cave or ground. Cool blue metallic hulls, subtle interior gold, enormous fragile shelters against the planet's night side.",
+      "file": "img/generated/bunker-cities.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "fairy-tales",
+      "event": "e57",
+      "mode": "add",
+      "alt": "一本打开的童话书中，画师的平面王国、饕餮海与深水王子的倒影连成一幅画",
+      "caption": "三个童话 · 把生路藏进故事",
+      "scene": "A single cohesive poetic still life of an open old illustrated storybook on a dark wooden desk, its pages flowing seamlessly into one miniature fairytale landscape: at left a delicate royal painter's easel pulls a distant castle into a completely flat ink painting; in the middle a tiny pale boat crosses a dark sea between sheer cliffs, subtle silver soap-like ripples on the water; at right an immense distant prince-like silhouette rises above the horizon, reflected in the sea, fairy-tale perspective. A small warm reading lamp lights the foreground parchment, deep blue and muted old gold. No legible writing anywhere, no fake alphabets. One scene, not three separate panels. Evoke encoded scientific ideas without diagram labels or exaggerated cartoon characters.",
+      "file": "img/generated/fairy-tales.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "solar-flattening",
+      "event": "e63",
+      "mode": "replace",
+      "alt": "二向箔扩张成巨大的二维平面，太阳与行星的内部纹理被逐层摊开",
+      "caption": "二向箔 · 太阳系成为一幅没有厚度的画",
+      "scene": "The solar system undergoing two-dimensional collapse, a poetic hard science-fiction scene. An immense razor-thin luminous planar sheet cuts diagonally through black space. On the sheet, the Sun has unfolded into concentric golden flat layers like an intricate anatomical cross-section, with Earth's blue continents and Jupiter's colored internal bands stretched into delicate two-dimensional spreading patterns along the same plane. At its advancing edge some small distant planets remain volumetric spheres, contrasting 3D with a truly flat plane. View obliquely at a shallow angle so the sheet has no perceptible thickness. Tiny escaping spacecraft silhouettes near the far edge. Not a side-on galaxy photo, not a black hole, no bright generic nebula background.",
+      "file": "img/generated/solar-flattening.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "black-domain",
+      "event": "e65",
+      "mode": "replace",
+      "alt": "低光速黑域笼罩的恒星系里，一艘飞船悬在暗淡红光与弯曲星光之间",
+      "caption": "黑域 · 把恒星与文明一同封进低光速的牢笼",
+      "scene": "A conceptual illustration of a reduced-light-speed BLACK DOMAIN surrounding the DX3906 star system, NOT an ordinary black hole. A small dim warm red-gold star and its tiny blue-gray planet are enclosed within an immense subtly defined dark spherical boundary. Sparse background starlight is strongly bent and compressed into a faint arc at the boundary. A tiny human spacecraft drifts INSIDE, its engine a faint blue point, unable to escape. Restrained mysterious atmosphere, extreme emptiness and isolation, no bright accretion disk, no astrophysical jets, no wormhole tunnel or magic portal. Quiet contemplative sense of trapped time.",
+      "file": "img/generated/black-domain.jpg",
+      "width": 1536,
+      "height": 768
+    },
+    {
+      "slug": "miniature-universe",
+      "event": "e68",
+      "mode": "replace",
+      "alt": "小宇宙中的麦田、白屋与一只五公斤生态球，在有限的光里保留生命",
+      "caption": "647 号宇宙 · 最后留下的五公斤生命",
+      "scene": "Universe 647, the intimate ending of a vast cosmic story. In the foreground on a simple wooden table stands a small clear round glass ECOSPHERE, realistically only about 20 centimeters across, with water, a few tiny fish, a little aquatic grass and sediment. Its sphere catches soft light. Beyond the table a small plain white house, a modest golden wheat field and a narrow green path occupy a peaceful tiny self-contained landscape. A distant almost imperceptible perfectly straight boundary hints at the finite pocket universe. No giant spectacular galaxy or nebula. The mood is tender, restrained, unresolved; life rather than a confirmed cosmic restart. Warm pale sunlight, muted green and parchment gold, a few leaves moving gently. No people necessary.",
+      "file": "img/generated/miniature-universe.jpg",
+      "width": 1536,
+      "height": 768
+    }
+  ],
+  "encoding": {
+    "format": "JPEG",
+    "quality": 84,
+    "resize_tool": "sips"
+  },
+  "removed_assets": [
+    "img/awaken.jpg",
+    "img/blackhole.jpg",
+    "img/dehydrated.jpg",
+    "img/drop-earth.jpg",
+    "img/edge-galaxy.jpg",
+    "img/frozen.jpg",
+    "img/game-color.jpg",
+    "img/nebula.jpg",
+    "img/sage.jpg",
+    "img/stair.jpg",
+    "img/tianyan.jpg",
+    "img/voyager.jpg"
+  ]
+}

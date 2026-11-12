@@ -5,7 +5,7 @@
 
 ## 页面
 
-- [时间线](https://sver0411.github.io/three-body-timeline/) —— 68 个时间点，20 幅配图
+- [时间线](https://sver0411.github.io/three-body-timeline/) —— 68 个时间点，26 幅配图（18 幅 AI 概念插画）
 - [人物志](https://sver0411.github.io/three-body-timeline/characters.html) —— 32 人、36 条关系，点击任意人物以他为中心重排关系网
 - [精简版](https://sver0411.github.io/three-body-timeline/lite.html) —— 44 个时间点，只看主线
 - [纯文字版](https://sver0411.github.io/three-body-timeline/full.html) —— 68 个时间点，无配图
@@ -18,7 +18,8 @@
 
 ## 说明
 
-单页 HTML，无构建依赖，直接打开即可。配图来自《三体艺术插画集》、三体宇宙官方概念图、
-B 站同人作品与 NASA 公共领域图片，图注中已标注来源，仅作学习与展示用途。
+单页 HTML，无构建依赖，直接打开即可。完整版包含 26 幅配图：18 幅通过内置 image_gen 生成的 AI 概念插画，另有 6 幅《三体艺术插画集》作品与 2 幅三体宇宙官方概念图。所有图片均在图注中标明来源，仅作学习与展示用途。
+
+AI 插画用于情节想象与视觉表达，覆盖红岸、智子工程、古筝行动、面壁计划、阶梯计划、末日之战、黑暗战役、执剑人、四维碎片、掩体城市、三个童话、二维化、黑域和小宇宙等场景。图片位于 `img/generated/`，统一为 1536 × 768 的 JPEG，并使用懒加载；生成提示词及场景清单保存在 [docs/image-generation.json](docs/image-generation.json)。纯文字版仍保留无图阅读形式。
 
 原作：刘慈欣《三体》三部曲
