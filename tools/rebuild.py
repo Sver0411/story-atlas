@@ -49,10 +49,20 @@ QUOTES = {
     'ordinary-world': '即使是最平凡的人，也要为他那个世界的存在而战斗。',
     'border-town': '这个人也许永远不回来了，也许明天回来。',
     'red-poppies': '我听见了尘埃落定的声音。',
+    'muslim-funeral': '玉碎了，月亮还在。',
 }
 
 
 DECOR = {
+'muslim-funeral': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="250" r="76" fill="none" stroke="#8f9aa6" stroke-width="1"/>
+  <path d="M300 174 a76 76 0 0 0 0 152 a58 58 0 0 1 0 -152" fill="none" stroke="#a8b2bc" stroke-width=".5"/>
+  <circle cx="300" cy="250" r="7" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M300 250 l14 -30 M300 250 l-18 -24 M300 250 l4 -34" stroke="#8c3a34" stroke-width=".5"/>
+  <path d="M180 400 H420" stroke="#8f9aa6" stroke-width=".8"/>
+  <path d="M210 400 V360 M240 400 V344 M360 400 V344 M390 400 V360" stroke="#a8b2bc" stroke-width=".5"/>
+  <path d="M120 470 H480" stroke="#b9c2ca" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'red-poppies': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M120 470 L200 340 L280 470" fill="none" stroke="#9c7a63" stroke-width="1"/>
   <path d="M320 470 L400 340 L480 470" fill="none" stroke="#9c7a63" stroke-width="1"/>

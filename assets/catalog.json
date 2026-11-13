@@ -388,5 +388,17 @@
     "events": 22,
     "people": 11,
     "scope": "全本 · 1920—1939"
+  },
+  {
+    "id": "muslim-funeral",
+    "title": "穆斯林的葬礼",
+    "author": "霍达",
+    "category": "中文小说",
+    "description": "玉与月，一个藏了二十年的秘密。",
+    "accent": "#4a5560",
+    "cover": "",
+    "events": 22,
+    "people": 10,
+    "scope": "全本 · 1919—1979"
   }
 ]

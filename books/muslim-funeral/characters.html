@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>穆斯林的葬礼 · 人物志 | 10 个人物</title>
+<meta name="description" content="一块玉，一对母女，一个藏了二十年的秘密。她活了二十三年，最后才知道自己是谁。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+</style>
+<style>
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">霍达 / CHARACTERS</p>
+    <h1 class="big">穆斯林的葬礼 · 人物</h1>
+    <p class="deck">一块玉，一对母女，一个藏了二十年的秘密。她活了二十三年，最后才知道自己是谁。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="韩家">韩家</button><button class="fbtn" data-camp="梁家">梁家</button><button class="fbtn" data-camp="北大">北大</button><button class="fbtn" data-camp="外人">外人</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="穆斯林的葬礼人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="123" text-anchor="middle">韩家</text>
+        <text class="gtag" x="845" y="364" text-anchor="middle">梁家</text>
+        <text class="gtag" x="620" y="595" text-anchor="middle">北大</text>
+        <text class="gtag" x="395" y="370" text-anchor="middle">外人</text></g>
+        <g class="links"><line class="plink" data-a="han" data-b="junbi" x1="620" y1="145" x2="845" y2="386" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="han" data-b="bingyu" x1="620" y1="145" x2="892" y2="467" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="han" data-b="xinyue" x1="620" y1="145" x2="687" y2="193" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="han" data-b="liang_yq" x1="620" y1="145" x2="798" y2="467" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="junbi" data-b="bingyu" x1="845" y1="386" x2="892" y2="467" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="junbi" data-b="xinyue" x1="845" y1="386" x2="687" y2="193" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="bingyu" data-b="xinyue" x1="892" y1="467" x2="687" y2="193" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xinyue" data-b="chu" x1="687" y1="193" x2="620" y2="665" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xinyue" data-b="tianxing" x1="687" y1="193" x2="661" y2="272" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="chu" data-b="junbi" x1="620" y1="665" x2="845" y2="386" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="han" data-b="pu" x1="620" y1="145" x2="395" y2="440" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="liang_yq" data-b="pu" x1="798" y1="467" x2="395" y2="440" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tianxing" data-b="shuyan" x1="661" y1="272" x2="553" y2="193" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="guma" data-b="xinyue" x1="579" y1="272" x2="687" y2="193" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="labels"><text class="rlabel" x="732" y="262" data-a="han" data-b="junbi">夫妻 · 二十年没说实话</text>
+        <text class="rlabel" x="756" y="302" data-a="han" data-b="bingyu">不该发生的一段</text>
+        <text class="rlabel" x="653" y="165" data-a="han" data-b="xinyue">父女 · 他没能护住她</text>
+        <text class="rlabel" x="709" y="302" data-a="han" data-b="liang_yq">师徒 · 一句记了一辈子的话</text>
+        <text class="rlabel" x="868" y="422" data-a="junbi" data-b="bingyu">姐妹 · 一个家两个人</text>
+        <text class="rlabel" x="766" y="286" data-a="junbi" data-b="xinyue">养母 · 养了十七年也恨了十七年</text>
+        <text class="rlabel" x="789" y="326" data-a="bingyu" data-b="xinyue">母女 · 生下就分开</text>
+        <text class="rlabel" x="653" y="425" data-a="xinyue" data-b="chu">相爱 · 没有结果</text>
+        <text class="rlabel" x="674" y="228" data-a="xinyue" data-b="tianxing">兄妹</text>
+        <text class="rlabel" x="732" y="522" data-a="chu" data-b="junbi">被她拦在门外</text>
+        <text class="rlabel" x="508" y="288" data-a="han" data-b="pu">盘了他的铺子</text>
+        <text class="rlabel" x="597" y="450" data-a="liang_yq" data-b="pu">被他逼死</text>
+        <text class="rlabel" x="607" y="228" data-a="tianxing" data-b="shuyan">夫妻</text>
+        <text class="rlabel" x="633" y="228" data-a="guma" data-b="xinyue">看着她长大</text></g>
+        <g class="nodes"><g class="pnode" data-id="han" transform="translate(620,145)"><title>韩子奇 · 玉王 · 奇珍斋主人</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">韩子奇</text></g>
+        <g class="pnode" data-id="junbi" transform="translate(845,386)"><title>梁君璧 · 韩子奇的妻子</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">梁君璧</text></g>
+        <g class="pnode" data-id="bingyu" transform="translate(892,467)"><title>梁冰玉 · 师父的小女儿 · 新月的生母</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">梁冰玉</text></g>
+        <g class="pnode" data-id="xinyue" transform="translate(687,193)"><title>韩新月 · 北大学生</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">韩新月</text></g>
+        <g class="pnode" data-id="chu" transform="translate(620,665)"><title>楚雁潮 · 北大教师</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">楚雁潮</text></g>
+        <g class="pnode" data-id="liang_yq" transform="translate(798,467)"><title>梁亦清 · 玉器师傅</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">梁亦清</text></g>
+        <g class="pnode" data-id="pu" transform="translate(395,440)"><title>蒲绶昌 · 玉器商人</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">蒲绶昌</text></g>
+        <g class="pnode" data-id="tianxing" transform="translate(661,272)"><title>韩天星 · 韩子奇的儿子</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">韩天星</text></g>
+        <g class="pnode" data-id="guma" transform="translate(579,272)"><title>姑妈 · 家里的老仆</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">姑妈</text></g>
+        <g class="pnode" data-id="shuyan" transform="translate(553,193)"><title>陈淑彦 · 天星的妻子</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">陈淑彦</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">韩家</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-han" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>韩子奇</h3></div>
+        <p class="role">玉王 · 奇珍斋主人</p>
+        <p class="deeds">一个孤儿，靠一双手成了北平的玉王。他爱玉，爱到把命都搭进去；他也爱过一个人，爱到把一个家拆了。他这一辈子最怕的两件事，一是玉毁，二是真相被说出来。两件事最后都发生了。</p>
+        <a class="jump" href="index.html#ms01">时间线 · 学徒 →</a>
+      </article>
+      <article class="pcard" id="c-xinyue" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>韩新月</h3></div>
+        <p class="role">北大学生</p>
+        <p class="deeds">在这个家里长大，叫一个不爱她的女人「妈妈」。她考上北大，遇见一个会拉琴的老师，第一次觉得日子是自己的。她二十三岁死在一张病床上，死前知道了一切，也没有怪谁。</p>
+        <a class="jump" href="index.html#ms09">时间线 · 新月 →</a>
+      </article>
+      <article class="pcard" id="c-tianxing" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>韩天星</h3></div>
+        <p class="role">韩子奇的儿子</p>
+        <p class="deeds">新月的哥哥，老实，话少，护着妹妹。他知道家里有些事不对，可他不问。父亲死前托他去看妹妹的墓，他去了，每年都去。</p>
+        <a class="jump" href="index.html#ms13">时间线 · 考上 →</a>
+      </article>
+      <article class="pcard" id="c-guma" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>姑妈</h3></div>
+        <p class="role">家里的老仆</p>
+        <p class="deeds">在韩家做了几十年，做饭、洗衣、看孩子。她什么都知道，什么也不说。新月病重的时候，是她天天熬粥送到医院。她说：这孩子命苦。她说完，自己先哭了。</p>
+        <a class="jump" href="index.html#ms12">时间线 · 长大 →</a>
+      </article>
+      <article class="pcard" id="c-shuyan" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>陈淑彦</h3></div>
+        <p class="role">天星的妻子</p>
+        <p class="deeds">护士，脾气好，进门就照顾一家老小。她替新月擦身、喂药，也替这个家遮了很多事。她说：这家人，谁都不容易。</p>
+        <a class="jump" href="index.html#ms17">时间线 · 病 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">梁家</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-junbi" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>梁君璧</h3></div>
+        <p class="role">韩子奇的妻子</p>
+        <p class="deeds">师父的大女儿，嫁给徒弟，管了一辈子家。她知道丈夫和妹妹的事，忍了二十年，把那个孩子养大，也恨了那个孩子二十年。她不算坏人，她只是一个被辜负了、又不肯认输的人。</p>
+        <a class="jump" href="index.html#ms03">时间线 · 接手 →</a>
+      </article>
+      <article class="pcard" id="c-bingyu" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>梁冰玉</h3></div>
+        <p class="role">师父的小女儿 · 新月的生母</p>
+        <p class="deeds">念过书，想过自由的日子，跟着姐夫去了英国。战争里她抓住了一个人，也毁了一个家。她生下新月，又把她留下，一个人走了。她说：孩子没有错。这句话她信了一辈子。</p>
+        <a class="jump" href="index.html#ms03">时间线 · 接手 →</a>
+      </article>
+      <article class="pcard" id="c-liang_yq" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>梁亦清</h3></div>
+        <p class="role">玉器师傅</p>
+        <p class="deeds">北平最好的玉器匠人，一辈子只做一件事：把玉做成它该有的样子。他做活做到吐血，死在案子上。他留下的那句话，徒弟记了一辈子：玉是有脾气的，你要顺着它。</p>
+        <a class="jump" href="index.html#ms01">时间线 · 学徒 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">北大</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-chu" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>楚雁潮</h3></div>
+        <p class="role">北大教师</p>
+        <p class="deeds">教英语，会拉小提琴，说话慢。他爱上一个有病的学生，被她的母亲拦在门外。他守到她死，守了很多年，最后在她墓前拉了一支曲子。他这一辈子没有结婚。</p>
+        <a class="jump" href="index.html#ms14">时间线 · 楚雁潮 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">外人</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-pu" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>蒲绶昌</h3></div>
+        <p class="role">玉器商人</p>
+        <p class="deeds">精明的生意人，订了活又赖账。他逼死了梁亦清，后来被韩子奇盘了铺子。他一辈子都在算计，算到最后输给了一个学徒。</p>
+        <a class="jump" href="index.html#ms02">时间线 · 一件玉器 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">“玉碎了，月亮还在。”</p>
+  <p class="tiny">穆斯林的葬礼 · 霍达　·　10 位人物，22 个时间点</p>
+  <nav class="foot-nav">
+    <a href="index.html">看时间线</a>
+    <a href="#top">回到开头</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"han": {"name": "韩子奇", "role": "玉王 · 奇珍斋主人", "deeds": "一个孤儿，靠一双手成了北平的玉王。他爱玉，爱到把命都搭进去；他也爱过一个人，爱到把一个家拆了。他这一辈子最怕的两件事，一是玉毁，二是真相被说出来。两件事最后都发生了。", "quote": "", "camp": "韩家", "campKey": "韩家", "color": "#8c2b26", "link": "ms01", "linkName": "学徒", "rel": [["junbi", "梁君璧", "夫妻 · 二十年没说实话"], ["bingyu", "梁冰玉", "不该发生的一段"], ["xinyue", "韩新月", "父女 · 他没能护住她"], ["liang_yq", "梁亦清", "师徒 · 一句记了一辈子的话"], ["pu", "蒲绶昌", "盘了他的铺子"]]}, "junbi": {"name": "梁君璧", "role": "韩子奇的妻子", "deeds": "师父的大女儿，嫁给徒弟，管了一辈子家。她知道丈夫和妹妹的事，忍了二十年，把那个孩子养大，也恨了那个孩子二十年。她不算坏人，她只是一个被辜负了、又不肯认输的人。", "quote": "", "camp": "梁家", "campKey": "梁家", "color": "#7a5a38", "link": "ms03", "linkName": "接手", "rel": [["han", "韩子奇", "夫妻 · 二十年没说实话"], ["bingyu", "梁冰玉", "姐妹 · 一个家两个人"], ["xinyue", "韩新月", "养母 · 养了十七年也恨了十七年"], ["chu", "楚雁潮", "被她拦在门外"]]}, "bingyu": {"name": "梁冰玉", "role": "师父的小女儿 · 新月的生母", "deeds": "念过书，想过自由的日子，跟着姐夫去了英国。战争里她抓住了一个人，也毁了一个家。她生下新月，又把她留下，一个人走了。她说：孩子没有错。这句话她信了一辈子。", "quote": "", "camp": "梁家", "campKey": "梁家", "color": "#7a5a38", "link": "ms03", "linkName": "接手", "rel": [["han", "韩子奇", "不该发生的一段"], ["junbi", "梁君璧", "姐妹 · 一个家两个人"], ["xinyue", "韩新月", "母女 · 生下就分开"]]}, "xinyue": {"name": "韩新月", "role": "北大学生", "deeds": "在这个家里长大，叫一个不爱她的女人「妈妈」。她考上北大，遇见一个会拉琴的老师，第一次觉得日子是自己的。她二十三岁死在一张病床上，死前知道了一切，也没有怪谁。", "quote": "", "camp": "韩家", "campKey": "韩家", "color": "#8c2b26", "link": "ms09", "linkName": "新月", "rel": [["han", "韩子奇", "父女 · 他没能护住她"], ["junbi", "梁君璧", "养母 · 养了十七年也恨了十七年"], ["bingyu", "梁冰玉", "母女 · 生下就分开"], ["chu", "楚雁潮", "相爱 · 没有结果"], ["tianxing", "韩天星", "兄妹"], ["guma", "姑妈", "看着她长大"]]}, "chu": {"name": "楚雁潮", "role": "北大教师", "deeds": "教英语，会拉小提琴，说话慢。他爱上一个有病的学生，被她的母亲拦在门外。他守到她死，守了很多年，最后在她墓前拉了一支曲子。他这一辈子没有结婚。", "quote": "", "camp": "北大", "campKey": "北大", "color": "#2f4a6b", "link": "ms14", "linkName": "楚雁潮", "rel": [["xinyue", "韩新月", "相爱 · 没有结果"], ["junbi", "梁君璧", "被她拦在门外"]]}, "liang_yq": {"name": "梁亦清", "role": "玉器师傅", "deeds": "北平最好的玉器匠人，一辈子只做一件事：把玉做成它该有的样子。他做活做到吐血，死在案子上。他留下的那句话，徒弟记了一辈子：玉是有脾气的，你要顺着它。", "quote": "", "camp": "梁家", "campKey": "梁家", "color": "#7a5a38", "link": "ms01", "linkName": "学徒", "rel": [["han", "韩子奇", "师徒 · 一句记了一辈子的话"], ["pu", "蒲绶昌", "被他逼死"]]}, "pu": {"name": "蒲绶昌", "role": "玉器商人", "deeds": "精明的生意人，订了活又赖账。他逼死了梁亦清，后来被韩子奇盘了铺子。他一辈子都在算计，算到最后输给了一个学徒。", "quote": "", "camp": "外人", "campKey": "外人", "color": "#5a3a6b", "link": "ms02", "linkName": "一件玉器", "rel": [["han", "韩子奇", "盘了他的铺子"], ["liang_yq", "梁亦清", "被他逼死"]]}, "tianxing": {"name": "韩天星", "role": "韩子奇的儿子", "deeds": "新月的哥哥，老实，话少，护着妹妹。他知道家里有些事不对，可他不问。父亲死前托他去看妹妹的墓，他去了，每年都去。", "quote": "", "camp": "韩家", "campKey": "韩家", "color": "#8c2b26", "link": "ms13", "linkName": "考上", "rel": [["xinyue", "韩新月", "兄妹"], ["shuyan", "陈淑彦", "夫妻"]]}, "guma": {"name": "姑妈", "role": "家里的老仆", "deeds": "在韩家做了几十年，做饭、洗衣、看孩子。她什么都知道，什么也不说。新月病重的时候，是她天天熬粥送到医院。她说：这孩子命苦。她说完，自己先哭了。", "quote": "", "camp": "韩家", "campKey": "韩家", "color": "#8c2b26", "link": "ms12", "linkName": "长大", "rel": [["xinyue", "韩新月", "看着她长大"]]}, "shuyan": {"name": "陈淑彦", "role": "天星的妻子", "deeds": "护士，脾气好，进门就照顾一家老小。她替新月擦身、喂药，也替这个家遮了很多事。她说：这家人，谁都不容易。", "quote": "", "camp": "韩家", "campKey": "韩家", "color": "#8c2b26", "link": "ms17", "linkName": "病", "rel": [["tianxing", "韩天星", "夫妻"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>
