@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>龙纹身的女孩 · 人物志 | 15 个人物</title>
+<meta name="description" content="一个身败名裂的记者，一个被国家监护的女孩，一桩四十年没破的失踪案。这座岛上只有三十几个人，凶手就在里面。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+</style>
+<style>
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">斯蒂格·拉森 / CHARACTERS</p>
+    <h1 class="big">龙纹身的女孩 · 人物</h1>
+    <p class="deck">一个身败名裂的记者，一个被国家监护的女孩，一桩四十年没破的失踪案。这座岛上只有三十几个人，凶手就在里面。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="千禧年">千禧年</button><button class="fbtn" data-camp="莎兰德">莎兰德</button><button class="fbtn" data-camp="范耶尔">范耶尔</button><button class="fbtn" data-camp="斯德哥尔摩">斯德哥尔摩</button><button class="fbtn" data-camp="对手">对手</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="龙纹身的女孩人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="120" text-anchor="middle">千禧年</text>
+        <text class="gtag" x="858" y="293" text-anchor="middle">莎兰德</text>
+        <text class="gtag" x="767" y="534" text-anchor="middle">范耶尔</text>
+        <text class="gtag" x="473" y="566" text-anchor="middle">斯德哥尔摩</text>
+        <text class="gtag" x="382" y="293" text-anchor="middle">对手</text></g>
+        <g class="links"><line class="plink" data-a="mikael" data-b="lisbeth" x1="620" y1="142" x2="858" y2="315" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mikael" data-b="erika" x1="620" y1="142" x2="620" y2="238" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mikael" data-b="henrik" x1="620" y1="142" x2="767" y2="556" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mikael" data-b="martin" x1="620" y1="142" x2="834" y2="589" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mikael" data-b="harriet" x1="620" y1="142" x2="851" y2="661" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mikael" data-b="cecilia" x1="620" y1="142" x2="730" y2="720" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mikael" data-b="wennerstrom" x1="620" y1="142" x2="382" y2="363" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lisbeth" data-b="bjurman" x1="858" y1="315" x2="473" y2="588" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lisbeth" data-b="palmgren" x1="858" y1="315" x2="426" y2="669" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lisbeth" data-b="armansky" x1="858" y1="315" x2="520" y2="669" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lisbeth" data-b="miriam" x1="858" y1="315" x2="858" y2="411" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lisbeth" data-b="martin" x1="858" y1="315" x2="834" y2="589" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="henrik" data-b="harriet" x1="767" y1="556" x2="851" y2="661" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="henrik" data-b="martin" x1="767" y1="556" x2="834" y2="589" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="harriet" data-b="gottfried" x1="851" y1="661" x2="804" y2="720" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="harriet" data-b="martin" x1="851" y1="661" x2="834" y2="589" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="harriet" data-b="isabella" x1="851" y1="661" x2="683" y2="661" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="harriet" data-b="anita" x1="851" y1="661" x2="700" y2="589" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="gottfried" data-b="martin" x1="804" y1="720" x2="834" y2="589" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="martin" data-b="isabella" x1="834" y1="589" x2="683" y2="661" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="isabella" data-b="anita" x1="683" y1="661" x2="700" y2="589" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="erika" data-b="wennerstrom" x1="620" y1="238" x2="382" y2="363" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="cecilia" data-b="henrik" x1="730" y1="720" x2="767" y2="556" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="martin" data-b="cecilia" x1="834" y1="589" x2="730" y2="720" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="labels"><text class="rlabel" x="739" y="224" data-a="mikael" data-b="lisbeth">委托人 · 搭档</text>
+        <text class="rlabel" x="620" y="186" data-a="mikael" data-b="erika">同事 · 情人</text>
+        <text class="rlabel" x="693" y="345" data-a="mikael" data-b="henrik">雇主 · 忘年交</text>
+        <text class="rlabel" x="727" y="361" data-a="mikael" data-b="martin">差一点死在他手里</text>
+        <text class="rlabel" x="735" y="398" data-a="mikael" data-b="harriet">找到她的人</text>
+        <text class="rlabel" x="675" y="427" data-a="mikael" data-b="cecilia">岛上的一段</text>
+        <text class="rlabel" x="501" y="248" data-a="mikael" data-b="wennerstrom">被他陷害</text>
+        <text class="rlabel" x="665" y="448" data-a="lisbeth" data-b="bjurman">监护人 · 报复</text>
+        <text class="rlabel" x="642" y="488" data-a="lisbeth" data-b="palmgren">唯一对她好的人</text>
+        <text class="rlabel" x="689" y="488" data-a="lisbeth" data-b="armansky">老板</text>
+        <text class="rlabel" x="858" y="359" data-a="lisbeth" data-b="miriam">朋友</text>
+        <text class="rlabel" x="846" y="448" data-a="lisbeth" data-b="martin">撞死他的人</text>
+        <text class="rlabel" x="809" y="605" data-a="henrik" data-b="harriet">叔叔与侄女 · 等了三十七年</text>
+        <text class="rlabel" x="801" y="568" data-a="henrik" data-b="martin">族人</text>
+        <text class="rlabel" x="828" y="687" data-a="harriet" data-b="gottfried">父女 · 杀父</text>
+        <text class="rlabel" x="842" y="621" data-a="harriet" data-b="martin">兄妹 · 共谋</text>
+        <text class="rlabel" x="767" y="657" data-a="harriet" data-b="isabella">母女</text>
+        <text class="rlabel" x="775" y="621" data-a="harriet" data-b="anita">姐妹</text>
+        <text class="rlabel" x="819" y="650" data-a="gottfried" data-b="martin">父子</text>
+        <text class="rlabel" x="759" y="621" data-a="martin" data-b="isabella">母子</text>
+        <text class="rlabel" x="691" y="621" data-a="isabella" data-b="anita">母女</text>
+        <text class="rlabel" x="501" y="296" data-a="erika" data-b="wennerstrom">报道的对象</text>
+        <text class="rlabel" x="748" y="634" data-a="cecilia" data-b="henrik">叔侄</text>
+        <text class="rlabel" x="782" y="650" data-a="martin" data-b="cecilia">堂兄妹</text></g>
+        <g class="nodes"><g class="pnode" data-id="mikael" transform="translate(620,142)"><title>米卡尔·布隆维斯特 · 《千禧年》记者</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">布隆维斯特</text></g>
+        <g class="pnode" data-id="lisbeth" transform="translate(858,315)"><title>莉丝贝特·莎兰德 · 调查员 · 黑客</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">莎兰德</text></g>
+        <g class="pnode" data-id="henrik" transform="translate(767,556)"><title>亨里克·范耶尔 · 范耶尔集团前总裁</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">范耶尔</text></g>
+        <g class="pnode" data-id="martin" transform="translate(834,589)"><title>马丁·范耶尔 · 范耶尔集团总裁</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">范耶尔</text></g>
+        <g class="pnode" data-id="harriet" transform="translate(851,661)"><title>哈丽特·范耶尔 · 失踪者</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">范耶尔</text></g>
+        <g class="pnode" data-id="gottfried" transform="translate(804,720)"><title>戈特弗里德·范耶尔 · 哈丽特的父亲</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">范耶尔</text></g>
+        <g class="pnode" data-id="cecilia" transform="translate(730,720)"><title>塞西莉亚·范耶尔 · 亨里克的侄女</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">范耶尔</text></g>
+        <g class="pnode" data-id="isabella" transform="translate(683,661)"><title>伊莎贝拉·范耶尔 · 哈丽特的母亲</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">范耶尔</text></g>
+        <g class="pnode" data-id="anita" transform="translate(700,589)"><title>阿妮塔·范耶尔 · 哈丽特的妹妹</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">范耶尔</text></g>
+        <g class="pnode" data-id="bjurman" transform="translate(473,588)"><title>尼尔斯·毕尔曼 · 莎兰德的监护人 · 律师</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">毕尔曼</text></g>
+        <g class="pnode" data-id="armansky" transform="translate(520,669)"><title>德拉根·阿曼斯基 · 米尔顿安保老板</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">阿曼斯基</text></g>
+        <g class="pnode" data-id="palmgren" transform="translate(426,669)"><title>霍格尔·帕尔姆格伦 · 莎兰德的前监护人</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">帕尔姆格伦</text></g>
+        <g class="pnode" data-id="erika" transform="translate(620,238)"><title>埃里卡·贝里 · 《千禧年》主编</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贝里</text></g>
+        <g class="pnode" data-id="wennerstrom" transform="translate(382,363)"><title>汉斯-埃里克·温纳斯壮 · 金融家</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">温纳斯壮</text></g>
+        <g class="pnode" data-id="miriam" transform="translate(858,411)"><title>米莉安·吴 · 莎兰德的朋友</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">吴</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">千禧年</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-mikael" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>米卡尔·布隆维斯特</h3></div>
+        <p class="role">《千禧年》记者</p>
+        <p class="deeds">做财经报道出了名，也因为一篇报道栽了跟头。他被判刑、被嘲笑、被同行当成笑话，然后接了一个北方老头的委托，去查一桩四十年前的失踪案。他这个人有个毛病：别人说结了的案子，他总想再翻一遍。</p>
+        <a class="jump" href="index.html#lg1">时间线 · 败诉 →</a>
+      </article>
+      <article class="pcard" id="c-erika" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>埃里卡·贝里</h3></div>
+        <p class="role">《千禧年》主编</p>
+        <p class="deeds">布隆维斯特的老搭档，也是他多年的情人。她结了婚，丈夫知道，也不介意。她说：我不需要一张纸。她说这话的时候很坦然。杂志差点倒闭那阵子，是她把自己的房子抵了出去。</p>
+        <a class="jump" href="index.html#lg1">时间线 · 败诉 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">莎兰德</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-lisbeth" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>莉丝贝特·莎兰德</h3></div>
+        <p class="role">调查员 · 黑客</p>
+        <p class="deeds">瘦小，不说话，全身纹身，记忆好得像照相机。她十二岁被关进精神病院，二十四岁还在被人监护。她有一套自己的是非观：谁伤害女人，她就伤害谁。她帮布隆维斯特翻了案，也在自己的监护人身上留了四行洗不掉的刺青。</p>
+        <a class="jump" href="index.html#lg7">时间线 · 一份报告 →</a>
+      </article>
+      <article class="pcard" id="c-miriam" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>米莉安·吴</h3></div>
+        <p class="role">莎兰德的朋友</p>
+        <p class="deeds">在快餐店打工，十八岁，父母是越南移民。她跟莎兰德认识多年，知道她的脾气，也不问她的事。她被一个男人打过一次，那个男人后来在医院躺了两个月。她说：我不想知道是谁干的。</p>
+        <a class="jump" href="index.html#lg9">时间线 · 那一夜 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">范耶尔</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-henrik" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>亨里克·范耶尔</h3></div>
+        <p class="role">范耶尔集团前总裁</p>
+        <p class="deeds">八十多岁，管过一个工业帝国，退休后把全部精力用来找一个人。他在这座岛上住了五十年，认识每一块石头。他每年生日都收到一朵压花，收了几十年。他说：我不是要复仇，我只是想知道她怎么死的。后来他知道她还活着。</p>
+        <a class="jump" href="index.html#lg2">时间线 · 一个电话 →</a>
+      </article>
+      <article class="pcard" id="c-martin" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>马丁·范耶尔</h3></div>
+        <p class="role">范耶尔集团总裁</p>
+        <p class="deeds">哈丽特的哥哥，表面上是体面的企业家，家里挂着现代画，说话温和。地下室里有一张金属台和一本相册。他杀了至少六个人，都是女人。他最后开车撞向山壁，车烧了起来。他死前说的最后一句话是：她不一样。</p>
+        <a class="jump" href="index.html#lg11">时间线 · 远处的窗户 →</a>
+      </article>
+      <article class="pcard" id="c-harriet" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>哈丽特·范耶尔</h3></div>
+        <p class="role">失踪者</p>
+        <p class="deeds">十六岁那年从岛上消失，全瑞典找了她四十年。她其实没有死——那天她反抗了父亲，用一把刀。哥哥帮她处理了尸体，把她送出国。她在澳大利亚种地，改名换姓，活得很好。她后来回来看亨里克，只说了一句：叔叔。</p>
+        <a class="jump" href="index.html#lg4">时间线 · 1966 年 9 月 24 日 →</a>
+      </article>
+      <article class="pcard" id="c-gottfried" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>戈特弗里德·范耶尔</h3></div>
+        <p class="role">哈丽特的父亲</p>
+        <p class="deeds">范耶尔家的长子，喝酒，打猎，对女儿做了不该做的事。1966 年那天他又一次进了女儿的房间，那一次她手里有刀。他死在那个房间里，尸体被儿子处理掉了。家族对外说他早就死了，死因是意外。</p>
+        <a class="jump" href="index.html#lg18">时间线 · 哈丽特还活着 →</a>
+      </article>
+      <article class="pcard" id="c-cecilia" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>塞西莉亚·范耶尔</h3></div>
+        <p class="role">亨里克的侄女</p>
+        <p class="deeds">四十多岁，离过婚，住在岛上，管着一间小画廊。她是布隆维斯特在岛上唯一的温暖，也是他唯一怀疑过的人——因为她说过一句不该说的话。她后来承认，她只是想让这个故事有人听。</p>
+        <a class="jump" href="index.html#lg3">时间线 · 冰上的桥 →</a>
+      </article>
+      <article class="pcard" id="c-isabella" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>伊莎贝拉·范耶尔</h3></div>
+        <p class="role">哈丽特的母亲</p>
+        <p class="deeds">长得很美，一辈子活在自己的世界里。女儿失踪那天，她在聚会的人群里，穿着最好的衣服。警察问她最后一次见到女儿是什么时候，她说了三个不同的时间。她后来搬去了法国，再没回来过。</p>
+        <a class="jump" href="index.html#lg4">时间线 · 1966 年 9 月 24 日 →</a>
+      </article>
+      <article class="pcard" id="c-anita" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>阿妮塔·范耶尔</h3></div>
+        <p class="role">哈丽特的妹妹</p>
+        <p class="deeds">姐姐失踪那年她十四岁。她后来搬到伦敦，改了姓，不跟家里来往。布隆维斯特找到她的时候，她说：那个家里的事，我一件都不想知道。她说这话的时候手在抖。她知道一些事，只是不敢说。</p>
+        <a class="jump" href="index.html#lg4">时间线 · 1966 年 9 月 24 日 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">斯德哥尔摩</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-bjurman" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>尼尔斯·毕尔曼</h3></div>
+        <p class="role">莎兰德的监护人 · 律师</p>
+        <p class="deeds">律师，离婚，一个人住。他接手莎兰德的监护权，第一件事就是拿钱要挟她。他以为自己遇到的是一个不会说话的女孩。第二次见面，他被电击枪放倒，绑在椅子上，肚子上多了四行刺青。他后来每周按时给她打钱。</p>
+        <a class="jump" href="index.html#lg8">时间线 · 监护人 →</a>
+      </article>
+      <article class="pcard" id="c-armansky" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>德拉根·阿曼斯基</h3></div>
+        <p class="role">米尔顿安保老板</p>
+        <p class="deeds">从南斯拉夫来的移民，白手起家开了一家安保公司。他手下有一百多号人，最信任的是那个最不像员工的女孩。他说：她是我见过的最好的调查员，也是最难管的一个。她走的时候，他没有拦，只说了一句：想回来就回来。</p>
+        <a class="jump" href="index.html#lg7">时间线 · 一份报告 →</a>
+      </article>
+      <article class="pcard" id="c-palmgren" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>霍格尔·帕尔姆格伦</h3></div>
+        <p class="role">莎兰德的前监护人</p>
+        <p class="deeds">老律师，教莎兰德下棋，也教她怎么跟这个世界打交道。他中风以后，她的监护权落到了毕尔曼手里。她后来去看他，他坐在轮椅上，说不出话，握着她的手，在她掌心写了一个字：跑。</p>
+        <a class="jump" href="index.html#lg8">时间线 · 监护人 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#1f5d57">对手</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-wennerstrom" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>汉斯-埃里克·温纳斯壮</h3></div>
+        <p class="role">金融家</p>
+        <p class="deeds">瑞典最有钱的人之一，做的是「工业投资」，实际上是把公家的钱转到自己名下。他陷害布隆维斯特，用的是别人的手和一份伪造的证据。他被一篇报道打垮，公司一个月内破产。他后来在西班牙被捕。</p>
+        <a class="jump" href="index.html#lg1">时间线 · 败诉 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">“恨女人的男人。”</p>
+  <p class="tiny">龙纹身的女孩 · 斯蒂格·拉森　·　15 位人物，24 个时间点</p>
+  <nav class="foot-nav">
+    <a href="index.html">看时间线</a>
+    <a href="#top">回到开头</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"mikael": {"name": "米卡尔·布隆维斯特", "role": "《千禧年》记者", "deeds": "做财经报道出了名，也因为一篇报道栽了跟头。他被判刑、被嘲笑、被同行当成笑话，然后接了一个北方老头的委托，去查一桩四十年前的失踪案。他这个人有个毛病：别人说结了的案子，他总想再翻一遍。", "quote": "", "camp": "千禧年", "campKey": "千禧年", "color": "#8c2b26", "link": "lg1", "linkName": "败诉", "rel": [["lisbeth", "莉丝贝特·莎兰德", "委托人 · 搭档"], ["erika", "埃里卡·贝里", "同事 · 情人"], ["henrik", "亨里克·范耶尔", "雇主 · 忘年交"], ["martin", "马丁·范耶尔", "差一点死在他手里"], ["harriet", "哈丽特·范耶尔", "找到她的人"], ["cecilia", "塞西莉亚·范耶尔", "岛上的一段"], ["wennerstrom", "汉斯-埃里克·温纳斯壮", "被他陷害"]]}, "lisbeth": {"name": "莉丝贝特·莎兰德", "role": "调查员 · 黑客", "deeds": "瘦小，不说话，全身纹身，记忆好得像照相机。她十二岁被关进精神病院，二十四岁还在被人监护。她有一套自己的是非观：谁伤害女人，她就伤害谁。她帮布隆维斯特翻了案，也在自己的监护人身上留了四行洗不掉的刺青。", "quote": "黄蜂", "camp": "莎兰德", "campKey": "莎兰德", "color": "#7a5a38", "link": "lg7", "linkName": "一份报告", "rel": [["mikael", "米卡尔·布隆维斯特", "委托人 · 搭档"], ["bjurman", "尼尔斯·毕尔曼", "监护人 · 报复"], ["palmgren", "霍格尔·帕尔姆格伦", "唯一对她好的人"], ["armansky", "德拉根·阿曼斯基", "老板"], ["miriam", "米莉安·吴", "朋友"], ["martin", "马丁·范耶尔", "撞死他的人"]]}, "henrik": {"name": "亨里克·范耶尔", "role": "范耶尔集团前总裁", "deeds": "八十多岁，管过一个工业帝国，退休后把全部精力用来找一个人。他在这座岛上住了五十年，认识每一块石头。他每年生日都收到一朵压花，收了几十年。他说：我不是要复仇，我只是想知道她怎么死的。后来他知道她还活着。", "quote": "", "camp": "范耶尔", "campKey": "范耶尔", "color": "#2f4a6b", "link": "lg2", "linkName": "一个电话", "rel": [["mikael", "米卡尔·布隆维斯特", "雇主 · 忘年交"], ["harriet", "哈丽特·范耶尔", "叔叔与侄女 · 等了三十七年"], ["martin", "马丁·范耶尔", "族人"], ["cecilia", "塞西莉亚·范耶尔", "叔侄"]]}, "martin": {"name": "马丁·范耶尔", "role": "范耶尔集团总裁", "deeds": "哈丽特的哥哥，表面上是体面的企业家，家里挂着现代画，说话温和。地下室里有一张金属台和一本相册。他杀了至少六个人，都是女人。他最后开车撞向山壁，车烧了起来。他死前说的最后一句话是：她不一样。", "quote": "", "camp": "范耶尔", "campKey": "范耶尔", "color": "#2f4a6b", "link": "lg11", "linkName": "远处的窗户", "rel": [["mikael", "米卡尔·布隆维斯特", "差一点死在他手里"], ["lisbeth", "莉丝贝特·莎兰德", "撞死他的人"], ["henrik", "亨里克·范耶尔", "族人"], ["harriet", "哈丽特·范耶尔", "兄妹 · 共谋"], ["gottfried", "戈特弗里德·范耶尔", "父子"], ["isabella", "伊莎贝拉·范耶尔", "母子"], ["cecilia", "塞西莉亚·范耶尔", "堂兄妹"]]}, "harriet": {"name": "哈丽特·范耶尔", "role": "失踪者", "deeds": "十六岁那年从岛上消失，全瑞典找了她四十年。她其实没有死——那天她反抗了父亲，用一把刀。哥哥帮她处理了尸体，把她送出国。她在澳大利亚种地，改名换姓，活得很好。她后来回来看亨里克，只说了一句：叔叔。", "quote": "", "camp": "范耶尔", "campKey": "范耶尔", "color": "#2f4a6b", "link": "lg4", "linkName": "1966 年 9 月 24 日", "rel": [["mikael", "米卡尔·布隆维斯特", "找到她的人"], ["henrik", "亨里克·范耶尔", "叔叔与侄女 · 等了三十七年"], ["gottfried", "戈特弗里德·范耶尔", "父女 · 杀父"], ["martin", "马丁·范耶尔", "兄妹 · 共谋"], ["isabella", "伊莎贝拉·范耶尔", "母女"], ["anita", "阿妮塔·范耶尔", "姐妹"]]}, "gottfried": {"name": "戈特弗里德·范耶尔", "role": "哈丽特的父亲", "deeds": "范耶尔家的长子，喝酒，打猎，对女儿做了不该做的事。1966 年那天他又一次进了女儿的房间，那一次她手里有刀。他死在那个房间里，尸体被儿子处理掉了。家族对外说他早就死了，死因是意外。", "quote": "", "camp": "范耶尔", "campKey": "范耶尔", "color": "#2f4a6b", "link": "lg18", "linkName": "哈丽特还活着", "rel": [["harriet", "哈丽特·范耶尔", "父女 · 杀父"], ["martin", "马丁·范耶尔", "父子"]]}, "cecilia": {"name": "塞西莉亚·范耶尔", "role": "亨里克的侄女", "deeds": "四十多岁，离过婚，住在岛上，管着一间小画廊。她是布隆维斯特在岛上唯一的温暖，也是他唯一怀疑过的人——因为她说过一句不该说的话。她后来承认，她只是想让这个故事有人听。", "quote": "", "camp": "范耶尔", "campKey": "范耶尔", "color": "#2f4a6b", "link": "lg3", "linkName": "冰上的桥", "rel": [["mikael", "米卡尔·布隆维斯特", "岛上的一段"], ["henrik", "亨里克·范耶尔", "叔侄"], ["martin", "马丁·范耶尔", "堂兄妹"]]}, "isabella": {"name": "伊莎贝拉·范耶尔", "role": "哈丽特的母亲", "deeds": "长得很美，一辈子活在自己的世界里。女儿失踪那天，她在聚会的人群里，穿着最好的衣服。警察问她最后一次见到女儿是什么时候，她说了三个不同的时间。她后来搬去了法国，再没回来过。", "quote": "", "camp": "范耶尔", "campKey": "范耶尔", "color": "#2f4a6b", "link": "lg4", "linkName": "1966 年 9 月 24 日", "rel": [["harriet", "哈丽特·范耶尔", "母女"], ["martin", "马丁·范耶尔", "母子"], ["anita", "阿妮塔·范耶尔", "母女"]]}, "anita": {"name": "阿妮塔·范耶尔", "role": "哈丽特的妹妹", "deeds": "姐姐失踪那年她十四岁。她后来搬到伦敦，改了姓，不跟家里来往。布隆维斯特找到她的时候，她说：那个家里的事，我一件都不想知道。她说这话的时候手在抖。她知道一些事，只是不敢说。", "quote": "", "camp": "范耶尔", "campKey": "范耶尔", "color": "#2f4a6b", "link": "lg4", "linkName": "1966 年 9 月 24 日", "rel": [["harriet", "哈丽特·范耶尔", "姐妹"], ["isabella", "伊莎贝拉·范耶尔", "母女"]]}, "bjurman": {"name": "尼尔斯·毕尔曼", "role": "莎兰德的监护人 · 律师", "deeds": "律师，离婚，一个人住。他接手莎兰德的监护权，第一件事就是拿钱要挟她。他以为自己遇到的是一个不会说话的女孩。第二次见面，他被电击枪放倒，绑在椅子上，肚子上多了四行刺青。他后来每周按时给她打钱。", "quote": "", "camp": "斯德哥尔摩", "campKey": "斯德哥尔摩", "color": "#5a3a6b", "link": "lg8", "linkName": "监护人", "rel": [["lisbeth", "莉丝贝特·莎兰德", "监护人 · 报复"]]}, "armansky": {"name": "德拉根·阿曼斯基", "role": "米尔顿安保老板", "deeds": "从南斯拉夫来的移民，白手起家开了一家安保公司。他手下有一百多号人，最信任的是那个最不像员工的女孩。他说：她是我见过的最好的调查员，也是最难管的一个。她走的时候，他没有拦，只说了一句：想回来就回来。", "quote": "", "camp": "斯德哥尔摩", "campKey": "斯德哥尔摩", "color": "#5a3a6b", "link": "lg7", "linkName": "一份报告", "rel": [["lisbeth", "莉丝贝特·莎兰德", "老板"]]}, "palmgren": {"name": "霍格尔·帕尔姆格伦", "role": "莎兰德的前监护人", "deeds": "老律师，教莎兰德下棋，也教她怎么跟这个世界打交道。他中风以后，她的监护权落到了毕尔曼手里。她后来去看他，他坐在轮椅上，说不出话，握着她的手，在她掌心写了一个字：跑。", "quote": "", "camp": "斯德哥尔摩", "campKey": "斯德哥尔摩", "color": "#5a3a6b", "link": "lg8", "linkName": "监护人", "rel": [["lisbeth", "莉丝贝特·莎兰德", "唯一对她好的人"]]}, "erika": {"name": "埃里卡·贝里", "role": "《千禧年》主编", "deeds": "布隆维斯特的老搭档，也是他多年的情人。她结了婚，丈夫知道，也不介意。她说：我不需要一张纸。她说这话的时候很坦然。杂志差点倒闭那阵子，是她把自己的房子抵了出去。", "quote": "", "camp": "千禧年", "campKey": "千禧年", "color": "#8c2b26", "link": "lg1", "linkName": "败诉", "rel": [["mikael", "米卡尔·布隆维斯特", "同事 · 情人"], ["wennerstrom", "汉斯-埃里克·温纳斯壮", "报道的对象"]]}, "wennerstrom": {"name": "汉斯-埃里克·温纳斯壮", "role": "金融家", "deeds": "瑞典最有钱的人之一，做的是「工业投资」，实际上是把公家的钱转到自己名下。他陷害布隆维斯特，用的是别人的手和一份伪造的证据。他被一篇报道打垮，公司一个月内破产。他后来在西班牙被捕。", "quote": "", "camp": "对手", "campKey": "对手", "color": "#1f5d57", "link": "lg1", "linkName": "败诉", "rel": [["mikael", "米卡尔·布隆维斯特", "被他陷害"], ["erika", "埃里卡·贝里", "报道的对象"]]}, "miriam": {"name": "米莉安·吴", "role": "莎兰德的朋友", "deeds": "在快餐店打工，十八岁，父母是越南移民。她跟莎兰德认识多年，知道她的脾气，也不问她的事。她被一个男人打过一次，那个男人后来在医院躺了两个月。她说：我不想知道是谁干的。", "quote": "", "camp": "莎兰德", "campKey": "莎兰德", "color": "#7a5a38", "link": "lg9", "linkName": "那一夜", "rel": [["lisbeth", "莉丝贝特·莎兰德", "朋友"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

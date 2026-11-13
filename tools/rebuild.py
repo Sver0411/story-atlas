@@ -30,10 +30,23 @@ QUOTES = {
     'orient-express': '我荣幸地退出这个案子。',
     'long-goodbye': '说一声再见，就是死去一点点。',
     'sherlock': '排除一切不可能，剩下的即使再不可能，也是真相。',
+    'millennium': '恨女人的男人。',
 }
 
 
 DECOR = {
+'millennium': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g fill="none" stroke="#8d97a1" stroke-width="1.1">
+    <path d="M300 300 m0 -14 a14 14 0 1 1 -14 14 a28 28 0 1 1 28 -28 a42 42 0 1 1 -42 42 a56 56 0 1 1 56 -56 a70 70 0 1 1 -70 70"/>
+  </g>
+  <g fill="none" stroke="#8d97a1" stroke-width=".5" opacity=".65">
+    <path d="M300 300 m0 -84 a84 84 0 1 0 84 84 a98 98 0 1 0 -98 -98"/>
+  </g>
+  <g stroke="#6f7982" stroke-width=".8">
+    <path d="M392 254 q10 -14 22 -12"/><path d="M404 286 q12 -10 22 -6"/>
+  </g>
+  <path d="M120 512 H480" stroke="#a9b1b8" stroke-width=".5" stroke-dasharray="2 9"/>
+</svg>''',
 'sherlock': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <circle cx="286" cy="266" r="92" fill="none" stroke="#a08b6c" stroke-width="1.4"/>
   <circle cx="286" cy="266" r="82" fill="none" stroke="#a08b6c" stroke-width=".5" stroke-dasharray="2 9"/>

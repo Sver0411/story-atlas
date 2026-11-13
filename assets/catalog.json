@@ -160,5 +160,17 @@
     "events": 23,
     "people": 16,
     "scope": "精选 19 案 · 1878—1914"
+  },
+  {
+    "id": "millennium",
+    "title": "龙纹身的女孩",
+    "author": "斯蒂格·拉森",
+    "category": "推理",
+    "description": "一个身败名裂的记者，一个被国家监护的女孩，一桩四十年没破的失踪案。",
+    "accent": "#3b4148",
+    "cover": "",
+    "events": 24,
+    "people": 15,
+    "scope": "千禧年系列第一部 · 全本"
   }
 ]
