@@ -2,13 +2,14 @@
 
 2026 年 11 月 13 日 · 含完整剧透
 
-以六本书版 `91067e6` 为基线，审查截至 `3a52519` 的 37 本新增作品，覆盖 852 个时间线节点、622 张人物卡和 783 条关系数据。另抽查同期补写的 5 本旧书。《三体》沿用[已有审查](content-review.md)。逐书检查覆盖范围、节点顺序、关键情节、人物关系和跳转。文中附有对应原文或官方资料的条目已做针对性核对，其余标为“待核”或列作补写建议。本轮未逐句校订全部正文。
+以六本书版 `91067e6` 为基线，审查截至 `d93f861` 的 53 本新增作品，覆盖 1,089 个时间线节点、730 张人物卡和 924 条关系数据。本轮在 `3a52519` 的基础上补审 16 本，并回看 12 本旧条目的正文变更。另抽查同期补写的 5 本旧书。《三体》沿用[已有审查](content-review.md)。逐书检查覆盖范围、节点顺序、关键情节、人物关系和跳转。文中附有对应原文或官方资料的条目已做针对性核对，其余标为“待核”或列作补写建议。本轮未逐句校订全部正文。
 
 ## 先修哪里
 
 1. **先纠正会读错剧情的条目。** 《冰与火之歌》混入第五卷和剧集情节，《教父》用电影镜头收尾，《嫌疑人 X 的献身》把反转所依赖的两个日期写反，《穆斯林的葬礼》改错了开篇玉雕，《射雕英雄传》和《天龙八部》的关键人物与因果链需要一起重排。
 2. **再补被截断的主线。** 优先补《水浒传》120 回本的田虎、王庆，《平凡的世界》的润叶与秀莲两线，《白鹿原》的田小娥死后与黑娃、白孝文的结局，《边城》的渡船、碾坊与杨马兵。
-3. **每次改稿同时检查两页。** 改正文时更新人物卡的事迹、关系边和首跳节点。涉及年表、版本差异、反转或直接引语的地方，优先补具体章节出处。
+3. **本轮先修错卷、错序与结局。** 《银河系搭车客指南》和《安德的游戏》须回到第一部的结尾，《童年的终结》须重排返地和孩子转变的先后，《海伯利安》应恢复七人六篇的结构，《纳尼亚传奇》和《地海传奇》各缺一部的实质内容。
+4. **每次改稿同时检查两页。** 改正文时更新人物卡的事迹、关系边和首跳节点。涉及年表、版本差异、反转或直接引语的地方，优先补具体章节出处。
 
 ## 逐书审查
 
@@ -71,6 +72,31 @@
 | [静静的顿河](../books/quiet-don/index.html) · 12 / 8 / 11 | [站队](../books/quiet-don/index.html#qd07)与[暴动](../books/quiet-don/index.html#qd08)之间补从大战到内战、上顿河起义的过程。阿克西妮亚死后到抱住儿子之间，补格里高力再度流亡、弃械返乡和得知女儿去世。末段年份和追捕者待按所用译本核。 | 补杜尼娅莎、米沙特卡、伊莉妮奇娜。现有科舍沃伊既是旧相识又和格里高力家结亲，卡片需把立场、冲突与婚姻写在同一条线上。 |
 | [日瓦戈医生](../books/zhivago/index.html) · 13 / 7 / 9 | [科马罗夫斯基](../books/zhivago/index.html#zh11)之后拆出帕沙自尽、尤里重返莫斯科及其死亡。现稿[回来了](../books/zhivago/index.html#zh12)把返城与去世挤在 1923 年。补多年后戈尔东、杜多罗夫见塔尼娅的尾声，并给《日瓦戈诗篇》保留入口。 | 补玛丽娜、戈尔东、杜多罗夫、塔尼娅。帕沙卡把本名和斯特列利尼科夫的身份合并，并补与拉拉、女儿的关系。 |
 
+### 本轮新增科幻与奇幻
+
+| 作品 | 时间线缺漏与修订 | 人物志补写 |
+| --- | --- | --- |
+| [美丽新世界](../books/brave-new-world/index.html) · 18 / 8 / 11 | 补约翰和琳达回伦敦后当众认父、主任失势，以及琳达死后约翰阻止工人领取索麻，串起医院、冲突与蒙德谈话。[朗诵](../books/brave-new-world/index.html#bn14)把赫姆霍尔兹因诗惹事和流放并成一次广播事故，按第 12、15—16 章拆开。末段以灯塔自尽收束，将[结尾的一句](../books/brave-new-world/index.html#bn18)中的蒙德观点归回辩论段。 [原著第10、12、14—18章](https://www.gutenbergcanada.ca/ebooks/huxleya-bravenewworld/huxleya-bravenewworld-00-h.html) | 给主任、琳达、约翰补亲子关系，写出伯纳德如何利用这段关系。赫姆霍尔兹卡补写作、与约翰成为朋友、主动选择流放地点三步，区分他和伯纳德的反应。 |
+| [童年的终结](../books/childhoods-end/index.html) · 15 / 6 / 8 | **优先纠正。** [露面](../books/childhoods-end/index.html#ce05)标签写第 20 年，正文写五十年后，须按原著统一。扬返地比出发晚约八十个地球年，现稿把出发与[返地](../books/childhoods-end/index.html#ce08)同标第 30 年，还把他放进之后才展示的孩子转变阶段。按扬的航程和地球上的平行事件重排，补新雅典岛覆灭，并恢复末章扬向超主转述地球解体的收束。 [原著第13、21—24章](https://rune.ws/lydboker/2024/ChildhoodEnd/Childhood%27s%20End%20-%20C.%20Arthur%20Clarke.pdf) | 移除“扬的儿子”在返乡和转变两段承担的虚构事迹。改补乔治和琼的两个孩子杰弗里、珍妮弗，以及协助扬出航的沙利文。给卡瑞林卡区分超主的职责与超智的作用。 |
+| [索拉里斯星](../books/solaris/index.html) · 16 / 5 / 8 | **优先重写海若线。** [海若](../books/solaris/index.html#so05)把凯尔文写成十岁时已失去她，[再一次](../books/solaris/index.html#so12)和[送她走](../books/solaris/index.html#so14)又把结局写成焚烧后重新出现、第二次用火箭送走。按原著复核旧日恋人死亡、第一次访客被送走、第二次访客再生与主动消失。增加海洋形态与人类长期研究的段落，末尾以凯尔文到海边及其开放的期待收束。 [莱姆谈两次改编及小说中的海洋](https://lem.pl/wokol-lema/adaptacje/solaris-soderbergh)、[作者谈凯尔文与海若](https://english.lem.pl/arround-lem/adaptations/solaris-soderbergh/147-the-solaris-station?start=1) | 海若卡标出地球上的恋人与研究站两次显现，突出第二次显现后的主动选择。斯纳特和萨托里斯分别链接他们的发现及实验，关系边避免替海洋确定动机。 |
+| [银河系搭车客指南](../books/hitchhiker/index.html) · 16 / 5 / 7 | **优先纠正。** [黄金之心救援](../books/hitchhiker/index.html#hg04)前应先发生沃根诗歌、被扔进太空。把[深思](../books/hitchhiker/index.html#hg07)及计算放入斯拉蒂巴特法斯特在马格拉西亚讲述的往事。删除[地球二号住了几年](../books/hitchhiker/index.html#hg14)和[已在餐厅用餐](../books/hitchhiker/index.html#hg15)，第一部结尾一行人启程去餐厅，餐厅情节进入第二部。 [第一部原文末章](https://esl-bits.eu/ESL.English.Learning.Audiobooks/Hitchhikers.Guide/35/text.html)、[出版社分卷](https://www.penguinrandomhouse.com/series/HGG/hitchhikers-guide-to-the-galaxy/) | 补斯拉蒂巴特法斯特和两只老鼠弗兰基、本吉，连到地球的真正用途与亚瑟为何被追。赞法德卡补夺船及其被封存的记忆线索。 |
+| [华氏 451](../books/fahrenheit-451/index.html) · 15 / 6 / 8 | [克拉丽丝之死](../books/fahrenheit-451/index.html#fh10)从费伯行动后移回故事前段，按米尔德里德转述处理。将[读诗](../books/fahrenheit-451/index.html#fh09)标作《多佛海滩》，补米尔德里德服药后被救、费伯的耳机及蒙塔格逃脱后电视追捕另找替身的情节。三段可分别对应原著的焚书、反抗、出走。 [出版社原著页](https://www.simonandschuster.net/books/Fahrenheit-451/Ray-Bradbury/9781451673319) | 克拉丽丝卡回连她提出的问题与后来听到的死讯。费伯和格兰杰卡分别补协助蒙塔格与组织记忆保存，米尔德里德卡补服药、电视家庭及离家。 |
+| [与拉玛相会](../books/rama/index.html) · 15 / 5 / 6 | **优先纠正。** [导弹](../books/rama/index.html#rm14)写成拉玛转身避开导弹，改回诺顿授权、罗德里戈解除威胁、奋进号再次考察和最终撤离。补吉米·帕克飞往南端、封闭建筑里的器物记录及尾声的“三件一组”线索。入口方位和照明启动顺序按章复核。[拉玛人](../books/rama/index.html#rm11)区分观察到的生物机器与对制造者外形的推断。 [原著全文](https://metallicman.com/laoban4site/rendezvous-with-rama-by-arthur-c-clarke-full-text/) | 补鲍里斯·罗德里戈和拉玛委员会的佩雷拉。帕克卡突出飞行考察，诺顿卡补面对水星最后通牒时的决定。拉玛可作为探索对象标记。 |
+| [安德的游戏](../books/enders-game/index.html) · 16 / 7 / 10 | **优先纠正。** [女王](../books/enders-game/index.html#eg15)把孵化和安德定居一生写进第一部，第一部收在殖民地发现蜂后、写下其故事并携她寻找新家园。补斯蒂尔森、蝾螈战队与邦佐，写清军方如何操纵安德的孤立，以及瓦伦蒂和彼得化名发文的并行线。[模拟战](../books/enders-game/index.html#eg11)按末战与揭晓拆分。 [出版社原著页](https://us.macmillan.com/books/9781429963930/endersgame/)、[续卷目录](https://us.macmillan.com/series/theendersaga) | 补邦佐、斯蒂尔森与蜂后。彼得、瓦伦蒂卡加洛克和德摩斯梯尼的化名及政治作用。波可和豆子各自回到训练与末战，不合成同一种“忠实部下”。 |
+| [神经漫游者](../books/neuromancer/index.html) · 14 / 7 / 10 | [阿米蒂奇](../books/neuromancer/index.html#nm10)的挖眼结局应按原著重校，补原身份科托与战时经历。把[合并](../books/neuromancer/index.html#nm12)拆成现实中的莫莉、3简与密码，和矩阵中凯斯、冬寂与另一 AI 的行动。结尾复核凯斯的去向，恢复他在矩阵中所见琳达与自身映像。 [出版社原著页](https://penguinrandomhousehighereducation.com/book/?isbn=9780441007462) | 补琳达·李、彼得·里维埃拉和 AI 神经漫游者。阿米蒂奇与科托归为一张身份卡，冬寂和神经漫游者各自建卡，关系标明它们对合并的不同立场。 |
+| [海伯利安](../books/hyperion/index.html) · 14 / 9 / 10 | **优先纠正。** 七位朝圣者有六篇讲完的故事，[圣殿骑士的故事](../books/hyperion/index.html#hp08)应改为马斯蒂恩失踪。重写霍伊特转述杜雷日记与十字形寄生物、拉米亚的客户乔尼，以及领事家族往事和他对光阴冢事件的责任。第一部尾声按幸存朝圣者走向光阴冢收束，复核[卡萨德单独参战](../books/hyperion/index.html#hp13)和[最后一句](../books/hyperion/index.html#hp14)。 [出版社分卷](https://www.penguinrandomhouse.com/series/HYC/hyperion-cantos/) | 补杜雷、莫妮塔、乔尼、茜莉与梅林，直接连到各自讲述者。给瑞秋卡标出身体年龄与旅程时间的不同方向。 |
+| [纳尼亚传奇](../books/narnia/index.html) · 15 / 14 / 14 | **优先补齐七部。** 当前缺《能言马与男孩》，应放在四兄妹统治纳尼亚期间、追白鹿之前。[戒指](../books/narnia/index.html#nr15)移到纳尼亚创世段，[衣柜](../books/narnia/index.html#nr01)与战时撤离用同一地球年代，纳尼亚纪年另标。[最后的战斗](../books/narnia/index.html#nr13)把假阿斯兰勾结的对象写成台尔马人，应改为卡乐门人，尾声补苏珊缺席与列车事故。 [《能言马与男孩》原文](https://www.gutenbergca.gutenbergcanada.ca/ebooks/lewiscs-thehorseandhisboy/lewiscs-thehorseandhisboy-00-h.html) | 补沙斯塔、阿拉维斯、两匹能言马、图姆纳斯、瑞皮契普、瑞利安和猿猴希夫特。迪戈里与衣柜篇的老教授应连成同一人。 |
+| [地海传奇](../books/earthsea/index.html) · 14 / 6 / 7 | **优先补第四部。** [欧吉安](../books/earthsea/index.html#ed02)在贡特为格得取真名并教导他，后者才去柔克。按前两卷复核阴影收束及泰娜怎样带格得走出古墓。将格得失去法力归入《地海彼岸》封闭生死裂口的代价，[结尾](../books/earthsea/index.html#ed14)改为《地海孤雏》中泰娜救助瑟鲁、格得归来及瑟鲁身份的揭示。 [作者书目](https://www.ursulakleguin.com/bibliography)、[第四部《地海孤雏》](https://www.ursulakleguin.com/tehanu) | 补瑟鲁、艾斯特里奥、科布和卡雷辛。泰娜卡应从祭司身份写到保护瑟鲁及与格得重逢，亚刃卡统一真名与登基身份。 |
+| [猎魔人](../books/witcher/index.html) · 15 / 7 / 9 | **优先重排。** [意外律](../books/witcher/index.html#wt03)补帕薇塔和多尼；[决斗](../books/witcher/index.html#wt12)把斯提加城堡团聚和利维亚骚乱受伤写成一件事，应拆开。五卷中段补仙尼德政变、希里流落沙漠及老鼠帮、杰洛特寻人小队，结局写到希里遇见加拉哈德并保留杰洛特、叶奈法去向的开放性。 [出版社五卷目录](https://www.hbglibrary.com/titles/andrzej-sapkowski/the-witcher-boxed-set-blood-of-elves-the-time-of-contempt-baptism-of-fire-the-tower-of-swallows-the-lady-of-the-lake/9780316498845/) | 以剧透提示关联多尼与恩希尔，注明与希里的亲缘。补帕薇塔、维尔格福兹、雷吉斯、米尔瓦与卡希尔，现有叶奈法和维瑟米尔卡分别连回魔法教育与凯尔莫罕训练。 |
+| [美国众神](../books/american-gods/index.html) · 15 / 6 / 9 | **优先纠正。** [星期三失踪](../books/american-gods/index.html#ag08)至[守灵](../books/american-gods/index.html#ag13)重排为星期三遇害、影子守灵与死亡、复归后揭穿战争骗局。拆出湖镇失踪案，以失踪孩子和冰上旧车为线索。尾声复核影子与劳拉告别及在冰岛遇见另一位奥丁。 [作者版次介绍与导读](https://neilgaiman.com/works/Books/American%2BGods/in/180/) | 补疯子斯威尼、伊斯特和切尔诺伯格。世界先生关联洛基及化名，劳拉卡写清金币、她阻止洛基的行动及最后归宿。 |
+| [时光之轮](../books/wheel-of-time/index.html) · 14 / 6 / 8 | **优先修范围与结局。** 书架称涵盖全系列，应至少标卷次并补第二部的瓦勒之角、艾伊尔试炼、杜迈之井、至上力净化和白塔重归一统。[末日](../books/wheel-of-time/index.html#tw12)与[三人重聚](../books/wheel-of-time/index.html#tw14)按第 14 卷重写，区分兰德重新封住暗帝与结尾身体互换。补艾雯、麦特、佩林各自在最后之战的作用。 [续写者官网与第12—14卷说明](https://www.brandonsanderson.com/pages/the-wheel-of-time-series) | 补奈妮薇、伊兰、明、艾薇恩达、菲儿、图昂和莫瑞丁，至少让兰德、佩林、麦特各有可追踪的关系支线。作者栏补注最后三卷由布兰登·桑德森续写。 |
+| [第一律法](../books/first-law/index.html) · 12 / 5 / 8 | **优先重写三卷转折。** [种子](../books/first-law/index.html#fl06)把西行寻种失败和费罗后来取得种子压成在北方找到它，补达戈斯卡与阿杜瓦两条并行线。[真相](../books/first-law/index.html#fl09)应按原著核对第一律法的禁令及拜亚兹破禁的代价。[罗根归北](../books/first-law/index.html#fl11)补黑道格对峙与坠河，格洛塔结局补他如何被拜亚兹纳入权力安排。 [作者第二卷](https://joeabercrombie.com/books/before-they-are-hanged/)、[第三卷](https://joeabercrombie.com/books/last-argument-of-kings/) | 补贝索德、黑道格、科勒姆·韦斯特和阿迪。杰查尔卡补婚姻与王位如何受操控，费罗卡把对种子的使用与结局写进事件链。 |
+| [飓光志](../books/stormlight/index.html) · 13 / 6 / 8 | **优先按两卷重排。** [桥四](../books/stormlight/index.html#sa02)补卡拉丁带队救达力拿、达力拿换回桥夫自由。[最后的战斗](../books/stormlight/index.html#sa11)改成第二卷的纳拉克、永恒风暴和通往乌瑞希鲁的转移，补卡拉丁与赛兹、达力拿与风暴之父的两条誓言。复核[加斯娜](../books/stormlight/index.html#sa09)遇袭后失踪及尾声重现，按所选版本核赛兹决斗的结果。 [第二卷《光辉真言》出版社页](https://us.macmillan.com/books/9780765326362/wordsofradiance/)、[作者系列目录](https://www.brandonsanderson.com/pages/the-stormlight-archive-series) | 补希尔、图案、风暴之父、艾舒奈和萨迪亚斯。将阿多林的决斗线与卷末杀萨迪亚斯的选择拆开，沙兰卡连到过去的创伤、与图案的联系及她打开誓门的行动。 |
+
+### 本轮追加正文的旧条目
+
+`d93f861` 给《安娜·卡列尼娜》《边城》《围城》《教父》《飘》《巴黎圣母院》《平凡的世界》《静静的顿河》《战争与和平》《白鹿原》《呼啸山庄》《日瓦戈医生》改了 137 段事件正文。节点顺序、人物卡和关系数据均沿用上一版。抽查确认《教父》仍在关门镜头收尾，《边城》仍缺杨马兵，《平凡的世界》仍把晓霞遇难排在首次下井之前。原审查意见仍可对照使用。新添的对白建议与对应原著一起复核，优先改动剧情的段落。
+
 ## 同期补写的 5 本旧书
 
 | 作品 | 本轮抽查中应改的地方 |
@@ -83,7 +109,7 @@
 
 ## 两页一起修时容易漏的地方
 
-- **人物能从两边找到。** 新增书中 31 本的事件与人物关联在两份数据里有差异。事件侧独有 180 对，人物侧独有 80 对。差异包括仅被提及或作为背景的人，逐条判断是否应双向呈现。比如《射雕英雄传》李萍卡连到 `sd18`，该事件正文写了李萍，事件人物列表却缺她。《冰与火之歌》另有 13 处事件人物引用指向 11 个缺卡 ID，例如波隆和伊蒙。人物卡当前只显示首个事件跳转，主角可增加两三个真正改变其命运的节点。
-- **出处跟着具体段落走。** 37 本新增书的 `sources` 均为空，852 个节点均无 `sourceIds`。现用的 `tools/rebuild.py` 输出事件正文时也没有渲染该字段。先给争议年份、版本差异和关键反转加章节定位，并让页面显示出处。审读时可把“他说……”中的内容逐句标为原文、转述或待核。用《沙丘》“戈尼重逢”做样例，同段前半明确写他误认杰西卡背叛，追加的末句却说他一直知道杰西卡清白。 [现用生成脚本](../tools/rebuild.py)、[戈尼重逢](../books/dune/index.html#du23)
+- **人物能从两边找到。** 新增书中 43 本的事件与人物关联在两份数据里有差异。事件侧独有 190 对，人物侧独有 107 对。差异包括仅被提及或作为背景的人，逐条判断是否应双向呈现。比如《射雕英雄传》李萍卡连到 `sd18`，该事件正文写了李萍，事件人物列表却缺她。《冰与火之歌》另有 13 处事件人物引用指向 11 个缺卡 ID，例如波隆和伊蒙。人物卡当前只显示首个事件跳转，主角可增加两三个真正改变其命运的节点。
+- **出处跟着具体段落走。** 53 本新增书的 `sources` 均为空，1,089 个节点均无 `sourceIds`。现用的 `tools/rebuild.py` 输出事件正文时也没有渲染该字段。先给争议年份、版本差异和关键反转加章节定位，并让页面显示出处。审读时可把“他说……”中的内容逐句标为原文、转述或待核。用《沙丘》“戈尼重逢”做样例，同段前半明确写他误认杰西卡背叛，追加的末句却说他一直知道杰西卡清白。 [现用生成脚本](../tools/rebuild.py)、[戈尼重逢](../books/dune/index.html#du23)
 - **实际年表与叙事顺序同时可读。** 推理小说可保留反转的揭晓顺序，回溯节点标出“发生时间”与“读者何时得知”。多卷、章回小说给关键节点标卷、回。年份依据薄弱时，用书内阶段、相对先后或章节定位。
-- **排查构建口径。** 该快照的首页有 43 本，`assets/catalog.json` 只有 38 本，缺《基地》《三国演义》《水浒传》《西游记》《活着》。`README.md` 仍给六本书时期的 `node tools/build.mjs`，该脚本会重写首页与目录为 6 本。此次只读检查运行 `python3 tools/check.py`，退出码为 1，列出目录中 32 本无插图。此结果说明生成和检查口径需要对齐，情节与人物引用还需单独检查。 [书架目录](../assets/catalog.json)、[维护说明](../README.md)、[页面检查脚本](../tools/check.py)
+- **排查构建口径。** 该快照首页有 59 本，`assets/catalog.json` 有 54 本，缺《基地》《三国演义》《水浒传》《西游记》《活着》。README 已改为使用 `python3 tools/rebuild.py`，但正文称 50 部、表格列 58 部且漏《三体》。`python3 tools/check.py` 仍退出 1，报告目录中的 48 本无插图。 [书架目录](../assets/catalog.json)、[维护说明](../README.md)、[页面检查脚本](../tools/check.py)
