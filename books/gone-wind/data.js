@@ -36,7 +36,8 @@ window.BOOK = {
       "people": [
         "scarlett",
         "gerald",
-        "ashley"
+        "ashley",
+        "mammy"
       ]
     },
     {
@@ -75,7 +76,8 @@ window.BOOK = {
         "scarlett",
         "charles",
         "ellen",
-        "melanie"
+        "melanie",
+        "rhett"
       ]
     },
     {
@@ -126,7 +128,8 @@ window.BOOK = {
       "people": [
         "scarlett",
         "gerald",
-        "ellen"
+        "ellen",
+        "mammy"
       ]
     },
     {
@@ -165,8 +168,10 @@ window.BOOK = {
       "people": [
         "scarlett",
         "frank",
-        "rhett"
-      ]
+        "rhett",
+        "belle"
+      ],
+      "src": "第 47 章"
     },
     {
       "id": "gw12",
@@ -242,7 +247,8 @@ window.BOOK = {
       "people": [
         "scarlett",
         "rhett"
-      ]
+      ],
+      "src": "第 63 章"
     },
     {
       "id": "gw18",
@@ -319,6 +325,7 @@ window.BOOK = {
         "gw01",
         "gw02",
         "gw14",
+        "gw15",
         "gw16"
       ]
     },

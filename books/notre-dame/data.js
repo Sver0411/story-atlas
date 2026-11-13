@@ -56,7 +56,8 @@ window.BOOK = {
       "people": [
         "quasimodo",
         "esmeralda",
-        "phoebus"
+        "phoebus",
+        "fleur"
       ]
     },
     {
@@ -169,8 +170,10 @@ window.BOOK = {
       "people": [
         "clopin",
         "quasimodo",
-        "gringoire"
-      ]
+        "gringoire",
+        "frollo"
+      ],
+      "src": "第 10 卷"
     },
     {
       "id": "nd13",
@@ -193,7 +196,8 @@ window.BOOK = {
       "title": "母女",
       "text": "那个隐居的女人叫居迪尔，住在一间石屋里，十几年不出门。她看见姑娘脖子上挂着一个小鞋，愣住了——那是她女儿的东西。她抱住她，说：我的孩子。外面的士兵来了。她说：你们不能带走她。她把女儿藏在自己身后。居迪尔说：你脖子上挂的是什么。她说：是我妈妈留给我的。居迪尔说：给我看。她看了，手开始抖。居迪尔说：你脖子上挂的是什么。她说：我妈妈留给我的。居迪尔的手开始抖。",
       "people": [
-        "esmeralda"
+        "esmeralda",
+        "gudule"
       ]
     },
     {
@@ -207,7 +211,8 @@ window.BOOK = {
         "esmeralda",
         "frollo",
         "quasimodo"
-      ]
+      ],
+      "src": "第 11 卷"
     },
     {
       "id": "nd16",
@@ -278,6 +283,7 @@ window.BOOK = {
         "nd06",
         "nd07",
         "nd08",
+        "nd09",
         "nd11",
         "nd12",
         "nd13",

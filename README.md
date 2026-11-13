@@ -8,7 +8,7 @@
 
 ## 书目
 
-共 59 部 · 1393 个故事节点 · 916 位人物 · 1184 条关系。
+共 59 部 · 1396 个故事节点 · 930 位人物 · 1195 条关系 · 137 个节点带章节出处。
 
 
 ### 古典小说
@@ -26,7 +26,7 @@
 | --- | --- | --- | ---: | ---: |
 | [尘埃落定](books/red-poppies/index.html) | 阿来 | 全本 · 1920—1939 | 22 | 11 |
 | [穆斯林的葬礼](books/muslim-funeral/index.html) | 霍达 | 全本 · 1919—1979 | 22 | 10 |
-| [围城](books/fortress/index.html) | 钱锺书 | 全本 · 1937—1939 | 15 | 7 |
+| [围城](books/fortress/index.html) | 钱锺书 | 全本 · 1937—1939 | 16 | 7 |
 | [平凡的世界](books/ordinary-world/index.html) | 路遥 | 全本 · 1975—1986 | 15 | 8 |
 | [白鹿原](books/white-deer/index.html) | 陈忠实 | 全本 · 1911—1949 | 15 | 10 |
 | [活着](books/to-live/index.html) | 余华 | 完整长篇 · 含结局 | 14 | 11 |
@@ -56,7 +56,7 @@
 | [安娜·卡列尼娜](books/anna-karenina/index.html) | 列夫·托尔斯泰 | 全本 · 1873—1877 | 20 | 9 |
 | [飘](books/gone-wind/index.html) | 玛格丽特·米切尔 | 全本 · 1861—1870 | 18 | 11 |
 | [巴黎圣母院](books/notre-dame/index.html) | 维克多·雨果 | 全本 · 1482 | 16 | 8 |
-| [教父](books/godfather/index.html) | 马里奥·普佐 | 第一部 · 1945—1955 | 14 | 10 |
+| [教父](books/godfather/index.html) | 马里奥·普佐 | 第一部 · 1945—1955 | 14 | 13 |
 | [日瓦戈医生](books/zhivago/index.html) | 帕斯捷尔纳克 | 全本 · 1903—1929 | 14 | 7 |
 | [静静的顿河](books/quiet-don/index.html) | 米哈伊尔·肖洛霍夫 | 全本 · 1912—1921 | 12 | 8 |
 
@@ -96,20 +96,21 @@
 | 作品 | 作者 | 收录范围 | 节点 | 人物 |
 | --- | --- | --- | ---: | ---: |
 | [魔戒](books/lotr/index.html) | J. R. R. 托尔金 | 《护戒同盟》《双塔殊途》《王者归来》小说三卷六部，含夏尔清洗与灰港结局 | 44 | 27 |
-| [冰与火之歌](books/thrones/index.html) | 乔治·R·R·马丁 | 前三部主线 · 含红色婚礼 | 34 | 31 |
+| [冰与火之歌](books/thrones/index.html) | 乔治·R·R·马丁 | 前三部主线 · 含红色婚礼 | 34 | 42 |
+| [猎魔人](books/witcher/index.html) | 安杰伊·萨普科夫斯基 | 短篇集与五部曲 · 全本 | 16 | 7 |
 | [纳尼亚传奇](books/narnia/index.html) | C.S.刘易斯 | 七部 · 1900—1949 | 16 | 16 |
+| [美国众神](books/american-gods/index.html) | 尼尔·盖曼 | 全本 · 2000 年代 | 16 | 6 |
 | [地海传奇](books/earthsea/index.html) | 厄休拉·勒古恩 | 前四部 · 远古 | 15 | 7 |
-| [猎魔人](books/witcher/index.html) | 安杰伊·萨普科夫斯基 | 短篇集与五部曲 · 全本 | 15 | 7 |
-| [美国众神](books/american-gods/index.html) | 尼尔·盖曼 | 全本 · 2000 年代 | 15 | 6 |
 | [时光之轮](books/wheel-of-time/index.html) | 罗伯特·乔丹 | 第一部至最后 · 全本 | 14 | 6 |
 | [飓光志](books/stormlight/index.html) | 布兰登·桑德森 | 第一、二部 · 全本 | 13 | 6 |
 | [第一律法](books/first-law/index.html) | 乔·阿克罗比 | 三部曲 · 全本 | 12 | 5 |
+
 
 ## 结构
 
 ```
 index.html                  书架
-books/<id>/data.js          唯一内容源：事件、人物、关系、纪元
+books/<id>/data.js          唯一内容源：事件、人物、关系、纪元、出处
 books/<id>/index.html       时间线（生成）
 books/<id>/characters.html  人物志（生成）
 tools/rebuild.py            生成器
@@ -117,16 +118,13 @@ tools/check.py              链接、锚点、页面数检查
 assets/catalog.json         书架元数据
 ```
 
-改内容只动 `data.js`，然后：
-
-```bash
-python3 tools/rebuild.py
-python3 tools/check.py
-```
+改内容只动 `data.js`，然后 `python3 tools/rebuild.py`、`python3 tools/check.py`。
 
 ## 几条约定
 
 - 时间按事件**实际发生**的先后排，不按章节或出版顺序；多卷本在 `scope` 里标卷次。
-- 人物志的关系网按家族/阵营分簇；点一个人，他移到圆心，一阶二阶依次展开。
+- 争议年份、版本差异与关键反转在节点下方标注「出处 · 章节」，存在 `event.src`。
+- 人物志的关系网按家族/阵营分簇；点一个人，他移到圆心，一阶二阶依次展开；卡片最多给 3 个关键节点跳转。
+- 事件与人物双向对齐：正文里出现的人，卡片能看到；卡片上的人，正文里都能找到。
 - 人物过多时（如水浒 128 人）关系网只取核心人物，卡片仍列全部。
-- 目前 53 部尚无配图，`check.py` 会列出名单，不算错误。
+- 53 部尚无配图，`check.py` 会列出名单，不算错误。

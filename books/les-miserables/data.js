@@ -111,7 +111,8 @@ window.BOOK = {
         "fantine",
         "thenardier",
         "madame_t",
-        "cosette"
+        "cosette",
+        "azelma"
       ]
     },
     {
@@ -255,7 +256,8 @@ window.BOOK = {
         "valjean",
         "javert",
         "marius"
-      ]
+      ],
+      "src": "第 3 部 第 8 卷"
     },
     {
       "id": "lm19",
@@ -267,7 +269,8 @@ window.BOOK = {
       "people": [
         "enjolras",
         "marius",
-        "gavroche"
+        "gavroche",
+        "mabeuf"
       ]
     },
     {
@@ -305,7 +308,8 @@ window.BOOK = {
         "enjolras",
         "marius",
         "valjean"
-      ]
+      ],
+      "src": "第 4 部 第 14 卷"
     },
     {
       "id": "lm23",
@@ -381,7 +385,8 @@ window.BOOK = {
         "marius",
         "cosette",
         "valjean"
-      ]
+      ],
+      "src": "第 5 部 第 9 卷"
     },
     {
       "id": "lm29",
@@ -426,6 +431,7 @@ window.BOOK = {
         "lm03",
         "lm04",
         "lm05",
+        "lm06",
         "lm08",
         "lm09",
         "lm10",
@@ -435,6 +441,7 @@ window.BOOK = {
         "lm14",
         "lm15",
         "lm16",
+        "lm17",
         "lm18",
         "lm21",
         "lm22",
@@ -513,6 +520,7 @@ window.BOOK = {
         "lm18",
         "lm19",
         "lm22",
+        "lm23",
         "lm25",
         "lm26",
         "lm27",

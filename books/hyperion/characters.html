@@ -113,6 +113,8 @@ h1.big{
   border-bottom:1px solid transparent;transition:.3s;
 }
 .pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+.pcard .jumps{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:16px}
+.pcard .jumps .jump{margin-top:0}
 
 .site-foot{
   max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
@@ -335,7 +337,7 @@ h1.big{
         <div class="pcard-top"><h3>领事</h3></div>
         <p class="role">外交官</p>
         <p class="deeds">海伯利安人，替霸主做事，做过一件自己不能原谅的事。他把七个人带到光阴冢，一路上听他们讲故事。他自己的故事，是最后一个讲的。</p>
-        <a class="jump" href="index.html#hp02">时间线 · 征召 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp02">征召</a><a class="jump" href="index.html#hp11">到达</a><a class="jump" href="index.html#hp14">没有讲完</a></div>
       </article>
       </div>
     </section>
@@ -346,7 +348,7 @@ h1.big{
         <div class="pcard-top"><h3>雷纳·霍伊特</h3></div>
         <p class="role">神父</p>
         <p class="deeds">年轻时传教，遇见一个满身十字疤的神父。他一辈子都在想，那个人看见的到底是什么。他去光阴冢，是为了再看见一次。</p>
-        <a class="jump" href="index.html#hp03">时间线 · 七个人 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp03">七个人</a><a class="jump" href="index.html#hp04">第一个故事</a></div>
       </article>
       </div>
     </section>
@@ -357,7 +359,7 @@ h1.big{
         <div class="pcard-top"><h3>卡萨德上校</h3></div>
         <p class="role">军人</p>
         <p class="deeds">肌肉是改造的，能打十个。他被伯劳鸟放过一次，一直想不通为什么。他最后冲进战场，没有再回来。</p>
-        <a class="jump" href="index.html#hp03">时间线 · 七个人 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp03">七个人</a><a class="jump" href="index.html#hp05">军人的故事</a><a class="jump" href="index.html#hp13">驱逐者</a></div>
       </article>
       </div>
     </section>
@@ -368,7 +370,7 @@ h1.big{
         <div class="pcard-top"><h3>马丁·塞利纳斯</h3></div>
         <p class="role">诗人</p>
         <p class="deeds">写过一本很有名的诗集，然后写不出来了。他用最坏的日子换最好的诗。他说：我不后悔。</p>
-        <a class="jump" href="index.html#hp03">时间线 · 七个人 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp03">七个人</a><a class="jump" href="index.html#hp06">诗人的故事</a></div>
       </article>
       </div>
     </section>
@@ -379,13 +381,13 @@ h1.big{
         <div class="pcard-top"><h3>索尔·温特伯</h3></div>
         <p class="role">学者</p>
         <p class="deeds">他的女儿瑞秋从光阴冢回来以后开始逆着长。他带着她一路走，看着她一天比一天小。</p>
-        <a class="jump" href="index.html#hp03">时间线 · 七个人 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp03">七个人</a><a class="jump" href="index.html#hp07">学者的故事</a></div>
       </article>
       <article class="pcard" id="c-rachel" style="--c:#1f5d57">
         <div class="pcard-top"><h3>瑞秋</h3></div>
         <p class="role">索尔的女儿</p>
         <p class="deeds">从光阴冢回来以后，她开始逆着长。今天叫爸爸，明天叫哥哥，最后会回到出生的那一刻。</p>
-        <a class="jump" href="index.html#hp07">时间线 · 学者的故事 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp07">学者的故事</a></div>
       </article>
       </div>
     </section>
@@ -396,7 +398,7 @@ h1.big{
         <div class="pcard-top"><h3>海特·马斯蒂恩</h3></div>
         <p class="role">圣殿骑士</p>
         <p class="deeds">守着一个秘密：伯劳鸟不是神，是一件工具。他说：说了我就会死。他后来真的死了。</p>
-        <a class="jump" href="index.html#hp03">时间线 · 七个人 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp03">七个人</a><a class="jump" href="index.html#hp08">没有讲的故事</a></div>
       </article>
       </div>
     </section>
@@ -407,7 +409,7 @@ h1.big{
         <div class="pcard-top"><h3>布劳恩·拉米亚</h3></div>
         <p class="role">侦探</p>
         <p class="deeds">脑子里装着一个死人的人格，叫约翰尼。他告诉她，技术内核在计划一件事，跟伯劳鸟有关。</p>
-        <a class="jump" href="index.html#hp03">时间线 · 七个人 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp03">七个人</a><a class="jump" href="index.html#hp09">侦探的故事</a></div>
       </article>
       </div>
     </section>
@@ -418,7 +420,7 @@ h1.big{
         <div class="pcard-top"><h3>伯劳鸟</h3></div>
         <p class="role">光阴冢的看守</p>
         <p class="deeds">三米高，全身是刀，四只手，没有脸。它抓人，把人挂在荆棘树上。它不吃人，它收集人。</p>
-        <a class="jump" href="index.html#hp01">时间线 · 伯劳鸟 →</a>
+        <div class="jumps"><a class="jump" href="index.html#hp01">伯劳鸟</a><a class="jump" href="index.html#hp12">故事</a><a class="jump" href="index.html#hp14">没有讲完</a></div>
       </article>
       </div>
     </section>

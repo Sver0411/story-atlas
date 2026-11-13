@@ -121,7 +121,8 @@ window.BOOK = {
       "people": [
         "bai",
         "xiancao"
-      ]
+      ],
+      "src": "原著第 25 章"
     },
     {
       "id": "bl09",
@@ -169,7 +170,8 @@ window.BOOK = {
       "people": [
         "heiwa",
         "bai"
-      ]
+      ],
+      "src": "原著第 33 章"
     },
     {
       "id": "bl11c",
@@ -221,7 +223,10 @@ window.BOOK = {
         "bl04",
         "bl05",
         "bl07",
+        "bl09",
         "bl11",
+        "bl11b",
+        "bl11c",
         "bl13"
       ]
     },
@@ -252,7 +257,9 @@ window.BOOK = {
         "bl04",
         "bl06",
         "bl08",
-        "bl11"
+        "bl11",
+        "bl11b",
+        "bl11c"
       ]
     },
     {

@@ -106,6 +106,8 @@ h1.big{
   border-bottom:1px solid transparent;transition:.3s;
 }
 .pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+.pcard .jumps{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:16px}
+.pcard .jumps .jump{margin-top:0}
 
 .site-foot{
   max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;

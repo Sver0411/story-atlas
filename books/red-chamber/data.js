@@ -42,7 +42,8 @@ window.BOOK = {
       "title": "石头与失散的女儿",
       "text": "姑苏阊门外，葫芦庙旁住着乡宦甄士隐。他膝下无子，只有一女英莲，年方三岁。元宵夜，家人霍启抱英莲去看灯，因要小解，把孩子放在一家门槛上，回来时人已不见了。甄家从此败落，士隐贫病交加，一日在街上遇见一个跛足道人，听了一首《好了歌》，把须弥袋抢过来背着，飘飘然而去。整部书由这场走失与这场出走开始。",
       "people": [
-        "xiangling"
+        "xiangling",
+        "zhenshiyin"
       ],
       "sourceIds": [
         "rc-text",
@@ -79,7 +80,8 @@ window.BOOK = {
       "people": [
         "xuepan",
         "xiangling",
-        "baochai"
+        "baochai",
+        "jiayucun"
       ],
       "sourceIds": [
         "rc-text",
@@ -128,7 +130,8 @@ window.BOOK = {
       "people": [
         "qinke",
         "jiazhen",
-        "xifeng"
+        "xifeng",
+        "jiarong"
       ],
       "sourceIds": [
         "rc-text",
@@ -228,7 +231,8 @@ window.BOOK = {
         "baochai",
         "tanchun",
         "yingchun",
-        "xichun"
+        "xichun",
+        "xueyima"
       ],
       "sourceIds": [
         "rc-text",
@@ -284,7 +288,9 @@ window.BOOK = {
         "wangfuren",
         "jiamu",
         "daiyu",
-        "baochai"
+        "baochai",
+        "jiahuan",
+        "zhaoyiniang"
       ],
       "sourceIds": [
         "rc-text",
@@ -373,7 +379,9 @@ window.BOOK = {
         "jialian",
         "pinger",
         "jiamu",
-        "baoyu"
+        "baoyu",
+        "jiashe",
+        "xingfuren"
       ],
       "sourceIds": [
         "rc-text",
@@ -448,7 +456,8 @@ window.BOOK = {
         "rc-text",
         "rc-ch055",
         "rc-ch056"
-      ]
+      ],
+      "src": "第 55—56 回"
     },
     {
       "id": "rc19b",
@@ -511,7 +520,9 @@ window.BOOK = {
       "text": "尤三姐看中了柳湘莲，说非他不嫁。柳湘莲起初答应，后来听宝玉说尤三姐是宁国府的人，立刻反悔，上门退婚。尤三姐听见，从房里出来，一句话没说，抽出鸳鸯剑往脖子上一抹。柳湘莲看着她的尸体，说：我并不知你是这等刚烈。他把剑鞘一扔，跟着跛足道人走了。柳湘莲出家后，有人说在破庙里见过他，也有人说他跟着道人走了。尤三姐的剑，他留下了，插在庙门口。剑鞘上刻着两个字：鸳鸯。",
       "people": [
         "yousan",
-        "youer"
+        "youer",
+        "youshi",
+        "liuxianglian"
       ],
       "sourceIds": [
         "rc-text",
@@ -529,7 +540,8 @@ window.BOOK = {
         "youer",
         "jialian",
         "xifeng",
-        "pinger"
+        "pinger",
+        "youshi"
       ],
       "sourceIds": [
         "rc-text",
@@ -549,7 +561,9 @@ window.BOOK = {
         "xifeng",
         "tanchun",
         "xichun",
-        "qingwen"
+        "qingwen",
+        "jiashe",
+        "zhaoyiniang"
       ],
       "sourceIds": [
         "rc-text",
@@ -675,13 +689,15 @@ window.BOOK = {
         "baochai",
         "xifeng",
         "zijuan",
-        "xiren"
+        "xiren",
+        "xueyima"
       ],
       "sourceIds": [
         "rc-text",
         "rc-ch096",
         "rc-ch098"
-      ]
+      ],
+      "src": "第 97—98 回"
     },
     {
       "id": "rc31",
@@ -731,7 +747,8 @@ window.BOOK = {
         "jiazhen",
         "jiazheng",
         "jialian",
-        "xifeng"
+        "xifeng",
+        "jiayucun"
       ],
       "sourceIds": [
         "rc-text",
@@ -938,10 +955,12 @@ window.BOOK = {
         "rc04",
         "rc08",
         "rc09",
+        "rc09b",
         "rc10",
         "rc11",
         "rc12",
         "rc13",
+        "rc13b",
         "rc14",
         "rc15",
         "rc16",
@@ -951,11 +970,13 @@ window.BOOK = {
         "rc25",
         "rc26",
         "rc28",
+        "rc28b",
         "rc29",
         "rc30",
         "rc31",
         "rc34",
         "rc40",
+        "rc41b",
         "rc42"
       ]
     },
@@ -976,6 +997,7 @@ window.BOOK = {
         "rc11",
         "rc13",
         "rc14",
+        "rc15b",
         "rc17",
         "rc20",
         "rc21",
@@ -999,11 +1021,13 @@ window.BOOK = {
         "rc12",
         "rc13",
         "rc14",
+        "rc15b",
         "rc17",
         "rc19",
         "rc21",
         "rc27",
         "rc28",
+        "rc28b",
         "rc30",
         "rc32",
         "rc40",
@@ -1026,6 +1050,7 @@ window.BOOK = {
         "rc13",
         "rc15",
         "rc16",
+        "rc16b",
         "rc18",
         "rc20",
         "rc28",
@@ -1051,9 +1076,11 @@ window.BOOK = {
         "rc05",
         "rc06",
         "rc07",
+        "rc07b",
         "rc15",
         "rc16",
         "rc19",
+        "rc19b",
         "rc23",
         "rc24",
         "rc30",
@@ -1080,6 +1107,7 @@ window.BOOK = {
         "rc33",
         "rc35",
         "rc40",
+        "rc41b",
         "rc42"
       ]
     },
@@ -1114,6 +1142,7 @@ window.BOOK = {
       ],
       "deeds": "参与府中日常事务，多情而缺少担当，另娶尤二姐后未能保护她免于内宅迫害。家败、妻亡后仍须照料女儿巧姐，并面对旧日管家方式造成的后果。",
       "events": [
+        "rc07b",
         "rc16",
         "rc23",
         "rc33",
@@ -1143,6 +1172,7 @@ window.BOOK = {
       "events": [
         "rc08",
         "rc09",
+        "rc09b",
         "rc29"
       ]
     },
@@ -1189,6 +1219,7 @@ window.BOOK = {
         "rc10",
         "rc14",
         "rc19",
+        "rc19b",
         "rc21",
         "rc24",
         "rc31"
@@ -1236,6 +1267,7 @@ window.BOOK = {
       "events": [
         "rc14",
         "rc19",
+        "rc19b",
         "rc40"
       ]
     },
@@ -1274,8 +1306,10 @@ window.BOOK = {
       ],
       "deeds": "原在贾母身边，后来服侍宝玉，做事细密，常劝他顾及长辈与前途，受到王夫人倚重。后四十回宝玉离去后，她被安排嫁给蒋玉菡。",
       "events": [
+        "rc13b",
         "rc21",
         "rc28",
+        "rc28b",
         "rc30",
         "rc40",
         "rc41"
@@ -1289,6 +1323,7 @@ window.BOOK = {
       "aliases": [],
       "deeds": "心直口快，手艺出众，病中为宝玉补好雀金裘。她受到王夫人猜忌，重病时被逐，后来夭亡。宝玉作芙蓉诔悼念她，她的遭遇也显示主仆地位的不平等。",
       "events": [
+        "rc13b",
         "rc18",
         "rc24",
         "rc25"
@@ -1331,6 +1366,7 @@ window.BOOK = {
       "aliases": [],
       "deeds": "掌管贾母身边事务，曾坚决拒绝贾赦纳妾的要求，依靠贾母庇护维持独立。后四十回贾母去世后，她自尽殉主，未能获得脱离主仆制度的生活。",
       "events": [
+        "rc16b",
         "rc35",
         "rc36"
       ]
@@ -1442,6 +1478,7 @@ window.BOOK = {
       "deeds": "贾母长子，袭一等将军。好色贪财，为几把古扇逼得石呆子家破人亡；又让邢夫人替他说媒求娶鸳鸯，碰了一鼻子灰，母子从此生隙。",
       "events": [
         "rc16",
+        "rc16b",
         "rc24"
       ]
     },
@@ -1499,7 +1536,8 @@ window.BOOK = {
       "aliases": [],
       "deeds": "贾赦的续弦，一味顺从丈夫，替他出面求娶鸳鸯，被贾母当面驳回。她在府中的位置，永远比别人矮半截。",
       "events": [
-        "rc16"
+        "rc16",
+        "rc16b"
       ]
     },
     {

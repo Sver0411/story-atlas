@@ -139,7 +139,8 @@ window.BOOK = {
       "people": [
         "armitage",
         "case"
-      ]
+      ],
+      "src": "第 17 章 阿米蒂奇"
     },
     {
       "id": "nm11",
@@ -164,7 +165,8 @@ window.BOOK = {
       "people": [
         "case",
         "wintermute"
-      ]
+      ],
+      "src": "第 22 章 合并"
     },
     {
       "id": "nm13",

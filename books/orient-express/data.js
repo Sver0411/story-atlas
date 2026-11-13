@@ -360,8 +360,10 @@ window.BOOK = {
         "michel",
         "arbuthnot",
         "macqueen",
-        "hardman"
-      ]
+        "hardman",
+        "andrenyi"
+      ],
+      "src": "原著第 3 部 第 12 章"
     },
     {
       "id": "oe26",
@@ -373,7 +375,8 @@ window.BOOK = {
       "people": [
         "poirot",
         "bouc"
-      ]
+      ],
+      "src": "原著第 3 部 末章"
     },
     {
       "id": "oe27",
@@ -402,11 +405,23 @@ window.BOOK = {
         "oe02",
         "oe03",
         "oe04",
+        "oe05",
         "oe06",
         "oe07",
         "oe08",
         "oe09",
         "oe10",
+        "oe11",
+        "oe12",
+        "oe13",
+        "oe14",
+        "oe15",
+        "oe16",
+        "oe17",
+        "oe18",
+        "oe19",
+        "oe20",
+        "oe21",
         "oe22",
         "oe23",
         "oe24",
@@ -425,6 +440,7 @@ window.BOOK = {
         "oe02",
         "oe04",
         "oe07",
+        "oe08",
         "oe10",
         "oe22",
         "oe23",
@@ -458,6 +474,7 @@ window.BOOK = {
       "events": [
         "oe03",
         "oe04",
+        "oe05",
         "oe06",
         "oe08",
         "oe11",

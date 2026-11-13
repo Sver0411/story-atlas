@@ -113,6 +113,8 @@ h1.big{
   border-bottom:1px solid transparent;transition:.3s;
 }
 .pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+.pcard .jumps{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:16px}
+.pcard .jumps .jump{margin-top:0}
 
 .site-foot{
   max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
@@ -328,13 +330,13 @@ h1.big{
         <div class="pcard-top"><h3>杰洛特</h3></div>
         <p class="role">猎魔人</p>
         <p class="deeds">两把剑，白头发，猫眼睛。他从小被改造，被教怎么杀怪物。他一生只做一件事：在两边都不讨好的地方，选一个自己觉得对的。</p>
-        <a class="jump" href="index.html#wt01">时间线 · 两把剑 →</a>
+        <div class="jumps"><a class="jump" href="index.html#wt01">两把剑</a><a class="jump" href="index.html#wt06">维瑟米尔</a><a class="jump" href="index.html#wt15">猎魔人</a></div>
       </article>
       <article class="pcard" id="c-vesemir" style="--c:#8c2b26">
         <div class="pcard-top"><h3>维瑟米尔</h3></div>
         <p class="role">老猎魔人</p>
         <p class="deeds">凯尔莫罕的看守，把杰洛特养大。他说：我们这一行，死得早，别爱上谁。杰洛特没听。</p>
-        <a class="jump" href="index.html#wt06">时间线 · 维瑟米尔 →</a>
+        <div class="jumps"><a class="jump" href="index.html#wt06">维瑟米尔</a><a class="jump" href="index.html#wt09">训练</a></div>
       </article>
       </div>
     </section>
@@ -345,7 +347,7 @@ h1.big{
         <div class="pcard-top"><h3>叶奈法</h3></div>
         <p class="role">女术士</p>
         <p class="deeds">驼背出身，用魔法把自己改成美人。她跟杰洛特分分合合很多年。她被审问的时候没有说出希里的下落。她说：她是我女儿。</p>
-        <a class="jump" href="index.html#wt04">时间线 · 叶奈法 →</a>
+        <div class="jumps"><a class="jump" href="index.html#wt04">叶奈法</a><a class="jump" href="index.html#wt11">女术士</a><a class="jump" href="index.html#wt14">之后</a></div>
       </article>
       </div>
     </section>
@@ -356,13 +358,13 @@ h1.big{
         <div class="pcard-top"><h3>希里</h3></div>
         <p class="role">辛特拉的幼狮</p>
         <p class="deeds">辛特拉的公主，外祖母跳楼死了，她一个人在北方的森林里活下来。她身上有上古之血，能从一个世界跳到另一个世界。她最后选择做猎魔人。</p>
-        <a class="jump" href="index.html#wt03">时间线 · 意外律 →</a>
+        <div class="jumps"><a class="jump" href="index.html#wt03">意外律</a><a class="jump" href="index.html#wt10">火</a><a class="jump" href="index.html#wt14">之后</a></div>
       </article>
       <article class="pcard" id="c-calanthe" style="--c:#2f4a6b">
         <div class="pcard-top"><h3>卡兰瑟</h3></div>
         <p class="role">辛特拉女王</p>
         <p class="deeds">辛特拉的女王，打仗不怕，说话不留情。城破的时候她从窗口跳下去，没有让敌人抓到。</p>
-        <a class="jump" href="index.html#wt03">时间线 · 意外律 →</a>
+        <div class="jumps"><a class="jump" href="index.html#wt03">意外律</a></div>
       </article>
       </div>
     </section>
@@ -373,7 +375,7 @@ h1.big{
         <div class="pcard-top"><h3>丹德里恩</h3></div>
         <p class="role">吟游诗人</p>
         <p class="deeds">爱吹牛，爱女人，爱钱。他跟着杰洛特到处跑，把那些事写成歌。歌里杰洛特是英雄，现实里杰洛特常常只是运气好。</p>
-        <a class="jump" href="index.html#wt05">时间线 · 丹德里恩 →</a>
+        <div class="jumps"><a class="jump" href="index.html#wt05">丹德里恩</a></div>
       </article>
       </div>
     </section>
@@ -384,7 +386,7 @@ h1.big{
         <div class="pcard-top"><h3>恩希尔</h3></div>
         <p class="role">尼弗迦德皇帝</p>
         <p class="deeds">南方帝国的皇帝，要娶希里，因为她的血统能证明他对辛特拉的所有权。他找了她很多年。</p>
-        <a class="jump" href="index.html#wt07">时间线 · 尼弗迦德 →</a>
+        <div class="jumps"><a class="jump" href="index.html#wt07">尼弗迦德</a></div>
       </article>
       </div>
     </section>
@@ -393,7 +395,7 @@ h1.big{
 
 <footer class="site-foot">
   <p class="q">“我杀怪物，不杀人。”</p>
-  <p class="tiny">猎魔人 · 安杰伊·萨普科夫斯基　·　7 位人物，15 个时间点</p>
+  <p class="tiny">猎魔人 · 安杰伊·萨普科夫斯基　·　7 位人物，16 个时间点</p>
   <nav class="foot-nav">
     <a href="index.html">看时间线</a>
     <a href="#top">回到开头</a>

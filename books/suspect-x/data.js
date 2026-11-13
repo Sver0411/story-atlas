@@ -77,7 +77,8 @@ window.BOOK = {
         "togashi",
         "yasuko",
         "misato"
-      ]
+      ],
+      "src": "原著第 2 章"
     },
     {
       "id": "sx05",
@@ -101,7 +102,8 @@ window.BOOK = {
       "text": "三月十日的晚上，石神去了旧江户川的河堤。那里住着几个流浪汉，其中一个被人叫作「技师」，从前在工厂干过，不爱说话，东西摆得很整齐。石神跟他搭了几句话，然后从背后动了手。他砸烂那张脸，烧掉指纹，把富樫的衣服、鞋、月票换上去，用自行车把尸体运到河堤上。凌晨四点他回来，手上有洗不掉的机油味。他敲了敲靖子的门，说：明天警察会来。",
       "people": [
         "ishigami"
-      ]
+      ],
+      "src": "原著第 4 章"
     },
     {
       "id": "sx07",
@@ -166,7 +168,8 @@ window.BOOK = {
         "kusangi",
         "kishitani",
         "yasuko",
-        "ishigami"
+        "ishigami",
+        "magami"
       ]
     },
     {
@@ -308,7 +311,8 @@ window.BOOK = {
         "kusangi",
         "gishi",
         "togashi"
-      ]
+      ],
+      "src": "原著第 19 章"
     },
     {
       "id": "sx23",
@@ -334,7 +338,8 @@ window.BOOK = {
         "ishigami",
         "yasuko",
         "kishitani",
-        "kusangi"
+        "kusangi",
+        "magami"
       ]
     },
     {
@@ -408,6 +413,7 @@ window.BOOK = {
         "sx06",
         "sx09",
         "sx10",
+        "sx11",
         "sx13",
         "sx14",
         "sx15",

@@ -255,7 +255,8 @@ window.BOOK = {
       "people": [
         "sansa",
         "joffrey",
-        "cersei"
+        "cersei",
+        "hound"
       ]
     },
     {
@@ -309,7 +310,8 @@ window.BOOK = {
       "people": [
         "robb",
         "jaime",
-        "catelyn"
+        "catelyn",
+        "brienne"
       ]
     },
     {
@@ -323,7 +325,8 @@ window.BOOK = {
         "jon",
         "sam",
         "mormont",
-        "aemon"
+        "aemon",
+        "ygritte"
       ]
     },
     {
@@ -362,7 +365,8 @@ window.BOOK = {
       "people": [
         "daenerys",
         "jorah",
-        "mirri"
+        "mirri",
+        "drogo"
       ]
     },
     {
@@ -416,7 +420,8 @@ window.BOOK = {
         "catelyn",
         "frey",
         "bolton"
-      ]
+      ],
+      "src": "第 3 卷 红色婚礼"
     },
     {
       "id": "got30",
@@ -430,7 +435,8 @@ window.BOOK = {
         "tyrion",
         "cersei",
         "sansa",
-        "littlefinger"
+        "littlefinger",
+        "margaery"
       ]
     },
     {
@@ -443,8 +449,10 @@ window.BOOK = {
       "people": [
         "tyrion",
         "tywin",
-        "jaime"
-      ]
+        "jaime",
+        "oberyn"
+      ],
+      "src": "第 3 卷 弑父"
     },
     {
       "id": "got32",
@@ -456,7 +464,8 @@ window.BOOK = {
       "people": [
         "jon",
         "sam"
-      ]
+      ],
+      "src": "第 3 卷 长城攻防"
     },
     {
       "id": "got33",
@@ -483,7 +492,8 @@ window.BOOK = {
         "cersei",
         "daenerys",
         "bran"
-      ]
+      ],
+      "src": "第 3 卷 末章"
     }
   ],
   "people": [
@@ -498,9 +508,16 @@ window.BOOK = {
       "deeds": "北境守护，以荣誉立身。劳勃请他出任首相，他查出于兰尼斯特的乱伦，却在最后关头选择效忠而不是夺权，被小指头出卖，在贝勒大圣堂前被斩。他一生没有背叛过任何人，最后死于自己的诚实。",
       "events": [
         "got02",
+        "got04",
+        "got05",
+        "got06",
         "got08",
+        "got09",
+        "got12",
         "got14",
+        "got15",
         "got16",
+        "got18",
         "got19"
       ]
     },
@@ -514,8 +531,12 @@ window.BOOK = {
       ],
       "deeds": "徒利家长女，五个孩子的母亲。她抓提利昂引发战争，放走詹姆换回女儿，最后在红色婚礼上被割喉。她一生在为孩子做选择，每一个选择都把家族推得更远。",
       "events": [
+        "got02",
         "got04",
+        "got05",
         "got10",
+        "got20",
+        "got21",
         "got29"
       ]
     },
@@ -540,7 +561,10 @@ window.BOOK = {
       "aliases": [],
       "deeds": "爱读骑士故事的女孩。父亲死后被扣在君临做人质，被迫嫁给提利昂，在紫色婚礼上被小指头带走。她学会了笑、学会了低头，也学会了活下来。",
       "events": [
+        "got02",
+        "got06",
         "got17",
+        "got19",
         "got30"
       ]
     },
@@ -552,8 +576,10 @@ window.BOOK = {
       "aliases": [],
       "deeds": "不爱针线爱剑，父亲给她找了布拉佛斯的剑客西利欧。父亲被斩时她逃出君临，一路往北，杀人、逃亡、学艺，最后成了无面者。她的名单上写满了名字。",
       "events": [
+        "got02",
         "got06",
-        "got18"
+        "got18",
+        "got19"
       ]
     },
     {
@@ -580,9 +606,11 @@ window.BOOK = {
       "deeds": "艾德的私生子，从小不被凯特琳接纳。他加入守夜人，宣誓、远征、爱上野人、被杀又被复活。他一生在问“我是谁”，答案是：他是冰与火之间的那个人。",
       "events": [
         "got05",
+        "got06",
         "got22",
         "got23",
-        "got32"
+        "got32",
+        "got34"
       ]
     },
     {
@@ -594,9 +622,16 @@ window.BOOK = {
       "deeds": "劳勃的王后，三个孩子的母亲，孩子的父亲是她的孪生弟弟。她爱权力胜过一切，也爱自己的孩子胜过一切。她说过：在权力的游戏里，要么赢，要么死。",
       "events": [
         "got03",
+        "got12",
         "got14",
+        "got15",
+        "got16",
         "got17",
-        "got30"
+        "got19",
+        "got26",
+        "got27",
+        "got30",
+        "got34"
       ]
     },
     {
@@ -611,7 +646,9 @@ window.BOOK = {
       "events": [
         "got03",
         "got12",
-        "got21"
+        "got13",
+        "got21",
+        "got31"
       ]
     },
     {
@@ -626,8 +663,10 @@ window.BOOK = {
       "events": [
         "got10",
         "got11",
+        "got13",
         "got26",
         "got27",
+        "got30",
         "got31"
       ]
     },
@@ -640,6 +679,7 @@ window.BOOK = {
       "deeds": "兰尼斯特家之主，冷酷、精确、从不失手。他灭了卡斯塔梅家，把女儿嫁给国王，把儿子培养成骑士。他最后死在厕所里，被自己最看不起的儿子射死。",
       "events": [
         "got13",
+        "got27",
         "got31"
       ]
     },
@@ -652,8 +692,10 @@ window.BOOK = {
       "deeds": "劳勃与瑟曦的长子，实际上是詹姆的儿子。他残忍、怯懦、喜怒无常，下令斩了艾德，在婚宴上被毒死。他到死都以为自己是狮子。",
       "events": [
         "got15",
+        "got16",
         "got17",
         "got19",
+        "got26",
         "got30"
       ]
     },
@@ -682,7 +724,8 @@ window.BOOK = {
         "got07",
         "got24",
         "got25",
-        "got33"
+        "got33",
+        "got34"
       ]
     },
     {
@@ -733,6 +776,7 @@ window.BOOK = {
       "deeds": "出身卑微，靠头脑爬到财政大臣。他开妓院、放高利贷、挑拨离间。他对艾德说：在权力的游戏里，你不赢就得死。他最后死在珊莎手里。",
       "events": [
         "got08",
+        "got09",
         "got16",
         "got30"
       ]
@@ -747,6 +791,7 @@ window.BOOK = {
       ],
       "deeds": "太监，君临的情报网。他说：我服务于王国，不是国王。他一生在平衡，也在等待一个更好的君主。",
       "events": [
+        "got08",
         "got09"
       ]
     },
@@ -772,7 +817,8 @@ window.BOOK = {
       "deeds": "胖子，胆小鬼，被父亲赶到长城。他杀了第一个异鬼，抄了古籍，找到了龙晶。琼恩说：你是懦夫，但你比谁都勇敢。",
       "events": [
         "got22",
-        "got23"
+        "got23",
+        "got32"
       ]
     },
     {
@@ -952,7 +998,8 @@ window.BOOK = {
       "aliases": [],
       "deeds": "提利昂比武审判时替他出战的佣兵。他不讲道义，只讲价钱，可他从没背叛过雇主。后来他做了骑士。",
       "events": [
-        "got10"
+        "got10",
+        "got11"
       ]
     },
     {
@@ -974,7 +1021,8 @@ window.BOOK = {
       "aliases": [],
       "deeds": "她救不了卓戈，就把他的命换成了龙。她说：只有死亡才能换来生命。丹妮莉丝烧死了她。",
       "events": [
-        "got24"
+        "got24",
+        "got25"
       ]
     },
     {

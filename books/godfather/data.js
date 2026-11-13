@@ -36,7 +36,8 @@ window.BOOK = {
       "people": [
         "vito",
         "connie",
-        "michael"
+        "michael",
+        "johnny"
       ]
     },
     {
@@ -97,7 +98,8 @@ window.BOOK = {
       "text": "迈克尔约索洛佐和那个警长在餐厅见面。他从厕所拿出枪，走出来，先打索洛佐的头，再打警长的胸口。他走出餐厅，坐上一辆车，去了西西里。他后来回忆：我没有想，我只是做了。他走出餐厅的时候，手还在抖，可脚步很稳。他后来跟人说：那一刻我知道，我这辈子回不去了。他上车以后，手一直在抖。司机说：你没事吧。他说：没事。他说：开快点。",
       "people": [
         "michael",
-        "sollozzo"
+        "sollozzo",
+        "clemenza"
       ]
     },
     {
@@ -172,8 +174,11 @@ window.BOOK = {
       "people": [
         "michael",
         "connie",
-        "carlo"
-      ]
+        "carlo",
+        "clemenza",
+        "tessio"
+      ],
+      "src": "小说第 30 章 洗礼"
     },
     {
       "id": "gf13",
@@ -198,7 +203,8 @@ window.BOOK = {
       "people": [
         "michael",
         "kay"
-      ]
+      ],
+      "src": "小说末章"
     }
   ],
   "people": [
@@ -216,6 +222,7 @@ window.BOOK = {
         "gf02",
         "gf03",
         "gf04",
+        "gf05",
         "gf07",
         "gf09",
         "gf11"

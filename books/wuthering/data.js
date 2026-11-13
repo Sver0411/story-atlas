@@ -153,7 +153,8 @@ window.BOOK = {
       "text": "希斯克利夫住进了呼啸山庄，跟辛德雷一起喝酒赌钱。辛德雷越输越多，最后把田产、房子、连儿子的将来都押上了。希斯克利夫每次都赢。内莉说：你这是要他的命。他说：他先要过我的。辛德雷把地契推过去的时候，手在抖。希斯克利夫说：你还有一次机会。他说：我不玩了。",
       "people": [
         "heathcliff",
-        "hindley"
+        "hindley",
+        "nelly"
       ]
     },
     {
@@ -217,7 +218,8 @@ window.BOOK = {
       "people": [
         "hareton",
         "hindley",
-        "heathcliff"
+        "heathcliff",
+        "nelly"
       ]
     },
     {
@@ -257,7 +259,8 @@ window.BOOK = {
         "linton",
         "heathcliff",
         "cathy"
-      ]
+      ],
+      "src": "第 28 章"
     },
     {
       "id": "wh19",
@@ -283,7 +286,8 @@ window.BOOK = {
         "heathcliff",
         "catherine",
         "lockwood"
-      ]
+      ],
+      "src": "第 34 章"
     }
   ],
   "people": [

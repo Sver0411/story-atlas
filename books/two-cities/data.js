@@ -37,7 +37,8 @@ window.BOOK = {
         "manette",
         "evermonde",
         "lucie"
-      ]
+      ],
+      "src": "第 1 卷第 10 章"
     },
     {
       "id": "tc02",
@@ -79,7 +80,8 @@ window.BOOK = {
         "carton",
         "stryver",
         "lucie",
-        "manette"
+        "manette",
+        "barsad"
       ]
     },
     {
@@ -145,7 +147,8 @@ window.BOOK = {
         "evermonde",
         "defarge",
         "madame"
-      ]
+      ],
+      "src": "第 2 卷第 7—9 章"
     },
     {
       "id": "tc10",
@@ -185,7 +188,8 @@ window.BOOK = {
         "darnay",
         "manette",
         "lucie",
-        "defarge"
+        "defarge",
+        "little"
       ]
     },
     {
@@ -238,7 +242,8 @@ window.BOOK = {
       "text": "卡顿带着一张通行证进了监狱。他让达尔内跟他换衣服，说：你出去，去找一辆马车，坐到门口等。达尔内说：你疯了。他说：我这一辈子没做过一件好事，就让我做这一件。他把达尔内推出去，说：快走，别回头。达尔内回头看了一眼，看见他坐在桌前，拿起笔在写什么。巴塞德在监狱里当看守，卡顿早就抓住了他的把柄。卡顿说：你帮我这一次，我什么都不说；你不帮，我就把你以前在英国做的事全说出去。巴塞德说：你会被砍头。卡顿说：我知道。巴塞德看了他很久，说：你疯了。他说：也许。他把外套脱下来，递给达尔内。",
       "people": [
         "carton",
-        "darnay"
+        "darnay",
+        "barsad"
       ]
     },
     {
@@ -253,7 +258,8 @@ window.BOOK = {
         "manette",
         "lory",
         "carton",
-        "darnay"
+        "darnay",
+        "little"
       ]
     },
     {
@@ -302,7 +308,8 @@ window.BOOK = {
       "people": [
         "carton",
         "lucie"
-      ]
+      ],
+      "src": "第 3 卷第 15 章"
     },
     {
       "id": "tc22",
@@ -387,9 +394,11 @@ window.BOOK = {
       "aliases": [],
       "deeds": "从小在英国长大，以为父亲早就死了。十七岁那年去巴黎，把一个做鞋的老人接回家。她温柔，安静，是这本书里唯一不恨任何人的人。她爱丈夫，也爱那个替丈夫去死的人。她后半生每年去一次那片空地，从不带丈夫。",
       "events": [
+        "tc01",
         "tc02",
         "tc03",
         "tc04",
+        "tc05",
         "tc06",
         "tc07",
         "tc10",
@@ -423,7 +432,9 @@ window.BOOK = {
         "tc12",
         "tc13",
         "tc14",
+        "tc15",
         "tc16",
+        "tc17",
         "tc23"
       ]
     },
@@ -439,6 +450,7 @@ window.BOOK = {
         "tc05",
         "tc15",
         "tc16",
+        "tc17",
         "tc20",
         "tc21",
         "tc23",

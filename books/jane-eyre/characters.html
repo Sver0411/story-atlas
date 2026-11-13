@@ -113,6 +113,8 @@ h1.big{
   border-bottom:1px solid transparent;transition:.3s;
 }
 .pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+.pcard .jumps{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:16px}
+.pcard .jumps .jump{margin-top:0}
 
 .site-foot{
   max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
@@ -362,7 +364,7 @@ h1.big{
         <div class="pcard-top"><h3>简·爱</h3></div>
         <p class="role">家庭教师</p>
         <p class="deeds">从小在舅母家受气，在孤儿院挨冻，长大后到桑菲尔德做家庭教师。她个子小，长得平常，说话直。她爱过一个骗了她的人，也拒绝过一个不爱她的人。她这一辈子只争过一件事：她要被当成一个人看待。</p>
-        <a class="jump" href="index.html#je01">时间线 · 红房子 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je01">红房子</a><a class="jump" href="index.html#je15">答应</a><a class="jump" href="index.html#je28">眼睛</a></div>
       </article>
       </div>
     </section>
@@ -373,31 +375,31 @@ h1.big{
         <div class="pcard-top"><h3>爱德华·罗切斯特</h3></div>
         <p class="role">桑菲尔德的主人</p>
         <p class="deeds">年轻时被家里骗去牙买加娶了一个有钱人家的女儿，婚后才知道她有精神病。他把妻子带回英国，关在三楼，自己在外游荡了十几年。他遇见简的时候，以为自己终于可以重新活一次。他被火烧瞎了眼睛，也被火烧掉了一身傲慢。</p>
-        <a class="jump" href="index.html#je10">时间线 · 一匹马 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je10">一匹马</a><a class="jump" href="index.html#je17">打断</a><a class="jump" href="index.html#je28">眼睛</a></div>
       </article>
       <article class="pcard" id="c-fairfax" style="--c:#7a5a38">
         <div class="pcard-top"><h3>费尔法克斯太太</h3></div>
         <p class="role">桑菲尔德的管家</p>
         <p class="deeds">胖胖的老太太，话多，心善，把简当自家孩子。她一直以为主人要娶的是英格拉姆小姐。婚礼那天她被蒙在鼓里。事后她说：我要是知道，我一定会告诉你。简说：我知道。</p>
-        <a class="jump" href="index.html#je09">时间线 · 费尔法克斯太太 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je09">费尔法克斯太太</a><a class="jump" href="index.html#je11">主人</a></div>
       </article>
       <article class="pcard" id="c-adele" style="--c:#7a5a38">
         <div class="pcard-top"><h3>阿黛尔</h3></div>
         <p class="role">罗切斯特的养女</p>
         <p class="deeds">一个法国小女孩，母亲是舞女，据说父亲是罗切斯特。她话多，爱打扮，法语比英语好。简教她读书、弹琴、算数。她长大后离开桑菲尔德，进了学校，后来嫁了人。她一直给简写信。</p>
-        <a class="jump" href="index.html#je09">时间线 · 费尔法克斯太太 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je09">费尔法克斯太太</a></div>
       </article>
       <article class="pcard" id="c-bertha" style="--c:#7a5a38">
         <div class="pcard-top"><h3>伯莎·梅森</h3></div>
         <p class="role">罗切斯特的妻子</p>
         <p class="deeds">牙买加一个有钱人家的女儿，家里有精神病史。婚后不久发病，被丈夫关在桑菲尔德三楼，一关十几年。她夜里笑，放火，撕婚纱。最后她放火烧了整栋房子，自己从屋顶跳下来。她的名字在书里几乎没有出现过。</p>
-        <a class="jump" href="index.html#je16">时间线 · 婚纱 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je16">婚纱</a><a class="jump" href="index.html#je18">伯莎</a><a class="jump" href="index.html#je25">烧了</a></div>
       </article>
       <article class="pcard" id="c-grace" style="--c:#7a5a38">
         <div class="pcard-top"><h3>格雷斯·普尔</h3></div>
         <p class="role">桑菲尔德的佣人</p>
         <p class="deeds">负责看管三楼那个女人的佣人。她知道一切，也喝很多酒。罗切斯特把火烧的事推到她身上，说：她喝多了。简信了。这个人在书里出场不多，却是整栋房子里最清醒的一个：她知道自己看的是什么，也知道自己不能说什么。</p>
-        <a class="jump" href="index.html#je16">时间线 · 婚纱 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je16">婚纱</a></div>
       </article>
       </div>
     </section>
@@ -408,13 +410,13 @@ h1.big{
         <div class="pcard-top"><h3>里德太太</h3></div>
         <p class="role">简的舅母</p>
         <p class="deeds">答应丈夫抚养外甥女，做到了，也恨了她一辈子。她说这孩子心眼坏，说她撒谎，说她是个负担。她临死前要见简，把一封叔叔的来信交给她，说：我当年没告诉你。简说：我原谅你。她说：我不需要你原谅。</p>
-        <a class="jump" href="index.html#je01">时间线 · 红房子 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je01">红房子</a><a class="jump" href="index.html#je02">一句话</a><a class="jump" href="index.html#je03">布洛克赫斯特</a></div>
       </article>
       <article class="pcard" id="c-john_reed" style="--c:#2f4a6b">
         <div class="pcard-top"><h3>约翰·里德</h3></div>
         <p class="role">简的表哥</p>
         <p class="deeds">里德太太的宝贝儿子，吃得多，长得胖，打人从不手软。他打简的时候，简第一次还了手。他后来在伦敦赌光了家产，死在自已的房子里，没有人替他收尸。里德太太说：他是被我宠坏的。她说这话的时候已经晚了。</p>
-        <a class="jump" href="index.html#je01">时间线 · 红房子 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je01">红房子</a></div>
       </article>
       </div>
     </section>
@@ -425,19 +427,19 @@ h1.big{
         <div class="pcard-top"><h3>海伦·彭斯</h3></div>
         <p class="role">洛伍德的学生</p>
         <p class="deeds">简在孤儿院的第一个朋友。她被老师打，不哭；被罚站，不辩解。她说：我这一生很短，不值得用来恨人。她死于肺病，死在简怀里。简后来一生都在学她那句话，一直没有学会。</p>
-        <a class="jump" href="index.html#je04">时间线 · 第一顿早饭 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je04">第一顿早饭</a><a class="jump" href="index.html#je06">当着全校</a><a class="jump" href="index.html#je07">斑疹伤寒</a></div>
       </article>
       <article class="pcard" id="c-temple" style="--c:#5a3a6b">
         <div class="pcard-top"><h3>坦普尔小姐</h3></div>
         <p class="role">洛伍德的校长</p>
         <p class="deeds">学校里唯一相信简的人。她听简讲完整个故事，写信去核实，然后在全校面前替她平了反。她后来结婚离开了学校。简说：她是我见过的第一个好人。她说：我不是好人，我只是讲道理。</p>
-        <a class="jump" href="index.html#je06">时间线 · 当着全校 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je06">当着全校</a><a class="jump" href="index.html#je08">八年</a></div>
       </article>
       <article class="pcard" id="c-brocklehurst" style="--c:#5a3a6b">
         <div class="pcard-top"><h3>布洛克赫斯特</h3></div>
         <p class="role">洛伍德的校长</p>
         <p class="deeds">一个假虔诚的人。他让女孩们吃烧焦的粥，剪掉她们的头发，说这是「磨练」。他自己的女儿穿绸缎，戴羽毛。他在全校面前说简撒谎，后来被证明是错的。他从此不再提这件事。</p>
-        <a class="jump" href="index.html#je03">时间线 · 布洛克赫斯特 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je03">布洛克赫斯特</a><a class="jump" href="index.html#je06">当着全校</a></div>
       </article>
       </div>
     </section>
@@ -448,7 +450,7 @@ h1.big{
         <div class="pcard-top"><h3>理查德·梅森</h3></div>
         <p class="role">伯莎的弟弟</p>
         <p class="deeds">一个胆小、软弱、说话吞吞吐吐的男人。他被罗切斯特请到桑菲尔德，夜里被姐姐咬伤。他答应不说，又忍不住说了。婚礼那天，是他站出来打断了仪式。他做了一件对的事，做得很难看。</p>
-        <a class="jump" href="index.html#je13">时间线 · 梅森 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je13">梅森</a><a class="jump" href="index.html#je17">打断</a><a class="jump" href="index.html#je18">伯莎</a></div>
       </article>
       </div>
     </section>
@@ -459,13 +461,13 @@ h1.big{
         <div class="pcard-top"><h3>圣约翰·里弗斯</h3></div>
         <p class="role">牧师</p>
         <p class="deeds">长得极好看，脸像希腊雕像，说话像在布道。他救了简，给她找工作，后来发现她是表妹。他要去印度传教，要她做妻子兼助手。他说婚姻不需要爱情。她说她需要。他一个人去了印度，最后死在那里。</p>
-        <a class="jump" href="index.html#je20">时间线 · 三天 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je20">三天</a><a class="jump" href="index.html#je22">遗产</a><a class="jump" href="index.html#je23">求婚</a></div>
       </article>
       <article class="pcard" id="c-diana" style="--c:#a8823c">
         <div class="pcard-top"><h3>戴安娜·里弗斯</h3></div>
         <p class="role">圣约翰的妹妹</p>
         <p class="deeds">会德语，会法语，读过很多书。她和妹妹在荒原上开一所小小的学校，靠教课过日子。她第一次见简，就给她端来热汤。她后来嫁了一个海军军官，写信来说：我过得很好，就是总想起那间小屋。</p>
-        <a class="jump" href="index.html#je20">时间线 · 三天 →</a>
+        <div class="jumps"><a class="jump" href="index.html#je20">三天</a><a class="jump" href="index.html#je21">乡村教师</a><a class="jump" href="index.html#je22">遗产</a></div>
       </article>
       </div>
     </section>

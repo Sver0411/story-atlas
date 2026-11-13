@@ -113,6 +113,8 @@ h1.big{
   border-bottom:1px solid transparent;transition:.3s;
 }
 .pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+.pcard .jumps{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:16px}
+.pcard .jumps .jump{margin-top:0}
 
 .site-foot{
   max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
@@ -337,13 +339,13 @@ h1.big{
         <div class="pcard-top"><h3>卡西莫多</h3></div>
         <p class="role">圣母院的敲钟人</p>
         <p class="deeds">生下来就被遗弃在教堂门口，被弗罗洛收养。独眼，驼背，瘸腿，耳朵被钟声震聋。全巴黎都笑他。只有一个姑娘给过他一口水。他后来把她藏进教堂，守了一夜，最后抱着她的尸体死在地窖里。</p>
-        <a class="jump" href="index.html#nd01">时间线 · 愚人节 →</a>
+        <div class="jumps"><a class="jump" href="index.html#nd01">愚人节</a><a class="jump" href="index.html#nd10">钟声</a><a class="jump" href="index.html#nd16">两具骨头</a></div>
       </article>
       <article class="pcard" id="c-frollo" style="--c:#8c2b26">
         <div class="pcard-top"><h3>克洛德·弗罗洛</h3></div>
         <p class="role">圣母院副主教</p>
         <p class="deeds">学问极好，炼金术、神学、法律样样通。他一生禁欲，直到看见那个跳舞的姑娘。他跟踪她，买通人，动刀，最后把她送上绞架。他在钟楼上笑的时候，被自己养大的孩子推了下去。</p>
-        <a class="jump" href="index.html#nd02">时间线 · 跳舞的姑娘 →</a>
+        <div class="jumps"><a class="jump" href="index.html#nd02">跳舞的姑娘</a><a class="jump" href="index.html#nd09">避难</a><a class="jump" href="index.html#nd15">行刑</a></div>
       </article>
       </div>
     </section>
@@ -354,19 +356,19 @@ h1.big{
         <div class="pcard-top"><h3>爱斯梅拉达</h3></div>
         <p class="role">吉普赛姑娘</p>
         <p class="deeds">在广场上跳舞，靠一只小山羊讨钱。她心软，给一个被绑在柱子上的丑八怪喂过水。她爱上了一个不值得的骑兵队长，到死都在叫他的名字。她死的时候十六岁。</p>
-        <a class="jump" href="index.html#nd02">时间线 · 跳舞的姑娘 →</a>
+        <div class="jumps"><a class="jump" href="index.html#nd02">跳舞的姑娘</a><a class="jump" href="index.html#nd09">避难</a><a class="jump" href="index.html#nd16">两具骨头</a></div>
       </article>
       <article class="pcard" id="c-gringoire" style="--c:#7a5a38">
         <div class="pcard-top"><h3>皮埃尔·甘果瓦</h3></div>
         <p class="role">诗人 · 哲学家</p>
         <p class="deeds">写神秘剧没人看完，穷得没饭吃，误入乞丐窝，被一个姑娘救下。他跟她假结婚，后来被弗罗洛一吓，就把她交了出去。他一辈子都在想事情，从来没有做过一件对的事。</p>
-        <a class="jump" href="index.html#nd01">时间线 · 愚人节 →</a>
+        <div class="jumps"><a class="jump" href="index.html#nd01">愚人节</a><a class="jump" href="index.html#nd12">乞丐攻城</a><a class="jump" href="index.html#nd13">被抓</a></div>
       </article>
       <article class="pcard" id="c-clopin" style="--c:#7a5a38">
         <div class="pcard-top"><h3>克洛潘·特鲁伊福</h3></div>
         <p class="role">乞丐王</p>
         <p class="deeds">管着巴黎所有的乞丐和小偷，说话像喊口号。他为了救那个姑娘，带人攻打圣母院，被打死。他死的时候，手里还举着一面旗。</p>
-        <a class="jump" href="index.html#nd05">时间线 · 甘果瓦的婚礼 →</a>
+        <div class="jumps"><a class="jump" href="index.html#nd05">甘果瓦的婚礼</a><a class="jump" href="index.html#nd12">乞丐攻城</a></div>
       </article>
       </div>
     </section>
@@ -377,7 +379,7 @@ h1.big{
         <div class="pcard-top"><h3>弗比斯·德·夏托佩尔</h3></div>
         <p class="role">骑兵队长</p>
         <p class="deeds">长得好看，会说话，已经订婚。他救过爱斯梅拉达一次，约过她一次，被刺了一刀，伤好了就把她忘了。他后来娶了有钱的未婚妻，过得很好。这本书里最不值得的人，活得最久。</p>
-        <a class="jump" href="index.html#nd03">时间线 · 被抢 →</a>
+        <div class="jumps"><a class="jump" href="index.html#nd03">被抢</a><a class="jump" href="index.html#nd07">一刀</a></div>
       </article>
       </div>
     </section>
@@ -388,7 +390,7 @@ h1.big{
         <div class="pcard-top"><h3>居迪尔</h3></div>
         <p class="role">隐居的女人 · 爱斯梅拉达的母亲</p>
         <p class="deeds">十几年前女儿被吉普赛人偷走，她从此把自己关进一间石屋，天天对着那只小鞋说话。她恨所有的吉普赛人。行刑那天她认出了自己的女儿，只抱了几秒钟。</p>
-        <a class="jump" href="index.html#nd14">时间线 · 母女 →</a>
+        <div class="jumps"><a class="jump" href="index.html#nd14">母女</a></div>
       </article>
       </div>
     </section>
@@ -399,7 +401,7 @@ h1.big{
         <div class="pcard-top"><h3>百合花·德·贡德洛里耶</h3></div>
         <p class="role">弗比斯的未婚妻</p>
         <p class="deeds">城里有名的美人，有钱，有身份。她知道未婚夫在外面有别的女人，还是嫁给了他。她最恨那个跳舞的吉普赛姑娘，可那个人到死都不知道她叫什么。</p>
-        <a class="jump" href="index.html#nd03">时间线 · 被抢 →</a>
+        <div class="jumps"><a class="jump" href="index.html#nd03">被抢</a></div>
       </article>
       </div>
     </section>

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import io, json, os, re, math, sys
+from html import escape
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from subs_data import SUBS
 
@@ -8,6 +9,8 @@ IDX_CSS = io.open(os.path.join(ROOT,'tools/tpl/idx.css'), encoding='utf-8').read
 IDX_JS = io.open(os.path.join(ROOT,'tools/tpl/idx.js'), encoding='utf-8').read()
 CH_CSS = io.open(os.path.join(ROOT,'tools/tpl/chars.css'), encoding='utf-8').read()
 CH_JS = io.open(os.path.join(ROOT,'tools/tpl/chars.js'), encoding='utf-8').read()
+with io.open(os.path.join(ROOT, 'assets/illustrations.json'), encoding='utf-8') as illustrations_file:
+    ILLUSTRATIONS = json.load(illustrations_file)
 
 BOOKS = sorted([d for d in os.listdir(os.path.join(ROOT, 'books'))
                 if d != 'three-body' and os.path.exists(os.path.join(ROOT, 'books', d, 'data.js'))])
@@ -599,7 +602,7 @@ DECOR = {
 
 PALETTE = ['#8c2b26', '#7a5a38', '#2f4a6b', '#5a3a6b', '#1f5d57', '#a8823c', '#4a4a58', '#6b645a']
 
-# 每本书的插图：文件名, 图注, 插入到第几个事件（0-based）
+# 已有插图保留原先在时间线上的分布。
 IMAGES = {
     'monte-cristo': [
         ('monte-cristo.jpg', '马赛港 · 法老号归来的清晨'),
@@ -640,6 +643,13 @@ def esc(t):
     return (t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;'))
 
 
+def src_html(ev):
+    raw = (ev.get('src') or '').strip()
+    if not raw:
+        return ''
+    return '<p class="ev-src">出处 · %s</p>' % esc(raw)
+
+
 def subs_html(book_id, event_id):
     items = SUBS.get(book_id, {}).get(event_id)
     if not items:
@@ -656,8 +666,11 @@ def build_index(b):
     total = len(b['events'])
     people = len(b['people'])
 
-    # 插图分配：均分到事件序列
     imgs = IMAGES.get(b['id'], [])
+    event_art = ILLUSTRATIONS.get(b['id'], {}).get('events', {}) if not imgs else {}
+    unknown_events = set(event_art) - {event['id'] for event in b['events']}
+    if unknown_events:
+        raise ValueError(f"{b['id']}: unknown illustrated events {sorted(unknown_events)}")
     slots = {}
     if imgs:
         step = max(1, total // (len(imgs) + 1))
@@ -676,14 +689,25 @@ def build_index(b):
                 % (esc(era_label.get(era, '')), '%02d — %02d' % (i + 1, total)))
             last_era = era
         label = ev['when'] + (' · ' + ev['place'] if ev.get('place') else '')
+        illustration = ''
+        art = event_art.get(ev['id'])
+        if art:
+            image_path = os.path.join(ROOT, 'img', 'anthology', art['file'])
+            if not os.path.isfile(image_path):
+                raise FileNotFoundError(image_path)
+            illustration = (
+                '\n      <figure class="ev-fig"><img src="../../img/anthology/%s" alt="%s" '
+                'width="%d" height="%d" loading="lazy" decoding="async" style="aspect-ratio:auto">'
+                '<figcaption>%s · AI 概念插图</figcaption></figure>' %
+                (escape(art['file']), escape(art['alt']), art['width'], art['height'], esc(art['caption'])))
         parts.append(
             '\n    <section class="event" id="%s" style="--c:%s"\n'
             '      data-color="%s" data-era="%s" data-short="%s" data-label="%s">\n'
             '      <div class="ev-when">%s<em>%s</em></div>\n'
-            '      <h2>%s</h2>\n      <p>%s</p>%s\n    </section>\n'
+            '      <h2>%s</h2>\n      <p>%s</p>%s%s%s\n    </section>\n'
             % (ev['id'], b['accent'], b['accent'], esc(era_label.get(era, '')),
                esc(ev['title']), esc(label), esc(ev['when']), esc(ev.get('place', '')),
-               esc(ev['title']), ev['text'], subs_html(b['id'], ev['id'])))
+               esc(ev['title']), ev['text'], src_html(ev), subs_html(b['id'], ev['id']), illustration))
         if i in slots:
             fn, cap = slots[i]
             parts.append(
@@ -933,17 +957,25 @@ def build_chars(b):
                      '<text class="pname" y="4" style="font-size:%dpx">%s</text></g>'
                      % (p['id'], x, y, esc(p['name']), esc(p['role']), color[p.get('group', '')], name_size(sn), esc(sn)))
 
+    title_of = {e['id']: e['title'] for e in b['events']}
+    order_of = {e['id']: i for i, e in enumerate(b['events'])}
+
+    def jumps_html(p):
+        evs = [x for x in (p.get('events') or []) if x in title_of]
+        if not evs:
+            return ''
+        pick = []
+        for x in (evs[0], evs[-1], evs[len(evs) // 2]):
+            if x not in pick:
+                pick.append(x)
+        pick = sorted(pick[:3], key=lambda x: order_of[x])
+        links = ''.join('<a class="jump" href="index.html#%s">%s</a>' % (x, esc(title_of[x])) for x in pick)
+        return '<div class="jumps">%s</div>' % links
+
     group_cards = []
     for g in groups:
         cards = []
         for p in [x for x in people if x.get('group', '') == g]:
-            evs = p.get('events') or []
-            first_ev = evs[0] if evs else ''
-            ev_title = ''
-            for e in b['events']:
-                if e['id'] == first_ev:
-                    ev_title = e['title']
-                    break
             aliases = '、'.join(p.get('aliases', [])[:3])
             cards.append(
                 '''      <article class="pcard" id="c-%(id)s" style="--c:%(c)s">
@@ -954,8 +986,7 @@ def build_chars(b):
       </article>''' % dict(
                     id=p['id'], c=color[g], name=esc(p['name']), role=esc(p['role']),
                     deeds=esc(p.get('deeds', '')),
-                    jump=('<a class="jump" href="index.html#%s">时间线 · %s →</a>' % (first_ev, esc(ev_title)))
-                    if first_ev else ''))
+                    jump=jumps_html(p)))
         group_cards.append('''    <section class="pgroup">
       <div class="pgroup-head"><h2 style="--c:%s">%s</h2></div>
       <div class="pgrid">
@@ -1119,8 +1150,9 @@ def build_chars(b):
     return len(html)
 
 
-for bid in BOOKS:
-    b = load(bid)
-    a = build_index(b)
-    c = build_chars(b)
-    print('%-14s index %6d  chars %6d  (%d events, %d people)' % (bid, a, c, len(b['events']), len(b['people'])))
+if __name__ == '__main__':
+    for bid in BOOKS:
+        b = load(bid)
+        a = build_index(b)
+        c = build_chars(b)
+        print('%-14s index %6d  chars %6d  (%d events, %d people)' % (bid, a, c, len(b['events']), len(b['people'])))

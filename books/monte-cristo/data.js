@@ -284,7 +284,8 @@ window.BOOK = {
       ],
       "sourceIds": [
         "mc-ch30"
-      ]
+      ],
+      "src": "第 89 章 莫雷尔获救"
     },
     {
       "id": "mc15b",
@@ -341,7 +342,8 @@ window.BOOK = {
         "edmond",
         "albert",
         "franz",
-        "vampa"
+        "vampa",
+        "ali"
       ],
       "sourceIds": [
         "mc-ch37"
@@ -409,7 +411,8 @@ window.BOOK = {
       "people": [
         "edmond",
         "danglars",
-        "hermine"
+        "hermine",
+        "debray"
       ],
       "sourceIds": [
         "mc-ch60"
@@ -530,7 +533,8 @@ window.BOOK = {
         "valentine",
         "villefort",
         "noirtier",
-        "edmond"
+        "edmond",
+        "saintmeran"
       ],
       "sourceIds": [
         "mc-ch79"
@@ -563,7 +567,8 @@ window.BOOK = {
         "haydee",
         "fernand",
         "edmond",
-        "albert"
+        "albert",
+        "beauchamp"
       ],
       "sourceIds": [
         "mc-ch86"
@@ -584,7 +589,8 @@ window.BOOK = {
       ],
       "sourceIds": [
         "mc-ch89"
-      ]
+      ],
+      "src": "第 30 章 决斗前夜"
     },
     {
       "id": "mc29b",
@@ -611,7 +617,8 @@ window.BOOK = {
         "albert",
         "mercedes",
         "edmond",
-        "fernand"
+        "fernand",
+        "ali"
       ],
       "sourceIds": [
         "mc-ch92"
@@ -628,7 +635,8 @@ window.BOOK = {
         "eugenie",
         "louise",
         "benedetto",
-        "danglars"
+        "danglars",
+        "debray"
       ],
       "sourceIds": [
         "mc-ch97"
@@ -791,9 +799,12 @@ window.BOOK = {
         "mc13",
         "mc14",
         "mc15",
+        "mc15b",
         "mc16",
+        "mc16b",
         "mc17",
         "mc18",
+        "mc18b",
         "mc19",
         "mc20",
         "mc21",
@@ -803,11 +814,14 @@ window.BOOK = {
         "mc27",
         "mc28",
         "mc29",
+        "mc29b",
         "mc30",
         "mc32",
         "mc33",
         "mc34",
+        "mc34b",
         "mc35",
+        "mc35b",
         "mc36"
       ]
     },
@@ -824,8 +838,11 @@ window.BOOK = {
         "mc05",
         "mc13",
         "mc18",
+        "mc18b",
         "mc29",
-        "mc30"
+        "mc29b",
+        "mc30",
+        "mc35b"
       ]
     },
     {
@@ -864,6 +881,7 @@ window.BOOK = {
         "mc08",
         "mc13",
         "mc18",
+        "mc18b",
         "mc19",
         "mc20",
         "mc23",
@@ -884,12 +902,15 @@ window.BOOK = {
         "mc06",
         "mc08",
         "mc18",
+        "mc18b",
         "mc19",
         "mc22",
         "mc24",
         "mc25",
+        "mc25b",
         "mc26",
         "mc33",
+        "mc33b",
         "mc34"
       ]
     },
@@ -932,7 +953,8 @@ window.BOOK = {
         "mc01",
         "mc03",
         "mc05",
-        "mc15"
+        "mc15",
+        "mc15b"
       ]
     },
     {
@@ -970,11 +992,13 @@ window.BOOK = {
       "deeds": "在罗马得到伯爵营救，将其介绍到巴黎。父亲受指控后他一度提出决斗，了解唐泰斯遭遇后转而道歉，并与母亲放弃不义之财，尝试以自己的劳动与行动重新生活。",
       "events": [
         "mc16",
+        "mc16b",
         "mc17",
         "mc18",
         "mc21",
         "mc28",
         "mc29",
+        "mc29b",
         "mc30"
       ]
     },
@@ -989,6 +1013,8 @@ window.BOOK = {
         "mc09",
         "mc21",
         "mc28",
+        "mc34b",
+        "mc35b",
         "mc36"
       ]
     },
@@ -1032,8 +1058,10 @@ window.BOOK = {
       "aliases": [],
       "deeds": "希望让儿子爱德华独占家产，利用毒药清除继承障碍。罪行被丈夫识破后，她自尽并毒死儿子；这一结局使伯爵直面惩罚外溢到无辜者身上的后果。",
       "events": [
+        "mc25b",
         "mc26",
         "mc32",
+        "mc33b",
         "mc34"
       ]
     },
@@ -1049,6 +1077,7 @@ window.BOOK = {
         "mc25",
         "mc26",
         "mc32",
+        "mc33b",
         "mc36"
       ]
     },
@@ -1063,6 +1092,7 @@ window.BOOK = {
         "mc04",
         "mc22",
         "mc25",
+        "mc25b",
         "mc26",
         "mc32"
       ]
@@ -1114,6 +1144,7 @@ window.BOOK = {
       "deeds": "受到母亲偏爱，也是她争夺遗产的理由。他曾在马车事故中获救，最后却死于母亲的毒药；这个孩子并不承担父辈的罪过，他的死亡成为伯爵反思复仇的重要转折。",
       "events": [
         "mc26",
+        "mc33b",
         "mc34"
       ]
     },
@@ -1140,6 +1171,7 @@ window.BOOK = {
       "aliases": [],
       "deeds": "领导罗马周边的强盗团伙，与伯爵存在互相认可的关系。他控制阿尔贝后应伯爵要求放人，后来又扣住逃亡的唐格拉尔；这些行动使意大利成为巴黎之外的另一处清算场所。",
       "events": [
+        "mc16b",
         "mc17",
         "mc35"
       ]
@@ -1153,6 +1185,7 @@ window.BOOK = {
       "deeds": "在基督山岛和罗马先后遇见伯爵，对其力量始终保有疑虑。他曾与瓦朗蒂娜订婚，却因努瓦蒂埃的证言得知父亲死亡的真相，选择解除婚约，使一段旧政治仇怨改变当下婚事。",
       "events": [
         "mc16",
+        "mc16b",
         "mc17",
         "mc22",
         "mc25"

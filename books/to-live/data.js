@@ -104,7 +104,8 @@ window.BOOK = {
         "jiazhen",
         "fengxia",
         "fugui-mother"
-      ]
+      ],
+      "src": "第 6 章 回家"
     },
     {
       "id": "tl07",
@@ -129,7 +130,8 @@ window.BOOK = {
         "fugui",
         "youqing",
         "chunsheng"
-      ]
+      ],
+      "src": "第 8 章 有庆"
     },
     {
       "id": "tl09",
@@ -218,11 +220,17 @@ window.BOOK = {
       "events": [
         "tl01",
         "tl02",
+        "tl03",
         "tl04",
+        "tl05",
         "tl06",
+        "tl07",
         "tl08",
         "tl09",
+        "tl10",
+        "tl11",
         "tl12",
+        "tl13",
         "tl14"
       ]
     },
