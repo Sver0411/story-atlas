@@ -1846,11 +1846,6 @@ window.BOOK = {
       "label": "母子"
     },
     {
-      "a": "xingfuren",
-      "b": "jiashe",
-      "label": "夫妻"
-    },
-    {
       "a": "youshi",
       "b": "jiazhen",
       "label": "夫妻"

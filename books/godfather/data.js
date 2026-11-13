@@ -336,6 +336,40 @@ window.BOOK = {
       "events": [
         "gf06"
       ]
+    },
+    {
+      "id": "clemenza",
+      "name": "克莱门扎",
+      "role": "家族头目",
+      "group": "科莱昂",
+      "aliases": [],
+      "deeds": "维托的老部下，胖，爱做饭。他教迈克尔怎么开枪：先打头，再打胸口。清理那天，他的人在车里解决了几个对手。",
+      "events": [
+        "gf06",
+        "gf12"
+      ]
+    },
+    {
+      "id": "tessio",
+      "name": "泰西奥",
+      "role": "家族头目",
+      "group": "科莱昂",
+      "aliases": [],
+      "deeds": "另一个老部下，做事稳，说话轻。后来他站错了边，被迈克尔请去喝茶，回来就没有了。",
+      "events": [
+        "gf12"
+      ]
+    },
+    {
+      "id": "johnny",
+      "name": "强尼·方亭",
+      "role": "歌手 · 教子",
+      "group": "外人",
+      "aliases": [],
+      "deeds": "维托的教子，唱歌的，嗓子好，运气差。他想演一个电影角色，制片人不放人。维托让他等到第二天早上，那天早上制片人床上多了一个马头。",
+      "events": [
+        "gf01"
+      ]
     }
   ],
   "relations": [
@@ -413,6 +447,31 @@ window.BOOK = {
       "a": "tom",
       "b": "kay",
       "label": "唯一能说几句话的人"
+    },
+    {
+      "a": "clemenza",
+      "b": "vito",
+      "label": "老部下"
+    },
+    {
+      "a": "clemenza",
+      "b": "michael",
+      "label": "他教他开枪"
+    },
+    {
+      "a": "tessio",
+      "b": "vito",
+      "label": "老部下"
+    },
+    {
+      "a": "tessio",
+      "b": "michael",
+      "label": "他站错了边"
+    },
+    {
+      "a": "johnny",
+      "b": "vito",
+      "label": "教父与教子"
     }
   ],
   "sources": [],

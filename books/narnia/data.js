@@ -512,11 +512,6 @@ window.BOOK = {
       "a": "shasta",
       "b": "aslan",
       "label": "他脸上留下过爪痕"
-    },
-    {
-      "a": "aravis",
-      "b": "shasta",
-      "label": "一路吵一路走"
     }
   ],
   "sources": [],
