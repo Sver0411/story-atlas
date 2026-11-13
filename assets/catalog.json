@@ -208,5 +208,17 @@
     "events": 30,
     "people": 14,
     "scope": "全本 · 1815—1833"
+  },
+  {
+    "id": "pride-prejudice",
+    "title": "傲慢与偏见",
+    "author": "简·奥斯汀",
+    "category": "世界文学",
+    "description": "一个年入一万镑的男人，一个嘴快的姑娘。",
+    "accent": "#6a5544",
+    "cover": "",
+    "events": 24,
+    "people": 15,
+    "scope": "全本 · 1811—1812"
   }
 ]

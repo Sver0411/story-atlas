@@ -34,10 +34,19 @@ QUOTES = {
     'gone-girl': '每当我想起我的妻子，我总是先想起她的脑袋。',
     'two-cities': '这是最好的时代，也是最坏的时代。',
     'les-miserables': '比天空更宽阔的，是人的心灵。',
+    'pride-prejudice': '凡是有钱的单身汉，总想娶位太太，这已经成了一条举世公认的真理。',
 }
 
 
 DECOR = {
+'pride-prejudice': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M180 240 H420 V400 L300 460 L180 400 Z" fill="none" stroke="#b3a08a" stroke-width="1.1"/>
+  <path d="M180 240 L300 330 L420 240" fill="none" stroke="#b3a08a" stroke-width=".9"/>
+  <path d="M212 300 H388 M212 330 H388 M212 360 H330" stroke="#c2b19c" stroke-width=".5"/>
+  <circle cx="392" cy="416" r="26" fill="none" stroke="#8c3a34" stroke-width="1.2"/>
+  <path d="M378 416 q14 -18 28 0 q-14 16 -28 0Z" fill="none" stroke="#8c3a34" stroke-width=".8"/>
+  <path d="M120 520 H480" stroke="#c0b39c" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'les-miserables': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <g fill="none" stroke="#b09a7e" stroke-width="1.1">
     <path d="M246 470 V330 M234 330 H258"/>

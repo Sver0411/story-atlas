@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>傲慢与偏见 · 时间线 | 24 个故事节点</title>
+<meta name="description" content="一个年入一万镑的男人，一个嘴快的姑娘，一句「她不够漂亮」，要用一整本书来收回。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M180 240 H420 V400 L300 460 L180 400 Z" fill="none" stroke="#b3a08a" stroke-width="1.1"/>
+  <path d="M180 240 L300 330 L420 240" fill="none" stroke="#b3a08a" stroke-width=".9"/>
+  <path d="M212 300 H388 M212 330 H388 M212 360 H330" stroke="#c2b19c" stroke-width=".5"/>
+  <circle cx="392" cy="416" r="26" fill="none" stroke="#8c3a34" stroke-width="1.2"/>
+  <path d="M378 416 q14 -18 28 0 q-14 16 -28 0Z" fill="none" stroke="#8c3a34" stroke-width=".8"/>
+  <path d="M120 520 H480" stroke="#c0b39c" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">简·奥斯汀</p>
+    <h1><em>傲慢与偏见</em><span>时间线</span></h1>
+    <p class="hero-deck">一个年入一万镑的男人，一个嘴快的姑娘，一句「她不够漂亮」，要用一整本书来收回。<br>24 个时间点，从「一条真理」到「结局」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>24 个时间点 · 15 位人物</span><i></i>
+      <span>全本 · 1811—1812</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">浪搏恩</span>
+      <span class="era-sub">01 — 24</span>
+    </div>
+
+    <section class="event" id="pp01" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="一条真理" data-label="1811 年 · 赫特福德郡 · 浪搏恩">
+      <div class="ev-when">1811 年<em>赫特福德郡 · 浪搏恩</em></div>
+      <h2>一条真理</h2>
+      <p>班纳特先生有五个女儿，一份每年两千镑的产业，和一个没有儿子的麻烦。产业只能传给男性继承人，也就是说，他死后，这栋房子会落到一个远房表侄手里。他太太每天想的就是一件事：把女儿嫁出去。她说：你难道不想想我们的女儿吗。他说：我不想，我从来没想过。班纳特先生结婚二十年，学会了一件事：不跟太太争。他说：你一开口，我就当我们已经商量过了。他太太说：你这个人没有心。他说：我有一颗，只是不常用。他躲进书房，把门关上，拿起一本书。门外传来太太的声音，他把书翻过一页。</p>
+    </section>
+
+    <section class="event" id="pp02" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="新邻居" data-label="1811 年 秋 · 尼日斐花园">
+      <div class="ev-when">1811 年 秋<em>尼日斐花园</em></div>
+      <h2>新邻居</h2>
+      <p>一个叫宾利的年轻人租下了尼日斐花园，每年有四五千镑收入，单身未婚。班纳特太太说：这是我们的机会。她托人打听，托人介绍，最后在舞会上见着了。宾利长得好看，脾气也好，一进门就请她跳舞。他带来一个朋友，叫达西，一年有一万镑，站在角落里不说话。舞会上，宾利请简跳了两次。班纳特太太说：这是好兆头。伊丽莎白说：他请每个人都跳了两次。她说：那不一样。伊丽莎白说：哪里不一样。她说：他看她的眼神不一样。这句话，她倒是说对了。</p>
+    </section>
+
+    <section class="event" id="pp03" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="不够漂亮" data-label="1811 年 秋 · 舞会">
+      <div class="ev-when">1811 年 秋<em>舞会</em></div>
+      <h2>不够漂亮</h2>
+      <p>伊丽莎白坐在旁边，听见宾利劝达西跳舞。达西说：我不跳，除非有合适的舞伴。宾利指着伊丽莎白说：她很不错。达西看了她一眼，说：还可以，但还不够漂亮，打动不了我。他说这话的时候，她就坐在三步之外。她听见了。她没有生气，她把这件事当成一个笑话，讲给朋友听。伊丽莎白听见那句话，转过头，正对上达西的眼睛。她没有躲，也没有笑，只是看着他，看了三秒，然后转回去跟旁边的人说话，声音比刚才大了一点。达西后来一直记得这三秒。他后来说：我那时候才知道，有些人是不能得罪的。</p>
+    </section>
+
+    <section class="event" id="pp04" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="姐姐" data-label="1811 年 冬 · 浪搏恩">
+      <div class="ev-when">1811 年 冬<em>浪搏恩</em></div>
+      <h2>姐姐</h2>
+      <p>简病了，在尼日斐住了几天。伊丽莎白一个人走了三英里去看她，裙子沾满泥，头发被风吹乱。达西看见她走进来，愣了一下。宾利小姐说：她这个样子，真不像个淑女。达西说：她走了三英里，是为了照顾姐姐。他说完，自己也有点意外。宾利小姐说：她这样跑来，像个野人。达西说：她走得很快。宾利小姐说：她的裙子全是泥。达西说：她是为了姐姐。他说完，走到窗边站着。宾利小姐看着他的背影，把手里的针线捏紧了。</p>
+    </section>
+
+    <section class="event" id="pp05" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="韦翰" data-label="1811 年 冬 · 麦里屯">
+      <div class="ev-when">1811 年 冬<em>麦里屯</em></div>
+      <h2>韦翰</h2>
+      <p>民兵团来了一个年轻军官，叫韦翰，笑起来很好看，说话很得体。他告诉伊丽莎白：达西的父亲答应给我一个教职，达西却把它给了别人。他说：我一无所有，都是因为他。伊丽莎白听完，觉得这个人又可怜又可爱，觉得达西又傲慢又刻薄。她后来才知道，这个故事是倒着讲的。韦翰说：我不怪他，我只是不明白。他说：他父亲答应过我，可他一死，什么都没了。伊丽莎白说：这太不公平了。他说：我已经习惯了。他低下头，笑了一下。伊丽莎白那天晚上回家，把这件事讲给简听。简说：也许其中有误会。她说：不会的。</p>
+    </section>
+
+    <section class="event" id="pp06" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="柯林斯" data-label="1811 年 冬 · 浪搏恩">
+      <div class="ev-when">1811 年 冬<em>浪搏恩</em></div>
+      <h2>柯林斯</h2>
+      <p>班纳特先生的表侄柯林斯来了。这个人要在班纳特先生死后继承这栋房子，所以他觉得自己有责任「给这家人一点补偿」——办法是娶其中一个女儿。他先看上了简，听说简可能订婚了，就转向伊丽莎白。他准备了三个理由：一，牧师应当结婚；二，这样能让他幸福；三，这是凯瑟琳夫人的意思。柯林斯说：我这次来，是想弥补一个不幸的处境。他说：令尊的产业将由我继承，这让我很不安。所以我打算娶一位令爱，作为补偿。班纳特太太说：你真是太好了。伊丽莎白在旁边，把茶喝完了，一句话没说。</p>
+    </section>
+
+    <section class="event" id="pp07" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="拒绝" data-label="1811 年 冬 · 浪搏恩">
+      <div class="ev-when">1811 年 冬<em>浪搏恩</em></div>
+      <h2>拒绝</h2>
+      <p>伊丽莎白说：谢谢你，但我不能嫁给你。柯林斯说：我知道，年轻小姐拒绝第一次求婚是常事，我再说一遍。她说：不必了。他说：我再说一遍，你不答应，我就永远不再提。她说：那我就更该拒绝了。他愣了一下，说：看来你还不懂什么叫体面。她说：我懂，只是不打算照做。柯林斯说：我理解，年轻小姐的拒绝是一种礼貌。他说：我再说一遍。伊丽莎白说：不必了。他说：那么我第三次。她说：柯林斯先生，我是一个有理性的人，我说的话是算数的。他说：女人拒绝男人的求婚，是希望男人再求一次。她说：那我不是女人。</p>
+    </section>
+
+    <section class="event" id="pp08" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="夏洛特" data-label="1811 年 冬 · 卢卡斯家">
+      <div class="ev-when">1811 年 冬<em>卢卡斯家</em></div>
+      <h2>夏洛特</h2>
+      <p>三天后，柯林斯跟夏洛特·卢卡斯订婚了。夏洛特二十七岁，长得不美，家里不富，一辈子最怕的就是变成一个老姑娘。她跟伊丽莎白说：我不是在谈恋爱，我是在安排生活。伊丽莎白说：你不能这样。她说：我能。她说：你有一天会明白的。伊丽莎白那天晚上没睡着。夏洛特说：我不是浪漫的人。她说：我已经二十七岁，没有财产，长得也平常。她说：我要一个家。伊丽莎白说：可你不爱他。她说：我知道。她说：爱情是好的，可房子更好。伊丽莎白看着她，忽然觉得这个人是她认识的人里最清醒的一个，也是最让她难过的。</p>
+    </section>
+
+    <section class="event" id="pp09" style="--c:#6a5544"
+      data-color="#6a5544" data-era="浪搏恩" data-short="搬走" data-label="1811 年 冬 · 尼日斐花园">
+      <div class="ev-when">1811 年 冬<em>尼日斐花园</em></div>
+      <h2>搬走</h2>
+      <p>宾利忽然搬走了，连招呼都没打。简收到一封短信，说他们要回伦敦过冬。简把信读了三遍，说：他一定会回来的。伊丽莎白说：他不会。她后来才知道，是达西劝他走的，理由是简不够热情。这件事让伊丽莎白更恨达西了。宾利小姐写信来说：我们都很想念简，希望她早日康复。信末附了一句：我哥哥最近很忙。简把信读了三遍，说：她是在暗示。伊丽莎白说：她是在明示。简说：也许是我们多心。伊丽莎白说：你从来不多心。她说：所以我才活得比你舒服。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">汉斯福德</span>
+      <span class="era-sub">10 — 24</span>
+    </div>
+
+    <section class="event" id="pp10" style="--c:#6a5544"
+      data-color="#6a5544" data-era="汉斯福德" data-short="牧师住宅" data-label="1812 年 春 · 汉斯福德">
+      <div class="ev-when">1812 年 春<em>汉斯福德</em></div>
+      <h2>牧师住宅</h2>
+      <p>伊丽莎白去看夏洛特。夏洛特把家安排得很好：书房朝北，客厅朝南，柯林斯先生在花园里干活的时候，她让他到最远的那一头去。伊丽莎白住了六周，看见了一种她不能理解的生活：不吵架，也不亲密，各过各的。她走的时候，夏洛特说：你看，我过得还行。夏洛特说：你要学我，把一天安排满。她说：早上我做家务，中午我陪他说话，下午我在自己的房间。她说：他喜欢花园，我让他去最远的那一头。伊丽莎白说：你快乐吗。她说：我安稳。她说这话的时候在笑，笑得很平静。</p>
+    </section>
+
+    <section class="event" id="pp11" style="--c:#6a5544"
+      data-color="#6a5544" data-era="汉斯福德" data-short="凯瑟琳夫人" data-label="1812 年 春 · 罗新斯">
+      <div class="ev-when">1812 年 春<em>罗新斯</em></div>
+      <h2>凯瑟琳夫人</h2>
+      <p>罗新斯的主人是凯瑟琳·德·包尔夫人，达西的姨妈。她请她们去吃饭，问了伊丽莎白一堆问题：你会弹琴吗。你画过画吗。你妹妹们都学什么。伊丽莎白一一回答，答得不卑不亢。夫人说：你倒是有主见。伊丽莎白说：是。夫人说：我不喜欢有主见的年轻女人。凯瑟琳夫人说：你有几个姐妹。伊丽莎白说：四个。她说：都出嫁了吗。伊丽莎白说：没有。她说：那就是四个麻烦。伊丽莎白说：我不觉得。她说：你还年轻。她说：我年轻的时候，也不觉得。她说这话的时候，语气忽然软了一下。</p>
+    </section>
+
+    <section class="event" id="pp12" style="--c:#6a5544"
+      data-color="#6a5544" data-era="汉斯福德" data-short="第一次求婚" data-label="1812 年 春 · 罗新斯 · 牧师住宅">
+      <div class="ev-when">1812 年 春<em>罗新斯 · 牧师住宅</em></div>
+      <h2>第一次求婚</h2>
+      <p>达西来了。他在客厅里坐了很久，忽然站起来，说：我一直在挣扎，但我必须告诉你，我爱你，我要娶你。他说完，脸上没有一点高兴的样子，像是在宣布一个坏消息。伊丽莎白说：我不明白你为什么要把这件事说得像在道歉。他说：因为我家世比你高。她说：那你就更不该来。达西说：我知道你不喜欢我。他说：我一直在跟自己说，不要来，可我还是来了。伊丽莎白说：那你为什么要说得这么勉强。他说：因为我知道你不会答应。她说：你既然知道，为什么还问。他说：因为我不问，就永远不知道。她说：那我现在告诉你。</p>
+    </section>
+
+    <section class="event" id="pp13" style="--c:#6a5544"
+      data-color="#6a5544" data-era="汉斯福德" data-short="一封信" data-label="1812 年 春 夜 · 牧师住宅">
+      <div class="ev-when">1812 年 春 夜<em>牧师住宅</em></div>
+      <h2>一封信</h2>
+      <p>第二天早上，达西在花园的小路上等她，递给她一封信，然后走了。信里写了两件事：第一，他拆散宾利和简，是因为他看不出简爱宾利；第二，韦翰说的全是假话——他拿了达西父亲留给他的钱，挥霍光了，还想娶达西十五岁的妹妹。伊丽莎白把信读了三遍，读到最后，脸上发烫。信写得很长，字很小，没有一句多余的话。他说：关于宾利先生，我承认是我劝他走的。他说：我看不出你姐姐对他有特别的感情。他说：关于韦翰先生，我必须告诉你一些事。伊丽莎白读到第二页，手开始抖。她读到第四页，坐在了路边的石头上。</p>
+    </section>
+
+    <section class="event" id="pp14" style="--c:#6a5544"
+      data-color="#6a5544" data-era="汉斯福德" data-short="重新看一遍" data-label="1812 年 春 · 牧师住宅">
+      <div class="ev-when">1812 年 春<em>牧师住宅</em></div>
+      <h2>重新看一遍</h2>
+      <p>她一个人走到村外的路上，把信又读了一遍。她想起韦翰在舞会上说的每一句话，想起他说这些话的时候有多自然。她想起自己说过的那句：达西先生是世界上最坏的人。她站在路边，说了一句：我真是个傻瓜。她说得很轻，但是真的。她想：我为什么会信他。因为他说得好听，因为他长得好看，因为他一开口就说自己受了委屈。她想：我为什么会恨达西。因为他不会说话，因为他站在那里不动，因为他说我「不够漂亮」。她坐了很久。她后来跟简说：那天我把自己看清楚了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">私奔</span>
+      <span class="era-sub">15 — 24</span>
+    </div>
+
+    <section class="event" id="pp15" style="--c:#6a5544"
+      data-color="#6a5544" data-era="私奔" data-short="私奔" data-label="1812 年 夏 · 布莱顿">
+      <div class="ev-when">1812 年 夏<em>布莱顿</em></div>
+      <h2>私奔</h2>
+      <p>莉迪亚跟着民兵团去了布莱顿。七月，她跟韦翰私奔了。信上写：我们要结婚。伊丽莎白一看就知道不对：韦翰没钱，也不会娶一个没钱的女人。果然，三天后消息传回来：他们没有结婚，韦翰跑了，莉迪亚躲在一间出租屋里。全家的名声，一夜之间没了。莉迪亚的信写得很短：亲爱的妈妈，我要结婚了，请寄钱来。班纳特太太说：她要结婚了，这是好事。伊丽莎白说：她没有结婚。她说：信上写着。伊丽莎白说：她写错了。她说：你怎么知道。伊丽莎白没有说话。</p>
+    </section>
+
+    <section class="event" id="pp16" style="--c:#6a5544"
+      data-color="#6a5544" data-era="私奔" data-short="一个人去解决" data-label="1812 年 夏 · 伦敦">
+      <div class="ev-when">1812 年 夏<em>伦敦</em></div>
+      <h2>一个人去解决</h2>
+      <p>达西当天就去了伦敦。他找到韦翰，跟他谈了一夜，最后给了他一笔钱，替他还了债，还给他买了一个官职。条件是：必须娶莉迪亚。韦翰答应了。这件事，达西没有告诉任何人。伊丽莎白是从莉迪亚嘴里听说的——她说：达西先生来参加了婚礼，站在角落里，一句话没说。达西说：她不能就这样回去。韦翰说：那你要我怎么办。达西说：娶她。韦翰说：我没有钱。达西说：我给你。韦翰笑了一下，说：你这个人，真有意思。达西说：我不是为了你。韦翰收了钱，签了字，说：你会后悔的。达西说：我已经后悔了。</p>
+    </section>
+
+    <section class="event" id="pp17" style="--c:#6a5544"
+      data-color="#6a5544" data-era="私奔" data-short="回来" data-label="1812 年 秋 · 浪搏恩">
+      <div class="ev-when">1812 年 秋<em>浪搏恩</em></div>
+      <h2>回来</h2>
+      <p>莉迪亚带着丈夫回家，一进门就说：你们想不到我结婚了吧。她坐在母亲旁边，把戒指转来转去。伊丽莎白问她：你知道达西先生为什么来吗。莉迪亚说：他来道贺呀。伊丽莎白没有说话。那天晚上，她把那封信拿出来，又读了一遍。莉迪亚说：姐姐，你看我的戒指。伊丽莎白说：很好看。她说：他对我很好。伊丽莎白说：那就好。她说：你怎么不高兴。伊丽莎白说：我高兴。她说：你骗人。伊丽莎白说：也许。她走出去，在院子里站了一会儿。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">彭伯里</span>
+      <span class="era-sub">18 — 24</span>
+    </div>
+
+    <section class="event" id="pp18" style="--c:#6a5544"
+      data-color="#6a5544" data-era="彭伯里" data-short="一座房子" data-label="1812 年 夏 · 彭伯里">
+      <div class="ev-when">1812 年 夏<em>彭伯里</em></div>
+      <h2>一座房子</h2>
+      <p>伊丽莎白跟舅父母去德比郡旅行，路过彭伯里——达西的家。她听说他不在，才敢进去。房子很大，摆设很雅，管家老太太说：我从没见过比他更好的主人。伊丽莎白听着，觉得这些话跟她的印象对不上。她走到画廊，站在他的画像前面，站了很久。管家说：小姐要是想看房子，我可以带路。她说：你们主人不在吗。管家说：他明天才回来。她说：那就好。她跟着管家走了一圈，看了客厅、餐厅、画廊、琴房。她在琴房停下来，说：这架琴是谁弹的。管家说：小姐弹。她说：他现在还弹吗。管家说：他很少弹了。</p>
+    </section>
+
+    <section class="event" id="pp19" style="--c:#6a5544"
+      data-color="#6a5544" data-era="彭伯里" data-short="遇见" data-label="1812 年 夏 · 彭伯里 · 花园">
+      <div class="ev-when">1812 年 夏<em>彭伯里 · 花园</em></div>
+      <h2>遇见</h2>
+      <p>他从花园那头走过来，满身尘土，刚从马上下来。两个人都愣住了。他说：小姐，你来了。她说：我以为你不在。他说：我提前回来了。他说完，站在那里，不知道该说什么。她也不知道。后来她跟姐姐说：那几分钟，是我这辈子最难受的几分钟。他说：小姐，你的舅父母呢。她说：在那边。他说：我可以见他们吗。她说：可以。他说：那我先去换件衣服。他说完就走了，走了几步又回头，说：你来了，我很高兴。这句话他说得很快，像怕自己反悔。</p>
+    </section>
+
+    <section class="event" id="pp20" style="--c:#6a5544"
+      data-color="#6a5544" data-era="彭伯里" data-short="变了一个人" data-label="1812 年 夏 · 彭伯里">
+      <div class="ev-when">1812 年 夏<em>彭伯里</em></div>
+      <h2>变了一个人</h2>
+      <p>他请她见他的妹妹，说话很客气，一点也不傲慢。他对她的舅父母也很有礼。伊丽莎白看着他，心里想：这个人跟我认识的那个人，不是同一个。她后来才明白，不是他变了，是她从来没有看清过他。乔治安娜说：我哥哥说，你很喜欢看书。伊丽莎白说：他说得对。她说：他还说你很会走路。伊丽莎白笑了，说：这是什么话。她说：他说你能走三英里去看姐姐。伊丽莎白愣了一下，说：他记得。她说：他什么都记得。</p>
+    </section>
+
+    <section class="event" id="pp21" style="--c:#6a5544"
+      data-color="#6a5544" data-era="彭伯里" data-short="凯瑟琳夫人" data-label="1812 年 秋 · 浪搏恩">
+      <div class="ev-when">1812 年 秋<em>浪搏恩</em></div>
+      <h2>凯瑟琳夫人</h2>
+      <p>凯瑟琳夫人忽然上门，说：我听说你要嫁给我外甥。伊丽莎白说：没有这回事。夫人说：那你要答应我，永远不嫁给他。伊丽莎白说：我不能答应。夫人说：你知道你在拒绝什么吗。她说：我知道。夫人气冲冲地走了。她不知道，这一趟反而帮了忙。凯瑟琳夫人说：你是个没有家世、没有财产、没有门第的姑娘。伊丽莎白说：是。她说：那你还想嫁给他。伊丽莎白说：如果他愿意。她说：他不会。伊丽莎白说：那我就一个人过。她说：你会后悔的。伊丽莎白说：那也是我的事。</p>
+    </section>
+
+    <section class="event" id="pp22" style="--c:#6a5544"
+      data-color="#6a5544" data-era="彭伯里" data-short="第二次求婚" data-label="1812 年 秋 · 浪搏恩">
+      <div class="ev-when">1812 年 秋<em>浪搏恩</em></div>
+      <h2>第二次求婚</h2>
+      <p>达西来了。他说：你姨妈来找过我。她说：她说的话，你不要放在心上。他说：她说你不肯答应永远不嫁给我。他说：如果那是真的，我就再问一次。伊丽莎白说：那你问吧。他说：你愿意嫁给我吗。她说：愿意。她说这两个字的时候，脸红了。达西说：你姨妈说，你拒绝了她。伊丽莎白说：我拒绝了。他说：她说你态度很坚决。她说：是很坚决。他说：那我要问一句。他说：你拒绝她，是因为你不肯放弃我，还是因为你不肯答应她。伊丽莎白说：你觉得呢。他说：我希望是前一种。</p>
+    </section>
+
+    <section class="event" id="pp23" style="--c:#6a5544"
+      data-color="#6a5544" data-era="彭伯里" data-short="父亲" data-label="1812 年 秋 · 浪搏恩">
+      <div class="ev-when">1812 年 秋<em>浪搏恩</em></div>
+      <h2>父亲</h2>
+      <p>班纳特先生把女儿叫进书房，说：我听说达西向你求婚了。她说：是。他说：你爱他吗。她说：爱。他说：他有钱，这我知道。可我要你幸福。她说：我会的。他沉默了一会儿，说：那就好。他又说：我们这种人家，能嫁给他，是你的运气。她说：不，是他的运气。他笑了。班纳特先生说：我见过他，他是个好人。他说：他有钱，也有脑子。他说：你要嫁的人，我不反对。他说：只是有一件事，我要告诉你。她说：什么。他说：你要是嫁错了人，我会很难过。她说：我不会。他说：那就好。他低下头，继续看书。</p>
+    </section>
+
+    <section class="event" id="pp24" style="--c:#6a5544"
+      data-color="#6a5544" data-era="彭伯里" data-short="结局" data-label="1812 年 冬 · 浪搏恩">
+      <div class="ev-when">1812 年 冬<em>浪搏恩</em></div>
+      <h2>结局</h2>
+      <p>简和宾利在同一年结婚。两家住得不远，走动很方便。莉迪亚偶尔来信要钱，伊丽莎白从自己的私房钱里给，达西知道，也不说。班纳特太太逢人就说：我两个大女儿嫁得多好。班纳特先生坐在书房里，说：我这一辈子，最得意的事，是娶了一个我想娶的人。班纳特太太说：我这一辈子，就盼着这一天。她说：三个女儿出嫁，我死也甘心了。班纳特先生说：你还有两个。她说：那两个不急。他说：对，不急。他说完，把书翻开。窗外阳光很好，院子里有人在笑。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 24</span>
+        </div>
+        <div class="rail-era" id="railNow">1811 年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“凡是有钱的单身汉，总想娶位太太，这已经成了一条举世公认的真理。”</p>
+  <p class="tiny">傲慢与偏见 · 简·奥斯汀　·　24 个时间点，15 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>
