@@ -47,6 +47,14 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,5.4vw,78px);let
   transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s ease;
 }
 .book:hover .cover img{transform:scale(1.035);filter:saturate(1) contrast(1.03)}
+.cover.blank{
+  aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;
+  background:var(--accent);
+}
+.blank-title{
+  font-family:var(--serif);font-size:clamp(24px,2.4vw,34px);
+  color:#f7f4ed;letter-spacing:.24em;text-indent:.24em;
+}
 .cover::after{
   content:'';position:absolute;inset:0;
   box-shadow:inset 0 0 0 1px rgba(29,26,22,.08);
@@ -161,6 +169,56 @@ footer p{margin:0;font-family:var(--mono);font-size:10px;letter-spacing:.16em;co
         <p class="by">曹雪芹 · 通行一百二十回</p>
         <p class="desc">一座园子从建起来到散掉，一个家族在体面里慢慢空掉。</p>
         <p class="nums"><b>50</b> 时间点<i>/</i><b>40</b> 人物</p>
+      </span>
+    </a>
+
+    <a class="book" href="books/foundation/index.html" style="--accent:#3f4f6b">
+      <span class="cover blank"><span class="blank-title">基地</span></span>
+      <span class="info">
+        <h2>基地</h2>
+        <p class="by">艾萨克·阿西莫夫 · 七部主线</p>
+        <p class="desc">一个用数学预言的未来，和两个试图缩短黑暗的基地。</p>
+        <p class="nums"><b>30</b> 时间点<i>/</i><b>13</b> 人物</p>
+      </span>
+    </a>
+
+    <a class="book" href="books/three-kingdoms/index.html" style="--accent:#8c3a2e">
+      <span class="cover blank"><span class="blank-title">三国演义</span></span>
+      <span class="info">
+        <h2>三国演义</h2>
+        <p class="by">罗贯中 · 一百二十回</p>
+        <p class="desc">从桃园结义到三家归晋，近百年的征战与背叛。</p>
+        <p class="nums"><b>42</b> 时间点<i>/</i><b>33</b> 人物</p>
+      </span>
+    </a>
+
+    <a class="book" href="books/water-margin/index.html" style="--accent:#6b4b2f">
+      <span class="cover blank"><span class="blank-title">水浒传</span></span>
+      <span class="info">
+        <h2>水浒传</h2>
+        <p class="by">施耐庵 · 一百二十回</p>
+        <p class="desc">一百零八个人，各有各的活不下去。</p>
+        <p class="nums"><b>34</b> 时间点<i>/</i><b>21</b> 人物</p>
+      </span>
+    </a>
+
+    <a class="book" href="books/journey-west/index.html" style="--accent:#8a6a2f">
+      <span class="cover blank"><span class="blank-title">西游记</span></span>
+      <span class="info">
+        <h2>西游记</h2>
+        <p class="by">吴承恩 · 一百回</p>
+        <p class="desc">一只石猴走了十万八千里，八十一难都不是为了吃唐僧肉。</p>
+        <p class="nums"><b>36</b> 时间点<i>/</i><b>16</b> 人物</p>
+      </span>
+    </a>
+
+    <a class="book" href="books/to-live/index.html" style="--accent:#6b5a45">
+      <span class="cover blank"><span class="blank-title">活着</span></span>
+      <span class="info">
+        <h2>活着</h2>
+        <p class="by">余华 · 长篇</p>
+        <p class="desc">一个人亲手送走所有亲人，最后和一头牛一起活着。</p>
+        <p class="nums"><b>14</b> 时间点<i>/</i><b>11</b> 人物</p>
       </span>
     </a>
 

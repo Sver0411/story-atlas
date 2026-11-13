@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水浒传 · 时间线 | 34 个故事节点</title>
+<meta name="description" content="一百零八个人，各有各的活不下去。他们从四面八方被推上梁山，聚义厅上排了座次，最后又在招安的路上一个个散去。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+</style>
+</head>
+<body>
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">施耐庵</p>
+    <h1><em>水浒传</em><span>时间线</span></h1>
+    <p class="hero-deck">一百零八个人，各有各的活不下去。他们从四面八方被推上梁山，聚义厅上排了座次，最后又在招安的路上一个个散去。<br>34 个时间点，从「误走妖魔」到「徽宗梦游梁山」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>34 个时间点 · 21 位人物</span><i></i>
+      <span>通行一百二十回本 · 完整主线</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">高俅与林冲</span>
+      <span class="era-sub">01 — 34</span>
+    </div>
+
+    <section class="event" id="wm01" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="高俅与林冲" data-short="误走妖魔" data-label="仁宗年间 · 龙虎山">
+      <div class="ev-when">仁宗年间<em>龙虎山</em></div>
+      <h2>误走妖魔</h2>
+      <p>洪太尉奉旨上龙虎山请张天师，不听劝告，打开伏魔殿的石碑，放走了三十六天罡、七十二地煞。一百零八道黑气冲上天空，散向四方。</p>
+    </section>
+
+    <section class="event" id="wm02" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="高俅与林冲" data-short="高俅发迹" data-label="哲宗年间 · 东京">
+      <div class="ev-when">哲宗年间<em>东京</em></div>
+      <h2>高俅发迹</h2>
+      <p>高俅本是街头泼皮，因会踢球被端王看中。端王即位为徽宗，高俅一路做到殿帅府太尉。上任第一天，就逼走了八十万禁军教头王进。</p>
+    </section>
+
+    <section class="event" id="wm03" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="高俅与林冲" data-short="拳打镇关西" data-label="同一时期 · 渭州">
+      <div class="ev-when">同一时期<em>渭州</em></div>
+      <h2>拳打镇关西</h2>
+      <p>鲁达在酒楼听见金翠莲哭诉被郑屠强占，给了父女盘缠，第二天去找郑屠，三拳打死。他剃了头发，从此叫鲁智深。</p>
+    </section>
+
+    <section class="event" id="wm04" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="高俅与林冲" data-short="倒拔垂杨柳" data-label="同一时期 · 大相国寺">
+      <div class="ev-when">同一时期<em>大相国寺</em></div>
+      <h2>倒拔垂杨柳</h2>
+      <p>鲁智深看守菜园，一群泼皮来闹事，被他踢进粪坑。第二天泼皮们赔罪，他在树下喝酒，嫌乌鸦吵，一使劲把柳树连根拔了起来。</p>
+    </section>
+
+    <section class="event" id="wm05" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="高俅与林冲" data-short="误入白虎堂" data-label="同一时期 · 东京">
+      <div class="ev-when">同一时期<em>东京</em></div>
+      <h2>误入白虎堂</h2>
+      <p>高俅设计，让人卖一把宝刀给林冲，再以看刀为名骗他进军机重地白虎堂，诬他行刺。林冲刺配沧州，妻子被高衙内逼死。</p>
+    </section>
+
+    <section class="event" id="wm06" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="高俅与林冲" data-short="野猪林" data-label="同一时期 · 野猪林">
+      <div class="ev-when">同一时期<em>野猪林</em></div>
+      <h2>野猪林</h2>
+      <p>押解途中，两个公差在野猪林要下杀手。鲁智深一路跟随，禅杖一横，救下林冲。他说：洒家放心不下，跟了三日。</p>
+    </section>
+
+    <section class="event" id="wm07" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="高俅与林冲" data-short="风雪山神庙" data-label="同一时期 · 沧州">
+      <div class="ev-when">同一时期<em>沧州</em></div>
+      <h2>风雪山神庙</h2>
+      <p>林冲被派去看草料场，夜里大雪压塌了草厅。他搬到山神庙过夜，听见门外三人商量放火，要烧死他。他推门而出，一枪一个，最后把陆谦的头割下来。</p>
+    </section>
+
+    <section class="event" id="wm08" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="高俅与林冲" data-short="雪夜上梁山" data-label="同一时期 · 梁山">
+      <div class="ev-when">同一时期<em>梁山</em></div>
+      <h2>雪夜上梁山</h2>
+      <p>林冲杀了人，无处可去，投奔梁山。寨主王伦怕他夺位，要他先下山杀一个人做投名状。他下山遇杨志，打了三十回合，不分胜负。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">生辰纲</span>
+      <span class="era-sub">09 — 34</span>
+    </div>
+
+    <section class="event" id="wm09" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="生辰纲" data-short="杨志卖刀" data-label="同一时期 · 东京">
+      <div class="ev-when">同一时期<em>东京</em></div>
+      <h2>杨志卖刀</h2>
+      <p>杨志丢了花石纲，流落东京，在街头卖祖传宝刀。泼皮牛二纠缠，他一时性起，一刀杀了牛二，被判充军。</p>
+    </section>
+
+    <section class="event" id="wm10" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="生辰纲" data-short="智取生辰纲" data-label="同一时期 · 黄泥冈">
+      <div class="ev-when">同一时期<em>黄泥冈</em></div>
+      <h2>智取生辰纲</h2>
+      <p>梁中书给蔡京送十万贯生辰纲，杨志押送。晁盖、吴用、公孙胜、刘唐、三阮在黄泥冈扮作枣贩和酒贩，用蒙汗药麻倒众人，劫走了生辰纲。</p>
+    </section>
+
+    <section class="event" id="wm11" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="生辰纲" data-short="火并王伦" data-label="同一时期 · 梁山">
+      <div class="ev-when">同一时期<em>梁山</em></div>
+      <h2>火并王伦</h2>
+      <p>晁盖等人上梁山，王伦又推三阻四。吴用激林冲，林冲拔刀杀了王伦，把晁盖推上第一把交椅。梁山从此换了主人。</p>
+    </section>
+
+    <section class="event" id="wm12" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="生辰纲" data-short="宋江杀惜" data-label="同一时期 · 郓城">
+      <div class="ev-when">同一时期<em>郓城</em></div>
+      <h2>宋江杀惜</h2>
+      <p>宋江救了劫生辰纲的晁盖，阎婆惜拿到书信要挟他。宋江一怒之下杀了她，刺配江州。他在浔阳楼喝醉，题了反诗：他时若遂凌云志，敢笑黄巢不丈夫。</p>
+    </section>
+
+    <section class="event" id="wm13" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="生辰纲" data-short="武松打虎" data-label="同一时期 · 景阳冈">
+      <div class="ev-when">同一时期<em>景阳冈</em></div>
+      <h2>武松打虎</h2>
+      <p>武松在景阳冈喝了十八碗酒，不听店家劝告上山。老虎扑来，他躲过三招，骑上虎背，一顿拳头把老虎打死。阳谷县百姓抬着他游街。</p>
+    </section>
+
+    <section class="event" id="wm14" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="生辰纲" data-short="杀嫂" data-label="同一时期 · 阳谷">
+      <div class="ev-when">同一时期<em>阳谷</em></div>
+      <h2>杀嫂</h2>
+      <p>武松发现兄长武大被潘金莲、西门庆毒死。他查清证据，在灵前杀了潘金莲，又在狮子楼斗杀西门庆，然后提着两颗人头去自首。</p>
+    </section>
+
+    <section class="event" id="wm15" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="生辰纲" data-short="醉打蒋门神" data-label="同一时期 · 孟州">
+      <div class="ev-when">同一时期<em>孟州</em></div>
+      <h2>醉打蒋门神</h2>
+      <p>武松被发配孟州，帮施恩夺回快活林。他一路喝了三十多碗酒，醉醺醺地走到蒋门神酒店，三拳两脚把蒋门神打服。</p>
+    </section>
+
+    <section class="event" id="wm16" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="生辰纲" data-short="血溅鸳鸯楼" data-label="同一时期 · 鸳鸯楼">
+      <div class="ev-when">同一时期<em>鸳鸯楼</em></div>
+      <h2>血溅鸳鸯楼</h2>
+      <p>蒋门神勾结张都监陷害武松，武松大闹飞云浦，杀回鸳鸯楼，把张都监、蒋门神一家十五口全部杀死，蘸血在墙上写了八个大字：杀人者打虎武松也。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">梁山聚义</span>
+      <span class="era-sub">17 — 34</span>
+    </div>
+
+    <section class="event" id="wm17" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="梁山聚义" data-short="劫法场" data-label="同一时期 · 江州">
+      <div class="ev-when">同一时期<em>江州</em></div>
+      <h2>劫法场</h2>
+      <p>宋江被判斩首，梁山好汉在法场动手。李逵抡着两把板斧从楼上跳下，见人就砍，一路砍到江边，把宋江和戴宗救走。</p>
+    </section>
+
+    <section class="event" id="wm18" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="梁山聚义" data-short="李逵接母" data-label="同一时期 · 梁山">
+      <div class="ev-when">同一时期<em>梁山</em></div>
+      <h2>李逵接母</h2>
+      <p>李逵回家接母亲上梁山，背着她走过沂岭。母亲口渴，他去寻水，回来时只剩一摊血——母亲被老虎吃了。他杀了四只虎，坐在石头上大哭。</p>
+    </section>
+
+    <section class="event" id="wm19" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="梁山聚义" data-short="三打祝家庄" data-label="同一时期 · 祝家庄">
+      <div class="ev-when">同一时期<em>祝家庄</em></div>
+      <h2>三打祝家庄</h2>
+      <p>祝家庄与梁山作对，宋江三次攻打。前两次都败了，第三次靠孙立做内应，里应外合，才破了庄。这是梁山第一次大规模的军事行动。</p>
+    </section>
+
+    <section class="event" id="wm20" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="梁山聚义" data-short="大破连环马" data-label="同一时期 · 梁山">
+      <div class="ev-when">同一时期<em>梁山</em></div>
+      <h2>大破连环马</h2>
+      <p>呼延灼率连环马征梁山，三千匹马连成一片，刀枪不入。汤隆献计，请来徐宁教钩镰枪，专钩马腿。连环马一破，呼延灼落水被擒，归顺梁山。</p>
+    </section>
+
+    <section class="event" id="wm21" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="梁山聚义" data-short="晁盖之死" data-label="同一时期 · 曾头市">
+      <div class="ev-when">同一时期<em>曾头市</em></div>
+      <h2>晁盖之死</h2>
+      <p>晁盖攻打曾头市，被一支刻着“史文恭”的毒箭射中面颊。他临终前说：谁能捉住射我的人，就做梁山之主。宋江哭了一夜，第二天坐上了第一把交椅。</p>
+    </section>
+
+    <section class="event" id="wm22" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="梁山聚义" data-short="卢俊义上山" data-label="同一时期 · 大名府">
+      <div class="ev-when">同一时期<em>大名府</em></div>
+      <h2>卢俊义上山</h2>
+      <p>宋江要请卢俊义上山。吴用扮作算命先生，在他家墙上题了反诗，害他入狱。梁山好汉攻打大名府，救出卢俊义。他上山后坐了第二把交椅。</p>
+    </section>
+
+    <section class="event" id="wm23" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="梁山聚义" data-short="一百单八将" data-label="同一时期 · 梁山">
+      <div class="ev-when">同一时期<em>梁山</em></div>
+      <h2>一百单八将</h2>
+      <p>梁山聚齐一百零八人。天降石碣，上面刻着三十六天罡、七十二地煞的姓名座次。宋江排了座次，改聚义厅为忠义堂，竖起“替天行道”的大旗。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">招安</span>
+      <span class="era-sub">24 — 34</span>
+    </div>
+
+    <section class="event" id="wm24" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="招安" data-short="招安" data-label="同一时期 · 东京">
+      <div class="ev-when">同一时期<em>东京</em></div>
+      <h2>招安</h2>
+      <p>宋江一直想招安。他两次败给童贯、三次败给高俅，却把高俅放回去，只求他在皇帝面前说好话。招安的诏书终于下来了，梁山好汉跪在泥地里接旨。</p>
+    </section>
+
+    <section class="event" id="wm25" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="招安" data-short="征辽" data-label="同一时期 · 北方">
+      <div class="ev-when">同一时期<em>北方</em></div>
+      <h2>征辽</h2>
+      <p>招安之后，梁山人马被派去征辽。一百零八将无一阵亡，打得辽国求和。这是他们最后一次整整齐齐地一起打仗。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">征方腊</span>
+      <span class="era-sub">26 — 34</span>
+    </div>
+
+    <section class="event" id="wm26" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="征方腊" data-short="征方腊" data-label="同一时期 · 江南">
+      <div class="ev-when">同一时期<em>江南</em></div>
+      <h2>征方腊</h2>
+      <p>征方腊是最惨的一战。江南水网、瘟疫、埋伏，一仗下来，七十二人阵亡，八人病死，十余人离散。回到东京的，只剩二十七人。</p>
+    </section>
+
+    <section class="event" id="wm27" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="征方腊" data-short="张顺之死" data-label="同一时期 · 涌金门">
+      <div class="ev-when">同一时期<em>涌金门</em></div>
+      <h2>张顺之死</h2>
+      <p>张顺想从水门潜入杭州，被守军发现。乱箭射来，他死在涌金门外的水里。宋江梦见他的魂魄来辞行，醒来时哭了。</p>
+    </section>
+
+    <section class="event" id="wm28" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="征方腊" data-short="武松断臂" data-label="同一时期 · 乌龙岭">
+      <div class="ev-when">同一时期<em>乌龙岭</em></div>
+      <h2>武松断臂</h2>
+      <p>武松被包道乙的飞刀砍中左臂，他自己用刀把断臂割了下来，单臂擒住方腊。后来他在六和寺出家，活到八十岁。</p>
+    </section>
+
+    <section class="event" id="wm29" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="征方腊" data-short="鲁智深坐化" data-label="同一时期 · 六和寺">
+      <div class="ev-when">同一时期<em>六和寺</em></div>
+      <h2>鲁智深坐化</h2>
+      <p>鲁智深在六和寺听见钱塘江潮声，以为是战鼓，抄起禅杖要打。僧人告诉他这是潮信。他大笑，洗了澡，换了衣服，坐在蒲团上合掌而逝。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">离散</span>
+      <span class="era-sub">30 — 34</span>
+    </div>
+
+    <section class="event" id="wm30" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="离散" data-short="林冲风瘫" data-label="同一时期 · 杭州">
+      <div class="ev-when">同一时期<em>杭州</em></div>
+      <h2>林冲风瘫</h2>
+      <p>林冲在征方腊后风瘫，留在六和寺养病，由武松照顾。半年后病逝。他到死没能回东京，也没能报仇。</p>
+    </section>
+
+    <section class="event" id="wm31" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="离散" data-short="宋江饮鸩" data-label="同一时期 · 楚州">
+      <div class="ev-when">同一时期<em>楚州</em></div>
+      <h2>宋江饮鸩</h2>
+      <p>高俅、蔡京怕宋江复起，在御酒里下毒。宋江喝下后腹痛，知道中毒，说：我死之后，恐怕李逵造反，坏了梁山的名声。于是把李逵也叫来，让他喝了毒酒。</p>
+    </section>
+
+    <section class="event" id="wm32" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="离散" data-short="李逵之死" data-label="同一时期 · 楚州">
+      <div class="ev-when">同一时期<em>楚州</em></div>
+      <h2>李逵之死</h2>
+      <p>李逵喝下毒酒，说：罢了，罢了，生时服侍哥哥，死了也只是哥哥部下一个小鬼。两人死后葬在楚州南门外。</p>
+    </section>
+
+    <section class="event" id="wm33" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="离散" data-short="吴用花荣自缢" data-label="同一时期 · 蓼儿洼">
+      <div class="ev-when">同一时期<em>蓼儿洼</em></div>
+      <h2>吴用花荣自缢</h2>
+      <p>吴用和花荣到宋江墓前，哭了半夜。两人在树上自缢，追随宋江而去。梁山最后两个聪明人，用最不聪明的方式结束了。</p>
+    </section>
+
+    <section class="event" id="wm34" style="--c:#6b4b2f"
+      data-color="#6b4b2f" data-era="离散" data-short="徽宗梦游梁山" data-label="同一时期 · 东京">
+      <div class="ev-when">同一时期<em>东京</em></div>
+      <h2>徽宗梦游梁山</h2>
+      <p>宋徽宗梦见宋江等人跪在阶下诉冤。他醒来后，为梁山好汉立庙塑像。故事的最后一笔，是皇帝的梦。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 34</span>
+        </div>
+        <div class="rail-era" id="railNow">仁宗年间</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“”</p>
+  <p class="tiny">水浒传 · 施耐庵</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+</body>
+</html>

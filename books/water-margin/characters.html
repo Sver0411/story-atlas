@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水浒传 · 人物志 | 21 个人物</title>
+<meta name="description" content="一百零八个人，各有各的活不下去。他们从四面八方被推上梁山，聚义厅上排了座次，最后又在招安的路上一个个散去。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+</style>
+<style>
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">施耐庵 / CHARACTERS</p>
+    <h1 class="big">水浒传 · 人物</h1>
+    <p class="deck">一百零八个人，各有各的活不下去。他们从四面八方被推上梁山，聚义厅上排了座次，最后又在招安的路上一个个散去。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="梁山">梁山</button><button class="fbtn" data-camp="朝廷">朝廷</button><button class="fbtn" data-camp="民间">民间</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="水浒传人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="51" text-anchor="middle">梁山</text>
+        <text class="gtag" x="815" y="482" text-anchor="middle">朝廷</text>
+        <text class="gtag" x="425" y="461" text-anchor="middle">民间</text></g>
+        <g class="links"><line class="plink" data-a="songjiang" data-b="likui" x1="620" y1="138" x2="651" y2="76" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="songjiang" data-b="wuyong" x1="620" y1="138" x2="686" y2="253" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="songjiang" data-b="chaogai" x1="620" y1="138" x2="740" y2="139" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="songjiang" data-b="lujunyi" x1="620" y1="138" x2="686" y2="177" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="songjiang" data-b="huarong" x1="620" y1="138" x2="589" y2="354" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="songjiang" data-b="daizong" x1="620" y1="138" x2="500" y2="291" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="songjiang" data-b="yanpoxi" x1="620" y1="138" x2="425" y2="483" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="songjiang" data-b="gaoqiu" x1="620" y1="138" x2="815" y2="504" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="linchong" data-b="gaoqiu" x1="620" y1="292" x2="815" y2="504" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="linchong" data-b="lushen" x1="620" y1="292" x2="554" y2="253" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="linchong" data-b="wanglun" x1="620" y1="292" x2="544" y2="95" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="linchong" data-b="wusong" x1="620" y1="292" x2="554" y2="177" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lushen" data-b="zheng" x1="554" y1="253" x2="384" y2="609" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lushen" data-b="linchong" x1="554" y1="253" x2="620" y2="292" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wusong" data-b="panjinlian" x1="554" y1="177" x2="492" y2="531" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wusong" data-b="ximenqing" x1="554" y1="177" x2="466" y2="609" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="chaogai" data-b="wuyong" x1="740" y1="139" x2="686" y2="253" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="chaogai" data-b="yangzhi" x1="740" y1="139" x2="759" y2="246" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lujunyi" data-b="wuyong" x1="686" y1="177" x2="686" y2="253" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="likui" data-b="songjiang" x1="651" y1="76" x2="620" y2="138" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="gaoqiu" data-b="wangjin" x1="815" y1="504" x2="815" y2="600" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="huarong" data-b="songjiang" x1="589" y1="354" x2="620" y2="138" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="zhangshun" data-b="songjiang" x1="481" y1="184" x2="620" y2="138" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fangla" data-b="songjiang" x1="359" y1="531" x2="620" y2="138" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="huyanzhuo" data-b="songjiang" x1="696" y1="335" x2="620" y2="138" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="labels"><text class="rlabel" x="635" y="103" data-a="songjiang" data-b="likui">主仆</text>
+        <text class="rlabel" x="653" y="192" data-a="songjiang" data-b="wuyong">军师</text>
+        <text class="rlabel" x="680" y="135" data-a="songjiang" data-b="chaogai">接任</text>
+        <text class="rlabel" x="653" y="153" data-a="songjiang" data-b="lujunyi">正副寨主</text>
+        <text class="rlabel" x="605" y="242" data-a="songjiang" data-b="huarong">生死之交</text>
+        <text class="rlabel" x="560" y="211" data-a="songjiang" data-b="daizong">上下级</text>
+        <text class="rlabel" x="523" y="306" data-a="songjiang" data-b="yanpoxi">杀其灭口</text>
+        <text class="rlabel" x="717" y="317" data-a="songjiang" data-b="gaoqiu">被毒杀</text>
+        <text class="rlabel" x="717" y="394" data-a="linchong" data-b="gaoqiu">家破人亡</text>
+        <text class="rlabel" x="587" y="269" data-a="linchong" data-b="lushen">救命</text>
+        <text class="rlabel" x="582" y="189" data-a="linchong" data-b="wanglun">火并</text>
+        <text class="rlabel" x="587" y="230" data-a="linchong" data-b="wusong">同僚</text>
+        <text class="rlabel" x="469" y="427" data-a="lushen" data-b="zheng">三拳打死</text>
+        <text class="rlabel" x="587" y="269" data-a="lushen" data-b="linchong">义救</text>
+        <text class="rlabel" x="523" y="350" data-a="wusong" data-b="panjinlian">杀嫂</text>
+        <text class="rlabel" x="510" y="389" data-a="wusong" data-b="ximenqing">斗杀</text>
+        <text class="rlabel" x="713" y="192" data-a="chaogai" data-b="wuyong">智取生辰纲</text>
+        <text class="rlabel" x="749" y="188" data-a="chaogai" data-b="yangzhi">劫其生辰纲</text>
+        <text class="rlabel" x="686" y="211" data-a="lujunyi" data-b="wuyong">中计上山</text>
+        <text class="rlabel" x="635" y="103" data-a="likui" data-b="songjiang">死忠</text>
+        <text class="rlabel" x="815" y="548" data-a="gaoqiu" data-b="wangjin">逼走</text>
+        <text class="rlabel" x="605" y="242" data-a="huarong" data-b="songjiang">殉葬</text>
+        <text class="rlabel" x="551" y="157" data-a="zhangshun" data-b="songjiang">战死</text>
+        <text class="rlabel" x="489" y="331" data-a="fangla" data-b="songjiang">征战</text>
+        <text class="rlabel" x="658" y="233" data-a="huyanzhuo" data-b="songjiang">归顺</text></g>
+        <g class="nodes"><g class="pnode" data-id="songjiang" transform="translate(620,138)"><title>宋江 · 梁山泊寨主 · 天魁星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">宋江</text></g>
+        <g class="pnode" data-id="lujunyi" transform="translate(686,177)"><title>卢俊义 · 梁山二当家 · 天罡星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">卢俊义</text></g>
+        <g class="pnode" data-id="wuyong" transform="translate(686,253)"><title>吴用 · 梁山军师 · 天机星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">吴用</text></g>
+        <g class="pnode" data-id="linchong" transform="translate(620,292)"><title>林冲 · 梁山马军五虎将 · 天雄星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">林冲</text></g>
+        <g class="pnode" data-id="lushen" transform="translate(554,253)"><title>鲁智深 · 梁山步军头领 · 天孤星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">鲁智深</text></g>
+        <g class="pnode" data-id="wusong" transform="translate(554,177)"><title>武松 · 梁山步军头领 · 天伤星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">武松</text></g>
+        <g class="pnode" data-id="likui" transform="translate(651,76)"><title>李逵 · 梁山步军头领 · 天杀星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">李逵</text></g>
+        <g class="pnode" data-id="chaogai" transform="translate(740,139)"><title>晁盖 · 梁山泊第二任寨主 · 托塔天王</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">晁盖</text></g>
+        <g class="pnode" data-id="yangzhi" transform="translate(759,246)"><title>杨志 · 梁山马军八骠骑 · 天暗星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">杨志</text></g>
+        <g class="pnode" data-id="huyanzhuo" transform="translate(696,335)"><title>呼延灼 · 梁山马军五虎将 · 天威星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">呼延灼</text></g>
+        <g class="pnode" data-id="huarong" transform="translate(589,354)"><title>花荣 · 梁山马军八骠骑 · 天英星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">花荣</text></g>
+        <g class="pnode" data-id="daizong" transform="translate(500,291)"><title>戴宗 · 梁山情报头领 · 天速星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">戴宗</text></g>
+        <g class="pnode" data-id="zhangshun" transform="translate(481,184)"><title>张顺 · 梁山水军头领 · 天损星</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">张顺</text></g>
+        <g class="pnode" data-id="wanglun" transform="translate(544,95)"><title>王伦 · 梁山泊首任寨主</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">王伦</text></g>
+        <g class="pnode" data-id="gaoqiu" transform="translate(815,504)"><title>高俅 · 殿帅府太尉</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">高俅</text></g>
+        <g class="pnode" data-id="wangjin" transform="translate(815,600)"><title>王进 · 八十万禁军教头</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">王进</text></g>
+        <g class="pnode" data-id="yanpoxi" transform="translate(425,483)"><title>阎婆惜 · 宋江的外室</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">阎婆惜</text></g>
+        <g class="pnode" data-id="panjinlian" transform="translate(492,531)"><title>潘金莲 · 武大之妻</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">潘金莲</text></g>
+        <g class="pnode" data-id="ximenqing" transform="translate(466,609)"><title>西门庆 · 阳谷县富户</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">西门庆</text></g>
+        <g class="pnode" data-id="zheng" transform="translate(384,609)"><title>郑屠 · 渭州屠户</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">郑屠</text></g>
+        <g class="pnode" data-id="fangla" transform="translate(359,531)"><title>方腊 · 江南起义军首领</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">方腊</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">梁山</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-songjiang" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>宋江</h3></div>
+        <p class="role">梁山泊寨主 · 天魁星</p>
+        <p class="deeds">郓城押司出身，仗义疏财，江湖人称及时雨。上梁山后一心招安，最后被御酒毒死，临死还拉上了李逵。</p>
+        <a class="jump" href="index.html#wm12">时间线 · 宋江杀惜 →</a>
+      </article>
+      <article class="pcard" id="c-lujunyi" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>卢俊义</h3></div>
+        <p class="role">梁山二当家 · 天罡星</p>
+        <p class="deeds">大名府富商，棍棒天下无双。被吴用设计骗上梁山，坐了第二把交椅。征方腊后落水而死。</p>
+        <a class="jump" href="index.html#wm22">时间线 · 卢俊义上山 →</a>
+      </article>
+      <article class="pcard" id="c-wuyong" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>吴用</h3></div>
+        <p class="role">梁山军师 · 天机星</p>
+        <p class="deeds">智取生辰纲的策划者，梁山的军师。宋江死后，与花荣在墓前自缢。</p>
+        <a class="jump" href="index.html#wm10">时间线 · 智取生辰纲 →</a>
+      </article>
+      <article class="pcard" id="c-linchong" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>林冲</h3></div>
+        <p class="role">梁山马军五虎将 · 天雄星</p>
+        <p class="deeds">八十万禁军教头，被高俅父子逼得家破人亡。风雪山神庙后上梁山，火并王伦。征方腊后风瘫，病死杭州。</p>
+        <a class="jump" href="index.html#wm05">时间线 · 误入白虎堂 →</a>
+      </article>
+      <article class="pcard" id="c-lushen" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>鲁智深</h3></div>
+        <p class="role">梁山步军头领 · 天孤星</p>
+        <p class="deeds">三拳打死镇关西，倒拔垂杨柳，野猪林救林冲。征方腊后在六和寺听潮坐化。</p>
+        <a class="jump" href="index.html#wm03">时间线 · 拳打镇关西 →</a>
+      </article>
+      <article class="pcard" id="c-wusong" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>武松</h3></div>
+        <p class="role">梁山步军头领 · 天伤星</p>
+        <p class="deeds">景阳冈打虎，杀嫂报仇，血溅鸳鸯楼。征方腊断臂，后在六和寺出家，活到八十。</p>
+        <a class="jump" href="index.html#wm13">时间线 · 武松打虎 →</a>
+      </article>
+      <article class="pcard" id="c-likui" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>李逵</h3></div>
+        <p class="role">梁山步军头领 · 天杀星</p>
+        <p class="deeds">两把板斧，见人就砍。对宋江死心塌地，最后喝了宋江给的毒酒。</p>
+        <a class="jump" href="index.html#wm17">时间线 · 劫法场 →</a>
+      </article>
+      <article class="pcard" id="c-chaogai" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>晁盖</h3></div>
+        <p class="role">梁山泊第二任寨主 · 托塔天王</p>
+        <p class="deeds">智取生辰纲的首领，上梁山后火并王伦。攻打曾头市中箭身亡。</p>
+        <a class="jump" href="index.html#wm10">时间线 · 智取生辰纲 →</a>
+      </article>
+      <article class="pcard" id="c-yangzhi" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>杨志</h3></div>
+        <p class="role">梁山马军八骠骑 · 天暗星</p>
+        <p class="deeds">杨家将后人，丢了花石纲，卖刀杀人，押送生辰纲又被劫。一生想立功，一生在丢东西。</p>
+        <a class="jump" href="index.html#wm08">时间线 · 雪夜上梁山 →</a>
+      </article>
+      <article class="pcard" id="c-huyanzhuo" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>呼延灼</h3></div>
+        <p class="role">梁山马军五虎将 · 天威星</p>
+        <p class="deeds">宋朝开国名将之后，用连环马征梁山，被钩镰枪所破，归顺梁山。</p>
+        <a class="jump" href="index.html#wm20">时间线 · 大破连环马 →</a>
+      </article>
+      <article class="pcard" id="c-huarong" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>花荣</h3></div>
+        <p class="role">梁山马军八骠骑 · 天英星</p>
+        <p class="deeds">箭法天下第一。宋江死后，与吴用在墓前自缢。</p>
+        <a class="jump" href="index.html#wm33">时间线 · 吴用花荣自缢 →</a>
+      </article>
+      <article class="pcard" id="c-daizong" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>戴宗</h3></div>
+        <p class="role">梁山情报头领 · 天速星</p>
+        <p class="deeds">日行八百里的神行太保，梁山的信使。</p>
+        <a class="jump" href="index.html#wm17">时间线 · 劫法场 →</a>
+      </article>
+      <article class="pcard" id="c-zhangshun" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>张顺</h3></div>
+        <p class="role">梁山水军头领 · 天损星</p>
+        <p class="deeds">水性极好，能在水底伏七日七夜。征方腊时在涌金门被乱箭射死。</p>
+        <a class="jump" href="index.html#wm27">时间线 · 张顺之死 →</a>
+      </article>
+      <article class="pcard" id="c-wanglun" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>王伦</h3></div>
+        <p class="role">梁山泊首任寨主</p>
+        <p class="deeds">梁山最初的寨主，心胸狭窄，怕人夺位，最后被林冲火并。</p>
+        <a class="jump" href="index.html#wm08">时间线 · 雪夜上梁山 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">朝廷</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-gaoqiu" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>高俅</h3></div>
+        <p class="role">殿帅府太尉</p>
+        <p class="deeds">街头泼皮出身，靠踢球得宠。逼走王进，害死林冲一家，最后毒死宋江。</p>
+        <a class="jump" href="index.html#wm02">时间线 · 高俅发迹 →</a>
+      </article>
+      <article class="pcard" id="c-wangjin" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>王进</h3></div>
+        <p class="role">八十万禁军教头</p>
+        <p class="deeds">高俅上任第一天就找他麻烦，他带着老母连夜逃走，从此不知所终。</p>
+        <a class="jump" href="index.html#wm02">时间线 · 高俅发迹 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">民间</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-yanpoxi" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>阎婆惜</h3></div>
+        <p class="role">宋江的外室</p>
+        <p class="deeds">拿宋江通梁山的书信要挟，被宋江所杀。</p>
+        <a class="jump" href="index.html#wm12">时间线 · 宋江杀惜 →</a>
+      </article>
+      <article class="pcard" id="c-panjinlian" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>潘金莲</h3></div>
+        <p class="role">武大之妻</p>
+        <p class="deeds">与西门庆通奸，毒死丈夫武大，被武松杀死在灵前。</p>
+        <a class="jump" href="index.html#wm14">时间线 · 杀嫂 →</a>
+      </article>
+      <article class="pcard" id="c-ximenqing" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>西门庆</h3></div>
+        <p class="role">阳谷县富户</p>
+        <p class="deeds">勾结官府，霸占潘金莲，毒死武大。被武松在狮子楼斗杀。</p>
+        <a class="jump" href="index.html#wm14">时间线 · 杀嫂 →</a>
+      </article>
+      <article class="pcard" id="c-zheng" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>郑屠</h3></div>
+        <p class="role">渭州屠户</p>
+        <p class="deeds">强占金翠莲，被鲁智深三拳打死。</p>
+        <a class="jump" href="index.html#wm03">时间线 · 拳打镇关西 →</a>
+      </article>
+      <article class="pcard" id="c-fangla" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>方腊</h3></div>
+        <p class="role">江南起义军首领</p>
+        <p class="deeds">在江南起事，占据八州二十五县。梁山征方腊，双方死伤惨重。</p>
+        <a class="jump" href="index.html#wm26">时间线 · 征方腊 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">水浒传 · 施耐庵</p>
+  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"songjiang": {"name": "宋江", "role": "梁山泊寨主 · 天魁星", "deeds": "郓城押司出身，仗义疏财，江湖人称及时雨。上梁山后一心招安，最后被御酒毒死，临死还拉上了李逵。", "quote": "及时雨", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm12", "linkName": "宋江杀惜", "rel": [["likui", "李逵", "主仆"], ["wuyong", "吴用", "军师"], ["chaogai", "晁盖", "接任"], ["lujunyi", "卢俊义", "正副寨主"], ["huarong", "花荣", "生死之交"], ["daizong", "戴宗", "上下级"], ["yanpoxi", "阎婆惜", "杀其灭口"], ["gaoqiu", "高俅", "被毒杀"], ["likui", "李逵", "死忠"], ["huarong", "花荣", "殉葬"], ["zhangshun", "张顺", "战死"], ["fangla", "方腊", "征战"], ["huyanzhuo", "呼延灼", "归顺"]]}, "lujunyi": {"name": "卢俊义", "role": "梁山二当家 · 天罡星", "deeds": "大名府富商，棍棒天下无双。被吴用设计骗上梁山，坐了第二把交椅。征方腊后落水而死。", "quote": "玉麒麟", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm22", "linkName": "卢俊义上山", "rel": [["songjiang", "宋江", "正副寨主"], ["wuyong", "吴用", "中计上山"]]}, "wuyong": {"name": "吴用", "role": "梁山军师 · 天机星", "deeds": "智取生辰纲的策划者，梁山的军师。宋江死后，与花荣在墓前自缢。", "quote": "加亮先生", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm10", "linkName": "智取生辰纲", "rel": [["songjiang", "宋江", "军师"], ["chaogai", "晁盖", "智取生辰纲"], ["lujunyi", "卢俊义", "中计上山"]]}, "linchong": {"name": "林冲", "role": "梁山马军五虎将 · 天雄星", "deeds": "八十万禁军教头，被高俅父子逼得家破人亡。风雪山神庙后上梁山，火并王伦。征方腊后风瘫，病死杭州。", "quote": "豹子头", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm05", "linkName": "误入白虎堂", "rel": [["gaoqiu", "高俅", "家破人亡"], ["lushen", "鲁智深", "救命"], ["wanglun", "王伦", "火并"], ["wusong", "武松", "同僚"], ["lushen", "鲁智深", "义救"]]}, "lushen": {"name": "鲁智深", "role": "梁山步军头领 · 天孤星", "deeds": "三拳打死镇关西，倒拔垂杨柳，野猪林救林冲。征方腊后在六和寺听潮坐化。", "quote": "花和尚", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm03", "linkName": "拳打镇关西", "rel": [["linchong", "林冲", "救命"], ["zheng", "郑屠", "三拳打死"], ["linchong", "林冲", "义救"]]}, "wusong": {"name": "武松", "role": "梁山步军头领 · 天伤星", "deeds": "景阳冈打虎，杀嫂报仇，血溅鸳鸯楼。征方腊断臂，后在六和寺出家，活到八十。", "quote": "行者", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm13", "linkName": "武松打虎", "rel": [["linchong", "林冲", "同僚"], ["panjinlian", "潘金莲", "杀嫂"], ["ximenqing", "西门庆", "斗杀"]]}, "likui": {"name": "李逵", "role": "梁山步军头领 · 天杀星", "deeds": "两把板斧，见人就砍。对宋江死心塌地，最后喝了宋江给的毒酒。", "quote": "黑旋风", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm17", "linkName": "劫法场", "rel": [["songjiang", "宋江", "主仆"], ["songjiang", "宋江", "死忠"]]}, "chaogai": {"name": "晁盖", "role": "梁山泊第二任寨主 · 托塔天王", "deeds": "智取生辰纲的首领，上梁山后火并王伦。攻打曾头市中箭身亡。", "quote": "", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm10", "linkName": "智取生辰纲", "rel": [["songjiang", "宋江", "接任"], ["wuyong", "吴用", "智取生辰纲"], ["yangzhi", "杨志", "劫其生辰纲"]]}, "yangzhi": {"name": "杨志", "role": "梁山马军八骠骑 · 天暗星", "deeds": "杨家将后人，丢了花石纲，卖刀杀人，押送生辰纲又被劫。一生想立功，一生在丢东西。", "quote": "青面兽", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm08", "linkName": "雪夜上梁山", "rel": [["chaogai", "晁盖", "劫其生辰纲"]]}, "huyanzhuo": {"name": "呼延灼", "role": "梁山马军五虎将 · 天威星", "deeds": "宋朝开国名将之后，用连环马征梁山，被钩镰枪所破，归顺梁山。", "quote": "双鞭", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm20", "linkName": "大破连环马", "rel": [["songjiang", "宋江", "归顺"]]}, "huarong": {"name": "花荣", "role": "梁山马军八骠骑 · 天英星", "deeds": "箭法天下第一。宋江死后，与吴用在墓前自缢。", "quote": "小李广", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm33", "linkName": "吴用花荣自缢", "rel": [["songjiang", "宋江", "生死之交"], ["songjiang", "宋江", "殉葬"]]}, "daizong": {"name": "戴宗", "role": "梁山情报头领 · 天速星", "deeds": "日行八百里的神行太保，梁山的信使。", "quote": "神行太保", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm17", "linkName": "劫法场", "rel": [["songjiang", "宋江", "上下级"]]}, "zhangshun": {"name": "张顺", "role": "梁山水军头领 · 天损星", "deeds": "水性极好，能在水底伏七日七夜。征方腊时在涌金门被乱箭射死。", "quote": "浪里白条", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm27", "linkName": "张顺之死", "rel": [["songjiang", "宋江", "战死"]]}, "wanglun": {"name": "王伦", "role": "梁山泊首任寨主", "deeds": "梁山最初的寨主，心胸狭窄，怕人夺位，最后被林冲火并。", "quote": "白衣秀士", "camp": "梁山", "campKey": "梁山", "color": "#8c2b26", "link": "wm08", "linkName": "雪夜上梁山", "rel": [["linchong", "林冲", "火并"]]}, "gaoqiu": {"name": "高俅", "role": "殿帅府太尉", "deeds": "街头泼皮出身，靠踢球得宠。逼走王进，害死林冲一家，最后毒死宋江。", "quote": "", "camp": "朝廷", "campKey": "朝廷", "color": "#7a5a38", "link": "wm02", "linkName": "高俅发迹", "rel": [["songjiang", "宋江", "被毒杀"], ["linchong", "林冲", "家破人亡"], ["wangjin", "王进", "逼走"]]}, "wangjin": {"name": "王进", "role": "八十万禁军教头", "deeds": "高俅上任第一天就找他麻烦，他带着老母连夜逃走，从此不知所终。", "quote": "", "camp": "朝廷", "campKey": "朝廷", "color": "#7a5a38", "link": "wm02", "linkName": "高俅发迹", "rel": [["gaoqiu", "高俅", "逼走"]]}, "yanpoxi": {"name": "阎婆惜", "role": "宋江的外室", "deeds": "拿宋江通梁山的书信要挟，被宋江所杀。", "quote": "", "camp": "民间", "campKey": "民间", "color": "#2f4a6b", "link": "wm12", "linkName": "宋江杀惜", "rel": [["songjiang", "宋江", "杀其灭口"]]}, "panjinlian": {"name": "潘金莲", "role": "武大之妻", "deeds": "与西门庆通奸，毒死丈夫武大，被武松杀死在灵前。", "quote": "", "camp": "民间", "campKey": "民间", "color": "#2f4a6b", "link": "wm14", "linkName": "杀嫂", "rel": [["wusong", "武松", "杀嫂"]]}, "ximenqing": {"name": "西门庆", "role": "阳谷县富户", "deeds": "勾结官府，霸占潘金莲，毒死武大。被武松在狮子楼斗杀。", "quote": "", "camp": "民间", "campKey": "民间", "color": "#2f4a6b", "link": "wm14", "linkName": "杀嫂", "rel": [["wusong", "武松", "斗杀"]]}, "zheng": {"name": "郑屠", "role": "渭州屠户", "deeds": "强占金翠莲，被鲁智深三拳打死。", "quote": "镇关西", "camp": "民间", "campKey": "民间", "color": "#2f4a6b", "link": "wm03", "linkName": "拳打镇关西", "rel": [["lushen", "鲁智深", "三拳打死"]]}, "fangla": {"name": "方腊", "role": "江南起义军首领", "deeds": "在江南起事，占据八州二十五县。梁山征方腊，双方死伤惨重。", "quote": "", "camp": "民间", "campKey": "民间", "color": "#2f4a6b", "link": "wm26", "linkName": "征方腊", "rel": [["songjiang", "宋江", "征战"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

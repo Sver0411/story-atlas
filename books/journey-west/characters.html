@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>西游记 · 人物志 | 16 个人物</title>
+<meta name="description" content="一只石猴从花果山出发，闹了天宫，被压了五百年，然后跟着一个和尚走了十万八千里。八十一难，每一难都不是为了吃唐僧肉。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+</style>
+<style>
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">吴承恩 / CHARACTERS</p>
+    <h1 class="big">西游记 · 人物</h1>
+    <p class="deck">一只石猴从花果山出发，闹了天宫，被压了五百年，然后跟着一个和尚走了十万八千里。八十一难，每一难都不是为了吃唐僧肉。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="取经人">取经人</button><button class="fbtn" data-camp="神佛">神佛</button><button class="fbtn" data-camp="人间">人间</button><button class="fbtn" data-camp="妖魔">妖魔</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="西游记人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="123" text-anchor="middle">取经人</text>
+        <text class="gtag" x="845" y="348" text-anchor="middle">神佛</text>
+        <text class="gtag" x="620" y="595" text-anchor="middle">人间</text>
+        <text class="gtag" x="395" y="348" text-anchor="middle">妖魔</text></g>
+        <g class="links"><line class="plink" data-a="tangseng" data-b="wukong" x1="687" y1="193" x2="620" y2="145" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tangseng" data-b="bajie" x1="687" y1="193" x2="661" y2="272" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tangseng" data-b="shaseng" x1="687" y1="193" x2="579" y2="272" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tangseng" data-b="bailong" x1="687" y1="193" x2="553" y2="193" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="bajie" x1="620" y1="145" x2="661" y2="272" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="shaseng" x1="620" y1="145" x2="579" y2="272" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="puti" x1="620" y1="145" x2="778" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="rulai" x1="620" y1="145" x2="912" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="guanyin" x1="620" y1="145" x2="845" y2="370" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="yudi" x1="620" y1="145" x2="886" y2="497" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="laojun" x1="620" y1="145" x2="804" y2="497" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="guanyin" data-b="rulai" x1="845" y1="370" x2="912" y2="418" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tangseng" data-b="taizong" x1="687" y1="193" x2="620" y2="665" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="baigujing" x1="620" y1="145" x2="395" y2="370" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="honghaier" x1="620" y1="145" x2="462" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="niumowang" x1="620" y1="145" x2="436" y2="497" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="niumowang" data-b="tiefan" x1="436" y1="497" x2="354" y2="497" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="niumowang" data-b="honghaier" x1="436" y1="497" x2="462" y2="418" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tiefan" data-b="honghaier" x1="354" y1="497" x2="462" y2="418" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wukong" data-b="huangpao" x1="620" y1="145" x2="328" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="bajie" data-b="huangpao" x1="661" y1="272" x2="328" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="labels"><text class="rlabel" x="653" y="165" data-a="tangseng" data-b="wukong">师徒</text>
+        <text class="rlabel" x="674" y="228" data-a="tangseng" data-b="bajie">师徒</text>
+        <text class="rlabel" x="633" y="228" data-a="tangseng" data-b="shaseng">师徒</text>
+        <text class="rlabel" x="620" y="189" data-a="tangseng" data-b="bailong">坐骑</text>
+        <text class="rlabel" x="641" y="204" data-a="wukong" data-b="bajie">师兄弟</text>
+        <text class="rlabel" x="599" y="204" data-a="wukong" data-b="shaseng">师兄弟</text>
+        <text class="rlabel" x="699" y="278" data-a="wukong" data-b="puti">师徒</text>
+        <text class="rlabel" x="766" y="278" data-a="wukong" data-b="rulai">被压五行山</text>
+        <text class="rlabel" x="732" y="254" data-a="wukong" data-b="guanyin">受其点化</text>
+        <text class="rlabel" x="753" y="317" data-a="wukong" data-b="yudi">大闹天宫</text>
+        <text class="rlabel" x="712" y="317" data-a="wukong" data-b="laojun">八卦炉</text>
+        <text class="rlabel" x="878" y="390" data-a="guanyin" data-b="rulai">奉法旨</text>
+        <text class="rlabel" x="653" y="425" data-a="tangseng" data-b="taizong">结义兄弟</text>
+        <text class="rlabel" x="508" y="254" data-a="wukong" data-b="baigujing">三打</text>
+        <text class="rlabel" x="541" y="278" data-a="wukong" data-b="honghaier">收服</text>
+        <text class="rlabel" x="528" y="317" data-a="wukong" data-b="niumowang">结义反目</text>
+        <text class="rlabel" x="395" y="493" data-a="niumowang" data-b="tiefan">夫妻</text>
+        <text class="rlabel" x="449" y="454" data-a="niumowang" data-b="honghaier">父子</text>
+        <text class="rlabel" x="408" y="454" data-a="tiefan" data-b="honghaier">母子</text>
+        <text class="rlabel" x="474" y="278" data-a="wukong" data-b="huangpao">揭其底细</text>
+        <text class="rlabel" x="495" y="341" data-a="bajie" data-b="huangpao">请回悟空</text></g>
+        <g class="nodes"><g class="pnode" data-id="wukong" transform="translate(620,145)"><title>孙悟空 · 齐天大圣 · 斗战胜佛</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">孙悟空</text></g>
+        <g class="pnode" data-id="tangseng" transform="translate(687,193)"><title>唐僧 · 取经人 · 旃檀功德佛</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">唐僧</text></g>
+        <g class="pnode" data-id="bajie" transform="translate(661,272)"><title>猪八戒 · 天蓬元帅 · 净坛使者</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">猪八戒</text></g>
+        <g class="pnode" data-id="shaseng" transform="translate(579,272)"><title>沙僧 · 卷帘大将 · 金身罗汉</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">沙僧</text></g>
+        <g class="pnode" data-id="bailong" transform="translate(553,193)"><title>白龙马 · 西海龙王三太子 · 八部天龙</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">白龙马</text></g>
+        <g class="pnode" data-id="guanyin" transform="translate(845,370)"><title>观音菩萨 · 取经的策划者</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">观音菩萨</text></g>
+        <g class="pnode" data-id="rulai" transform="translate(912,418)"><title>如来佛祖 · 灵山之主</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">如来佛祖</text></g>
+        <g class="pnode" data-id="yudi" transform="translate(886,497)"><title>玉皇大帝 · 天庭之主</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">玉皇大帝</text></g>
+        <g class="pnode" data-id="laojun" transform="translate(804,497)"><title>太上老君 · 兜率宫主人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">太上老君</text></g>
+        <g class="pnode" data-id="puti" transform="translate(778,418)"><title>菩提祖师 · 悟空的第一位师父</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">菩提祖师</text></g>
+        <g class="pnode" data-id="taizong" transform="translate(620,665)"><title>唐太宗 · 唐朝皇帝</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">唐太宗</text></g>
+        <g class="pnode" data-id="baigujing" transform="translate(395,370)"><title>白骨精 · 白骨岭妖怪</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">白骨精</text></g>
+        <g class="pnode" data-id="honghaier" transform="translate(462,418)"><title>红孩儿 · 火云洞圣婴大王</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">红孩儿</text></g>
+        <g class="pnode" data-id="niumowang" transform="translate(436,497)"><title>牛魔王 · 翠云山妖王</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">牛魔王</text></g>
+        <g class="pnode" data-id="tiefan" transform="translate(354,497)"><title>铁扇公主 · 芭蕉扇的主人</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">铁扇公主</text></g>
+        <g class="pnode" data-id="huangpao" transform="translate(328,418)"><title>黄袍怪 · 奎木狼下凡</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">黄袍怪</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">取经人</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-wukong" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>孙悟空</h3></div>
+        <p class="role">齐天大圣 · 斗战胜佛</p>
+        <p class="deeds">石猴出世，拜菩提为师，大闹天宫被压五行山。取经路上降妖除魔，被封斗战胜佛。</p>
+        <a class="jump" href="index.html#xy01">时间线 · 石猴出世 →</a>
+      </article>
+      <article class="pcard" id="c-tangseng" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>唐僧</h3></div>
+        <p class="role">取经人 · 旃檀功德佛</p>
+        <p class="deeds">金蝉子转世，十世修行的好人。西行十万八千里，历经八十一难，取回真经。</p>
+        <a class="jump" href="index.html#xy10">时间线 · 唐僧出世 →</a>
+      </article>
+      <article class="pcard" id="c-bajie" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>猪八戒</h3></div>
+        <p class="role">天蓬元帅 · 净坛使者</p>
+        <p class="deeds">原是天蓬元帅，调戏嫦娥被贬，错投猪胎。好吃懒做，关键时刻也能顶上去。</p>
+        <a class="jump" href="index.html#xy13">时间线 · 收八戒 →</a>
+      </article>
+      <article class="pcard" id="c-shaseng" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>沙僧</h3></div>
+        <p class="role">卷帘大将 · 金身罗汉</p>
+        <p class="deeds">原是天庭卷帘大将，打碎琉璃盏被贬流沙河。一路上挑担，话最少。</p>
+        <a class="jump" href="index.html#xy14">时间线 · 收沙僧 →</a>
+      </article>
+      <article class="pcard" id="c-bailong" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>白龙马</h3></div>
+        <p class="role">西海龙王三太子 · 八部天龙</p>
+        <p class="deeds">因纵火烧了殿上明珠被贬，化作白马驮唐僧西行。</p>
+        <a class="jump" href="index.html#xy15">时间线 · 白龙马 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">神佛</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-guanyin" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>观音菩萨</h3></div>
+        <p class="role">取经的策划者</p>
+        <p class="deeds">奉如来法旨寻找取经人，一路点化、搭救、收妖。取经这件事，从头到尾是她在安排。</p>
+        <a class="jump" href="index.html#xy11">时间线 · 取经的缘起 →</a>
+      </article>
+      <article class="pcard" id="c-rulai" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>如来佛祖</h3></div>
+        <p class="role">灵山之主</p>
+        <p class="deeds">压悟空于五行山，策划取经，最后封佛。他看得到一切，却要人自己走过去。</p>
+        <a class="jump" href="index.html#xy09">时间线 · 压在五行山 →</a>
+      </article>
+      <article class="pcard" id="c-yudi" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>玉皇大帝</h3></div>
+        <p class="role">天庭之主</p>
+        <p class="deeds">三界之主，被悟空闹得坐不稳凌霄殿，最后请如来出手。</p>
+        <a class="jump" href="index.html#xy05">时间线 · 弼马温 →</a>
+      </article>
+      <article class="pcard" id="c-laojun" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>太上老君</h3></div>
+        <p class="role">兜率宫主人</p>
+        <p class="deeds">炼了悟空四十九天，反倒送了他一双火眼金睛。看炉的童子、坐骑先后下界为妖。</p>
+        <a class="jump" href="index.html#xy06">时间线 · 齐天大圣 →</a>
+      </article>
+      <article class="pcard" id="c-puti" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>菩提祖师</h3></div>
+        <p class="role">悟空的第一位师父</p>
+        <p class="deeds">教悟空七十二变与筋斗云，然后把他赶走，不许提自己的名字。</p>
+        <a class="jump" href="index.html#xy02">时间线 · 拜师菩提 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">人间</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-taizong" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>唐太宗</h3></div>
+        <p class="role">唐朝皇帝</p>
+        <p class="deeds">游地府还阳后办水陆大会，与玄奘结为兄弟，送他西行。</p>
+        <a class="jump" href="index.html#xy11">时间线 · 取经的缘起 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">妖魔</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-baigujing" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>白骨精</h3></div>
+        <p class="role">白骨岭妖怪</p>
+        <p class="deeds">三次变化骗唐僧，三次被悟空识破。她的尸体上写着：白骨夫人。</p>
+        <a class="jump" href="index.html#xy16">时间线 · 三打白骨精 →</a>
+      </article>
+      <article class="pcard" id="c-honghaier" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>红孩儿</h3></div>
+        <p class="role">火云洞圣婴大王</p>
+        <p class="deeds">牛魔王之子，会三昧真火。被观音收为善财童子。</p>
+        <a class="jump" href="index.html#xy20">时间线 · 红孩儿 →</a>
+      </article>
+      <article class="pcard" id="c-niumowang" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>牛魔王</h3></div>
+        <p class="role">翠云山妖王</p>
+        <p class="deeds">悟空的结义兄长，红孩儿之父。火焰山一战与悟空反目。</p>
+        <a class="jump" href="index.html#xy25">时间线 · 三借芭蕉扇 →</a>
+      </article>
+      <article class="pcard" id="c-tiefan" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>铁扇公主</h3></div>
+        <p class="role">芭蕉扇的主人</p>
+        <p class="deeds">牛魔王之妻，红孩儿之母。芭蕉扇一扇熄火，二扇生风，三扇下雨。</p>
+        <a class="jump" href="index.html#xy25">时间线 · 三借芭蕉扇 →</a>
+      </article>
+      <article class="pcard" id="c-huangpao" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>黄袍怪</h3></div>
+        <p class="role">奎木狼下凡</p>
+        <p class="deeds">与百花羞公主有十三日情缘，把唐僧变成老虎。被悟空告到玉帝处收回。</p>
+        <a class="jump" href="index.html#xy17">时间线 · 黄袍怪 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">西游记 · 吴承恩</p>
+  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"wukong": {"name": "孙悟空", "role": "齐天大圣 · 斗战胜佛", "deeds": "石猴出世，拜菩提为师，大闹天宫被压五行山。取经路上降妖除魔，被封斗战胜佛。", "quote": "美猴王", "camp": "取经人", "campKey": "取经人", "color": "#8c2b26", "link": "xy01", "linkName": "石猴出世", "rel": [["tangseng", "唐僧", "师徒"], ["bajie", "猪八戒", "师兄弟"], ["shaseng", "沙僧", "师兄弟"], ["puti", "菩提祖师", "师徒"], ["rulai", "如来佛祖", "被压五行山"], ["guanyin", "观音菩萨", "受其点化"], ["yudi", "玉皇大帝", "大闹天宫"], ["laojun", "太上老君", "八卦炉"], ["baigujing", "白骨精", "三打"], ["honghaier", "红孩儿", "收服"], ["niumowang", "牛魔王", "结义反目"], ["huangpao", "黄袍怪", "揭其底细"]]}, "tangseng": {"name": "唐僧", "role": "取经人 · 旃檀功德佛", "deeds": "金蝉子转世，十世修行的好人。西行十万八千里，历经八十一难，取回真经。", "quote": "玄奘", "camp": "取经人", "campKey": "取经人", "color": "#8c2b26", "link": "xy10", "linkName": "唐僧出世", "rel": [["wukong", "孙悟空", "师徒"], ["bajie", "猪八戒", "师徒"], ["shaseng", "沙僧", "师徒"], ["bailong", "白龙马", "坐骑"], ["taizong", "唐太宗", "结义兄弟"]]}, "bajie": {"name": "猪八戒", "role": "天蓬元帅 · 净坛使者", "deeds": "原是天蓬元帅，调戏嫦娥被贬，错投猪胎。好吃懒做，关键时刻也能顶上去。", "quote": "猪悟能", "camp": "取经人", "campKey": "取经人", "color": "#8c2b26", "link": "xy13", "linkName": "收八戒", "rel": [["tangseng", "唐僧", "师徒"], ["wukong", "孙悟空", "师兄弟"], ["huangpao", "黄袍怪", "请回悟空"]]}, "shaseng": {"name": "沙僧", "role": "卷帘大将 · 金身罗汉", "deeds": "原是天庭卷帘大将，打碎琉璃盏被贬流沙河。一路上挑担，话最少。", "quote": "沙悟净", "camp": "取经人", "campKey": "取经人", "color": "#8c2b26", "link": "xy14", "linkName": "收沙僧", "rel": [["tangseng", "唐僧", "师徒"], ["wukong", "孙悟空", "师兄弟"]]}, "bailong": {"name": "白龙马", "role": "西海龙王三太子 · 八部天龙", "deeds": "因纵火烧了殿上明珠被贬，化作白马驮唐僧西行。", "quote": "", "camp": "取经人", "campKey": "取经人", "color": "#8c2b26", "link": "xy15", "linkName": "白龙马", "rel": [["tangseng", "唐僧", "坐骑"]]}, "guanyin": {"name": "观音菩萨", "role": "取经的策划者", "deeds": "奉如来法旨寻找取经人，一路点化、搭救、收妖。取经这件事，从头到尾是她在安排。", "quote": "观世音", "camp": "神佛", "campKey": "神佛", "color": "#7a5a38", "link": "xy11", "linkName": "取经的缘起", "rel": [["wukong", "孙悟空", "受其点化"], ["rulai", "如来佛祖", "奉法旨"]]}, "rulai": {"name": "如来佛祖", "role": "灵山之主", "deeds": "压悟空于五行山，策划取经，最后封佛。他看得到一切，却要人自己走过去。", "quote": "释迦牟尼", "camp": "神佛", "campKey": "神佛", "color": "#7a5a38", "link": "xy09", "linkName": "压在五行山", "rel": [["wukong", "孙悟空", "被压五行山"], ["guanyin", "观音菩萨", "奉法旨"]]}, "yudi": {"name": "玉皇大帝", "role": "天庭之主", "deeds": "三界之主，被悟空闹得坐不稳凌霄殿，最后请如来出手。", "quote": "", "camp": "神佛", "campKey": "神佛", "color": "#7a5a38", "link": "xy05", "linkName": "弼马温", "rel": [["wukong", "孙悟空", "大闹天宫"]]}, "laojun": {"name": "太上老君", "role": "兜率宫主人", "deeds": "炼了悟空四十九天，反倒送了他一双火眼金睛。看炉的童子、坐骑先后下界为妖。", "quote": "老子", "camp": "神佛", "campKey": "神佛", "color": "#7a5a38", "link": "xy06", "linkName": "齐天大圣", "rel": [["wukong", "孙悟空", "八卦炉"]]}, "puti": {"name": "菩提祖师", "role": "悟空的第一位师父", "deeds": "教悟空七十二变与筋斗云，然后把他赶走，不许提自己的名字。", "quote": "", "camp": "神佛", "campKey": "神佛", "color": "#7a5a38", "link": "xy02", "linkName": "拜师菩提", "rel": [["wukong", "孙悟空", "师徒"]]}, "taizong": {"name": "唐太宗", "role": "唐朝皇帝", "deeds": "游地府还阳后办水陆大会，与玄奘结为兄弟，送他西行。", "quote": "李世民", "camp": "人间", "campKey": "人间", "color": "#2f4a6b", "link": "xy11", "linkName": "取经的缘起", "rel": [["tangseng", "唐僧", "结义兄弟"]]}, "baigujing": {"name": "白骨精", "role": "白骨岭妖怪", "deeds": "三次变化骗唐僧，三次被悟空识破。她的尸体上写着：白骨夫人。", "quote": "白骨夫人", "camp": "妖魔", "campKey": "妖魔", "color": "#5a3a6b", "link": "xy16", "linkName": "三打白骨精", "rel": [["wukong", "孙悟空", "三打"]]}, "honghaier": {"name": "红孩儿", "role": "火云洞圣婴大王", "deeds": "牛魔王之子，会三昧真火。被观音收为善财童子。", "quote": "善财童子", "camp": "妖魔", "campKey": "妖魔", "color": "#5a3a6b", "link": "xy20", "linkName": "红孩儿", "rel": [["wukong", "孙悟空", "收服"], ["niumowang", "牛魔王", "父子"], ["tiefan", "铁扇公主", "母子"]]}, "niumowang": {"name": "牛魔王", "role": "翠云山妖王", "deeds": "悟空的结义兄长，红孩儿之父。火焰山一战与悟空反目。", "quote": "大力王", "camp": "妖魔", "campKey": "妖魔", "color": "#5a3a6b", "link": "xy25", "linkName": "三借芭蕉扇", "rel": [["wukong", "孙悟空", "结义反目"], ["tiefan", "铁扇公主", "夫妻"], ["honghaier", "红孩儿", "父子"]]}, "tiefan": {"name": "铁扇公主", "role": "芭蕉扇的主人", "deeds": "牛魔王之妻，红孩儿之母。芭蕉扇一扇熄火，二扇生风，三扇下雨。", "quote": "罗刹女", "camp": "妖魔", "campKey": "妖魔", "color": "#5a3a6b", "link": "xy25", "linkName": "三借芭蕉扇", "rel": [["niumowang", "牛魔王", "夫妻"], ["honghaier", "红孩儿", "母子"]]}, "huangpao": {"name": "黄袍怪", "role": "奎木狼下凡", "deeds": "与百花羞公主有十三日情缘，把唐僧变成老虎。被悟空告到玉帝处收回。", "quote": "", "camp": "妖魔", "campKey": "妖魔", "color": "#5a3a6b", "link": "xy17", "linkName": "黄袍怪", "rel": [["wukong", "孙悟空", "揭其底细"], ["bajie", "猪八戒", "请回悟空"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

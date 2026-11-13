@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>西游记 · 时间线 | 36 个故事节点</title>
+<meta name="description" content="一只石猴从花果山出发，闹了天宫，被压了五百年，然后跟着一个和尚走了十万八千里。八十一难，每一难都不是为了吃唐僧肉。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+</style>
+</head>
+<body>
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">吴承恩</p>
+    <h1><em>西游记</em><span>时间线</span></h1>
+    <p class="hero-deck">一只石猴从花果山出发，闹了天宫，被压了五百年，然后跟着一个和尚走了十万八千里。八十一难，每一难都不是为了吃唐僧肉。<br>36 个时间点，从「石猴出世」到「封佛」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>36 个时间点 · 16 位人物</span><i></i>
+      <span>通行一百回本 · 完整主线</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">石猴与天宫</span>
+      <span class="era-sub">01 — 36</span>
+    </div>
+
+    <section class="event" id="xy01" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="石猴出世" data-label="太古 · 花果山">
+      <div class="ev-when">太古<em>花果山</em></div>
+      <h2>石猴出世</h2>
+      <p>花果山顶一块仙石迸裂，产出一个石卵，见风化作石猴。他眼运金光，射冲斗府。玉帝看了一眼，说：不足为异。</p>
+    </section>
+
+    <section class="event" id="xy02" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="拜师菩提" data-label="同一时期 · 灵台方寸山">
+      <div class="ev-when">同一时期<em>灵台方寸山</em></div>
+      <h2>拜师菩提</h2>
+      <p>石猴漂洋过海，拜菩提祖师为师。祖师赐名孙悟空，教他七十二变、筋斗云。学成之日，祖师说：你以后惹祸，不要说是我徒弟。</p>
+    </section>
+
+    <section class="event" id="xy03" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="龙宫取宝" data-label="同一时期 · 东海">
+      <div class="ev-when">同一时期<em>东海</em></div>
+      <h2>龙宫取宝</h2>
+      <p>悟空到东海龙宫借兵器，试了九股叉、方天戟都嫌轻。龙王带他去看定海神针，他一碰，那根柱子就变小了，成了如意金箍棒。</p>
+    </section>
+
+    <section class="event" id="xy04" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="勾销生死簿" data-label="同一时期 · 地府">
+      <div class="ev-when">同一时期<em>地府</em></div>
+      <h2>勾销生死簿</h2>
+      <p>悟空被勾魂到地府，说：我老孙超出三界外，不在五行中。他拿笔把生死簿上猴属的名字全划了，一路打出去。</p>
+    </section>
+
+    <section class="event" id="xy05" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="弼马温" data-label="同一时期 · 天庭">
+      <div class="ev-when">同一时期<em>天庭</em></div>
+      <h2>弼马温</h2>
+      <p>玉帝招安，封他弼马温。悟空养了半个月马，听说这是个不入流的小官，大怒，打出南天门，回花果山自封齐天大圣。</p>
+    </section>
+
+    <section class="event" id="xy06" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="齐天大圣" data-label="同一时期 · 天庭">
+      <div class="ev-when">同一时期<em>天庭</em></div>
+      <h2>齐天大圣</h2>
+      <p>玉帝再招安，承认他齐天大圣的名号，让他管蟠桃园。他偷吃蟠桃，搅乱蟠桃会，偷了太上老君的仙丹，把天宫闹得鸡犬不宁。</p>
+    </section>
+
+    <section class="event" id="xy07" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="大闹天宫" data-label="同一时期 · 天庭">
+      <div class="ev-when">同一时期<em>天庭</em></div>
+      <h2>大闹天宫</h2>
+      <p>十万天兵拿他不住。二郎神与他斗法，太上老君用金刚镯砸他，才把他擒住。刀砍斧剁、雷劈火烧，都伤不了他。</p>
+    </section>
+
+    <section class="event" id="xy08" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="火眼金睛" data-label="同一时期 · 八卦炉">
+      <div class="ev-when">同一时期<em>八卦炉</em></div>
+      <h2>火眼金睛</h2>
+      <p>老君把他放进八卦炉炼了四十九天。他躲在巽位，烟熏坏了眼睛，成了火眼金睛。炉子打开，他一脚踢翻，一路打到灵霄殿。</p>
+    </section>
+
+    <section class="event" id="xy09" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="石猴与天宫" data-short="压在五行山" data-label="同一时期 · 五行山">
+      <div class="ev-when">同一时期<em>五行山</em></div>
+      <h2>压在五行山</h2>
+      <p>如来与悟空打赌，说他跳不出手掌心。悟空一个筋斗翻到天边，在五根柱子上写了字，还撒了尿。回来才知道那是如来的手指。他被压在山下五百年。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">取经人</span>
+      <span class="era-sub">10 — 36</span>
+    </div>
+
+    <section class="event" id="xy10" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="取经人" data-short="唐僧出世" data-label="唐初 · 长安">
+      <div class="ev-when">唐初<em>长安</em></div>
+      <h2>唐僧出世</h2>
+      <p>陈光蕊中状元，赴任途中被水贼刘洪所害。妻子殷温娇生下儿子，放在木盆里顺江漂走，被金山寺和尚收养，取名玄奘。</p>
+    </section>
+
+    <section class="event" id="xy11" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="取经人" data-short="取经的缘起" data-label="贞观年间 · 长安">
+      <div class="ev-when">贞观年间<em>长安</em></div>
+      <h2>取经的缘起</h2>
+      <p>唐太宗游地府还阳，办水陆大会。观音现身，说西天有大乘佛法，可度亡者升天。玄奘请命西行，太宗与他结为兄弟，称御弟。</p>
+    </section>
+
+    <section class="event" id="xy12" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="取经人" data-short="收悟空" data-label="同一时期 · 五行山">
+      <div class="ev-when">同一时期<em>五行山</em></div>
+      <h2>收悟空</h2>
+      <p>唐僧揭下五行山上的帖子，悟空破山而出，拜他为师。观音给他戴上紧箍，教唐僧念紧箍咒。从此一个愿打，一个愿挨。</p>
+    </section>
+
+    <section class="event" id="xy13" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="取经人" data-short="收八戒" data-label="同一时期 · 高老庄">
+      <div class="ev-when">同一时期<em>高老庄</em></div>
+      <h2>收八戒</h2>
+      <p>高老庄招了个女婿，是猪头人身的妖怪。悟空变作高小姐，把他戏弄一番。妖怪原来是天蓬元帅，被贬下凡，法名猪悟能。</p>
+    </section>
+
+    <section class="event" id="xy14" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="取经人" data-short="收沙僧" data-label="同一时期 · 流沙河">
+      <div class="ev-when">同一时期<em>流沙河</em></div>
+      <h2>收沙僧</h2>
+      <p>流沙河八百里，鹅毛也浮不起。水里的妖怪是卷帘大将，被贬下凡，脖子上挂着九个骷髅。他拜唐僧为师，法名沙悟净。</p>
+    </section>
+
+    <section class="event" id="xy15" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="取经人" data-short="白龙马" data-label="同一时期 · 鹰愁涧">
+      <div class="ev-when">同一时期<em>鹰愁涧</em></div>
+      <h2>白龙马</h2>
+      <p>小白龙吃了唐僧的马，悟空与他打斗，观音赶来点化。小白龙化作白马，驮唐僧西行。从此师徒四人一马，才算齐了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">西行路上</span>
+      <span class="era-sub">16 — 36</span>
+    </div>
+
+    <section class="event" id="xy16" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="西行路上" data-short="三打白骨精" data-label="西行途中 · 白虎岭">
+      <div class="ev-when">西行途中<em>白虎岭</em></div>
+      <h2>三打白骨精</h2>
+      <p>白骨精三次变化，先是村姑，再是老婆婆，最后是老公公。悟空三次举棒，唐僧三次念咒。最后唐僧写下贬书：你走吧。悟空磕了三个头，回花果山去了。</p>
+    </section>
+
+    <section class="event" id="xy17" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="西行路上" data-short="黄袍怪" data-label="同一时期 · 碗子山">
+      <div class="ev-when">同一时期<em>碗子山</em></div>
+      <h2>黄袍怪</h2>
+      <p>唐僧被黄袍怪变成老虎，八戒去花果山请悟空。悟空回来，查出黄袍怪是奎木狼下凡，与百花羞公主有十三日情缘。他上天告状，玉帝收了星官。</p>
+    </section>
+
+    <section class="event" id="xy18" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="西行路上" data-short="金角银角" data-label="同一时期 · 平顶山">
+      <div class="ev-when">同一时期<em>平顶山</em></div>
+      <h2>金角银角</h2>
+      <p>金角、银角是太上老君看炉的童子，偷了紫金葫芦、玉净瓶下界为妖。悟空用假葫芦换真葫芦，把两个妖怪装了进去。老君来讨，说：这是我的人。</p>
+    </section>
+
+    <section class="event" id="xy19" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="西行路上" data-short="乌鸡国" data-label="同一时期 · 乌鸡国">
+      <div class="ev-when">同一时期<em>乌鸡国</em></div>
+      <h2>乌鸡国</h2>
+      <p>乌鸡国国王被妖怪推入井中三年，妖怪变作他的模样坐朝。悟空从井里背出尸首，向太上老君讨了一粒还魂丹，救活国王。</p>
+    </section>
+
+    <section class="event" id="xy20" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="西行路上" data-short="红孩儿" data-label="同一时期 · 火云洞">
+      <div class="ev-when">同一时期<em>火云洞</em></div>
+      <h2>红孩儿</h2>
+      <p>红孩儿是牛魔王与铁扇公主的儿子，会三昧真火。悟空请来观音，观音用天罡刀化作莲台，又用金箍儿套住他，收为善财童子。</p>
+    </section>
+
+    <section class="event" id="xy21" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="西行路上" data-short="斗法" data-label="同一时期 · 车迟国">
+      <div class="ev-when">同一时期<em>车迟国</em></div>
+      <h2>斗法</h2>
+      <p>车迟国三个道士欺压和尚。悟空与他们赌求雨、赌坐禅、赌砍头剖腹下油锅。三个道士全输了，现出原形：虎力、鹿力、羊力大仙。</p>
+    </section>
+
+    <section class="event" id="xy22" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="西行路上" data-short="通天河" data-label="同一时期 · 通天河">
+      <div class="ev-when">同一时期<em>通天河</em></div>
+      <h2>通天河</h2>
+      <p>通天河结了冰，唐僧踏冰过河，被灵感大王捉去。悟空请观音，观音用竹篮收走了金鱼。老鼋驮他们过河，托唐僧问佛祖：我几时能修成人身。</p>
+    </section>
+
+    <section class="event" id="xy23" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="西行路上" data-short="女儿国" data-label="同一时期 · 西梁女国">
+      <div class="ev-when">同一时期<em>西梁女国</em></div>
+      <h2>女儿国</h2>
+      <p>西梁女国没有男人。女王看中唐僧，要招他为夫。唐僧假意应允，换了通关文牒就走。女王送到城外，说：御弟哥哥，一路保重。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">深难</span>
+      <span class="era-sub">24 — 36</span>
+    </div>
+
+    <section class="event" id="xy24" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="深难" data-short="真假美猴王" data-label="同一时期 · 两界山">
+      <div class="ev-when">同一时期<em>两界山</em></div>
+      <h2>真假美猴王</h2>
+      <p>悟空打死了几个强盗，被唐僧赶走。六耳猕猴变作他的模样，打伤唐僧，抢走行李。真假两个悟空从人间打到天上，最后如来指出：那是六耳猕猴。</p>
+    </section>
+
+    <section class="event" id="xy25" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="深难" data-short="三借芭蕉扇" data-label="同一时期 · 火焰山">
+      <div class="ev-when">同一时期<em>火焰山</em></div>
+      <h2>三借芭蕉扇</h2>
+      <p>火焰山八百里火焰，只有铁扇公主的芭蕉扇能灭。悟空三次借扇：第一次被扇到小须弥山，第二次变作虫子钻进她肚子，第三次变作牛魔王骗到真扇。</p>
+    </section>
+
+    <section class="event" id="xy26" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="深难" data-short="小雷音寺" data-label="同一时期 · 小雷音">
+      <div class="ev-when">同一时期<em>小雷音</em></div>
+      <h2>小雷音寺</h2>
+      <p>黄眉怪变出小雷音寺，冒充如来。唐僧进门就拜，被扣在金铙里。悟空请来弥勒佛，弥勒用布袋收了黄眉，原来是他的司磬童子。</p>
+    </section>
+
+    <section class="event" id="xy27" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="深难" data-short="狮驼岭" data-label="同一时期 · 狮驼岭">
+      <div class="ev-when">同一时期<em>狮驼岭</em></div>
+      <h2>狮驼岭</h2>
+      <p>狮驼岭三个魔头：青狮、白象、大鹏。大鹏是如来的舅舅，吃了狮驼国一国之人为妖。悟空打不过，到灵山哭诉。如来亲自下山收了他。</p>
+    </section>
+
+    <section class="event" id="xy28" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="深难" data-short="比丘国" data-label="同一时期 · 比丘国">
+      <div class="ev-when">同一时期<em>比丘国</em></div>
+      <h2>比丘国</h2>
+      <p>比丘国国王要用一千一百一十一个小儿的心肝做药引。悟空变作唐僧，剖开肚子给妖怪看，里面全是心：贪心、利心、色心。妖怪是寿星的坐骑白鹿。</p>
+    </section>
+
+    <section class="event" id="xy29" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="深难" data-short="无底洞" data-label="同一时期 · 无底洞">
+      <div class="ev-when">同一时期<em>无底洞</em></div>
+      <h2>无底洞</h2>
+      <p>金鼻白毛老鼠精把唐僧捉进无底洞，要与他成亲。悟空发现她供奉着李靖和哪吒的牌位，上天告状。李靖才想起这是自己收的义女。</p>
+    </section>
+
+    <section class="event" id="xy30" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="深难" data-short="灭法国" data-label="同一时期 · 灭法国">
+      <div class="ev-when">同一时期<em>灭法国</em></div>
+      <h2>灭法国</h2>
+      <p>灭法国王发誓要杀一万个和尚，已杀了九千九百九十六个。悟空夜里把国王、皇后、百官都剃了光头。国王醒来，以为自己也成了和尚，从此不再杀僧。</p>
+    </section>
+
+    <section class="event" id="xy31" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="深难" data-short="凤仙郡" data-label="同一时期 · 凤仙郡">
+      <div class="ev-when">同一时期<em>凤仙郡</em></div>
+      <h2>凤仙郡</h2>
+      <p>凤仙郡大旱三年。悟空查知，是郡侯得罪了玉帝，玉帝立下米山、面山、金锁：鸡啄完米，狗舔完面，灯烧断锁，才肯下雨。悟空劝郡侯行善，天降甘霖。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">灵山</span>
+      <span class="era-sub">32 — 36</span>
+    </div>
+
+    <section class="event" id="xy32" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="灵山" data-short="凌云渡" data-label="同一时期 · 凌云渡">
+      <div class="ev-when">同一时期<em>凌云渡</em></div>
+      <h2>凌云渡</h2>
+      <p>到了灵山脚下，一条大河拦住去路。接引佛祖撑来无底船，唐僧看见水里漂着自己的尸体，吓得不敢上。悟空推他一把：那是你，不是你。</p>
+    </section>
+
+    <section class="event" id="xy33" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="灵山" data-short="取得真经" data-label="同一时期 · 灵山">
+      <div class="ev-when">同一时期<em>灵山</em></div>
+      <h2>取得真经</h2>
+      <p>阿傩、伽叶要“人事”，唐僧没有，取到的经书全是白纸。悟空告到如来面前，如来说：经不可轻传。唐僧只好交出紫金钵盂，才换回有字的经。</p>
+    </section>
+
+    <section class="event" id="xy34" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="灵山" data-short="老鼋落水" data-label="同一时期 · 通天河">
+      <div class="ev-when">同一时期<em>通天河</em></div>
+      <h2>老鼋落水</h2>
+      <p>回程路过通天河，老鼋驮他们过河，问起托付的事。唐僧忘了问，老鼋一翻身，把经书全泡在水里。晒经时，几页经书粘在石头上，撕破了。</p>
+    </section>
+
+    <section class="event" id="xy35" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="灵山" data-short="八十一难" data-label="同一时期 · 长安">
+      <div class="ev-when">同一时期<em>长安</em></div>
+      <h2>八十一难</h2>
+      <p>观音查看难簿，发现只有八十难，还差一难，于是又添了一难。九九八十一难，一难不少。师徒四人回到长安，太宗迎接，经书传遍天下。</p>
+    </section>
+
+    <section class="event" id="xy36" style="--c:#8a6a2f"
+      data-color="#8a6a2f" data-era="灵山" data-short="封佛" data-label="同一时期 · 灵山">
+      <div class="ev-when">同一时期<em>灵山</em></div>
+      <h2>封佛</h2>
+      <p>如来封唐僧为旃檀功德佛，悟空为斗战胜佛，八戒为净坛使者，沙僧为金身罗汉，白龙马为八部天龙。悟空头上的紧箍自己消失了。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 36</span>
+        </div>
+        <div class="rail-era" id="railNow">太古</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“”</p>
+  <p class="tiny">西游记 · 吴承恩</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+</body>
+</html>

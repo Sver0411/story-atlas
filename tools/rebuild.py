@@ -9,7 +9,8 @@ IDX_JS = io.open(os.path.join(ROOT,'tools/tpl/idx.js'), encoding='utf-8').read()
 CH_CSS = io.open(os.path.join(ROOT,'tools/tpl/chars.css'), encoding='utf-8').read()
 CH_JS = io.open(os.path.join(ROOT,'tools/tpl/chars.js'), encoding='utf-8').read()
 
-BOOKS = ['monte-cristo', 'solitude', 'lotr', 'dune', 'red-chamber']
+BOOKS = sorted([d for d in os.listdir(os.path.join(ROOT, 'books'))
+                if d != 'three-body' and os.path.exists(os.path.join(ROOT, 'books', d, 'data.js'))])
 
 QUOTES = {
     'monte-cristo': '人类的一切智慧，就包含在这四个字里面：等待和希望。',

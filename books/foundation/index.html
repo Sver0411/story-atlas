@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>基地 · 时间线 | 30 个故事节点</title>
+<meta name="description" content="银河帝国将在一万年后彻底崩溃，随后是三万年的黑暗。哈里·谢顿用心理史学算出这一切，并把两万人送到银河边缘，试图把黑暗缩短到一千年。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+</style>
+</head>
+<body>
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">艾萨克·阿西莫夫</p>
+    <h1><em>基地</em><span>时间线</span></h1>
+    <p class="hero-deck">银河帝国将在一万年后彻底崩溃，随后是三万年的黑暗。哈里·谢顿用心理史学算出这一切，并把两万人送到银河边缘，试图把黑暗缩短到一千年。<br>30 个时间点，从「四千万人的首都」到「最后的决定」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>30 个时间点 · 13 位人物</span><i></i>
+      <span>基地系列七部 · 主线</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">川陀 · 帝国之都</span>
+      <span class="era-sub">01 — 30</span>
+    </div>
+
+    <section class="event" id="fd01" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="川陀 · 帝国之都" data-short="四千万人的首都" data-label="银河纪元 12020 年 · 川陀">
+      <div class="ev-when">银河纪元 12020 年<em>川陀</em></div>
+      <h2>四千万人的首都</h2>
+      <p>川陀是一个被金属包住的星球，四千万人住在穹顶下，看不见天空。银河帝国已经统治了两万年，皇帝克里昂一世坐在它的中心，觉得一切都不会变。</p>
+    </section>
+
+    <section class="event" id="fd02" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="川陀 · 帝国之都" data-short="心理史学" data-label="同一时期 · 川陀大学">
+      <div class="ev-when">同一时期<em>川陀大学</em></div>
+      <h2>心理史学</h2>
+      <p>谢顿在斯特里林大学研究心理史学：用数学预测亿万人的集体行为。他算出帝国正在崩溃，而且已经无法挽回。这个结论足以让他被捕。</p>
+    </section>
+
+    <section class="event" id="fd03" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="川陀 · 帝国之都" data-short="谢顿的警告" data-label="同一时期 · 皇宫">
+      <div class="ev-when">同一时期<em>皇宫</em></div>
+      <h2>谢顿的警告</h2>
+      <p>谢顿被带到皇帝面前。他说：帝国将在五百年内崩溃，随后是三万年的黑暗。皇帝问：有办法吗？谢顿说：有，但不是在川陀。</p>
+    </section>
+
+    <section class="event" id="fd04" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="川陀 · 帝国之都" data-short="铎丝" data-label="同一时期 · 川陀">
+      <div class="ev-when">同一时期<em>川陀</em></div>
+      <h2>铎丝</h2>
+      <p>铎丝·凡纳比里是谢顿的同伴，也是他的保护者。她的动作比人类快，力量比人类大。谢顿从没问过她是什么，她也从没说过。</p>
+    </section>
+
+    <section class="event" id="fd05" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="川陀 · 帝国之都" data-short="达凡的刺杀" data-label="同一时期 · 川陀">
+      <div class="ev-when">同一时期<em>川陀</em></div>
+      <h2>达凡的刺杀</h2>
+      <p>有人在川陀的隧道里向谢顿开枪。铎丝把他按在地上，自己的肩膀中了一枪——伤口没有流血，露出下面的金属。谢顿看见了，什么也没说。</p>
+    </section>
+
+    <section class="event" id="fd06" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="川陀 · 帝国之都" data-short="克里昂之死" data-label="同一时期 · 皇宫">
+      <div class="ev-when">同一时期<em>皇宫</em></div>
+      <h2>克里昂之死</h2>
+      <p>克里昂一世被刺杀，帝国最后的稳定随之消失。谢顿的计划失去了皇宫里的保护人，只剩下一个数字：他还有多少时间。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">审判与流放</span>
+      <span class="era-sub">07 — 30</span>
+    </div>
+
+    <section class="event" id="fd07" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="审判与流放" data-short="公开审判" data-label="银河纪元 12038 年 · 法庭">
+      <div class="ev-when">银河纪元 12038 年<em>法庭</em></div>
+      <h2>公开审判</h2>
+      <p>谢顿被控叛国。他在法庭上承认一切：帝国会崩溃，他无法阻止，只能缩短黑暗的时长。旁听席上的人先是笑，然后沉默。</p>
+    </section>
+
+    <section class="event" id="fd08" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="审判与流放" data-short="两个基地" data-label="同一时期 · 法庭">
+      <div class="ev-when">同一时期<em>法庭</em></div>
+      <h2>两个基地</h2>
+      <p>谢顿说：我要在两万人中建立两个基地，一个在银河边缘，一个在“另一端”。一个保存物理科学，一个保存心理史学。法庭问第二个在哪里，他说：我不能说。</p>
+    </section>
+
+    <section class="event" id="fd09" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="审判与流放" data-short="流放" data-label="同一时期 · 端点星">
+      <div class="ev-when">同一时期<em>端点星</em></div>
+      <h2>流放</h2>
+      <p>谢顿和他的追随者被流放到端点星——银河边缘的一颗荒凉行星，只有一座未完工的建筑和一片草原。谢顿说：这正是我想要的。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">端点星</span>
+      <span class="era-sub">10 — 30</span>
+    </div>
+
+    <section class="event" id="fd10" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="端点星" data-short="谢顿的影像" data-label="银河纪元 12069 年 · 端点星">
+      <div class="ev-when">银河纪元 12069 年<em>端点星</em></div>
+      <h2>谢顿的影像</h2>
+      <p>谢顿死后，他的影像留在时间穹顶里，每逢危机出现，就出来说几句话。第一次显形时，他说：你们现在的危机，是附近四个王国的封锁。</p>
+    </section>
+
+    <section class="event" id="fd11" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="端点星" data-short="哈定" data-label="同一时期 · 端点星">
+      <div class="ev-when">同一时期<em>端点星</em></div>
+      <h2>哈定</h2>
+      <p>塞佛·哈定是端点星的第一任市长。他不信武力，只信两件事：科学比邻国先进，邻国之间彼此不和。他决定用这两件事换生存。</p>
+    </section>
+
+    <section class="event" id="fd12" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="端点星" data-short="宗教的外衣" data-label="同一时期 · 安纳克里昂">
+      <div class="ev-when">同一时期<em>安纳克里昂</em></div>
+      <h2>宗教的外衣</h2>
+      <p>哈定把基地的核能技术包装成宗教，传给周围的落后王国。技术由基地的“教士”维护，王国的国王们离不开它。这是第一基地的第一种武器。</p>
+    </section>
+
+    <section class="event" id="fd13" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="端点星" data-short="第一次危机" data-label="同一时期 · 端点星">
+      <div class="ev-when">同一时期<em>端点星</em></div>
+      <h2>第一次危机</h2>
+      <p>安纳克里昂的军队包围了端点星。哈定没有开一枪，只是切断了他们的核能供应。三天后，王国的城市停电，军队撤退。谢顿的影像再次出现，说：你们过关了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">商业王侯</span>
+      <span class="era-sub">14 — 30</span>
+    </div>
+
+    <section class="event" id="fd14" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="商业王侯" data-short="行商" data-label="银河纪元 12100 年 · 基地">
+      <div class="ev-when">银河纪元 12100 年<em>基地</em></div>
+      <h2>行商</h2>
+      <p>基地开始向外派出行商，用核能商品换取原料和情报。行商成了基地的血管，也成了基地最不受尊重的一群人。</p>
+    </section>
+
+    <section class="event" id="fd15" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="商业王侯" data-short="马洛" data-label="同一时期 · 科雷尔">
+      <div class="ev-when">同一时期<em>科雷尔</em></div>
+      <h2>马洛</h2>
+      <p>侯伯·马洛是一个行商，说话粗鲁，做事直接。他发现基地的宗教武器正在失效——邻国学会了不要教士也能用机器。他提出：用贸易代替宗教。</p>
+    </section>
+
+    <section class="event" id="fd16" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="商业王侯" data-short="商业王侯" data-label="同一时期 · 基地">
+      <div class="ev-when">同一时期<em>基地</em></div>
+      <h2>商业王侯</h2>
+      <p>马洛成为市长后，把基地变成商业中心：不卖技术，只卖产品；不派教士，只派商人。邻国的经济被基地的商品绑住，战争打不起来。</p>
+    </section>
+
+    <section class="event" id="fd17" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="商业王侯" data-short="第二危机" data-label="同一时期 · 基地">
+      <div class="ev-when">同一时期<em>基地</em></div>
+      <h2>第二危机</h2>
+      <p>谢顿的影像第二次出现，讲的却是基地自己：你们以为危机来自外面，其实来自内部——宗教派与商业派的争斗。他说完就消失了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">骡</span>
+      <span class="era-sub">18 — 30</span>
+    </div>
+
+    <section class="event" id="fd18" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="骡" data-short="骡" data-label="银河纪元 12300 年 · 银河">
+      <div class="ev-when">银河纪元 12300 年<em>银河</em></div>
+      <h2>骡</h2>
+      <p>一个叫骡的人出现了。他能控制人的情绪，把敌人变成忠仆。他不在谢顿的计划里——心理史学只能预测群体，预测不了这一个突变。</p>
+    </section>
+
+    <section class="event" id="fd19" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="骡" data-short="基地陷落" data-label="同一时期 · 基地">
+      <div class="ev-when">同一时期<em>基地</em></div>
+      <h2>基地陷落</h2>
+      <p>骡的舰队抵达端点星，基地几乎没有抵抗就投降了。存在了三百年的第一基地，在一个不在计划里的人面前，撑了不到一个月。</p>
+    </section>
+
+    <section class="event" id="fd20" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="骡" data-short="骡的孤独" data-label="同一时期 · 新川陀">
+      <div class="ev-when">同一时期<em>新川陀</em></div>
+      <h2>骡的孤独</h2>
+      <p>骡占领了银河，却找不到一个能和他平等说话的人。他想要一个和他一样的突变者，想要一个伴侣。这是他唯一的弱点。</p>
+    </section>
+
+    <section class="event" id="fd21" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="骡" data-short="贝泰与杜伦" data-label="同一时期 · 基地">
+      <div class="ev-when">同一时期<em>基地</em></div>
+      <h2>贝泰与杜伦</h2>
+      <p>贝泰和杜伦是一对夫妻，也是第二基地派出的特工。他们假装叛逃，接近骡，找到他的心理弱点，用一个虚构的“第二基地”把他引开。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">第二基地</span>
+      <span class="era-sub">22 — 30</span>
+    </div>
+
+    <section class="event" id="fd22" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="第二基地" data-short="第二基地" data-label="同一时期 · 第二基地">
+      <div class="ev-when">同一时期<em>第二基地</em></div>
+      <h2>第二基地</h2>
+      <p>第二基地一直在“银河的另一端”——川陀，帝国的心脏。它的成员是心理史学家，武器是人的头脑。他们不出面，只调整。</p>
+    </section>
+
+    <section class="event" id="fd23" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="第二基地" data-short="第一发言人" data-label="同一时期 · 川陀">
+      <div class="ev-when">同一时期<em>川陀</em></div>
+      <h2>第一发言人</h2>
+      <p>第一发言人是第二基地的领袖。他说：我们不是统治者，我们是园丁。我们不决定历史，只修剪它。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">盖娅与地球</span>
+      <span class="era-sub">24 — 30</span>
+    </div>
+
+    <section class="event" id="fd24" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="盖娅与地球" data-short="盖娅" data-label="银河纪元 12500 年 · 盖娅">
+      <div class="ev-when">银河纪元 12500 年<em>盖娅</em></div>
+      <h2>盖娅</h2>
+      <p>崔维兹被带到一颗叫盖娅的星球。这里的石头、植物、动物和人共享一个意识——一个行星级的生命体。它说：这是人类的另一种未来。</p>
+    </section>
+
+    <section class="event" id="fd25" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="盖娅与地球" data-short="三个选择" data-label="同一时期 · 盖娅">
+      <div class="ev-when">同一时期<em>盖娅</em></div>
+      <h2>三个选择</h2>
+      <p>银河的未来有三条路：第一基地的科技帝国，第二基地的心理控制，或者盖娅的集体意识。崔维兹必须选一个，而他不知道自己凭什么选。</p>
+    </section>
+
+    <section class="event" id="fd26" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="盖娅与地球" data-short="直觉" data-label="同一时期 · 飞船">
+      <div class="ev-when">同一时期<em>飞船</em></div>
+      <h2>直觉</h2>
+      <p>崔维兹在飞船里坐了一夜，最后说：我选盖娅。没有人问他为什么，因为连他自己也不知道。他只是觉得，这是对的。</p>
+    </section>
+
+    <section class="event" id="fd27" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="盖娅与地球" data-short="寻找地球" data-label="同一时期 · 地球">
+      <div class="ev-when">同一时期<em>地球</em></div>
+      <h2>寻找地球</h2>
+      <p>崔维兹和裴洛拉特去找人类的起源星——地球。银河的档案里没有它，所有人都说它不存在。他们一路找到银河系的边缘。</p>
+    </section>
+
+    <section class="event" id="fd28" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="盖娅与地球" data-short="地球的秘密" data-label="同一时期 · 月球">
+      <div class="ev-when">同一时期<em>月球</em></div>
+      <h2>地球的秘密</h2>
+      <p>地球在几万年前被放射性污染，人类被迫撤离。月球上还留着一台机器，和一个人——丹尼尔·奥利瓦，一个活了两万年的机器人。</p>
+    </section>
+
+    <section class="event" id="fd29" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="盖娅与地球" data-short="丹尼尔" data-label="同一时期 · 月球">
+      <div class="ev-when">同一时期<em>月球</em></div>
+      <h2>丹尼尔</h2>
+      <p>丹尼尔说：是我引导了谢顿，是我安排了盖娅，是我让你们走到这里。他说：人类需要一个统一的未来，否则会死在宇宙里。</p>
+    </section>
+
+    <section class="event" id="fd30" style="--c:#3f4f6b"
+      data-color="#3f4f6b" data-era="盖娅与地球" data-short="最后的决定" data-label="同一时期 · 月球">
+      <div class="ev-when">同一时期<em>月球</em></div>
+      <h2>最后的决定</h2>
+      <p>崔维兹站在月球的环形山上，看着地球。他说：我选盖娅，不是因为它是最好，是因为它是唯一能让人活下去的。故事在这里停下。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 30</span>
+        </div>
+        <div class="rail-era" id="railNow">银河纪元 12020 年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“”</p>
+  <p class="tiny">基地 · 艾萨克·阿西莫夫</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+</body>
+</html>
