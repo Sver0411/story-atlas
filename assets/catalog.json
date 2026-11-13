@@ -532,5 +532,29 @@
     "events": 15,
     "people": 5,
     "scope": "第一部 · 全本"
+  },
+  {
+    "id": "enders-game",
+    "title": "安德的游戏",
+    "author": "卡德",
+    "category": "科幻",
+    "description": "那不是游戏。",
+    "accent": "#3f4a56",
+    "cover": "",
+    "events": 16,
+    "people": 7,
+    "scope": "第一部 · 全本"
+  },
+  {
+    "id": "neuromancer",
+    "title": "神经漫游者",
+    "author": "威廉·吉布森",
+    "category": "科幻",
+    "description": "矩阵里有鬼。",
+    "accent": "#3d4b4a",
+    "cover": "",
+    "events": 14,
+    "people": 7,
+    "scope": "全本 · 未来"
   }
 ]

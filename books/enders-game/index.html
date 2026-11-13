@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>安德的游戏 · 时间线 | 16 个故事节点</title>
+<meta name="description" content="一个六岁的孩子被带走，训练了五年，打赢了一场战争。他以为那是模拟。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="286" r="86" fill="none" stroke="#8b98a4" stroke-width="1"/>
+  <circle cx="300" cy="286" r="58" fill="none" stroke="#a5b0ba" stroke-width=".5" stroke-dasharray="2 7"/>
+  <circle cx="300" cy="286" r="30" fill="none" stroke="#a5b0ba" stroke-width=".5"/>
+  <circle cx="300" cy="286" r="5" fill="#8c3a34"/>
+  <path d="M300 200 V160 M300 372 V412 M214 286 H174 M386 286 H426" stroke="#b8c2ca" stroke-width=".5" stroke-dasharray="3 6"/>
+  <path d="M120 500 H480" stroke="#b8c2ca" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">奥森·斯科特·卡德</p>
+    <h1><em>安德的游戏</em><span>时间线</span></h1>
+    <p class="hero-deck">一个六岁的孩子被带走，训练了五年，打赢了一场战争。他以为那是模拟。<br>16 个时间点，从「监视器」到「彼得」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>16 个时间点 · 7 位人物</span><i></i>
+      <span>第一部 · 全本</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">地球</span>
+      <span class="era-sub">01 — 16</span>
+    </div>
+
+    <section class="event" id="eg01" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="地球" data-short="监视器" data-label="未来 · 地球 · 维京家">
+      <div class="ev-when">未来<em>地球 · 维京家</em></div>
+      <h2>监视器</h2>
+      <p>安德六岁，额头上戴着一个监视器。那是政府装的，用来观察他。他的哥哥彼得也戴过，被淘汰了。他的姐姐瓦伦蒂也戴过，也被淘汰了。他们说他可能是那个人。监视器被取下来那天，安德哭了。他不是舍不得，他是害怕——他知道从此以后，没有人再看着他的后脑勺了。政府的人说：我们不需要天才，我们需要一个能赢的人。他们在他身上花了多少钱，没有人算过。监视器里有一个声音，一直在跟他说话。他说：你是谁。那个声音说：我是看着你的人。</p>
+    </section>
+
+    <section class="event" id="eg02" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="地球" data-short="三个人" data-label="未来 · 维京家">
+      <div class="ev-when">未来<em>维京家</em></div>
+      <h2>三个人</h2>
+      <p>彼得恨安德，恨了很多年。他把安德按在地上，说：你会死在这儿。瓦伦蒂把他拉开，说：你敢动他。彼得说：你们两个都该死。彼得后来成了地球上的政治人物，靠煽动。瓦伦蒂成了作家，靠写字。安德成了他们的第三种可能。彼得说：你是个错误。他说：我不是。彼得说：你是。他说：那你也是。彼得愣了一下，然后笑了。彼得后来去竞选，口号是「让地球重新伟大」。他说：我不是好人，可我能办事。他赢了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">战斗学校</span>
+      <span class="era-sub">03 — 16</span>
+    </div>
+
+    <section class="event" id="eg03" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="格拉夫" data-label="未来 · 战斗学校">
+      <div class="ev-when">未来<em>战斗学校</em></div>
+      <h2>格拉夫</h2>
+      <p>格拉夫上校来家里，说：我们要带他走。父母说：他才六岁。格拉夫说：我知道。他说：如果他不去，人类可能就没了。父亲说：这是威胁。他说：这是事实。安德走的时候，母亲抱着他，说：对不起。他说：没事。他说：我知道你们没办法。他后来想，这辈子最难过的一句话，就是「没办法」。他上车的时候，回头看了一眼。母亲站在门口，手举到一半。他后来一直记得那只手。</p>
+    </section>
+
+    <section class="event" id="eg04" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="孤立" data-label="未来 · 战斗学校">
+      <div class="ev-when">未来<em>战斗学校</em></div>
+      <h2>孤立</h2>
+      <p>格拉夫下令让所有人都恨安德。他一个人吃饭，一个人训练，一个人睡觉。有人在走廊上撞他，他就被撞倒。格拉夫说：我们要让他学会在被孤立的时候还能赢。安德后来发现了一件事：只要他先把最凶的那个打服，其他人就会跟着他。他用了这一招，用了一辈子。他一个人坐在食堂角落，吃完饭就走。有人跟他说过一句话吗。整整一年，三句。他后来学会了一个人待着。他说：一个人待着的时候，我才知道自己在想什么。</p>
+    </section>
+
+    <section class="event" id="eg05" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="波可" data-label="未来 · 战斗学校">
+      <div class="ev-when">未来<em>战斗学校</em></div>
+      <h2>波可</h2>
+      <p>波可是个小个子，被一群人围着打。安德冲过去，把领头的打倒，一脚踩在他胸口上。他说：从现在起，谁也不许碰他。那群人退了。波可成了他的第一个兵。波可说：你为什么帮我。他说：因为你跟他们不一样。他说：你打不过他们，可你没跑。波可站起来，嘴角有血。他说：你为什么。安德说：因为你没跑。他说：我跑不动。安德说：那你站着。他把波可扶起来，说：你以后跟我。波可说：为什么。他说：因为你打不过我，也不会背叛我。</p>
+    </section>
+
+    <section class="event" id="eg06" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="零重力" data-label="未来 · 战斗学校">
+      <div class="ev-when">未来<em>战斗学校</em></div>
+      <h2>零重力</h2>
+      <p>战斗学校在太空里，所有的训练都在零重力下进行。他们穿着装甲，拿着枪，在房间里飞来飞去。这支枪打中对方，对方的装甲就冻住。安德第一次训练就赢了，赢了比自己大两岁的队。格拉夫在观察室里看着，说：他学得太快了。有人说：那不是好事吗。他说：太快了，会没有对手。他后来把这一招写进战术手册：先打最凶的那个，打到别人不敢动。他说：这不是勇敢，这是算术。</p>
+    </section>
+
+    <section class="event" id="eg07" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="游戏" data-label="未来 · 战斗学校">
+      <div class="ev-when">未来<em>战斗学校</em></div>
+      <h2>游戏</h2>
+      <p>他们在电脑上玩一个游戏，叫「心理游戏」。游戏里有一个小人，要走过各种障碍。安德玩到最后一关，那个小人走进一个房间，房间里有一面镜子，镜子里是安德自己的脸。他后来常常想那个房间。他问格拉夫：那是什么意思。格拉夫说：我不知道。他说：那是你自己。游戏里的那个房间，他后来又去过几次。每一次镜子里的人都不一样，一次比一次老。最后一关结束的时候，屏幕上出现一行字：你赢了。他坐在那儿，觉得有什么不对。</p>
+    </section>
+
+    <section class="event" id="eg08" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="指挥" data-label="未来 · 战斗学校">
+      <div class="ev-when">未来<em>战斗学校</em></div>
+      <h2>指挥</h2>
+      <p>他被调到一个新的队，叫「龙队」。队里的人都是他挑的，也都是被别的队不要的。他把他们训练成一个人。他说：我们不是最强的，我们是最快的。他们赢了一场又一场，赢得很难看，可都在赢。有人说他不讲规矩。他说：规矩是给输的人定的。他说完，自己也不喜欢这句话。他训练的时候让他们互相骂。他说：你们骂完了，就知道对方怕什么。他这一招，后来被很多队伍学。</p>
+    </section>
+
+    <section class="event" id="eg09" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="豆子" data-label="未来 · 战斗学校">
+      <div class="ev-when">未来<em>战斗学校</em></div>
+      <h2>豆子</h2>
+      <p>豆子是他最小的兵，七岁，比他还聪明。豆子说：你为什么选我。他说：因为你像我。豆子说：我不想像你。他说：那你像你自己。豆子后来成了唯一一个看穿这场战争的人。他一直在问一个问题：我们打的到底是谁。豆子说：你为什么不问我。他说：问你什么。豆子说：问我为什么这么聪明。他说：我不想知道。豆子说：你有没有想过，我们打的那个东西，可能不想打我们。他说：想过。他说：可我不能想。</p>
+    </section>
+
+    <section class="event" id="eg10" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="马泽" data-label="未来 · 战斗学校">
+      <div class="ev-when">未来<em>战斗学校</em></div>
+      <h2>马泽</h2>
+      <p>马泽·雷汉是唯一一个打赢过虫族的人。他在一场战斗里死了，又被救了回来，一直活到现在。他教安德打最后一场仗。他说：你只有一个办法，就是让他们以为你不会那样打。安德说：虫族为什么要打我们。马泽说：因为它们怕我们。他说：它们先动手，是因为它们以为我们要动手。马泽说：我死过一次。他说：那是什么感觉。马泽说：什么都没有。他说：那你还怕死吗。马泽说：怕。</p>
+    </section>
+
+    <section class="event" id="eg11" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="战斗学校" data-short="模拟" data-label="未来 · 指挥学院">
+      <div class="ev-when">未来<em>指挥学院</em></div>
+      <h2>模拟</h2>
+      <p>他们给他一台模拟器，说这是考试。他打了几个月，每一次都赢了。最后一次，他看见虫族的母星，旁边有一颗行星，上面有几百万人。他下令开火。他赢了。他赢了以后，屋子里的人开始欢呼。他问：怎么了。格拉夫说：结束了。他说：什么结束了。格拉夫说：战争。他说：这是真的。格拉夫说：是。他按下按钮的时候，手指有点抖。他说：这只是一个模拟。他说完，屏幕上亮起一片白光。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">真相</span>
+      <span class="era-sub">12 — 16</span>
+    </div>
+
+    <section class="event" id="eg12" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="真相" data-short="真相" data-label="未来 · 指挥学院">
+      <div class="ev-when">未来<em>指挥学院</em></div>
+      <h2>真相</h2>
+      <p>他打的是真的舰队，真的虫族，真的死了几十亿。他以为自己只是在玩游戏。他说：你们骗我。格拉夫说：我们没有骗你，我们没有说那是假的。他说：你们也没说那是真的。他说：那些虫族也是有生命的。格拉夫说：它们杀了我们几千万。他说：那是因为它们怕我们。格拉夫没有说话。格拉夫说：我们骗你，是因为你不会同意。他说：你们可以问我。格拉夫说：你六岁。他说：我现在十一。</p>
+    </section>
+
+    <section class="event" id="eg13" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="真相" data-short="死者的代言人" data-label="未来 · 指挥学院">
+      <div class="ev-when">未来<em>指挥学院</em></div>
+      <h2>死者的代言人</h2>
+      <p>他找到了虫族留下的最后一样东西：一个茧，里面有虫族的女王。她在等他。她通过他的梦跟他说话，说：我们原谅你。她说：请你替我们活着。他把这个茧带走，写成一本书，叫《死者的代言人》。他用这本书替虫族说话，替所有死掉的人说话。他用了一辈子。虫族女王在梦里跟他说：我们不恨你。他说：你们应该恨。她说：恨没有用。她说：活着才有用。他把那个茧放在背包里，背了一辈子。他说：这是我唯一带走的东西。</p>
+    </section>
+
+    <section class="event" id="eg14" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="真相" data-short="姐姐的信" data-label="未来 · 宇宙">
+      <div class="ev-when">未来<em>宇宙</em></div>
+      <h2>姐姐的信</h2>
+      <p>瓦伦蒂给他写信，说：你不是杀手。她说：你是一个被利用的孩子。她说：你做的事，不是你的错。他说：是我的手按下了按钮。她说：那也不是你的心。他后来去找她。他们一起坐上一艘船，去了一个没人知道的星球。他们在那里种地，也写书。瓦伦蒂说：你跟我走吧。他说：去哪。她说：去一个没人认识我们的地方。他说：那还写书吗。她说：写。他们在船上种了一小块地。她说：这够我们吃吗。他说：不够。她说：那怎么办。他说：再种一块。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">之后</span>
+      <span class="era-sub">15 — 16</span>
+    </div>
+
+    <section class="event" id="eg15" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="之后" data-short="女王" data-label="未来 · 新星球">
+      <div class="ev-when">未来<em>新星球</em></div>
+      <h2>女王</h2>
+      <p>虫族女王在那个星球上活了下来。她生了很多很多的小虫。安德看着她，说：这就是我要还的债。他说：我杀了你们一个种族，现在我要让你们活回来。他一辈子都在这个星球上，写着书，看着虫子长大。他从来没有回过地球。那个星球上的土是红的。他种了一片地，种的是地球上的种子。他说：看它们能不能活。它们活了。那些小虫长大以后，会飞。他坐在门口看它们飞，看了一整天。他说：你们自由了。</p>
+    </section>
+
+    <section class="event" id="eg16" style="--c:#3f4a56"
+      data-color="#3f4a56" data-era="之后" data-short="彼得" data-label="未来 · 地球">
+      <div class="ev-when">未来<em>地球</em></div>
+      <h2>彼得</h2>
+      <p>彼得成了地球的统治者。他给安德写信，说：你赢了那场战争，我赢了这一场。他说：我们两个，一个杀人，一个管人。他说：你说哪个更坏。安德回了信，只有一句话：你小时候打过我。彼得回了一封信，说：我记得。他说：对不起。彼得说：我这一辈子，都在跟一个不在场的人比。他说：我赢了，可我没高兴过。他说：你明白吗。彼得死的时候，地球上有几百万人送他。安德在很远的地方，没有去。他说：我不去。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 16</span>
+        </div>
+        <div class="rail-era" id="railNow">未来</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“我做的事，不是我的心做的。”</p>
+  <p class="tiny">安德的游戏 · 奥森·斯科特·卡德　·　16 个时间点，7 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

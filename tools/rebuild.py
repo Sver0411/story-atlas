@@ -61,10 +61,29 @@ QUOTES = {
     'hitchhiker': '别慌。',
     'fahrenheit-451': '纸的燃点是华氏 451 度。',
     'rama': '它连头都没回。',
+    'enders-game': '我做的事，不是我的心做的。',
+    'neuromancer': '矩阵里有鬼。',
 }
 
 
 DECOR = {
+'enders-game': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="286" r="86" fill="none" stroke="#8b98a4" stroke-width="1"/>
+  <circle cx="300" cy="286" r="58" fill="none" stroke="#a5b0ba" stroke-width=".5" stroke-dasharray="2 7"/>
+  <circle cx="300" cy="286" r="30" fill="none" stroke="#a5b0ba" stroke-width=".5"/>
+  <circle cx="300" cy="286" r="5" fill="#8c3a34"/>
+  <path d="M300 200 V160 M300 372 V412 M214 286 H174 M386 286 H426" stroke="#b8c2ca" stroke-width=".5" stroke-dasharray="3 6"/>
+  <path d="M120 500 H480" stroke="#b8c2ca" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'neuromancer': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g stroke="#6f8a86" stroke-width=".6">
+    <path d="M140 200 L300 140 L460 200 L460 380 L300 440 L140 380 Z"/>
+    <path d="M140 200 L300 260 L460 200 M300 260 V440 M140 380 L300 320 L460 380"/>
+  </g>
+  <circle cx="300" cy="260" r="7" fill="none" stroke="#8c3a34" stroke-width="1.1"/>
+  <circle cx="300" cy="320" r="4" fill="none" stroke="#8c3a34" stroke-width=".8"/>
+  <path d="M120 470 H480" stroke="#9aa8a4" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'hitchhiker': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <circle cx="300" cy="286" r="92" fill="none" stroke="#8b96a0" stroke-width="1.1"/>
   <path d="M300 194 q42 46 0 92 q-42 46 0 92" fill="none" stroke="#a5aeb6" stroke-width=".6"/>
