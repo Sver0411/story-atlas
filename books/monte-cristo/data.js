@@ -287,6 +287,19 @@ window.BOOK = {
       ]
     },
     {
+      "id": "mc15b",
+      "era": "returning",
+      "when": "1829 年",
+      "place": "马赛",
+      "title": "莫雷尔的最后期限",
+      "text": "莫雷尔的公司欠下巨债，到期日只剩三个月。他四处求贷，所有银行都关门。唐泰斯以“罗马银行”的名义替他还清债务，又留下一艘新船“法老号”的模型和一张写着“你还记得法老号吗”的纸条。莫雷尔在办公室里跪了下来。",
+      "people": [
+        "morrel",
+        "edmond"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "mc16",
       "era": "rome",
       "when": "1838 年",
@@ -301,6 +314,21 @@ window.BOOK = {
       "sourceIds": [
         "mc-ch31"
       ]
+    },
+    {
+      "id": "mc16b",
+      "era": "rome",
+      "when": "1838 年",
+      "place": "罗马",
+      "title": "狂欢节的面具",
+      "text": "罗马狂欢节，全城戴上面具。阿尔贝与弗朗兹在街上被卷入一场“绑架”——万帕的人在马车上把他带走，关进圣塞巴斯蒂安墓穴。唐泰斯以“布索尼神甫”的身份出现，用一顿晚餐和一段往事换回了阿尔贝的自由。",
+      "people": [
+        "albert",
+        "franz",
+        "vampa",
+        "edmond"
+      ],
+      "sourceIds": []
     },
     {
       "id": "mc17",
@@ -337,6 +365,21 @@ window.BOOK = {
       "sourceIds": [
         "mc-ch41"
       ]
+    },
+    {
+      "id": "mc18b",
+      "era": "paris",
+      "when": "1838 年",
+      "place": "巴黎",
+      "title": "客厅里的第一场晚宴",
+      "text": "基督山伯爵在巴黎第一次设宴。他让仆人端上来自世界各地的珍馐，让阿里在门后持刀站立，让每一个客人都在席间感到不安。唐格拉尔试探他的财富，维尔福试探他的来历，而伯爵只是微笑。",
+      "people": [
+        "edmond",
+        "danglars",
+        "villefort",
+        "mercedes"
+      ],
+      "sourceIds": []
     },
     {
       "id": "mc19",
@@ -461,6 +504,20 @@ window.BOOK = {
       ]
     },
     {
+      "id": "mc25b",
+      "era": "paris",
+      "when": "1838 年",
+      "place": "维尔福宅",
+      "title": "第一杯毒药",
+      "text": "维尔福家的圣梅朗夫人突然暴毙，症状像中风。随后是仆人、是老努瓦蒂埃身边的男仆。维尔福开始怀疑有人在家里下毒，却不敢声张。唐泰斯知道凶手是谁，也知道这场毒杀会替他完成一部分复仇。",
+      "people": [
+        "villefort",
+        "heloise",
+        "noirtier"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "mc26",
       "era": "reckoning",
       "when": "巴黎危机逐渐交汇",
@@ -528,6 +585,20 @@ window.BOOK = {
       "sourceIds": [
         "mc-ch89"
       ]
+    },
+    {
+      "id": "mc29b",
+      "era": "reckoning",
+      "when": "1838 年",
+      "place": "巴黎",
+      "title": "梅尔塞苔丝的夜访",
+      "text": "梅尔塞苔丝在深夜找到唐泰斯，求他放过阿尔贝。她说：你可以杀我，但不要杀我的儿子。唐泰斯看着她，想起马赛港的订婚宴。他答应了，却在关上门之后，第一次感到复仇并不比失去更轻。",
+      "people": [
+        "edmond",
+        "mercedes",
+        "albert"
+      ],
+      "sourceIds": []
     },
     {
       "id": "mc30",
@@ -600,6 +671,21 @@ window.BOOK = {
       ]
     },
     {
+      "id": "mc33b",
+      "era": "reckoning",
+      "when": "1838 年",
+      "place": "维尔福宅",
+      "title": "爱德华之死",
+      "text": "维尔福夫人为了给儿子争遗产，把毒药下到了继女瓦朗蒂娜的杯子里。误饮的是她自己的儿子爱德华。维尔福冲进房间时，孩子已经不动了。他转身质问妻子，妻子承认了一切，然后服毒自尽。",
+      "people": [
+        "villefort",
+        "heloise",
+        "edouard",
+        "valentine"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "mc34",
       "era": "limits",
       "when": "法庭崩溃之后",
@@ -617,6 +703,19 @@ window.BOOK = {
       ]
     },
     {
+      "id": "mc34b",
+      "era": "limits",
+      "when": "1838 年",
+      "place": "马赛",
+      "title": "海黛的告白",
+      "text": "海黛告诉唐泰斯，她早已知道他不是布索尼神甫，也不是基督山伯爵。她说：你救了我，我的命是你的；但我希望你要的不是我的命。唐泰斯沉默了很久，然后第一次允许自己被人爱。",
+      "people": [
+        "edmond",
+        "haydee"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "mc35",
       "era": "limits",
       "when": "唐格拉尔逃离巴黎后",
@@ -632,6 +731,20 @@ window.BOOK = {
       "sourceIds": [
         "mc-ch116"
       ]
+    },
+    {
+      "id": "mc35b",
+      "era": "limits",
+      "when": "1839 年",
+      "place": "马赛港",
+      "title": "旧港的告别",
+      "text": "唐泰斯回到马赛，站在旧港的码头上。法老号早已沉没，父亲的房子住着别人，梅尔塞苔丝搬去了乡下。他把一枚金币放在曾经的家门口，转身走向等在船边的海黛。这一次他没有回头。",
+      "people": [
+        "edmond",
+        "haydee",
+        "mercedes"
+      ],
+      "sourceIds": []
     },
     {
       "id": "mc36",
@@ -1044,6 +1157,52 @@ window.BOOK = {
         "mc22",
         "mc25"
       ]
+    },
+    {
+      "id": "debray",
+      "name": "吕西安·德布雷",
+      "role": "内政部秘书 · 唐格拉尔夫人的情人",
+      "group": "唐格拉尔家",
+      "aliases": [],
+      "deeds": "唐格拉尔家的常客，与埃尔米娜保持多年的私情，靠职务便利为她传递消息。唐格拉尔破产后，他迅速抽身，是巴黎客厅里最体面的那种薄情。",
+      "events": [
+        "mc20",
+        "mc31"
+      ]
+    },
+    {
+      "id": "beauchamp",
+      "name": "博尚",
+      "role": "记者 · 阿尔贝的挚友",
+      "group": "地中海与罗马",
+      "aliases": [],
+      "deeds": "阿尔贝最信任的朋友，在报纸上公开费尔南在希腊出卖阿里帕夏的证据。他不带私怨，只认事实，却因此亲手拆掉了莫尔塞夫家。",
+      "events": [
+        "mc28"
+      ]
+    },
+    {
+      "id": "saintmeran",
+      "name": "圣梅朗侯爵",
+      "role": "维尔福的岳父",
+      "group": "维尔福家",
+      "aliases": [],
+      "deeds": "维尔福前妻的父亲。他与妻子先后在维尔福家中被毒杀，成为那串连环中毒案的开端，也让维尔福第一次意识到凶手就在自己家里。",
+      "events": [
+        "mc26"
+      ]
+    },
+    {
+      "id": "ali",
+      "name": "阿里",
+      "role": "基督山伯爵的哑仆",
+      "group": "归来者",
+      "aliases": [],
+      "deeds": "被割去舌头的奴仆，对伯爵绝对忠诚。罗马的绑架、巴黎的夜行、决斗场上的护卫，他都站在主人身侧，从不说一个字。",
+      "events": [
+        "mc17",
+        "mc30"
+      ]
     }
   ],
   "relations": [
@@ -1246,6 +1405,41 @@ window.BOOK = {
       "a": "albert",
       "b": "eugenie",
       "label": "解除的婚约"
+    },
+    {
+      "a": "debray",
+      "b": "hermine",
+      "label": "情人"
+    },
+    {
+      "a": "debray",
+      "b": "danglars",
+      "label": "往来与背叛"
+    },
+    {
+      "a": "beauchamp",
+      "b": "albert",
+      "label": "挚友"
+    },
+    {
+      "a": "beauchamp",
+      "b": "fernand",
+      "label": "公开揭发"
+    },
+    {
+      "a": "saintmeran",
+      "b": "villefort",
+      "label": "岳父"
+    },
+    {
+      "a": "saintmeran",
+      "b": "heloise",
+      "label": "被毒杀"
+    },
+    {
+      "a": "ali",
+      "b": "edmond",
+      "label": "忠于主人"
     }
   ],
   "sources": [

@@ -1,1 +1,800 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>魔戒 · 人物志 · 故事图谱</title><meta name="description" content="魔戒人物事迹与直接关系网"><meta name="theme-color" content="#f7f4ed"><link rel="stylesheet" href="../../assets/site.css"><style>:root{--accent:#46634f}</style></head><body><div class="progress" id="readingProgress" aria-hidden="true"></div><nav class="reader-nav" aria-label="主要导航"><div class="shell"><a class="reader-brand" href="../../index.html">故事图谱</a><div class="reader-tabs"><a href="index.html">时间线</a><a href="characters.html" class="on" aria-current="page">人物志</a><label><span class="sr-only">切换书籍</span><select class="book-switch" id="bookSwitch"><option value="../three-body/index.html">三体</option><option value="../monte-cristo/index.html">基督山伯爵</option><option value="../solitude/index.html">百年孤独</option><option value="../lotr/index.html" selected>魔戒</option><option value="../dune/index.html">沙丘</option><option value="../red-chamber/index.html">红楼梦</option></select></label></div></div></nav><main class="shell"><header class="people-head"><div class="eyebrow">魔戒 / 人物志</div><h1>循着人物，看见故事。</h1><p>22 位人物，37 组直接关系。事迹涵盖结局，沿关系切换人物时，可回到对应时间线。</p></header><div class="character-tools"><label><span class="sr-only">搜索人物</span><input id="personSearch" type="search" placeholder="搜索人物、别名或身份" autocomplete="off"></label><span class="result-count" id="peopleCount" aria-live="polite">22 位人物</span></div><section id="relationMap" style="scroll-margin-top:88px"><div class="graph-head"><h2>人物关系网</h2><button type="button" class="pill" id="resetGraph">全览关系</button></div><p class="graph-caption" id="graphCaption"></p><div class="relationship-layout"><div class="graph-frame"><svg class="relationship-graph" id="relationshipGraph" viewBox="0 0 900 650" role="group" aria-label="魔戒可交互人物关系网"></svg></div><aside class="person-detail" id="personDetail" aria-label="选中人物详情"><div class="eyebrow">人物关系</div><h2>从一个人开始</h2><p>点选图中的人物，沿着亲缘、同盟与冲突，了解故事如何发生。</p></aside></div></section><p class="empty" id="peopleEmpty" hidden>没有找到匹配人物，试试姓名或别名。</p><section class="people-group"><h2>夏尔</h2><div class="people-grid"><article class="person-card" id="p-frodo" data-person="frodo"><h3>佛罗多·巴金斯</h3><p class="role">持戒者</p><p>从比尔博手中继承魔戒，自愿把它带到末日火山。旅途中依靠朋友与自己的忍耐抵抗诱惑，最后仍未能主动放手。战争后无法完全摆脱旧伤，最终从灰港西去。</p><div class="card-actions"><button type="button" data-show-person="frodo">查看关系 →</button><a href="index.html#lr02">时间线 · 生日宴后的遗产</a></div></article><article class="person-card" id="p-sam" data-person="sam"><h3>山姆怀斯·甘姆吉</h3><p class="role">园丁与护戒旅伴</p><p>始终陪伴佛罗多，曾短暂持戒，并在奇立斯乌苟救出主人。他把远征落实为食物、照料和一步步行走，归来后用凯兰崔尔的礼物修复夏尔，与萝丝建立家庭。</p><div class="card-actions"><button type="button" data-show-person="sam">查看关系 →</button><a href="index.html#lr03">时间线 · 炉火中的文字</a></div></article><article class="person-card" id="p-bilbo" data-person="bilbo"><h3>比尔博·巴金斯</h3><p class="role">佛罗多的长辈与魔戒旧主</p><p>从旧日冒险中带回魔戒，把它传给佛罗多后离开夏尔。他在瑞文戴尔整理诗歌与记忆，随着魔戒毁灭而迅速显出衰老，最终与佛罗多同船西去。</p><div class="card-actions"><button type="button" data-show-person="bilbo">查看关系 →</button><a href="index.html#lr01">时间线 · 一枚保存着主人的戒指</a></div></article><article class="person-card" id="p-merry" data-person="merry"><h3>梅里雅达克·烈酒鹿</h3><p class="role">霍比特远行者</p><p>与皮平被奥克掳走后逃入法贡，使树人了解战争。他效忠希优顿，随伊欧玟上战场，以古冢短剑帮助击败巫王；回乡后组织抵抗暴徒的行动。</p><div class="card-actions"><button type="button" data-show-person="merry">查看关系 →</button><a href="index.html#lr04">时间线 · 走出熟悉的田野</a></div></article><article class="person-card" id="p-pippin" data-person="pippin"><h3>佩里格林·图克</h3><p class="role">霍比特远行者</p><p>窥视真知晶球后随甘道夫赴刚铎，向德内梭尔宣誓效忠。在王城危机中求援救出法拉米尔，随后参加黑门之战；归来后成为解放夏尔的领导者之一。</p><div class="card-actions"><button type="button" data-show-person="pippin">查看关系 →</button><a href="index.html#lr04">时间线 · 走出熟悉的田野</a></div></article></div></section><section class="people-group"><h2>自由人民</h2><div class="people-grid"><article class="person-card" id="p-gandalf" data-person="gandalf"><h3>甘道夫</h3><p class="role">巫师与远征引路人</p><p>识别至尊魔戒并推动各族合作，在摩瑞亚与炎魔战斗后归来，协助洛汗与刚铎。他不把魔戒据为己有，而让不同的人承担各自的职责，使命完成后离开中洲。</p><div class="card-actions"><button type="button" data-show-person="gandalf">查看关系 →</button><a href="index.html#lr02">时间线 · 生日宴后的遗产</a></div></article><article class="person-card" id="p-aragorn" data-person="aragorn"><h3>阿拉贡</h3><p class="role">北方游民与王位继承者</p><p>早期以大步佬之名护送霍比特人，护戒队分裂后营救伙伴并参与两国战事。他借亡者清除南方海盗，率活人援军抵达王城，最终加冕并与阿尔温成婚。</p><div class="card-actions"><button type="button" data-show-person="aragorn">查看关系 →</button><a href="index.html#lr06">时间线 · 陌生人的名字</a></div></article><article class="person-card" id="p-legolas" data-person="legolas"><h3>莱戈拉斯</h3><p class="role">林地王国精灵</p><p>作为精灵代表加入护戒队，与阿拉贡、吉姆利共同追踪被掳的霍比特人，参加洛汗与刚铎的战斗。他与吉姆利建立跨越精灵和矮人旧有隔阂的友谊。</p><div class="card-actions"><button type="button" data-show-person="legolas">查看关系 →</button><a href="index.html#lr09">时间线 · 九人的远征</a></div></article><article class="person-card" id="p-gimli" data-person="gimli"><h3>吉姆利</h3><p class="role">矮人护戒队成员</p><p>加入护戒队后面对摩瑞亚同族的覆灭，也在洛丝萝林改变对精灵的成见。他随阿拉贡穿越亡者之道，在战争中与莱戈拉斯结成深厚友谊。</p><div class="card-actions"><button type="button" data-show-person="gimli">查看关系 →</button><a href="index.html#lr09">时间线 · 九人的远征</a></div></article></div></section><section class="people-group"><h2>刚铎</h2><div class="people-grid"><article class="person-card" id="p-boromir" data-person="boromir"><h3>波洛米尔</h3><p class="role">刚铎宰相长子</p><p>带着刚铎受围困的忧虑来到瑞文戴尔，希望利用魔戒抵抗索隆。他一度试图夺戒，醒悟后为保护梅里与皮平而战死，其选择成为护戒队分裂的直接转折。</p><div class="card-actions"><button type="button" data-show-person="boromir">查看关系 →</button><a href="index.html#lr09">时间线 · 九人的远征</a></div></article><article class="person-card" id="p-faramir" data-person="faramir"><h3>法拉米尔</h3><p class="role">伊希利恩游击队统领</p><p>在伊希利恩发现佛罗多一行，得知魔戒后仍选择放行。王城战事中重伤，险被父亲一同焚烧，得救康复后与伊欧玟相爱，并保留宰相职分辅佐归来的王。</p><div class="card-actions"><button type="button" data-show-person="faramir">查看关系 →</button><a href="index.html#lr19">时间线 · 法拉米尔的放行</a></div></article><article class="person-card" id="p-denethor" data-person="denethor"><h3>德内梭尔</h3><p class="role">刚铎摄政宰相</p><p>在无王的年代统治刚铎，偏爱长子波洛米尔。对真知晶球中敌军力量的观察加剧了他的绝望，最终企图焚烧自己和重伤的法拉米尔，独自死于火中。</p><div class="card-actions"><button type="button" data-show-person="denethor">查看关系 →</button><a href="index.html#lr24">时间线 · 宰相的绝望</a></div></article></div></section><section class="people-group"><h2>洛汗</h2><div class="people-grid"><article class="person-card" id="p-theoden" data-person="theoden"><h3>希优顿</h3><p class="role">洛汗国王</p><p>受巧言长期蛊惑，后来在甘道夫帮助下重新承担王者责任。他率领洛汗人抵御萨鲁曼，又赴刚铎救援，最终在佩兰诺平野战死，由外甥伊欧墨继位。</p><div class="card-actions"><button type="button" data-show-person="theoden">查看关系 →</button><a href="index.html#lr15">时间线 · 白袍巫师归来</a></div></article><article class="person-card" id="p-eowyn" data-person="eowyn"><h3>伊欧玟</h3><p class="role">洛汗王室成员</p><p>渴望摆脱留守与等待的命运，化名德恩赫尔姆带梅里随军。她在梅里帮助下杀死巫王，重伤后于疗愈之院结识法拉米尔，逐渐选择救治与建设的未来。</p><div class="card-actions"><button type="button" data-show-person="eowyn">查看关系 →</button><a href="index.html#lr21">时间线 · 不能被留下的人</a></div></article><article class="person-card" id="p-eomer" data-person="eomer"><h3>伊欧墨</h3><p class="role">洛汗元帅与后继国王</p><p>在洛汗边境发现阿拉贡一行，与他们建立信任。他参加圣盔谷与佩兰诺的战事，继承希优顿的王位，继续维持洛汗同刚铎之间的盟约。</p><div class="card-actions"><button type="button" data-show-person="eomer">查看关系 →</button><a href="index.html#lr21">时间线 · 不能被留下的人</a></div></article></div></section><section class="people-group"><h2>精灵</h2><div class="people-grid"><article class="person-card" id="p-arwen" data-person="arwen"><h3>阿尔温</h3><p class="role">埃尔隆德之女</p><p>与阿拉贡相爱，最终选择留在人类的命运之中。大战结束后与他在王城成婚；她的选择把精灵逐渐离去的时代，与人类王国重新开始的岁月连接起来。</p><div class="card-actions"><button type="button" data-show-person="arwen">查看关系 →</button><a href="index.html#lr31">时间线 · 归来的王与新的盟约</a></div></article><article class="person-card" id="p-elrond" data-person="elrond"><h3>埃尔隆德</h3><p class="role">瑞文戴尔领主</p><p>收容并救治佛罗多，主持决定毁戒方向的会议，也是阿拉贡成长中的庇护者、阿尔温的父亲。至尊魔戒毁灭后，精灵诸戒时代结束，他最终从灰港西去。</p><div class="card-actions"><button type="button" data-show-person="elrond">查看关系 →</button><a href="index.html#lr08">时间线 · 洪水隔开的追兵</a></div></article><article class="person-card" id="p-galadriel" data-person="galadriel"><h3>凯兰崔尔</h3><p class="role">洛丝萝林的精灵领主</p><p>接待护戒队，以水镜与赠礼帮助远行者，也拒绝了获得至尊魔戒的诱惑。她给山姆的土壤与种子后来参与夏尔的修复，最终随精灵持戒者离开中洲。</p><div class="card-actions"><button type="button" data-show-person="galadriel">查看关系 →</button><a href="index.html#lr11">时间线 · 森林中的休憩与考验</a></div></article></div></section><section class="people-group"><h2>魔戒阴影</h2><div class="people-grid"><article class="person-card" id="p-gollum" data-person="gollum"><h3>咕噜</h3><p class="role">斯密戈与魔戒旧主</p><p>长期持有魔戒而被扭曲，追随佛罗多后成为向导，善意与占有欲持续冲突。他把两名霍比特人带入尸罗巢穴，最后在末日火山夺回戒指，并与它一同坠入火焰。</p><div class="card-actions"><button type="button" data-show-person="gollum">查看关系 →</button><a href="index.html#lr01">时间线 · 一枚保存着主人的戒指</a></div></article><article class="person-card" id="p-sauron" data-person="sauron"><h3>索隆</h3><p class="role">魔多的统治者</p><p>铸造至尊魔戒并把大量力量投入其中，失去它后仍不断恢复势力。他以军队、恐惧与误导侵蚀对手，始终低估敌人会主动毁掉力量的可能，随魔戒毁灭而败亡。</p><div class="card-actions"><button type="button" data-show-person="sauron">查看关系 →</button><a href="index.html#lr01">时间线 · 一枚保存着主人的戒指</a></div></article><article class="person-card" id="p-saruman" data-person="saruman"><h3>萨鲁曼</h3><p class="role">背弃使命的巫师</p><p>起初研究魔戒、领导巫师，后来追逐统治力量，控制艾辛格并侵害洛汗。树人毁掉其基地后，他仍前往夏尔报复，最终在袋底洞被巧言杀死。</p><div class="card-actions"><button type="button" data-show-person="saruman">查看关系 →</button><a href="index.html#lr13">时间线 · 逃进树人的世界</a></div></article></div></section><section class="people-group"><h2>森林</h2><div class="people-grid"><article class="person-card" id="p-treebeard" data-person="treebeard"><h3>树胡</h3><p class="role">法贡森林的树人</p><p>接纳逃亡中的梅里与皮平，得知森林遭掠夺后带树人进攻艾辛格。他摧毁萨鲁曼的机器和工场，却因不愿把任何生灵永远囚住而让失败的巫师离开。</p><div class="card-actions"><button type="button" data-show-person="treebeard">查看关系 →</button><a href="index.html#lr13">时间线 · 逃进树人的世界</a></div></article></div></section><p class="sr-only" id="peopleLive" role="status" aria-live="polite"></p><section class="sources" id="sources"><div class="eyebrow">阅读范围与资料</div><h2>关于这份导读</h2><p>《护戒同盟》《双塔殊途》《王者归来》小说三卷六部，含夏尔清洗与灰港结局</p><p>本页为完整剧透的原创情节导读。采用小说口径，保留老林、古冢、格罗芬德尔与夏尔清洗。大战期间多线同时发生，按主要阶段穿插排列；未明确到日的节点不补造日期。中文译名可能因译本不同而异，别名仅用于检索。</p><ol><li id="source-lr-book"><a href="https://www.harpercollinsrights.co.uk/products/lord-of-the-rings-j-r-r-tolkien-9780261103252/" target="_blank" rel="noopener noreferrer">原著口径：《魔戒》三卷六部与附录 ↗</a> · J. R. R. Tolkien：《护戒同盟》《双塔殊途》《王者归来》；第三纪元纪年参照附录 B。本文为原创概述，不使用电影增补场景。</li><li id="source-lr-fellowship"><a href="https://tolkiengateway.net/wiki/The_Fellowship_of_the_Ring" target="_blank" rel="noopener noreferrer">《护戒同盟》章节与故事索引 ↗</a> · 核对第一、二部：老林、古冢、布理、风云顶、格罗芬德尔、埃尔隆德会议、摩瑞亚、洛丝萝林与阿蒙汉。专业参考站引原著章名。</li><li id="source-lr-towers"><a href="https://tolkiengateway.net/wiki/The_Two_Towers" target="_blank" rel="noopener noreferrer">《双塔殊途》章节与并行线索 ↗</a> · 第三、四部：洛汗、树人与艾辛格；咕噜、法拉米尔、尸罗。并行线按阶段穿插，不以卷次作为严格先后。</li><li id="source-lr-king"><a href="https://www.penguinrandomhouse.com/books/179217/the-return-of-the-king-media-tie-in-by-jrr-tolkien/teachers-guide/" target="_blank" rel="noopener noreferrer">出版社《王者归来》教师导读 ↗</a> · 核对第五、六部的章节结构；导读为辅助，细节以小说为准。</li><li id="source-lr-arda"><a href="https://www.encyclopedia-of-arda.com/default.asp/s/returnoftheking.html" target="_blank" rel="noopener noreferrer">Encyclopedia of Arda：《王者归来》与改编差异 ↗</a> · 亡者在佩拉基尔履约后获释，阿拉贡率南方活人援军乘船到达；避免混入电影的城下亡灵军。</li><li id="source-lr-scouring"><a href="https://tolkiengateway.net/wiki/The_Scouring_of_the_Shire" target="_blank" rel="noopener noreferrer">《王者归来》卷六第八章：夏尔清洗 ↗</a> · 核对返乡、临水之战、佛罗多放过萨鲁曼、巧言杀死萨鲁曼的小说结局。</li><li id="source-lr-fate"><a href="https://tolkiengateway.net/wiki/Mount_Doom_(chapter)" target="_blank" rel="noopener noreferrer">《王者归来》卷六第三章：末日火山 ↗</a> · 佛罗多在裂隙前未能主动放手；咕噜夺戒后坠入火焰。</li><li id="source-lr-havens"><a href="https://tolkiengateway.net/wiki/The_Grey_Havens" target="_blank" rel="noopener noreferrer">《王者归来》卷六第九章：灰港 ↗</a> · 核对离去者、留下者及第三纪元 3021 年的尾声。</li></ol><p>图片为依据情节生成的 AI 概念插图，人物外观与未明确规定的建筑细节属于视觉想象。</p></section><footer class="site-footer"><span>故事图谱 · 沿时间读故事，循关系看人物。</span><span>原创情节概述与 AI 场景插图 · <a href="../../index.html">返回书架</a></span></footer></main><script src="data.js"></script><script src="../../assets/reader.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>魔戒 · 人物志 | 27 个人物</title>
+<meta name="description" content="一枚戒指使平静的家园与中洲的命运相连。沿护戒、洛汗、刚铎与魔多几条道路，阅读权力的诱惑、微小的坚持和战后的归家。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:10px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.5;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.4px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+</style>
+<style>
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">J. R. R. 托尔金 / CHARACTERS</p>
+    <h1 class="big">魔戒 · 人物</h1>
+    <p class="deck">一枚戒指使平静的家园与中洲的命运相连。沿护戒、洛汗、刚铎与魔多几条道路，阅读权力的诱惑、微小的坚持和战后的归家。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="夏尔">夏尔</button><button class="fbtn" data-camp="自由人民">自由人民</button><button class="fbtn" data-camp="刚铎">刚铎</button><button class="fbtn" data-camp="洛汗">洛汗</button><button class="fbtn" data-camp="精灵">精灵</button><button class="fbtn" data-camp="魔戒阴影">魔戒阴影</button><button class="fbtn" data-camp="森林">森林</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="魔戒人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="98" text-anchor="middle">夏尔</text>
+        <text class="gtag" x="815" y="192" text-anchor="middle">自由人民</text>
+        <text class="gtag" x="864" y="420" text-anchor="middle">刚铎</text>
+        <text class="gtag" x="728" y="589" text-anchor="middle">洛汗</text>
+        <text class="gtag" x="512" y="589" text-anchor="middle">精灵</text>
+        <text class="gtag" x="376" y="396" text-anchor="middle">魔戒阴影</text>
+        <text class="gtag" x="425" y="214" text-anchor="middle">森林</text></g>
+        <g class="links"><line class="plink" data-a="frodo" data-b="sam" x1="620" y1="120" x2="687" y2="168" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="frodo" data-b="bilbo" x1="620" y1="120" x2="661" y2="247" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="frodo" data-b="gandalf" x1="620" y1="120" x2="815" y2="214" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="frodo" data-b="aragorn" x1="620" y1="120" x2="882" y2="262" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="frodo" data-b="gollum" x1="620" y1="120" x2="376" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="frodo" data-b="merry" x1="620" y1="120" x2="579" y2="247" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="frodo" data-b="pippin" x1="620" y1="120" x2="553" y2="168" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="sam" data-b="gollum" x1="687" y1="168" x2="376" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="merry" data-b="pippin" x1="579" y1="247" x2="553" y2="168" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="merry" data-b="treebeard" x1="579" y1="247" x2="425" y2="236" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="pippin" data-b="gandalf" x1="553" y1="168" x2="815" y2="214" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="merry" data-b="theoden" x1="579" y1="247" x2="728" y2="611" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="merry" data-b="eowyn" x1="579" y1="247" x2="775" y2="692" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="pippin" data-b="denethor" x1="553" y1="168" x2="817" y2="523" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="gandalf" data-b="saruman" x1="815" y1="214" x2="444" y2="535" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="gandalf" data-b="sauron" x1="815" y1="214" x2="444" y2="457" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aragorn" data-b="arwen" x1="882" y1="262" x2="512" y2="611" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aragorn" data-b="elrond" x1="882" y1="262" x2="558" y2="692" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aragorn" data-b="legolas" x1="882" y1="262" x2="857" y2="341" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aragorn" data-b="gimli" x1="882" y1="262" x2="774" y2="341" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="legolas" data-b="gimli" x1="857" y1="341" x2="774" y2="341" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="boromir" data-b="faramir" x1="864" y1="442" x2="910" y2="523" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="denethor" data-b="boromir" x1="817" y1="523" x2="864" y2="442" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="denethor" data-b="faramir" x1="817" y1="523" x2="910" y2="523" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="faramir" data-b="eowyn" x1="910" y1="523" x2="775" y2="692" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="theoden" data-b="eowyn" x1="728" y1="611" x2="775" y2="692" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="theoden" data-b="eomer" x1="728" y1="611" x2="682" y2="692" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="eowyn" data-b="eomer" x1="775" y1="692" x2="682" y2="692" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="theoden" data-b="saruman" x1="728" y1="611" x2="444" y2="535" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="treebeard" data-b="saruman" x1="425" y1="236" x2="444" y2="535" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="elrond" data-b="arwen" x1="558" y1="692" x2="512" y2="611" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="frodo" data-b="galadriel" x1="620" y1="120" x2="465" y2="692" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="sam" data-b="galadriel" x1="687" y1="168" x2="465" y2="692" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="bilbo" data-b="elrond" x1="661" y1="247" x2="558" y2="692" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="sauron" data-b="saruman" x1="444" y1="457" x2="444" y2="535" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aragorn" data-b="faramir" x1="882" y1="262" x2="910" y2="523" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aragorn" data-b="eomer" x1="882" y1="262" x2="682" y2="692" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wormtongue" data-b="theoden" x1="376" y1="574" x2="728" y2="611" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wormtongue" data-b="saruman" x1="376" y1="574" x2="444" y2="535" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="shelob" data-b="gollum" x1="309" y1="535" x2="376" y2="418" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="shelob" data-b="frodo" x1="309" y1="535" x2="620" y2="120" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="witchking" data-b="theoden" x1="309" y1="457" x2="728" y2="611" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="witchking" data-b="eowyn" x1="309" y1="457" x2="775" y2="692" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="bombadil" data-b="frodo" x1="425" y1="332" x2="620" y2="120" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="isildur" data-b="sauron" x1="749" y1="262" x2="444" y2="457" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="isildur" data-b="aragorn" x1="749" y1="262" x2="882" y2="262" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="nodes"><g class="pnode" data-id="frodo" transform="translate(620,120)"><title>佛罗多·巴金斯 · 持戒者</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">巴金斯</text></g>
+        <g class="pnode" data-id="sam" transform="translate(687,168)"><title>山姆怀斯·甘姆吉 · 园丁与护戒旅伴</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">甘姆吉</text></g>
+        <g class="pnode" data-id="bilbo" transform="translate(661,247)"><title>比尔博·巴金斯 · 佛罗多的长辈与魔戒旧主</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">巴金斯</text></g>
+        <g class="pnode" data-id="merry" transform="translate(579,247)"><title>梅里雅达克·烈酒鹿 · 霍比特远行者</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">烈酒鹿</text></g>
+        <g class="pnode" data-id="pippin" transform="translate(553,168)"><title>佩里格林·图克 · 霍比特远行者</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">图克</text></g>
+        <g class="pnode" data-id="gandalf" transform="translate(815,214)"><title>甘道夫 · 巫师与远征引路人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">甘道夫</text></g>
+        <g class="pnode" data-id="aragorn" transform="translate(882,262)"><title>阿拉贡 · 北方游民与王位继承者</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">阿拉贡</text></g>
+        <g class="pnode" data-id="legolas" transform="translate(857,341)"><title>莱戈拉斯 · 林地王国精灵</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">莱戈拉斯</text></g>
+        <g class="pnode" data-id="gimli" transform="translate(774,341)"><title>吉姆利 · 矮人护戒队成员</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">吉姆利</text></g>
+        <g class="pnode" data-id="boromir" transform="translate(864,442)"><title>波洛米尔 · 刚铎宰相长子</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">波洛米尔</text></g>
+        <g class="pnode" data-id="faramir" transform="translate(910,523)"><title>法拉米尔 · 伊希利恩游击队统领</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">法拉米尔</text></g>
+        <g class="pnode" data-id="denethor" transform="translate(817,523)"><title>德内梭尔 · 刚铎摄政宰相</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">德内梭尔</text></g>
+        <g class="pnode" data-id="theoden" transform="translate(728,611)"><title>希优顿 · 洛汗国王</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">希优顿</text></g>
+        <g class="pnode" data-id="eowyn" transform="translate(775,692)"><title>伊欧玟 · 洛汗王室成员</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">伊欧玟</text></g>
+        <g class="pnode" data-id="eomer" transform="translate(682,692)"><title>伊欧墨 · 洛汗元帅与后继国王</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">伊欧墨</text></g>
+        <g class="pnode" data-id="arwen" transform="translate(512,611)"><title>阿尔温 · 埃尔隆德之女</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">阿尔温</text></g>
+        <g class="pnode" data-id="elrond" transform="translate(558,692)"><title>埃尔隆德 · 瑞文戴尔领主</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">埃尔隆德</text></g>
+        <g class="pnode" data-id="galadriel" transform="translate(465,692)"><title>凯兰崔尔 · 洛丝萝林的精灵领主</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">凯兰崔尔</text></g>
+        <g class="pnode" data-id="gollum" transform="translate(376,418)"><title>咕噜 · 斯密戈与魔戒旧主</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">咕噜</text></g>
+        <g class="pnode" data-id="sauron" transform="translate(444,457)"><title>索隆 · 魔多的统治者</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">索隆</text></g>
+        <g class="pnode" data-id="saruman" transform="translate(444,535)"><title>萨鲁曼 · 背弃使命的巫师</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">萨鲁曼</text></g>
+        <g class="pnode" data-id="treebeard" transform="translate(425,236)"><title>树胡 · 法贡森林的树人</title><circle r="26" fill="#f7f4ed" stroke="#4a4a58" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">树胡</text></g>
+        <g class="pnode" data-id="wormtongue" transform="translate(376,574)"><title>格里马·巧言 · 希优顿的谋臣 · 萨鲁曼的内应</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">巧言</text></g>
+        <g class="pnode" data-id="shelob" transform="translate(309,535)"><title>尸罗 · 西力斯昂哥的巨型蜘蛛</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">尸罗</text></g>
+        <g class="pnode" data-id="witchking" transform="translate(309,457)"><title>安格玛巫王 · 戒灵之首</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">安格玛巫王</text></g>
+        <g class="pnode" data-id="bombadil" transform="translate(425,332)"><title>汤姆·邦巴迪尔 · 老林子里的歌者</title><circle r="26" fill="#f7f4ed" stroke="#4a4a58" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">邦巴迪尔</text></g>
+        <g class="pnode" data-id="isildur" transform="translate(749,262)"><title>伊熙尔杜 · 刚铎的旧王</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">伊熙尔杜</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">夏尔</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-frodo" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>佛罗多·巴金斯</h3></div>
+        <p class="role">持戒者</p>
+        <p class="deeds">从比尔博手中继承魔戒，自愿把它带到末日火山。旅途中依靠朋友与自己的忍耐抵抗诱惑，最后仍未能主动放手。战争后无法完全摆脱旧伤，最终从灰港西去。</p>
+        <a class="jump" href="index.html#lr02">时间线 · 生日宴后的遗产 →</a>
+      </article>
+      <article class="pcard" id="c-sam" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>山姆怀斯·甘姆吉</h3></div>
+        <p class="role">园丁与护戒旅伴</p>
+        <p class="deeds">始终陪伴佛罗多，曾短暂持戒，并在奇立斯乌苟救出主人。他把远征落实为食物、照料和一步步行走，归来后用凯兰崔尔的礼物修复夏尔，与萝丝建立家庭。</p>
+        <a class="jump" href="index.html#lr03">时间线 · 炉火中的文字 →</a>
+      </article>
+      <article class="pcard" id="c-bilbo" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>比尔博·巴金斯</h3></div>
+        <p class="role">佛罗多的长辈与魔戒旧主</p>
+        <p class="deeds">从旧日冒险中带回魔戒，把它传给佛罗多后离开夏尔。他在瑞文戴尔整理诗歌与记忆，随着魔戒毁灭而迅速显出衰老，最终与佛罗多同船西去。</p>
+        <a class="jump" href="index.html#lr01">时间线 · 一枚保存着主人的戒指 →</a>
+      </article>
+      <article class="pcard" id="c-merry" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>梅里雅达克·烈酒鹿</h3></div>
+        <p class="role">霍比特远行者</p>
+        <p class="deeds">与皮平被奥克掳走后逃入法贡，使树人了解战争。他效忠希优顿，随伊欧玟上战场，以古冢短剑帮助击败巫王；回乡后组织抵抗暴徒的行动。</p>
+        <a class="jump" href="index.html#lr04">时间线 · 走出熟悉的田野 →</a>
+      </article>
+      <article class="pcard" id="c-pippin" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>佩里格林·图克</h3></div>
+        <p class="role">霍比特远行者</p>
+        <p class="deeds">窥视真知晶球后随甘道夫赴刚铎，向德内梭尔宣誓效忠。在王城危机中求援救出法拉米尔，随后参加黑门之战；归来后成为解放夏尔的领导者之一。</p>
+        <a class="jump" href="index.html#lr04">时间线 · 走出熟悉的田野 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">自由人民</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-gandalf" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>甘道夫</h3></div>
+        <p class="role">巫师与远征引路人</p>
+        <p class="deeds">识别至尊魔戒并推动各族合作，在摩瑞亚与炎魔战斗后归来，协助洛汗与刚铎。他不把魔戒据为己有，而让不同的人承担各自的职责，使命完成后离开中洲。</p>
+        <a class="jump" href="index.html#lr02">时间线 · 生日宴后的遗产 →</a>
+      </article>
+      <article class="pcard" id="c-aragorn" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>阿拉贡</h3></div>
+        <p class="role">北方游民与王位继承者</p>
+        <p class="deeds">早期以大步佬之名护送霍比特人，护戒队分裂后营救伙伴并参与两国战事。他借亡者清除南方海盗，率活人援军抵达王城，最终加冕并与阿尔温成婚。</p>
+        <a class="jump" href="index.html#lr06">时间线 · 陌生人的名字 →</a>
+      </article>
+      <article class="pcard" id="c-legolas" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>莱戈拉斯</h3></div>
+        <p class="role">林地王国精灵</p>
+        <p class="deeds">作为精灵代表加入护戒队，与阿拉贡、吉姆利共同追踪被掳的霍比特人，参加洛汗与刚铎的战斗。他与吉姆利建立跨越精灵和矮人旧有隔阂的友谊。</p>
+        <a class="jump" href="index.html#lr09">时间线 · 九人的远征 →</a>
+      </article>
+      <article class="pcard" id="c-gimli" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>吉姆利</h3></div>
+        <p class="role">矮人护戒队成员</p>
+        <p class="deeds">加入护戒队后面对摩瑞亚同族的覆灭，也在洛丝萝林改变对精灵的成见。他随阿拉贡穿越亡者之道，在战争中与莱戈拉斯结成深厚友谊。</p>
+        <a class="jump" href="index.html#lr09">时间线 · 九人的远征 →</a>
+      </article>
+      <article class="pcard" id="c-isildur" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>伊熙尔杜</h3></div>
+        <p class="role">刚铎的旧王</p>
+        <p class="deeds">在最后联盟之战中砍下索隆戴戒的手指，却因不舍得销毁而留下祸根。他在格拉顿平原被半兽人射死，魔戒沉入河底，两千年后才被找到。</p>
+        <a class="jump" href="index.html#lr01">时间线 · 一枚保存着主人的戒指 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">刚铎</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-boromir" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>波洛米尔</h3></div>
+        <p class="role">刚铎宰相长子</p>
+        <p class="deeds">带着刚铎受围困的忧虑来到瑞文戴尔，希望利用魔戒抵抗索隆。他一度试图夺戒，醒悟后为保护梅里与皮平而战死，其选择成为护戒队分裂的直接转折。</p>
+        <a class="jump" href="index.html#lr09">时间线 · 九人的远征 →</a>
+      </article>
+      <article class="pcard" id="c-faramir" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>法拉米尔</h3></div>
+        <p class="role">伊希利恩游击队统领</p>
+        <p class="deeds">在伊希利恩发现佛罗多一行，得知魔戒后仍选择放行。王城战事中重伤，险被父亲一同焚烧，得救康复后与伊欧玟相爱，并保留宰相职分辅佐归来的王。</p>
+        <a class="jump" href="index.html#lr19">时间线 · 法拉米尔的放行 →</a>
+      </article>
+      <article class="pcard" id="c-denethor" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>德内梭尔</h3></div>
+        <p class="role">刚铎摄政宰相</p>
+        <p class="deeds">在无王的年代统治刚铎，偏爱长子波洛米尔。对真知晶球中敌军力量的观察加剧了他的绝望，最终企图焚烧自己和重伤的法拉米尔，独自死于火中。</p>
+        <a class="jump" href="index.html#lr24">时间线 · 宰相的绝望 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">洛汗</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-theoden" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>希优顿</h3></div>
+        <p class="role">洛汗国王</p>
+        <p class="deeds">受巧言长期蛊惑，后来在甘道夫帮助下重新承担王者责任。他率领洛汗人抵御萨鲁曼，又赴刚铎救援，最终在佩兰诺平野战死，由外甥伊欧墨继位。</p>
+        <a class="jump" href="index.html#lr15">时间线 · 白袍巫师归来 →</a>
+      </article>
+      <article class="pcard" id="c-eowyn" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>伊欧玟</h3></div>
+        <p class="role">洛汗王室成员</p>
+        <p class="deeds">渴望摆脱留守与等待的命运，化名德恩赫尔姆带梅里随军。她在梅里帮助下杀死巫王，重伤后于疗愈之院结识法拉米尔，逐渐选择救治与建设的未来。</p>
+        <a class="jump" href="index.html#lr21">时间线 · 不能被留下的人 →</a>
+      </article>
+      <article class="pcard" id="c-eomer" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>伊欧墨</h3></div>
+        <p class="role">洛汗元帅与后继国王</p>
+        <p class="deeds">在洛汗边境发现阿拉贡一行，与他们建立信任。他参加圣盔谷与佩兰诺的战事，继承希优顿的王位，继续维持洛汗同刚铎之间的盟约。</p>
+        <a class="jump" href="index.html#lr21">时间线 · 不能被留下的人 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#1f5d57">精灵</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-arwen" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>阿尔温</h3></div>
+        <p class="role">埃尔隆德之女</p>
+        <p class="deeds">与阿拉贡相爱，最终选择留在人类的命运之中。大战结束后与他在王城成婚；她的选择把精灵逐渐离去的时代，与人类王国重新开始的岁月连接起来。</p>
+        <a class="jump" href="index.html#lr31">时间线 · 归来的王与新的盟约 →</a>
+      </article>
+      <article class="pcard" id="c-elrond" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>埃尔隆德</h3></div>
+        <p class="role">瑞文戴尔领主</p>
+        <p class="deeds">收容并救治佛罗多，主持决定毁戒方向的会议，也是阿拉贡成长中的庇护者、阿尔温的父亲。至尊魔戒毁灭后，精灵诸戒时代结束，他最终从灰港西去。</p>
+        <a class="jump" href="index.html#lr08">时间线 · 洪水隔开的追兵 →</a>
+      </article>
+      <article class="pcard" id="c-galadriel" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>凯兰崔尔</h3></div>
+        <p class="role">洛丝萝林的精灵领主</p>
+        <p class="deeds">接待护戒队，以水镜与赠礼帮助远行者，也拒绝了获得至尊魔戒的诱惑。她给山姆的土壤与种子后来参与夏尔的修复，最终随精灵持戒者离开中洲。</p>
+        <a class="jump" href="index.html#lr11">时间线 · 森林中的休憩与考验 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#a8823c">魔戒阴影</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-gollum" style="--c:#a8823c">
+        <div class="pcard-top"><h3>咕噜</h3></div>
+        <p class="role">斯密戈与魔戒旧主</p>
+        <p class="deeds">长期持有魔戒而被扭曲，追随佛罗多后成为向导，善意与占有欲持续冲突。他把两名霍比特人带入尸罗巢穴，最后在末日火山夺回戒指，并与它一同坠入火焰。</p>
+        <a class="jump" href="index.html#lr01">时间线 · 一枚保存着主人的戒指 →</a>
+      </article>
+      <article class="pcard" id="c-sauron" style="--c:#a8823c">
+        <div class="pcard-top"><h3>索隆</h3></div>
+        <p class="role">魔多的统治者</p>
+        <p class="deeds">铸造至尊魔戒并把大量力量投入其中，失去它后仍不断恢复势力。他以军队、恐惧与误导侵蚀对手，始终低估敌人会主动毁掉力量的可能，随魔戒毁灭而败亡。</p>
+        <a class="jump" href="index.html#lr01">时间线 · 一枚保存着主人的戒指 →</a>
+      </article>
+      <article class="pcard" id="c-saruman" style="--c:#a8823c">
+        <div class="pcard-top"><h3>萨鲁曼</h3></div>
+        <p class="role">背弃使命的巫师</p>
+        <p class="deeds">起初研究魔戒、领导巫师，后来追逐统治力量，控制艾辛格并侵害洛汗。树人毁掉其基地后，他仍前往夏尔报复，最终在袋底洞被巧言杀死。</p>
+        <a class="jump" href="index.html#lr13">时间线 · 逃进树人的世界 →</a>
+      </article>
+      <article class="pcard" id="c-wormtongue" style="--c:#a8823c">
+        <div class="pcard-top"><h3>格里马·巧言</h3></div>
+        <p class="role">希优顿的谋臣 · 萨鲁曼的内应</p>
+        <p class="deeds">萨鲁曼安插在洛汗的棋子，用谗言让希优顿意志消沉、国事荒废。甘道夫到来后他被逐出，最后在夏尔杀死萨鲁曼，自己也被弓箭射死。</p>
+        <a class="jump" href="index.html#lr16">时间线 · 围城直到黎明 →</a>
+      </article>
+      <article class="pcard" id="c-shelob" style="--c:#a8823c">
+        <div class="pcard-top"><h3>尸罗</h3></div>
+        <p class="role">西力斯昂哥的巨型蜘蛛</p>
+        <p class="deeds">盘踞在通往魔多的隧道里，与咕噜有过交易。她用毒针麻痹佛罗多，山姆用刺针和凯兰崔尔的玻璃瓶才把她逼退。</p>
+        <a class="jump" href="index.html#lr22">时间线 · 通往尸罗的阶梯 →</a>
+      </article>
+      <article class="pcard" id="c-witchking" style="--c:#a8823c">
+        <div class="pcard-top"><h3>安格玛巫王</h3></div>
+        <p class="role">戒灵之首</p>
+        <p class="deeds">九戒灵的首领，在佩兰诺平原上击倒希优顿。他相信自己不会被男人杀死，最终死在伊欧玟与梅里联手之下。</p>
+        <a class="jump" href="index.html#lr16">时间线 · 围城直到黎明 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#4a4a58">森林</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-treebeard" style="--c:#4a4a58">
+        <div class="pcard-top"><h3>树胡</h3></div>
+        <p class="role">法贡森林的树人</p>
+        <p class="deeds">接纳逃亡中的梅里与皮平，得知森林遭掠夺后带树人进攻艾辛格。他摧毁萨鲁曼的机器和工场，却因不愿把任何生灵永远囚住而让失败的巫师离开。</p>
+        <a class="jump" href="index.html#lr13">时间线 · 逃进树人的世界 →</a>
+      </article>
+      <article class="pcard" id="c-bombadil" style="--c:#4a4a58">
+        <div class="pcard-top"><h3>汤姆·邦巴迪尔</h3></div>
+        <p class="role">老林子里的歌者</p>
+        <p class="deeds">中土最古老的居民之一，对魔戒毫无欲望，戴上它也不会隐身。他救了被老柳树困住的霍比特人，却明确表示不愿卷入任何战争。</p>
+        <a class="jump" href="index.html#lr04">时间线 · 走出熟悉的田野 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">魔戒 · J. R. R. 托尔金</p>
+  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"frodo": {"name": "佛罗多·巴金斯", "role": "持戒者", "deeds": "从比尔博手中继承魔戒，自愿把它带到末日火山。旅途中依靠朋友与自己的忍耐抵抗诱惑，最后仍未能主动放手。战争后无法完全摆脱旧伤，最终从灰港西去。", "quote": "Frodo", "camp": "夏尔", "campKey": "夏尔", "color": "#8c2b26", "link": "lr02", "linkName": "生日宴后的遗产", "rel": [["sam", "山姆怀斯·甘姆吉", "旅伴与守护"], ["bilbo", "比尔博·巴金斯", "传承魔戒"], ["gandalf", "甘道夫", "指引与信任"], ["aragorn", "阿拉贡", "护送"], ["gollum", "咕噜", "持戒者与向导"], ["merry", "梅里雅达克·烈酒鹿", "亲族与旅伴"], ["pippin", "佩里格林·图克", "亲族与旅伴"], ["galadriel", "凯兰崔尔", "考验与赠礼"], ["shelob", "尸罗", "刺伤"], ["bombadil", "汤姆·邦巴迪尔", "搭救"]]}, "sam": {"name": "山姆怀斯·甘姆吉", "role": "园丁与护戒旅伴", "deeds": "始终陪伴佛罗多，曾短暂持戒，并在奇立斯乌苟救出主人。他把远征落实为食物、照料和一步步行走，归来后用凯兰崔尔的礼物修复夏尔，与萝丝建立家庭。", "quote": "Sam", "camp": "夏尔", "campKey": "夏尔", "color": "#8c2b26", "link": "lr03", "linkName": "炉火中的文字", "rel": [["frodo", "佛罗多·巴金斯", "旅伴与守护"], ["gollum", "咕噜", "戒备与冲突"], ["galadriel", "凯兰崔尔", "赠礼与修复"]]}, "bilbo": {"name": "比尔博·巴金斯", "role": "佛罗多的长辈与魔戒旧主", "deeds": "从旧日冒险中带回魔戒，把它传给佛罗多后离开夏尔。他在瑞文戴尔整理诗歌与记忆，随着魔戒毁灭而迅速显出衰老，最终与佛罗多同船西去。", "quote": "Bilbo", "camp": "夏尔", "campKey": "夏尔", "color": "#8c2b26", "link": "lr01", "linkName": "一枚保存着主人的戒指", "rel": [["frodo", "佛罗多·巴金斯", "传承魔戒"], ["elrond", "埃尔隆德", "庇护"]]}, "merry": {"name": "梅里雅达克·烈酒鹿", "role": "霍比特远行者", "deeds": "与皮平被奥克掳走后逃入法贡，使树人了解战争。他效忠希优顿，随伊欧玟上战场，以古冢短剑帮助击败巫王；回乡后组织抵抗暴徒的行动。", "quote": "Merry", "camp": "夏尔", "campKey": "夏尔", "color": "#8c2b26", "link": "lr04", "linkName": "走出熟悉的田野", "rel": [["frodo", "佛罗多·巴金斯", "亲族与旅伴"], ["pippin", "佩里格林·图克", "伙伴"], ["treebeard", "树胡", "相遇与联结"], ["theoden", "希优顿", "宣誓效忠"], ["eowyn", "伊欧玟", "并肩对敌"]]}, "pippin": {"name": "佩里格林·图克", "role": "霍比特远行者", "deeds": "窥视真知晶球后随甘道夫赴刚铎，向德内梭尔宣誓效忠。在王城危机中求援救出法拉米尔，随后参加黑门之战；归来后成为解放夏尔的领导者之一。", "quote": "Pippin", "camp": "夏尔", "campKey": "夏尔", "color": "#8c2b26", "link": "lr04", "linkName": "走出熟悉的田野", "rel": [["frodo", "佛罗多·巴金斯", "亲族与旅伴"], ["merry", "梅里雅达克·烈酒鹿", "伙伴"], ["gandalf", "甘道夫", "共同赴刚铎"], ["denethor", "德内梭尔", "宣誓效忠"]]}, "gandalf": {"name": "甘道夫", "role": "巫师与远征引路人", "deeds": "识别至尊魔戒并推动各族合作，在摩瑞亚与炎魔战斗后归来，协助洛汗与刚铎。他不把魔戒据为己有，而让不同的人承担各自的职责，使命完成后离开中洲。", "quote": "Gandalf", "camp": "自由人民", "campKey": "自由人民", "color": "#7a5a38", "link": "lr02", "linkName": "生日宴后的遗产", "rel": [["frodo", "佛罗多·巴金斯", "指引与信任"], ["pippin", "佩里格林·图克", "共同赴刚铎"], ["saruman", "萨鲁曼", "同道决裂"], ["sauron", "索隆", "对抗"]]}, "aragorn": {"name": "阿拉贡", "role": "北方游民与王位继承者", "deeds": "早期以大步佬之名护送霍比特人，护戒队分裂后营救伙伴并参与两国战事。他借亡者清除南方海盗，率活人援军抵达王城，最终加冕并与阿尔温成婚。", "quote": "Aragorn", "camp": "自由人民", "campKey": "自由人民", "color": "#7a5a38", "link": "lr06", "linkName": "陌生人的名字", "rel": [["frodo", "佛罗多·巴金斯", "护送"], ["arwen", "阿尔温", "爱侣"], ["elrond", "埃尔隆德", "养育与家族联结"], ["legolas", "莱戈拉斯", "远征伙伴"], ["gimli", "吉姆利", "远征伙伴"], ["faramir", "法拉米尔", "君王与宰相"], ["eomer", "伊欧墨", "盟约"], ["isildur", "伊熙尔杜", "先祖"]]}, "legolas": {"name": "莱戈拉斯", "role": "林地王国精灵", "deeds": "作为精灵代表加入护戒队，与阿拉贡、吉姆利共同追踪被掳的霍比特人，参加洛汗与刚铎的战斗。他与吉姆利建立跨越精灵和矮人旧有隔阂的友谊。", "quote": "Legolas", "camp": "自由人民", "campKey": "自由人民", "color": "#7a5a38", "link": "lr09", "linkName": "九人的远征", "rel": [["aragorn", "阿拉贡", "远征伙伴"], ["gimli", "吉姆利", "友谊"]]}, "gimli": {"name": "吉姆利", "role": "矮人护戒队成员", "deeds": "加入护戒队后面对摩瑞亚同族的覆灭，也在洛丝萝林改变对精灵的成见。他随阿拉贡穿越亡者之道，在战争中与莱戈拉斯结成深厚友谊。", "quote": "Gimli", "camp": "自由人民", "campKey": "自由人民", "color": "#7a5a38", "link": "lr09", "linkName": "九人的远征", "rel": [["aragorn", "阿拉贡", "远征伙伴"], ["legolas", "莱戈拉斯", "友谊"]]}, "boromir": {"name": "波洛米尔", "role": "刚铎宰相长子", "deeds": "带着刚铎受围困的忧虑来到瑞文戴尔，希望利用魔戒抵抗索隆。他一度试图夺戒，醒悟后为保护梅里与皮平而战死，其选择成为护戒队分裂的直接转折。", "quote": "Boromir", "camp": "刚铎", "campKey": "刚铎", "color": "#2f4a6b", "link": "lr09", "linkName": "九人的远征", "rel": [["faramir", "法拉米尔", "兄弟"], ["denethor", "德内梭尔", "父子"]]}, "faramir": {"name": "法拉米尔", "role": "伊希利恩游击队统领", "deeds": "在伊希利恩发现佛罗多一行，得知魔戒后仍选择放行。王城战事中重伤，险被父亲一同焚烧，得救康复后与伊欧玟相爱，并保留宰相职分辅佐归来的王。", "quote": "Faramir", "camp": "刚铎", "campKey": "刚铎", "color": "#2f4a6b", "link": "lr19", "linkName": "法拉米尔的放行", "rel": [["boromir", "波洛米尔", "兄弟"], ["denethor", "德内梭尔", "父子"], ["eowyn", "伊欧玟", "爱侣"], ["aragorn", "阿拉贡", "君王与宰相"]]}, "denethor": {"name": "德内梭尔", "role": "刚铎摄政宰相", "deeds": "在无王的年代统治刚铎，偏爱长子波洛米尔。对真知晶球中敌军力量的观察加剧了他的绝望，最终企图焚烧自己和重伤的法拉米尔，独自死于火中。", "quote": "Denethor", "camp": "刚铎", "campKey": "刚铎", "color": "#2f4a6b", "link": "lr24", "linkName": "宰相的绝望", "rel": [["pippin", "佩里格林·图克", "宣誓效忠"], ["boromir", "波洛米尔", "父子"], ["faramir", "法拉米尔", "父子"]]}, "theoden": {"name": "希优顿", "role": "洛汗国王", "deeds": "受巧言长期蛊惑，后来在甘道夫帮助下重新承担王者责任。他率领洛汗人抵御萨鲁曼，又赴刚铎救援，最终在佩兰诺平野战死，由外甥伊欧墨继位。", "quote": "Théoden", "camp": "洛汗", "campKey": "洛汗", "color": "#5a3a6b", "link": "lr15", "linkName": "白袍巫师归来", "rel": [["merry", "梅里雅达克·烈酒鹿", "宣誓效忠"], ["eowyn", "伊欧玟", "舅甥"], ["eomer", "伊欧墨", "舅甥与继位"], ["saruman", "萨鲁曼", "侵害与反抗"], ["wormtongue", "格里马·巧言", "谗言蒙蔽"], ["witchking", "安格玛巫王", "杀害"]]}, "eowyn": {"name": "伊欧玟", "role": "洛汗王室成员", "deeds": "渴望摆脱留守与等待的命运，化名德恩赫尔姆带梅里随军。她在梅里帮助下杀死巫王，重伤后于疗愈之院结识法拉米尔，逐渐选择救治与建设的未来。", "quote": "Éowyn", "camp": "洛汗", "campKey": "洛汗", "color": "#5a3a6b", "link": "lr21", "linkName": "不能被留下的人", "rel": [["merry", "梅里雅达克·烈酒鹿", "并肩对敌"], ["faramir", "法拉米尔", "爱侣"], ["theoden", "希优顿", "舅甥"], ["eomer", "伊欧墨", "兄妹"], ["witchking", "安格玛巫王", "被其杀死"]]}, "eomer": {"name": "伊欧墨", "role": "洛汗元帅与后继国王", "deeds": "在洛汗边境发现阿拉贡一行，与他们建立信任。他参加圣盔谷与佩兰诺的战事，继承希优顿的王位，继续维持洛汗同刚铎之间的盟约。", "quote": "Éomer", "camp": "洛汗", "campKey": "洛汗", "color": "#5a3a6b", "link": "lr21", "linkName": "不能被留下的人", "rel": [["theoden", "希优顿", "舅甥与继位"], ["eowyn", "伊欧玟", "兄妹"], ["aragorn", "阿拉贡", "盟约"]]}, "arwen": {"name": "阿尔温", "role": "埃尔隆德之女", "deeds": "与阿拉贡相爱，最终选择留在人类的命运之中。大战结束后与他在王城成婚；她的选择把精灵逐渐离去的时代，与人类王国重新开始的岁月连接起来。", "quote": "Arwen", "camp": "精灵", "campKey": "精灵", "color": "#1f5d57", "link": "lr31", "linkName": "归来的王与新的盟约", "rel": [["aragorn", "阿拉贡", "爱侣"], ["elrond", "埃尔隆德", "父女"]]}, "elrond": {"name": "埃尔隆德", "role": "瑞文戴尔领主", "deeds": "收容并救治佛罗多，主持决定毁戒方向的会议，也是阿拉贡成长中的庇护者、阿尔温的父亲。至尊魔戒毁灭后，精灵诸戒时代结束，他最终从灰港西去。", "quote": "Elrond", "camp": "精灵", "campKey": "精灵", "color": "#1f5d57", "link": "lr08", "linkName": "洪水隔开的追兵", "rel": [["aragorn", "阿拉贡", "养育与家族联结"], ["arwen", "阿尔温", "父女"], ["bilbo", "比尔博·巴金斯", "庇护"]]}, "galadriel": {"name": "凯兰崔尔", "role": "洛丝萝林的精灵领主", "deeds": "接待护戒队，以水镜与赠礼帮助远行者，也拒绝了获得至尊魔戒的诱惑。她给山姆的土壤与种子后来参与夏尔的修复，最终随精灵持戒者离开中洲。", "quote": "Galadriel", "camp": "精灵", "campKey": "精灵", "color": "#1f5d57", "link": "lr11", "linkName": "森林中的休憩与考验", "rel": [["frodo", "佛罗多·巴金斯", "考验与赠礼"], ["sam", "山姆怀斯·甘姆吉", "赠礼与修复"]]}, "gollum": {"name": "咕噜", "role": "斯密戈与魔戒旧主", "deeds": "长期持有魔戒而被扭曲，追随佛罗多后成为向导，善意与占有欲持续冲突。他把两名霍比特人带入尸罗巢穴，最后在末日火山夺回戒指，并与它一同坠入火焰。", "quote": "Gollum", "camp": "魔戒阴影", "campKey": "魔戒阴影", "color": "#a8823c", "link": "lr01", "linkName": "一枚保存着主人的戒指", "rel": [["frodo", "佛罗多·巴金斯", "持戒者与向导"], ["sam", "山姆怀斯·甘姆吉", "戒备与冲突"], ["shelob", "尸罗", "交易"]]}, "sauron": {"name": "索隆", "role": "魔多的统治者", "deeds": "铸造至尊魔戒并把大量力量投入其中，失去它后仍不断恢复势力。他以军队、恐惧与误导侵蚀对手，始终低估敌人会主动毁掉力量的可能，随魔戒毁灭而败亡。", "quote": "Sauron", "camp": "魔戒阴影", "campKey": "魔戒阴影", "color": "#a8823c", "link": "lr01", "linkName": "一枚保存着主人的戒指", "rel": [["gandalf", "甘道夫", "对抗"], ["saruman", "萨鲁曼", "利用与背叛"], ["isildur", "伊熙尔杜", "断指夺戒"]]}, "saruman": {"name": "萨鲁曼", "role": "背弃使命的巫师", "deeds": "起初研究魔戒、领导巫师，后来追逐统治力量，控制艾辛格并侵害洛汗。树人毁掉其基地后，他仍前往夏尔报复，最终在袋底洞被巧言杀死。", "quote": "Saruman", "camp": "魔戒阴影", "campKey": "魔戒阴影", "color": "#a8823c", "link": "lr13", "linkName": "逃进树人的世界", "rel": [["gandalf", "甘道夫", "同道决裂"], ["theoden", "希优顿", "侵害与反抗"], ["treebeard", "树胡", "攻陷艾辛格"], ["sauron", "索隆", "利用与背叛"], ["wormtongue", "格里马·巧言", "效忠"]]}, "treebeard": {"name": "树胡", "role": "法贡森林的树人", "deeds": "接纳逃亡中的梅里与皮平，得知森林遭掠夺后带树人进攻艾辛格。他摧毁萨鲁曼的机器和工场，却因不愿把任何生灵永远囚住而让失败的巫师离开。", "quote": "Treebeard", "camp": "森林", "campKey": "森林", "color": "#4a4a58", "link": "lr13", "linkName": "逃进树人的世界", "rel": [["merry", "梅里雅达克·烈酒鹿", "相遇与联结"], ["saruman", "萨鲁曼", "攻陷艾辛格"]]}, "wormtongue": {"name": "格里马·巧言", "role": "希优顿的谋臣 · 萨鲁曼的内应", "deeds": "萨鲁曼安插在洛汗的棋子，用谗言让希优顿意志消沉、国事荒废。甘道夫到来后他被逐出，最后在夏尔杀死萨鲁曼，自己也被弓箭射死。", "quote": "", "camp": "魔戒阴影", "campKey": "魔戒阴影", "color": "#a8823c", "link": "lr16", "linkName": "围城直到黎明", "rel": [["theoden", "希优顿", "谗言蒙蔽"], ["saruman", "萨鲁曼", "效忠"]]}, "shelob": {"name": "尸罗", "role": "西力斯昂哥的巨型蜘蛛", "deeds": "盘踞在通往魔多的隧道里，与咕噜有过交易。她用毒针麻痹佛罗多，山姆用刺针和凯兰崔尔的玻璃瓶才把她逼退。", "quote": "大蜘蛛", "camp": "魔戒阴影", "campKey": "魔戒阴影", "color": "#a8823c", "link": "lr22", "linkName": "通往尸罗的阶梯", "rel": [["gollum", "咕噜", "交易"], ["frodo", "佛罗多·巴金斯", "刺伤"]]}, "witchking": {"name": "安格玛巫王", "role": "戒灵之首", "deeds": "九戒灵的首领，在佩兰诺平原上击倒希优顿。他相信自己不会被男人杀死，最终死在伊欧玟与梅里联手之下。", "quote": "黑骑士", "camp": "魔戒阴影", "campKey": "魔戒阴影", "color": "#a8823c", "link": "lr16", "linkName": "围城直到黎明", "rel": [["theoden", "希优顿", "杀害"], ["eowyn", "伊欧玟", "被其杀死"]]}, "bombadil": {"name": "汤姆·邦巴迪尔", "role": "老林子里的歌者", "deeds": "中土最古老的居民之一，对魔戒毫无欲望，戴上它也不会隐身。他救了被老柳树困住的霍比特人，却明确表示不愿卷入任何战争。", "quote": "", "camp": "森林", "campKey": "森林", "color": "#4a4a58", "link": "lr04", "linkName": "走出熟悉的田野", "rel": [["frodo", "佛罗多·巴金斯", "搭救"]]}, "isildur": {"name": "伊熙尔杜", "role": "刚铎的旧王", "deeds": "在最后联盟之战中砍下索隆戴戒的手指，却因不舍得销毁而留下祸根。他在格拉顿平原被半兽人射死，魔戒沉入河底，两千年后才被找到。", "quote": "", "camp": "自由人民", "campKey": "自由人民", "color": "#7a5a38", "link": "lr01", "linkName": "一枚保存着主人的戒指", "rel": [["sauron", "索隆", "断指夺戒"], ["aragorn", "阿拉贡", "先祖"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

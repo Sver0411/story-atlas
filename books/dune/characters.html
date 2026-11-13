@@ -1,1 +1,750 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>沙丘 · 人物志 · 故事图谱</title><meta name="description" content="沙丘人物事迹与直接关系网"><meta name="theme-color" content="#f7f4ed"><link rel="stylesheet" href="../../assets/site.css"><style>:root{--accent:#986b39}</style></head><body><div class="progress" id="readingProgress" aria-hidden="true"></div><nav class="reader-nav" aria-label="主要导航"><div class="shell"><a class="reader-brand" href="../../index.html">故事图谱</a><div class="reader-tabs"><a href="index.html">时间线</a><a href="characters.html" class="on" aria-current="page">人物志</a><label><span class="sr-only">切换书籍</span><select class="book-switch" id="bookSwitch"><option value="../three-body/index.html">三体</option><option value="../monte-cristo/index.html">基督山伯爵</option><option value="../solitude/index.html">百年孤独</option><option value="../lotr/index.html">魔戒</option><option value="../dune/index.html" selected>沙丘</option><option value="../red-chamber/index.html">红楼梦</option></select></label></div></div></nav><main class="shell"><header class="people-head"><div class="eyebrow">沙丘 / 人物志</div><h1>循着人物，看见故事。</h1><p>22 位人物，40 组直接关系。事迹涵盖结局，沿关系切换人物时，可回到对应时间线。</p></header><div class="character-tools"><label><span class="sr-only">搜索人物</span><input id="personSearch" type="search" placeholder="搜索人物、别名或身份" autocomplete="off"></label><span class="result-count" id="peopleCount" aria-live="polite">22 位人物</span></div><section id="relationMap" style="scroll-margin-top:88px"><div class="graph-head"><h2>人物关系网</h2><button type="button" class="pill" id="resetGraph">全览关系</button></div><p class="graph-caption" id="graphCaption"></p><div class="relationship-layout"><div class="graph-frame"><svg class="relationship-graph" id="relationshipGraph" viewBox="0 0 900 650" role="group" aria-label="沙丘可交互人物关系网"></svg></div><aside class="person-detail" id="personDetail" aria-label="选中人物详情"><div class="eyebrow">人物关系</div><h2>从一个人开始</h2><p>点选图中的人物，沿着亲缘、同盟与冲突，了解故事如何发生。</p></aside></div></section><p class="empty" id="peopleEmpty" hidden>没有找到匹配人物，试试姓名或别名。</p><section class="people-group"><h2>厄崔迪</h2><div class="people-grid"><article class="person-card" id="p-paul" data-person="paul"><h3>保罗·厄崔迪</h3><p class="role">公爵继承人与穆阿迪布</p><p>雷托与杰西卡之子，接受贵族、门泰特与姐妹会训练。家族覆灭后进入弗雷曼部族，凭预知、战术和香料控制夺取皇权，也不断面对自己所激起的宗教战争可能失控的未来。</p><div class="card-actions"><button type="button" data-show-person="paul">查看关系 →</button><a href="index.html#du01">时间线 · 一份带着陷阱的封赏</a></div></article><article class="person-card" id="p-jessica" data-person="jessica"><h3>杰西卡</h3><p class="role">贝尼·杰瑟里特与弗雷曼圣母</p><p>雷托的伴侣，保罗与艾莉娅的母亲。她违背姐妹会安排生下儿子，教他身体与音言训练；逃亡后成为弗雷曼圣母，饮下生命之水时也使胎中的女儿提前觉醒。</p><div class="card-actions"><button type="button" data-show-person="jessica">查看关系 →</button><a href="index.html#du01">时间线 · 一份带着陷阱的封赏</a></div></article><article class="person-card" id="p-leto" data-person="leto"><h3>雷托·厄崔迪</h3><p class="role">厄崔迪公爵</p><p>接受皇帝命令接管厄拉科斯，明知危险仍试图依靠治理、军队与弗雷曼合作建立根基。他遭岳医生背叛，被俘后试图以毒牙杀死男爵，自己与彼得等人一同死于毒气。</p><div class="card-actions"><button type="button" data-show-person="leto">查看关系 →</button><a href="index.html#du01">时间线 · 一份带着陷阱的封赏</a></div></article><article class="person-card" id="p-yueh" data-person="yueh"><h3>威灵顿·岳</h3><p class="role">苏克医生</p><p>受哈克南以妻子旺娜的命运胁迫，破坏厄崔迪防御并交出公爵。他同时想借毒牙完成对男爵的复仇，并为保罗母子留出逃生物资，最终未能从交易中保住自己。</p><div class="card-actions"><button type="button" data-show-person="yueh">查看关系 →</button><a href="index.html#du03">时间线 · 男爵的安排</a></div></article><article class="person-card" id="p-hawat" data-person="hawat"><h3>瑟菲·哈瓦特</h3><p class="role">门泰特与安保负责人</p><p>长期为雷托服务，家族覆灭后被俘并受毒物控制。他被误导怀疑杰西卡，后来在哈克南内部寻找报复机会；最后拒绝刺杀保罗，以死亡结束自己被利用的处境。</p><div class="card-actions"><button type="button" data-show-person="hawat">查看关系 →</button><a href="index.html#du04">时间线 · 继承人的课程</a></div></article><article class="person-card" id="p-gurney" data-person="gurney"><h3>戈尼·哈莱克</h3><p class="role">武器大师与军官</p><p>训练保罗剑术，家族覆灭后与走私者一起生存。他重遇保罗后再度效忠，一度因错误情报怀疑并威胁杰西卡；真相澄清后，加入弗雷曼反攻，协助恢复家族力量。</p><div class="card-actions"><button type="button" data-show-person="gurney">查看关系 →</button><a href="index.html#du04">时间线 · 继承人的课程</a></div></article><article class="person-card" id="p-duncan" data-person="duncan"><h3>邓肯·艾达荷</h3><p class="role">剑士与弗雷曼联络者</p><p>雷托派去接触弗雷曼的军官，凭战斗能力与诚意建立联系。家族覆灭后帮助保罗和杰西卡逃亡，在生态实验站独自抵挡萨多卡，死于为两人争取逃生时间的战斗。</p><div class="card-actions"><button type="button" data-show-person="duncan">查看关系 →</button><a href="index.html#du13">时间线 · 邓肯守住出口</a></div></article><article class="person-card" id="p-alia" data-person="alia"><h3>艾莉娅·厄崔迪</h3><p class="role">胎中觉醒的女儿</p><p>杰西卡与雷托的女儿，母亲饮生命之水时在胎中获得记忆，出生后具有远超年龄的意识。她在南方突袭中被俘，最后用毒针杀死外祖父男爵，是第一部结局的直接行动者。</p><div class="card-actions"><button type="button" data-show-person="alia">查看关系 →</button><a href="index.html#du20">时间线 · 生命之水与未出生的孩子</a></div></article></div></section><section class="people-group"><h2>哈克南</h2><div class="people-grid"><article class="person-card" id="p-vladimir" data-person="vladimir"><h3>弗拉基米尔·哈克南</h3><p class="role">哈克南男爵</p><p>与皇帝秘密联手摧毁厄崔迪，用岳的妻子作为控制医生的手段。他安排拉班承担残暴统治的怨恨、费德继承成果；同时也是杰西卡的生父，最终被外孙女艾莉娅杀死。</p><div class="card-actions"><button type="button" data-show-person="vladimir">查看关系 →</button><a href="index.html#du01">时间线 · 一份带着陷阱的封赏</a></div></article><article class="person-card" id="p-piter" data-person="piter"><h3>彼得·德伏</h3><p class="role">哈克南门泰特</p><p>为男爵设计破坏厄崔迪的阴谋，以计算和操纵人心服务家族权力。他参与控制岳医生，也在雷托发动毒牙时身处现场，成为那次失败刺杀中被毒气杀死的人。</p><div class="card-actions"><button type="button" data-show-person="piter">查看关系 →</button><a href="index.html#du03">时间线 · 男爵的安排</a></div></article><article class="person-card" id="p-feyd" data-person="feyd"><h3>费德—罗萨·哈克南</h3><p class="role">男爵的继承人</p><p>男爵的侄子，在角斗、阴谋和权力教育中成长，被安排作为拉班之后的接班人。他在皇帝失势后的宫廷中与保罗进行决斗，试用隐藏毒招，最终被保罗杀死。</p><div class="card-actions"><button type="button" data-show-person="feyd">查看关系 →</button><a href="index.html#du03">时间线 · 男爵的安排</a></div></article><article class="person-card" id="p-rabban" data-person="rabban"><h3>格罗苏·拉班</h3><p class="role">厄拉科斯的残酷统治者</p><p>男爵的侄子、费德的兄长，奉命以高压方式榨取厄拉科斯资源。男爵打算让他耗尽当地人的容忍，再由费德收获改善统治的声誉；他的暴政也强化了弗雷曼抵抗。</p><div class="card-actions"><button type="button" data-show-person="rabban">查看关系 →</button><a href="index.html#du22">时间线 · 被利用的门泰特</a></div></article></div></section><section class="people-group"><h2>帝国</h2><div class="people-grid"><article class="person-card" id="p-shaddam" data-person="shaddam"><h3>沙达姆四世</h3><p class="role">帕迪沙皇帝</p><p>因雷托在贵族间的声望与军队实力而不安，秘密提供萨多卡支援哈克南。他在香料危机中亲赴厄拉科斯，最终面对弗雷曼的军事胜利和保罗的资源威胁，被迫接受失去皇权的条件。</p><div class="card-actions"><button type="button" data-show-person="shaddam">查看关系 →</button><a href="index.html#du01">时间线 · 一份带着陷阱的封赏</a></div></article><article class="person-card" id="p-irulan" data-person="irulan"><h3>伊如兰</h3><p class="role">皇帝之女与政治婚约者</p><p>沙达姆四世的女儿，受贝尼·杰瑟里特训练。第一部结尾，保罗要求与她结婚，以科瑞诺家族的血统联结为新权力取得合法性；小说各章题记也以她后来的著述回望这段历史。</p><div class="card-actions"><button type="button" data-show-person="irulan">查看关系 →</button><a href="index.html#du32">时间线 · 王位、婚约与无法收回的神话</a></div></article><article class="person-card" id="p-mohiam" data-person="mohiam"><h3>盖乌斯·海伦·莫希阿姆</h3><p class="role">贝尼·杰瑟里特圣母</p><p>曾训练杰西卡，并在迁居前以痛觉盒和毒针检验保罗。她维护姐妹会的育种与政治安排，却发现保罗的成长超出控制；在最后的宫廷中，也被艾莉娅的早熟意识震动。</p><div class="card-actions"><button type="button" data-show-person="mohiam">查看关系 →</button><a href="index.html#du02">时间线 · 盒子与毒针</a></div></article></div></section><section class="people-group"><h2>弗雷曼</h2><div class="people-grid"><article class="person-card" id="p-stilgar" data-person="stilgar"><h3>斯第尔格</h3><p class="role">塔布穴地首领</p><p>审视并接纳逃亡的保罗与杰西卡，教他们理解部族与沙漠生活。他从保罗的盟友逐渐成为穆阿迪布的追随者，在军事成功中协助统一部族，也体现信仰如何改变旧有的人际关系。</p><div class="card-actions"><button type="button" data-show-person="stilgar">查看关系 →</button><a href="index.html#du16">时间线 · 斯第尔格的判断</a></div></article><article class="person-card" id="p-chani" data-person="chani"><h3>契妮</h3><p class="role">弗雷曼战士与保罗伴侣</p><p>列特·凯恩斯之女，在沙漠中与保罗相识，成为他的伴侣并生下首个儿子。她协助他渡过生命之水后的昏迷，承受战争中的丧子之痛，第一部结尾仍留在保罗身边。</p><div class="card-actions"><button type="button" data-show-person="chani">查看关系 →</button><a href="index.html#du14">时间线 · 生态学家的死亡</a></div></article><article class="person-card" id="p-liet" data-person="liet"><h3>列特·凯恩斯</h3><p class="role">帝国行星学家与弗雷曼领袖</p><p>继承父亲改变厄拉科斯生态的长期理想，同时以帝国官员身份观察统治者。他因雷托救援采集工人而改变判断，后来帮助母子逃亡，最终被弃于荒漠并死于香料喷发。</p><div class="card-actions"><button type="button" data-show-person="liet">查看关系 →</button><a href="index.html#du07">时间线 · 舍弃香料救人</a></div></article><article class="person-card" id="p-jamis" data-person="jamis"><h3>贾米斯</h3><p class="role">向保罗发起决斗的战士</p><p>不愿接受斯第尔格对外来母子的安排，依照部族习俗发起挑战。他在决斗中被保罗杀死，葬礼、水的归还与遗属责任使保罗理解自己的第一场杀戮如何进入共同体生活。</p><div class="card-actions"><button type="button" data-show-person="jamis">查看关系 →</button><a href="index.html#du16">时间线 · 斯第尔格的判断</a></div></article><article class="person-card" id="p-harah" data-person="harah"><h3>哈拉</h3><p class="role">贾米斯的遗孀</p><p>贾米斯死后，她和孩子依部族规则成为保罗需要承担的责任。保罗没有选择以婚姻接纳她，她在他的家庭中提供照料，也帮助理解和保护具有异常成熟意识的艾莉娅。</p><div class="card-actions"><button type="button" data-show-person="harah">查看关系 →</button><a href="index.html#du18">时间线 · 献给死者的水</a></div></article><article class="person-card" id="p-ramallo" data-person="ramallo"><h3>拉玛罗</h3><p class="role">弗雷曼老圣母</p><p>在杰西卡接续圣母身份的仪式中，把自己的记忆传递给继承者。她承担的女性经验并非单个人的知识，生命之水让这种记忆继续传下去，也意外波及杰西卡胎中的艾莉娅。</p><div class="card-actions"><button type="button" data-show-person="ramallo">查看关系 →</button><a href="index.html#du20">时间线 · 生命之水与未出生的孩子</a></div></article><article class="person-card" id="p-mapes" data-person="mapes"><h3>沙杜特·梅普斯</h3><p class="role">厄拉肯的弗雷曼侍女</p><p>以侍女身份进入厄崔迪住所，通过隐语和晶牙匕首试探杰西卡。她的反应使杰西卡意识到，姐妹会播下的救世预言已经进入当地人的期待，也让新家族第一次接近弗雷曼的信仰。</p><div class="card-actions"><button type="button" data-show-person="mapes">查看关系 →</button><a href="index.html#du05">时间线 · 干旱世界中的预言</a></div></article></div></section><p class="sr-only" id="peopleLive" role="status" aria-live="polite"></p><section class="sources" id="sources"><div class="eyebrow">阅读范围与资料</div><h2>关于这份导读</h2><p>1965 年《沙丘》第一部小说，含三篇及帝国易手的结局</p><p>本页为第一部小说的完整剧透导读，所有文字为独立概述，不摘录人物引语。采用书中约两年的弗雷曼生活跨度；艾莉娅已经出生，幼子雷托死于突袭，契妮在结尾留在保罗身边。未写明确日期的节点采用阶段标签，不混用电影压缩后的时间线，也不提前写入后续小说结局。</p><ol><li id="source-du-novel"><a href="https://www.penguinrandomhouse.com/books/352036/dune-movie-tie-in-by-frank-herbert/" target="_blank" rel="noopener noreferrer">原著口径：弗兰克·赫伯特《沙丘》 ↗</a> · 限 1965 年第一部，含 Dune、Muad’Dib、The Prophet 三篇及术语说明。不扩入《沙丘救世主》、后续小说或电影增补。</li><li id="source-du-excerpt"><a href="https://sites.prh.com/dune/read-an-excerpt" target="_blank" rel="noopener noreferrer">出版社原文试读：迁居、毒针与继承者 ↗</a> · 核对保罗十五岁的开场、卡拉丹、帝国调任、莫希阿姆与杰西卡的关系，以及育种计划的初始线索。</li><li id="source-du-plot"><a href="https://dune.fandom.com/wiki/Dune_(novel)" target="_blank" rel="noopener noreferrer">《沙丘》小说人物与情节参考 ↗</a> · 辅助核对原著的阴谋、家族覆灭、弗雷曼时期与最后的宫廷顺序。各场景的依据是小说三篇，中文人名保留常用译名与英文检索别名。</li><li id="source-du-ecology"><a href="https://www.oreilly.com/tim/herbert/ch03.html" target="_blank" rel="noopener noreferrer">Tim O’Reilly：From Concept to Fable ↗</a> · 研究著作《Frank Herbert》第三章；核对水、蒸馏服、沙虫、香料与生态转型相互依赖的设定，以及凯恩斯的生态理想。</li><li id="source-du-hero"><a href="https://www.oreilly.com/tim/herbert/ch04.html" target="_blank" rel="noopener noreferrer">Tim O’Reilly：The Hero ↗</a> · 研究著作《Frank Herbert》第四章；用于核对主人公的训练、预知、救世叙事和失控风险。情节仍以第一部原著为准。</li><li id="source-du-ending"><a href="https://en.wikipedia.org/wiki/Dune_(novel)" target="_blank" rel="noopener noreferrer">《沙丘》第一部结局与改编差异 ↗</a> · 只核对小说部分：艾莉娅在第一部已经出生并杀死男爵；保罗击败费德，以香料威胁争取皇权，并提出与伊如兰结婚，契妮没有按电影情节离开。</li></ol><p>图片为依据情节生成的 AI 概念插图，人物外观与未明确规定的建筑细节属于视觉想象。</p></section><footer class="site-footer"><span>故事图谱 · 沿时间读故事，循关系看人物。</span><span>原创情节概述与 AI 场景插图 · <a href="../../index.html">返回书架</a></span></footer></main><script src="data.js"></script><script src="../../assets/reader.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>沙丘 · 人物志 | 23 个人物</title>
+<meta name="description" content="从卡拉丹的继承人到厄拉科斯的穆阿迪布，沿家族覆灭、荒漠求生与帝国易手，读懂水、香料、信仰和权力如何相互牵动。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:10px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.5;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.4px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+</style>
+<style>
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">弗兰克·赫伯特 / CHARACTERS</p>
+    <h1 class="big">沙丘 · 人物</h1>
+    <p class="deck">从卡拉丹的继承人到厄拉科斯的穆阿迪布，沿家族覆灭、荒漠求生与帝国易手，读懂水、香料、信仰和权力如何相互牵动。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="厄崔迪">厄崔迪</button><button class="fbtn" data-camp="哈克南">哈克南</button><button class="fbtn" data-camp="帝国">帝国</button><button class="fbtn" data-camp="弗雷曼">弗雷曼</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="沙丘人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="99" text-anchor="middle">厄崔迪</text>
+        <text class="gtag" x="845" y="356" text-anchor="middle">哈克南</text>
+        <text class="gtag" x="620" y="581" text-anchor="middle">帝国</text>
+        <text class="gtag" x="395" y="332" text-anchor="middle">弗雷曼</text></g>
+        <g class="links"><line class="plink" data-a="paul" data-b="jessica" x1="620" y1="121" x2="686" y2="149" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="leto" x1="620" y1="121" x2="714" y2="215" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jessica" data-b="leto" x1="686" y1="149" x2="714" y2="215" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="chani" x1="620" y1="121" x2="462" y2="386" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="alia" x1="620" y1="121" x2="554" y2="149" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jessica" data-b="alia" x1="686" y1="149" x2="554" y2="149" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="stilgar" x1="620" y1="121" x2="395" y2="354" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="jamis" x1="620" y1="121" x2="432" y2="517" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="harah" x1="620" y1="121" x2="358" y2="517" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="gurney" x1="620" y1="121" x2="554" y2="281" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="duncan" x1="620" y1="121" x2="526" y2="215" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="hawat" x1="620" y1="121" x2="620" y2="309" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="feyd" x1="620" y1="121" x2="845" y2="502" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="irulan" x1="620" y1="121" x2="682" y2="665" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="shaddam" x1="620" y1="121" x2="620" y2="603" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="vladimir" x1="620" y1="121" x2="845" y2="378" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jessica" data-b="vladimir" x1="686" y1="149" x2="845" y2="378" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jessica" data-b="mohiam" x1="686" y1="149" x2="620" y2="727" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="leto" data-b="hawat" x1="714" y1="215" x2="620" y2="309" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="leto" data-b="gurney" x1="714" y1="215" x2="554" y2="281" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="leto" data-b="duncan" x1="714" y1="215" x2="526" y2="215" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="leto" data-b="yueh" x1="714" y1="215" x2="686" y2="281" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yueh" data-b="vladimir" x1="686" y1="281" x2="845" y2="378" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="vladimir" data-b="piter" x1="845" y1="378" x2="907" y2="440" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="vladimir" data-b="feyd" x1="845" y1="378" x2="845" y2="502" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="vladimir" data-b="rabban" x1="845" y1="378" x2="783" y2="440" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="vladimir" data-b="shaddam" x1="845" y1="378" x2="620" y2="603" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="stilgar" data-b="chani" x1="395" y1="354" x2="462" y2="386" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="chani" data-b="liet" x1="462" y1="386" x2="479" y2="459" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="liet" data-b="leto" x1="479" y1="459" x2="714" y2="215" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="liet" data-b="stilgar" x1="479" y1="459" x2="395" y2="354" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jessica" data-b="ramallo" x1="686" y1="149" x2="311" y2="459" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jessica" data-b="mapes" x1="686" y1="149" x2="328" y2="386" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="alia" data-b="vladimir" x1="554" y1="149" x2="845" y2="378" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="chani" data-b="jessica" x1="462" y1="386" x2="686" y2="149" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="alia" data-b="harah" x1="554" y1="149" x2="358" y2="517" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="harah" data-b="jamis" x1="358" y1="517" x2="432" y2="517" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="paul" data-b="mohiam" x1="620" y1="121" x2="620" y2="727" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mohiam" data-b="shaddam" x1="620" y1="727" x2="620" y2="603" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="irulan" data-b="shaddam" x1="682" y1="665" x2="620" y2="603" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fenring" data-b="shaddam" x1="558" y1="665" x2="620" y2="603" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fenring" data-b="paul" x1="558" y1="665" x2="620" y2="121" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="nodes"><g class="pnode" data-id="paul" transform="translate(620,121)"><title>保罗·厄崔迪 · 公爵继承人与穆阿迪布</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">厄崔迪</text></g>
+        <g class="pnode" data-id="jessica" transform="translate(686,149)"><title>杰西卡 · 贝尼·杰瑟里特与弗雷曼圣母</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">杰西卡</text></g>
+        <g class="pnode" data-id="leto" transform="translate(714,215)"><title>雷托·厄崔迪 · 厄崔迪公爵</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">厄崔迪</text></g>
+        <g class="pnode" data-id="yueh" transform="translate(686,281)"><title>威灵顿·岳 · 苏克医生</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">岳</text></g>
+        <g class="pnode" data-id="hawat" transform="translate(620,309)"><title>瑟菲·哈瓦特 · 门泰特与安保负责人</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">哈瓦特</text></g>
+        <g class="pnode" data-id="gurney" transform="translate(554,281)"><title>戈尼·哈莱克 · 武器大师与军官</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">哈莱克</text></g>
+        <g class="pnode" data-id="duncan" transform="translate(526,215)"><title>邓肯·艾达荷 · 剑士与弗雷曼联络者</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">艾达荷</text></g>
+        <g class="pnode" data-id="vladimir" transform="translate(845,378)"><title>弗拉基米尔·哈克南 · 哈克南男爵</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">哈克南</text></g>
+        <g class="pnode" data-id="piter" transform="translate(907,440)"><title>彼得·德伏 · 哈克南门泰特</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">德伏</text></g>
+        <g class="pnode" data-id="feyd" transform="translate(845,502)"><title>费德—罗萨·哈克南 · 男爵的继承人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">哈克南</text></g>
+        <g class="pnode" data-id="rabban" transform="translate(783,440)"><title>格罗苏·拉班 · 厄拉科斯的残酷统治者</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">拉班</text></g>
+        <g class="pnode" data-id="shaddam" transform="translate(620,603)"><title>沙达姆四世 · 帕迪沙皇帝</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">沙达姆四世</text></g>
+        <g class="pnode" data-id="irulan" transform="translate(682,665)"><title>伊如兰 · 皇帝之女与政治婚约者</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">伊如兰</text></g>
+        <g class="pnode" data-id="mohiam" transform="translate(620,727)"><title>盖乌斯·海伦·莫希阿姆 · 贝尼·杰瑟里特圣母</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">莫希阿姆</text></g>
+        <g class="pnode" data-id="stilgar" transform="translate(395,354)"><title>斯第尔格 · 塔布穴地首领</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">斯第尔格</text></g>
+        <g class="pnode" data-id="chani" transform="translate(462,386)"><title>契妮 · 弗雷曼战士与保罗伴侣</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">契妮</text></g>
+        <g class="pnode" data-id="liet" transform="translate(479,459)"><title>列特·凯恩斯 · 帝国行星学家与弗雷曼领袖</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">凯恩斯</text></g>
+        <g class="pnode" data-id="jamis" transform="translate(432,517)"><title>贾米斯 · 向保罗发起决斗的战士</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾米斯</text></g>
+        <g class="pnode" data-id="harah" transform="translate(358,517)"><title>哈拉 · 贾米斯的遗孀</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">哈拉</text></g>
+        <g class="pnode" data-id="ramallo" transform="translate(311,459)"><title>拉玛罗 · 弗雷曼老圣母</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">拉玛罗</text></g>
+        <g class="pnode" data-id="alia" transform="translate(554,149)"><title>艾莉娅·厄崔迪 · 胎中觉醒的女儿</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">厄崔迪</text></g>
+        <g class="pnode" data-id="mapes" transform="translate(328,386)"><title>沙杜特·梅普斯 · 厄拉肯的弗雷曼侍女</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">梅普斯</text></g>
+        <g class="pnode" data-id="fenring" transform="translate(558,665)"><title>哈西米尔·芬伦 · 芬伦伯爵 · 皇帝的亲信</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">芬伦</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">厄崔迪</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-paul" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>保罗·厄崔迪</h3></div>
+        <p class="role">公爵继承人与穆阿迪布</p>
+        <p class="deeds">雷托与杰西卡之子，接受贵族、门泰特与姐妹会训练。家族覆灭后进入弗雷曼部族，凭预知、战术和香料控制夺取皇权，也不断面对自己所激起的宗教战争可能失控的未来。</p>
+        <a class="jump" href="index.html#du01">时间线 · 一份带着陷阱的封赏 →</a>
+      </article>
+      <article class="pcard" id="c-jessica" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>杰西卡</h3></div>
+        <p class="role">贝尼·杰瑟里特与弗雷曼圣母</p>
+        <p class="deeds">雷托的伴侣，保罗与艾莉娅的母亲。她违背姐妹会安排生下儿子，教他身体与音言训练；逃亡后成为弗雷曼圣母，饮下生命之水时也使胎中的女儿提前觉醒。</p>
+        <a class="jump" href="index.html#du01">时间线 · 一份带着陷阱的封赏 →</a>
+      </article>
+      <article class="pcard" id="c-leto" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>雷托·厄崔迪</h3></div>
+        <p class="role">厄崔迪公爵</p>
+        <p class="deeds">接受皇帝命令接管厄拉科斯，明知危险仍试图依靠治理、军队与弗雷曼合作建立根基。他遭岳医生背叛，被俘后试图以毒牙杀死男爵，自己与彼得等人一同死于毒气。</p>
+        <a class="jump" href="index.html#du01">时间线 · 一份带着陷阱的封赏 →</a>
+      </article>
+      <article class="pcard" id="c-yueh" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>威灵顿·岳</h3></div>
+        <p class="role">苏克医生</p>
+        <p class="deeds">受哈克南以妻子旺娜的命运胁迫，破坏厄崔迪防御并交出公爵。他同时想借毒牙完成对男爵的复仇，并为保罗母子留出逃生物资，最终未能从交易中保住自己。</p>
+        <a class="jump" href="index.html#du03">时间线 · 男爵的安排 →</a>
+      </article>
+      <article class="pcard" id="c-hawat" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>瑟菲·哈瓦特</h3></div>
+        <p class="role">门泰特与安保负责人</p>
+        <p class="deeds">长期为雷托服务，家族覆灭后被俘并受毒物控制。他被误导怀疑杰西卡，后来在哈克南内部寻找报复机会；最后拒绝刺杀保罗，以死亡结束自己被利用的处境。</p>
+        <a class="jump" href="index.html#du04">时间线 · 继承人的课程 →</a>
+      </article>
+      <article class="pcard" id="c-gurney" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>戈尼·哈莱克</h3></div>
+        <p class="role">武器大师与军官</p>
+        <p class="deeds">训练保罗剑术，家族覆灭后与走私者一起生存。他重遇保罗后再度效忠，一度因错误情报怀疑并威胁杰西卡；真相澄清后，加入弗雷曼反攻，协助恢复家族力量。</p>
+        <a class="jump" href="index.html#du04">时间线 · 继承人的课程 →</a>
+      </article>
+      <article class="pcard" id="c-duncan" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>邓肯·艾达荷</h3></div>
+        <p class="role">剑士与弗雷曼联络者</p>
+        <p class="deeds">雷托派去接触弗雷曼的军官，凭战斗能力与诚意建立联系。家族覆灭后帮助保罗和杰西卡逃亡，在生态实验站独自抵挡萨多卡，死于为两人争取逃生时间的战斗。</p>
+        <a class="jump" href="index.html#du13">时间线 · 邓肯守住出口 →</a>
+      </article>
+      <article class="pcard" id="c-alia" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>艾莉娅·厄崔迪</h3></div>
+        <p class="role">胎中觉醒的女儿</p>
+        <p class="deeds">杰西卡与雷托的女儿，母亲饮生命之水时在胎中获得记忆，出生后具有远超年龄的意识。她在南方突袭中被俘，最后用毒针杀死外祖父男爵，是第一部结局的直接行动者。</p>
+        <a class="jump" href="index.html#du20">时间线 · 生命之水与未出生的孩子 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">哈克南</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-vladimir" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>弗拉基米尔·哈克南</h3></div>
+        <p class="role">哈克南男爵</p>
+        <p class="deeds">与皇帝秘密联手摧毁厄崔迪，用岳的妻子作为控制医生的手段。他安排拉班承担残暴统治的怨恨、费德继承成果；同时也是杰西卡的生父，最终被外孙女艾莉娅杀死。</p>
+        <a class="jump" href="index.html#du01">时间线 · 一份带着陷阱的封赏 →</a>
+      </article>
+      <article class="pcard" id="c-piter" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>彼得·德伏</h3></div>
+        <p class="role">哈克南门泰特</p>
+        <p class="deeds">为男爵设计破坏厄崔迪的阴谋，以计算和操纵人心服务家族权力。他参与控制岳医生，也在雷托发动毒牙时身处现场，成为那次失败刺杀中被毒气杀死的人。</p>
+        <a class="jump" href="index.html#du03">时间线 · 男爵的安排 →</a>
+      </article>
+      <article class="pcard" id="c-feyd" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>费德—罗萨·哈克南</h3></div>
+        <p class="role">男爵的继承人</p>
+        <p class="deeds">男爵的侄子，在角斗、阴谋和权力教育中成长，被安排作为拉班之后的接班人。他在皇帝失势后的宫廷中与保罗进行决斗，试用隐藏毒招，最终被保罗杀死。</p>
+        <a class="jump" href="index.html#du03">时间线 · 男爵的安排 →</a>
+      </article>
+      <article class="pcard" id="c-rabban" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>格罗苏·拉班</h3></div>
+        <p class="role">厄拉科斯的残酷统治者</p>
+        <p class="deeds">男爵的侄子、费德的兄长，奉命以高压方式榨取厄拉科斯资源。男爵打算让他耗尽当地人的容忍，再由费德收获改善统治的声誉；他的暴政也强化了弗雷曼抵抗。</p>
+        <a class="jump" href="index.html#du22">时间线 · 被利用的门泰特 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">帝国</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-shaddam" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>沙达姆四世</h3></div>
+        <p class="role">帕迪沙皇帝</p>
+        <p class="deeds">因雷托在贵族间的声望与军队实力而不安，秘密提供萨多卡支援哈克南。他在香料危机中亲赴厄拉科斯，最终面对弗雷曼的军事胜利和保罗的资源威胁，被迫接受失去皇权的条件。</p>
+        <a class="jump" href="index.html#du01">时间线 · 一份带着陷阱的封赏 →</a>
+      </article>
+      <article class="pcard" id="c-irulan" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>伊如兰</h3></div>
+        <p class="role">皇帝之女与政治婚约者</p>
+        <p class="deeds">沙达姆四世的女儿，受贝尼·杰瑟里特训练。第一部结尾，保罗要求与她结婚，以科瑞诺家族的血统联结为新权力取得合法性；小说各章题记也以她后来的著述回望这段历史。</p>
+        <a class="jump" href="index.html#du32">时间线 · 王位、婚约与无法收回的神话 →</a>
+      </article>
+      <article class="pcard" id="c-mohiam" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>盖乌斯·海伦·莫希阿姆</h3></div>
+        <p class="role">贝尼·杰瑟里特圣母</p>
+        <p class="deeds">曾训练杰西卡，并在迁居前以痛觉盒和毒针检验保罗。她维护姐妹会的育种与政治安排，却发现保罗的成长超出控制；在最后的宫廷中，也被艾莉娅的早熟意识震动。</p>
+        <a class="jump" href="index.html#du02">时间线 · 盒子与毒针 →</a>
+      </article>
+      <article class="pcard" id="c-fenring" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>哈西米尔·芬伦</h3></div>
+        <p class="role">芬伦伯爵 · 皇帝的亲信</p>
+        <p class="deeds">皇帝最信任的使者，一个近乎门泰特水准的杀手。他奉命监视哈克南与厄崔迪，在结局中本可刺杀保罗，却因契妮的预言与自身的犹疑没有动手。</p>
+        <a class="jump" href="index.html#du31">时间线 · 最后的忠诚与决斗 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">弗雷曼</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-stilgar" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>斯第尔格</h3></div>
+        <p class="role">塔布穴地首领</p>
+        <p class="deeds">审视并接纳逃亡的保罗与杰西卡，教他们理解部族与沙漠生活。他从保罗的盟友逐渐成为穆阿迪布的追随者，在军事成功中协助统一部族，也体现信仰如何改变旧有的人际关系。</p>
+        <a class="jump" href="index.html#du16">时间线 · 斯第尔格的判断 →</a>
+      </article>
+      <article class="pcard" id="c-chani" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>契妮</h3></div>
+        <p class="role">弗雷曼战士与保罗伴侣</p>
+        <p class="deeds">列特·凯恩斯之女，在沙漠中与保罗相识，成为他的伴侣并生下首个儿子。她协助他渡过生命之水后的昏迷，承受战争中的丧子之痛，第一部结尾仍留在保罗身边。</p>
+        <a class="jump" href="index.html#du14">时间线 · 生态学家的死亡 →</a>
+      </article>
+      <article class="pcard" id="c-liet" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>列特·凯恩斯</h3></div>
+        <p class="role">帝国行星学家与弗雷曼领袖</p>
+        <p class="deeds">继承父亲改变厄拉科斯生态的长期理想，同时以帝国官员身份观察统治者。他因雷托救援采集工人而改变判断，后来帮助母子逃亡，最终被弃于荒漠并死于香料喷发。</p>
+        <a class="jump" href="index.html#du07">时间线 · 舍弃香料救人 →</a>
+      </article>
+      <article class="pcard" id="c-jamis" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>贾米斯</h3></div>
+        <p class="role">向保罗发起决斗的战士</p>
+        <p class="deeds">不愿接受斯第尔格对外来母子的安排，依照部族习俗发起挑战。他在决斗中被保罗杀死，葬礼、水的归还与遗属责任使保罗理解自己的第一场杀戮如何进入共同体生活。</p>
+        <a class="jump" href="index.html#du16">时间线 · 斯第尔格的判断 →</a>
+      </article>
+      <article class="pcard" id="c-harah" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>哈拉</h3></div>
+        <p class="role">贾米斯的遗孀</p>
+        <p class="deeds">贾米斯死后，她和孩子依部族规则成为保罗需要承担的责任。保罗没有选择以婚姻接纳她，她在他的家庭中提供照料，也帮助理解和保护具有异常成熟意识的艾莉娅。</p>
+        <a class="jump" href="index.html#du18">时间线 · 献给死者的水 →</a>
+      </article>
+      <article class="pcard" id="c-ramallo" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>拉玛罗</h3></div>
+        <p class="role">弗雷曼老圣母</p>
+        <p class="deeds">在杰西卡接续圣母身份的仪式中，把自己的记忆传递给继承者。她承担的女性经验并非单个人的知识，生命之水让这种记忆继续传下去，也意外波及杰西卡胎中的艾莉娅。</p>
+        <a class="jump" href="index.html#du20">时间线 · 生命之水与未出生的孩子 →</a>
+      </article>
+      <article class="pcard" id="c-mapes" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>沙杜特·梅普斯</h3></div>
+        <p class="role">厄拉肯的弗雷曼侍女</p>
+        <p class="deeds">以侍女身份进入厄崔迪住所，通过隐语和晶牙匕首试探杰西卡。她的反应使杰西卡意识到，姐妹会播下的救世预言已经进入当地人的期待，也让新家族第一次接近弗雷曼的信仰。</p>
+        <a class="jump" href="index.html#du05">时间线 · 干旱世界中的预言 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">沙丘 · 弗兰克·赫伯特</p>
+  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"paul": {"name": "保罗·厄崔迪", "role": "公爵继承人与穆阿迪布", "deeds": "雷托与杰西卡之子，接受贵族、门泰特与姐妹会训练。家族覆灭后进入弗雷曼部族，凭预知、战术和香料控制夺取皇权，也不断面对自己所激起的宗教战争可能失控的未来。", "quote": "Paul Atreides", "camp": "厄崔迪", "campKey": "厄崔迪", "color": "#8c2b26", "link": "du01", "linkName": "一份带着陷阱的封赏", "rel": [["jessica", "杰西卡", "母子"], ["leto", "雷托·厄崔迪", "父子"], ["chani", "契妮", "伴侣"], ["alia", "艾莉娅·厄崔迪", "兄妹"], ["stilgar", "斯第尔格", "盟友与追随"], ["jamis", "贾米斯", "决斗"], ["harah", "哈拉", "承担遗属责任"], ["gurney", "戈尼·哈莱克", "师徒与效忠"], ["duncan", "邓肯·艾达荷", "训练与保护"], ["hawat", "瑟菲·哈瓦特", "师徒与效忠"], ["feyd", "费德—罗萨·哈克南", "决斗"], ["irulan", "伊如兰", "政治婚约"], ["shaddam", "沙达姆四世", "夺取皇权"], ["vladimir", "弗拉基米尔·哈克南", "血缘与仇敌"], ["mohiam", "盖乌斯·海伦·莫希阿姆", "检验与对抗"], ["fenring", "哈西米尔·芬伦", "奉命刺杀"]]}, "jessica": {"name": "杰西卡", "role": "贝尼·杰瑟里特与弗雷曼圣母", "deeds": "雷托的伴侣，保罗与艾莉娅的母亲。她违背姐妹会安排生下儿子，教他身体与音言训练；逃亡后成为弗雷曼圣母，饮下生命之水时也使胎中的女儿提前觉醒。", "quote": "Lady Jessica", "camp": "厄崔迪", "campKey": "厄崔迪", "color": "#8c2b26", "link": "du01", "linkName": "一份带着陷阱的封赏", "rel": [["paul", "保罗·厄崔迪", "母子"], ["leto", "雷托·厄崔迪", "伴侣"], ["alia", "艾莉娅·厄崔迪", "母女"], ["vladimir", "弗拉基米尔·哈克南", "父女"], ["mohiam", "盖乌斯·海伦·莫希阿姆", "训练与分歧"], ["ramallo", "拉玛罗", "圣母传承"], ["mapes", "沙杜特·梅普斯", "试探与预言"], ["chani", "契妮", "家庭与盟友"]]}, "leto": {"name": "雷托·厄崔迪", "role": "厄崔迪公爵", "deeds": "接受皇帝命令接管厄拉科斯，明知危险仍试图依靠治理、军队与弗雷曼合作建立根基。他遭岳医生背叛，被俘后试图以毒牙杀死男爵，自己与彼得等人一同死于毒气。", "quote": "Duke Leto", "camp": "厄崔迪", "campKey": "厄崔迪", "color": "#8c2b26", "link": "du01", "linkName": "一份带着陷阱的封赏", "rel": [["paul", "保罗·厄崔迪", "父子"], ["jessica", "杰西卡", "伴侣"], ["hawat", "瑟菲·哈瓦特", "君臣"], ["gurney", "戈尼·哈莱克", "君臣"], ["duncan", "邓肯·艾达荷", "君臣"], ["yueh", "威灵顿·岳", "背叛与补偿"], ["liet", "列特·凯恩斯", "观察与援助"]]}, "yueh": {"name": "威灵顿·岳", "role": "苏克医生", "deeds": "受哈克南以妻子旺娜的命运胁迫，破坏厄崔迪防御并交出公爵。他同时想借毒牙完成对男爵的复仇，并为保罗母子留出逃生物资，最终未能从交易中保住自己。", "quote": "Wellington Yueh", "camp": "厄崔迪", "campKey": "厄崔迪", "color": "#8c2b26", "link": "du03", "linkName": "男爵的安排", "rel": [["leto", "雷托·厄崔迪", "背叛与补偿"], ["vladimir", "弗拉基米尔·哈克南", "胁迫与复仇"]]}, "hawat": {"name": "瑟菲·哈瓦特", "role": "门泰特与安保负责人", "deeds": "长期为雷托服务，家族覆灭后被俘并受毒物控制。他被误导怀疑杰西卡，后来在哈克南内部寻找报复机会；最后拒绝刺杀保罗，以死亡结束自己被利用的处境。", "quote": "Thufir Hawat", "camp": "厄崔迪", "campKey": "厄崔迪", "color": "#8c2b26", "link": "du04", "linkName": "继承人的课程", "rel": [["paul", "保罗·厄崔迪", "师徒与效忠"], ["leto", "雷托·厄崔迪", "君臣"]]}, "gurney": {"name": "戈尼·哈莱克", "role": "武器大师与军官", "deeds": "训练保罗剑术，家族覆灭后与走私者一起生存。他重遇保罗后再度效忠，一度因错误情报怀疑并威胁杰西卡；真相澄清后，加入弗雷曼反攻，协助恢复家族力量。", "quote": "Gurney Halleck", "camp": "厄崔迪", "campKey": "厄崔迪", "color": "#8c2b26", "link": "du04", "linkName": "继承人的课程", "rel": [["paul", "保罗·厄崔迪", "师徒与效忠"], ["leto", "雷托·厄崔迪", "君臣"]]}, "duncan": {"name": "邓肯·艾达荷", "role": "剑士与弗雷曼联络者", "deeds": "雷托派去接触弗雷曼的军官，凭战斗能力与诚意建立联系。家族覆灭后帮助保罗和杰西卡逃亡，在生态实验站独自抵挡萨多卡，死于为两人争取逃生时间的战斗。", "quote": "Duncan Idaho", "camp": "厄崔迪", "campKey": "厄崔迪", "color": "#8c2b26", "link": "du13", "linkName": "邓肯守住出口", "rel": [["paul", "保罗·厄崔迪", "训练与保护"], ["leto", "雷托·厄崔迪", "君臣"]]}, "vladimir": {"name": "弗拉基米尔·哈克南", "role": "哈克南男爵", "deeds": "与皇帝秘密联手摧毁厄崔迪，用岳的妻子作为控制医生的手段。他安排拉班承担残暴统治的怨恨、费德继承成果；同时也是杰西卡的生父，最终被外孙女艾莉娅杀死。", "quote": "Baron Harkonnen", "camp": "哈克南", "campKey": "哈克南", "color": "#7a5a38", "link": "du01", "linkName": "一份带着陷阱的封赏", "rel": [["paul", "保罗·厄崔迪", "血缘与仇敌"], ["jessica", "杰西卡", "父女"], ["yueh", "威灵顿·岳", "胁迫与复仇"], ["piter", "彼得·德伏", "谋划与雇佣"], ["feyd", "费德—罗萨·哈克南", "叔侄与继承"], ["rabban", "格罗苏·拉班", "叔侄与利用"], ["shaddam", "沙达姆四世", "秘密同谋"], ["alia", "艾莉娅·厄崔迪", "杀害"]]}, "piter": {"name": "彼得·德伏", "role": "哈克南门泰特", "deeds": "为男爵设计破坏厄崔迪的阴谋，以计算和操纵人心服务家族权力。他参与控制岳医生，也在雷托发动毒牙时身处现场，成为那次失败刺杀中被毒气杀死的人。", "quote": "Piter de Vries", "camp": "哈克南", "campKey": "哈克南", "color": "#7a5a38", "link": "du03", "linkName": "男爵的安排", "rel": [["vladimir", "弗拉基米尔·哈克南", "谋划与雇佣"]]}, "feyd": {"name": "费德—罗萨·哈克南", "role": "男爵的继承人", "deeds": "男爵的侄子，在角斗、阴谋和权力教育中成长，被安排作为拉班之后的接班人。他在皇帝失势后的宫廷中与保罗进行决斗，试用隐藏毒招，最终被保罗杀死。", "quote": "Feyd-Rautha", "camp": "哈克南", "campKey": "哈克南", "color": "#7a5a38", "link": "du03", "linkName": "男爵的安排", "rel": [["paul", "保罗·厄崔迪", "决斗"], ["vladimir", "弗拉基米尔·哈克南", "叔侄与继承"]]}, "rabban": {"name": "格罗苏·拉班", "role": "厄拉科斯的残酷统治者", "deeds": "男爵的侄子、费德的兄长，奉命以高压方式榨取厄拉科斯资源。男爵打算让他耗尽当地人的容忍，再由费德收获改善统治的声誉；他的暴政也强化了弗雷曼抵抗。", "quote": "Glossu Rabban", "camp": "哈克南", "campKey": "哈克南", "color": "#7a5a38", "link": "du22", "linkName": "被利用的门泰特", "rel": [["vladimir", "弗拉基米尔·哈克南", "叔侄与利用"]]}, "shaddam": {"name": "沙达姆四世", "role": "帕迪沙皇帝", "deeds": "因雷托在贵族间的声望与军队实力而不安，秘密提供萨多卡支援哈克南。他在香料危机中亲赴厄拉科斯，最终面对弗雷曼的军事胜利和保罗的资源威胁，被迫接受失去皇权的条件。", "quote": "Shaddam IV", "camp": "帝国", "campKey": "帝国", "color": "#2f4a6b", "link": "du01", "linkName": "一份带着陷阱的封赏", "rel": [["paul", "保罗·厄崔迪", "夺取皇权"], ["vladimir", "弗拉基米尔·哈克南", "秘密同谋"], ["mohiam", "盖乌斯·海伦·莫希阿姆", "顾问"], ["irulan", "伊如兰", "父女"], ["fenring", "哈西米尔·芬伦", "亲信"]]}, "irulan": {"name": "伊如兰", "role": "皇帝之女与政治婚约者", "deeds": "沙达姆四世的女儿，受贝尼·杰瑟里特训练。第一部结尾，保罗要求与她结婚，以科瑞诺家族的血统联结为新权力取得合法性；小说各章题记也以她后来的著述回望这段历史。", "quote": "Princess Irulan", "camp": "帝国", "campKey": "帝国", "color": "#2f4a6b", "link": "du32", "linkName": "王位、婚约与无法收回的神话", "rel": [["paul", "保罗·厄崔迪", "政治婚约"], ["shaddam", "沙达姆四世", "父女"]]}, "mohiam": {"name": "盖乌斯·海伦·莫希阿姆", "role": "贝尼·杰瑟里特圣母", "deeds": "曾训练杰西卡，并在迁居前以痛觉盒和毒针检验保罗。她维护姐妹会的育种与政治安排，却发现保罗的成长超出控制；在最后的宫廷中，也被艾莉娅的早熟意识震动。", "quote": "Gaius Helen Mohiam", "camp": "帝国", "campKey": "帝国", "color": "#2f4a6b", "link": "du02", "linkName": "盒子与毒针", "rel": [["jessica", "杰西卡", "训练与分歧"], ["paul", "保罗·厄崔迪", "检验与对抗"], ["shaddam", "沙达姆四世", "顾问"]]}, "stilgar": {"name": "斯第尔格", "role": "塔布穴地首领", "deeds": "审视并接纳逃亡的保罗与杰西卡，教他们理解部族与沙漠生活。他从保罗的盟友逐渐成为穆阿迪布的追随者，在军事成功中协助统一部族，也体现信仰如何改变旧有的人际关系。", "quote": "Stilgar", "camp": "弗雷曼", "campKey": "弗雷曼", "color": "#5a3a6b", "link": "du16", "linkName": "斯第尔格的判断", "rel": [["paul", "保罗·厄崔迪", "盟友与追随"], ["chani", "契妮", "同族与作战"], ["liet", "列特·凯恩斯", "共同生态理想"]]}, "chani": {"name": "契妮", "role": "弗雷曼战士与保罗伴侣", "deeds": "列特·凯恩斯之女，在沙漠中与保罗相识，成为他的伴侣并生下首个儿子。她协助他渡过生命之水后的昏迷，承受战争中的丧子之痛，第一部结尾仍留在保罗身边。", "quote": "Chani", "camp": "弗雷曼", "campKey": "弗雷曼", "color": "#5a3a6b", "link": "du14", "linkName": "生态学家的死亡", "rel": [["paul", "保罗·厄崔迪", "伴侣"], ["stilgar", "斯第尔格", "同族与作战"], ["liet", "列特·凯恩斯", "父女"], ["jessica", "杰西卡", "家庭与盟友"]]}, "liet": {"name": "列特·凯恩斯", "role": "帝国行星学家与弗雷曼领袖", "deeds": "继承父亲改变厄拉科斯生态的长期理想，同时以帝国官员身份观察统治者。他因雷托救援采集工人而改变判断，后来帮助母子逃亡，最终被弃于荒漠并死于香料喷发。", "quote": "Liet-Kynes", "camp": "弗雷曼", "campKey": "弗雷曼", "color": "#5a3a6b", "link": "du07", "linkName": "舍弃香料救人", "rel": [["chani", "契妮", "父女"], ["leto", "雷托·厄崔迪", "观察与援助"], ["stilgar", "斯第尔格", "共同生态理想"]]}, "jamis": {"name": "贾米斯", "role": "向保罗发起决斗的战士", "deeds": "不愿接受斯第尔格对外来母子的安排，依照部族习俗发起挑战。他在决斗中被保罗杀死，葬礼、水的归还与遗属责任使保罗理解自己的第一场杀戮如何进入共同体生活。", "quote": "Jamis", "camp": "弗雷曼", "campKey": "弗雷曼", "color": "#5a3a6b", "link": "du16", "linkName": "斯第尔格的判断", "rel": [["paul", "保罗·厄崔迪", "决斗"], ["harah", "哈拉", "遗孀"]]}, "harah": {"name": "哈拉", "role": "贾米斯的遗孀", "deeds": "贾米斯死后，她和孩子依部族规则成为保罗需要承担的责任。保罗没有选择以婚姻接纳她，她在他的家庭中提供照料，也帮助理解和保护具有异常成熟意识的艾莉娅。", "quote": "Harah", "camp": "弗雷曼", "campKey": "弗雷曼", "color": "#5a3a6b", "link": "du18", "linkName": "献给死者的水", "rel": [["paul", "保罗·厄崔迪", "承担遗属责任"], ["alia", "艾莉娅·厄崔迪", "照料"], ["jamis", "贾米斯", "遗孀"]]}, "ramallo": {"name": "拉玛罗", "role": "弗雷曼老圣母", "deeds": "在杰西卡接续圣母身份的仪式中，把自己的记忆传递给继承者。她承担的女性经验并非单个人的知识，生命之水让这种记忆继续传下去，也意外波及杰西卡胎中的艾莉娅。", "quote": "Ramallo", "camp": "弗雷曼", "campKey": "弗雷曼", "color": "#5a3a6b", "link": "du20", "linkName": "生命之水与未出生的孩子", "rel": [["jessica", "杰西卡", "圣母传承"]]}, "alia": {"name": "艾莉娅·厄崔迪", "role": "胎中觉醒的女儿", "deeds": "杰西卡与雷托的女儿，母亲饮生命之水时在胎中获得记忆，出生后具有远超年龄的意识。她在南方突袭中被俘，最后用毒针杀死外祖父男爵，是第一部结局的直接行动者。", "quote": "Alia", "camp": "厄崔迪", "campKey": "厄崔迪", "color": "#8c2b26", "link": "du20", "linkName": "生命之水与未出生的孩子", "rel": [["paul", "保罗·厄崔迪", "兄妹"], ["jessica", "杰西卡", "母女"], ["vladimir", "弗拉基米尔·哈克南", "杀害"], ["harah", "哈拉", "照料"]]}, "mapes": {"name": "沙杜特·梅普斯", "role": "厄拉肯的弗雷曼侍女", "deeds": "以侍女身份进入厄崔迪住所，通过隐语和晶牙匕首试探杰西卡。她的反应使杰西卡意识到，姐妹会播下的救世预言已经进入当地人的期待，也让新家族第一次接近弗雷曼的信仰。", "quote": "Shadout Mapes", "camp": "弗雷曼", "campKey": "弗雷曼", "color": "#5a3a6b", "link": "du05", "linkName": "干旱世界中的预言", "rel": [["jessica", "杰西卡", "试探与预言"]]}, "fenring": {"name": "哈西米尔·芬伦", "role": "芬伦伯爵 · 皇帝的亲信", "deeds": "皇帝最信任的使者，一个近乎门泰特水准的杀手。他奉命监视哈克南与厄崔迪，在结局中本可刺杀保罗，却因契妮的预言与自身的犹疑没有动手。", "quote": "", "camp": "帝国", "campKey": "帝国", "color": "#2f4a6b", "link": "du31", "linkName": "最后的忠诚与决斗", "rel": [["shaddam", "沙达姆四世", "亲信"], ["paul", "保罗·厄崔迪", "奉命刺杀"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

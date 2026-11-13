@@ -1,1 +1,820 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>基督山伯爵 · 人物志 · 故事图谱</title><meta name="description" content="基督山伯爵人物事迹与直接关系网"><meta name="theme-color" content="#f7f4ed"><link rel="stylesheet" href="../../assets/site.css"><style>:root{--accent:#7a4d35}</style></head><body><div class="progress" id="readingProgress" aria-hidden="true"></div><nav class="reader-nav" aria-label="主要导航"><div class="shell"><a class="reader-brand" href="../../index.html">故事图谱</a><div class="reader-tabs"><a href="index.html">时间线</a><a href="characters.html" class="on" aria-current="page">人物志</a><label><span class="sr-only">切换书籍</span><select class="book-switch" id="bookSwitch"><option value="../three-body/index.html">三体</option><option value="../monte-cristo/index.html" selected>基督山伯爵</option><option value="../solitude/index.html">百年孤独</option><option value="../lotr/index.html">魔戒</option><option value="../dune/index.html">沙丘</option><option value="../red-chamber/index.html">红楼梦</option></select></label></div></div></nav><main class="shell"><header class="people-head"><div class="eyebrow">基督山伯爵 / 人物志</div><h1>循着人物，看见故事。</h1><p>24 位人物，40 组直接关系。事迹涵盖结局，沿关系切换人物时，可回到对应时间线。</p></header><div class="character-tools"><label><span class="sr-only">搜索人物</span><input id="personSearch" type="search" placeholder="搜索人物、别名或身份" autocomplete="off"></label><span class="result-count" id="peopleCount" aria-live="polite">24 位人物</span></div><section id="relationMap" style="scroll-margin-top:88px"><div class="graph-head"><h2>人物关系网</h2><button type="button" class="pill" id="resetGraph">全览关系</button></div><p class="graph-caption" id="graphCaption"></p><div class="relationship-layout"><div class="graph-frame"><svg class="relationship-graph" id="relationshipGraph" viewBox="0 0 900 650" role="group" aria-label="基督山伯爵可交互人物关系网"></svg></div><aside class="person-detail" id="personDetail" aria-label="选中人物详情"><div class="eyebrow">人物关系</div><h2>从一个人开始</h2><p>点选图中的人物，沿着亲缘、同盟与冲突，了解故事如何发生。</p></aside></div></section><p class="empty" id="peopleEmpty" hidden>没有找到匹配人物，试试姓名或别名。</p><section class="people-group"><h2>归来者</h2><div class="people-grid"><article class="person-card" id="p-edmond" data-person="edmond"><h3>爱德蒙·唐泰斯</h3><p class="role">水手 · 基督山伯爵</p><p>因匿名告密和司法自保被囚伊夫堡，获法里亚教育与宝藏后重返社会。他以多个身份调查、报恩与复仇，最终因无辜者之死反思惩罚的边界，并选择保留重新生活的可能。</p><div class="card-actions"><button type="button" data-show-person="edmond">查看关系 →</button><a href="index.html#mc01">时间线 · 法老号归来</a></div></article><article class="person-card" id="p-haydee" data-person="haydee"><h3>海黛</h3><p class="role">阿里帕夏之女</p><p>幼年因费尔南的背叛失去家园，被卖为奴隶，后来受到伯爵保护。她以个人记忆与证据指认莫尔塞夫的罪行；结尾向伯爵表达爱情，与他离开，获得继续书写人生的空间。</p><div class="card-actions"><button type="button" data-show-person="haydee">查看关系 →</button><a href="index.html#mc09">时间线 · 海黛的故国</a></div></article></div></section><section class="people-group"><h2>马赛与莫尔塞夫家</h2><div class="people-grid"><article class="person-card" id="p-mercedes" data-person="mercedes"><h3>梅尔塞苔丝</h3><p class="role">唐泰斯的旧日未婚妻</p><p>长期等不到唐泰斯后嫁给费尔南，成为阿尔贝的母亲。她认出归来的唐泰斯，为儿子请求宽恕；真相公开后放弃丈夫的财富，与儿子离开被谎言支撑的家庭生活。</p><div class="card-actions"><button type="button" data-show-person="mercedes">查看关系 →</button><a href="index.html#mc01">时间线 · 法老号归来</a></div></article><article class="person-card" id="p-fernand" data-person="fernand"><h3>费尔南·蒙德戈</h3><p class="role">莫尔塞夫伯爵</p><p>出于对梅尔塞苔丝的占有欲参与告密，后来凭军旅与背叛积累财富。海黛揭露他出卖阿里帕夏一家的过去，妻儿离开后，他面对唐泰斯的真实身份而自杀。</p><div class="card-actions"><button type="button" data-show-person="fernand">查看关系 →</button><a href="index.html#mc01">时间线 · 法老号归来</a></div></article><article class="person-card" id="p-albert" data-person="albert"><h3>阿尔贝·德·莫尔塞夫</h3><p class="role">费尔南与梅尔塞苔丝之子</p><p>在罗马得到伯爵营救，将其介绍到巴黎。父亲受指控后他一度提出决斗，了解唐泰斯遭遇后转而道歉，并与母亲放弃不义之财，尝试以自己的劳动与行动重新生活。</p><div class="card-actions"><button type="button" data-show-person="albert">查看关系 →</button><a href="index.html#mc16">时间线 · 东方来的陌生人</a></div></article><article class="person-card" id="p-louis" data-person="louis"><h3>老唐泰斯</h3><p class="role">爱德蒙的父亲</p><p>依靠微薄生活等待出海的儿子归来，在唐泰斯被捕后失去支柱。莫雷尔曾给予帮助，却未能挽回他的衰败与死亡；伯爵后来让唐格拉尔体会饥饿时，仍记着父亲的遭遇。</p><div class="card-actions"><button type="button" data-show-person="louis">查看关系 →</button><a href="index.html#mc01">时间线 · 法老号归来</a></div></article></div></section><section class="people-group"><h2>唐格拉尔家</h2><div class="people-grid"><article class="person-card" id="p-danglars" data-person="danglars"><h3>唐格拉尔</h3><p class="role">银行家 · 告密信的策划者</p><p>早年因嫉妒写下诬告唐泰斯的信，后来成为富有的银行家。他把信用、行情和女儿婚事作为逐利手段，却被同一套机制拖入破产，最终在饥饿中得到伯爵的赦免。</p><div class="card-actions"><button type="button" data-show-person="danglars">查看关系 →</button><a href="index.html#mc01">时间线 · 法老号归来</a></div></article><article class="person-card" id="p-eugenie" data-person="eugenie"><h3>欧仁妮·唐格拉尔</h3><p class="role">唐格拉尔之女 · 音乐爱好者</p><p>不愿按父亲利益接受婚姻安排，与音乐伙伴路易丝亲近。阿尔贝与假卡瓦尔坎蒂先后成为拟议婚配对象，婚约危机中她选择乔装出走，以艺术与独立生活摆脱家庭交易。</p><div class="card-actions"><button type="button" data-show-person="eugenie">查看关系 →</button><a href="index.html#mc23">时间线 · 假贵族登场</a></div></article><article class="person-card" id="p-louise" data-person="louise"><h3>路易丝·达米伊</h3><p class="role">欧仁妮的音乐伙伴</p><p>与欧仁妮共同练习和规划未来，在对方准备逃离婚姻交易时同行。两人乔装离开巴黎，路易丝所代表的共同生活与音乐事业，为欧仁妮提供了家族安排之外的选择。</p><div class="card-actions"><button type="button" data-show-person="louise">查看关系 →</button><a href="index.html#mc31">时间线 · 欧仁妮选择离开</a></div></article></div></section><section class="people-group"><h2>维尔福家</h2><div class="people-grid"><article class="person-card" id="p-villefort" data-person="villefort"><h3>热拉尔·德·维尔福</h3><p class="role">检察官</p><p>为掩护父亲的政治秘密牺牲无辜的唐泰斯，也企图抹去自己的私生子。他在贝内代托受审时被揭为生父，随后面对妻儿死亡而精神崩溃，司法身份没有保护他免于往事。</p><div class="card-actions"><button type="button" data-show-person="villefort">查看关系 →</button><a href="index.html#mc04">时间线 · 被烧毁的信</a></div></article><article class="person-card" id="p-heloise" data-person="heloise"><h3>埃洛伊丝·德·维尔福</h3><p class="role">维尔福的第二任妻子</p><p>希望让儿子爱德华独占家产，利用毒药清除继承障碍。罪行被丈夫识破后，她自尽并毒死儿子；这一结局使伯爵直面惩罚外溢到无辜者身上的后果。</p><div class="card-actions"><button type="button" data-show-person="heloise">查看关系 →</button><a href="index.html#mc26">时间线 · 毒药进入家庭</a></div></article><article class="person-card" id="p-valentine" data-person="valentine"><h3>瓦朗蒂娜·德·维尔福</h3><p class="role">维尔福之女</p><p>与马克西米利安相爱，却受家庭婚约约束，依靠祖父努瓦蒂埃争取选择。家中毒案使她成为目标，伯爵安排假死并秘密救走她，结尾她与爱人重逢，摆脱家族利益的争夺。</p><div class="card-actions"><button type="button" data-show-person="valentine">查看关系 →</button><a href="index.html#mc22">时间线 · 隔墙相爱的年轻人</a></div></article><article class="person-card" id="p-noirtier" data-person="noirtier"><h3>努瓦蒂埃</h3><p class="role">维尔福之父</p><p>旧日政治活动家，虽瘫痪且失语，仍能以眼神表达明确意志。他保护孙女瓦朗蒂娜，并用关于弗朗兹父亲的旧记录阻止强迫婚约；唐泰斯当年送信的对象也是他。</p><div class="card-actions"><button type="button" data-show-person="noirtier">查看关系 →</button><a href="index.html#mc04">时间线 · 被烧毁的信</a></div></article><article class="person-card" id="p-edouard" data-person="edouard"><h3>爱德华·德·维尔福</h3><p class="role">维尔福与埃洛伊丝之子</p><p>受到母亲偏爱，也是她争夺遗产的理由。他曾在马车事故中获救，最后却死于母亲的毒药；这个孩子并不承担父辈的罪过，他的死亡成为伯爵反思复仇的重要转折。</p><div class="card-actions"><button type="button" data-show-person="edouard">查看关系 →</button><a href="index.html#mc26">时间线 · 毒药进入家庭</a></div></article></div></section><section class="people-group"><h2>旧日证人</h2><div class="people-grid"><article class="person-card" id="p-caderousse" data-person="caderousse"><h3>卡德鲁斯</h3><p class="role">唐泰斯的旧邻</p><p>知道告密阴谋却未有效阻止，后来向化身神甫的唐泰斯说明真相。他因钻石再陷贪婪与犯罪，又以贝内代托的秘密勒索，最终被后者刺杀，并在临终时认出唐泰斯。</p><div class="card-actions"><button type="button" data-show-person="caderousse">查看关系 →</button><a href="index.html#mc02">时间线 · 匿名告密</a></div></article><article class="person-card" id="p-bertuccio" data-person="bertuccio"><h3>贝尔图乔</h3><p class="role">伯爵的管家</p><p>因兄长遭害向维尔福寻仇，刺伤对方时意外救出被埋的婴儿，随后收养贝内代托。他也见证卡德鲁斯客栈的犯罪，是把奥特伊旧事与巴黎复仇联系起来的关键证人。</p><div class="card-actions"><button type="button" data-show-person="bertuccio">查看关系 →</button><a href="index.html#mc06">时间线 · 被埋下的孩子</a></div></article></div></section><section class="people-group"><h2>伊夫堡</h2><div class="people-grid"><article class="person-card" id="p-faria" data-person="faria"><h3>法里亚神甫</h3><p class="role">伊夫堡囚徒 · 唐泰斯的导师</p><p>在错误的地道终点遇到唐泰斯，向他教授语言、科学与历史，并分析陷害阴谋。他把基督山宝藏秘密留给学生，死于病发；知识与信任共同构成唐泰斯重生的基础。</p><div class="card-actions"><button type="button" data-show-person="faria">查看关系 →</button><a href="index.html#mc07">时间线 · 墙后的另一个人</a></div></article></div></section><section class="people-group"><h2>莫雷尔家</h2><div class="people-grid"><article class="person-card" id="p-morrel" data-person="morrel"><h3>皮埃尔·莫雷尔</h3><p class="role">法老号船东</p><p>欣赏年轻唐泰斯的能力，并在他被捕后设法营救。后来航运生意遭遇灾难，债务逼近绝境，得到唐泰斯匿名报答；他对水手的善意延续为儿女与伯爵之间的信任。</p><div class="card-actions"><button type="button" data-show-person="morrel">查看关系 →</button><a href="index.html#mc01">时间线 · 法老号归来</a></div></article><article class="person-card" id="p-julie" data-person="julie"><h3>朱莉·莫雷尔</h3><p class="role">莫雷尔之女</p><p>在父亲破产危机中按匿名信的安排找到援助，见证家族被及时挽救。她后来与埃马纽埃尔组成家庭，保存着恩人的纪念，也使伯爵看到自己仍能给他人带来幸福。</p><div class="card-actions"><button type="button" data-show-person="julie">查看关系 →</button><a href="index.html#mc15">时间线 · 莫雷尔获救</a></div></article><article class="person-card" id="p-maximilian" data-person="maximilian"><h3>马克西米利安·莫雷尔</h3><p class="role">军官 · 瓦朗蒂娜的恋人</p><p>船东莫雷尔之子，重视荣誉并信任伯爵，与瓦朗蒂娜相爱。他在爱人假死后陷入绝望，依伯爵要求继续等待，最后获知她仍然活着，得到一条离开父辈仇怨的道路。</p><div class="card-actions"><button type="button" data-show-person="maximilian">查看关系 →</button><a href="index.html#mc15">时间线 · 莫雷尔获救</a></div></article></div></section><section class="people-group"><h2>奥特伊旧事</h2><div class="people-grid"><article class="person-card" id="p-benedetto" data-person="benedetto"><h3>贝内代托</h3><p class="role">逃犯 · 假卡瓦尔坎蒂</p><p>维尔福与唐格拉尔夫人的私生子，出生后险遭埋葬，获贝尔图乔救活。他成为罪犯，又被包装为贵族求婚者；身份败露受审时公开生父姓名，使维尔福的秘密成为法庭事实。</p><div class="card-actions"><button type="button" data-show-person="benedetto">查看关系 →</button><a href="index.html#mc06">时间线 · 被埋下的孩子</a></div></article><article class="person-card" id="p-hermine" data-person="hermine"><h3>唐格拉尔夫人</h3><p class="role">银行家的妻子 · 贝内代托之母</p><p>曾与维尔福生下秘密孩子，对婴儿的去向长期不知情。奥特伊晚宴使旧事重新浮现，贝内代托在法庭揭示出身；她的私人过去与丈夫的金融及婚姻布局交错崩塌。</p><div class="card-actions"><button type="button" data-show-person="hermine">查看关系 →</button><a href="index.html#mc06">时间线 · 被埋下的孩子</a></div></article></div></section><section class="people-group"><h2>地中海与罗马</h2><div class="people-grid"><article class="person-card" id="p-vampa" data-person="vampa"><h3>路易吉·万帕</h3><p class="role">罗马强盗首领</p><p>领导罗马周边的强盗团伙，与伯爵存在互相认可的关系。他控制阿尔贝后应伯爵要求放人，后来又扣住逃亡的唐格拉尔；这些行动使意大利成为巴黎之外的另一处清算场所。</p><div class="card-actions"><button type="button" data-show-person="vampa">查看关系 →</button><a href="index.html#mc17">时间线 · 阿尔贝被绑架</a></div></article><article class="person-card" id="p-franz" data-person="franz"><h3>弗朗兹·德·埃皮奈</h3><p class="role">阿尔贝的朋友</p><p>在基督山岛和罗马先后遇见伯爵，对其力量始终保有疑虑。他曾与瓦朗蒂娜订婚，却因努瓦蒂埃的证言得知父亲死亡的真相，选择解除婚约，使一段旧政治仇怨改变当下婚事。</p><div class="card-actions"><button type="button" data-show-person="franz">查看关系 →</button><a href="index.html#mc16">时间线 · 东方来的陌生人</a></div></article></div></section><p class="sr-only" id="peopleLive" role="status" aria-live="polite"></p><section class="sources" id="sources"><div class="eyebrow">阅读范围与资料</div><h2>关于这份导读</h2><p>小说完整主线 · 含结局剧透</p><p>按主要事件发生的先后重排，奥特伊私生子与海黛故国等原作后述往事前置；部分长期过程相互重叠。化名合并为同一人物，译名采用本页统一写法。正文为原创情节概述，不替代小说的语言与细节。</p><ol><li id="source-mc-ch1"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0001" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 1 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch4"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0004" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 4 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch5"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0005" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 5 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch7"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0007" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 7 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch13"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0013" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 13 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch14"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0014" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 14 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch17"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0017" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 17 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch19"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0019" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 19 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch20"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0020" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 20 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch24"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0024" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 24 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch27"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0027" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 27 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch30"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0030" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 30 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch31"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0031" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 31 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch37"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0037" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 37 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch41"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0041" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 41 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch43"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0043" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 43 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch44"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0044" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 44 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch45"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0045" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 45 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch49"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0049" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 49 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch51"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0051" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 51 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch56"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0056" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 56 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch60"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0060" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 60 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch63"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0063" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 63 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch75"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0075" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 75 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch77"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0077" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 77 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch79"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0079" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 79 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch83"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0083" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 83 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch86"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0086" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 86 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch89"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0089" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 89 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch92"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0092" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 92 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch97"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0097" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 97 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch102"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0102" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 102 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch110"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0110" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 110 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch111"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0111" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 111 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch116"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0116" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 116 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li><li id="source-mc-ch117"><a href="https://www.gutenberg.org/files/1184/1184-h/1184-h.htm#linkC2HCH0117" target="_blank" rel="noopener noreferrer">《基督山伯爵》英文原著 · 第 117 章 ↗</a> · Project Gutenberg 完整原著，核对相应事件；中文概述为本项目原创。</li></ol><p>图片为依据情节生成的 AI 概念插图，人物外观与未明确规定的建筑细节属于视觉想象。</p></section><footer class="site-footer"><span>故事图谱 · 沿时间读故事，循关系看人物。</span><span>原创情节概述与 AI 场景插图 · <a href="../../index.html">返回书架</a></span></footer></main><script src="data.js"></script><script src="../../assets/reader.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>基督山伯爵 · 人物志 | 28 个人物</title>
+<meta name="description" content="从马赛港的一场订婚宴，到巴黎客厅里缓慢展开的清算。沿唐泰斯的归途，重看罪、报恩与复仇的边界。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:10px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.5;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.4px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+</style>
+<style>
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">大仲马 / CHARACTERS</p>
+    <h1 class="big">基督山伯爵 · 人物</h1>
+    <p class="deck">从马赛港的一场订婚宴，到巴黎客厅里缓慢展开的清算。沿唐泰斯的归途，重看罪、报恩与复仇的边界。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="归来者">归来者</button><button class="fbtn" data-camp="马赛与莫尔塞夫家">马赛与莫尔塞夫家</button><button class="fbtn" data-camp="唐格拉尔家">唐格拉尔家</button><button class="fbtn" data-camp="维尔福家">维尔福家</button><button class="fbtn" data-camp="旧日证人">旧日证人</button><button class="fbtn" data-camp="伊夫堡">伊夫堡</button><button class="fbtn" data-camp="莫雷尔家">莫雷尔家</button><button class="fbtn" data-camp="奥特伊旧事">奥特伊旧事</button><button class="fbtn" data-camp="地中海与罗马">地中海与罗马</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="基督山伯爵人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="114" text-anchor="middle">归来者</text>
+        <text class="gtag" x="781" y="164" text-anchor="middle">马赛与莫尔塞夫家</text>
+        <text class="gtag" x="866" y="313" text-anchor="middle">唐格拉尔家</text>
+        <text class="gtag" x="837" y="465" text-anchor="middle">维尔福家</text>
+        <text class="gtag" x="706" y="605" text-anchor="middle">旧日证人</text>
+        <text class="gtag" x="534" y="605" text-anchor="middle">伊夫堡</text>
+        <text class="gtag" x="403" y="489" text-anchor="middle">莫雷尔家</text>
+        <text class="gtag" x="374" y="327" text-anchor="middle">奥特伊旧事</text>
+        <text class="gtag" x="459" y="172" text-anchor="middle">地中海与罗马</text></g>
+        <g class="links"><line class="plink" data-a="edmond" data-b="louis" x1="620" y1="136" x2="719" y2="248" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="mercedes" x1="620" y1="136" x2="781" y2="186" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mercedes" data-b="fernand" x1="781" y1="186" x2="843" y2="248" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mercedes" data-b="albert" x1="781" y1="186" x2="781" y2="310" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fernand" data-b="albert" x1="843" y1="248" x2="781" y2="310" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="fernand" x1="620" y1="136" x2="843" y2="248" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="danglars" x1="620" y1="136" x2="866" y2="335" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="villefort" x1="620" y1="136" x2="837" y2="487" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="caderousse" x1="620" y1="136" x2="706" y2="627" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="faria" x1="620" y1="136" x2="534" y2="675" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="morrel" x1="620" y1="136" x2="403" y2="511" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="morrel" data-b="julie" x1="403" y1="511" x2="450" y2="592" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="morrel" data-b="maximilian" x1="403" y1="511" x2="357" y2="592" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="julie" x1="620" y1="136" x2="450" y2="592" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="maximilian" x1="620" y1="136" x2="357" y2="592" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="maximilian" data-b="valentine" x1="357" y1="592" x2="904" y2="604" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="haydee" x1="620" y1="136" x2="667" y2="217" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fernand" data-b="haydee" x1="843" y1="248" x2="667" y2="217" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="albert" x1="620" y1="136" x2="781" y2="310" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="albert" data-b="franz" x1="781" y1="310" x2="506" y2="275" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="franz" x1="620" y1="136" x2="506" y2="275" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="bertuccio" x1="620" y1="136" x2="706" y2="723" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="bertuccio" data-b="benedetto" x1="706" y1="723" x2="374" y2="349" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="villefort" data-b="benedetto" x1="837" y1="487" x2="374" y2="349" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="hermine" data-b="benedetto" x1="374" y1="445" x2="374" y2="349" stroke="#6b645a" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="danglars" data-b="hermine" x1="866" y1="335" x2="374" y2="445" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="danglars" data-b="eugenie" x1="866" y1="335" x2="928" y2="397" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="hermine" data-b="eugenie" x1="374" y1="445" x2="928" y2="397" stroke="#6b645a" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="eugenie" data-b="louise" x1="928" y1="397" x2="866" y2="459" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="eugenie" data-b="benedetto" x1="928" y1="397" x2="374" y2="349" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="benedetto" data-b="caderousse" x1="374" y1="349" x2="706" y2="627" stroke="#6b645a" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="villefort" data-b="noirtier" x1="837" y1="487" x2="837" y2="643" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="villefort" data-b="valentine" x1="837" y1="487" x2="904" y2="604" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="villefort" data-b="heloise" x1="837" y1="487" x2="904" y2="526" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="heloise" data-b="edouard" x1="904" y1="526" x2="769" y2="604" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="villefort" data-b="edouard" x1="837" y1="487" x2="769" y2="604" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="heloise" data-b="valentine" x1="904" y1="526" x2="904" y2="604" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="noirtier" data-b="valentine" x1="837" y1="643" x2="904" y2="604" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edmond" data-b="vampa" x1="620" y1="136" x2="459" y2="194" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="albert" data-b="eugenie" x1="781" y1="310" x2="928" y2="397" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="debray" data-b="hermine" x1="804" y1="397" x2="374" y2="445" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="debray" data-b="danglars" x1="804" y1="397" x2="866" y2="335" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="beauchamp" data-b="albert" x1="413" y1="275" x2="781" y2="310" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="beauchamp" data-b="fernand" x1="413" y1="275" x2="843" y2="248" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="saintmeran" data-b="villefort" x1="769" y1="526" x2="837" y2="487" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="saintmeran" data-b="heloise" x1="769" y1="526" x2="904" y2="526" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ali" data-b="edmond" x1="573" y1="217" x2="620" y2="136" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="nodes"><g class="pnode" data-id="edmond" transform="translate(620,136)"><title>爱德蒙·唐泰斯 · 水手 · 基督山伯爵</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">唐泰斯</text></g>
+        <g class="pnode" data-id="mercedes" transform="translate(781,186)"><title>梅尔塞苔丝 · 唐泰斯的旧日未婚妻</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">梅尔塞苔丝</text></g>
+        <g class="pnode" data-id="fernand" transform="translate(843,248)"><title>费尔南·蒙德戈 · 莫尔塞夫伯爵</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">蒙德戈</text></g>
+        <g class="pnode" data-id="danglars" transform="translate(866,335)"><title>唐格拉尔 · 银行家 · 告密信的策划者</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">唐格拉尔</text></g>
+        <g class="pnode" data-id="villefort" transform="translate(837,487)"><title>热拉尔·德·维尔福 · 检察官</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">维尔福</text></g>
+        <g class="pnode" data-id="caderousse" transform="translate(706,627)"><title>卡德鲁斯 · 唐泰斯的旧邻</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">卡德鲁斯</text></g>
+        <g class="pnode" data-id="faria" transform="translate(534,675)"><title>法里亚神甫 · 伊夫堡囚徒 · 唐泰斯的导师</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">法里亚神甫</text></g>
+        <g class="pnode" data-id="morrel" transform="translate(403,511)"><title>皮埃尔·莫雷尔 · 法老号船东</title><circle r="26" fill="#f7f4ed" stroke="#4a4a58" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">莫雷尔</text></g>
+        <g class="pnode" data-id="julie" transform="translate(450,592)"><title>朱莉·莫雷尔 · 莫雷尔之女</title><circle r="26" fill="#f7f4ed" stroke="#4a4a58" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">莫雷尔</text></g>
+        <g class="pnode" data-id="maximilian" transform="translate(357,592)"><title>马克西米利安·莫雷尔 · 军官 · 瓦朗蒂娜的恋人</title><circle r="26" fill="#f7f4ed" stroke="#4a4a58" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">莫雷尔</text></g>
+        <g class="pnode" data-id="albert" transform="translate(781,310)"><title>阿尔贝·德·莫尔塞夫 · 费尔南与梅尔塞苔丝之子</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">莫尔塞夫</text></g>
+        <g class="pnode" data-id="haydee" transform="translate(667,217)"><title>海黛 · 阿里帕夏之女</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">海黛</text></g>
+        <g class="pnode" data-id="bertuccio" transform="translate(706,723)"><title>贝尔图乔 · 伯爵的管家</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">贝尔图乔</text></g>
+        <g class="pnode" data-id="benedetto" transform="translate(374,349)"><title>贝内代托 · 逃犯 · 假卡瓦尔坎蒂</title><circle r="26" fill="#f7f4ed" stroke="#6b645a" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">贝内代托</text></g>
+        <g class="pnode" data-id="heloise" transform="translate(904,526)"><title>埃洛伊丝·德·维尔福 · 维尔福的第二任妻子</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">维尔福</text></g>
+        <g class="pnode" data-id="valentine" transform="translate(904,604)"><title>瓦朗蒂娜·德·维尔福 · 维尔福之女</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">维尔福</text></g>
+        <g class="pnode" data-id="noirtier" transform="translate(837,643)"><title>努瓦蒂埃 · 维尔福之父</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">努瓦蒂埃</text></g>
+        <g class="pnode" data-id="eugenie" transform="translate(928,397)"><title>欧仁妮·唐格拉尔 · 唐格拉尔之女 · 音乐爱好者</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">唐格拉尔</text></g>
+        <g class="pnode" data-id="louise" transform="translate(866,459)"><title>路易丝·达米伊 · 欧仁妮的音乐伙伴</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">达米伊</text></g>
+        <g class="pnode" data-id="hermine" transform="translate(374,445)"><title>唐格拉尔夫人 · 银行家的妻子 · 贝内代托之母</title><circle r="26" fill="#f7f4ed" stroke="#6b645a" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">唐格拉尔夫</text></g>
+        <g class="pnode" data-id="edouard" transform="translate(769,604)"><title>爱德华·德·维尔福 · 维尔福与埃洛伊丝之子</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">维尔福</text></g>
+        <g class="pnode" data-id="louis" transform="translate(719,248)"><title>老唐泰斯 · 爱德蒙的父亲</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">老唐泰斯</text></g>
+        <g class="pnode" data-id="vampa" transform="translate(459,194)"><title>路易吉·万帕 · 罗马强盗首领</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">万帕</text></g>
+        <g class="pnode" data-id="franz" transform="translate(506,275)"><title>弗朗兹·德·埃皮奈 · 阿尔贝的朋友</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">埃皮奈</text></g>
+        <g class="pnode" data-id="debray" transform="translate(804,397)"><title>吕西安·德布雷 · 内政部秘书 · 唐格拉尔夫人的情人</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">德布雷</text></g>
+        <g class="pnode" data-id="beauchamp" transform="translate(413,275)"><title>博尚 · 记者 · 阿尔贝的挚友</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">博尚</text></g>
+        <g class="pnode" data-id="saintmeran" transform="translate(769,526)"><title>圣梅朗侯爵 · 维尔福的岳父</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">圣梅朗侯爵</text></g>
+        <g class="pnode" data-id="ali" transform="translate(573,217)"><title>阿里 · 基督山伯爵的哑仆</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">阿里</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">归来者</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-edmond" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>爱德蒙·唐泰斯</h3></div>
+        <p class="role">水手 · 基督山伯爵</p>
+        <p class="deeds">因匿名告密和司法自保被囚伊夫堡，获法里亚教育与宝藏后重返社会。他以多个身份调查、报恩与复仇，最终因无辜者之死反思惩罚的边界，并选择保留重新生活的可能。</p>
+        <a class="jump" href="index.html#mc01">时间线 · 法老号归来 →</a>
+      </article>
+      <article class="pcard" id="c-haydee" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>海黛</h3></div>
+        <p class="role">阿里帕夏之女</p>
+        <p class="deeds">幼年因费尔南的背叛失去家园，被卖为奴隶，后来受到伯爵保护。她以个人记忆与证据指认莫尔塞夫的罪行；结尾向伯爵表达爱情，与他离开，获得继续书写人生的空间。</p>
+        <a class="jump" href="index.html#mc09">时间线 · 海黛的故国 →</a>
+      </article>
+      <article class="pcard" id="c-ali" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>阿里</h3></div>
+        <p class="role">基督山伯爵的哑仆</p>
+        <p class="deeds">被割去舌头的奴仆，对伯爵绝对忠诚。罗马的绑架、巴黎的夜行、决斗场上的护卫，他都站在主人身侧，从不说一个字。</p>
+        <a class="jump" href="index.html#mc17">时间线 · 阿尔贝被绑架 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">马赛与莫尔塞夫家</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-mercedes" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>梅尔塞苔丝</h3></div>
+        <p class="role">唐泰斯的旧日未婚妻</p>
+        <p class="deeds">长期等不到唐泰斯后嫁给费尔南，成为阿尔贝的母亲。她认出归来的唐泰斯，为儿子请求宽恕；真相公开后放弃丈夫的财富，与儿子离开被谎言支撑的家庭生活。</p>
+        <a class="jump" href="index.html#mc01">时间线 · 法老号归来 →</a>
+      </article>
+      <article class="pcard" id="c-fernand" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>费尔南·蒙德戈</h3></div>
+        <p class="role">莫尔塞夫伯爵</p>
+        <p class="deeds">出于对梅尔塞苔丝的占有欲参与告密，后来凭军旅与背叛积累财富。海黛揭露他出卖阿里帕夏一家的过去，妻儿离开后，他面对唐泰斯的真实身份而自杀。</p>
+        <a class="jump" href="index.html#mc01">时间线 · 法老号归来 →</a>
+      </article>
+      <article class="pcard" id="c-albert" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>阿尔贝·德·莫尔塞夫</h3></div>
+        <p class="role">费尔南与梅尔塞苔丝之子</p>
+        <p class="deeds">在罗马得到伯爵营救，将其介绍到巴黎。父亲受指控后他一度提出决斗，了解唐泰斯遭遇后转而道歉，并与母亲放弃不义之财，尝试以自己的劳动与行动重新生活。</p>
+        <a class="jump" href="index.html#mc16">时间线 · 东方来的陌生人 →</a>
+      </article>
+      <article class="pcard" id="c-louis" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>老唐泰斯</h3></div>
+        <p class="role">爱德蒙的父亲</p>
+        <p class="deeds">依靠微薄生活等待出海的儿子归来，在唐泰斯被捕后失去支柱。莫雷尔曾给予帮助，却未能挽回他的衰败与死亡；伯爵后来让唐格拉尔体会饥饿时，仍记着父亲的遭遇。</p>
+        <a class="jump" href="index.html#mc01">时间线 · 法老号归来 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">唐格拉尔家</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-danglars" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>唐格拉尔</h3></div>
+        <p class="role">银行家 · 告密信的策划者</p>
+        <p class="deeds">早年因嫉妒写下诬告唐泰斯的信，后来成为富有的银行家。他把信用、行情和女儿婚事作为逐利手段，却被同一套机制拖入破产，最终在饥饿中得到伯爵的赦免。</p>
+        <a class="jump" href="index.html#mc01">时间线 · 法老号归来 →</a>
+      </article>
+      <article class="pcard" id="c-eugenie" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>欧仁妮·唐格拉尔</h3></div>
+        <p class="role">唐格拉尔之女 · 音乐爱好者</p>
+        <p class="deeds">不愿按父亲利益接受婚姻安排，与音乐伙伴路易丝亲近。阿尔贝与假卡瓦尔坎蒂先后成为拟议婚配对象，婚约危机中她选择乔装出走，以艺术与独立生活摆脱家庭交易。</p>
+        <a class="jump" href="index.html#mc23">时间线 · 假贵族登场 →</a>
+      </article>
+      <article class="pcard" id="c-louise" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>路易丝·达米伊</h3></div>
+        <p class="role">欧仁妮的音乐伙伴</p>
+        <p class="deeds">与欧仁妮共同练习和规划未来，在对方准备逃离婚姻交易时同行。两人乔装离开巴黎，路易丝所代表的共同生活与音乐事业，为欧仁妮提供了家族安排之外的选择。</p>
+        <a class="jump" href="index.html#mc31">时间线 · 欧仁妮选择离开 →</a>
+      </article>
+      <article class="pcard" id="c-debray" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>吕西安·德布雷</h3></div>
+        <p class="role">内政部秘书 · 唐格拉尔夫人的情人</p>
+        <p class="deeds">唐格拉尔家的常客，与埃尔米娜保持多年的私情，靠职务便利为她传递消息。唐格拉尔破产后，他迅速抽身，是巴黎客厅里最体面的那种薄情。</p>
+        <a class="jump" href="index.html#mc20">时间线 · 信用与消息 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">维尔福家</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-villefort" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>热拉尔·德·维尔福</h3></div>
+        <p class="role">检察官</p>
+        <p class="deeds">为掩护父亲的政治秘密牺牲无辜的唐泰斯，也企图抹去自己的私生子。他在贝内代托受审时被揭为生父，随后面对妻儿死亡而精神崩溃，司法身份没有保护他免于往事。</p>
+        <a class="jump" href="index.html#mc04">时间线 · 被烧毁的信 →</a>
+      </article>
+      <article class="pcard" id="c-heloise" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>埃洛伊丝·德·维尔福</h3></div>
+        <p class="role">维尔福的第二任妻子</p>
+        <p class="deeds">希望让儿子爱德华独占家产，利用毒药清除继承障碍。罪行被丈夫识破后，她自尽并毒死儿子；这一结局使伯爵直面惩罚外溢到无辜者身上的后果。</p>
+        <a class="jump" href="index.html#mc26">时间线 · 毒药进入家庭 →</a>
+      </article>
+      <article class="pcard" id="c-valentine" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>瓦朗蒂娜·德·维尔福</h3></div>
+        <p class="role">维尔福之女</p>
+        <p class="deeds">与马克西米利安相爱，却受家庭婚约约束，依靠祖父努瓦蒂埃争取选择。家中毒案使她成为目标，伯爵安排假死并秘密救走她，结尾她与爱人重逢，摆脱家族利益的争夺。</p>
+        <a class="jump" href="index.html#mc22">时间线 · 隔墙相爱的年轻人 →</a>
+      </article>
+      <article class="pcard" id="c-noirtier" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>努瓦蒂埃</h3></div>
+        <p class="role">维尔福之父</p>
+        <p class="deeds">旧日政治活动家，虽瘫痪且失语，仍能以眼神表达明确意志。他保护孙女瓦朗蒂娜，并用关于弗朗兹父亲的旧记录阻止强迫婚约；唐泰斯当年送信的对象也是他。</p>
+        <a class="jump" href="index.html#mc04">时间线 · 被烧毁的信 →</a>
+      </article>
+      <article class="pcard" id="c-edouard" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>爱德华·德·维尔福</h3></div>
+        <p class="role">维尔福与埃洛伊丝之子</p>
+        <p class="deeds">受到母亲偏爱，也是她争夺遗产的理由。他曾在马车事故中获救，最后却死于母亲的毒药；这个孩子并不承担父辈的罪过，他的死亡成为伯爵反思复仇的重要转折。</p>
+        <a class="jump" href="index.html#mc26">时间线 · 毒药进入家庭 →</a>
+      </article>
+      <article class="pcard" id="c-saintmeran" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>圣梅朗侯爵</h3></div>
+        <p class="role">维尔福的岳父</p>
+        <p class="deeds">维尔福前妻的父亲。他与妻子先后在维尔福家中被毒杀，成为那串连环中毒案的开端，也让维尔福第一次意识到凶手就在自己家里。</p>
+        <a class="jump" href="index.html#mc26">时间线 · 毒药进入家庭 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#1f5d57">旧日证人</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-caderousse" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>卡德鲁斯</h3></div>
+        <p class="role">唐泰斯的旧邻</p>
+        <p class="deeds">知道告密阴谋却未有效阻止，后来向化身神甫的唐泰斯说明真相。他因钻石再陷贪婪与犯罪，又以贝内代托的秘密勒索，最终被后者刺杀，并在临终时认出唐泰斯。</p>
+        <a class="jump" href="index.html#mc02">时间线 · 匿名告密 →</a>
+      </article>
+      <article class="pcard" id="c-bertuccio" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>贝尔图乔</h3></div>
+        <p class="role">伯爵的管家</p>
+        <p class="deeds">因兄长遭害向维尔福寻仇，刺伤对方时意外救出被埋的婴儿，随后收养贝内代托。他也见证卡德鲁斯客栈的犯罪，是把奥特伊旧事与巴黎复仇联系起来的关键证人。</p>
+        <a class="jump" href="index.html#mc06">时间线 · 被埋下的孩子 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#a8823c">伊夫堡</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-faria" style="--c:#a8823c">
+        <div class="pcard-top"><h3>法里亚神甫</h3></div>
+        <p class="role">伊夫堡囚徒 · 唐泰斯的导师</p>
+        <p class="deeds">在错误的地道终点遇到唐泰斯，向他教授语言、科学与历史，并分析陷害阴谋。他把基督山宝藏秘密留给学生，死于病发；知识与信任共同构成唐泰斯重生的基础。</p>
+        <a class="jump" href="index.html#mc07">时间线 · 墙后的另一个人 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#4a4a58">莫雷尔家</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-morrel" style="--c:#4a4a58">
+        <div class="pcard-top"><h3>皮埃尔·莫雷尔</h3></div>
+        <p class="role">法老号船东</p>
+        <p class="deeds">欣赏年轻唐泰斯的能力，并在他被捕后设法营救。后来航运生意遭遇灾难，债务逼近绝境，得到唐泰斯匿名报答；他对水手的善意延续为儿女与伯爵之间的信任。</p>
+        <a class="jump" href="index.html#mc01">时间线 · 法老号归来 →</a>
+      </article>
+      <article class="pcard" id="c-julie" style="--c:#4a4a58">
+        <div class="pcard-top"><h3>朱莉·莫雷尔</h3></div>
+        <p class="role">莫雷尔之女</p>
+        <p class="deeds">在父亲破产危机中按匿名信的安排找到援助，见证家族被及时挽救。她后来与埃马纽埃尔组成家庭，保存着恩人的纪念，也使伯爵看到自己仍能给他人带来幸福。</p>
+        <a class="jump" href="index.html#mc15">时间线 · 莫雷尔获救 →</a>
+      </article>
+      <article class="pcard" id="c-maximilian" style="--c:#4a4a58">
+        <div class="pcard-top"><h3>马克西米利安·莫雷尔</h3></div>
+        <p class="role">军官 · 瓦朗蒂娜的恋人</p>
+        <p class="deeds">船东莫雷尔之子，重视荣誉并信任伯爵，与瓦朗蒂娜相爱。他在爱人假死后陷入绝望，依伯爵要求继续等待，最后获知她仍然活着，得到一条离开父辈仇怨的道路。</p>
+        <a class="jump" href="index.html#mc15">时间线 · 莫雷尔获救 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#6b645a">奥特伊旧事</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-benedetto" style="--c:#6b645a">
+        <div class="pcard-top"><h3>贝内代托</h3></div>
+        <p class="role">逃犯 · 假卡瓦尔坎蒂</p>
+        <p class="deeds">维尔福与唐格拉尔夫人的私生子，出生后险遭埋葬，获贝尔图乔救活。他成为罪犯，又被包装为贵族求婚者；身份败露受审时公开生父姓名，使维尔福的秘密成为法庭事实。</p>
+        <a class="jump" href="index.html#mc06">时间线 · 被埋下的孩子 →</a>
+      </article>
+      <article class="pcard" id="c-hermine" style="--c:#6b645a">
+        <div class="pcard-top"><h3>唐格拉尔夫人</h3></div>
+        <p class="role">银行家的妻子 · 贝内代托之母</p>
+        <p class="deeds">曾与维尔福生下秘密孩子，对婴儿的去向长期不知情。奥特伊晚宴使旧事重新浮现，贝内代托在法庭揭示出身；她的私人过去与丈夫的金融及婚姻布局交错崩塌。</p>
+        <a class="jump" href="index.html#mc06">时间线 · 被埋下的孩子 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">地中海与罗马</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-vampa" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>路易吉·万帕</h3></div>
+        <p class="role">罗马强盗首领</p>
+        <p class="deeds">领导罗马周边的强盗团伙，与伯爵存在互相认可的关系。他控制阿尔贝后应伯爵要求放人，后来又扣住逃亡的唐格拉尔；这些行动使意大利成为巴黎之外的另一处清算场所。</p>
+        <a class="jump" href="index.html#mc17">时间线 · 阿尔贝被绑架 →</a>
+      </article>
+      <article class="pcard" id="c-franz" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>弗朗兹·德·埃皮奈</h3></div>
+        <p class="role">阿尔贝的朋友</p>
+        <p class="deeds">在基督山岛和罗马先后遇见伯爵，对其力量始终保有疑虑。他曾与瓦朗蒂娜订婚，却因努瓦蒂埃的证言得知父亲死亡的真相，选择解除婚约，使一段旧政治仇怨改变当下婚事。</p>
+        <a class="jump" href="index.html#mc16">时间线 · 东方来的陌生人 →</a>
+      </article>
+      <article class="pcard" id="c-beauchamp" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>博尚</h3></div>
+        <p class="role">记者 · 阿尔贝的挚友</p>
+        <p class="deeds">阿尔贝最信任的朋友，在报纸上公开费尔南在希腊出卖阿里帕夏的证据。他不带私怨，只认事实，却因此亲手拆掉了莫尔塞夫家。</p>
+        <a class="jump" href="index.html#mc28">时间线 · 海黛指认叛徒 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">基督山伯爵 · 大仲马</p>
+  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"edmond": {"name": "爱德蒙·唐泰斯", "role": "水手 · 基督山伯爵", "deeds": "因匿名告密和司法自保被囚伊夫堡，获法里亚教育与宝藏后重返社会。他以多个身份调查、报恩与复仇，最终因无辜者之死反思惩罚的边界，并选择保留重新生活的可能。", "quote": "基督山伯爵", "camp": "归来者", "campKey": "归来者", "color": "#8c2b26", "link": "mc01", "linkName": "法老号归来", "rel": [["louis", "老唐泰斯", "父子"], ["mercedes", "梅尔塞苔丝", "旧日婚约"], ["fernand", "费尔南·蒙德戈", "遭其陷害"], ["danglars", "唐格拉尔", "告密与复仇"], ["villefort", "热拉尔·德·维尔福", "囚禁与清算"], ["caderousse", "卡德鲁斯", "旧邻与证人"], ["faria", "法里亚神甫", "师生"], ["morrel", "皮埃尔·莫雷尔", "报恩"], ["julie", "朱莉·莫雷尔", "匿名援助"], ["maximilian", "马克西米利安·莫雷尔", "保护与信任"], ["haydee", "海黛", "保护与相爱"], ["albert", "阿尔贝·德·莫尔塞夫", "营救与决斗约定"], ["franz", "弗朗兹·德·埃皮奈", "岛上相遇"], ["bertuccio", "贝尔图乔", "主雇与旧事"], ["vampa", "路易吉·万帕", "合作"], ["ali", "阿里", "忠于主人"]]}, "mercedes": {"name": "梅尔塞苔丝", "role": "唐泰斯的旧日未婚妻", "deeds": "长期等不到唐泰斯后嫁给费尔南，成为阿尔贝的母亲。她认出归来的唐泰斯，为儿子请求宽恕；真相公开后放弃丈夫的财富，与儿子离开被谎言支撑的家庭生活。", "quote": "", "camp": "马赛与莫尔塞夫家", "campKey": "马赛与莫尔塞夫家", "color": "#7a5a38", "link": "mc01", "linkName": "法老号归来", "rel": [["edmond", "爱德蒙·唐泰斯", "旧日婚约"], ["fernand", "费尔南·蒙德戈", "夫妻"], ["albert", "阿尔贝·德·莫尔塞夫", "母子"]]}, "fernand": {"name": "费尔南·蒙德戈", "role": "莫尔塞夫伯爵", "deeds": "出于对梅尔塞苔丝的占有欲参与告密，后来凭军旅与背叛积累财富。海黛揭露他出卖阿里帕夏一家的过去，妻儿离开后，他面对唐泰斯的真实身份而自杀。", "quote": "莫尔塞夫伯爵", "camp": "马赛与莫尔塞夫家", "campKey": "马赛与莫尔塞夫家", "color": "#7a5a38", "link": "mc01", "linkName": "法老号归来", "rel": [["mercedes", "梅尔塞苔丝", "夫妻"], ["albert", "阿尔贝·德·莫尔塞夫", "父子"], ["edmond", "爱德蒙·唐泰斯", "遭其陷害"], ["haydee", "海黛", "背叛与指认"], ["beauchamp", "博尚", "公开揭发"]]}, "danglars": {"name": "唐格拉尔", "role": "银行家 · 告密信的策划者", "deeds": "早年因嫉妒写下诬告唐泰斯的信，后来成为富有的银行家。他把信用、行情和女儿婚事作为逐利手段，却被同一套机制拖入破产，最终在饥饿中得到伯爵的赦免。", "quote": "", "camp": "唐格拉尔家", "campKey": "唐格拉尔家", "color": "#2f4a6b", "link": "mc01", "linkName": "法老号归来", "rel": [["edmond", "爱德蒙·唐泰斯", "告密与复仇"], ["hermine", "唐格拉尔夫人", "夫妻"], ["eugenie", "欧仁妮·唐格拉尔", "父女"], ["debray", "吕西安·德布雷", "往来与背叛"]]}, "villefort": {"name": "热拉尔·德·维尔福", "role": "检察官", "deeds": "为掩护父亲的政治秘密牺牲无辜的唐泰斯，也企图抹去自己的私生子。他在贝内代托受审时被揭为生父，随后面对妻儿死亡而精神崩溃，司法身份没有保护他免于往事。", "quote": "", "camp": "维尔福家", "campKey": "维尔福家", "color": "#5a3a6b", "link": "mc04", "linkName": "被烧毁的信", "rel": [["edmond", "爱德蒙·唐泰斯", "囚禁与清算"], ["benedetto", "贝内代托", "父子"], ["noirtier", "努瓦蒂埃", "父子"], ["valentine", "瓦朗蒂娜·德·维尔福", "父女"], ["heloise", "埃洛伊丝·德·维尔福", "夫妻"], ["edouard", "爱德华·德·维尔福", "父子"], ["saintmeran", "圣梅朗侯爵", "岳父"]]}, "caderousse": {"name": "卡德鲁斯", "role": "唐泰斯的旧邻", "deeds": "知道告密阴谋却未有效阻止，后来向化身神甫的唐泰斯说明真相。他因钻石再陷贪婪与犯罪，又以贝内代托的秘密勒索，最终被后者刺杀，并在临终时认出唐泰斯。", "quote": "", "camp": "旧日证人", "campKey": "旧日证人", "color": "#1f5d57", "link": "mc02", "linkName": "匿名告密", "rel": [["edmond", "爱德蒙·唐泰斯", "旧邻与证人"], ["benedetto", "贝内代托", "勒索与谋杀"]]}, "faria": {"name": "法里亚神甫", "role": "伊夫堡囚徒 · 唐泰斯的导师", "deeds": "在错误的地道终点遇到唐泰斯，向他教授语言、科学与历史，并分析陷害阴谋。他把基督山宝藏秘密留给学生，死于病发；知识与信任共同构成唐泰斯重生的基础。", "quote": "", "camp": "伊夫堡", "campKey": "伊夫堡", "color": "#a8823c", "link": "mc07", "linkName": "墙后的另一个人", "rel": [["edmond", "爱德蒙·唐泰斯", "师生"]]}, "morrel": {"name": "皮埃尔·莫雷尔", "role": "法老号船东", "deeds": "欣赏年轻唐泰斯的能力，并在他被捕后设法营救。后来航运生意遭遇灾难，债务逼近绝境，得到唐泰斯匿名报答；他对水手的善意延续为儿女与伯爵之间的信任。", "quote": "", "camp": "莫雷尔家", "campKey": "莫雷尔家", "color": "#4a4a58", "link": "mc01", "linkName": "法老号归来", "rel": [["edmond", "爱德蒙·唐泰斯", "报恩"], ["julie", "朱莉·莫雷尔", "父女"], ["maximilian", "马克西米利安·莫雷尔", "父子"]]}, "julie": {"name": "朱莉·莫雷尔", "role": "莫雷尔之女", "deeds": "在父亲破产危机中按匿名信的安排找到援助，见证家族被及时挽救。她后来与埃马纽埃尔组成家庭，保存着恩人的纪念，也使伯爵看到自己仍能给他人带来幸福。", "quote": "", "camp": "莫雷尔家", "campKey": "莫雷尔家", "color": "#4a4a58", "link": "mc15", "linkName": "莫雷尔获救", "rel": [["morrel", "皮埃尔·莫雷尔", "父女"], ["edmond", "爱德蒙·唐泰斯", "匿名援助"]]}, "maximilian": {"name": "马克西米利安·莫雷尔", "role": "军官 · 瓦朗蒂娜的恋人", "deeds": "船东莫雷尔之子，重视荣誉并信任伯爵，与瓦朗蒂娜相爱。他在爱人假死后陷入绝望，依伯爵要求继续等待，最后获知她仍然活着，得到一条离开父辈仇怨的道路。", "quote": "", "camp": "莫雷尔家", "campKey": "莫雷尔家", "color": "#4a4a58", "link": "mc15", "linkName": "莫雷尔获救", "rel": [["morrel", "皮埃尔·莫雷尔", "父子"], ["edmond", "爱德蒙·唐泰斯", "保护与信任"], ["valentine", "瓦朗蒂娜·德·维尔福", "恋人"]]}, "albert": {"name": "阿尔贝·德·莫尔塞夫", "role": "费尔南与梅尔塞苔丝之子", "deeds": "在罗马得到伯爵营救，将其介绍到巴黎。父亲受指控后他一度提出决斗，了解唐泰斯遭遇后转而道歉，并与母亲放弃不义之财，尝试以自己的劳动与行动重新生活。", "quote": "", "camp": "马赛与莫尔塞夫家", "campKey": "马赛与莫尔塞夫家", "color": "#7a5a38", "link": "mc16", "linkName": "东方来的陌生人", "rel": [["mercedes", "梅尔塞苔丝", "母子"], ["fernand", "费尔南·蒙德戈", "父子"], ["edmond", "爱德蒙·唐泰斯", "营救与决斗约定"], ["franz", "弗朗兹·德·埃皮奈", "朋友"], ["eugenie", "欧仁妮·唐格拉尔", "解除的婚约"], ["beauchamp", "博尚", "挚友"]]}, "haydee": {"name": "海黛", "role": "阿里帕夏之女", "deeds": "幼年因费尔南的背叛失去家园，被卖为奴隶，后来受到伯爵保护。她以个人记忆与证据指认莫尔塞夫的罪行；结尾向伯爵表达爱情，与他离开，获得继续书写人生的空间。", "quote": "", "camp": "归来者", "campKey": "归来者", "color": "#8c2b26", "link": "mc09", "linkName": "海黛的故国", "rel": [["edmond", "爱德蒙·唐泰斯", "保护与相爱"], ["fernand", "费尔南·蒙德戈", "背叛与指认"]]}, "bertuccio": {"name": "贝尔图乔", "role": "伯爵的管家", "deeds": "因兄长遭害向维尔福寻仇，刺伤对方时意外救出被埋的婴儿，随后收养贝内代托。他也见证卡德鲁斯客栈的犯罪，是把奥特伊旧事与巴黎复仇联系起来的关键证人。", "quote": "", "camp": "旧日证人", "campKey": "旧日证人", "color": "#1f5d57", "link": "mc06", "linkName": "被埋下的孩子", "rel": [["edmond", "爱德蒙·唐泰斯", "主雇与旧事"], ["benedetto", "贝内代托", "救助与收养"]]}, "benedetto": {"name": "贝内代托", "role": "逃犯 · 假卡瓦尔坎蒂", "deeds": "维尔福与唐格拉尔夫人的私生子，出生后险遭埋葬，获贝尔图乔救活。他成为罪犯，又被包装为贵族求婚者；身份败露受审时公开生父姓名，使维尔福的秘密成为法庭事实。", "quote": "安德烈亚·卡瓦尔坎蒂", "camp": "奥特伊旧事", "campKey": "奥特伊旧事", "color": "#6b645a", "link": "mc06", "linkName": "被埋下的孩子", "rel": [["bertuccio", "贝尔图乔", "救助与收养"], ["villefort", "热拉尔·德·维尔福", "父子"], ["hermine", "唐格拉尔夫人", "母子"], ["eugenie", "欧仁妮·唐格拉尔", "破裂的婚约"], ["caderousse", "卡德鲁斯", "勒索与谋杀"]]}, "heloise": {"name": "埃洛伊丝·德·维尔福", "role": "维尔福的第二任妻子", "deeds": "希望让儿子爱德华独占家产，利用毒药清除继承障碍。罪行被丈夫识破后，她自尽并毒死儿子；这一结局使伯爵直面惩罚外溢到无辜者身上的后果。", "quote": "", "camp": "维尔福家", "campKey": "维尔福家", "color": "#5a3a6b", "link": "mc26", "linkName": "毒药进入家庭", "rel": [["villefort", "热拉尔·德·维尔福", "夫妻"], ["edouard", "爱德华·德·维尔福", "母子"], ["valentine", "瓦朗蒂娜·德·维尔福", "毒害"], ["saintmeran", "圣梅朗侯爵", "被毒杀"]]}, "valentine": {"name": "瓦朗蒂娜·德·维尔福", "role": "维尔福之女", "deeds": "与马克西米利安相爱，却受家庭婚约约束，依靠祖父努瓦蒂埃争取选择。家中毒案使她成为目标，伯爵安排假死并秘密救走她，结尾她与爱人重逢，摆脱家族利益的争夺。", "quote": "", "camp": "维尔福家", "campKey": "维尔福家", "color": "#5a3a6b", "link": "mc22", "linkName": "隔墙相爱的年轻人", "rel": [["maximilian", "马克西米利安·莫雷尔", "恋人"], ["villefort", "热拉尔·德·维尔福", "父女"], ["heloise", "埃洛伊丝·德·维尔福", "毒害"], ["noirtier", "努瓦蒂埃", "祖孙与保护"]]}, "noirtier": {"name": "努瓦蒂埃", "role": "维尔福之父", "deeds": "旧日政治活动家，虽瘫痪且失语，仍能以眼神表达明确意志。他保护孙女瓦朗蒂娜，并用关于弗朗兹父亲的旧记录阻止强迫婚约；唐泰斯当年送信的对象也是他。", "quote": "", "camp": "维尔福家", "campKey": "维尔福家", "color": "#5a3a6b", "link": "mc04", "linkName": "被烧毁的信", "rel": [["villefort", "热拉尔·德·维尔福", "父子"], ["valentine", "瓦朗蒂娜·德·维尔福", "祖孙与保护"]]}, "eugenie": {"name": "欧仁妮·唐格拉尔", "role": "唐格拉尔之女 · 音乐爱好者", "deeds": "不愿按父亲利益接受婚姻安排，与音乐伙伴路易丝亲近。阿尔贝与假卡瓦尔坎蒂先后成为拟议婚配对象，婚约危机中她选择乔装出走，以艺术与独立生活摆脱家庭交易。", "quote": "", "camp": "唐格拉尔家", "campKey": "唐格拉尔家", "color": "#2f4a6b", "link": "mc23", "linkName": "假贵族登场", "rel": [["danglars", "唐格拉尔", "父女"], ["hermine", "唐格拉尔夫人", "母女"], ["louise", "路易丝·达米伊", "音乐伙伴与同行"], ["benedetto", "贝内代托", "破裂的婚约"], ["albert", "阿尔贝·德·莫尔塞夫", "解除的婚约"]]}, "louise": {"name": "路易丝·达米伊", "role": "欧仁妮的音乐伙伴", "deeds": "与欧仁妮共同练习和规划未来，在对方准备逃离婚姻交易时同行。两人乔装离开巴黎，路易丝所代表的共同生活与音乐事业，为欧仁妮提供了家族安排之外的选择。", "quote": "", "camp": "唐格拉尔家", "campKey": "唐格拉尔家", "color": "#2f4a6b", "link": "mc31", "linkName": "欧仁妮选择离开", "rel": [["eugenie", "欧仁妮·唐格拉尔", "音乐伙伴与同行"]]}, "hermine": {"name": "唐格拉尔夫人", "role": "银行家的妻子 · 贝内代托之母", "deeds": "曾与维尔福生下秘密孩子，对婴儿的去向长期不知情。奥特伊晚宴使旧事重新浮现，贝内代托在法庭揭示出身；她的私人过去与丈夫的金融及婚姻布局交错崩塌。", "quote": "", "camp": "奥特伊旧事", "campKey": "奥特伊旧事", "color": "#6b645a", "link": "mc06", "linkName": "被埋下的孩子", "rel": [["benedetto", "贝内代托", "母子"], ["danglars", "唐格拉尔", "夫妻"], ["eugenie", "欧仁妮·唐格拉尔", "母女"], ["debray", "吕西安·德布雷", "情人"]]}, "edouard": {"name": "爱德华·德·维尔福", "role": "维尔福与埃洛伊丝之子", "deeds": "受到母亲偏爱，也是她争夺遗产的理由。他曾在马车事故中获救，最后却死于母亲的毒药；这个孩子并不承担父辈的罪过，他的死亡成为伯爵反思复仇的重要转折。", "quote": "", "camp": "维尔福家", "campKey": "维尔福家", "color": "#5a3a6b", "link": "mc26", "linkName": "毒药进入家庭", "rel": [["heloise", "埃洛伊丝·德·维尔福", "母子"], ["villefort", "热拉尔·德·维尔福", "父子"]]}, "louis": {"name": "老唐泰斯", "role": "爱德蒙的父亲", "deeds": "依靠微薄生活等待出海的儿子归来，在唐泰斯被捕后失去支柱。莫雷尔曾给予帮助，却未能挽回他的衰败与死亡；伯爵后来让唐格拉尔体会饥饿时，仍记着父亲的遭遇。", "quote": "", "camp": "马赛与莫尔塞夫家", "campKey": "马赛与莫尔塞夫家", "color": "#7a5a38", "link": "mc01", "linkName": "法老号归来", "rel": [["edmond", "爱德蒙·唐泰斯", "父子"]]}, "vampa": {"name": "路易吉·万帕", "role": "罗马强盗首领", "deeds": "领导罗马周边的强盗团伙，与伯爵存在互相认可的关系。他控制阿尔贝后应伯爵要求放人，后来又扣住逃亡的唐格拉尔；这些行动使意大利成为巴黎之外的另一处清算场所。", "quote": "", "camp": "地中海与罗马", "campKey": "地中海与罗马", "color": "#8c2b26", "link": "mc17", "linkName": "阿尔贝被绑架", "rel": [["edmond", "爱德蒙·唐泰斯", "合作"]]}, "franz": {"name": "弗朗兹·德·埃皮奈", "role": "阿尔贝的朋友", "deeds": "在基督山岛和罗马先后遇见伯爵，对其力量始终保有疑虑。他曾与瓦朗蒂娜订婚，却因努瓦蒂埃的证言得知父亲死亡的真相，选择解除婚约，使一段旧政治仇怨改变当下婚事。", "quote": "", "camp": "地中海与罗马", "campKey": "地中海与罗马", "color": "#8c2b26", "link": "mc16", "linkName": "东方来的陌生人", "rel": [["albert", "阿尔贝·德·莫尔塞夫", "朋友"], ["edmond", "爱德蒙·唐泰斯", "岛上相遇"]]}, "debray": {"name": "吕西安·德布雷", "role": "内政部秘书 · 唐格拉尔夫人的情人", "deeds": "唐格拉尔家的常客，与埃尔米娜保持多年的私情，靠职务便利为她传递消息。唐格拉尔破产后，他迅速抽身，是巴黎客厅里最体面的那种薄情。", "quote": "", "camp": "唐格拉尔家", "campKey": "唐格拉尔家", "color": "#2f4a6b", "link": "mc20", "linkName": "信用与消息", "rel": [["hermine", "唐格拉尔夫人", "情人"], ["danglars", "唐格拉尔", "往来与背叛"]]}, "beauchamp": {"name": "博尚", "role": "记者 · 阿尔贝的挚友", "deeds": "阿尔贝最信任的朋友，在报纸上公开费尔南在希腊出卖阿里帕夏的证据。他不带私怨，只认事实，却因此亲手拆掉了莫尔塞夫家。", "quote": "", "camp": "地中海与罗马", "campKey": "地中海与罗马", "color": "#8c2b26", "link": "mc28", "linkName": "海黛指认叛徒", "rel": [["albert", "阿尔贝·德·莫尔塞夫", "挚友"], ["fernand", "费尔南·蒙德戈", "公开揭发"]]}, "saintmeran": {"name": "圣梅朗侯爵", "role": "维尔福的岳父", "deeds": "维尔福前妻的父亲。他与妻子先后在维尔福家中被毒杀，成为那串连环中毒案的开端，也让维尔福第一次意识到凶手就在自己家里。", "quote": "", "camp": "维尔福家", "campKey": "维尔福家", "color": "#5a3a6b", "link": "mc26", "linkName": "毒药进入家庭", "rel": [["villefort", "热拉尔·德·维尔福", "岳父"], ["heloise", "埃洛伊丝·德·维尔福", "被毒杀"]]}, "ali": {"name": "阿里", "role": "基督山伯爵的哑仆", "deeds": "被割去舌头的奴仆，对伯爵绝对忠诚。罗马的绑架、巴黎的夜行、决斗场上的护卫，他都站在主人身侧，从不说一个字。", "quote": "", "camp": "归来者", "campKey": "归来者", "color": "#8c2b26", "link": "mc17", "linkName": "阿尔贝被绑架", "rel": [["edmond", "爱德蒙·唐泰斯", "忠于主人"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

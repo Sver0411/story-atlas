@@ -153,6 +153,19 @@ window.BOOK = {
       ]
     },
     {
+      "id": "rc07b",
+      "era": "rise",
+      "when": "贾府盛时",
+      "place": "荣国府",
+      "title": "贾瑞之死",
+      "text": "贾瑞觊觎凤姐，被凤姐设下相思局。两次夜里被关在穿堂，冻得半死；又被浇了一身粪水。他病倒后，道士送来一面“风月宝鉴”，嘱咐只看背面。他忍不住看了正面，看见凤姐在招手，于是走进去，再也没出来。",
+      "people": [
+        "xifeng",
+        "jialian"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "rc08",
       "era": "prosper",
       "when": "第16—17回 · 前八十回",
@@ -188,6 +201,19 @@ window.BOOK = {
         "rc-text",
         "rc-ch018"
       ]
+    },
+    {
+      "id": "rc09b",
+      "era": "rise",
+      "when": "省亲之后",
+      "place": "大观园",
+      "title": "省亲之后的冷清",
+      "text": "元春回宫后，大观园被下令封存，不许人进去。园子里的灯还亮着，人却散了。宝玉在墙外站了很久。后来元春下旨让姐妹们搬进园中居住，这座园子才重新有了声音。",
+      "people": [
+        "yuanchun",
+        "baoyu"
+      ],
+      "sourceIds": []
     },
     {
       "id": "rc10",
@@ -267,6 +293,20 @@ window.BOOK = {
       ]
     },
     {
+      "id": "rc13b",
+      "era": "garden",
+      "when": "园中日常",
+      "place": "怡红院",
+      "title": "晴雯撕扇",
+      "text": "宝玉因为一把扇子和晴雯拌嘴。晴雯说：要撕就撕个痛快。宝玉真把扇子递给她，她一把一把撕成条。麝月过来劝，宝玉又把她的扇子也抢来给晴雯撕。院子里的人看呆了。",
+      "people": [
+        "baoyu",
+        "qingwen",
+        "xiren"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "rc14",
       "era": "garden",
       "when": "第37—38回 · 前八十回",
@@ -309,6 +349,19 @@ window.BOOK = {
       ]
     },
     {
+      "id": "rc15b",
+      "era": "garden",
+      "when": "园中日常",
+      "place": "滴翠亭",
+      "title": "宝钗扑蝶",
+      "text": "宝钗在滴翠亭外看见一双玉色蝴蝶，追着扑打，一直追到亭边。她听见亭里有人说私房话，怕被发现，便故意放重脚步，笑着说：颦儿，我看你往哪里藏。一句话把嫌疑推给了黛玉。",
+      "people": [
+        "baochai",
+        "daiyu"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "rc16",
       "era": "garden",
       "when": "第44回 · 前八十回",
@@ -326,6 +379,21 @@ window.BOOK = {
         "rc-text",
         "rc-ch044"
       ]
+    },
+    {
+      "id": "rc16b",
+      "era": "garden",
+      "when": "贾府盛时",
+      "place": "荣国府",
+      "title": "鸳鸯拒婚",
+      "text": "贾赦看上了贾母的丫鬟鸳鸯，让邢夫人去说媒。鸳鸯当着贾母的面剪下一绺头发，发誓终身不嫁。贾母气得发抖，把邢夫人骂了一顿。这一场闹下来，长房与母亲之间的裂缝再也补不上。",
+      "people": [
+        "yuan-yang",
+        "jiashe",
+        "xingfuren",
+        "jiamu"
+      ],
+      "sourceIds": []
     },
     {
       "id": "rc17",
@@ -381,6 +449,20 @@ window.BOOK = {
         "rc-ch055",
         "rc-ch056"
       ]
+    },
+    {
+      "id": "rc19b",
+      "era": "garden",
+      "when": "贾府中后期",
+      "place": "荣国府",
+      "title": "探春理家",
+      "text": "凤姐病倒，探春受命理家。她查出园中许多积弊，免去重复开支，把花木承包给婆子们。下人们抱怨她刻薄，她说：我不过是个未出阁的姑娘，能管几天？可她管的这几天，比许多人管几年都清楚。",
+      "people": [
+        "tanchun",
+        "xifeng",
+        "liwan"
+      ],
+      "sourceIds": []
     },
     {
       "id": "rc20",
@@ -547,6 +629,20 @@ window.BOOK = {
         "rc-text",
         "rc-ch094"
       ]
+    },
+    {
+      "id": "rc28b",
+      "era": "decline",
+      "when": "贾府衰败",
+      "place": "怡红院",
+      "title": "失玉之后",
+      "text": "通灵宝玉丢失后，宝玉像变了一个人，整日发呆，不认得人。贾府请医问卜，都说不出所以然。那块玉是他命里的东西，玉一失，人也跟着空了。",
+      "people": [
+        "baoyu",
+        "baochai",
+        "xiren"
+      ],
+      "sourceIds": []
     },
     {
       "id": "rc29",
@@ -795,6 +891,19 @@ window.BOOK = {
         "rc-text",
         "rc-ch120"
       ]
+    },
+    {
+      "id": "rc41b",
+      "era": "end",
+      "when": "结局",
+      "place": "毗陵驿",
+      "title": "雪地里的袈裟",
+      "text": "贾政在毗陵驿的船上，看见雪地里走来一个披着大红袈裟的和尚，向他拜了四拜。他认出那是宝玉，追上去，人却不见了。雪地上只留下一行脚印，很快也被雪盖住。",
+      "people": [
+        "baoyu",
+        "jiazheng"
+      ],
+      "sourceIds": []
     },
     {
       "id": "rc42",
@@ -1323,6 +1432,121 @@ window.BOOK = {
       "events": [
         "rc22"
       ]
+    },
+    {
+      "id": "jiashe",
+      "name": "贾赦",
+      "role": "荣国府长子 · 贾琏之父",
+      "group": "贾府家人",
+      "aliases": [],
+      "deeds": "贾母长子，袭一等将军。好色贪财，为几把古扇逼得石呆子家破人亡；又让邢夫人替他说媒求娶鸳鸯，碰了一鼻子灰，母子从此生隙。",
+      "events": [
+        "rc16",
+        "rc24"
+      ]
+    },
+    {
+      "id": "jiarong",
+      "name": "贾蓉",
+      "role": "秦可卿之夫 · 宁国府长孙",
+      "group": "贾府家人",
+      "aliases": [],
+      "deeds": "贾珍之子，与父亲一同挥霍宁府。妻子秦可卿死后，他把丧事办得极尽铺张，也把宁国府的名声一起埋了进去。",
+      "events": [
+        "rc06"
+      ]
+    },
+    {
+      "id": "jiahuan",
+      "name": "贾环",
+      "role": "贾政庶子",
+      "group": "贾府家人",
+      "aliases": [],
+      "deeds": "赵姨娘所生，因庶出的身份自卑而阴郁，屡次暗害宝玉，曾用一盏灯油把宝玉的脸烫伤。",
+      "events": [
+        "rc13"
+      ]
+    },
+    {
+      "id": "zhaoyiniang",
+      "name": "赵姨娘",
+      "role": "贾政之妾 · 贾环之母",
+      "group": "贾府家人",
+      "aliases": [],
+      "deeds": "府中处境尴尬的妾室，怨恨凤姐与宝玉，请马道婆作法诅咒二人。事情败露后，她在府中更加孤立。",
+      "events": [
+        "rc13",
+        "rc24"
+      ]
+    },
+    {
+      "id": "xueyima",
+      "name": "薛姨妈",
+      "role": "薛宝钗之母",
+      "group": "府内与府外",
+      "aliases": [],
+      "deeds": "薛家当家主母，带着子女寄居贾府。她待人和气，却在“金玉良缘”这件事上温和而坚定，是这桩婚事的推手之一。",
+      "events": [
+        "rc10",
+        "rc30"
+      ]
+    },
+    {
+      "id": "xingfuren",
+      "name": "邢夫人",
+      "role": "贾赦之妻",
+      "group": "贾府家人",
+      "aliases": [],
+      "deeds": "贾赦的续弦，一味顺从丈夫，替他出面求娶鸳鸯，被贾母当面驳回。她在府中的位置，永远比别人矮半截。",
+      "events": [
+        "rc16"
+      ]
+    },
+    {
+      "id": "youshi",
+      "name": "尤氏",
+      "role": "贾珍之妻 · 宁国府主母",
+      "group": "贾府家人",
+      "aliases": [],
+      "deeds": "宁国府的当家主母，性情软弱，对丈夫与儿子的荒唐无力约束。两个妹妹先后遭难，她只能站在一旁看着。",
+      "events": [
+        "rc22",
+        "rc23"
+      ]
+    },
+    {
+      "id": "jiayucun",
+      "name": "贾雨村",
+      "role": "应天府尹",
+      "group": "府内与府外",
+      "aliases": [],
+      "deeds": "受甄士隐资助中举，后来攀附贾府，在葫芦案中徇私枉法、放走薛蟠。贾府败落后，他反过来参奏旧主，是全书最完整的一条仕途线。",
+      "events": [
+        "rc03",
+        "rc33"
+      ]
+    },
+    {
+      "id": "zhenshiyin",
+      "name": "甄士隐",
+      "role": "姑苏乡宦",
+      "group": "府内与府外",
+      "aliases": [],
+      "deeds": "资助贾雨村赶考，却在元宵夜丢失女儿英莲，家道中落，最终随跛足道人出家。整部书由他的一个梦开始。",
+      "events": [
+        "rc01"
+      ]
+    },
+    {
+      "id": "liuxianglian",
+      "name": "柳湘莲",
+      "role": "世家子弟 · 串戏",
+      "group": "府内与府外",
+      "aliases": [],
+      "deeds": "性情豪爽，与宝玉交好。因误会尤三姐而坚持退婚，尤三姐当着他的面自刎，他随即截发出家，从此不知所终。",
+      "events": [
+        "rc22"
+      ]
     }
   ],
   "relations": [
@@ -1565,6 +1789,106 @@ window.BOOK = {
       "a": "xiangling",
       "b": "daiyu",
       "label": "学诗师友"
+    },
+    {
+      "a": "jiashe",
+      "b": "jiamu",
+      "label": "母子"
+    },
+    {
+      "a": "jiashe",
+      "b": "jialian",
+      "label": "父子"
+    },
+    {
+      "a": "jiashe",
+      "b": "xingfuren",
+      "label": "夫妻"
+    },
+    {
+      "a": "jiarong",
+      "b": "jiazhen",
+      "label": "父子"
+    },
+    {
+      "a": "jiarong",
+      "b": "qinke",
+      "label": "夫妻"
+    },
+    {
+      "a": "jiahuan",
+      "b": "jiazheng",
+      "label": "父子"
+    },
+    {
+      "a": "jiahuan",
+      "b": "zhaoyiniang",
+      "label": "母子"
+    },
+    {
+      "a": "zhaoyiniang",
+      "b": "jiazheng",
+      "label": "妾室"
+    },
+    {
+      "a": "jiahuan",
+      "b": "baoyu",
+      "label": "暗害"
+    },
+    {
+      "a": "xueyima",
+      "b": "baochai",
+      "label": "母女"
+    },
+    {
+      "a": "xueyima",
+      "b": "xuepan",
+      "label": "母子"
+    },
+    {
+      "a": "xingfuren",
+      "b": "jiashe",
+      "label": "夫妻"
+    },
+    {
+      "a": "youshi",
+      "b": "jiazhen",
+      "label": "夫妻"
+    },
+    {
+      "a": "youshi",
+      "b": "youer",
+      "label": "姐妹"
+    },
+    {
+      "a": "youshi",
+      "b": "yousan",
+      "label": "姐妹"
+    },
+    {
+      "a": "jiayucun",
+      "b": "zhenshiyin",
+      "label": "受其资助"
+    },
+    {
+      "a": "jiayucun",
+      "b": "jiashe",
+      "label": "攀附"
+    },
+    {
+      "a": "zhenshiyin",
+      "b": "xiangling",
+      "label": "父女"
+    },
+    {
+      "a": "liuxianglian",
+      "b": "yousan",
+      "label": "婚约"
+    },
+    {
+      "a": "liuxianglian",
+      "b": "baoyu",
+      "label": "好友"
     }
   ],
   "sources": [

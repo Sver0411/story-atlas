@@ -1,1 +1,895 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>红楼梦 · 人物志 · 故事图谱</title><meta name="description" content="红楼梦人物事迹与直接关系网"><meta name="theme-color" content="#f7f4ed"><link rel="stylesheet" href="../../assets/site.css"><style>:root{--accent:#984b53}</style></head><body><div class="progress" id="readingProgress" aria-hidden="true"></div><nav class="reader-nav" aria-label="主要导航"><div class="shell"><a class="reader-brand" href="../../index.html">故事图谱</a><div class="reader-tabs"><a href="index.html">时间线</a><a href="characters.html" class="on" aria-current="page">人物志</a><label><span class="sr-only">切换书籍</span><select class="book-switch" id="bookSwitch"><option value="../three-body/index.html">三体</option><option value="../monte-cristo/index.html">基督山伯爵</option><option value="../solitude/index.html">百年孤独</option><option value="../lotr/index.html">魔戒</option><option value="../dune/index.html">沙丘</option><option value="../red-chamber/index.html" selected>红楼梦</option></select></label></div></div></nav><main class="shell"><header class="people-head"><div class="eyebrow">红楼梦 / 人物志</div><h1>循着人物，看见故事。</h1><p>30 位人物，48 组直接关系。事迹涵盖结局，沿关系切换人物时，可回到对应时间线。</p></header><div class="character-tools"><label><span class="sr-only">搜索人物</span><input id="personSearch" type="search" placeholder="搜索人物、别名或身份" autocomplete="off"></label><span class="result-count" id="peopleCount" aria-live="polite">30 位人物</span></div><section id="relationMap" style="scroll-margin-top:88px"><div class="graph-head"><h2>人物关系网</h2><button type="button" class="pill" id="resetGraph">全览关系</button></div><p class="graph-caption" id="graphCaption"></p><div class="relationship-layout"><div class="graph-frame"><svg class="relationship-graph" id="relationshipGraph" viewBox="0 0 900 650" role="group" aria-label="红楼梦可交互人物关系网"></svg></div><aside class="person-detail" id="personDetail" aria-label="选中人物详情"><div class="eyebrow">人物关系</div><h2>从一个人开始</h2><p>点选图中的人物，沿着亲缘、同盟与冲突，了解故事如何发生。</p></aside></div></section><p class="empty" id="peopleEmpty" hidden>没有找到匹配人物，试试姓名或别名。</p><section class="people-group"><h2>贾府家人</h2><div class="people-grid"><article class="person-card" id="p-baoyu" data-person="baoyu"><h3>贾宝玉</h3><p class="role">荣国府公子 · 通灵宝玉的携带者</p><p>贾政与王夫人之子，受贾母宠爱，珍视园中女儿的情意与才华，对仕途功名缺少认同。与黛玉相知，在后四十回与宝钗成婚，中举后随僧道离去。</p><div class="card-actions"><button type="button" data-show-person="baoyu">查看关系 →</button><a href="index.html#rc02">时间线 · 黛玉进贾府</a></div></article><article class="person-card" id="p-jiamu" data-person="jiamu"><h3>贾母</h3><p class="role">荣国府老夫人 · 史太君</p><p>贾赦与贾政之母，也是黛玉的外祖母。以长辈威望和日常偏爱维系家族，尤其疼爱宝玉与黛玉；后四十回在抄家等打击之后去世。</p><div class="card-actions"><button type="button" data-show-person="jiamu">查看关系 →</button><a href="index.html#rc02">时间线 · 黛玉进贾府</a></div></article><article class="person-card" id="p-xifeng" data-person="xifeng"><h3>王熙凤</h3><p class="role">贾琏之妻 · 荣府管事人</p><p>善于管理与周旋，协理宁府、放贷干预诉讼，也在婚姻中狠心压迫尤二姐。后四十回病中承办丧事、向刘姥姥托付巧姐，最终病逝。</p><div class="card-actions"><button type="button" data-show-person="xifeng">查看关系 →</button><a href="index.html#rc02">时间线 · 黛玉进贾府</a></div></article><article class="person-card" id="p-jiazheng" data-person="jiazheng"><h3>贾政</h3><p class="role">宝玉之父 · 贾府长辈</p><p>希望儿子循读书入仕的道路，因宝玉的交游和传闻严厉责打他。家族衰败后承担许多善后责任；后四十回在途中见到宝玉随僧道离去。</p><div class="card-actions"><button type="button" data-show-person="jiazheng">查看关系 →</button><a href="index.html#rc08">时间线 · 元春晋封，园林兴建</a></div></article><article class="person-card" id="p-wangfuren" data-person="wangfuren"><h3>王夫人</h3><p class="role">贾政之妻 · 宝玉之母</p><p>关切宝玉的前途与内宅规矩，倚重凤姐和袭人，也因猜忌与迁怒逐走金钏、晴雯。她对儿子的保护，常与丫鬟们承受的惩罚交织在一起。</p><div class="card-actions"><button type="button" data-show-person="wangfuren">查看关系 →</button><a href="index.html#rc02">时间线 · 黛玉进贾府</a></div></article><article class="person-card" id="p-jialian" data-person="jialian"><h3>贾琏</h3><p class="role">贾赦之子 · 凤姐之夫</p><p>参与府中日常事务，多情而缺少担当，另娶尤二姐后未能保护她免于内宅迫害。家败、妻亡后仍须照料女儿巧姐，并面对旧日管家方式造成的后果。</p><div class="card-actions"><button type="button" data-show-person="jialian">查看关系 →</button><a href="index.html#rc16">时间线 · 生日宴后的泼醋</a></div></article><article class="person-card" id="p-jiazhen" data-person="jiazhen"><h3>贾珍</h3><p class="role">宁国府当家人</p><p>贾蓉之父、秦可卿的公公，生活奢靡，秦氏丧事尤为铺张。家族声名与他的行事相互牵连，后四十回被查罪，宁府的衰败也公开呈现。</p><div class="card-actions"><button type="button" data-show-person="jiazhen">查看关系 →</button><a href="index.html#rc06">时间线 · 秦可卿之死与盛大丧事</a></div></article><article class="person-card" id="p-yuanchun" data-person="yuanchun"><h3>贾元春</h3><p class="role">宝玉之姐 · 贤德妃</p><p>进入宫廷后晋封，省亲使贾府兴建大观园，并允许姊妹与宝玉入住。显赫身份伴着亲情隔绝；她在后四十回病逝，贾府由此失去重要的荣宠来源。</p><div class="card-actions"><button type="button" data-show-person="yuanchun">查看关系 →</button><a href="index.html#rc08">时间线 · 元春晋封，园林兴建</a></div></article><article class="person-card" id="p-qiaojie" data-person="qiaojie"><h3>贾巧姐</h3><p class="role">贾琏与王熙凤之女</p><p>幼时得到刘姥姥取名，曾生活在贾府的保护之中。后四十回母亲去世、父亲外出时，亲属试图出卖她的婚姻，平儿与刘姥姥合作使她脱险。</p><div class="card-actions"><button type="button" data-show-person="qiaojie">查看关系 →</button><a href="index.html#rc15">时间线 · 刘姥姥再入大观园</a></div></article></div></section><section class="people-group"><h2>园中群芳</h2><div class="people-grid"><article class="person-card" id="p-daiyu" data-person="daiyu"><h3>林黛玉</h3><p class="role">潇湘馆主人 · 宝玉的姑表妹</p><p>林如海与贾敏之女，丧母后寄居外祖母贾家，诗才出众、敏感而自尊，与宝玉情意相通。通行本后四十回写她得知宝钗婚事后焚稿，在病中去世。</p><div class="card-actions"><button type="button" data-show-person="daiyu">查看关系 →</button><a href="index.html#rc02">时间线 · 黛玉进贾府</a></div></article><article class="person-card" id="p-baochai" data-person="baochai"><h3>薛宝钗</h3><p class="role">薛家女儿 · 蘅芜苑主人</p><p>随母兄住进贾府，处事周全，既有诗才也熟悉现实中的礼法与责任，关照香菱。后四十回与宝玉成婚，婚姻却未能使宝玉摆脱失去黛玉的痛苦。</p><div class="card-actions"><button type="button" data-show-person="baochai">查看关系 →</button><a href="index.html#rc03">时间线 · 一桩被权势改写的命案</a></div></article><article class="person-card" id="p-yingchun" data-person="yingchun"><h3>贾迎春</h3><p class="role">贾府二姑娘</p><p>性情退让，不愿与人争执，在园中与姐妹共同生活。贾赦把她许给孙绍祖，婚后遭虐待；前八十回写她归诉，后四十回交代她被折磨致死。</p><div class="card-actions"><button type="button" data-show-person="yingchun">查看关系 →</button><a href="index.html#rc10">时间线 · 住进园中，共读西厢</a></div></article><article class="person-card" id="p-tanchun" data-person="tanchun"><h3>贾探春</h3><p class="role">贾府三姑娘 · 诗社发起人</p><p>贾政之女，有才识与管理能力，曾与李纨、宝钗协理家务，抄检时拒绝受辱。后四十回按父亲议定的婚事远嫁，才干没有使她掌握自己的去留。</p><div class="card-actions"><button type="button" data-show-person="tanchun">查看关系 →</button><a href="index.html#rc10">时间线 · 住进园中，共读西厢</a></div></article><article class="person-card" id="p-xichun" data-person="xichun"><h3>贾惜春</h3><p class="role">贾府四姑娘 · 宁府出身</p><p>贾珍之妹，爱绘画，逐渐对家族污浊与他人牵连保持警戒，抄检后逐出入画。后四十回在丧乱与盗劫后坚持出家，紫鹃后来与她相伴。</p><div class="card-actions"><button type="button" data-show-person="xichun">查看关系 →</button><a href="index.html#rc10">时间线 · 住进园中，共读西厢</a></div></article><article class="person-card" id="p-xiangyun" data-person="xiangyun"><h3>史湘云</h3><p class="role">贾母娘家的亲属 · 诗社成员</p><p>幼年失去父母，由叔婶抚养，时常来贾府与姊妹相聚，诗思敏捷而性情爽朗。后四十回写她已婚，丈夫患重病；她须面对与从前截然不同的牵挂。</p><div class="card-actions"><button type="button" data-show-person="xiangyun">查看关系 →</button><a href="index.html#rc14">时间线 · 海棠诗社</a></div></article><article class="person-card" id="p-liwan" data-person="liwan"><h3>李纨</h3><p class="role">贾珠遗孀 · 贾兰之母</p><p>年少守寡，主要心力放在养育贾兰，与姐妹相处时主持诗社，也参与协理家务。后四十回贾兰与宝玉同应科举并中举，成为家族延续希望的一部分。</p><div class="card-actions"><button type="button" data-show-person="liwan">查看关系 →</button><a href="index.html#rc14">时间线 · 海棠诗社</a></div></article><article class="person-card" id="p-qinke" data-person="qinke"><h3>秦可卿</h3><p class="role">贾蓉之妻 · 宁国府少奶奶</p><p>与凤姐交好，宝玉曾在她房中入睡并梦入太虚幻境。她去世时在凤姐梦中留下盛衰警示，现实中的丧事却被贾珍办得极为铺张，继续耗费家族财力。</p><div class="card-actions"><button type="button" data-show-person="qinke">查看关系 →</button><a href="index.html#rc04">时间线 · 梦中已写下的命运</a></div></article><article class="person-card" id="p-miaoyu" data-person="miaoyu"><h3>妙玉</h3><p class="role">栊翠庵修行者</p><p>受请住进大观园，精于茶事，重洁净而性情孤高，与宝玉、黛玉等有往来。后四十回被盗贼劫走，正文明确未详其后下落，不预设她死亡的方式。</p><div class="card-actions"><button type="button" data-show-person="miaoyu">查看关系 →</button><a href="index.html#rc15">时间线 · 刘姥姥再入大观园</a></div></article></div></section><section class="people-group"><h2>丫鬟与侍从</h2><div class="people-grid"><article class="person-card" id="p-xiren" data-person="xiren"><h3>袭人</h3><p class="role">宝玉的贴身丫鬟</p><p>原在贾母身边，后来服侍宝玉，做事细密，常劝他顾及长辈与前途，受到王夫人倚重。后四十回宝玉离去后，她被安排嫁给蒋玉菡。</p><div class="card-actions"><button type="button" data-show-person="xiren">查看关系 →</button><a href="index.html#rc21">时间线 · 群芳夜宴</a></div></article><article class="person-card" id="p-qingwen" data-person="qingwen"><h3>晴雯</h3><p class="role">怡红院丫鬟 · 善织补</p><p>心直口快，手艺出众，病中为宝玉补好雀金裘。她受到王夫人猜忌，重病时被逐，后来夭亡。宝玉作芙蓉诔悼念她，她的遭遇也显示主仆地位的不平等。</p><div class="card-actions"><button type="button" data-show-person="qingwen">查看关系 →</button><a href="index.html#rc18">时间线 · 病中补雀金裘</a></div></article><article class="person-card" id="p-zijuan" data-person="zijuan"><h3>紫鹃</h3><p class="role">黛玉的贴身丫鬟</p><p>陪伴黛玉，深知她的性情与身体状况，以回苏州的消息试探宝玉真心，始终关切黛玉终身。后四十回黛玉去世后，紫鹃后来服侍决定修行的惜春。</p><div class="card-actions"><button type="button" data-show-person="zijuan">查看关系 →</button><a href="index.html#rc20">时间线 · 紫鹃试玉</a></div></article><article class="person-card" id="p-pinger" data-person="pinger"><h3>平儿</h3><p class="role">凤姐的陪房丫鬟 · 贾琏之妾</p><p>长期在凤姐与贾琏之间调停，既协助管家，也尽力缓和惩罚、保护弱者。后四十回她发现巧姐面临的危险，及时联系刘姥姥，使孩子躲过亲属的算计。</p><div class="card-actions"><button type="button" data-show-person="pinger">查看关系 →</button><a href="index.html#rc16">时间线 · 生日宴后的泼醋</a></div></article><article class="person-card" id="p-yuan-yang" data-person="yuan-yang"><h3>鸳鸯</h3><p class="role">贾母的贴身丫鬟</p><p>掌管贾母身边事务，曾坚决拒绝贾赦纳妾的要求，依靠贾母庇护维持独立。后四十回贾母去世后，她自尽殉主，未能获得脱离主仆制度的生活。</p><div class="card-actions"><button type="button" data-show-person="yuan-yang">查看关系 →</button><a href="index.html#rc35">时间线 · 贾母去世</a></div></article><article class="person-card" id="p-xiangling" data-person="xiangling"><h3>香菱</h3><p class="role">甄士隐失散的女儿 · 薛蟠妾侍</p><p>本名甄英莲，幼年被拐，经命案落入薛家；在园中随黛玉学诗，后遭夏金桂迫害。通行本后四十回写她逃过毒计、被扶正，最终难产而死。</p><div class="card-actions"><button type="button" data-show-person="xiangling">查看关系 →</button><a href="index.html#rc01">时间线 · 石头与失散的女儿</a></div></article><article class="person-card" id="p-jinchuan" data-person="jinchuan"><h3>金钏</h3><p class="role">王夫人房中丫鬟</p><p>因与宝玉说笑受到王夫人责罚，被逐出后投井而死。她的妹妹玉钏仍在府中服侍；她的死亡成为宝玉挨打的牵连，也揭示丫鬟命运对主子情绪的依赖。</p><div class="card-actions"><button type="button" data-show-person="jinchuan">查看关系 →</button><a href="index.html#rc12">时间线 · 金钏被逐</a></div></article></div></section><section class="people-group"><h2>府内与府外</h2><div class="people-grid"><article class="person-card" id="p-xuepan" data-person="xuepan"><h3>薛蟠</h3><p class="role">薛宝钗之兄 · 薛家子弟</p><p>为争夺英莲打死冯渊，依靠权势逃过惩处，后来纳香菱、娶夏金桂，家庭纷争不断。后四十回另有命案与诉讼，母亲妹妹为其奔走，香菱最终给薛家留下一个孩子。</p><div class="card-actions"><button type="button" data-show-person="xuepan">查看关系 →</button><a href="index.html#rc03">时间线 · 一桩被权势改写的命案</a></div></article><article class="person-card" id="p-xiajingui" data-person="xiajingui"><h3>夏金桂</h3><p class="role">薛蟠之妻</p><p>嫁入薛家后争夺内宅支配地位，逼迫香菱改名，屡加诬陷与虐待。后四十回设毒计害香菱却反致自己中毒身亡，薛家随之再陷命案与纷乱。</p><div class="card-actions"><button type="button" data-show-person="xiajingui">查看关系 →</button><a href="index.html#rc27">时间线 · 香菱受辱，前八十回收束</a></div></article><article class="person-card" id="p-liulaolao" data-person="liulaolao"><h3>刘姥姥</h3><p class="role">乡间老人 · 贾府远亲</p><p>为家中生计到贾府求助，后来带土产来谢，获贾母留待并为巧姐取名。后四十回探望病中的凤姐，接受托孤，家败时与平儿合作保护巧姐。</p><div class="card-actions"><button type="button" data-show-person="liulaolao">查看关系 →</button><a href="index.html#rc05">时间线 · 刘姥姥第一次叩门</a></div></article><article class="person-card" id="p-youer" data-person="youer"><h3>尤二姐</h3><p class="role">尤氏继母所生之妹 · 贾琏另娶的二房</p><p>与尤三姐为姐妹，被贾琏在外另娶，随后由凤姐接入府中。内宅排挤、诉讼与失去胎儿接踵而来，她最终吞金自尽，贾琏的承诺未能成为实际保护。</p><div class="card-actions"><button type="button" data-show-person="youer">查看关系 →</button><a href="index.html#rc22">时间线 · 尤三姐的决绝</a></div></article><article class="person-card" id="p-yousan" data-person="yousan"><h3>尤三姐</h3><p class="role">尤二姐之妹</p><p>敢于表现自己的意愿，认定柳湘莲并希望与他成婚。柳因宁府名声怀疑她、提出退婚，她以自尽回应；柳知真相后悔恨，二人的婚事也随之终止。</p><div class="card-actions"><button type="button" data-show-person="yousan">查看关系 →</button><a href="index.html#rc22">时间线 · 尤三姐的决绝</a></div></article></div></section><p class="sr-only" id="peopleLive" role="status" aria-live="polite"></p><section class="sources" id="sources"><div class="eyebrow">阅读范围与资料</div><h2>关于这份导读</h2><p>通行一百二十回本：前八十回与后四十回分段标明，包含结局剧透。</p><p>这是一份按叙事阶段整理的原创导读，不替代原著。小说没有一套可无争议换算的公历年表，故以章回和故事阶段定位。前八十回与后四十回在页面中分别标明；后四十回的刊行与作者问题存在争议，本页只说明通行一百二十回本实际写出的结局，不将脂批推测、后世续书或影视改编混入正文。</p><ol><li id="source-rc-text"><a href="https://zh.wikisource.org/wiki/紅樓夢" target="_blank" rel="noopener noreferrer">《红楼梦》一百二十回汇校本文本及目录 ↗</a> · 正文说明前八十回以庚辰本为底本，后四十回以程甲本为底本；本页为原创情节概述，不转录小说全文。</li><li id="source-rc-edition"><a href="https://zh.wikisource.org/wiki/紅樓夢（程甲本）" target="_blank" rel="noopener noreferrer">程甲本版本与刊印说明 ↗</a> · 1791年程伟元、高鹗刊行的120回本；后四十回的作者与原稿来源存在研究争议。</li><li id="source-rc-ch001"><a href="https://zh.wikisource.org/wiki/紅樓夢/第001回" target="_blank" rel="noopener noreferrer">《红楼梦》第1回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch002"><a href="https://zh.wikisource.org/wiki/紅樓夢/第002回" target="_blank" rel="noopener noreferrer">《红楼梦》第2回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch003"><a href="https://zh.wikisource.org/wiki/紅樓夢/第003回" target="_blank" rel="noopener noreferrer">《红楼梦》第3回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch004"><a href="https://zh.wikisource.org/wiki/紅樓夢/第004回" target="_blank" rel="noopener noreferrer">《红楼梦》第4回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch005"><a href="https://zh.wikisource.org/wiki/紅樓夢/第005回" target="_blank" rel="noopener noreferrer">《红楼梦》第5回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch006"><a href="https://zh.wikisource.org/wiki/紅樓夢/第006回" target="_blank" rel="noopener noreferrer">《红楼梦》第6回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch013"><a href="https://zh.wikisource.org/wiki/紅樓夢/第013回" target="_blank" rel="noopener noreferrer">《红楼梦》第13回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch014"><a href="https://zh.wikisource.org/wiki/紅樓夢/第014回" target="_blank" rel="noopener noreferrer">《红楼梦》第14回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch015"><a href="https://zh.wikisource.org/wiki/紅樓夢/第015回" target="_blank" rel="noopener noreferrer">《红楼梦》第15回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch016"><a href="https://zh.wikisource.org/wiki/紅樓夢/第016回" target="_blank" rel="noopener noreferrer">《红楼梦》第16回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch017"><a href="https://zh.wikisource.org/wiki/紅樓夢/第017回" target="_blank" rel="noopener noreferrer">《红楼梦》第17回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch018"><a href="https://zh.wikisource.org/wiki/紅樓夢/第018回" target="_blank" rel="noopener noreferrer">《红楼梦》第18回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch023"><a href="https://zh.wikisource.org/wiki/紅樓夢/第023回" target="_blank" rel="noopener noreferrer">《红楼梦》第23回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch027"><a href="https://zh.wikisource.org/wiki/紅樓夢/第027回" target="_blank" rel="noopener noreferrer">《红楼梦》第27回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch028"><a href="https://zh.wikisource.org/wiki/紅樓夢/第028回" target="_blank" rel="noopener noreferrer">《红楼梦》第28回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch030"><a href="https://zh.wikisource.org/wiki/紅樓夢/第030回" target="_blank" rel="noopener noreferrer">《红楼梦》第30回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch032"><a href="https://zh.wikisource.org/wiki/紅樓夢/第032回" target="_blank" rel="noopener noreferrer">《红楼梦》第32回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch033"><a href="https://zh.wikisource.org/wiki/紅樓夢/第033回" target="_blank" rel="noopener noreferrer">《红楼梦》第33回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch034"><a href="https://zh.wikisource.org/wiki/紅樓夢/第034回" target="_blank" rel="noopener noreferrer">《红楼梦》第34回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch037"><a href="https://zh.wikisource.org/wiki/紅樓夢/第037回" target="_blank" rel="noopener noreferrer">《红楼梦》第37回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch038"><a href="https://zh.wikisource.org/wiki/紅樓夢/第038回" target="_blank" rel="noopener noreferrer">《红楼梦》第38回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch039"><a href="https://zh.wikisource.org/wiki/紅樓夢/第039回" target="_blank" rel="noopener noreferrer">《红楼梦》第39回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch042"><a href="https://zh.wikisource.org/wiki/紅樓夢/第042回" target="_blank" rel="noopener noreferrer">《红楼梦》第42回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch044"><a href="https://zh.wikisource.org/wiki/紅樓夢/第044回" target="_blank" rel="noopener noreferrer">《红楼梦》第44回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch048"><a href="https://zh.wikisource.org/wiki/紅樓夢/第048回" target="_blank" rel="noopener noreferrer">《红楼梦》第48回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch049"><a href="https://zh.wikisource.org/wiki/紅樓夢/第049回" target="_blank" rel="noopener noreferrer">《红楼梦》第49回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch052"><a href="https://zh.wikisource.org/wiki/紅樓夢/第052回" target="_blank" rel="noopener noreferrer">《红楼梦》第52回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch055"><a href="https://zh.wikisource.org/wiki/紅樓夢/第055回" target="_blank" rel="noopener noreferrer">《红楼梦》第55回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch056"><a href="https://zh.wikisource.org/wiki/紅樓夢/第056回" target="_blank" rel="noopener noreferrer">《红楼梦》第56回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch057"><a href="https://zh.wikisource.org/wiki/紅樓夢/第057回" target="_blank" rel="noopener noreferrer">《红楼梦》第57回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch063"><a href="https://zh.wikisource.org/wiki/紅樓夢/第063回" target="_blank" rel="noopener noreferrer">《红楼梦》第63回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch066"><a href="https://zh.wikisource.org/wiki/紅樓夢/第066回" target="_blank" rel="noopener noreferrer">《红楼梦》第66回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch068"><a href="https://zh.wikisource.org/wiki/紅樓夢/第068回" target="_blank" rel="noopener noreferrer">《红楼梦》第68回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch069"><a href="https://zh.wikisource.org/wiki/紅樓夢/第069回" target="_blank" rel="noopener noreferrer">《红楼梦》第69回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch074"><a href="https://zh.wikisource.org/wiki/紅樓夢/第074回" target="_blank" rel="noopener noreferrer">《红楼梦》第74回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch077"><a href="https://zh.wikisource.org/wiki/紅樓夢/第077回" target="_blank" rel="noopener noreferrer">《红楼梦》第77回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch078"><a href="https://zh.wikisource.org/wiki/紅樓夢/第078回" target="_blank" rel="noopener noreferrer">《红楼梦》第78回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch079"><a href="https://zh.wikisource.org/wiki/紅樓夢/第079回" target="_blank" rel="noopener noreferrer">《红楼梦》第79回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch080"><a href="https://zh.wikisource.org/wiki/紅樓夢/第080回" target="_blank" rel="noopener noreferrer">《红楼梦》第80回原文 ↗</a> · 前八十回文本</li><li id="source-rc-ch094"><a href="https://zh.wikisource.org/wiki/紅樓夢/第094回" target="_blank" rel="noopener noreferrer">《红楼梦》第94回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch095"><a href="https://zh.wikisource.org/wiki/紅樓夢/第095回" target="_blank" rel="noopener noreferrer">《红楼梦》第95回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch096"><a href="https://zh.wikisource.org/wiki/紅樓夢/第096回" target="_blank" rel="noopener noreferrer">《红楼梦》第96回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch098"><a href="https://zh.wikisource.org/wiki/紅樓夢/第098回" target="_blank" rel="noopener noreferrer">《红楼梦》第98回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch100"><a href="https://zh.wikisource.org/wiki/紅樓夢/第100回" target="_blank" rel="noopener noreferrer">《红楼梦》第100回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch103"><a href="https://zh.wikisource.org/wiki/紅樓夢/第103回" target="_blank" rel="noopener noreferrer">《红楼梦》第103回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch105"><a href="https://zh.wikisource.org/wiki/紅樓夢/第105回" target="_blank" rel="noopener noreferrer">《红楼梦》第105回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch107"><a href="https://zh.wikisource.org/wiki/紅樓夢/第107回" target="_blank" rel="noopener noreferrer">《红楼梦》第107回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch109"><a href="https://zh.wikisource.org/wiki/紅樓夢/第109回" target="_blank" rel="noopener noreferrer">《红楼梦》第109回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch110"><a href="https://zh.wikisource.org/wiki/紅樓夢/第110回" target="_blank" rel="noopener noreferrer">《红楼梦》第110回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch111"><a href="https://zh.wikisource.org/wiki/紅樓夢/第111回" target="_blank" rel="noopener noreferrer">《红楼梦》第111回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch112"><a href="https://zh.wikisource.org/wiki/紅樓夢/第112回" target="_blank" rel="noopener noreferrer">《红楼梦》第112回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch113"><a href="https://zh.wikisource.org/wiki/紅樓夢/第113回" target="_blank" rel="noopener noreferrer">《红楼梦》第113回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch114"><a href="https://zh.wikisource.org/wiki/紅樓夢/第114回" target="_blank" rel="noopener noreferrer">《红楼梦》第114回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch115"><a href="https://zh.wikisource.org/wiki/紅樓夢/第115回" target="_blank" rel="noopener noreferrer">《红楼梦》第115回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch118"><a href="https://zh.wikisource.org/wiki/紅樓夢/第118回" target="_blank" rel="noopener noreferrer">《红楼梦》第118回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch119"><a href="https://zh.wikisource.org/wiki/紅樓夢/第119回" target="_blank" rel="noopener noreferrer">《红楼梦》第119回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li><li id="source-rc-ch120"><a href="https://zh.wikisource.org/wiki/紅樓夢/第120回" target="_blank" rel="noopener noreferrer">《红楼梦》第120回原文 ↗</a> · 后四十回文本；结局仅按本版本叙述</li></ol><p>图片为依据情节生成的 AI 概念插图，人物外观与未明确规定的建筑细节属于视觉想象。</p></section><footer class="site-footer"><span>故事图谱 · 沿时间读故事，循关系看人物。</span><span>原创情节概述与 AI 场景插图 · <a href="../../index.html">返回书架</a></span></footer></main><script src="data.js"></script><script src="../../assets/reader.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>红楼梦 · 人物志 | 40 个人物</title>
+<meta name="description" content="沿四十二个故事节点，看宝黛钗的情感、贾府的盛衰，以及园中女儿们各自走向的命运。人物关系与章回依据可随时查阅。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:10px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.5;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.4px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+</style>
+<style>
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">曹雪芹；后四十回作者问题另见说明 / CHARACTERS</p>
+    <h1 class="big">红楼梦 · 人物</h1>
+    <p class="deck">沿四十二个故事节点，看宝黛钗的情感、贾府的盛衰，以及园中女儿们各自走向的命运。人物关系与章回依据可随时查阅。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="贾府家人">贾府家人</button><button class="fbtn" data-camp="园中群芳">园中群芳</button><button class="fbtn" data-camp="丫鬟与侍从">丫鬟与侍从</button><button class="fbtn" data-camp="府内与府外">府内与府外</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="红楼梦人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="43" text-anchor="middle">贾府家人</text>
+        <text class="gtag" x="845" y="316" text-anchor="middle">园中群芳</text>
+        <text class="gtag" x="620" y="557" text-anchor="middle">丫鬟与侍从</text>
+        <text class="gtag" x="395" y="316" text-anchor="middle">府内与府外</text></g>
+        <g class="links"><line class="plink" data-a="baoyu" data-b="daiyu" x1="620" y1="134" x2="845" y2="338" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="baochai" x1="620" y1="134" x2="911" y2="362" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="xiangyun" x1="620" y1="134" x2="810" y2="536" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="xiren" x1="620" y1="134" x2="620" y2="579" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="qingwen" x1="620" y1="134" x2="687" y2="611" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="jiazheng" x1="620" y1="134" x2="620" y2="296" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="wangfuren" x1="620" y1="134" x2="550" y2="256" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="jiamu" x1="620" y1="134" x2="690" y2="174" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="yuanchun" x1="620" y1="134" x2="739" y2="124" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="tanchun" x1="620" y1="134" x2="933" y2="491" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="yingchun" x1="620" y1="134" x2="945" y2="422" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="xichun" x1="620" y1="134" x2="880" y2="536" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baoyu" data-b="jinchuan" x1="620" y1="134" x2="553" y2="611" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="daiyu" data-b="jiamu" x1="845" y1="338" x2="690" y2="174" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="daiyu" data-b="zijuan" x1="845" y1="338" x2="704" y2="684" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="daiyu" data-b="baochai" x1="845" y1="338" x2="911" y2="362" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baochai" data-b="xuepan" x1="911" y1="362" x2="395" y2="338" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baochai" data-b="xiangling" x1="911" y1="362" x2="536" y2="684" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baochai" data-b="xiangyun" x1="911" y1="362" x2="810" y2="536" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="baochai" data-b="xiren" x1="911" y1="362" x2="620" y2="579" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiazheng" data-b="wangfuren" x1="620" y1="296" x2="550" y2="256" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiazheng" data-b="yuanchun" x1="620" y1="296" x2="739" y2="124" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiazheng" data-b="tanchun" x1="620" y1="296" x2="933" y2="491" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wangfuren" data-b="yuanchun" x1="550" y1="256" x2="739" y2="124" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wangfuren" data-b="jinchuan" x1="550" y1="256" x2="553" y2="611" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wangfuren" data-b="qingwen" x1="550" y1="256" x2="687" y2="611" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wangfuren" data-b="xiren" x1="550" y1="256" x2="620" y2="579" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xifeng" data-b="jialian" x1="690" y1="256" x2="550" y2="174" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xifeng" data-b="qiaojie" x1="690" y1="256" x2="770" y2="222" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xifeng" data-b="pinger" x1="690" y1="256" x2="657" y2="742" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xifeng" data-b="liulaolao" x1="690" y1="256" x2="495" y2="422" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="liulaolao" data-b="qiaojie" x1="495" y1="422" x2="770" y2="222" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jialian" data-b="pinger" x1="550" y1="174" x2="657" y2="742" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jialian" data-b="youer" x1="550" y1="174" x2="483" y2="491" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="youer" data-b="yousan" x1="483" y1="491" x2="430" y2="536" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xifeng" data-b="youer" x1="690" y1="256" x2="483" y2="491" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiazhen" data-b="qinke" x1="653" y1="69" x2="745" y2="422" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xichun" data-b="jiazhen" x1="880" y1="536" x2="653" y2="69" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiamu" data-b="yuan-yang" x1="690" y1="174" x2="583" y2="742" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tanchun" data-b="liwan" x1="933" y1="491" x2="757" y2="491" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tanchun" data-b="baochai" x1="933" y1="491" x2="911" y2="362" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="daiyu" data-b="xiangyun" x1="845" y1="338" x2="810" y2="536" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xiangling" data-b="xuepan" x1="536" y1="684" x2="395" y2="338" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xiangling" data-b="xiajingui" x1="536" y1="684" x2="461" y2="362" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xuepan" data-b="xiajingui" x1="395" y1="338" x2="461" y2="362" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="miaoyu" data-b="baoyu" x1="779" y1="362" x2="620" y2="134" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="qingwen" data-b="xiren" x1="687" y1="611" x2="620" y2="579" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xiangling" data-b="daiyu" x1="536" y1="684" x2="845" y2="338" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiashe" data-b="jiamu" x1="730" y1="317" x2="690" y2="174" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiashe" data-b="jialian" x1="730" y1="317" x2="550" y2="174" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiashe" data-b="xingfuren" x1="730" y1="317" x2="482" y2="157" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiarong" data-b="jiazhen" x1="639" y1="364" x2="653" y2="69" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiarong" data-b="qinke" x1="639" y1="364" x2="745" y2="422" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiahuan" data-b="jiazheng" x1="539" y1="341" x2="620" y2="296" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiahuan" data-b="zhaoyiniang" x1="539" y1="341" x2="477" y2="260" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="zhaoyiniang" data-b="jiazheng" x1="477" y1="260" x2="620" y2="296" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiahuan" data-b="baoyu" x1="539" y1="341" x2="620" y2="134" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xueyima" data-b="baochai" x1="360" y1="536" x2="911" y2="362" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xueyima" data-b="xuepan" x1="360" y1="536" x2="395" y2="338" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="xingfuren" data-b="jiashe" x1="482" y1="157" x2="730" y2="317" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="youshi" data-b="jiazhen" x1="551" y1="82" x2="653" y2="69" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="youshi" data-b="youer" x1="551" y1="82" x2="483" y2="491" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="youshi" data-b="yousan" x1="551" y1="82" x2="430" y2="536" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiayucun" data-b="zhenshiyin" x1="307" y1="491" x2="295" y2="422" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jiayucun" data-b="jiashe" x1="307" y1="491" x2="730" y2="317" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="zhenshiyin" data-b="xiangling" x1="295" y1="422" x2="536" y2="684" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="liuxianglian" data-b="yousan" x1="329" y1="362" x2="430" y2="536" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="liuxianglian" data-b="baoyu" x1="329" y1="362" x2="620" y2="134" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="nodes"><g class="pnode" data-id="baoyu" transform="translate(620,134)"><title>贾宝玉 · 荣国府公子 · 通灵宝玉的携带者</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾宝玉</text></g>
+        <g class="pnode" data-id="daiyu" transform="translate(845,338)"><title>林黛玉 · 潇湘馆主人 · 宝玉的姑表妹</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">林黛玉</text></g>
+        <g class="pnode" data-id="baochai" transform="translate(911,362)"><title>薛宝钗 · 薛家女儿 · 蘅芜苑主人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">薛宝钗</text></g>
+        <g class="pnode" data-id="jiamu" transform="translate(690,174)"><title>贾母 · 荣国府老夫人 · 史太君</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾母</text></g>
+        <g class="pnode" data-id="xifeng" transform="translate(690,256)"><title>王熙凤 · 贾琏之妻 · 荣府管事人</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">王熙凤</text></g>
+        <g class="pnode" data-id="jiazheng" transform="translate(620,296)"><title>贾政 · 宝玉之父 · 贾府长辈</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾政</text></g>
+        <g class="pnode" data-id="wangfuren" transform="translate(550,256)"><title>王夫人 · 贾政之妻 · 宝玉之母</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">王夫人</text></g>
+        <g class="pnode" data-id="jialian" transform="translate(550,174)"><title>贾琏 · 贾赦之子 · 凤姐之夫</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾琏</text></g>
+        <g class="pnode" data-id="jiazhen" transform="translate(653,69)"><title>贾珍 · 宁国府当家人</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾珍</text></g>
+        <g class="pnode" data-id="yuanchun" transform="translate(739,124)"><title>贾元春 · 宝玉之姐 · 贤德妃</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾元春</text></g>
+        <g class="pnode" data-id="qiaojie" transform="translate(770,222)"><title>贾巧姐 · 贾琏与王熙凤之女</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾巧姐</text></g>
+        <g class="pnode" data-id="yingchun" transform="translate(945,422)"><title>贾迎春 · 贾府二姑娘</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾迎春</text></g>
+        <g class="pnode" data-id="tanchun" transform="translate(933,491)"><title>贾探春 · 贾府三姑娘 · 诗社发起人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾探春</text></g>
+        <g class="pnode" data-id="xichun" transform="translate(880,536)"><title>贾惜春 · 贾府四姑娘 · 宁府出身</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾惜春</text></g>
+        <g class="pnode" data-id="xiangyun" transform="translate(810,536)"><title>史湘云 · 贾母娘家的亲属 · 诗社成员</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">史湘云</text></g>
+        <g class="pnode" data-id="liwan" transform="translate(757,491)"><title>李纨 · 贾珠遗孀 · 贾兰之母</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">李纨</text></g>
+        <g class="pnode" data-id="qinke" transform="translate(745,422)"><title>秦可卿 · 贾蓉之妻 · 宁国府少奶奶</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">秦可卿</text></g>
+        <g class="pnode" data-id="miaoyu" transform="translate(779,362)"><title>妙玉 · 栊翠庵修行者</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">妙玉</text></g>
+        <g class="pnode" data-id="xiren" transform="translate(620,579)"><title>袭人 · 宝玉的贴身丫鬟</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">袭人</text></g>
+        <g class="pnode" data-id="qingwen" transform="translate(687,611)"><title>晴雯 · 怡红院丫鬟 · 善织补</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">晴雯</text></g>
+        <g class="pnode" data-id="zijuan" transform="translate(704,684)"><title>紫鹃 · 黛玉的贴身丫鬟</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">紫鹃</text></g>
+        <g class="pnode" data-id="pinger" transform="translate(657,742)"><title>平儿 · 凤姐的陪房丫鬟 · 贾琏之妾</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">平儿</text></g>
+        <g class="pnode" data-id="yuan-yang" transform="translate(583,742)"><title>鸳鸯 · 贾母的贴身丫鬟</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">鸳鸯</text></g>
+        <g class="pnode" data-id="xiangling" transform="translate(536,684)"><title>香菱 · 甄士隐失散的女儿 · 薛蟠妾侍</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">香菱</text></g>
+        <g class="pnode" data-id="jinchuan" transform="translate(553,611)"><title>金钏 · 王夫人房中丫鬟</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">金钏</text></g>
+        <g class="pnode" data-id="xuepan" transform="translate(395,338)"><title>薛蟠 · 薛宝钗之兄 · 薛家子弟</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">薛蟠</text></g>
+        <g class="pnode" data-id="xiajingui" transform="translate(461,362)"><title>夏金桂 · 薛蟠之妻</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">夏金桂</text></g>
+        <g class="pnode" data-id="liulaolao" transform="translate(495,422)"><title>刘姥姥 · 乡间老人 · 贾府远亲</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">刘姥姥</text></g>
+        <g class="pnode" data-id="youer" transform="translate(483,491)"><title>尤二姐 · 尤氏继母所生之妹 · 贾琏另娶的二房</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">尤二姐</text></g>
+        <g class="pnode" data-id="yousan" transform="translate(430,536)"><title>尤三姐 · 尤二姐之妹</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">尤三姐</text></g>
+        <g class="pnode" data-id="jiashe" transform="translate(730,317)"><title>贾赦 · 荣国府长子 · 贾琏之父</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾赦</text></g>
+        <g class="pnode" data-id="jiarong" transform="translate(639,364)"><title>贾蓉 · 秦可卿之夫 · 宁国府长孙</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾蓉</text></g>
+        <g class="pnode" data-id="jiahuan" transform="translate(539,341)"><title>贾环 · 贾政庶子</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾环</text></g>
+        <g class="pnode" data-id="zhaoyiniang" transform="translate(477,260)"><title>赵姨娘 · 贾政之妾 · 贾环之母</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">赵姨娘</text></g>
+        <g class="pnode" data-id="xueyima" transform="translate(360,536)"><title>薛姨妈 · 薛宝钗之母</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">薛姨妈</text></g>
+        <g class="pnode" data-id="xingfuren" transform="translate(482,157)"><title>邢夫人 · 贾赦之妻</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">邢夫人</text></g>
+        <g class="pnode" data-id="youshi" transform="translate(551,82)"><title>尤氏 · 贾珍之妻 · 宁国府主母</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">尤氏</text></g>
+        <g class="pnode" data-id="jiayucun" transform="translate(307,491)"><title>贾雨村 · 应天府尹</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贾雨村</text></g>
+        <g class="pnode" data-id="zhenshiyin" transform="translate(295,422)"><title>甄士隐 · 姑苏乡宦</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">甄士隐</text></g>
+        <g class="pnode" data-id="liuxianglian" transform="translate(329,362)"><title>柳湘莲 · 世家子弟 · 串戏</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">柳湘莲</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">贾府家人</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-baoyu" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾宝玉</h3></div>
+        <p class="role">荣国府公子 · 通灵宝玉的携带者</p>
+        <p class="deeds">贾政与王夫人之子，受贾母宠爱，珍视园中女儿的情意与才华，对仕途功名缺少认同。与黛玉相知，在后四十回与宝钗成婚，中举后随僧道离去。</p>
+        <a class="jump" href="index.html#rc02">时间线 · 黛玉进贾府 →</a>
+      </article>
+      <article class="pcard" id="c-jiamu" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾母</h3></div>
+        <p class="role">荣国府老夫人 · 史太君</p>
+        <p class="deeds">贾赦与贾政之母，也是黛玉的外祖母。以长辈威望和日常偏爱维系家族，尤其疼爱宝玉与黛玉；后四十回在抄家等打击之后去世。</p>
+        <a class="jump" href="index.html#rc02">时间线 · 黛玉进贾府 →</a>
+      </article>
+      <article class="pcard" id="c-xifeng" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>王熙凤</h3></div>
+        <p class="role">贾琏之妻 · 荣府管事人</p>
+        <p class="deeds">善于管理与周旋，协理宁府、放贷干预诉讼，也在婚姻中狠心压迫尤二姐。后四十回病中承办丧事、向刘姥姥托付巧姐，最终病逝。</p>
+        <a class="jump" href="index.html#rc02">时间线 · 黛玉进贾府 →</a>
+      </article>
+      <article class="pcard" id="c-jiazheng" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾政</h3></div>
+        <p class="role">宝玉之父 · 贾府长辈</p>
+        <p class="deeds">希望儿子循读书入仕的道路，因宝玉的交游和传闻严厉责打他。家族衰败后承担许多善后责任；后四十回在途中见到宝玉随僧道离去。</p>
+        <a class="jump" href="index.html#rc08">时间线 · 元春晋封，园林兴建 →</a>
+      </article>
+      <article class="pcard" id="c-wangfuren" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>王夫人</h3></div>
+        <p class="role">贾政之妻 · 宝玉之母</p>
+        <p class="deeds">关切宝玉的前途与内宅规矩，倚重凤姐和袭人，也因猜忌与迁怒逐走金钏、晴雯。她对儿子的保护，常与丫鬟们承受的惩罚交织在一起。</p>
+        <a class="jump" href="index.html#rc02">时间线 · 黛玉进贾府 →</a>
+      </article>
+      <article class="pcard" id="c-jialian" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾琏</h3></div>
+        <p class="role">贾赦之子 · 凤姐之夫</p>
+        <p class="deeds">参与府中日常事务，多情而缺少担当，另娶尤二姐后未能保护她免于内宅迫害。家败、妻亡后仍须照料女儿巧姐，并面对旧日管家方式造成的后果。</p>
+        <a class="jump" href="index.html#rc16">时间线 · 生日宴后的泼醋 →</a>
+      </article>
+      <article class="pcard" id="c-jiazhen" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾珍</h3></div>
+        <p class="role">宁国府当家人</p>
+        <p class="deeds">贾蓉之父、秦可卿的公公，生活奢靡，秦氏丧事尤为铺张。家族声名与他的行事相互牵连，后四十回被查罪，宁府的衰败也公开呈现。</p>
+        <a class="jump" href="index.html#rc06">时间线 · 秦可卿之死与盛大丧事 →</a>
+      </article>
+      <article class="pcard" id="c-yuanchun" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾元春</h3></div>
+        <p class="role">宝玉之姐 · 贤德妃</p>
+        <p class="deeds">进入宫廷后晋封，省亲使贾府兴建大观园，并允许姊妹与宝玉入住。显赫身份伴着亲情隔绝；她在后四十回病逝，贾府由此失去重要的荣宠来源。</p>
+        <a class="jump" href="index.html#rc08">时间线 · 元春晋封，园林兴建 →</a>
+      </article>
+      <article class="pcard" id="c-qiaojie" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾巧姐</h3></div>
+        <p class="role">贾琏与王熙凤之女</p>
+        <p class="deeds">幼时得到刘姥姥取名，曾生活在贾府的保护之中。后四十回母亲去世、父亲外出时，亲属试图出卖她的婚姻，平儿与刘姥姥合作使她脱险。</p>
+        <a class="jump" href="index.html#rc15">时间线 · 刘姥姥再入大观园 →</a>
+      </article>
+      <article class="pcard" id="c-jiashe" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾赦</h3></div>
+        <p class="role">荣国府长子 · 贾琏之父</p>
+        <p class="deeds">贾母长子，袭一等将军。好色贪财，为几把古扇逼得石呆子家破人亡；又让邢夫人替他说媒求娶鸳鸯，碰了一鼻子灰，母子从此生隙。</p>
+        <a class="jump" href="index.html#rc16">时间线 · 生日宴后的泼醋 →</a>
+      </article>
+      <article class="pcard" id="c-jiarong" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾蓉</h3></div>
+        <p class="role">秦可卿之夫 · 宁国府长孙</p>
+        <p class="deeds">贾珍之子，与父亲一同挥霍宁府。妻子秦可卿死后，他把丧事办得极尽铺张，也把宁国府的名声一起埋了进去。</p>
+        <a class="jump" href="index.html#rc06">时间线 · 秦可卿之死与盛大丧事 →</a>
+      </article>
+      <article class="pcard" id="c-jiahuan" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>贾环</h3></div>
+        <p class="role">贾政庶子</p>
+        <p class="deeds">赵姨娘所生，因庶出的身份自卑而阴郁，屡次暗害宝玉，曾用一盏灯油把宝玉的脸烫伤。</p>
+        <a class="jump" href="index.html#rc13">时间线 · 父亲的棍棒 →</a>
+      </article>
+      <article class="pcard" id="c-zhaoyiniang" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>赵姨娘</h3></div>
+        <p class="role">贾政之妾 · 贾环之母</p>
+        <p class="deeds">府中处境尴尬的妾室，怨恨凤姐与宝玉，请马道婆作法诅咒二人。事情败露后，她在府中更加孤立。</p>
+        <a class="jump" href="index.html#rc13">时间线 · 父亲的棍棒 →</a>
+      </article>
+      <article class="pcard" id="c-xingfuren" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>邢夫人</h3></div>
+        <p class="role">贾赦之妻</p>
+        <p class="deeds">贾赦的续弦，一味顺从丈夫，替他出面求娶鸳鸯，被贾母当面驳回。她在府中的位置，永远比别人矮半截。</p>
+        <a class="jump" href="index.html#rc16">时间线 · 生日宴后的泼醋 →</a>
+      </article>
+      <article class="pcard" id="c-youshi" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>尤氏</h3></div>
+        <p class="role">贾珍之妻 · 宁国府主母</p>
+        <p class="deeds">宁国府的当家主母，性情软弱，对丈夫与儿子的荒唐无力约束。两个妹妹先后遭难，她只能站在一旁看着。</p>
+        <a class="jump" href="index.html#rc22">时间线 · 尤三姐的决绝 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">园中群芳</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-daiyu" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>林黛玉</h3></div>
+        <p class="role">潇湘馆主人 · 宝玉的姑表妹</p>
+        <p class="deeds">林如海与贾敏之女，丧母后寄居外祖母贾家，诗才出众、敏感而自尊，与宝玉情意相通。通行本后四十回写她得知宝钗婚事后焚稿，在病中去世。</p>
+        <a class="jump" href="index.html#rc02">时间线 · 黛玉进贾府 →</a>
+      </article>
+      <article class="pcard" id="c-baochai" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>薛宝钗</h3></div>
+        <p class="role">薛家女儿 · 蘅芜苑主人</p>
+        <p class="deeds">随母兄住进贾府，处事周全，既有诗才也熟悉现实中的礼法与责任，关照香菱。后四十回与宝玉成婚，婚姻却未能使宝玉摆脱失去黛玉的痛苦。</p>
+        <a class="jump" href="index.html#rc03">时间线 · 一桩被权势改写的命案 →</a>
+      </article>
+      <article class="pcard" id="c-yingchun" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>贾迎春</h3></div>
+        <p class="role">贾府二姑娘</p>
+        <p class="deeds">性情退让，不愿与人争执，在园中与姐妹共同生活。贾赦把她许给孙绍祖，婚后遭虐待；前八十回写她归诉，后四十回交代她被折磨致死。</p>
+        <a class="jump" href="index.html#rc10">时间线 · 住进园中，共读西厢 →</a>
+      </article>
+      <article class="pcard" id="c-tanchun" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>贾探春</h3></div>
+        <p class="role">贾府三姑娘 · 诗社发起人</p>
+        <p class="deeds">贾政之女，有才识与管理能力，曾与李纨、宝钗协理家务，抄检时拒绝受辱。后四十回按父亲议定的婚事远嫁，才干没有使她掌握自己的去留。</p>
+        <a class="jump" href="index.html#rc10">时间线 · 住进园中，共读西厢 →</a>
+      </article>
+      <article class="pcard" id="c-xichun" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>贾惜春</h3></div>
+        <p class="role">贾府四姑娘 · 宁府出身</p>
+        <p class="deeds">贾珍之妹，爱绘画，逐渐对家族污浊与他人牵连保持警戒，抄检后逐出入画。后四十回在丧乱与盗劫后坚持出家，紫鹃后来与她相伴。</p>
+        <a class="jump" href="index.html#rc10">时间线 · 住进园中，共读西厢 →</a>
+      </article>
+      <article class="pcard" id="c-xiangyun" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>史湘云</h3></div>
+        <p class="role">贾母娘家的亲属 · 诗社成员</p>
+        <p class="deeds">幼年失去父母，由叔婶抚养，时常来贾府与姊妹相聚，诗思敏捷而性情爽朗。后四十回写她已婚，丈夫患重病；她须面对与从前截然不同的牵挂。</p>
+        <a class="jump" href="index.html#rc14">时间线 · 海棠诗社 →</a>
+      </article>
+      <article class="pcard" id="c-liwan" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>李纨</h3></div>
+        <p class="role">贾珠遗孀 · 贾兰之母</p>
+        <p class="deeds">年少守寡，主要心力放在养育贾兰，与姐妹相处时主持诗社，也参与协理家务。后四十回贾兰与宝玉同应科举并中举，成为家族延续希望的一部分。</p>
+        <a class="jump" href="index.html#rc14">时间线 · 海棠诗社 →</a>
+      </article>
+      <article class="pcard" id="c-qinke" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>秦可卿</h3></div>
+        <p class="role">贾蓉之妻 · 宁国府少奶奶</p>
+        <p class="deeds">与凤姐交好，宝玉曾在她房中入睡并梦入太虚幻境。她去世时在凤姐梦中留下盛衰警示，现实中的丧事却被贾珍办得极为铺张，继续耗费家族财力。</p>
+        <a class="jump" href="index.html#rc04">时间线 · 梦中已写下的命运 →</a>
+      </article>
+      <article class="pcard" id="c-miaoyu" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>妙玉</h3></div>
+        <p class="role">栊翠庵修行者</p>
+        <p class="deeds">受请住进大观园，精于茶事，重洁净而性情孤高，与宝玉、黛玉等有往来。后四十回被盗贼劫走，正文明确未详其后下落，不预设她死亡的方式。</p>
+        <a class="jump" href="index.html#rc15">时间线 · 刘姥姥再入大观园 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">丫鬟与侍从</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-xiren" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>袭人</h3></div>
+        <p class="role">宝玉的贴身丫鬟</p>
+        <p class="deeds">原在贾母身边，后来服侍宝玉，做事细密，常劝他顾及长辈与前途，受到王夫人倚重。后四十回宝玉离去后，她被安排嫁给蒋玉菡。</p>
+        <a class="jump" href="index.html#rc21">时间线 · 群芳夜宴 →</a>
+      </article>
+      <article class="pcard" id="c-qingwen" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>晴雯</h3></div>
+        <p class="role">怡红院丫鬟 · 善织补</p>
+        <p class="deeds">心直口快，手艺出众，病中为宝玉补好雀金裘。她受到王夫人猜忌，重病时被逐，后来夭亡。宝玉作芙蓉诔悼念她，她的遭遇也显示主仆地位的不平等。</p>
+        <a class="jump" href="index.html#rc18">时间线 · 病中补雀金裘 →</a>
+      </article>
+      <article class="pcard" id="c-zijuan" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>紫鹃</h3></div>
+        <p class="role">黛玉的贴身丫鬟</p>
+        <p class="deeds">陪伴黛玉，深知她的性情与身体状况，以回苏州的消息试探宝玉真心，始终关切黛玉终身。后四十回黛玉去世后，紫鹃后来服侍决定修行的惜春。</p>
+        <a class="jump" href="index.html#rc20">时间线 · 紫鹃试玉 →</a>
+      </article>
+      <article class="pcard" id="c-pinger" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>平儿</h3></div>
+        <p class="role">凤姐的陪房丫鬟 · 贾琏之妾</p>
+        <p class="deeds">长期在凤姐与贾琏之间调停，既协助管家，也尽力缓和惩罚、保护弱者。后四十回她发现巧姐面临的危险，及时联系刘姥姥，使孩子躲过亲属的算计。</p>
+        <a class="jump" href="index.html#rc16">时间线 · 生日宴后的泼醋 →</a>
+      </article>
+      <article class="pcard" id="c-yuan-yang" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>鸳鸯</h3></div>
+        <p class="role">贾母的贴身丫鬟</p>
+        <p class="deeds">掌管贾母身边事务，曾坚决拒绝贾赦纳妾的要求，依靠贾母庇护维持独立。后四十回贾母去世后，她自尽殉主，未能获得脱离主仆制度的生活。</p>
+        <a class="jump" href="index.html#rc35">时间线 · 贾母去世 →</a>
+      </article>
+      <article class="pcard" id="c-xiangling" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>香菱</h3></div>
+        <p class="role">甄士隐失散的女儿 · 薛蟠妾侍</p>
+        <p class="deeds">本名甄英莲，幼年被拐，经命案落入薛家；在园中随黛玉学诗，后遭夏金桂迫害。通行本后四十回写她逃过毒计、被扶正，最终难产而死。</p>
+        <a class="jump" href="index.html#rc01">时间线 · 石头与失散的女儿 →</a>
+      </article>
+      <article class="pcard" id="c-jinchuan" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>金钏</h3></div>
+        <p class="role">王夫人房中丫鬟</p>
+        <p class="deeds">因与宝玉说笑受到王夫人责罚，被逐出后投井而死。她的妹妹玉钏仍在府中服侍；她的死亡成为宝玉挨打的牵连，也揭示丫鬟命运对主子情绪的依赖。</p>
+        <a class="jump" href="index.html#rc12">时间线 · 金钏被逐 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">府内与府外</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-xuepan" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>薛蟠</h3></div>
+        <p class="role">薛宝钗之兄 · 薛家子弟</p>
+        <p class="deeds">为争夺英莲打死冯渊，依靠权势逃过惩处，后来纳香菱、娶夏金桂，家庭纷争不断。后四十回另有命案与诉讼，母亲妹妹为其奔走，香菱最终给薛家留下一个孩子。</p>
+        <a class="jump" href="index.html#rc03">时间线 · 一桩被权势改写的命案 →</a>
+      </article>
+      <article class="pcard" id="c-xiajingui" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>夏金桂</h3></div>
+        <p class="role">薛蟠之妻</p>
+        <p class="deeds">嫁入薛家后争夺内宅支配地位，逼迫香菱改名，屡加诬陷与虐待。后四十回设毒计害香菱却反致自己中毒身亡，薛家随之再陷命案与纷乱。</p>
+        <a class="jump" href="index.html#rc27">时间线 · 香菱受辱，前八十回收束 →</a>
+      </article>
+      <article class="pcard" id="c-liulaolao" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>刘姥姥</h3></div>
+        <p class="role">乡间老人 · 贾府远亲</p>
+        <p class="deeds">为家中生计到贾府求助，后来带土产来谢，获贾母留待并为巧姐取名。后四十回探望病中的凤姐，接受托孤，家败时与平儿合作保护巧姐。</p>
+        <a class="jump" href="index.html#rc05">时间线 · 刘姥姥第一次叩门 →</a>
+      </article>
+      <article class="pcard" id="c-youer" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>尤二姐</h3></div>
+        <p class="role">尤氏继母所生之妹 · 贾琏另娶的二房</p>
+        <p class="deeds">与尤三姐为姐妹，被贾琏在外另娶，随后由凤姐接入府中。内宅排挤、诉讼与失去胎儿接踵而来，她最终吞金自尽，贾琏的承诺未能成为实际保护。</p>
+        <a class="jump" href="index.html#rc22">时间线 · 尤三姐的决绝 →</a>
+      </article>
+      <article class="pcard" id="c-yousan" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>尤三姐</h3></div>
+        <p class="role">尤二姐之妹</p>
+        <p class="deeds">敢于表现自己的意愿，认定柳湘莲并希望与他成婚。柳因宁府名声怀疑她、提出退婚，她以自尽回应；柳知真相后悔恨，二人的婚事也随之终止。</p>
+        <a class="jump" href="index.html#rc22">时间线 · 尤三姐的决绝 →</a>
+      </article>
+      <article class="pcard" id="c-xueyima" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>薛姨妈</h3></div>
+        <p class="role">薛宝钗之母</p>
+        <p class="deeds">薛家当家主母，带着子女寄居贾府。她待人和气，却在“金玉良缘”这件事上温和而坚定，是这桩婚事的推手之一。</p>
+        <a class="jump" href="index.html#rc10">时间线 · 住进园中，共读西厢 →</a>
+      </article>
+      <article class="pcard" id="c-jiayucun" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>贾雨村</h3></div>
+        <p class="role">应天府尹</p>
+        <p class="deeds">受甄士隐资助中举，后来攀附贾府，在葫芦案中徇私枉法、放走薛蟠。贾府败落后，他反过来参奏旧主，是全书最完整的一条仕途线。</p>
+        <a class="jump" href="index.html#rc03">时间线 · 一桩被权势改写的命案 →</a>
+      </article>
+      <article class="pcard" id="c-zhenshiyin" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>甄士隐</h3></div>
+        <p class="role">姑苏乡宦</p>
+        <p class="deeds">资助贾雨村赶考，却在元宵夜丢失女儿英莲，家道中落，最终随跛足道人出家。整部书由他的一个梦开始。</p>
+        <a class="jump" href="index.html#rc01">时间线 · 石头与失散的女儿 →</a>
+      </article>
+      <article class="pcard" id="c-liuxianglian" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>柳湘莲</h3></div>
+        <p class="role">世家子弟 · 串戏</p>
+        <p class="deeds">性情豪爽，与宝玉交好。因误会尤三姐而坚持退婚，尤三姐当着他的面自刎，他随即截发出家，从此不知所终。</p>
+        <a class="jump" href="index.html#rc22">时间线 · 尤三姐的决绝 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">红楼梦 · 曹雪芹；后四十回作者问题另见说明</p>
+  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"baoyu": {"name": "贾宝玉", "role": "荣国府公子 · 通灵宝玉的携带者", "deeds": "贾政与王夫人之子，受贾母宠爱，珍视园中女儿的情意与才华，对仕途功名缺少认同。与黛玉相知，在后四十回与宝钗成婚，中举后随僧道离去。", "quote": "怡红公子", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc02", "linkName": "黛玉进贾府", "rel": [["daiyu", "林黛玉", "姑表亲 · 相恋"], ["baochai", "薛宝钗", "姨表亲 · 后成夫妻"], ["xiangyun", "史湘云", "亲属与诗友"], ["xiren", "袭人", "主仆"], ["qingwen", "晴雯", "主仆"], ["jiazheng", "贾政", "父子"], ["wangfuren", "王夫人", "母子"], ["jiamu", "贾母", "祖孙"], ["yuanchun", "贾元春", "姐弟"], ["tanchun", "贾探春", "兄妹"], ["yingchun", "贾迎春", "堂姐弟"], ["xichun", "贾惜春", "族兄妹"], ["jinchuan", "金钏", "说笑与死亡牵连"], ["miaoyu", "妙玉", "园中交往"], ["jiahuan", "贾环", "暗害"], ["liuxianglian", "柳湘莲", "好友"]]}, "daiyu": {"name": "林黛玉", "role": "潇湘馆主人 · 宝玉的姑表妹", "deeds": "林如海与贾敏之女，丧母后寄居外祖母贾家，诗才出众、敏感而自尊，与宝玉情意相通。通行本后四十回写她得知宝钗婚事后焚稿，在病中去世。", "quote": "潇湘妃子", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc02", "linkName": "黛玉进贾府", "rel": [["baoyu", "贾宝玉", "姑表亲 · 相恋"], ["jiamu", "贾母", "外祖孙"], ["zijuan", "紫鹃", "主仆与相知"], ["baochai", "薛宝钗", "诗友"], ["xiangyun", "史湘云", "诗友"], ["xiangling", "香菱", "学诗师友"]]}, "baochai": {"name": "薛宝钗", "role": "薛家女儿 · 蘅芜苑主人", "deeds": "随母兄住进贾府，处事周全，既有诗才也熟悉现实中的礼法与责任，关照香菱。后四十回与宝玉成婚，婚姻却未能使宝玉摆脱失去黛玉的痛苦。", "quote": "蘅芜君", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc03", "linkName": "一桩被权势改写的命案", "rel": [["baoyu", "贾宝玉", "姨表亲 · 后成夫妻"], ["daiyu", "林黛玉", "诗友"], ["xuepan", "薛蟠", "兄妹"], ["xiangling", "香菱", "照顾与收留"], ["xiangyun", "史湘云", "诗友"], ["xiren", "袭人", "相知"], ["tanchun", "贾探春", "共理家务"], ["xueyima", "薛姨妈", "母女"]]}, "jiamu": {"name": "贾母", "role": "荣国府老夫人 · 史太君", "deeds": "贾赦与贾政之母，也是黛玉的外祖母。以长辈威望和日常偏爱维系家族，尤其疼爱宝玉与黛玉；后四十回在抄家等打击之后去世。", "quote": "史太君", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc02", "linkName": "黛玉进贾府", "rel": [["baoyu", "贾宝玉", "祖孙"], ["daiyu", "林黛玉", "外祖孙"], ["yuan-yang", "鸳鸯", "主仆"], ["jiashe", "贾赦", "母子"]]}, "xifeng": {"name": "王熙凤", "role": "贾琏之妻 · 荣府管事人", "deeds": "善于管理与周旋，协理宁府、放贷干预诉讼，也在婚姻中狠心压迫尤二姐。后四十回病中承办丧事、向刘姥姥托付巧姐，最终病逝。", "quote": "凤姐", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc02", "linkName": "黛玉进贾府", "rel": [["jialian", "贾琏", "夫妻"], ["qiaojie", "贾巧姐", "母女"], ["pinger", "平儿", "主仆"], ["liulaolao", "刘姥姥", "接济与托孤"], ["youer", "尤二姐", "迫害"]]}, "jiazheng": {"name": "贾政", "role": "宝玉之父 · 贾府长辈", "deeds": "希望儿子循读书入仕的道路，因宝玉的交游和传闻严厉责打他。家族衰败后承担许多善后责任；后四十回在途中见到宝玉随僧道离去。", "quote": "存周", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc08", "linkName": "元春晋封，园林兴建", "rel": [["baoyu", "贾宝玉", "父子"], ["wangfuren", "王夫人", "夫妻"], ["yuanchun", "贾元春", "父女"], ["tanchun", "贾探春", "父女"], ["jiahuan", "贾环", "父子"], ["zhaoyiniang", "赵姨娘", "妾室"]]}, "wangfuren": {"name": "王夫人", "role": "贾政之妻 · 宝玉之母", "deeds": "关切宝玉的前途与内宅规矩，倚重凤姐和袭人，也因猜忌与迁怒逐走金钏、晴雯。她对儿子的保护，常与丫鬟们承受的惩罚交织在一起。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc02", "linkName": "黛玉进贾府", "rel": [["baoyu", "贾宝玉", "母子"], ["jiazheng", "贾政", "夫妻"], ["yuanchun", "贾元春", "母女"], ["jinchuan", "金钏", "主仆 · 逐出"], ["qingwen", "晴雯", "逐出"], ["xiren", "袭人", "倚重与安排"]]}, "jialian": {"name": "贾琏", "role": "贾赦之子 · 凤姐之夫", "deeds": "参与府中日常事务，多情而缺少担当，另娶尤二姐后未能保护她免于内宅迫害。家败、妻亡后仍须照料女儿巧姐，并面对旧日管家方式造成的后果。", "quote": "琏二爷", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc16", "linkName": "生日宴后的泼醋", "rel": [["xifeng", "王熙凤", "夫妻"], ["pinger", "平儿", "妾侍"], ["youer", "尤二姐", "秘密婚配"], ["jiashe", "贾赦", "父子"]]}, "jiazhen": {"name": "贾珍", "role": "宁国府当家人", "deeds": "贾蓉之父、秦可卿的公公，生活奢靡，秦氏丧事尤为铺张。家族声名与他的行事相互牵连，后四十回被查罪，宁府的衰败也公开呈现。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc06", "linkName": "秦可卿之死与盛大丧事", "rel": [["qinke", "秦可卿", "公媳"], ["xichun", "贾惜春", "兄妹"], ["jiarong", "贾蓉", "父子"], ["youshi", "尤氏", "夫妻"]]}, "yuanchun": {"name": "贾元春", "role": "宝玉之姐 · 贤德妃", "deeds": "进入宫廷后晋封，省亲使贾府兴建大观园，并允许姊妹与宝玉入住。显赫身份伴着亲情隔绝；她在后四十回病逝，贾府由此失去重要的荣宠来源。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc08", "linkName": "元春晋封，园林兴建", "rel": [["baoyu", "贾宝玉", "姐弟"], ["jiazheng", "贾政", "父女"], ["wangfuren", "王夫人", "母女"]]}, "qiaojie": {"name": "贾巧姐", "role": "贾琏与王熙凤之女", "deeds": "幼时得到刘姥姥取名，曾生活在贾府的保护之中。后四十回母亲去世、父亲外出时，亲属试图出卖她的婚姻，平儿与刘姥姥合作使她脱险。", "quote": "巧姐", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc15", "linkName": "刘姥姥再入大观园", "rel": [["xifeng", "王熙凤", "母女"], ["liulaolao", "刘姥姥", "取名与救援"]]}, "yingchun": {"name": "贾迎春", "role": "贾府二姑娘", "deeds": "性情退让，不愿与人争执，在园中与姐妹共同生活。贾赦把她许给孙绍祖，婚后遭虐待；前八十回写她归诉，后四十回交代她被折磨致死。", "quote": "二木头", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc10", "linkName": "住进园中，共读西厢", "rel": [["baoyu", "贾宝玉", "堂姐弟"]]}, "tanchun": {"name": "贾探春", "role": "贾府三姑娘 · 诗社发起人", "deeds": "贾政之女，有才识与管理能力，曾与李纨、宝钗协理家务，抄检时拒绝受辱。后四十回按父亲议定的婚事远嫁，才干没有使她掌握自己的去留。", "quote": "蕉下客", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc10", "linkName": "住进园中，共读西厢", "rel": [["baoyu", "贾宝玉", "兄妹"], ["jiazheng", "贾政", "父女"], ["liwan", "李纨", "共理家务"], ["baochai", "薛宝钗", "共理家务"]]}, "xichun": {"name": "贾惜春", "role": "贾府四姑娘 · 宁府出身", "deeds": "贾珍之妹，爱绘画，逐渐对家族污浊与他人牵连保持警戒，抄检后逐出入画。后四十回在丧乱与盗劫后坚持出家，紫鹃后来与她相伴。", "quote": "", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc10", "linkName": "住进园中，共读西厢", "rel": [["baoyu", "贾宝玉", "族兄妹"], ["jiazhen", "贾珍", "兄妹"]]}, "xiangyun": {"name": "史湘云", "role": "贾母娘家的亲属 · 诗社成员", "deeds": "幼年失去父母，由叔婶抚养，时常来贾府与姊妹相聚，诗思敏捷而性情爽朗。后四十回写她已婚，丈夫患重病；她须面对与从前截然不同的牵挂。", "quote": "枕霞旧友", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc14", "linkName": "海棠诗社", "rel": [["baoyu", "贾宝玉", "亲属与诗友"], ["baochai", "薛宝钗", "诗友"], ["daiyu", "林黛玉", "诗友"]]}, "liwan": {"name": "李纨", "role": "贾珠遗孀 · 贾兰之母", "deeds": "年少守寡，主要心力放在养育贾兰，与姐妹相处时主持诗社，也参与协理家务。后四十回贾兰与宝玉同应科举并中举，成为家族延续希望的一部分。", "quote": "稻香老农", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc14", "linkName": "海棠诗社", "rel": [["tanchun", "贾探春", "共理家务"]]}, "qinke": {"name": "秦可卿", "role": "贾蓉之妻 · 宁国府少奶奶", "deeds": "与凤姐交好，宝玉曾在她房中入睡并梦入太虚幻境。她去世时在凤姐梦中留下盛衰警示，现实中的丧事却被贾珍办得极为铺张，继续耗费家族财力。", "quote": "", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc04", "linkName": "梦中已写下的命运", "rel": [["jiazhen", "贾珍", "公媳"], ["jiarong", "贾蓉", "夫妻"]]}, "miaoyu": {"name": "妙玉", "role": "栊翠庵修行者", "deeds": "受请住进大观园，精于茶事，重洁净而性情孤高，与宝玉、黛玉等有往来。后四十回被盗贼劫走，正文明确未详其后下落，不预设她死亡的方式。", "quote": "", "camp": "园中群芳", "campKey": "园中群芳", "color": "#7a5a38", "link": "rc15", "linkName": "刘姥姥再入大观园", "rel": [["baoyu", "贾宝玉", "园中交往"]]}, "xiren": {"name": "袭人", "role": "宝玉的贴身丫鬟", "deeds": "原在贾母身边，后来服侍宝玉，做事细密，常劝他顾及长辈与前途，受到王夫人倚重。后四十回宝玉离去后，她被安排嫁给蒋玉菡。", "quote": "花袭人", "camp": "丫鬟与侍从", "campKey": "丫鬟与侍从", "color": "#2f4a6b", "link": "rc21", "linkName": "群芳夜宴", "rel": [["baoyu", "贾宝玉", "主仆"], ["baochai", "薛宝钗", "相知"], ["wangfuren", "王夫人", "倚重与安排"], ["qingwen", "晴雯", "同侍宝玉"]]}, "qingwen": {"name": "晴雯", "role": "怡红院丫鬟 · 善织补", "deeds": "心直口快，手艺出众，病中为宝玉补好雀金裘。她受到王夫人猜忌，重病时被逐，后来夭亡。宝玉作芙蓉诔悼念她，她的遭遇也显示主仆地位的不平等。", "quote": "", "camp": "丫鬟与侍从", "campKey": "丫鬟与侍从", "color": "#2f4a6b", "link": "rc18", "linkName": "病中补雀金裘", "rel": [["baoyu", "贾宝玉", "主仆"], ["wangfuren", "王夫人", "逐出"], ["xiren", "袭人", "同侍宝玉"]]}, "zijuan": {"name": "紫鹃", "role": "黛玉的贴身丫鬟", "deeds": "陪伴黛玉，深知她的性情与身体状况，以回苏州的消息试探宝玉真心，始终关切黛玉终身。后四十回黛玉去世后，紫鹃后来服侍决定修行的惜春。", "quote": "慧紫鹃", "camp": "丫鬟与侍从", "campKey": "丫鬟与侍从", "color": "#2f4a6b", "link": "rc20", "linkName": "紫鹃试玉", "rel": [["daiyu", "林黛玉", "主仆与相知"]]}, "pinger": {"name": "平儿", "role": "凤姐的陪房丫鬟 · 贾琏之妾", "deeds": "长期在凤姐与贾琏之间调停，既协助管家，也尽力缓和惩罚、保护弱者。后四十回她发现巧姐面临的危险，及时联系刘姥姥，使孩子躲过亲属的算计。", "quote": "", "camp": "丫鬟与侍从", "campKey": "丫鬟与侍从", "color": "#2f4a6b", "link": "rc16", "linkName": "生日宴后的泼醋", "rel": [["xifeng", "王熙凤", "主仆"], ["jialian", "贾琏", "妾侍"]]}, "yuan-yang": {"name": "鸳鸯", "role": "贾母的贴身丫鬟", "deeds": "掌管贾母身边事务，曾坚决拒绝贾赦纳妾的要求，依靠贾母庇护维持独立。后四十回贾母去世后，她自尽殉主，未能获得脱离主仆制度的生活。", "quote": "", "camp": "丫鬟与侍从", "campKey": "丫鬟与侍从", "color": "#2f4a6b", "link": "rc35", "linkName": "贾母去世", "rel": [["jiamu", "贾母", "主仆"]]}, "xiangling": {"name": "香菱", "role": "甄士隐失散的女儿 · 薛蟠妾侍", "deeds": "本名甄英莲，幼年被拐，经命案落入薛家；在园中随黛玉学诗，后遭夏金桂迫害。通行本后四十回写她逃过毒计、被扶正，最终难产而死。", "quote": "甄英莲", "camp": "丫鬟与侍从", "campKey": "丫鬟与侍从", "color": "#2f4a6b", "link": "rc01", "linkName": "石头与失散的女儿", "rel": [["baochai", "薛宝钗", "照顾与收留"], ["xuepan", "薛蟠", "妾侍 · 后扶正"], ["xiajingui", "夏金桂", "受迫害"], ["daiyu", "林黛玉", "学诗师友"], ["zhenshiyin", "甄士隐", "父女"]]}, "jinchuan": {"name": "金钏", "role": "王夫人房中丫鬟", "deeds": "因与宝玉说笑受到王夫人责罚，被逐出后投井而死。她的妹妹玉钏仍在府中服侍；她的死亡成为宝玉挨打的牵连，也揭示丫鬟命运对主子情绪的依赖。", "quote": "金钏儿", "camp": "丫鬟与侍从", "campKey": "丫鬟与侍从", "color": "#2f4a6b", "link": "rc12", "linkName": "金钏被逐", "rel": [["baoyu", "贾宝玉", "说笑与死亡牵连"], ["wangfuren", "王夫人", "主仆 · 逐出"]]}, "xuepan": {"name": "薛蟠", "role": "薛宝钗之兄 · 薛家子弟", "deeds": "为争夺英莲打死冯渊，依靠权势逃过惩处，后来纳香菱、娶夏金桂，家庭纷争不断。后四十回另有命案与诉讼，母亲妹妹为其奔走，香菱最终给薛家留下一个孩子。", "quote": "呆霸王", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc03", "linkName": "一桩被权势改写的命案", "rel": [["baochai", "薛宝钗", "兄妹"], ["xiangling", "香菱", "妾侍 · 后扶正"], ["xiajingui", "夏金桂", "夫妻"], ["xueyima", "薛姨妈", "母子"]]}, "xiajingui": {"name": "夏金桂", "role": "薛蟠之妻", "deeds": "嫁入薛家后争夺内宅支配地位，逼迫香菱改名，屡加诬陷与虐待。后四十回设毒计害香菱却反致自己中毒身亡，薛家随之再陷命案与纷乱。", "quote": "", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc27", "linkName": "香菱受辱，前八十回收束", "rel": [["xiangling", "香菱", "受迫害"], ["xuepan", "薛蟠", "夫妻"]]}, "liulaolao": {"name": "刘姥姥", "role": "乡间老人 · 贾府远亲", "deeds": "为家中生计到贾府求助，后来带土产来谢，获贾母留待并为巧姐取名。后四十回探望病中的凤姐，接受托孤，家败时与平儿合作保护巧姐。", "quote": "", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc05", "linkName": "刘姥姥第一次叩门", "rel": [["xifeng", "王熙凤", "接济与托孤"], ["qiaojie", "贾巧姐", "取名与救援"]]}, "youer": {"name": "尤二姐", "role": "尤氏继母所生之妹 · 贾琏另娶的二房", "deeds": "与尤三姐为姐妹，被贾琏在外另娶，随后由凤姐接入府中。内宅排挤、诉讼与失去胎儿接踵而来，她最终吞金自尽，贾琏的承诺未能成为实际保护。", "quote": "", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc22", "linkName": "尤三姐的决绝", "rel": [["jialian", "贾琏", "秘密婚配"], ["yousan", "尤三姐", "姐妹"], ["xifeng", "王熙凤", "迫害"], ["youshi", "尤氏", "姐妹"]]}, "yousan": {"name": "尤三姐", "role": "尤二姐之妹", "deeds": "敢于表现自己的意愿，认定柳湘莲并希望与他成婚。柳因宁府名声怀疑她、提出退婚，她以自尽回应；柳知真相后悔恨，二人的婚事也随之终止。", "quote": "", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc22", "linkName": "尤三姐的决绝", "rel": [["youer", "尤二姐", "姐妹"], ["youshi", "尤氏", "姐妹"], ["liuxianglian", "柳湘莲", "婚约"]]}, "jiashe": {"name": "贾赦", "role": "荣国府长子 · 贾琏之父", "deeds": "贾母长子，袭一等将军。好色贪财，为几把古扇逼得石呆子家破人亡；又让邢夫人替他说媒求娶鸳鸯，碰了一鼻子灰，母子从此生隙。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc16", "linkName": "生日宴后的泼醋", "rel": [["jiamu", "贾母", "母子"], ["jialian", "贾琏", "父子"], ["xingfuren", "邢夫人", "夫妻"], ["xingfuren", "邢夫人", "夫妻"], ["jiayucun", "贾雨村", "攀附"]]}, "jiarong": {"name": "贾蓉", "role": "秦可卿之夫 · 宁国府长孙", "deeds": "贾珍之子，与父亲一同挥霍宁府。妻子秦可卿死后，他把丧事办得极尽铺张，也把宁国府的名声一起埋了进去。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc06", "linkName": "秦可卿之死与盛大丧事", "rel": [["jiazhen", "贾珍", "父子"], ["qinke", "秦可卿", "夫妻"]]}, "jiahuan": {"name": "贾环", "role": "贾政庶子", "deeds": "赵姨娘所生，因庶出的身份自卑而阴郁，屡次暗害宝玉，曾用一盏灯油把宝玉的脸烫伤。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc13", "linkName": "父亲的棍棒", "rel": [["jiazheng", "贾政", "父子"], ["zhaoyiniang", "赵姨娘", "母子"], ["baoyu", "贾宝玉", "暗害"]]}, "zhaoyiniang": {"name": "赵姨娘", "role": "贾政之妾 · 贾环之母", "deeds": "府中处境尴尬的妾室，怨恨凤姐与宝玉，请马道婆作法诅咒二人。事情败露后，她在府中更加孤立。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc13", "linkName": "父亲的棍棒", "rel": [["jiahuan", "贾环", "母子"], ["jiazheng", "贾政", "妾室"]]}, "xueyima": {"name": "薛姨妈", "role": "薛宝钗之母", "deeds": "薛家当家主母，带着子女寄居贾府。她待人和气，却在“金玉良缘”这件事上温和而坚定，是这桩婚事的推手之一。", "quote": "", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc10", "linkName": "住进园中，共读西厢", "rel": [["baochai", "薛宝钗", "母女"], ["xuepan", "薛蟠", "母子"]]}, "xingfuren": {"name": "邢夫人", "role": "贾赦之妻", "deeds": "贾赦的续弦，一味顺从丈夫，替他出面求娶鸳鸯，被贾母当面驳回。她在府中的位置，永远比别人矮半截。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc16", "linkName": "生日宴后的泼醋", "rel": [["jiashe", "贾赦", "夫妻"], ["jiashe", "贾赦", "夫妻"]]}, "youshi": {"name": "尤氏", "role": "贾珍之妻 · 宁国府主母", "deeds": "宁国府的当家主母，性情软弱，对丈夫与儿子的荒唐无力约束。两个妹妹先后遭难，她只能站在一旁看着。", "quote": "", "camp": "贾府家人", "campKey": "贾府家人", "color": "#8c2b26", "link": "rc22", "linkName": "尤三姐的决绝", "rel": [["jiazhen", "贾珍", "夫妻"], ["youer", "尤二姐", "姐妹"], ["yousan", "尤三姐", "姐妹"]]}, "jiayucun": {"name": "贾雨村", "role": "应天府尹", "deeds": "受甄士隐资助中举，后来攀附贾府，在葫芦案中徇私枉法、放走薛蟠。贾府败落后，他反过来参奏旧主，是全书最完整的一条仕途线。", "quote": "", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc03", "linkName": "一桩被权势改写的命案", "rel": [["zhenshiyin", "甄士隐", "受其资助"], ["jiashe", "贾赦", "攀附"]]}, "zhenshiyin": {"name": "甄士隐", "role": "姑苏乡宦", "deeds": "资助贾雨村赶考，却在元宵夜丢失女儿英莲，家道中落，最终随跛足道人出家。整部书由他的一个梦开始。", "quote": "", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc01", "linkName": "石头与失散的女儿", "rel": [["jiayucun", "贾雨村", "受其资助"], ["xiangling", "香菱", "父女"]]}, "liuxianglian": {"name": "柳湘莲", "role": "世家子弟 · 串戏", "deeds": "性情豪爽，与宝玉交好。因误会尤三姐而坚持退婚，尤三姐当着他的面自刎，他随即截发出家，从此不知所终。", "quote": "", "camp": "府内与府外", "campKey": "府内与府外", "color": "#5a3a6b", "link": "rc22", "linkName": "尤三姐的决绝", "rel": [["yousan", "尤三姐", "婚约"], ["baoyu", "贾宝玉", "好友"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

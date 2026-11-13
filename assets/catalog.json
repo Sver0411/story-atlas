@@ -21,7 +21,7 @@
     "accent": "#7a4d35",
     "cover": "img/anthology/monte-cristo.jpg",
     "events": 36,
-    "people": 24,
+    "people": 28,
     "scope": "小说完整主线 · 含结局剧透"
   },
   {
@@ -34,7 +34,7 @@
     "accent": "#53664a",
     "cover": "img/anthology/solitude.jpg",
     "events": 37,
-    "people": 24,
+    "people": 26,
     "scope": "小说完整主线 · 七代谱系 · 含结局剧透"
   },
   {
@@ -47,7 +47,7 @@
     "accent": "#46634f",
     "cover": "img/anthology/lotr.jpg",
     "events": 36,
-    "people": 22,
+    "people": 27,
     "scope": "《护戒同盟》《双塔殊途》《王者归来》小说三卷六部，含夏尔清洗与灰港结局"
   },
   {
@@ -60,7 +60,7 @@
     "accent": "#986b39",
     "cover": "img/anthology/dune.jpg",
     "events": 32,
-    "people": 22,
+    "people": 23,
     "scope": "1965 年《沙丘》第一部小说，含三篇及帝国易手的结局"
   },
   {
@@ -74,7 +74,7 @@
     "accent": "#984b53",
     "cover": "img/anthology/red-chamber.jpg",
     "events": 42,
-    "people": 30,
+    "people": 40,
     "scope": "通行一百二十回本：前八十回与后四十回分段标明，包含结局剧透。"
   }
 ]

@@ -102,6 +102,22 @@ window.BOOK = {
       ]
     },
     {
+      "id": "lr04b",
+      "era": "road",
+      "when": "夏尔边界",
+      "place": "布理",
+      "title": "跃马客栈",
+      "text": "四个霍比特人在布理的跃马客栈落脚。佛罗多不小心戴上魔戒，在满屋人面前消失了一瞬。一个叫“大步佬”的游民把他们的房间换到别处，夜里黑 riders 破门而入，砍碎了床铺上的枕头。",
+      "people": [
+        "frodo",
+        "sam",
+        "merry",
+        "pippin",
+        "aragorn"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "lr05",
       "era": "departure",
       "when": "第三纪元3018年秋",
@@ -133,6 +149,20 @@ window.BOOK = {
       "sourceIds": [
         "lr-fellowship"
       ]
+    },
+    {
+      "id": "lr06b",
+      "era": "road",
+      "when": "风云顶",
+      "place": "阿蒙苏尔",
+      "title": "风云顶的夜袭",
+      "text": "他们在风云顶扎营，戒灵循着魔戒而来。佛罗多被逼到巨石边，戴上戒指，看见九个披着灰袍的身影。巫王用魔窟剑刺中他的肩膀，剑尖断在肉里。阿拉贡举火把冲来，才把他们逼退。",
+      "people": [
+        "frodo",
+        "aragorn",
+        "witchking"
+      ],
+      "sourceIds": []
     },
     {
       "id": "lr07",
@@ -220,6 +250,20 @@ window.BOOK = {
       "sourceIds": [
         "lr-fellowship"
       ]
+    },
+    {
+      "id": "lr11b",
+      "era": "road",
+      "when": "洛丝萝林",
+      "place": "卡拉斯加拉松",
+      "title": "凯兰崔尔的镜子",
+      "text": "凯兰崔尔带佛罗多和山姆去看她的镜子。山姆看见夏尔被烧成焦土，佛罗多看见一只眼睛。她给了每人一件礼物：山姆一盒泥土和一根绳子，佛罗多一瓶星光，还有一件能挡住寒气的斗篷。",
+      "people": [
+        "frodo",
+        "sam",
+        "galadriel"
+      ],
+      "sourceIds": []
     },
     {
       "id": "lr12",
@@ -331,6 +375,21 @@ window.BOOK = {
       ]
     },
     {
+      "id": "lr17b",
+      "era": "war",
+      "when": "圣盔谷",
+      "place": "号角堡",
+      "title": "黎明时的援军",
+      "text": "圣盔谷的城墙被炸开，洛汗人退守内堡。希优顿准备最后一战。天亮时，甘道夫带着被解放的树人和洛汗的援军出现在山脊上，白色的光刺进半兽人的阵列。",
+      "people": [
+        "theoden",
+        "gandalf",
+        "eomer",
+        "eowyn"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "lr18",
       "era": "divided",
       "when": "第三纪元3019年3月初",
@@ -417,6 +476,20 @@ window.BOOK = {
         "lr-towers",
         "lr-king"
       ]
+    },
+    {
+      "id": "lr22b",
+      "era": "war",
+      "when": "西力斯昂哥",
+      "place": "尸罗的隧道",
+      "title": "隧道里的眼睛",
+      "text": "佛罗多和山姆走进隧道，黑暗里传来窸窣声。尸罗从上方降下，用毒针麻痹了佛罗多。山姆举起刺针和凯兰崔尔的水晶瓶，喊出“埃兰迪尔之光”，逼退了蜘蛛。他以为主人死了，把戒指拿走，又听见半兽人的声音。",
+      "people": [
+        "frodo",
+        "sam",
+        "shelob"
+      ],
+      "sourceIds": []
     },
     {
       "id": "lr23",
@@ -520,6 +593,20 @@ window.BOOK = {
       ]
     },
     {
+      "id": "lr28b",
+      "era": "war",
+      "when": "黑门",
+      "place": "魔拉南",
+      "title": "黑门前的挑衅",
+      "text": "阿拉贡带着残兵来到黑门前，吹响号角，向索隆挑战。他举起重铸的安都瑞尔，喊出“伊熙尔杜的后代在此”。黑门打开，索隆把全部注意力投向这支军队——佛罗多因此得以走进末日裂缝。",
+      "people": [
+        "aragorn",
+        "gandalf",
+        "sauron"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "lr29",
       "era": "war",
       "when": "第三纪元3019年3月25日",
@@ -575,6 +662,20 @@ window.BOOK = {
       ]
     },
     {
+      "id": "lr31b",
+      "era": "after",
+      "when": "刚铎",
+      "place": "米那斯提力斯",
+      "title": "白树开花",
+      "text": "阿拉贡在城外为死者守夜，第二天被加冕为埃莱萨王。他走进白树庭院，发现枯死的白树抽出了新芽。甘道夫把王冠戴在他头上，说：现在，王的时代开始了。",
+      "people": [
+        "aragorn",
+        "gandalf",
+        "arwen"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "lr32",
       "era": "return",
       "when": "第三纪元3019年夏秋",
@@ -611,6 +712,23 @@ window.BOOK = {
       "sourceIds": [
         "lr-scouring"
       ]
+    },
+    {
+      "id": "lr33b",
+      "era": "after",
+      "when": "夏尔",
+      "place": "霍比屯",
+      "title": "夏尔的最后一战",
+      "text": "四个霍比特人回到夏尔，发现这里已经被萨鲁曼的爪牙接管。他们组织起乡亲，打了一场小规模的仗。萨鲁曼在袋底洞前被巧言割喉，巧言随即被弓箭射死。夏尔收复了，但不再是离开时的夏尔。",
+      "people": [
+        "frodo",
+        "sam",
+        "merry",
+        "pippin",
+        "saruman",
+        "wormtongue"
+      ],
+      "sourceIds": []
     },
     {
       "id": "lr34",
@@ -1115,6 +1233,68 @@ window.BOOK = {
         "lr17",
         "lr32"
       ]
+    },
+    {
+      "id": "wormtongue",
+      "name": "格里马·巧言",
+      "role": "希优顿的谋臣 · 萨鲁曼的内应",
+      "group": "魔戒阴影",
+      "aliases": [],
+      "deeds": "萨鲁曼安插在洛汗的棋子，用谗言让希优顿意志消沉、国事荒废。甘道夫到来后他被逐出，最后在夏尔杀死萨鲁曼，自己也被弓箭射死。",
+      "events": [
+        "lr16",
+        "lr34"
+      ]
+    },
+    {
+      "id": "shelob",
+      "name": "尸罗",
+      "role": "西力斯昂哥的巨型蜘蛛",
+      "group": "魔戒阴影",
+      "aliases": [
+        "大蜘蛛"
+      ],
+      "deeds": "盘踞在通往魔多的隧道里，与咕噜有过交易。她用毒针麻痹佛罗多，山姆用刺针和凯兰崔尔的玻璃瓶才把她逼退。",
+      "events": [
+        "lr22",
+        "lr23"
+      ]
+    },
+    {
+      "id": "witchking",
+      "name": "安格玛巫王",
+      "role": "戒灵之首",
+      "group": "魔戒阴影",
+      "aliases": [
+        "黑骑士"
+      ],
+      "deeds": "九戒灵的首领，在佩兰诺平原上击倒希优顿。他相信自己不会被男人杀死，最终死在伊欧玟与梅里联手之下。",
+      "events": [
+        "lr16",
+        "lr29"
+      ]
+    },
+    {
+      "id": "bombadil",
+      "name": "汤姆·邦巴迪尔",
+      "role": "老林子里的歌者",
+      "group": "森林",
+      "aliases": [],
+      "deeds": "中土最古老的居民之一，对魔戒毫无欲望，戴上它也不会隐身。他救了被老柳树困住的霍比特人，却明确表示不愿卷入任何战争。",
+      "events": [
+        "lr04"
+      ]
+    },
+    {
+      "id": "isildur",
+      "name": "伊熙尔杜",
+      "role": "刚铎的旧王",
+      "group": "自由人民",
+      "aliases": [],
+      "deeds": "在最后联盟之战中砍下索隆戴戒的手指，却因不舍得销毁而留下祸根。他在格拉顿平原被半兽人射死，魔戒沉入河底，两千年后才被找到。",
+      "events": [
+        "lr01"
+      ]
     }
   ],
   "relations": [
@@ -1302,6 +1482,51 @@ window.BOOK = {
       "a": "aragorn",
       "b": "eomer",
       "label": "盟约"
+    },
+    {
+      "a": "wormtongue",
+      "b": "theoden",
+      "label": "谗言蒙蔽"
+    },
+    {
+      "a": "wormtongue",
+      "b": "saruman",
+      "label": "效忠"
+    },
+    {
+      "a": "shelob",
+      "b": "gollum",
+      "label": "交易"
+    },
+    {
+      "a": "shelob",
+      "b": "frodo",
+      "label": "刺伤"
+    },
+    {
+      "a": "witchking",
+      "b": "theoden",
+      "label": "杀害"
+    },
+    {
+      "a": "witchking",
+      "b": "eowyn",
+      "label": "被其杀死"
+    },
+    {
+      "a": "bombadil",
+      "b": "frodo",
+      "label": "搭救"
+    },
+    {
+      "a": "isildur",
+      "b": "sauron",
+      "label": "断指夺戒"
+    },
+    {
+      "a": "isildur",
+      "b": "aragorn",
+      "label": "先祖"
     }
   ],
   "sources": [

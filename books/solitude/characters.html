@@ -1,1 +1,796 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>百年孤独 · 人物志 · 故事图谱</title><meta name="description" content="百年孤独人物事迹与直接关系网"><meta name="theme-color" content="#f7f4ed"><link rel="stylesheet" href="../../assets/site.css"><style>:root{--accent:#53664a}</style></head><body><div class="progress" id="readingProgress" aria-hidden="true"></div><nav class="reader-nav" aria-label="主要导航"><div class="shell"><a class="reader-brand" href="../../index.html">故事图谱</a><div class="reader-tabs"><a href="index.html">时间线</a><a href="characters.html" class="on" aria-current="page">人物志</a><label><span class="sr-only">切换书籍</span><select class="book-switch" id="bookSwitch"><option value="../three-body/index.html">三体</option><option value="../monte-cristo/index.html">基督山伯爵</option><option value="../solitude/index.html" selected>百年孤独</option><option value="../lotr/index.html">魔戒</option><option value="../dune/index.html">沙丘</option><option value="../red-chamber/index.html">红楼梦</option></select></label></div></div></nav><main class="shell"><header class="people-head"><div class="eyebrow">百年孤独 / 人物志</div><h1>循着人物，看见故事。</h1><p>24 位人物，40 组直接关系。事迹涵盖结局，沿关系切换人物时，可回到对应时间线。</p></header><div class="character-tools"><label><span class="sr-only">搜索人物</span><input id="personSearch" type="search" placeholder="搜索人物、别名或身份" autocomplete="off"></label><span class="result-count" id="peopleCount" aria-live="polite">24 位人物</span></div><section id="relationMap" style="scroll-margin-top:88px"><div class="graph-head"><h2>人物关系网</h2><button type="button" class="pill" id="resetGraph">全览关系</button></div><p class="graph-caption" id="graphCaption"></p><div class="relationship-layout"><div class="graph-frame"><svg class="relationship-graph" id="relationshipGraph" viewBox="0 0 900 650" role="group" aria-label="百年孤独可交互人物关系网"></svg></div><aside class="person-detail" id="personDetail" aria-label="选中人物详情"><div class="eyebrow">人物关系</div><h2>从一个人开始</h2><p>点选图中的人物，沿着亲缘、同盟与冲突，了解故事如何发生。</p></aside></div></section><p class="empty" id="peopleEmpty" hidden>没有找到匹配人物，试试姓名或别名。</p><section class="people-group"><h2>第一代</h2><div class="people-grid"><article class="person-card" id="p-founder" data-person="founder"><h3>何塞·阿尔卡蒂奥·布恩迪亚</h3><p class="role">创始人 · 第一代</p><p>与乌尔苏拉迁徙并建立马孔多，热衷磁铁、炼金术和探索世界。他后来失去与家人共有的现实，长期留在栗树下，死时出现黄花雨；创始人的想象力与执念持续回响在后代身上。</p><div class="card-actions"><button type="button" data-show-person="founder">查看关系 →</button><a href="index.html#so01">时间线 · 背着幽灵离开</a></div></article><article class="person-card" id="p-ursula" data-person="ursula"><h3>乌尔苏拉·伊瓜兰</h3><p class="role">家族的经营者 · 第一代</p><p>与丈夫一起建村，以劳动、商业和照料维持家族，见证多代人的成长与死亡。她始终担忧近亲血缘和姓名重复，失明后仍依靠记忆行动，是家庭得以延续的重要力量。</p><div class="card-actions"><button type="button" data-show-person="ursula">查看关系 →</button><a href="index.html#so01">时间线 · 背着幽灵离开</a></div></article></div></section><section class="people-group"><h2>家族之外</h2><div class="people-grid"><article class="person-card" id="p-melquiades" data-person="melquiades"><h3>梅尔基亚德斯</h3><p class="role">吉卜赛学者 · 羊皮卷作者</p><p>带着新器物进入马孔多，与创始人分享知识，又以药剂帮助小镇摆脱遗忘。他住在布恩迪亚家，留下梵语羊皮卷；这些文字直到家族最后时刻，才由奥雷里亚诺·巴比伦解读。</p><div class="card-actions"><button type="button" data-show-person="melquiades">查看关系 →</button><a href="index.html#so03">时间线 · 磁铁、炼金术与冰</a></div></article><article class="person-card" id="p-pilar" data-person="pilar"><h3>庇拉尔·特尔内拉</h3><p class="role">占卜者 · 两条血脉的母亲</p><p>分别与何塞·阿尔卡蒂奥和奥雷里亚诺生下阿尔卡蒂奥、奥雷里亚诺·何塞，连接两条家族支线。她长久留在马孔多，以占卜与生活经验见证子孙的情感困境，也认识最后的奥雷里亚诺。</p><div class="card-actions"><button type="button" data-show-person="pilar">查看关系 →</button><a href="index.html#so04">时间线 · 离家的长子</a></div></article><article class="person-card" id="p-petra" data-person="petra"><h3>佩特拉·科特斯</h3><p class="role">奥雷里亚诺第二的情人</p><p>与奥雷里亚诺第二的关系伴随牲畜惊人的繁殖，使两人获得财富。衰败后她仍共同谋生，并继续为布恩迪亚家提供食物；她的持续照料与费尔南达的体面规则形成不同生活方式。</p><div class="card-actions"><button type="button" data-show-person="petra">查看关系 →</button><a href="index.html#so21">时间线 · 双胞胎的不同道路</a></div></article><article class="person-card" id="p-mauricio" data-person="mauricio"><h3>毛里西奥·巴比伦</h3><p class="role">机械师 · 梅梅的恋人</p><p>在香蕉公司工作，与梅梅相爱，黄色蝴蝶总围绕他出现。费尔南达设防后，他在夜间潜入时被枪击而瘫痪，与梅梅分离；两人的儿子成为解开羊皮卷的第六代奥雷里亚诺。</p><div class="card-actions"><button type="button" data-show-person="mauricio">查看关系 →</button><a href="index.html#so28">时间线 · 黄蝴蝶中的恋人</a></div></article><article class="person-card" id="p-gaston" data-person="gaston"><h3>加斯东</h3><p class="role">阿玛兰妲·乌尔苏拉之夫</p><p>随妻子来到马孔多的比利时人，爱骑自行车，也筹划航空事业。他离开小镇处理飞机事宜后，妻子与奥雷里亚诺·巴比伦的关系改变了婚姻；这个外来者最终没有返回老宅。</p><div class="card-actions"><button type="button" data-show-person="gaston">查看关系 →</button><a href="index.html#so35">时间线 · 阿玛兰妲·乌尔苏拉回来</a></div></article></div></section><section class="people-group"><h2>第二代</h2><div class="people-grid"><article class="person-card" id="p-jose" data-person="jose"><h3>何塞·阿尔卡蒂奥</h3><p class="role">创始人的长子 · 第二代</p><p>与庇拉尔生下阿尔卡蒂奥后离家，远游归来与养妹雷贝卡结婚。他曾介入上校行刑，后来遭枪杀，死因未获确定解释；不能与父亲、双胞胎或罗马归来的同名者混为一人。</p><div class="card-actions"><button type="button" data-show-person="jose">查看关系 →</button><a href="index.html#so02">时间线 · 马孔多诞生</a></div></article><article class="person-card" id="p-col" data-person="col"><h3>奥雷里亚诺·布恩迪亚上校</h3><p class="role">金匠与自由派军人 · 第二代</p><p>由沉默的金匠走向漫长内战，经历权力、失败与停战，晚年退回小金鱼作坊。他与蕾梅黛丝结婚，也有多名战争时期的儿子；名声不断扩大，内心与家庭之间的距离却越来越深。</p><div class="card-actions"><button type="button" data-show-person="col">查看关系 →</button><a href="index.html#so02">时间线 · 马孔多诞生</a></div></article><article class="person-card" id="p-amaranta" data-person="amaranta"><h3>阿玛兰妲</h3><p class="role">创始人的女儿 · 第二代</p><p>与雷贝卡因克雷斯皮产生竞争，后来拒绝多次求婚，也拒绝把与侄儿的感情变成共同生活。她把悔恨藏进家务与丧葬礼仪，最终依死亡的预告缝完自己的殓衣。</p><div class="card-actions"><button type="button" data-show-person="amaranta">查看关系 →</button><a href="index.html#so08">时间线 · 自动钢琴与情敌</a></div></article><article class="person-card" id="p-rebeca" data-person="rebeca"><h3>雷贝卡</h3><p class="role">养女 · 第二代</p><p>幼年带着父母遗骨来到布恩迪亚家，成为养女。她与阿玛兰妲竞争克雷斯皮，后来嫁给归来的何塞·阿尔卡蒂奥；丈夫遇害后长期独居，逐渐成为镇上几乎被遗忘的人。</p><div class="card-actions"><button type="button" data-show-person="rebeca">查看关系 →</button><a href="index.html#so06">时间线 · 失眠与遗忘</a></div></article><article class="person-card" id="p-remedios" data-person="remedios"><h3>蕾梅黛丝·莫斯科特</h3><p class="role">上校之妻 · 第二代伴侣</p><p>镇长的年幼女儿，嫁给奥雷里亚诺后温和地照顾家人，一度使家庭获得平静。她在怀孕时早逝，留下被长期保存的照片；她与第四代的美人蕾梅黛丝是不同人物。</p><div class="card-actions"><button type="button" data-show-person="remedios">查看关系 →</button><a href="index.html#so10">时间线 · 奥雷里亚诺的婚礼</a></div></article></div></section><section class="people-group"><h2>第三代</h2><div class="people-grid"><article class="person-card" id="p-arcadio" data-person="arcadio"><h3>阿尔卡蒂奥</h3><p class="role">何塞·阿尔卡蒂奥之子 · 第三代</p><p>何塞·阿尔卡蒂奥与庇拉尔的儿子，由布恩迪亚家抚养。上校离镇后，他短暂掌管马孔多并走向专横，最终被政府军处决；与桑塔索菲亚所生的三个孩子延续了主要血脉。</p><div class="card-actions"><button type="button" data-show-person="arcadio">查看关系 →</button><a href="index.html#so04">时间线 · 离家的长子</a></div></article><article class="person-card" id="p-sofia" data-person="sofia"><h3>桑塔索菲亚·德拉彼达</h3><p class="role">阿尔卡蒂奥的伴侣 · 第三代</p><p>与阿尔卡蒂奥生下美人蕾梅黛丝和一对双胞胎，在家中长期承担清洁、做饭与照料。她很少成为家族权力中心，却支撑了老宅的生活，最终离开已经无法维护的房屋。</p><div class="card-actions"><button type="button" data-show-person="sofia">查看关系 →</button><a href="index.html#so14">时间线 · 阿尔卡蒂奥的短暂统治</a></div></article><article class="person-card" id="p-aurelianoJose" data-person="aurelianoJose"><h3>奥雷里亚诺·何塞</h3><p class="role">上校与庇拉尔之子 · 第三代</p><p>由阿玛兰妲照料长大，成年后对姑姑产生无法实现的感情。离开与归来都未解除这份牵连，最后死于与军人的冲突；他与上校其他十七个同名儿子并非同一批人物。</p><div class="card-actions"><button type="button" data-show-person="aurelianoJose">查看关系 →</button><a href="index.html#so10">时间线 · 奥雷里亚诺的婚礼</a></div></article></div></section><section class="people-group"><h2>第四代</h2><div class="people-grid"><article class="person-card" id="p-beauty" data-person="beauty"><h3>美人蕾梅黛丝</h3><p class="role">阿尔卡蒂奥之女 · 第四代</p><p>阿尔卡蒂奥与桑塔索菲亚的女儿，不理解男人围绕她的欲望，也不愿服从日常礼仪。她在收拾床单时升天，留下亲人各自的理解；应与上校早逝的妻子严格区分。</p><div class="card-actions"><button type="button" data-show-person="beauty">查看关系 →</button><a href="index.html#so14">时间线 · 阿尔卡蒂奥的短暂统治</a></div></article><article class="person-card" id="p-jose2" data-person="jose2"><h3>何塞·阿尔卡蒂奥第二</h3><p class="role">屠杀见证者 · 第四代</p><p>与奥雷里亚诺第二是双胞胎，成年后参与香蕉工人的抗争，亲历车站屠杀并从运尸列车逃回。他拒绝接受官方否认，晚年藏身羊皮卷房间，把真实记忆传给家族最后的年轻人。</p><div class="card-actions"><button type="button" data-show-person="jose2">查看关系 →</button><a href="index.html#so14">时间线 · 阿尔卡蒂奥的短暂统治</a></div></article><article class="person-card" id="p-aureliano2" data-person="aureliano2"><h3>奥雷里亚诺第二</h3><p class="role">双胞胎之一 · 第四代</p><p>与佩特拉共同经营牲畜而致富，迎娶费尔南达后仍维持情人关系。漫长大雨使财富消散，他晚年为孩子筹钱，逐渐接近孪生兄弟的形貌；两人在同一天死去，棺材又被调换。</p><div class="card-actions"><button type="button" data-show-person="aureliano2">查看关系 →</button><a href="index.html#so14">时间线 · 阿尔卡蒂奥的短暂统治</a></div></article><article class="person-card" id="p-fernanda" data-person="fernanda"><h3>费尔南达·德尔·卡皮奥</h3><p class="role">奥雷里亚诺第二之妻</p><p>带着贵族身份的想象与严格宗教礼仪嫁入家中，试图改造生活。她阻断梅梅的恋情、隐瞒外孙出身，又在给远方儿女的信中维持繁华幻象，最终孤独死于衰败的老宅。</p><div class="card-actions"><button type="button" data-show-person="fernanda">查看关系 →</button><a href="index.html#so22">时间线 · 费尔南达进入家门</a></div></article></div></section><section class="people-group"><h2>第五代</h2><div class="people-grid"><article class="person-card" id="p-meme" data-person="meme"><h3>梅梅</h3><p class="role">本名蕾纳塔·蕾梅黛丝 · 第五代</p><p>奥雷里亚诺第二与费尔南达的长女，喜爱音乐并爱上机械师毛里西奥。母亲阻止恋情后，她被送入修道院，终生不再说话；儿子被送回老宅，但真实血缘被刻意隐瞒。</p><div class="card-actions"><button type="button" data-show-person="meme">查看关系 →</button><a href="index.html#so22">时间线 · 费尔南达进入家门</a></div></article><article class="person-card" id="p-rome" data-person="rome"><h3>何塞·阿尔卡蒂奥（第五代）</h3><p class="role">欧洲归来的儿子 · 第五代</p><p>费尔南达希望他在罗马成为教皇，但他回家后的现实与母亲想象相距甚远。他找到乌尔苏拉藏金，短暂挥霍，后来被少年们溺死于浴池，家族财富也随之被夺走。</p><div class="card-actions"><button type="button" data-show-person="rome">查看关系 →</button><a href="index.html#so22">时间线 · 费尔南达进入家门</a></div></article><article class="person-card" id="p-amarantaUrsula" data-person="amarantaUrsula"><h3>阿玛兰妲·乌尔苏拉</h3><p class="role">重返马孔多的女儿 · 第五代</p><p>从欧洲带着丈夫回家，努力修复宅院，使生活一度恢复活力。她后来与不明血缘的外甥相爱，生下家族最后的孩子后死于产后出血，未能完成让马孔多重新繁盛的愿望。</p><div class="card-actions"><button type="button" data-show-person="amarantaUrsula">查看关系 →</button><a href="index.html#so22">时间线 · 费尔南达进入家门</a></div></article></div></section><section class="people-group"><h2>第六代</h2><div class="people-grid"><article class="person-card" id="p-babilonia" data-person="babilonia"><h3>奥雷里亚诺·巴比伦</h3><p class="role">羊皮卷的读者 · 第六代</p><p>梅梅与毛里西奥之子，身世被费尔南达隐藏，在老宅中学习语言与羊皮卷。他与姑姑阿玛兰妲·乌尔苏拉相爱，最后失去母子，读出自己的血缘与当下经历，并与马孔多一同终结。</p><div class="card-actions"><button type="button" data-show-person="babilonia">查看关系 →</button><a href="index.html#so29">时间线 · 被隐藏的第六代</a></div></article></div></section><section class="people-group"><h2>第七代</h2><div class="people-grid"><article class="person-card" id="p-lastbaby" data-person="lastbaby"><h3>最后的奥雷里亚诺</h3><p class="role">带猪尾巴的婴儿 · 第七代</p><p>奥雷里亚诺·巴比伦与阿玛兰妲·乌尔苏拉所生的孩子，出生带有猪尾巴。母亲分娩后死去，父亲陷入悲痛把他独留家中，婴儿遭蚂蚁吞噬，成为主要家族血脉的终点。</p><div class="card-actions"><button type="button" data-show-person="lastbaby">查看关系 →</button><a href="index.html#so36">时间线 · 带尾巴的婴儿</a></div></article></div></section><p class="sr-only" id="peopleLive" role="status" aria-live="polite"></p><section class="sources" id="sources"><div class="eyebrow">阅读范围与资料</div><h2>关于这份导读</h2><p>小说完整主线 · 七代谱系 · 含结局剧透</p><p>以主要事件先后整理，使用小说中的相对阶段，不把模糊年代硬换算为公元年份；部分人物生命和长期战争相互重叠。人物按七代标注，重名者保留独立身份。中文译名存在版本差异，aliases 收录常见写法；正文是原创概述，不摘录译本段落。</p><ol><li id="source-so-ch1"><a href="https://www.99csw.com/book/2745/83320.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 1 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch2"><a href="https://www.99csw.com/book/2745/83321.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 2 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch3"><a href="https://www.99csw.com/book/2745/83322.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 3 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch4"><a href="https://www.99csw.com/book/2745/83323.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 4 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch5"><a href="https://www.99csw.com/book/2745/83324.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 5 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch6"><a href="https://www.99csw.com/book/2745/83325.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 6 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch7"><a href="https://www.99csw.com/book/2745/83326.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 7 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch8"><a href="https://www.99csw.com/book/2745/83327.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 8 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch9"><a href="https://www.99csw.com/book/2745/83328.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 9 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch10"><a href="https://www.99csw.com/book/2745/83329.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 10 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch11"><a href="https://www.99csw.com/book/2745/83330.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 11 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch12"><a href="https://www.99csw.com/book/2745/83331.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 12 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch13"><a href="https://www.99csw.com/book/2745/83332.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 13 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch14"><a href="https://www.99csw.com/book/2745/83333.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 14 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch15"><a href="https://www.99csw.com/book/2745/83334.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 15 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch16"><a href="https://www.99csw.com/book/2745/83335.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 16 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch17"><a href="https://www.99csw.com/book/2745/83336.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 17 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch18"><a href="https://www.99csw.com/book/2745/83337.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 18 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch19"><a href="https://www.99csw.com/book/2745/83338.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 19 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-ch20"><a href="https://www.99csw.com/book/2745/83339.htm" target="_blank" rel="noopener noreferrer">《百年孤独》原著 · 第 20 章 ↗</a> · 小说章节用于核对事件、姓名与代际；页面译名不同，本项目统一称谓并自行概述。</li><li id="source-so-publisher"><a href="https://www.penguin.co.uk/books/57241/one-hundred-years-of-solitude-by-gabriel-garcia-marquez-trans-gregory-rabassa/9780141184999" target="_blank" rel="noopener noreferrer">Penguin Classics · One Hundred Years of Solitude ↗</a> · 出版社介绍核对七代家族与马孔多的总体范围。</li></ol><p>图片为依据情节生成的 AI 概念插图，人物外观与未明确规定的建筑细节属于视觉想象。</p></section><footer class="site-footer"><span>故事图谱 · 沿时间读故事，循关系看人物。</span><span>原创情节概述与 AI 场景插图 · <a href="../../index.html">返回书架</a></span></footer></main><script src="data.js"></script><script src="../../assets/reader.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>百年孤独 · 人物志 | 26 个人物</title>
+<meta name="description" content="沿布恩迪亚家族七代人的生活，看马孔多从开端走向繁盛、暴力与消失。同名的人在不同年代重现，留下不同的选择与相似的孤独。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:10px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.5;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.4px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+</style>
+<style>
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">加夫列尔·加西亚·马尔克斯 / CHARACTERS</p>
+    <h1 class="big">百年孤独 · 人物</h1>
+    <p class="deck">沿布恩迪亚家族七代人的生活，看马孔多从开端走向繁盛、暴力与消失。同名的人在不同年代重现，留下不同的选择与相似的孤独。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="第一代">第一代</button><button class="fbtn" data-camp="家族之外">家族之外</button><button class="fbtn" data-camp="第二代">第二代</button><button class="fbtn" data-camp="第三代">第三代</button><button class="fbtn" data-camp="第四代">第四代</button><button class="fbtn" data-camp="第五代">第五代</button><button class="fbtn" data-camp="第六代">第六代</button><button class="fbtn" data-camp="第七代">第七代</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="百年孤独人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="120" text-anchor="middle">第一代</text>
+        <text class="gtag" x="797" y="163" text-anchor="middle">家族之外</text>
+        <text class="gtag" x="870" y="348" text-anchor="middle">第二代</text>
+        <text class="gtag" x="797" y="533" text-anchor="middle">第三代</text>
+        <text class="gtag" x="620" y="606" text-anchor="middle">第四代</text>
+        <text class="gtag" x="443" y="541" text-anchor="middle">第五代</text>
+        <text class="gtag" x="370" y="370" text-anchor="middle">第六代</text>
+        <text class="gtag" x="443" y="193" text-anchor="middle">第七代</text></g>
+        <g class="links"><line class="plink" data-a="founder" data-b="ursula" x1="620" y1="142" x2="620" y2="238" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="founder" data-b="jose" x1="620" y1="142" x2="870" y2="370" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ursula" data-b="jose" x1="620" y1="238" x2="870" y2="370" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="founder" data-b="col" x1="620" y1="142" x2="937" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ursula" data-b="col" x1="620" y1="238" x2="937" y2="418" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="founder" data-b="amaranta" x1="620" y1="142" x2="911" y2="497" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ursula" data-b="amaranta" x1="620" y1="238" x2="911" y2="497" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="founder" data-b="rebeca" x1="620" y1="142" x2="829" y2="497" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jose" data-b="pilar" x1="870" y1="370" x2="864" y2="224" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jose" data-b="arcadio" x1="870" y1="370" x2="797" y2="555" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="pilar" data-b="arcadio" x1="864" y1="224" x2="797" y2="555" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="col" data-b="pilar" x1="937" y1="418" x2="864" y2="224" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="col" data-b="aurelianoJose" x1="937" y1="418" x2="797" y2="679" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="pilar" data-b="aurelianoJose" x1="864" y1="224" x2="797" y2="679" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="col" data-b="remedios" x1="937" y1="418" x2="803" y2="418" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jose" data-b="rebeca" x1="870" y1="370" x2="829" y2="497" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="amaranta" data-b="rebeca" x1="911" y1="497" x2="829" y2="497" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="amaranta" data-b="aurelianoJose" x1="911" y1="497" x2="797" y2="679" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="arcadio" data-b="sofia" x1="797" y1="555" x2="859" y2="617" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="arcadio" data-b="beauty" x1="797" y1="555" x2="620" y2="628" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="arcadio" data-b="jose2" x1="797" y1="555" x2="682" y2="690" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="arcadio" data-b="aureliano2" x1="797" y1="555" x2="620" y2="752" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="sofia" data-b="beauty" x1="859" y1="617" x2="620" y2="628" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jose2" data-b="aureliano2" x1="682" y1="690" x2="620" y2="752" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aureliano2" data-b="petra" x1="620" y1="752" x2="864" y2="302" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aureliano2" data-b="fernanda" x1="620" y1="752" x2="558" y2="690" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aureliano2" data-b="meme" x1="620" y1="752" x2="443" y2="563" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aureliano2" data-b="rome" x1="620" y1="752" x2="490" y2="644" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="aureliano2" data-b="amarantaUrsula" x1="620" y1="752" x2="396" y2="644" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fernanda" data-b="meme" x1="558" y1="690" x2="443" y2="563" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fernanda" data-b="rome" x1="558" y1="690" x2="490" y2="644" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fernanda" data-b="amarantaUrsula" x1="558" y1="690" x2="396" y2="644" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="meme" data-b="mauricio" x1="443" y1="563" x2="797" y2="341" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="meme" data-b="babilonia" x1="443" y1="563" x2="370" y2="440" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mauricio" data-b="babilonia" x1="797" y1="341" x2="370" y2="440" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="amarantaUrsula" data-b="gaston" x1="396" y1="644" x2="729" y2="302" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="amarantaUrsula" data-b="babilonia" x1="396" y1="644" x2="370" y2="440" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="babilonia" data-b="lastbaby" x1="370" y1="440" x2="443" y2="263" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="amarantaUrsula" data-b="lastbaby" x1="396" y1="644" x2="443" y2="263" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="founder" data-b="melquiades" x1="620" y1="142" x2="797" y2="185" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="prudencia" data-b="founder" x1="729" y1="224" x2="620" y2="142" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="triste" data-b="col" x1="735" y1="617" x2="937" y2="418" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="triste" data-b="jose2" x1="735" y1="617" x2="682" y2="690" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="nodes"><g class="pnode" data-id="founder" transform="translate(620,142)"><title>何塞·阿尔卡蒂奥·布恩迪亚 · 创始人 · 第一代</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">布恩迪亚</text></g>
+        <g class="pnode" data-id="ursula" transform="translate(620,238)"><title>乌尔苏拉·伊瓜兰 · 家族的经营者 · 第一代</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">伊瓜兰</text></g>
+        <g class="pnode" data-id="melquiades" transform="translate(797,185)"><title>梅尔基亚德斯 · 吉卜赛学者 · 羊皮卷作者</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">梅尔基亚德</text></g>
+        <g class="pnode" data-id="pilar" transform="translate(864,224)"><title>庇拉尔·特尔内拉 · 占卜者 · 两条血脉的母亲</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">特尔内拉</text></g>
+        <g class="pnode" data-id="jose" transform="translate(870,370)"><title>何塞·阿尔卡蒂奥 · 创始人的长子 · 第二代</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">阿尔卡蒂奥</text></g>
+        <g class="pnode" data-id="col" transform="translate(937,418)"><title>奥雷里亚诺·布恩迪亚上校 · 金匠与自由派军人 · 第二代</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">奥雷里亚诺</text></g>
+        <g class="pnode" data-id="amaranta" transform="translate(911,497)"><title>阿玛兰妲 · 创始人的女儿 · 第二代</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">阿玛兰妲</text></g>
+        <g class="pnode" data-id="rebeca" transform="translate(829,497)"><title>雷贝卡 · 养女 · 第二代</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">雷贝卡</text></g>
+        <g class="pnode" data-id="remedios" transform="translate(803,418)"><title>蕾梅黛丝·莫斯科特 · 上校之妻 · 第二代伴侣</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">莫斯科特</text></g>
+        <g class="pnode" data-id="arcadio" transform="translate(797,555)"><title>阿尔卡蒂奥 · 何塞·阿尔卡蒂奥之子 · 第三代</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">阿尔卡蒂奥</text></g>
+        <g class="pnode" data-id="sofia" transform="translate(859,617)"><title>桑塔索菲亚·德拉彼达 · 阿尔卡蒂奥的伴侣 · 第三代</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">德拉彼达</text></g>
+        <g class="pnode" data-id="aurelianoJose" transform="translate(797,679)"><title>奥雷里亚诺·何塞 · 上校与庇拉尔之子 · 第三代</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">何塞</text></g>
+        <g class="pnode" data-id="beauty" transform="translate(620,628)"><title>美人蕾梅黛丝 · 阿尔卡蒂奥之女 · 第四代</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">美人蕾梅黛</text></g>
+        <g class="pnode" data-id="jose2" transform="translate(682,690)"><title>何塞·阿尔卡蒂奥第二 · 屠杀见证者 · 第四代</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">何塞·阿尔</text></g>
+        <g class="pnode" data-id="aureliano2" transform="translate(620,752)"><title>奥雷里亚诺第二 · 双胞胎之一 · 第四代</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">奥雷里亚诺</text></g>
+        <g class="pnode" data-id="petra" transform="translate(864,302)"><title>佩特拉·科特斯 · 奥雷里亚诺第二的情人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">科特斯</text></g>
+        <g class="pnode" data-id="fernanda" transform="translate(558,690)"><title>费尔南达·德尔·卡皮奥 · 奥雷里亚诺第二之妻</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">卡皮奥</text></g>
+        <g class="pnode" data-id="meme" transform="translate(443,563)"><title>梅梅 · 本名蕾纳塔·蕾梅黛丝 · 第五代</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">梅梅</text></g>
+        <g class="pnode" data-id="mauricio" transform="translate(797,341)"><title>毛里西奥·巴比伦 · 机械师 · 梅梅的恋人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">巴比伦</text></g>
+        <g class="pnode" data-id="rome" transform="translate(490,644)"><title>何塞·阿尔卡蒂奥（第五代） · 欧洲归来的儿子 · 第五代</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">何塞·阿尔</text></g>
+        <g class="pnode" data-id="amarantaUrsula" transform="translate(396,644)"><title>阿玛兰妲·乌尔苏拉 · 重返马孔多的女儿 · 第五代</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">乌尔苏拉</text></g>
+        <g class="pnode" data-id="gaston" transform="translate(729,302)"><title>加斯东 · 阿玛兰妲·乌尔苏拉之夫</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">加斯东</text></g>
+        <g class="pnode" data-id="babilonia" transform="translate(370,440)"><title>奥雷里亚诺·巴比伦 · 羊皮卷的读者 · 第六代</title><circle r="26" fill="#f7f4ed" stroke="#4a4a58" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">巴比伦</text></g>
+        <g class="pnode" data-id="lastbaby" transform="translate(443,263)"><title>最后的奥雷里亚诺 · 带猪尾巴的婴儿 · 第七代</title><circle r="26" fill="#f7f4ed" stroke="#6b645a" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">最后的奥雷</text></g>
+        <g class="pnode" data-id="prudencia" transform="translate(729,224)"><title>普鲁登希奥·阿基拉尔 · 被杀的邻居</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">阿基拉尔</text></g>
+        <g class="pnode" data-id="triste" transform="translate(735,617)"><title>奥雷里亚诺·特里斯特 · 上校的私生子之一</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">特里斯特</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">第一代</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-founder" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>何塞·阿尔卡蒂奥·布恩迪亚</h3></div>
+        <p class="role">创始人 · 第一代</p>
+        <p class="deeds">与乌尔苏拉迁徙并建立马孔多，热衷磁铁、炼金术和探索世界。他后来失去与家人共有的现实，长期留在栗树下，死时出现黄花雨；创始人的想象力与执念持续回响在后代身上。</p>
+        <a class="jump" href="index.html#so01">时间线 · 背着幽灵离开 →</a>
+      </article>
+      <article class="pcard" id="c-ursula" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>乌尔苏拉·伊瓜兰</h3></div>
+        <p class="role">家族的经营者 · 第一代</p>
+        <p class="deeds">与丈夫一起建村，以劳动、商业和照料维持家族，见证多代人的成长与死亡。她始终担忧近亲血缘和姓名重复，失明后仍依靠记忆行动，是家庭得以延续的重要力量。</p>
+        <a class="jump" href="index.html#so01">时间线 · 背着幽灵离开 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">家族之外</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-melquiades" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>梅尔基亚德斯</h3></div>
+        <p class="role">吉卜赛学者 · 羊皮卷作者</p>
+        <p class="deeds">带着新器物进入马孔多，与创始人分享知识，又以药剂帮助小镇摆脱遗忘。他住在布恩迪亚家，留下梵语羊皮卷；这些文字直到家族最后时刻，才由奥雷里亚诺·巴比伦解读。</p>
+        <a class="jump" href="index.html#so03">时间线 · 磁铁、炼金术与冰 →</a>
+      </article>
+      <article class="pcard" id="c-pilar" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>庇拉尔·特尔内拉</h3></div>
+        <p class="role">占卜者 · 两条血脉的母亲</p>
+        <p class="deeds">分别与何塞·阿尔卡蒂奥和奥雷里亚诺生下阿尔卡蒂奥、奥雷里亚诺·何塞，连接两条家族支线。她长久留在马孔多，以占卜与生活经验见证子孙的情感困境，也认识最后的奥雷里亚诺。</p>
+        <a class="jump" href="index.html#so04">时间线 · 离家的长子 →</a>
+      </article>
+      <article class="pcard" id="c-petra" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>佩特拉·科特斯</h3></div>
+        <p class="role">奥雷里亚诺第二的情人</p>
+        <p class="deeds">与奥雷里亚诺第二的关系伴随牲畜惊人的繁殖，使两人获得财富。衰败后她仍共同谋生，并继续为布恩迪亚家提供食物；她的持续照料与费尔南达的体面规则形成不同生活方式。</p>
+        <a class="jump" href="index.html#so21">时间线 · 双胞胎的不同道路 →</a>
+      </article>
+      <article class="pcard" id="c-mauricio" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>毛里西奥·巴比伦</h3></div>
+        <p class="role">机械师 · 梅梅的恋人</p>
+        <p class="deeds">在香蕉公司工作，与梅梅相爱，黄色蝴蝶总围绕他出现。费尔南达设防后，他在夜间潜入时被枪击而瘫痪，与梅梅分离；两人的儿子成为解开羊皮卷的第六代奥雷里亚诺。</p>
+        <a class="jump" href="index.html#so28">时间线 · 黄蝴蝶中的恋人 →</a>
+      </article>
+      <article class="pcard" id="c-gaston" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>加斯东</h3></div>
+        <p class="role">阿玛兰妲·乌尔苏拉之夫</p>
+        <p class="deeds">随妻子来到马孔多的比利时人，爱骑自行车，也筹划航空事业。他离开小镇处理飞机事宜后，妻子与奥雷里亚诺·巴比伦的关系改变了婚姻；这个外来者最终没有返回老宅。</p>
+        <a class="jump" href="index.html#so35">时间线 · 阿玛兰妲·乌尔苏拉回来 →</a>
+      </article>
+      <article class="pcard" id="c-prudencia" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>普鲁登希奥·阿基拉尔</h3></div>
+        <p class="role">被杀的邻居</p>
+        <p class="deeds">因斗鸡与何塞·阿尔卡蒂奥争执，被对方用长矛刺死。他的幽灵此后反复出现，搅得布恩迪亚一家不得安宁，也成了他们离开旧镇、建立马孔多的隐秘起因。</p>
+        <a class="jump" href="index.html#so01">时间线 · 背着幽灵离开 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">第二代</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-jose" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>何塞·阿尔卡蒂奥</h3></div>
+        <p class="role">创始人的长子 · 第二代</p>
+        <p class="deeds">与庇拉尔生下阿尔卡蒂奥后离家，远游归来与养妹雷贝卡结婚。他曾介入上校行刑，后来遭枪杀，死因未获确定解释；不能与父亲、双胞胎或罗马归来的同名者混为一人。</p>
+        <a class="jump" href="index.html#so02">时间线 · 马孔多诞生 →</a>
+      </article>
+      <article class="pcard" id="c-col" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>奥雷里亚诺·布恩迪亚上校</h3></div>
+        <p class="role">金匠与自由派军人 · 第二代</p>
+        <p class="deeds">由沉默的金匠走向漫长内战，经历权力、失败与停战，晚年退回小金鱼作坊。他与蕾梅黛丝结婚，也有多名战争时期的儿子；名声不断扩大，内心与家庭之间的距离却越来越深。</p>
+        <a class="jump" href="index.html#so02">时间线 · 马孔多诞生 →</a>
+      </article>
+      <article class="pcard" id="c-amaranta" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>阿玛兰妲</h3></div>
+        <p class="role">创始人的女儿 · 第二代</p>
+        <p class="deeds">与雷贝卡因克雷斯皮产生竞争，后来拒绝多次求婚，也拒绝把与侄儿的感情变成共同生活。她把悔恨藏进家务与丧葬礼仪，最终依死亡的预告缝完自己的殓衣。</p>
+        <a class="jump" href="index.html#so08">时间线 · 自动钢琴与情敌 →</a>
+      </article>
+      <article class="pcard" id="c-rebeca" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>雷贝卡</h3></div>
+        <p class="role">养女 · 第二代</p>
+        <p class="deeds">幼年带着父母遗骨来到布恩迪亚家，成为养女。她与阿玛兰妲竞争克雷斯皮，后来嫁给归来的何塞·阿尔卡蒂奥；丈夫遇害后长期独居，逐渐成为镇上几乎被遗忘的人。</p>
+        <a class="jump" href="index.html#so06">时间线 · 失眠与遗忘 →</a>
+      </article>
+      <article class="pcard" id="c-remedios" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>蕾梅黛丝·莫斯科特</h3></div>
+        <p class="role">上校之妻 · 第二代伴侣</p>
+        <p class="deeds">镇长的年幼女儿，嫁给奥雷里亚诺后温和地照顾家人，一度使家庭获得平静。她在怀孕时早逝，留下被长期保存的照片；她与第四代的美人蕾梅黛丝是不同人物。</p>
+        <a class="jump" href="index.html#so10">时间线 · 奥雷里亚诺的婚礼 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">第三代</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-arcadio" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>阿尔卡蒂奥</h3></div>
+        <p class="role">何塞·阿尔卡蒂奥之子 · 第三代</p>
+        <p class="deeds">何塞·阿尔卡蒂奥与庇拉尔的儿子，由布恩迪亚家抚养。上校离镇后，他短暂掌管马孔多并走向专横，最终被政府军处决；与桑塔索菲亚所生的三个孩子延续了主要血脉。</p>
+        <a class="jump" href="index.html#so04">时间线 · 离家的长子 →</a>
+      </article>
+      <article class="pcard" id="c-sofia" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>桑塔索菲亚·德拉彼达</h3></div>
+        <p class="role">阿尔卡蒂奥的伴侣 · 第三代</p>
+        <p class="deeds">与阿尔卡蒂奥生下美人蕾梅黛丝和一对双胞胎，在家中长期承担清洁、做饭与照料。她很少成为家族权力中心，却支撑了老宅的生活，最终离开已经无法维护的房屋。</p>
+        <a class="jump" href="index.html#so14">时间线 · 阿尔卡蒂奥的短暂统治 →</a>
+      </article>
+      <article class="pcard" id="c-aurelianoJose" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>奥雷里亚诺·何塞</h3></div>
+        <p class="role">上校与庇拉尔之子 · 第三代</p>
+        <p class="deeds">由阿玛兰妲照料长大，成年后对姑姑产生无法实现的感情。离开与归来都未解除这份牵连，最后死于与军人的冲突；他与上校其他十七个同名儿子并非同一批人物。</p>
+        <a class="jump" href="index.html#so10">时间线 · 奥雷里亚诺的婚礼 →</a>
+      </article>
+      <article class="pcard" id="c-triste" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>奥雷里亚诺·特里斯特</h3></div>
+        <p class="role">上校的私生子之一</p>
+        <p class="deeds">十七个私生子之一。他把铁路修进了马孔多，也把火车、电灯、香蕉公司和外面的世界一起带了进来。马孔多的繁荣与毁灭，都从这条铁轨开始。</p>
+        <a class="jump" href="index.html#so23">时间线 · 火车带来的世界 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#1f5d57">第四代</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-beauty" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>美人蕾梅黛丝</h3></div>
+        <p class="role">阿尔卡蒂奥之女 · 第四代</p>
+        <p class="deeds">阿尔卡蒂奥与桑塔索菲亚的女儿，不理解男人围绕她的欲望，也不愿服从日常礼仪。她在收拾床单时升天，留下亲人各自的理解；应与上校早逝的妻子严格区分。</p>
+        <a class="jump" href="index.html#so14">时间线 · 阿尔卡蒂奥的短暂统治 →</a>
+      </article>
+      <article class="pcard" id="c-jose2" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>何塞·阿尔卡蒂奥第二</h3></div>
+        <p class="role">屠杀见证者 · 第四代</p>
+        <p class="deeds">与奥雷里亚诺第二是双胞胎，成年后参与香蕉工人的抗争，亲历车站屠杀并从运尸列车逃回。他拒绝接受官方否认，晚年藏身羊皮卷房间，把真实记忆传给家族最后的年轻人。</p>
+        <a class="jump" href="index.html#so14">时间线 · 阿尔卡蒂奥的短暂统治 →</a>
+      </article>
+      <article class="pcard" id="c-aureliano2" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>奥雷里亚诺第二</h3></div>
+        <p class="role">双胞胎之一 · 第四代</p>
+        <p class="deeds">与佩特拉共同经营牲畜而致富，迎娶费尔南达后仍维持情人关系。漫长大雨使财富消散，他晚年为孩子筹钱，逐渐接近孪生兄弟的形貌；两人在同一天死去，棺材又被调换。</p>
+        <a class="jump" href="index.html#so14">时间线 · 阿尔卡蒂奥的短暂统治 →</a>
+      </article>
+      <article class="pcard" id="c-fernanda" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>费尔南达·德尔·卡皮奥</h3></div>
+        <p class="role">奥雷里亚诺第二之妻</p>
+        <p class="deeds">带着贵族身份的想象与严格宗教礼仪嫁入家中，试图改造生活。她阻断梅梅的恋情、隐瞒外孙出身，又在给远方儿女的信中维持繁华幻象，最终孤独死于衰败的老宅。</p>
+        <a class="jump" href="index.html#so22">时间线 · 费尔南达进入家门 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#a8823c">第五代</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-meme" style="--c:#a8823c">
+        <div class="pcard-top"><h3>梅梅</h3></div>
+        <p class="role">本名蕾纳塔·蕾梅黛丝 · 第五代</p>
+        <p class="deeds">奥雷里亚诺第二与费尔南达的长女，喜爱音乐并爱上机械师毛里西奥。母亲阻止恋情后，她被送入修道院，终生不再说话；儿子被送回老宅，但真实血缘被刻意隐瞒。</p>
+        <a class="jump" href="index.html#so22">时间线 · 费尔南达进入家门 →</a>
+      </article>
+      <article class="pcard" id="c-rome" style="--c:#a8823c">
+        <div class="pcard-top"><h3>何塞·阿尔卡蒂奥（第五代）</h3></div>
+        <p class="role">欧洲归来的儿子 · 第五代</p>
+        <p class="deeds">费尔南达希望他在罗马成为教皇，但他回家后的现实与母亲想象相距甚远。他找到乌尔苏拉藏金，短暂挥霍，后来被少年们溺死于浴池，家族财富也随之被夺走。</p>
+        <a class="jump" href="index.html#so22">时间线 · 费尔南达进入家门 →</a>
+      </article>
+      <article class="pcard" id="c-amarantaUrsula" style="--c:#a8823c">
+        <div class="pcard-top"><h3>阿玛兰妲·乌尔苏拉</h3></div>
+        <p class="role">重返马孔多的女儿 · 第五代</p>
+        <p class="deeds">从欧洲带着丈夫回家，努力修复宅院，使生活一度恢复活力。她后来与不明血缘的外甥相爱，生下家族最后的孩子后死于产后出血，未能完成让马孔多重新繁盛的愿望。</p>
+        <a class="jump" href="index.html#so22">时间线 · 费尔南达进入家门 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#4a4a58">第六代</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-babilonia" style="--c:#4a4a58">
+        <div class="pcard-top"><h3>奥雷里亚诺·巴比伦</h3></div>
+        <p class="role">羊皮卷的读者 · 第六代</p>
+        <p class="deeds">梅梅与毛里西奥之子，身世被费尔南达隐藏，在老宅中学习语言与羊皮卷。他与姑姑阿玛兰妲·乌尔苏拉相爱，最后失去母子，读出自己的血缘与当下经历，并与马孔多一同终结。</p>
+        <a class="jump" href="index.html#so29">时间线 · 被隐藏的第六代 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#6b645a">第七代</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-lastbaby" style="--c:#6b645a">
+        <div class="pcard-top"><h3>最后的奥雷里亚诺</h3></div>
+        <p class="role">带猪尾巴的婴儿 · 第七代</p>
+        <p class="deeds">奥雷里亚诺·巴比伦与阿玛兰妲·乌尔苏拉所生的孩子，出生带有猪尾巴。母亲分娩后死去，父亲陷入悲痛把他独留家中，婴儿遭蚂蚁吞噬，成为主要家族血脉的终点。</p>
+        <a class="jump" href="index.html#so36">时间线 · 带尾巴的婴儿 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">百年孤独 · 加夫列尔·加西亚·马尔克斯</p>
+  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"founder": {"name": "何塞·阿尔卡蒂奥·布恩迪亚", "role": "创始人 · 第一代", "deeds": "与乌尔苏拉迁徙并建立马孔多，热衷磁铁、炼金术和探索世界。他后来失去与家人共有的现实，长期留在栗树下，死时出现黄花雨；创始人的想象力与执念持续回响在后代身上。", "quote": "老何塞·阿尔卡蒂奥", "camp": "第一代", "campKey": "第一代", "color": "#8c2b26", "link": "so01", "linkName": "背着幽灵离开", "rel": [["ursula", "乌尔苏拉·伊瓜兰", "表亲 · 夫妻"], ["jose", "何塞·阿尔卡蒂奥", "父子"], ["col", "奥雷里亚诺·布恩迪亚上校", "父子"], ["amaranta", "阿玛兰妲", "父女"], ["rebeca", "雷贝卡", "收养"], ["melquiades", "梅尔基亚德斯", "友人与知识引导"], ["prudencia", "普鲁登希奥·阿基拉尔", "被杀"]]}, "ursula": {"name": "乌尔苏拉·伊瓜兰", "role": "家族的经营者 · 第一代", "deeds": "与丈夫一起建村，以劳动、商业和照料维持家族，见证多代人的成长与死亡。她始终担忧近亲血缘和姓名重复，失明后仍依靠记忆行动，是家庭得以延续的重要力量。", "quote": "乌尔苏拉", "camp": "第一代", "campKey": "第一代", "color": "#8c2b26", "link": "so01", "linkName": "背着幽灵离开", "rel": [["founder", "何塞·阿尔卡蒂奥·布恩迪亚", "表亲 · 夫妻"], ["jose", "何塞·阿尔卡蒂奥", "母子"], ["col", "奥雷里亚诺·布恩迪亚上校", "母子"], ["amaranta", "阿玛兰妲", "母女"]]}, "melquiades": {"name": "梅尔基亚德斯", "role": "吉卜赛学者 · 羊皮卷作者", "deeds": "带着新器物进入马孔多，与创始人分享知识，又以药剂帮助小镇摆脱遗忘。他住在布恩迪亚家，留下梵语羊皮卷；这些文字直到家族最后时刻，才由奥雷里亚诺·巴比伦解读。", "quote": "梅尔加德斯", "camp": "家族之外", "campKey": "家族之外", "color": "#7a5a38", "link": "so03", "linkName": "磁铁、炼金术与冰", "rel": [["founder", "何塞·阿尔卡蒂奥·布恩迪亚", "友人与知识引导"]]}, "pilar": {"name": "庇拉尔·特尔内拉", "role": "占卜者 · 两条血脉的母亲", "deeds": "分别与何塞·阿尔卡蒂奥和奥雷里亚诺生下阿尔卡蒂奥、奥雷里亚诺·何塞，连接两条家族支线。她长久留在马孔多，以占卜与生活经验见证子孙的情感困境，也认识最后的奥雷里亚诺。", "quote": "皮拉尔·特尔内拉", "camp": "家族之外", "campKey": "家族之外", "color": "#7a5a38", "link": "so04", "linkName": "离家的长子", "rel": [["jose", "何塞·阿尔卡蒂奥", "情人"], ["arcadio", "阿尔卡蒂奥", "母子"], ["col", "奥雷里亚诺·布恩迪亚上校", "情人"], ["aurelianoJose", "奥雷里亚诺·何塞", "母子"]]}, "jose": {"name": "何塞·阿尔卡蒂奥", "role": "创始人的长子 · 第二代", "deeds": "与庇拉尔生下阿尔卡蒂奥后离家，远游归来与养妹雷贝卡结婚。他曾介入上校行刑，后来遭枪杀，死因未获确定解释；不能与父亲、双胞胎或罗马归来的同名者混为一人。", "quote": "长子何塞·阿尔卡蒂奥", "camp": "第二代", "campKey": "第二代", "color": "#2f4a6b", "link": "so02", "linkName": "马孔多诞生", "rel": [["founder", "何塞·阿尔卡蒂奥·布恩迪亚", "父子"], ["ursula", "乌尔苏拉·伊瓜兰", "母子"], ["pilar", "庇拉尔·特尔内拉", "情人"], ["arcadio", "阿尔卡蒂奥", "父子"], ["rebeca", "雷贝卡", "夫妻"]]}, "col": {"name": "奥雷里亚诺·布恩迪亚上校", "role": "金匠与自由派军人 · 第二代", "deeds": "由沉默的金匠走向漫长内战，经历权力、失败与停战，晚年退回小金鱼作坊。他与蕾梅黛丝结婚，也有多名战争时期的儿子；名声不断扩大，内心与家庭之间的距离却越来越深。", "quote": "奥雷里亚诺上校", "camp": "第二代", "campKey": "第二代", "color": "#2f4a6b", "link": "so02", "linkName": "马孔多诞生", "rel": [["founder", "何塞·阿尔卡蒂奥·布恩迪亚", "父子"], ["ursula", "乌尔苏拉·伊瓜兰", "母子"], ["pilar", "庇拉尔·特尔内拉", "情人"], ["aurelianoJose", "奥雷里亚诺·何塞", "父子"], ["remedios", "蕾梅黛丝·莫斯科特", "夫妻"], ["triste", "奥雷里亚诺·特里斯特", "父子"]]}, "amaranta": {"name": "阿玛兰妲", "role": "创始人的女儿 · 第二代", "deeds": "与雷贝卡因克雷斯皮产生竞争，后来拒绝多次求婚，也拒绝把与侄儿的感情变成共同生活。她把悔恨藏进家务与丧葬礼仪，最终依死亡的预告缝完自己的殓衣。", "quote": "阿玛兰塔", "camp": "第二代", "campKey": "第二代", "color": "#2f4a6b", "link": "so08", "linkName": "自动钢琴与情敌", "rel": [["founder", "何塞·阿尔卡蒂奥·布恩迪亚", "父女"], ["ursula", "乌尔苏拉·伊瓜兰", "母女"], ["rebeca", "雷贝卡", "姐妹 · 情敌"], ["aurelianoJose", "奥雷里亚诺·何塞", "姑侄"]]}, "rebeca": {"name": "雷贝卡", "role": "养女 · 第二代", "deeds": "幼年带着父母遗骨来到布恩迪亚家，成为养女。她与阿玛兰妲竞争克雷斯皮，后来嫁给归来的何塞·阿尔卡蒂奥；丈夫遇害后长期独居，逐渐成为镇上几乎被遗忘的人。", "quote": "丽贝卡", "camp": "第二代", "campKey": "第二代", "color": "#2f4a6b", "link": "so06", "linkName": "失眠与遗忘", "rel": [["founder", "何塞·阿尔卡蒂奥·布恩迪亚", "收养"], ["jose", "何塞·阿尔卡蒂奥", "夫妻"], ["amaranta", "阿玛兰妲", "姐妹 · 情敌"]]}, "remedios": {"name": "蕾梅黛丝·莫斯科特", "role": "上校之妻 · 第二代伴侣", "deeds": "镇长的年幼女儿，嫁给奥雷里亚诺后温和地照顾家人，一度使家庭获得平静。她在怀孕时早逝，留下被长期保存的照片；她与第四代的美人蕾梅黛丝是不同人物。", "quote": "雷梅黛丝·莫斯科特", "camp": "第二代", "campKey": "第二代", "color": "#2f4a6b", "link": "so10", "linkName": "奥雷里亚诺的婚礼", "rel": [["col", "奥雷里亚诺·布恩迪亚上校", "夫妻"]]}, "arcadio": {"name": "阿尔卡蒂奥", "role": "何塞·阿尔卡蒂奥之子 · 第三代", "deeds": "何塞·阿尔卡蒂奥与庇拉尔的儿子，由布恩迪亚家抚养。上校离镇后，他短暂掌管马孔多并走向专横，最终被政府军处决；与桑塔索菲亚所生的三个孩子延续了主要血脉。", "quote": "阿卡蒂奥", "camp": "第三代", "campKey": "第三代", "color": "#5a3a6b", "link": "so04", "linkName": "离家的长子", "rel": [["jose", "何塞·阿尔卡蒂奥", "父子"], ["pilar", "庇拉尔·特尔内拉", "母子"], ["sofia", "桑塔索菲亚·德拉彼达", "伴侣"], ["beauty", "美人蕾梅黛丝", "父女"], ["jose2", "何塞·阿尔卡蒂奥第二", "父子"], ["aureliano2", "奥雷里亚诺第二", "父子"]]}, "sofia": {"name": "桑塔索菲亚·德拉彼达", "role": "阿尔卡蒂奥的伴侣 · 第三代", "deeds": "与阿尔卡蒂奥生下美人蕾梅黛丝和一对双胞胎，在家中长期承担清洁、做饭与照料。她很少成为家族权力中心，却支撑了老宅的生活，最终离开已经无法维护的房屋。", "quote": "圣索菲亚", "camp": "第三代", "campKey": "第三代", "color": "#5a3a6b", "link": "so14", "linkName": "阿尔卡蒂奥的短暂统治", "rel": [["arcadio", "阿尔卡蒂奥", "伴侣"], ["beauty", "美人蕾梅黛丝", "母女"]]}, "aurelianoJose": {"name": "奥雷里亚诺·何塞", "role": "上校与庇拉尔之子 · 第三代", "deeds": "由阿玛兰妲照料长大，成年后对姑姑产生无法实现的感情。离开与归来都未解除这份牵连，最后死于与军人的冲突；他与上校其他十七个同名儿子并非同一批人物。", "quote": "Aureliano José", "camp": "第三代", "campKey": "第三代", "color": "#5a3a6b", "link": "so10", "linkName": "奥雷里亚诺的婚礼", "rel": [["col", "奥雷里亚诺·布恩迪亚上校", "父子"], ["pilar", "庇拉尔·特尔内拉", "母子"], ["amaranta", "阿玛兰妲", "姑侄"]]}, "beauty": {"name": "美人蕾梅黛丝", "role": "阿尔卡蒂奥之女 · 第四代", "deeds": "阿尔卡蒂奥与桑塔索菲亚的女儿，不理解男人围绕她的欲望，也不愿服从日常礼仪。她在收拾床单时升天，留下亲人各自的理解；应与上校早逝的妻子严格区分。", "quote": "美人雷梅黛丝", "camp": "第四代", "campKey": "第四代", "color": "#1f5d57", "link": "so14", "linkName": "阿尔卡蒂奥的短暂统治", "rel": [["arcadio", "阿尔卡蒂奥", "父女"], ["sofia", "桑塔索菲亚·德拉彼达", "母女"]]}, "jose2": {"name": "何塞·阿尔卡蒂奥第二", "role": "屠杀见证者 · 第四代", "deeds": "与奥雷里亚诺第二是双胞胎，成年后参与香蕉工人的抗争，亲历车站屠杀并从运尸列车逃回。他拒绝接受官方否认，晚年藏身羊皮卷房间，把真实记忆传给家族最后的年轻人。", "quote": "何塞第二", "camp": "第四代", "campKey": "第四代", "color": "#1f5d57", "link": "so14", "linkName": "阿尔卡蒂奥的短暂统治", "rel": [["arcadio", "阿尔卡蒂奥", "父子"], ["aureliano2", "奥雷里亚诺第二", "双胞胎"], ["triste", "奥雷里亚诺·特里斯特", "同族"]]}, "aureliano2": {"name": "奥雷里亚诺第二", "role": "双胞胎之一 · 第四代", "deeds": "与佩特拉共同经营牲畜而致富，迎娶费尔南达后仍维持情人关系。漫长大雨使财富消散，他晚年为孩子筹钱，逐渐接近孪生兄弟的形貌；两人在同一天死去，棺材又被调换。", "quote": "Aureliano Segundo", "camp": "第四代", "campKey": "第四代", "color": "#1f5d57", "link": "so14", "linkName": "阿尔卡蒂奥的短暂统治", "rel": [["arcadio", "阿尔卡蒂奥", "父子"], ["jose2", "何塞·阿尔卡蒂奥第二", "双胞胎"], ["petra", "佩特拉·科特斯", "情人"], ["fernanda", "费尔南达·德尔·卡皮奥", "夫妻"], ["meme", "梅梅", "父女"], ["rome", "何塞·阿尔卡蒂奥（第五代）", "父子"], ["amarantaUrsula", "阿玛兰妲·乌尔苏拉", "父女"]]}, "petra": {"name": "佩特拉·科特斯", "role": "奥雷里亚诺第二的情人", "deeds": "与奥雷里亚诺第二的关系伴随牲畜惊人的繁殖，使两人获得财富。衰败后她仍共同谋生，并继续为布恩迪亚家提供食物；她的持续照料与费尔南达的体面规则形成不同生活方式。", "quote": "佩特娜·柯特", "camp": "家族之外", "campKey": "家族之外", "color": "#7a5a38", "link": "so21", "linkName": "双胞胎的不同道路", "rel": [["aureliano2", "奥雷里亚诺第二", "情人"]]}, "fernanda": {"name": "费尔南达·德尔·卡皮奥", "role": "奥雷里亚诺第二之妻", "deeds": "带着贵族身份的想象与严格宗教礼仪嫁入家中，试图改造生活。她阻断梅梅的恋情、隐瞒外孙出身，又在给远方儿女的信中维持繁华幻象，最终孤独死于衰败的老宅。", "quote": "菲兰达", "camp": "第四代", "campKey": "第四代", "color": "#1f5d57", "link": "so22", "linkName": "费尔南达进入家门", "rel": [["aureliano2", "奥雷里亚诺第二", "夫妻"], ["meme", "梅梅", "母女"], ["rome", "何塞·阿尔卡蒂奥（第五代）", "母子"], ["amarantaUrsula", "阿玛兰妲·乌尔苏拉", "母女"]]}, "meme": {"name": "梅梅", "role": "本名蕾纳塔·蕾梅黛丝 · 第五代", "deeds": "奥雷里亚诺第二与费尔南达的长女，喜爱音乐并爱上机械师毛里西奥。母亲阻止恋情后，她被送入修道院，终生不再说话；儿子被送回老宅，但真实血缘被刻意隐瞒。", "quote": "蕾纳塔·蕾梅黛丝", "camp": "第五代", "campKey": "第五代", "color": "#a8823c", "link": "so22", "linkName": "费尔南达进入家门", "rel": [["aureliano2", "奥雷里亚诺第二", "父女"], ["fernanda", "费尔南达·德尔·卡皮奥", "母女"], ["mauricio", "毛里西奥·巴比伦", "恋人"], ["babilonia", "奥雷里亚诺·巴比伦", "母子"]]}, "mauricio": {"name": "毛里西奥·巴比伦", "role": "机械师 · 梅梅的恋人", "deeds": "在香蕉公司工作，与梅梅相爱，黄色蝴蝶总围绕他出现。费尔南达设防后，他在夜间潜入时被枪击而瘫痪，与梅梅分离；两人的儿子成为解开羊皮卷的第六代奥雷里亚诺。", "quote": "毛里西奥·巴比洛尼亚", "camp": "家族之外", "campKey": "家族之外", "color": "#7a5a38", "link": "so28", "linkName": "黄蝴蝶中的恋人", "rel": [["meme", "梅梅", "恋人"], ["babilonia", "奥雷里亚诺·巴比伦", "父子"]]}, "rome": {"name": "何塞·阿尔卡蒂奥（第五代）", "role": "欧洲归来的儿子 · 第五代", "deeds": "费尔南达希望他在罗马成为教皇，但他回家后的现实与母亲想象相距甚远。他找到乌尔苏拉藏金，短暂挥霍，后来被少年们溺死于浴池，家族财富也随之被夺走。", "quote": "罗马归来的何塞·阿尔卡蒂奥", "camp": "第五代", "campKey": "第五代", "color": "#a8823c", "link": "so22", "linkName": "费尔南达进入家门", "rel": [["aureliano2", "奥雷里亚诺第二", "父子"], ["fernanda", "费尔南达·德尔·卡皮奥", "母子"]]}, "amarantaUrsula": {"name": "阿玛兰妲·乌尔苏拉", "role": "重返马孔多的女儿 · 第五代", "deeds": "从欧洲带着丈夫回家，努力修复宅院，使生活一度恢复活力。她后来与不明血缘的外甥相爱，生下家族最后的孩子后死于产后出血，未能完成让马孔多重新繁盛的愿望。", "quote": "Amaranta Úrsula", "camp": "第五代", "campKey": "第五代", "color": "#a8823c", "link": "so22", "linkName": "费尔南达进入家门", "rel": [["aureliano2", "奥雷里亚诺第二", "父女"], ["fernanda", "费尔南达·德尔·卡皮奥", "母女"], ["gaston", "加斯东", "夫妻"], ["babilonia", "奥雷里亚诺·巴比伦", "姑侄 · 恋人"], ["lastbaby", "最后的奥雷里亚诺", "母子"]]}, "gaston": {"name": "加斯东", "role": "阿玛兰妲·乌尔苏拉之夫", "deeds": "随妻子来到马孔多的比利时人，爱骑自行车，也筹划航空事业。他离开小镇处理飞机事宜后，妻子与奥雷里亚诺·巴比伦的关系改变了婚姻；这个外来者最终没有返回老宅。", "quote": "Gastón", "camp": "家族之外", "campKey": "家族之外", "color": "#7a5a38", "link": "so35", "linkName": "阿玛兰妲·乌尔苏拉回来", "rel": [["amarantaUrsula", "阿玛兰妲·乌尔苏拉", "夫妻"]]}, "babilonia": {"name": "奥雷里亚诺·巴比伦", "role": "羊皮卷的读者 · 第六代", "deeds": "梅梅与毛里西奥之子，身世被费尔南达隐藏，在老宅中学习语言与羊皮卷。他与姑姑阿玛兰妲·乌尔苏拉相爱，最后失去母子，读出自己的血缘与当下经历，并与马孔多一同终结。", "quote": "奥雷里亚诺·巴比洛尼亚", "camp": "第六代", "campKey": "第六代", "color": "#4a4a58", "link": "so29", "linkName": "被隐藏的第六代", "rel": [["meme", "梅梅", "母子"], ["mauricio", "毛里西奥·巴比伦", "父子"], ["amarantaUrsula", "阿玛兰妲·乌尔苏拉", "姑侄 · 恋人"], ["lastbaby", "最后的奥雷里亚诺", "父子"]]}, "lastbaby": {"name": "最后的奥雷里亚诺", "role": "带猪尾巴的婴儿 · 第七代", "deeds": "奥雷里亚诺·巴比伦与阿玛兰妲·乌尔苏拉所生的孩子，出生带有猪尾巴。母亲分娩后死去，父亲陷入悲痛把他独留家中，婴儿遭蚂蚁吞噬，成为主要家族血脉的终点。", "quote": "最后一个奥雷里亚诺", "camp": "第七代", "campKey": "第七代", "color": "#6b645a", "link": "so36", "linkName": "带尾巴的婴儿", "rel": [["babilonia", "奥雷里亚诺·巴比伦", "父子"], ["amarantaUrsula", "阿玛兰妲·乌尔苏拉", "母子"]]}, "prudencia": {"name": "普鲁登希奥·阿基拉尔", "role": "被杀的邻居", "deeds": "因斗鸡与何塞·阿尔卡蒂奥争执，被对方用长矛刺死。他的幽灵此后反复出现，搅得布恩迪亚一家不得安宁，也成了他们离开旧镇、建立马孔多的隐秘起因。", "quote": "", "camp": "家族之外", "campKey": "家族之外", "color": "#7a5a38", "link": "so01", "linkName": "背着幽灵离开", "rel": [["founder", "何塞·阿尔卡蒂奥·布恩迪亚", "被杀"]]}, "triste": {"name": "奥雷里亚诺·特里斯特", "role": "上校的私生子之一", "deeds": "十七个私生子之一。他把铁路修进了马孔多，也把火车、电灯、香蕉公司和外面的世界一起带了进来。马孔多的繁荣与毁灭，都从这条铁轨开始。", "quote": "", "camp": "第三代", "campKey": "第三代", "color": "#5a3a6b", "link": "so23", "linkName": "火车带来的世界", "rel": [["col", "奥雷里亚诺·布恩迪亚上校", "父子"], ["jose2", "何塞·阿尔卡蒂奥第二", "同族"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

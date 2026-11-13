@@ -54,6 +54,20 @@ window.BOOK = {
       ]
     },
     {
+      "id": "du01b",
+      "era": "arrakis",
+      "when": "10191 年",
+      "place": "厄拉科斯",
+      "title": "迁往沙的星球",
+      "text": "厄崔迪家族整族迁往厄拉科斯。飞船降落时，保罗第一次看见无边无际的沙海。雷托公爵站在舱门口说：这里是我们的新家，也是我们的坟墓。他不知道自己说对了一半。",
+      "people": [
+        "leto",
+        "paul",
+        "jessica"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "du02",
       "era": "caladan",
       "when": "迁居前",
@@ -87,6 +101,19 @@ window.BOOK = {
         "du-novel",
         "du-plot"
       ]
+    },
+    {
+      "id": "du03b",
+      "era": "arrakis",
+      "when": "10191 年",
+      "place": "厄拉肯",
+      "title": "拉班的暴政",
+      "text": "哈克南把厄拉科斯交给拉班统治。他提高香料配额，随意处决，把弗雷曼人赶进更深的地下。男爵要的不是治理，是让这颗星球在他交还时已经流干了血。",
+      "people": [
+        "rabban",
+        "vladimir"
+      ],
+      "sourceIds": []
     },
     {
       "id": "du04",
@@ -125,6 +152,20 @@ window.BOOK = {
         "du-plot",
         "du-ecology"
       ]
+    },
+    {
+      "id": "du05b",
+      "era": "arrakis",
+      "when": "10191 年",
+      "place": "厄拉肯",
+      "title": "第一次见到弗雷曼人",
+      "text": "保罗在厄拉肯的走廊里遇见一群弗雷曼人。他们穿着蒸馏服，眼睛是蓝色的，走路没有声音。一个人对他说：你走路像沙漠里的人。保罗回答：我梦见过你们。",
+      "people": [
+        "paul",
+        "stilgar",
+        "chani"
+      ],
+      "sourceIds": []
     },
     {
       "id": "du06",
@@ -250,6 +291,19 @@ window.BOOK = {
         "du-novel",
         "du-hero"
       ]
+    },
+    {
+      "id": "du12b",
+      "era": "arrakis",
+      "when": "10191 年",
+      "place": "厄拉科斯",
+      "title": "看见圣战",
+      "text": "香料让保罗的预知能力彻底打开。他看见自己带领弗雷曼人横扫宇宙，以他的名义发动的圣战死了几十亿人。他想停下来，却发现每一条路都通向同一个结局。",
+      "people": [
+        "paul",
+        "jessica"
+      ],
+      "sourceIds": []
     },
     {
       "id": "du13",
@@ -413,6 +467,20 @@ window.BOOK = {
       ]
     },
     {
+      "id": "du21b",
+      "era": "fremen",
+      "when": "10191 年",
+      "place": "塔布穴地",
+      "title": "让沙漠开花",
+      "text": "凯恩斯留下的生态改造计划被弗雷曼人继续执行：种枣椰树、修风陷阱、把水锁在地下。他们相信几百年后厄拉科斯会变绿。保罗看着那些幼苗，知道这个梦想要用几代人的命去换。",
+      "people": [
+        "liet",
+        "paul",
+        "stilgar"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "du22",
       "era": "uprising",
       "when": "哈克南重新统治期间",
@@ -447,6 +515,20 @@ window.BOOK = {
         "du-novel",
         "du-ecology"
       ]
+    },
+    {
+      "id": "du24b",
+      "era": "fremen",
+      "when": "10191 年",
+      "place": "沙漠深处",
+      "title": "骑上沙虫",
+      "text": "保罗用沙锤引来一条沙虫，跳上它的背，用钩子撬开它的一节甲片。沙虫翻滚、下潜，他死死抓住。弗雷曼人在远处看着，等他活着回来，就喊出了“穆阿迪布”。",
+      "people": [
+        "paul",
+        "stilgar",
+        "chani"
+      ],
+      "sourceIds": []
     },
     {
       "id": "du23",
@@ -555,6 +637,20 @@ window.BOOK = {
       ]
     },
     {
+      "id": "du29b",
+      "era": "endgame",
+      "when": "10193 年",
+      "place": "厄拉科斯",
+      "title": "皇帝亲临",
+      "text": "沙达姆四世带着萨督卡军团降落在厄拉科斯，要亲自收拾这个失控的星球。他不知道保罗已经掌握了香料，也不知道太空公会不敢拒绝保罗的威胁——没有香料，导航员就会失明。",
+      "people": [
+        "shaddam",
+        "paul",
+        "irulan"
+      ],
+      "sourceIds": []
+    },
+    {
       "id": "du30",
       "era": "confrontation",
       "when": "最后的交锋·并行",
@@ -590,6 +686,21 @@ window.BOOK = {
         "du-novel",
         "du-plot"
       ]
+    },
+    {
+      "id": "du31b",
+      "era": "endgame",
+      "when": "10193 年",
+      "place": "厄拉肯",
+      "title": "加冕与预言",
+      "text": "保罗坐上狮子 throne，娶了伊如兰公主，把契妮留在身边却不是妻子。他对弗雷曼人说要给他们一个绿色的星球，对自己说这场圣战已经无法停止。他也成了自己预言里的那个人。",
+      "people": [
+        "paul",
+        "irulan",
+        "chani",
+        "jessica"
+      ],
+      "sourceIds": []
     },
     {
       "id": "du32",
@@ -1011,6 +1122,18 @@ window.BOOK = {
       "events": [
         "du05"
       ]
+    },
+    {
+      "id": "fenring",
+      "name": "哈西米尔·芬伦",
+      "role": "芬伦伯爵 · 皇帝的亲信",
+      "group": "帝国",
+      "aliases": [],
+      "deeds": "皇帝最信任的使者，一个近乎门泰特水准的杀手。他奉命监视哈克南与厄崔迪，在结局中本可刺杀保罗，却因契妮的预言与自身的犹疑没有动手。",
+      "events": [
+        "du31",
+        "du32"
+      ]
     }
   ],
   "relations": [
@@ -1213,6 +1336,16 @@ window.BOOK = {
       "a": "irulan",
       "b": "shaddam",
       "label": "父女"
+    },
+    {
+      "a": "fenring",
+      "b": "shaddam",
+      "label": "亲信"
+    },
+    {
+      "a": "fenring",
+      "b": "paul",
+      "label": "奉命刺杀"
     }
   ],
   "sources": [
