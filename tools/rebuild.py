@@ -54,10 +54,20 @@ QUOTES = {
     'legend-condor': '侠之大者，为国为民。',
     'swordman': '只要有人的地方就有恩怨，有恩怨就有江湖。',
     'deer-cauldron': '老子不干了。',
+    'nineteen-eighty-four': '他战胜了自己。他热爱老大哥。',
 }
 
 
 DECOR = {
+'nineteen-eighty-four': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <rect x="196" y="216" width="208" height="132" fill="none" stroke="#8d8d8d" stroke-width="1.2"/>
+  <rect x="212" y="232" width="176" height="100" fill="none" stroke="#a8a8a8" stroke-width=".4" stroke-dasharray="2 6"/>
+  <circle cx="300" cy="282" r="20" fill="none" stroke="#6f6f6f" stroke-width="1"/>
+  <path d="M286 286 q14 10 28 0" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M262 262 q10 -8 20 0 M318 262 q10 -8 20 0" fill="none" stroke="#8c3a34" stroke-width=".7"/>
+  <path d="M300 348 V400 M270 400 H330" stroke="#8d8d8d" stroke-width=".8"/>
+  <path d="M120 470 H480" stroke="#b0b0b0" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'deer-cauldron': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M232 260 H368 L352 400 H248 Z" fill="none" stroke="#a08a5e" stroke-width="1.2"/>
   <path d="M232 260 H368" stroke="#a08a5e" stroke-width="1.6"/>

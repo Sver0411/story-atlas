@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一九八四 · 时间线 | 20 个故事节点</title>
+<meta name="description" content="一个人想保住一小块自己的脑子，最后连那一小块也被拿走了。他走出来的时候，真心爱着那个拿走它的人。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <rect x="196" y="216" width="208" height="132" fill="none" stroke="#8d8d8d" stroke-width="1.2"/>
+  <rect x="212" y="232" width="176" height="100" fill="none" stroke="#a8a8a8" stroke-width=".4" stroke-dasharray="2 6"/>
+  <circle cx="300" cy="282" r="20" fill="none" stroke="#6f6f6f" stroke-width="1"/>
+  <path d="M286 286 q14 10 28 0" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M262 262 q10 -8 20 0 M318 262 q10 -8 20 0" fill="none" stroke="#8c3a34" stroke-width=".7"/>
+  <path d="M300 348 V400 M270 400 H330" stroke="#8d8d8d" stroke-width=".8"/>
+  <path d="M120 470 H480" stroke="#b0b0b0" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">乔治·奥威尔</p>
+    <h1><em>一九八四</em><span>时间线</span></h1>
+    <p class="hero-deck">一个人想保住一小块自己的脑子，最后连那一小块也被拿走了。他走出来的时候，真心爱着那个拿走它的人。<br>20 个时间点，从「日记」到「他爱老大哥」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>20 个时间点 · 10 位人物</span><i></i>
+      <span>全本 · 1984 年</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">日记</span>
+      <span class="era-sub">01 — 20</span>
+    </div>
+
+    <section class="event" id="n84_01" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="日记" data-short="日记" data-label="1984 年 4 月 4 日 · 伦敦 · 胜利大厦">
+      <div class="ev-when">1984 年 4 月 4 日<em>伦敦 · 胜利大厦</em></div>
+      <h2>日记</h2>
+      <p>温斯顿·史密斯三十九岁，在真理部做事，右踝上有一块静脉曲张的疮。他回到公寓，把桌子搬到墙角，因为电幕看不见那个角度。他拿出一个本子，一支笔，写下一行字：1984 年 4 月 4 日。然后他停下，不知道下一句该写什么。他妻子凯瑟琳两年前走了，走的时候说：你没有孩子，是因为你不够努力。他最后写的是：打倒老大哥。写完他盯着那四个字看了很久，手在抖。他知道这行字如果被发现，他会被枪毙，或者更糟。他把它留在本子上，没有撕。</p>
+    </section>
+
+    <section class="event" id="n84_02" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="日记" data-short="电幕" data-label="1984 年 · 伦敦">
+      <div class="ev-when">1984 年<em>伦敦</em></div>
+      <h2>电幕</h2>
+      <p>每间屋子都有一块电幕，装在墙上，能看能听，不能关。街上到处是海报，画着一张黑胡子的脸，下面写着：老大哥在看着你。温斯顿每天上班、下班、吃饭、睡觉，都在那张脸底下。他说：这张脸画得不对，眼睛不看你。楼下的邻居帕森斯有两个孩子，天天拿着玩具枪喊抓叛徒。他有一次在楼梯口站住，看见那张海报的眼睛正对着他。他说：我知道你在看。他说完，自己笑了一下，说：我疯了。</p>
+    </section>
+
+    <section class="event" id="n84_03" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="日记" data-short="改报纸" data-label="1984 年 · 真理部">
+      <div class="ev-when">1984 年<em>真理部</em></div>
+      <h2>改报纸</h2>
+      <p>他在真理部记录司工作，每天的任务是改旧报纸。党说今年的棉花产量是多少，去年的报纸就得改成多少。改完的报纸投入火炉，原件销毁。他做这件事做了很多年，做得又快又好，还得过一次表扬。同屋的赛姆是个语文学家，正在编新话词典，他说：我们要把语言削到只剩骨头。走廊那头还有诗人安普福斯，他后来消失了。他有一句口头禅：这是技术活。他说：改得看不出痕迹，才叫本事。他后来想，我这一辈子，就是在一张一张地擦掉过去。</p>
+    </section>
+
+    <section class="event" id="n84_04" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="日记" data-short="两分钟仇恨" data-label="1984 年 · 真理部">
+      <div class="ev-when">1984 年<em>真理部</em></div>
+      <h2>两分钟仇恨</h2>
+      <p>每天上午十一点，所有人停下手里的活，看电幕上的两分钟仇恨。屏幕上出现果尔德施坦因的脸，一个叛徒，一个敌人。屋子里的人开始喊，开始扔东西。温斯顿也跟着喊，可他喊的时候，心里有一小块地方是冷的。他注意到奥勃良也在喊，喊得比谁都响。他想：这个人跟我一样，是在演。他后来知道，奥勃良不是在演。他扔了一个杯子，砸在电幕上，屏幕闪了一下，又亮了。他坐下的时候，看见自己的手在抖。他想：我恨的不是那个人，我恨的是那个让我必须喊的东西。</p>
+    </section>
+
+    <section class="event" id="n84_05" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="日记" data-short="茱莉亚" data-label="1984 年 · 真理部">
+      <div class="ev-when">1984 年<em>真理部</em></div>
+      <h2>茱莉亚</h2>
+      <p>他注意到一个黑头发的姑娘，在小说司做事，腰上系着一条鲜红的腰带。他一开始恨她，觉得她是党的密探。后来他发现她一直在看他。有一次她在走廊上摔倒，他扶了她一把，她塞给他一张纸条。纸条上写：我爱你。他把纸条读了三遍，然后烧了。他想：这是圈套。他又想：如果这不是圈套呢。他在厕所的隔间里站了很久，心跳得像打鼓。她把纸条递得很自然，像在递一张文件。他接过来的时候，两只手碰了一下。她说：别回头。他说：好。他说完，转身走了，走出去二十步才敢摸那张纸。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">小屋</span>
+      <span class="era-sub">06 — 20</span>
+    </div>
+
+    <section class="event" id="n84_06" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="小屋" data-short="第一次" data-label="1984 年 · 乡下 · 树林">
+      <div class="ev-when">1984 年<em>乡下 · 树林</em></div>
+      <h2>第一次</h2>
+      <p>他们约在乡下的树林里见面。她穿了一件工作服，头发用一条红绳子扎着。她说：我带了一块巧克力，黑市的。他说：你怎么弄到的。她说：我换的。她说：我这个人，很会换东西。他们在一棵树下躺着，草很高，看不见路。她说：你看起来比我想的瘦。他说：你看起来比我想的年轻。她说：我二十六。他说：我三十九。她说：我知道。她说：你这个人，看起来像四十岁。他说：我三十九。她说：我看到你的时候，你总是低着头。他说：我怕人。她说：你怕的不是人，是电视。</p>
+    </section>
+
+    <section class="event" id="n84_07" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="小屋" data-short="玻璃镇纸" data-label="1984 年 · 小屋">
+      <div class="ev-when">1984 年<em>小屋</em></div>
+      <h2>玻璃镇纸</h2>
+      <p>他们在查林顿先生的店里租了一间小屋，在楼上，没有电幕。温斯顿买了一个玻璃镇纸，里面有一小块珊瑚。他说：这东西没用。她说：没用才好。他把镇纸放在桌上，光透过玻璃，在墙上留下一个彩色的圆。他说：这是我从旧时代买来的东西。她说：旧时代有什么好。他说：有一样好，那时候的东西不会说话。她笑了，说：你这个人，想得真多。查林顿说：这间屋子，我三十年前也租给人。他问：那人后来呢。查林顿说：他搬走了。他说这句话的时候，眼睛看着别处。他后来才知道，那个人被抓了。</p>
+    </section>
+
+    <section class="event" id="n84_08" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="小屋" data-short="老鼠" data-label="1984 年 · 小屋">
+      <div class="ev-when">1984 年<em>小屋</em></div>
+      <h2>老鼠</h2>
+      <p>她说她怕老鼠。他说他也怕。她说：那你怕什么。他说：我怕的是别的东西。他说：有一种笼子，里面装着老鼠，戴在脸上。他说完，自己打了个寒战。她说：别说了。他说：好。那天晚上他做了一个梦，梦见母亲抱着他的妹妹，坐在一条船上，船一直往下沉。他醒来的时候，脸上有眼泪。他说：我想起来了，我抢过我妹妹的面包。他母亲的脸他记不清了，只记得她的手。他妹妹的手很小，抓着他的袖子。他说：我抢过她的面包。他说：我那时候八岁。茱莉亚说：你是被饿的。他说：我知道。</p>
+    </section>
+
+    <section class="event" id="n84_09" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="小屋" data-short="兄弟会" data-label="1984 年 · 奥勃良的家">
+      <div class="ev-when">1984 年<em>奥勃良的家</em></div>
+      <h2>兄弟会</h2>
+      <p>他去找奥勃良，说要加入兄弟会。奥勃良给他倒了一杯酒，说：你要做好准备，可能一辈子都在做无用的事，可能被抓，可能死。他说：我知道。奥勃良说：你愿意吗。他说：愿意。奥勃良说：我们会联系你。他说完，关掉了电幕。那是温斯顿第一次看见电幕被关掉。他心里松了一口气，又紧了一下。奥勃良说：我们会让你读那本书。他说：那本书存在吗。奥勃良说：存在。他说：那本书里写的是什么。奥勃良说：写的是你现在已经知道的东西。</p>
+    </section>
+
+    <section class="event" id="n84_10" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="小屋" data-short="黄金乡" data-label="1984 年 · 小屋">
+      <div class="ev-when">1984 年<em>小屋</em></div>
+      <h2>黄金乡</h2>
+      <p>他们最后一次在小屋里待了一个下午。她睡着了，他坐在窗边，看着外面的雨。他想：如果现在被抓住，我也不后悔。他想：我已经活了三十九年，这几个月是最好的。他低头看她的脸，忽然觉得很难过。他说：我们以后不能再来了。她说：我知道。她说：那我们今天多待一会儿。他说：好。他把窗关上，外面的雨声变小了。他说：我想过，如果有一天我们被抓，我希望是在这个屋子里。她说：为什么。他说：因为这儿没有电幕。她说：他们不需要电幕，他们只要有人告密。</p>
+    </section>
+
+    <section class="event" id="n84_11" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="小屋" data-short="被捕" data-label="1984 年 · 查林顿的店">
+      <div class="ev-when">1984 年<em>查林顿的店</em></div>
+      <h2>被捕</h2>
+      <p>警察冲进来的时候，他还在穿衣服。查林顿先生站在门口，摘掉了假发，露出一张年轻的脸。原来他是思想警察。温斯顿说：你在这儿住了几十年。他说：我在这儿等了你们七年。他们被带走的时候，他看见那个玻璃镇纸被摔在地上，碎了。他想：那是我买的。他后来在牢里常常想起那块珊瑚。他被按在地上的时候，脸贴着地板，闻见一股旧木头的味道。他想：这地板上过我买的镇纸。他被人拉起来，看见查林顿正把假发收进抽屉，动作很仔细。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">仁爱部</span>
+      <span class="era-sub">12 — 20</span>
+    </div>
+
+    <section class="event" id="n84_12" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="牢房" data-label="1984 年 · 仁爱部">
+      <div class="ev-when">1984 年<em>仁爱部</em></div>
+      <h2>牢房</h2>
+      <p>仁爱部没有窗，灯一直亮着，分不清白天黑夜。他被关在一间小牢房里，隔壁有人被打。他数着鞭子的声音，数到三十几下，那人就不叫了。他想：我也会这样。他坐在角落里，把膝盖抱在胸前。他后来被提审了很多次。审他的人不打他，只跟他说话，问他问题，让他自己想。他说：你们要什么。那人说：我们要你爱老大哥。他说：我做不到。那人说：你会做到的。他问隔壁那人为什么被抓。那人说：因为我在梦里骂了一句。他说：做梦也犯法。那人说：做梦也犯法。他说：那我完了。他这一辈子天天做梦。</p>
+    </section>
+
+    <section class="event" id="n84_13" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="奥勃良" data-label="1984 年 · 仁爱部">
+      <div class="ev-when">1984 年<em>仁爱部</em></div>
+      <h2>奥勃良</h2>
+      <p>审他的人是奥勃良。他说：你也是兄弟会的人。奥勃良说：我从来不是。他说：那本书是你写的。奥勃良说：是我们写的。他说：为什么。奥勃良说：因为我们要知道你们能走多远。奥勃良说：你不明白，权力不是手段，权力是目的。他说：我们不是为了别人，我们是为了权力本身。他说：你想象一下，一个人踩在另一张脸上，那张脸永远不变。奥勃良说：你以为我们是少数，你错了，我们是一群人，一代人。他说：你们能撑多久。奥勃良说：只要人类还怕死、还怕疼，我们就能撑下去。</p>
+    </section>
+
+    <section class="event" id="n84_14" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="镜子" data-label="1984 年 · 仁爱部">
+      <div class="ev-when">1984 年<em>仁爱部</em></div>
+      <h2>镜子</h2>
+      <p>他被带到一间屋子里，看见一面镜子。镜子里的人瘦得不像人，头发掉了大半，牙齿掉了两颗。他不认识那个人。他说：那不是我。奥勃良说：那是你。他说：我变成了什么。奥勃良说：你变成了真实。他哭了一场。他这一辈子很少哭。他哭完说：你们赢了。奥勃良说：还没有。他说：还有什么。奥勃良说：还有一步。镜子里那个人看着他，眼睛是空的。他想起自己三十岁的时候，站在同一面镜子前，脸上还有一点笑。他说：你们把我的脸也拿走了。奥勃良说：脸不重要。</p>
+    </section>
+
+    <section class="event" id="n84_15" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="老鼠" data-label="1984 年 · 101 房间">
+      <div class="ev-when">1984 年<em>101 房间</em></div>
+      <h2>老鼠</h2>
+      <p>101 房间里，每个人都会遇见自己最怕的东西。奥勃良说：你最怕的是老鼠。他说：不是。奥勃良说：是。他让人拿来一个铁笼子，里面全是老鼠，笼子前面有一块面罩。他说：这个面罩会扣在你脸上。他喊：不要！他喊：去找茱莉亚！他喊：我对她做什么都行，别对我这样！笼子被拿走了。他躺在地上，浑身是汗。他后来说：那一刻我知道，我完了。笼子里的老鼠挤在一起，发出很小的声音。他听见自己的心跳。他说：还有一个办法。奥勃良说：什么办法。他说：你让茱莉亚来，让老鼠咬她。他说完，自己吐了。</p>
+    </section>
+
+    <section class="event" id="n84_16" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="出卖" data-label="1984 年 · 仁爱部">
+      <div class="ev-when">1984 年<em>仁爱部</em></div>
+      <h2>出卖</h2>
+      <p>他后来才知道，茱莉亚也说了同样的话。他们说：去找温斯顿，对他做什么都行。他们两个人在不同的房间里，做了同一个选择。他们后来见过一次，在公园里，两个人都很瘦。她说：我出卖了你。他说：我也出卖了你。她说：从今以后，我们不要再见了。他说：好。她说：我恨你。他说：我也恨你。他们说完，各自走开。走了十几步，两个人都没有回头。她说：你现在还喜欢我吗。他说：不喜欢了。她说：我也不喜欢你了。他们两个人都笑了一下。她说：这样也好。他说：是。他们站起来，各走各的路。</p>
+    </section>
+
+    <section class="event" id="n84_17" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="栗树咖啡馆" data-label="1984 年 · 咖啡馆">
+      <div class="ev-when">1984 年<em>咖啡馆</em></div>
+      <h2>栗树咖啡馆</h2>
+      <p>他被放出来了。他有了一个清闲的职位，一份够吃的口粮，一间干净的屋子。他每天下午去栗树咖啡馆，喝一杯胜利咖啡，下一盘棋。电幕里播着前线的胜利消息，他听着，觉得很安心。他有时候会想起那间小屋，想起玻璃镇纸，想起她的头发。他想起的时候，心里没有难过，只有一点模糊的痒。他想：那不是真的。他就不想了。他下棋赢了三次。他以前最喜欢下棋，现在下得像在做工。他看着棋盘，忽然想不起来自己为什么喜欢过。他把棋子摆回原位，说：再来一盘。</p>
+    </section>
+
+    <section class="event" id="n84_18" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="两分钟仇恨" data-label="1984 年 · 咖啡馆">
+      <div class="ev-when">1984 年<em>咖啡馆</em></div>
+      <h2>两分钟仇恨</h2>
+      <p>那天电幕上又出现了果尔德施坦因的脸。屋子里的人开始喊。他也站起来，跟着喊。他喊的时候，眼泪流下来。他喊：老大哥！他喊：把他杀了！他喊得嗓子都哑了。喊完他坐下来，手还在抖。他想：我终于做到了。他想：我爱老大哥。他抬起头，看见墙上那张黑胡子的脸，觉得那张脸很慈祥。他知道自己在哭，可他不知道为什么哭。他想：这是真的。他想：我终于感觉到真的东西了。他把手按在胸口，觉得那儿很热。</p>
+    </section>
+
+    <section class="event" id="n84_19" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="赢了" data-label="1984 年 · 咖啡馆">
+      <div class="ev-when">1984 年<em>咖啡馆</em></div>
+      <h2>赢了</h2>
+      <p>他坐在那里，想起很多年前在小屋里说过的一句话：如果我能爱他，我就自由了。他想：我现在爱他了。他想：我战胜了自己。他闭上眼睛，觉得有一阵暖流从心里升起来。他睁开眼，看见电幕上的那张脸。他想：一切都好。他想：一切都很好。他把咖啡喝完，把杯子放回桌上，杯底有一个褐色的圈。他想起奥勃良说过的一句话：我们会在你心里挖一个洞。他想：你们挖了。他想：可我现在不疼了。他抬起头，看见天花板上有一盏灯，灯光很白。</p>
+    </section>
+
+    <section class="event" id="n84_20" style="--c:#4a4a4a"
+      data-color="#4a4a4a" data-era="仁爱部" data-short="他爱老大哥" data-label="1984 年 · 伦敦">
+      <div class="ev-when">1984 年<em>伦敦</em></div>
+      <h2>他爱老大哥</h2>
+      <p>小说最后一句是这样写的：他战胜了自己。他热爱老大哥。他坐在咖啡馆的角落里，外面在下雨，街上有人排队买糖。他没有动，也没有说话。他的脸上有一种很少见的表情，那是一种彻底的安静。有人说，那个下午他一直在等一颗子弹。也有人说，他什么也没等。他只是坐在那儿，像一个终于睡着的人。有人说，那天下雨的时候，他一直在笑。也有人说，他的脸很平静，像一个做完了一件大事的人。窗外的雨下了很久，他没有动。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 20</span>
+        </div>
+        <div class="rail-era" id="railNow">1984 年 4 月 4 日</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“他战胜了自己。他热爱老大哥。”</p>
+  <p class="tiny">一九八四 · 乔治·奥威尔　·　20 个时间点，10 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

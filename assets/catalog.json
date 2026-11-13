@@ -448,5 +448,17 @@
     "events": 18,
     "people": 15,
     "scope": "全本 · 康熙初年"
+  },
+  {
+    "id": "nineteen-eighty-four",
+    "title": "一九八四",
+    "author": "乔治·奥威尔",
+    "category": "科幻",
+    "description": "老大哥在看着你。",
+    "accent": "#4a4a4a",
+    "cover": "",
+    "events": 20,
+    "people": 10,
+    "scope": "全本 · 1984 年"
   }
 ]
