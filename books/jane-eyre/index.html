@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>简·爱 · 时间线 | 28 个故事节点</title>
+<meta name="description" content="一个不美、不富、不肯低头的姑娘，爱上一个骗了她的人，然后自己走了出去。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 470 V250" stroke="#a89478" stroke-width="1.1"/>
+  <path d="M232 470 V300 Q232 214 300 186 Q368 214 368 300 V470" fill="none" stroke="#a89478" stroke-width="1"/>
+  <path d="M248 470 V306 Q248 236 300 214 Q352 236 352 306 V470" fill="none" stroke="#a89478" stroke-width=".4" stroke-dasharray="2 8"/>
+  <g fill="none" stroke="#8c3a34" stroke-width="1">
+    <path d="M300 250 q-9 -16 0 -30 q9 14 0 30Z"/>
+    <path d="M290 254 q-14 -8 -12 -20 M310 254 q14 -8 12 -20" stroke-width=".6"/>
+  </g>
+  <path d="M120 470 H480" stroke="#c0b39c" stroke-width="1"/>
+  <path d="M120 512 H480" stroke="#c9bca6" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">夏洛蒂·勃朗特</p>
+    <h1><em>简·爱</em><span>时间线</span></h1>
+    <p class="hero-deck">一个不美、不富、不肯低头的姑娘，爱上一个骗了她的人，然后自己走了出去。<br>28 个时间点，从「红房子」到「眼睛」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>28 个时间点 · 14 位人物</span><i></i>
+      <span>全本 · 1820—1831</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">盖茨黑德</span>
+      <span class="era-sub">01 — 28</span>
+    </div>
+
+    <section class="event" id="je01" style="--c:#4f4436"
+      data-color="#4f4436" data-era="盖茨黑德" data-short="红房子" data-label="1820 年 · 盖茨黑德">
+      <div class="ev-when">1820 年<em>盖茨黑德</em></div>
+      <h2>红房子</h2>
+      <p>简·爱十岁，父母双亡，住在舅母里德太太家。表哥约翰打她，她反抗了一次，被关进红房子——那是舅舅死去的房间。她在里面看见镜子里的自己，以为看见了鬼，喊到昏过去。醒来的时候，她听见里德太太对佣人说：这孩子心眼坏。她记住了这句话。红房子里有红地毯、红窗帘、红床罩，还有一面大镜子。她坐在镜子前，看见里面有个白脸的小女孩，觉得那不是自己。天黑了，灯没点，她开始敲门。门从外面锁着。她喊：放我出去。没有人来。她后来晕了过去，醒来的时候躺在自己床上，听见佣人在说：这孩子真会演戏。</p>
+    </section>
+
+    <section class="event" id="je02" style="--c:#4f4436"
+      data-color="#4f4436" data-era="盖茨黑德" data-short="一句话" data-label="1820 年 · 盖茨黑德">
+      <div class="ev-when">1820 年<em>盖茨黑德</em></div>
+      <h2>一句话</h2>
+      <p>医生来给她看病，问她：你想上学吗。她说：想。她说：我不喜欢这里。医生说：为什么。她说：因为这里没有人爱我。她说这话的时候很平静。医生后来对里德太太说：这孩子需要换个地方。里德太太说：我也这么想。医生说：你在这儿不快活。她说：不快活。他说：你想去哪儿。她说：哪儿都行。他说：学校会很苦。她说：我不怕苦。他说：那你怕什么。她想了想，说：我怕没人理我。医生把这句话记住了，后来写信给校长的时候，写了进去。</p>
+    </section>
+
+    <section class="event" id="je03" style="--c:#4f4436"
+      data-color="#4f4436" data-era="盖茨黑德" data-short="布洛克赫斯特" data-label="1820 年 · 盖茨黑德">
+      <div class="ev-when">1820 年<em>盖茨黑德</em></div>
+      <h2>布洛克赫斯特</h2>
+      <p>洛伍德慈善学校的校长布洛克赫斯特来了。他个子高，脸像一块木板，说话喜欢引用圣经。他问简：你念经吗。她说：念。他说：你最喜欢哪一段。她说：诗篇。他说：哪一篇。她答不上来。他说：这孩子心里有魔鬼。里德太太说：你说得对。布洛克赫斯特说：我办这所学校，是为了让这些孩子学会谦卑。他说：她们生来就是穷人，就应该知道自己是什么。里德太太说：你说得对。简站在旁边，听见了这两个字：生来。她想：我生下来的时候，谁问过我。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">洛伍德</span>
+      <span class="era-sub">04 — 28</span>
+    </div>
+
+    <section class="event" id="je04" style="--c:#4f4436"
+      data-color="#4f4436" data-era="洛伍德" data-short="第一顿早饭" data-label="1821 年 1 月 · 洛伍德">
+      <div class="ev-when">1821 年 1 月<em>洛伍德</em></div>
+      <h2>第一顿早饭</h2>
+      <p>学校在野地里，冬天很冷，房间里没有火。早饭是烧焦的粥，女孩们吃了一口就放下。一个高年级的女生说：别看了，吃了。简吃了一口，差点吐出来。那个女生叫海伦·彭斯。她后来对简说：这里的规矩是，能忍就忍。简说：可我忍不住。她说：那就学着忍。海伦说：你恨这所学校吗。简说：恨。她说：别恨。她说：你恨它，它也不会变好。简说：那我就恨那些让这里变成这样的人。海伦看着她，说：你会很累。她说：我不怕累。海伦笑了一下，说：我知道你不怕。</p>
+    </section>
+
+    <section class="event" id="je05" style="--c:#4f4436"
+      data-color="#4f4436" data-era="洛伍德" data-short="海伦" data-label="1821 年 · 洛伍德">
+      <div class="ev-when">1821 年<em>洛伍德</em></div>
+      <h2>海伦</h2>
+      <p>海伦被老师打了，罚站在大厅中间。简问她：你不恨她吗。海伦说：不恨。她说：她只是严格。简说：她欺负你。海伦说：我这一生很短，不值得用来恨人。简看着她，忽然觉得这个人比她认识的任何人都强。海伦那年十四岁。海伦说：你看那边那棵树。简说：看到了。她说：去年冬天它被雷劈了一半，今年春天又发芽了。她说：人也一样。简说：你不一样，你要死了。海伦说：那我也发过芽了。她说完，把手放在简的手上，那只手很凉。</p>
+    </section>
+
+    <section class="event" id="je06" style="--c:#4f4436"
+      data-color="#4f4436" data-era="洛伍德" data-short="当着全校" data-label="1821 年 春 · 洛伍德">
+      <div class="ev-when">1821 年 春<em>洛伍德</em></div>
+      <h2>当着全校</h2>
+      <p>布洛克赫斯特当着全校宣布：简·爱是个说谎的孩子。他让她站在椅子上，站了一下午。简没有哭。海伦走过来，对她笑了一下。那天晚上，坦普尔小姐把她叫到房间，听她讲完整个故事，然后写信给劳埃德医生。回信证实了她的话。第二天，校长在全校面前替她平了反。简说：我不是撒谎的孩子。坦普尔小姐说：我知道。她说：你怎么知道。她说：因为你说的时候没有躲。她说：撒谎的人会躲。简哭了。这是她在洛伍德第一次哭。坦普尔小姐给她倒了茶，说：吃点东西，明天还要上课。</p>
+    </section>
+
+    <section class="event" id="je07" style="--c:#4f4436"
+      data-color="#4f4436" data-era="洛伍德" data-short="斑疹伤寒" data-label="1821 年 春 · 洛伍德">
+      <div class="ev-when">1821 年 春<em>洛伍德</em></div>
+      <h2>斑疹伤寒</h2>
+      <p>那年春天，学校流行斑疹伤寒，一半的学生病倒。海伦咳嗽了很久，被送进病房。简半夜溜进去，躺在她旁边。海伦说：我要走了。简说：你不会。她说：我会。她说：你别难过，我不怕。第二天早上，她死了。简抱着她，一直抱到天亮。海伦说：我不怕死。简说：我怕你死。海伦说：那你别怕。她说：我死了以后，会有人替我记着。简说：我会记着。海伦说：那你就不要记恨。简说：我尽量。海伦说：你尽量就好。她闭上眼睛的时候，天刚亮，窗外的鸟在叫。</p>
+    </section>
+
+    <section class="event" id="je08" style="--c:#4f4436"
+      data-color="#4f4436" data-era="洛伍德" data-short="八年" data-label="1828 年 · 洛伍德">
+      <div class="ev-when">1828 年<em>洛伍德</em></div>
+      <h2>八年</h2>
+      <p>简在洛伍德又待了八年：六年做学生，两年做老师。坦普尔小姐结婚走了，学校换了新校长，规矩松了一些，可她觉得这里的一切都太小了。她在报纸上登了一则广告：有教养的年轻女子，愿任家庭教师。三天后收到回信：桑菲尔德庄园。她贴出广告的时候，手在抖。她写了三遍才写好：一位年轻女子，受过良好教育，欲任家庭教师，年龄十八，品行端正。她把信寄出去，走了很远才回来。她想：如果没有人回信，我就再待一年。第八天，回信来了。她把信读了四遍。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">桑菲尔德</span>
+      <span class="era-sub">09 — 28</span>
+    </div>
+
+    <section class="event" id="je09" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="费尔法克斯太太" data-label="1828 年 秋 · 桑菲尔德">
+      <div class="ev-when">1828 年 秋<em>桑菲尔德</em></div>
+      <h2>费尔法克斯太太</h2>
+      <p>桑菲尔德是一栋大房子，暗，静，走廊很长。管家费尔法克斯太太是个胖胖的老太太，说话和气。她说：主人不常来，这里只有我和一个法国小女孩。简问：主人是谁。她说：罗切斯特先生。简问：他什么时候来。她说：说不准。费尔法克斯太太说：主人是个怪人，你别怕他。她说：我不怕。老太太说：他有时候说话很难听。她说：我听过更难听的。老太太笑了，说：你这个姑娘。她又说：这里还有一个法国小女孩，叫阿黛尔，是主人带回来的。她说：她母亲死了。</p>
+    </section>
+
+    <section class="event" id="je10" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="一匹马" data-label="1828 年 冬 · 桑菲尔德 · 路上">
+      <div class="ev-when">1828 年 冬<em>桑菲尔德 · 路上</em></div>
+      <h2>一匹马</h2>
+      <p>她去村里寄信，路上听见马蹄声，然后是一声滑倒。一匹马倒在冰上，骑手摔在旁边。她走过去，说：先生，你伤着了吗。他说：你站开。她站开了。他试着站起来，又坐下。她说：我可以帮你。他说：你住哪儿。她说：桑菲尔德。他说：那你回去吧。她一走，他就在后面看着。他站起来，抓住她的肩膀，说：你住桑菲尔德。她说：是。他说：你叫什么。她说：简·爱。他说：简·爱。他念了一遍，像在记什么。他说：你走吧。她走了，走了几步，回头看了一眼，看见他还站在原地，一只手按着腿。</p>
+    </section>
+
+    <section class="event" id="je11" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="主人" data-label="1828 年 冬 · 桑菲尔德 · 客厅">
+      <div class="ev-when">1828 年 冬<em>桑菲尔德 · 客厅</em></div>
+      <h2>主人</h2>
+      <p>那天晚上，费尔法克斯太太说：主人回来了。简下楼，看见壁炉边站着一个人，脸很黑，眉毛很重。他看着她，说：你就是那个新来的家庭教师。她说：是。他说：你会弹琴吗。她说：会一点。他说：那你弹。她弹了一首，他说：够了。他后来对人说：这个姑娘不像个家庭教师。他说：你弹得太规矩了。她说：我学了六年。他说：规矩的东西没有意思。她说：那你弹。他说：我不弹。他说：我听过太多人弹琴，她们都想让我觉得她们有教养。她说：那你听过几个人弹。他说：一百个。她说：那我算第几个。他说：第一个不算的。</p>
+    </section>
+
+    <section class="event" id="je12" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="半夜的火" data-label="1829 年 · 桑菲尔德">
+      <div class="ev-when">1829 年<em>桑菲尔德</em></div>
+      <h2>半夜的火</h2>
+      <p>半夜，简闻到烟味。她跑出去，看见主人的房间在烧。她泼水，把他摇醒。他坐在床上，看着火光，说：你救了我。她说：是的。他说：你这个人，真奇怪。她说：为什么。他说：别人会先喊人。她说：喊人就来不及了。他看了她很久。火被扑灭以后，他坐在床边，说：你为什么不叫人。她说：叫了人，你就完了。他说：为什么。她说：因为别人会说是我放的。他愣了一下，然后笑了。他说：你这个人，脑子转得很快。她说：我从小就得转得快。他说：我知道。</p>
+    </section>
+
+    <section class="event" id="je13" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="梅森" data-label="1829 年 · 桑菲尔德">
+      <div class="ev-when">1829 年<em>桑菲尔德</em></div>
+      <h2>梅森</h2>
+      <p>一个叫梅森的客人来了，住了一晚，夜里被咬伤。罗切斯特让简去照顾他，说：别跟任何人说。简在血里坐了一夜。天亮以后，梅森被送走，脸色很白。简问：这个人是谁。罗切斯特说：一个我不愿意提起的人。他说完就走了。梅森躺在床上，血把衬衫浸透了。他说：她咬我。简说：谁。他说：你知道的。简说：我不知道。他说：你会知道的。他后来被送走的时候，在马上回头说了一句：她是我姐姐。简站在门口，看着马车走远，觉得这栋房子里有些东西不对。</p>
+    </section>
+
+    <section class="event" id="je14" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="求婚" data-label="1829 年 夏 · 桑菲尔德 · 花园">
+      <div class="ev-when">1829 年 夏<em>桑菲尔德 · 花园</em></div>
+      <h2>求婚</h2>
+      <p>他在花园里说：我要娶英格拉姆小姐。简说：那我该走了。他说：你别走。她说：我留下做什么。他说：留下来看我结婚。她说：我看不下去。她说：你以为我穷、低微、不美、矮小，我就没有灵魂没有心吗。她说：我和你一样有灵魂，也一样有心。如果上帝赐给我美貌和财富，我会让你难以离开我，就像我现在难以离开你一样。他说：你以为我要娶她，你就要走。她说：是。他说：你不问我为什么。她说：我不问。他说：为什么。她说：因为问了也没用。他说：你这个人，比我想的硬。她说：我不是硬。她说：我只是不想让自己变得可笑。</p>
+    </section>
+
+    <section class="event" id="je15" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="答应" data-label="1829 年 夏 · 桑菲尔德 · 花园">
+      <div class="ev-when">1829 年 夏<em>桑菲尔德 · 花园</em></div>
+      <h2>答应</h2>
+      <p>他说：简，我要娶的人是你。她愣住了。她说：你在开玩笑。他说：我从来不开玩笑。她说：你有一个疯妻子吗。他说：没有。她说：那你为什么要说她。他说：因为我需要一个能听懂我说话的人。她说：我不信。他说：那你看着我的眼睛。她看了。她后来想，那是她这一生最不理智的一刻。她说：你的妻子呢。他说：她疯了。她说：她在哪儿。他说：在这栋房子里。她说：那你还敢求婚。他说：我不敢，可我忍不住。她说：你这是让我做什么。他说：我没想那么多。她说：你应该想。他说：我想了十年，想够了。</p>
+    </section>
+
+    <section class="event" id="je16" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="婚纱" data-label="1829 年 夏 · 桑菲尔德">
+      <div class="ev-when">1829 年 夏<em>桑菲尔德</em></div>
+      <h2>婚纱</h2>
+      <p>婚礼前一天，简梦见一个孩子。半夜，一个穿白衣的女人进了她的房间，把她的婚纱撕成两半。她喊人，罗切斯特说：是格雷斯·普尔，一个佣人，她喝多了。简信了。她后来想，那天晚上那个女人离她只有一步远。那个女人穿着白衣服，头发很长，脸看不清。她把婚纱举起来，撕成两条，扔在地上。她看着简，笑了一下。那个笑很奇怪，像孩子，也像野兽。她走了以后，简坐在地上，捡起婚纱，一直捡到天亮。她没有告诉任何人。</p>
+    </section>
+
+    <section class="event" id="je17" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="打断" data-label="1829 年 8 月 · 教堂">
+      <div class="ev-when">1829 年 8 月<em>教堂</em></div>
+      <h2>打断</h2>
+      <p>婚礼进行到一半，有人推门进来，说：这个婚礼不能举行。那个人是梅森。他身后还有一个律师。律师拿出一份文件：罗切斯特在牙买加结过婚，妻子还活着。罗切斯特说：跟我来。他带所有人上了三楼，打开一扇门。门里有个女人，四肢着地，喉咙里发出声音。那个女人穿着一件旧袍子，头发乱着，脸涨得通红。她看见有人进来，发出一种声音，然后扑过来，抓住罗切斯特的衣领。他抱住她，说：好了，好了。她在他怀里挣扎了一会儿，安静下来。所有人站在门口，没有人说话。律师把文件收起来，走了。</p>
+    </section>
+
+    <section class="event" id="je18" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="伯莎" data-label="1829 年 8 月 · 桑菲尔德 · 三楼">
+      <div class="ev-when">1829 年 8 月<em>桑菲尔德 · 三楼</em></div>
+      <h2>伯莎</h2>
+      <p>那个女人叫伯莎·梅森，是他的妻子，从牙买加带回来的。她家有精神病史，婚后不久就发了病。他把她关在这里，请人看着，一关就是十几年。他说：我没有爱过她。他说：我被她父亲骗了。简站在门口，看着那个在地上爬的女人。她什么也没说。他说：我二十岁的时候，什么都不知道。他说：她家里人瞒着我，把她嫁过来。他说：我带她回英国，请了医生，医生说治不好。他说：我本来可以把她送进疯人院，可我没有。简说：所以你就把她关在阁楼上。他说：我给她请了人。她说：你把她关在阁楼上。</p>
+    </section>
+
+    <section class="event" id="je19" style="--c:#4f4436"
+      data-color="#4f4436" data-era="桑菲尔德" data-short="走" data-label="1829 年 8 月 夜 · 桑菲尔德">
+      <div class="ev-when">1829 年 8 月 夜<em>桑菲尔德</em></div>
+      <h2>走</h2>
+      <p>她一个人在房间里坐到天亮。她没有哭。她把婚纱脱下来，换上平时的衣服，收拾了一个小包。她走到他的房间门口，站了一会儿，没有敲门。她在桌上留了一封信。天亮前，她从后门出去，走过田野，走上大路。她身上只有二十先令。她在信上写：我走了，请你不要找我。她说：我不是不爱你，我是不能这样爱你。她把信放在桌上，用烛台压着。她走过走廊的时候，听见三楼传来一声笑。她停下来，站了一会儿，然后继续走。她后来一生都在想，那声笑是不是在跟她告别。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">荒原</span>
+      <span class="era-sub">20 — 28</span>
+    </div>
+
+    <section class="event" id="je20" style="--c:#4f4436"
+      data-color="#4f4436" data-era="荒原" data-short="三天" data-label="1829 年 秋 · 荒原">
+      <div class="ev-when">1829 年 秋<em>荒原</em></div>
+      <h2>三天</h2>
+      <p>她在荒原上走了三天，没有吃东西，也没有找到工作。第三天傍晚，她倒在一户人家的门口。那户人家姓里弗斯。开门的是个年轻男人，叫圣约翰。他把她扶进去，给她面包和水。他的两个妹妹给她换了衣服。她醒来的时候，听见有人在念德语。那个年轻男人把她抱进去，放在椅子上。他说：你从哪儿来。她说不出话。他给她水，她喝了一口，就吐了。他说：你多久没吃东西了。她伸出三根手指。他说：三天。他说：你怎么活下来的。她说：我不知道。他说：那你就活着吧。</p>
+    </section>
+
+    <section class="event" id="je21" style="--c:#4f4436"
+      data-color="#4f4436" data-era="荒原" data-short="乡村教师" data-label="1830 年 · 莫顿">
+      <div class="ev-when">1830 年<em>莫顿</em></div>
+      <h2>乡村教师</h2>
+      <p>圣约翰在莫顿村给她找了一份工作：教一群农家女孩读书，年薪三十镑，住一间小屋。她答应了。她教她们识字、缝纫、念经。晚上她一个人坐在炉边，想着桑菲尔德。她写过一封信，寄出去，没有回音。她后来想，也许他已经走了。她教那些女孩念书，教她们缝衣服。有一个女孩问她：老师，你为什么不结婚。她说：因为我没遇到合适的人。女孩说：什么叫合适。她说：就是你想跟他说话，说一辈子也不烦。女孩说：那很难。她说：是。她说：所以很多人不结。</p>
+    </section>
+
+    <section class="event" id="je22" style="--c:#4f4436"
+      data-color="#4f4436" data-era="荒原" data-short="遗产" data-label="1830 年 · 莫顿">
+      <div class="ev-when">1830 年<em>莫顿</em></div>
+      <h2>遗产</h2>
+      <p>圣约翰告诉她：她的叔叔约翰·爱死了，留给她两万镑。她愣住了。她又听说：圣约翰和他的两个妹妹，是她的表兄妹。她说：那我们平分。他说：不行。她说：那我一分也不要。他后来同意了。四个人，每人五千镑。她第一次有了自己的钱。圣约翰说：两万镑。她说：那我该做什么。他说：你可以不用工作。她说：我不知道不工作是什么样子。他说：你可以旅行。她说：一个人。他说：你可以带一个人。她说：带谁。他没有说话。她说：我可以分给你们。他说：不用。她说：我不是在施舍。</p>
+    </section>
+
+    <section class="event" id="je23" style="--c:#4f4436"
+      data-color="#4f4436" data-era="荒原" data-short="求婚" data-label="1830 年 · 莫顿">
+      <div class="ev-when">1830 年<em>莫顿</em></div>
+      <h2>求婚</h2>
+      <p>圣约翰说：我要去印度传教，你跟我去，做我的妻子。她说：我可以去做你的助手，但不能做你的妻子。他说：为什么。她说：因为你不爱我。他说：婚姻不需要爱情。她说：我需要。他说：你这是在拒绝上帝的召唤。她说：不，我是在拒绝你。他说：上帝要你去印度。她说：上帝没有跟我说过话。他说：通过我。她说：你不像上帝。他说：你这是在亵渎。她说：我这是在说实话。他说：你会后悔的。她说：也许。她说：但我不会嫁给你，这一点我很确定。</p>
+    </section>
+
+    <section class="event" id="je24" style="--c:#4f4436"
+      data-color="#4f4436" data-era="荒原" data-short="一个声音" data-label="1830 年 · 莫顿">
+      <div class="ev-when">1830 年<em>莫顿</em></div>
+      <h2>一个声音</h2>
+      <p>那天夜里，她一个人坐在窗边，听见一个声音叫她的名字：简，简，简。那声音很轻，像是从很远的地方来的。她站起来，说：我来了。她说：等着我。第二天早上，她收拾行李，坐上马车，往桑菲尔德去。她不知道那边发生了什么。她把行李收拾好，坐在床边等天亮。她想：也许那是我的幻觉。她又想：也许不是。她想起海伦说过的话：你要相信你自己。她站起来，走到窗前，看见东边有一点白。她说：我来了。她说：这一次我不走了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">芬丁</span>
+      <span class="era-sub">25 — 28</span>
+    </div>
+
+    <section class="event" id="je25" style="--c:#4f4436"
+      data-color="#4f4436" data-era="芬丁" data-short="烧了" data-label="1830 年 · 桑菲尔德">
+      <div class="ev-when">1830 年<em>桑菲尔德</em></div>
+      <h2>烧了</h2>
+      <p>桑菲尔德成了一片废墟。邻居告诉她：去年秋天，那个疯女人放了一把火，从屋顶跳下来死了。罗切斯特去救她，被烧塌的梁砸中，瞎了一只眼，另一只也坏了，还丢了一只手。他现在住在芬丁，一个林中的小房子里。邻居说：那天晚上火烧得很大，村里人都来救，救不了。他说：那个女人站在屋顶上，头发被风吹起来，像个新娘。他说：罗切斯特先生上去拉她，她跳了。他说：他从上面摔下来，压在梁下面。他说：他现在住在林子里，不怎么见人。</p>
+    </section>
+
+    <section class="event" id="je26" style="--c:#4f4436"
+      data-color="#4f4436" data-era="芬丁" data-short="我回来了" data-label="1830 年 · 芬丁">
+      <div class="ev-when">1830 年<em>芬丁</em></div>
+      <h2>我回来了</h2>
+      <p>她走进那间小房子，看见他坐在火边，眼睛上缠着绷带。她说：先生。他的手停住了。他说：是谁。她说：是我。他说：简吗。她说：是。他伸出手，摸到她的脸，摸了很久。他说：你回来了。她说：我回来了。他说：你长高了。她笑了，眼泪掉下来。他说：是你吗。她说：是我。他说：你真的是人吗。她说：我是人。他伸出手，摸到她的头发，说：你的头发。他说：我梦见你很多次，每次你都不说话。她说：我现在说话了。他说：你再说一句。她说：我回来了。他说：再说一句。她说：我不走了。</p>
+    </section>
+
+    <section class="event" id="je27" style="--c:#4f4436"
+      data-color="#4f4436" data-era="芬丁" data-short="结婚" data-label="1830 年 冬 · 芬丁">
+      <div class="ev-when">1830 年 冬<em>芬丁</em></div>
+      <h2>结婚</h2>
+      <p>他们在一个小教堂里结婚，来的人只有牧师和两个见证人。她说：我现在有钱了，你不用养我。他说：那我养你做什么。她说：你可以什么也不做。他说：那我做什么。她说：你可以陪我。他笑了。那是她第一次看见他笑得像个孩子。牧师问：有人反对吗。没有人说话。牧师问：你愿意吗。她说：我愿意。他说：我愿意。他说完，转过头，像在找什么。她握住他的手，说：我在这儿。他说：我知道。他说：我只是想确认一下。</p>
+    </section>
+
+    <section class="event" id="je28" style="--c:#4f4436"
+      data-color="#4f4436" data-era="芬丁" data-short="眼睛" data-label="1831 年 · 芬丁">
+      <div class="ev-when">1831 年<em>芬丁</em></div>
+      <h2>眼睛</h2>
+      <p>第二年，他的一只眼睛恢复了一点视力，能看见她的脸，也能看见他们的儿子。他抱着孩子，说：他的眼睛像你。她说：他的脾气像你。他说：那你要受苦了。她说：我已经受了十年了。他说：那你还要受下去吗。她说：要。他说：我看得见一点光。她说：什么光。他说：窗户。他说：还有你的脸。她说：我的脸不好看。他说：我看得见。他说：比我想的好看。她说：你以前说我长得平常。他说：我以前说的都是错的。她笑了，说：你终于承认了。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 28</span>
+        </div>
+        <div class="rail-era" id="railNow">1820 年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“你以为我穷、低微、不美、矮小，我就没有灵魂没有心吗。”</p>
+  <p class="tiny">简·爱 · 夏洛蒂·勃朗特　·　28 个时间点，14 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

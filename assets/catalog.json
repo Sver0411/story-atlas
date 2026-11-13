@@ -220,5 +220,17 @@
     "events": 24,
     "people": 15,
     "scope": "全本 · 1811—1812"
+  },
+  {
+    "id": "jane-eyre",
+    "title": "简·爱",
+    "author": "夏洛蒂·勃朗特",
+    "category": "世界文学",
+    "description": "一个不美、不富、不肯低头的姑娘。",
+    "accent": "#4f4436",
+    "cover": "",
+    "events": 28,
+    "people": 14,
+    "scope": "全本 · 1820—1831"
   }
 ]

@@ -35,10 +35,22 @@ QUOTES = {
     'two-cities': '这是最好的时代，也是最坏的时代。',
     'les-miserables': '比天空更宽阔的，是人的心灵。',
     'pride-prejudice': '凡是有钱的单身汉，总想娶位太太，这已经成了一条举世公认的真理。',
+    'jane-eyre': '你以为我穷、低微、不美、矮小，我就没有灵魂没有心吗。',
 }
 
 
 DECOR = {
+'jane-eyre': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 470 V250" stroke="#a89478" stroke-width="1.1"/>
+  <path d="M232 470 V300 Q232 214 300 186 Q368 214 368 300 V470" fill="none" stroke="#a89478" stroke-width="1"/>
+  <path d="M248 470 V306 Q248 236 300 214 Q352 236 352 306 V470" fill="none" stroke="#a89478" stroke-width=".4" stroke-dasharray="2 8"/>
+  <g fill="none" stroke="#8c3a34" stroke-width="1">
+    <path d="M300 250 q-9 -16 0 -30 q9 14 0 30Z"/>
+    <path d="M290 254 q-14 -8 -12 -20 M310 254 q14 -8 12 -20" stroke-width=".6"/>
+  </g>
+  <path d="M120 470 H480" stroke="#c0b39c" stroke-width="1"/>
+  <path d="M120 512 H480" stroke="#c9bca6" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'pride-prejudice': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M180 240 H420 V400 L300 460 L180 400 Z" fill="none" stroke="#b3a08a" stroke-width="1.1"/>
   <path d="M180 240 L300 330 L420 240" fill="none" stroke="#b3a08a" stroke-width=".9"/>
