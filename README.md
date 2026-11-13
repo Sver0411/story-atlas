@@ -6,7 +6,7 @@
 ## 页面
 
 - [时间线](https://sver0411.github.io/three-body-timeline/) —— 68 个时间点，26 幅配图（23 幅 AI 概念插画）
-- [人物志](https://sver0411.github.io/three-body-timeline/characters.html) —— 32 人、36 条关系，点击任意人物以他为中心重排关系网
+- [人物志](https://sver0411.github.io/three-body-timeline/characters.html) —— 32 人、33 组关系，点击任意人物以他为中心重排关系网
 - [精简版](https://sver0411.github.io/three-body-timeline/lite.html) —— 44 个时间点，只看主线
 - [纯文字版](https://sver0411.github.io/three-body-timeline/full.html) —— 68 个时间点，无配图
 
@@ -23,3 +23,5 @@
 AI 插画用于情节想象与视觉表达，覆盖红岸、智子工程、古筝行动、面壁计划、阶梯计划、末日之战、黑暗战役、执剑人、四维碎片、掩体城市、三个童话、二维化、黑域和小宇宙等场景。图片位于 `img/generated/`，统一为 1536 × 768 的 JPEG，并使用懒加载；生成提示词及场景清单保存在 [docs/image-generation.json](docs/image-generation.json)。配图逐张核对原著中明确的视觉细节；隐喻与原文未规定的外观标为意象或概念设计，详见 [配图核对记录](docs/illustration-audit.md)。纯文字版仍保留无图阅读形式。
 
 原作：刘慈欣《三体》三部曲
+
+2026-11-13 修订了威慑建立、阶梯计划纪年、三个童话及相关人物资料，同步三个时间线版本，并保留既有事件锚点。跨期事件按阶段起点排列，精简版的破壁回顾单独标注；人物志保留的直接引语附原文出处。核对依据见 [正文与人物修订记录](docs/content-review.md)。
