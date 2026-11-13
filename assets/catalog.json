@@ -340,5 +340,41 @@
     "events": 15,
     "people": 7,
     "scope": "全本 · 1937—1939"
+  },
+  {
+    "id": "white-deer",
+    "title": "白鹿原",
+    "author": "陈忠实",
+    "category": "中文小说",
+    "description": "祠堂和地。",
+    "accent": "#5b4a34",
+    "cover": "",
+    "events": 13,
+    "people": 10,
+    "scope": "全本 · 1911—1949"
+  },
+  {
+    "id": "ordinary-world",
+    "title": "平凡的世界",
+    "author": "路遥",
+    "category": "中文小说",
+    "description": "不认命，也不服。",
+    "accent": "#6b5836",
+    "cover": "",
+    "events": 13,
+    "people": 7,
+    "scope": "全本 · 1975—1986"
+  },
+  {
+    "id": "border-town",
+    "title": "边城",
+    "author": "沈从文",
+    "category": "中文小说",
+    "description": "也许明天回来。",
+    "accent": "#4f6357",
+    "cover": "",
+    "events": 9,
+    "people": 4,
+    "scope": "全本 · 1930 年代"
   }
 ]

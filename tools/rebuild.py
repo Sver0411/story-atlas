@@ -45,10 +45,41 @@ QUOTES = {
     'quiet-don': '我们这儿的人，一辈子就守着一条河。',
     'zhivago': '喧哗静了，我走上台。',
     'fortress': '城外的人想冲进去，城里的人想逃出来。',
+    'white-deer': '这地还是这地，人换了几茬了。',
+    'ordinary-world': '即使是最平凡的人，也要为他那个世界的存在而战斗。',
+    'border-town': '这个人也许永远不回来了，也许明天回来。',
 }
 
 
 DECOR = {
+'white-deer': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M60 440 Q300 360 540 440" fill="none" stroke="#b3a184" stroke-width="1"/>
+  <path d="M60 470 Q300 400 540 470" fill="none" stroke="#c2b096" stroke-width=".5"/>
+  <path d="M170 428 V330 L200 306 L230 330 V428" fill="none" stroke="#8f7f66" stroke-width="1"/>
+  <path d="M206 428 V392 H226 V428" fill="none" stroke="#8f7f66" stroke-width=".6"/>
+  <path d="M380 428 V352 L402 334 L424 352 V428" fill="none" stroke="#8f7f66" stroke-width=".8"/>
+  <path d="M300 250 l10 -16 l10 16 l-10 14Z" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M120 520 H480" stroke="#b3a184" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'ordinary-world': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M60 470 Q180 420 300 460 T540 450" fill="none" stroke="#b6a077" stroke-width="1"/>
+  <path d="M60 500 Q180 452 300 490 T540 480" fill="none" stroke="#c4b08a" stroke-width=".5"/>
+  <g stroke="#8d7a58" stroke-width=".8">
+    <path d="M200 470 V380 M180 380 H220"/><path d="M180 380 L200 344 L220 380"/>
+    <path d="M380 460 V390 M364 390 H396"/><path d="M364 390 L380 360 L396 390"/>
+  </g>
+  <path d="M296 470 V410 H304 V470" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M120 530 H480" stroke="#b6a077" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'border-town': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M60 400 Q180 384 300 400 T540 400" fill="none" stroke="#8fa79a" stroke-width="1"/>
+  <path d="M60 434 Q180 418 300 434 T540 434" fill="none" stroke="#a0b6a9" stroke-width=".6"/>
+  <path d="M60 468 Q180 452 300 468 T540 468" fill="none" stroke="#b0c4b8" stroke-width=".4"/>
+  <path d="M250 400 L300 344 L350 400" fill="none" stroke="#6f8a7c" stroke-width=".9"/>
+  <path d="M120 400 V430 M480 400 V430" stroke="#6f8a7c" stroke-width=".8"/>
+  <circle cx="300" cy="300" r="10" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M300 310 V344" stroke="#8c3a34" stroke-width=".6"/>
+</svg>''',
 'quiet-don': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M60 380 Q160 364 260 380 T460 380 T560 380" fill="none" stroke="#8f8a75" stroke-width="1"/>
   <path d="M60 420 Q160 404 260 420 T460 420 T560 420" fill="none" stroke="#a09a84" stroke-width=".6"/>
