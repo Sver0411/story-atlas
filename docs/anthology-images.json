@@ -1,0 +1,135 @@
+{
+  "generator": "built-in image_gen",
+  "date": "2026-11-13",
+  "notes": "Original PNGs remain under Codex generated_images; project JPEGs are format-optimized copies. Scene interpretations are labeled in captions.",
+  "images": [
+    {
+      "id": "monte-cristo",
+      "file": "img/anthology/monte-cristo.jpg",
+      "original": "exec-b7c19fba-5bf7-46fa-a2e9-346442617983.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 editorial literary illustration for an original Chinese reading companion to Alexandre Dumas' The Count of Monte Cristo. Scene: the Château d'If, an austere small early nineteenth century stone island fortress off Marseille, rising from the Mediterranean at dawn. Tiny anonymous sailing boat far below gives scale; distant coast in haze. No modern lighthouse, tourists, engines or modern buildings. View from above the sea, fortress dominates center-right with dark rock and high simple walls. Restrained painterly realism with fine etched detail, subtle aged-paper texture, deep indigo blue sea and warm limestone sunrise. Elegant cinematic atmosphere, humane rather than glossy fantasy. Entire image is artwork; no text, letters, typography, titles, logos, border or watermark. This is a new scene illustration, not an imitation of an existing edition cover.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "solitude",
+      "file": "img/anthology/solitude.jpg",
+      "original": "exec-691bfdad-fcd3-4153-bd1b-61e19b1f85e7.png",
+      "prompt": "Use case: illustration-story. A wide 1536x1024 literary scene illustration for One Hundred Years of Solitude. The early fictional Colombian village Macondo: modest whitewashed adobe houses with clay tile roofs and shaded porches, an old large chestnut tree beside an extended family house, distant tropical mountains and luxuriant vegetation. A few tiny yellow butterflies in warm humid sunlight, not a swarm. A quiet village street with no cars, no electric cables or contemporary things; don't depict recognizable actors. Restrained magical realism, fine oil and etched detail on subtle parchment, ochre light, deep botanical greens, weathered plaster. Distant people only as tiny silhouettes. No text, letters, book mockup, logo, frame or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "lotr",
+      "file": "img/anthology/lotr.jpg",
+      "original": "exec-0f9b0752-ef2c-4d93-928d-233e826f5f80.png",
+      "prompt": "Use case: illustration-story. A wide 1536x1024 literary scene illustration for Tolkien's The Lord of the Rings novel trilogy. A peaceful Shire hillside with modest round-door hobbit homes embedded in grass, a simple footpath winding down through hedgerows, dawn mist over green fields. Two tiny fully clothed hobbit travelers seen from behind carrying practical packs and walking sticks, no shoes, no distinctive actor likeness or cinematic costume. Gentle painterly realism with fine etched texture on subtle parchment, moss green, warm honey window light, restrained fantasy atmosphere. Natural landscape not impossible giant architecture. No text, letters, map labels, book mockup, logos, border or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "dune",
+      "file": "img/anthology/dune.jpg",
+      "original": "exec-3be23e2d-301e-4b1c-b98c-303e4acd6461.png",
+      "prompt": "Use case: illustration-story. A wide 1536x1024 original literary illustration based on Frank Herbert's first Dune novel. Arrakis desert at twilight: immense sculpted ochre dunes, a severe distant rocky escarpment with small concealed cave openings suggesting a Fremen sietch, two tiny travelers seen from behind wearing plain dark tightly fitted stillsuits with fabric hoods, practical nose tubes, packs, no exposed skin. One small moon visible through dusty air. Preserve enormous scale, no giant worm attacking the figures, no modern vehicles, no movie costume replicas or actor likenesses. Restrained painterly realism, etched fine detail and subtle parchment texture, copper sand and deep blue shadows. No text, letters, book cover mockup, logos, frame or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "red-chamber",
+      "file": "img/anthology/red-chamber.jpg",
+      "original": "exec-05699df5-6a27-4968-aa7e-11986b4a90b1.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 literary scene illustration based on the Qing-era Chinese novel Dream of the Red Chamber. A quiet path inside the fictional Grand View Garden: traditional Jiangnan-style elegant garden with high white plaster walls, grey tiled roofs, carved wooden corridor, bamboo grove, pond, irregular scholar rocks, one flowering crabapple tree. A small distant young woman in modest early Qing Han Chinese layered silk jacket and long skirt walks with a maid; figures from behind, not recognizable actors, no Qing imperial palace or modern tourist site. Poetic and restrained Chinese gongbi meets watercolor realism on warm silk-paper texture, muted jade green and cinnabar accents, fine architectural detail, morning mist. No calligraphy, characters, titles, seals, labels, logos or borders.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "monte-faria",
+      "file": "img/anthology/monte-faria.jpg",
+      "original": "exec-9ff21ae5-09b2-46d5-a6d7-1591812480a6.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 literary illustration of a scene from Alexandre Dumas' The Count of Monte Cristo novel. Inside a small rough stone cell of Château d'If in the early 19th century, an elderly thin white-haired abbé in worn plain cloth patiently teaches a younger bearded prisoner. Both fully clothed in threadbare shirts and trousers, seated at a crude little table, their faces in gentle shadow and three-quarter rear view. Improvised sheets and a simple quill, a small hand-cut opening at the foot of a stone wall hints at the tunnel linking cells; no readable words. Very narrow high barred window casts a shaft of morning light onto stone. Restrained painterly realism and etched detail, subtle parchment texture, limestone grey and amber. No modern objects, electric lights, fantasy symbols, text, book mockup, logos or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "monte-paris",
+      "file": "img/anthology/monte-paris.jpg",
+      "original": "exec-450dda8f-5f35-4c7a-a466-b21a80c4638f.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 literary scene illustration for the Paris society portion of Alexandre Dumas' The Count of Monte Cristo, set in 1838. View from the back of an elegant but restrained aristocratic salon: parquet floor, tall windows and softly lit candles, period furniture, men in black tailcoats with white cravats and women in modest late-1830s silk evening gowns. A dark-haired adult gentleman in a plain impeccably tailored black coat stands in the foreground with his back to us, watching a small distant group of guests. Do not show recognizable actors, modern tuxedos, electric chandeliers, Versailles-scale gold fantasy or weapons. Restrained painterly realism with fine etched detail and subtle parchment texture, burgundy, ivory and amber, a quiet sense of concealed identity. No text, letters, titles, logos, frame or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "solitude-rain",
+      "file": "img/anthology/solitude-rain.jpg",
+      "original": "exec-72281630-db5d-476b-b8e1-a85a66713cda.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 original literary scene illustration inspired by the long rain in One Hundred Years of Solitude. Macondo's old Buendia family courtyard under relentless tropical rain: worn whitewashed walls, clay tile roof with heavy dripping eaves, shallow water on the patio, damp wooden rocking chairs under the porch, overgrown garden and old chestnut tree in the background. No flood of spectacular disaster scale; convey years of quiet decay and dampness, deserted house, no recognizable characters or actors. Painterly magical realism with fine etched detail and subtle aged parchment texture, dark botanical greens, muted ochre plaster, silver rain, soft grey daylight. No text, letters, book cover mockup, logos, frame or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "solitude-train",
+      "file": "img/anthology/solitude-train.jpg",
+      "original": "exec-71a5d935-94e4-4cc6-a391-7411305f8b5f.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 literary scene illustration inspired by the arrival of the railway in Macondo in One Hundred Years of Solitude. A modest black late-nineteenth-century steam locomotive pulling a few ochre-yellow carriages slowly arrives at the edge of a tropical Colombian town. The track crosses a simple unpaved village road among modest whitewashed clay-tile houses; a few townspeople seen from behind watch from a shaded porch, unfamiliar and curious. Humid vegetation, mountains in distance, white steam, warm morning sun. No modern station building, no electric cables, no cars, no recognizable characters or actors. Painterly magical realism, fine etched details on aged-paper texture, muted ochre and botanical green. No text, letters, insignia, logos, book mockup, frame or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "lotr-moria",
+      "file": "img/anthology/lotr-moria.jpg",
+      "original": "exec-5ff8061c-1588-445e-bce3-aef871e4cf02.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 literary scene illustration based only on Tolkien's The Fellowship of the Ring. Deep in Moria, an impossibly narrow ancient stone bridge crosses an immense black chasm. A tiny elderly wizard wearing a plain grey cloak holds a wooden staff and stands alone on the bridge, rear view, facing a distant shadow surrounded by fire at the opposite end. The fiery being is mostly obscured by smoke and shadow, no clearly defined wings, horns or armor. Very tall dark stone architecture and underground scale, no daylight. Restrained painterly realism, fine etched detail on subtle parchment, charcoal black with ember red light and a little grey silver. Do not copy movie actors or film still composition. No text, letters, logos, frame, book mockup or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "lotr-havens",
+      "file": "img/anthology/lotr-havens.jpg",
+      "original": "exec-1d443e91-287a-46de-b696-20b58b17a689.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 literary scene illustration inspired by the Grey Havens ending of Tolkien's The Lord of the Rings novel. A serene ancient stone quay at the far west of Middle-earth, a graceful modest white sailing ship receding into gold light over the calm sea. Three small fully clothed hobbit silhouettes seen from behind stand together on the quay in farewell; a simple low elven harbor building and distant sea cliffs frame the view. No recognizable actors, no movie costume replicas, no giant fantasy metropolis. Restrained painterly realism with fine etched detail on subtle parchment texture, soft blue grey and late afternoon gold, melancholy and quiet. No text, letters, book cover mockup, logos, border or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "lotr-volcano",
+      "file": "img/anthology/lotr-volcano.jpg",
+      "original": "exec-d7a45d15-948d-44e0-b1b7-fbe0e1f082f4.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 original literary scene illustration inspired by the approach to Mount Doom in Tolkien's The Return of the King. Two extremely small exhausted fully clothed hobbit figures with packs, seen from behind, follow a narrow ascending path on an immense barren dark volcanic mountain. A distant low entrance on the mountain's flank emits a faint red glow; ash, fissured black rock, a red-lit clouded sky, no lush vegetation. The figures are insignificant against the mountain, one helping the other. No enormous flaming eye in the sky, no armored army, no movie actor likenesses or recognizable film costumes. Restrained painterly realism and fine etched detail on subtle aged parchment, charcoal and ember red. No text, inscriptions, book mockup, logos, frames or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "dune-worm",
+      "file": "img/anthology/dune-worm.jpg",
+      "original": "exec-541318b1-e572-46ca-af84-cbe303fb673d.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 original literary illustration based on Frank Herbert's first Dune novel. A huge sandworm moves through the open Arrakis desert, its long sand-colored ringed back visible above the dune crest, not a vertical mouth attack. A group of tiny Fremen in plain dark grey stillsuits and fabric hoods stand along its back using maker hooks and lines to keep a ring segment lifted; practical soft gear, no saddle, no armor, no firearms raised. Side view from a distant high dune emphasizes the worm's scale against the tiny riders. No actor likenesses, no film costume replicas. Restrained painterly realism, fine etched detail and subtle parchment, copper sand and indigo shadows, clear morning light. No text, letters, book mockup, logos, frames or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "dune-water",
+      "file": "img/anthology/dune-water.jpg",
+      "original": "exec-b9f9517d-1291-419c-898c-6bcef23e07bf.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 original literary illustration based on the hidden water reserves of the Fremen in Frank Herbert's first Dune novel. Inside a vast natural underground rocky cavern on Arrakis, a carefully maintained still water reservoir stretches into shadow, plain stone ledges and modest practical water pipes near the edge. Two very small hooded Fremen figures in fully covered dark grey stillsuits stand on a dry ledge, viewed from behind. The water is protected and precious, nobody bathing, no ornate temple, no futuristic blue holograms, no vegetation or waterfalls. Soft warm portable lamps and pale reflected light reveal the cavern's enormous volume. Restrained painterly realism with fine etched detail, parchment grain, dark sandstone and subtle turquoise water. No text, letters, actor likenesses, film costume replicas, logos, border or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "red-chamber-snow",
+      "file": "img/anthology/red-chamber-snow.jpg",
+      "original": "exec-5390fdd8-aee1-4d50-b63a-d1d4b5a1d90e.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 restrained literary landscape inspired by the ending of the 120-chapter version of Dream of the Red Chamber. A remote early Qing Chinese road in falling snow, leafless trees and distant low mountains. Three tiny figures, a barefoot young man in a plain red felt cloak walking between a Buddhist monk and a Daoist priest, seen far from behind receding into the snow. In the near foreground at the edge, an older scholar in travelling clothes is partly visible watching them leave, his face obscured. Do not make the departing young man an armored hero, do not show palace architecture or supernatural giant figures. Fine traditional Chinese brush linework mixed with muted watercolor realism, silk-paper texture, white, ink grey and a single restrained red accent. No text, calligraphy, seals, logos, frame or watermark.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "red-chamber-flowers",
+      "file": "img/anthology/red-chamber-flowers.jpg",
+      "original": "exec-1ad89cda-9d2d-4607-bc99-c743e0841f17.png",
+      "prompt": "Use case: illustration-story. Create a wide 1536x1024 literary scene illustration based on chapter 27 of the Chinese novel Dream of the Red Chamber. In a secluded corner of the Grand View Garden in a Qing-era aristocratic household, a slender young Chinese woman seen from behind in a modest pale blue embroidered jacket and long ivory skirt carries a small flower hoe and a cloth bag of fallen petals. She stands beside a small mound under flowering peach trees, gathering fallen petals rather than planting an ornamental flower bed. A simple winding garden path, white plaster wall with grey tiled coping, scattered pink petals, no gravestone. Quiet sorrow, no melodramatic pose, no actor likeness, no imperial headdress or palace throne. Restrained gongbi linework and watercolor realism on warm silk paper, muted pink, jade and pale blue. No text, calligraphy, seal, labels, border or watermark.",
+      "width": 1536,
+      "height": 1024
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "three-body",
+    "title": "三体",
+    "author": "刘慈欣",
+    "category": "科幻",
+    "description": "从红岸的第一声呼唤，到宇宙之外的五公斤生命。循着一次次选择，重读文明的命运。",
+    "accent": "#8c2b26",
+    "cover": "img/generated/swordholder-v2.jpg",
+    "events": 68,
+    "people": 32,
+    "scope": "三部曲"
+  },
+  {
+    "id": "monte-cristo",
+    "shortScope": "完整主线",
+    "title": "基督山伯爵",
+    "category": "古典小说",
+    "author": "大仲马",
+    "description": "从马赛港的一场订婚宴，到巴黎客厅里缓慢展开的清算。沿唐泰斯的归途，重看罪、报恩与复仇的边界。",
+    "accent": "#7a4d35",
+    "cover": "img/anthology/monte-cristo.jpg",
+    "events": 36,
+    "people": 24,
+    "scope": "小说完整主线 · 含结局剧透"
+  },
+  {
+    "id": "solitude",
+    "shortScope": "七代家族",
+    "title": "百年孤独",
+    "category": "魔幻现实",
+    "author": "加夫列尔·加西亚·马尔克斯",
+    "description": "沿布恩迪亚家族七代人的生活，看马孔多从开端走向繁盛、暴力与消失。同名的人在不同年代重现，留下不同的选择与相似的孤独。",
+    "accent": "#53664a",
+    "cover": "img/anthology/solitude.jpg",
+    "events": 37,
+    "people": 24,
+    "scope": "小说完整主线 · 七代谱系 · 含结局剧透"
+  },
+  {
+    "id": "lotr",
+    "shortScope": "小说三部曲",
+    "title": "魔戒",
+    "category": "奇幻",
+    "author": "J. R. R. 托尔金",
+    "description": "一枚戒指使平静的家园与中洲的命运相连。沿护戒、洛汗、刚铎与魔多几条道路，阅读权力的诱惑、微小的坚持和战后的归家。",
+    "accent": "#46634f",
+    "cover": "img/anthology/lotr.jpg",
+    "events": 36,
+    "people": 22,
+    "scope": "《护戒同盟》《双塔殊途》《王者归来》小说三卷六部，含夏尔清洗与灰港结局"
+  },
+  {
+    "id": "dune",
+    "shortScope": "第一部",
+    "title": "沙丘",
+    "category": "科幻",
+    "author": "弗兰克·赫伯特",
+    "description": "从卡拉丹的继承人到厄拉科斯的穆阿迪布，沿家族覆灭、荒漠求生与帝国易手，读懂水、香料、信仰和权力如何相互牵动。",
+    "accent": "#986b39",
+    "cover": "img/anthology/dune.jpg",
+    "events": 32,
+    "people": 22,
+    "scope": "1965 年《沙丘》第一部小说，含三篇及帝国易手的结局"
+  },
+  {
+    "id": "red-chamber",
+    "shortScope": "通行120回本",
+    "displayAuthor": "曹雪芹（前八十回）",
+    "title": "红楼梦",
+    "category": "古典小说",
+    "author": "曹雪芹；后四十回作者问题另见说明",
+    "description": "沿四十二个故事节点，看宝黛钗的情感、贾府的盛衰，以及园中女儿们各自走向的命运。人物关系与章回依据可随时查阅。",
+    "accent": "#984b53",
+    "cover": "img/anthology/red-chamber.jpg",
+    "events": 42,
+    "people": 30,
+    "scope": "通行一百二十回本：前八十回与后四十回分段标明，包含结局剧透。"
+  }
+]

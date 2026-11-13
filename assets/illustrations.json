@@ -1,0 +1,48 @@
+{
+  "monte-cristo": {
+    "coverAlt": "晨光中的海上石砌伊夫堡，帆船在岛下驶过",
+    "coverCaption": "伊夫堡与地中海 · 场景意象",
+    "events": {
+      "mc04": {"file":"monte-cristo.jpg","caption":"伊夫堡 · 被隔绝的人生","alt":"地中海上的伊夫堡以高石墙隔绝外部世界"},
+      "mc07": {"file":"monte-faria.jpg","caption":"石牢中的法里亚与唐泰斯 · 场景概念图","alt":"狭小石牢里，年老的法里亚在简陋桌前教授年轻囚徒知识"},
+      "mc18": {"file":"monte-paris.jpg","caption":"巴黎社交场中的陌生人 · 身份与布局的意象","alt":"十九世纪巴黎沙龙中，黑礼服男子背对画面观察远处宾客"}
+    }
+  },
+  "solitude": {
+    "coverAlt": "栗树下的布恩迪亚家屋与热带村镇马孔多",
+    "coverCaption": "马孔多的家屋与栗树 · 场景意象",
+    "events": {
+      "so02": {"file":"solitude.jpg","caption":"马孔多 · 家屋与栗树的场景意象","alt":"热带山地村镇中，栗树遮蔽白墙瓦顶的家屋"},
+      "so23": {"file":"solitude-train.jpg","caption":"火车带来的世界 · 场景概念图","alt":"黑色蒸汽机车牵引黄色车厢来到热带村镇，人们在路边观看"},
+      "so31": {"file":"solitude-rain.jpg","caption":"漫长的雨 · 老宅与庭院的衰败","alt":"持续的热带大雨浸湿庭院，摇椅空置在屋檐下，植物侵入老宅"}
+    }
+  },
+  "lotr": {
+    "coverAlt": "夏尔丘陵与圆门小屋前，霍比特旅人沿小径离开",
+    "coverCaption": "夏尔 · 旅途的起点意象",
+    "events": {
+      "lr04": {"file":"lotr.jpg","caption":"走出夏尔 · 旅途起点的场景意象","alt":"圆门小屋和绿丘陵间，背着行囊的霍比特人踏上小路"},
+      "lr10": {"file":"lotr-moria.jpg","caption":"摩瑞亚桥 · 深渊与火焰","alt":"巨大地下深渊上，灰袍巫师站在极窄石桥中面对远处火焰中的阴影"},
+      "lr29": {"file":"lotr-volcano.jpg","caption":"末日火山 · 抵达裂隙前的最后一段路","alt":"两个渺小旅人在黑色火山坡上艰难前进，远处山腰入口透出红光"},
+      "lr36": {"file":"lotr-havens.jpg","caption":"灰港 · 留在岸上的告别","alt":"三个霍比特人的背影站在石码头上，白帆船驶向金色海面"}
+    }
+  },
+  "dune": {
+    "coverAlt": "厄拉科斯的巨大沙丘与岩壁下的隐蔽穴地，两个蒸馏服旅人走过",
+    "coverCaption": "厄拉科斯 · 沙漠与穴地意象",
+    "events": {
+      "du16": {"file":"dune.jpg","caption":"沙漠中的新生存方式 · 穴地意象","alt":"穿蒸馏服的两个旅人穿过广阔沙丘，岩壁上藏着小型洞口"},
+      "du18": {"file":"dune-water.jpg","caption":"地下储水池 · 弗雷曼人长期计划的意象","alt":"天然岩洞中保存着巨大储水池，两名蒸馏服人物站在干燥石阶上"},
+      "du24": {"file":"dune-worm.jpg","caption":"驾驭沙虫 · 沙漠中的远行","alt":"巨型环节沙虫穿行于沙丘中，微小骑手用钩索站在其背上"}
+    }
+  },
+  "red-chamber": {
+    "coverAlt": "大观园的竹林、白墙、池水与回廊间，女子与侍女沿小路行走",
+    "coverCaption": "大观园 · 园林场景意象",
+    "events": {
+      "rc10": {"file":"red-chamber.jpg","caption":"住进大观园 · 园林意象","alt":"竹林白墙与池水回廊围合的园林中，女子与侍女走在小径上"},
+      "rc11": {"file":"red-chamber-flowers.jpg","caption":"黛玉葬花 · 花锄与落花","alt":"女子背对画面持花锄与花袋，在桃树下收拢落花，旁边是一小处花冢"},
+      "rc40": {"file":"red-chamber-snow.jpg","caption":"雪中离去 · 通行一百二十回本结尾意象","alt":"雪中小路上，红毡斗篷的青年随一僧一道远去，老人在路旁目送"}
+    }
+  }
+}

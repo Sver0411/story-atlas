@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>三体 · 完整故事时间线 | 68 个时间点，读完等于看完三部曲</title>
+<title>三体 · 完整故事时间线 | 68 个时间点与图解</title>
 <meta name="description" content="《三体》三部曲全部情节的真实时间顺序时间线，不分部次，只问先后。">
 <style>
 :root{
@@ -123,6 +123,39 @@ body{
   animation:breathe 2.6s ease-in-out infinite;
 }
 @keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
 
 /* ============ 布局 ============ */
 .layout{
@@ -363,7 +396,11 @@ body{
 <body>
 
 <div class="top-progress"><i id="topBar"></i></div>
-<div class="float-title" id="floatTitle">三体 · 时间线</div>
+<nav class="topnav">
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">图文版</a>
+  <a href="characters.html">人物志</a>
+</nav>
 
 <header class="masthead">
   <div class="orbits" aria-hidden="true">
@@ -382,7 +419,7 @@ body{
     </p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>68 个时间点</span><i></i>
+      <span>68 个时间点 · 26 幅配图</span><i></i>
       <span>1453 — 时间尽头</span><i></i>
       <span>向下滚动</span>
     </div>
@@ -403,6 +440,7 @@ body{
       <div class="ev-when">远古 · 无纪年<em>三体世界</em></div>
       <h2>两百次重生</h2>
       <p>距地球四光年，半人马座三星。三颗太阳在彼此的引力中做无规律的三体运动，有时相距遥远，行星上便进入漫长的寒夜；有时三颗太阳同时升起，地表温度升到上千度；有时行星被甩出去，又被拉回来。三体人没有稳定的天空，他们进化出了脱水的能力：乱纪元来临时，把身体的水分排干，变成一张薄薄的皮卷，卷起来堆进山洞，等恒纪元再泡进水里复活。可即便如此，文明仍一次次被抹去，又一次次从石器和火堆里爬起——游戏中呈现过第 137 号、第 183 号、第 191 号文明，有的造出了蒸汽机，有的建起了金字塔，有的算出了三体问题无解，然后统统归零。两百多次轮回之后，三体人得出了同一个结论：这颗行星迟早会毁灭，他们必须找到一个新家。</p>
+      <figure class="ev-fig" data-illustration="trisolaris-cycle"><img src="../../img/generated/trisolaris-cycle-v2.jpg" alt="严寒的乱纪元中，干仓里贮存着脱水皮卷，天空只有三颗遥远飞星" width="1536" height="768" loading="lazy" decoding="async"><figcaption>乱纪元 · 脱水贮存与三颗飞星（游戏意象）　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e2" style="--c:#7a5a38"
@@ -436,6 +474,7 @@ body{
       <div class="ev-when">1969 年<em>大兴安岭</em></div>
       <h2>太阳的耳朵</h2>
       <p>叶文洁因为一篇关于太阳活动的论文，被红岸基地的政委雷志成看中，调入这个绝密工程。红岸对外是监听站，实际任务是寻找外星文明。基地里有一面巨大的抛物面天线，能把信号打进太空。叶文洁在这里读到一个被忽略的理论：太阳的日冕层在某些条件下会像一面巨大的透镜，把地球发出的电波放大上亿倍，射向恒星际。也就是说，人类不需要造一个太阳那么大的发射器，只要对着太阳喊，太阳会替你把声音传出去。她做了计算，做了试验，证明这是真的。人类第一次拥有了向宇宙喊话的能力——而这个能力一直摆在所有人面前，只是没人相信它。</p>
+      <figure class="ev-fig" data-illustration="red-coast"><img src="../../img/generated/red-coast.jpg" alt="冬日山顶上，钢架支撑的红岸射电天线朝向落日，研究员站在栏杆旁" width="1536" height="768" loading="lazy" decoding="async"><figcaption>红岸基地 · 雷达峰上的抛物面天线（场景概念图）　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e6" style="--c:#8c2b26"
@@ -471,6 +510,7 @@ body{
       <div class="ev-when">20 世纪 80 年代起<em>三体世界</em></div>
       <h2>舰队与智子</h2>
       <p>三体世界决定倾尽全部资源入侵地球。他们建造了第一舰队，一千艘战舰，航程四百五十年。但四百年太长了，长到人类可能在这期间发生技术爆炸，反过来超过他们。于是他们启动了“智子工程”：把一个质子二维展开，蚀刻成一台超级计算机，再折叠回十一维，以光速发射到地球。两颗智子先于舰队抵达太阳系，一颗钻进加速器，把粒子对撞的结果搅乱，让人类永远无法突破高能物理；一颗悬在所有人头顶，看得见一切、听得见一切，唯独读不到人的思想。剑与锁，同时出鞘。人类还有四百年，但四百年里，他们只能原地踏步。</p>
+      <figure class="ev-fig" data-illustration="sophon-engineering"><img src="../../img/generated/sophon-engineering-v2.jpg" alt="展开的质子形成包裹行星的镜面球壳，众多飞船在其表面蚀刻电路" width="1536" height="768" loading="lazy" decoding="async"><figcaption>智子工程 · 包裹行星的二维质子与电路蚀刻　AI 概念插画</figcaption></figure>
 
       <div class="ev-sub"><h3><span>其一</span>把一个质子展开</h3><p>智子的制造方式近乎神迹：把一个质子从十一维展开到二维，它的面积会大到一个城市那么大，像一张铺开的薄膜。三体人在上面蚀刻集成电路，刻完之后再把它折叠回十一维——于是它重新变成一个质子大小的东西，却是一台超级计算机。它没有质量，能以光速飞行，能穿透任何物质。</p></div>
       <div class="ev-sub"><h3><span>其二</span>两颗，两种工作</h3><p>三体世界造了两颗。一颗留在母星，负责计算和通讯；另一颗（后来是两颗）被发射到地球。到地球后，一颗钻进高能加速器的管道，把粒子对撞的结果搅乱——人类每次实验都得到不同的数据，物理学的基础被抽走了；另一颗悬在空中，看得见一切、听得见一切。</p></div>
@@ -488,6 +528,7 @@ body{
       <div class="ev-when">1985 年后<em>ETO</em></div>
       <h2>三体游戏</h2>
       <p>ETO 开发了一款名为《三体》的虚拟现实游戏，用来筛选对三体世界有认同感的人。玩家戴上 V 装具，进入一个荒诞的世界：周文王用阴阳五行解释太阳的运行，墨子造出巨大的机械宇宙模型，哥白尼在教皇面前论证三颗太阳的规律，牛顿、莱布尼茨、冯·诺依曼轮番登场。玩家会经历乱纪元的严寒、三日凌空的大火、大撕裂的地壳崩裂，一次次死去，一次次重来。能通关的人，说明他已经理解并接受了三体世界的绝望——这样的人，会被邀请参加一场真实的聚会。</p>
+      <figure class="ev-fig" data-illustration="three-body-game"><img src="../../img/generated/three-body-game.jpg" alt="三体游戏中的朝歌，巨型石制单摆环绕黑色金字塔，短暂恒纪元带来温暖" width="1536" height="768" loading="lazy" decoding="async"><figcaption>三体游戏 · 朝歌、巨摆与短暂的恒纪元　AI 概念插画</figcaption></figure>
 
       <div class="ev-sub"><h3><span>其一</span>周文王</h3><p>游戏的第一关，玩家遇到周文王。他用阴阳五行解释太阳的运行，预测下一次恒纪元的时间。他算错了，文明在严寒中毁灭。玩家第一次体验到：在这个世界里，连“规律”本身都可能是错的。</p></div>
       <div class="ev-sub"><h3><span>其二</span>墨子</h3><p>第二关，墨子造了一个巨大的机械宇宙模型，用齿轮和轴承模拟三颗太阳的运动。模型运转得很好，直到三日凌空，一切被烧成灰。墨子至死相信，只要模型足够精确，就能预测未来。</p></div>
@@ -499,6 +540,7 @@ body{
       <div class="ev-when">2007 年<em>北京</em></div>
       <h2>倒计时</h2>
       <p>纳米科学家汪淼被警官史强拉进“科学边界”案件：近一年，一批顶尖科学家接连自杀，遗书里都写着“物理学不存在了”。汪淼被请去卧底，接触这个神秘学术组织。很快，他发现自己拍的照片上出现了一串倒计时，从一百多个小时开始跳。他去看医生，做检查，用 1200 倍显微镜看自己的视网膜，什么也没有。倒计时只在他一个人的眼睛里。与此同时，全世界的高能加速器都出现了无法解释的异常：同样的实验，结果每次都不一样。人类探索微观世界的路，被人从另一头堵死了。</p>
+      <figure class="ev-fig" data-illustration="countdown"><img src="../../img/generated/countdown-v2.jpg" alt="汪淼在书桌前查看黑白风景照片，照片中央出现异常倒计时" width="1536" height="768" loading="lazy" decoding="async"><figcaption>幽灵倒计时 · 数字先出现在汪淼拍摄的照片中　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e15" style="--c:#8c2b26"
@@ -513,6 +555,7 @@ body{
       <div class="ev-when">2007 年<em>三体游戏</em></div>
       <h2>人列计算机</h2>
       <p>汪淼在游戏里见到了最震撼的一幕：秦始皇的三千万士兵列成方阵，每人手持黑白两面旗帜，按照冯·诺依曼的设计组成一台“人列计算机”，用旗帜的翻转做逻辑运算，去计算三体问题的稳定解。运算进行到一半，一颗太阳升起，方阵被烤成焦土。他还见到了三体世界的真相：那颗行星曾经有过灿烂的文明，但一次次被三颗太阳毁灭。游戏通关后，汪淼被邀请参加 ETO 的聚会。在那里，他见到了一个坐在轮椅上、平静得像一潭水的老人——叶文洁。她说的第一句话是：欢迎你，同志。</p>
+      <figure class="ev-fig" data-illustration="human-computer"><img src="../../img/generated/human-computer.jpg" alt="秦始皇站在金字塔高处俯瞰平原，密集士兵举黑白旗构成人列计算机" width="1536" height="768" loading="lazy" decoding="async"><figcaption>人列计算机 · 用黑白旗帜组成逻辑电路　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e13" style="--c:#8c2b26"
@@ -527,6 +570,7 @@ body{
       <div class="ev-when">2007 年<em>杨冬墓前</em></div>
       <h2>两条公理</h2>
       <p>女儿杨冬自杀后，叶文洁在墓前遇到罗辑——杨冬生前的同学，一个混日子的社会学教授。她平静地讲了自己一生的思考，把它叫作“宇宙社会学”，并给出两条公理：第一，生存是文明的第一需要；第二，文明不断增长和扩张，但宇宙中的物质总量保持不变。罗辑问，就这两条？她说，还有两个重要概念：猜疑链和技术爆炸。两个文明无法确认对方是否善意，也无法确认对方是否把自己当成威胁，猜疑会一层层叠加，永远无法解除；而技术爆炸意味着，一个弱小的文明可能在几百年内超过你。罗辑当时只当是一位老人的呓语，随口答应了她的建议：去研究这门学问。这几句话，日后成了人类唯一的武器。</p>
+      <figure class="ev-fig" data-illustration="cosmic-axioms"><img src="../../img/generated/cosmic-axioms.jpg" alt="暮色中的杨冬墓前，老年叶文洁与年轻罗辑交谈，一只褐蚁爬过墓碑" width="1536" height="768" loading="lazy" decoding="async"><figcaption>两条公理 · 暮色墓园中的叶文洁与罗辑　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e19" style="--c:#8c2b26"
@@ -541,6 +585,7 @@ body{
       <div class="ev-when">2007 年<em>巴拿马运河</em></div>
       <h2>古筝行动</h2>
       <p>人类决定夺取“审判日”号上的三体通讯数据。硬攻不行，船上有自毁装置。方案是用汪淼的纳米材料“飞刃”——一种只有头发丝千分之一粗、却能切开钢铁的丝——在巴拿马运河两岸拉起几十道，间距半米。行动当天，“审判日”号缓缓驶入运河，船体从船首开始被均匀地切成薄片，像被一把无形的琴弦剖开。船上的人、设备、硬盘，全部一分为二。人类拿到了三体世界的全部情报：智子的存在、舰队的航程、ETO 的名单，以及三体人对人类的判断——你们是虫子。行动代号“古筝”，因为那艘船就像被琴弦切开。</p>
+      <figure class="ev-fig" data-illustration="guzheng-operation"><img src="../../img/generated/guzheng-operation-v2.jpg" alt="黑色船体、白色上层建筑的审判日号穿过运河钢柱，水平薄片开始前后错动" width="1536" height="768" loading="lazy" decoding="async"><figcaption>古筝行动 · 黑色巨轮被切成半米厚的水平薄片　AI 概念插画</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -581,6 +626,7 @@ body{
       <div class="ev-when">危机纪元 3 年<em>联合国</em></div>
       <h2>四个面壁者</h2>
       <p>既然思想无法被窥探，人类决定把赌注押在四个人的大脑里。面壁计划启动，四位面壁者被授予不受质疑的权力：他们可以调用全球资源，可以撒谎，可以不解释任何一句话，因为只要不说出来，智子就无从得知。四个人是：泰勒，前美国国防部长，一个相信技术能解决一切的人；雷迪亚兹，委内瑞拉总统，靠铁腕统治国家；希恩斯，英国物理学家，脑科学专家；罗辑，一个混日子的社会学教授，被选中只是因为他和叶文洁有过一次谈话。三体世界随即启动了“破壁计划”，为每一位面壁者配备一名破壁人。</p>
+      <figure class="ev-fig" data-illustration="wallfacers"><img src="../../img/generated/wallfacers-v2.jpg" alt="联合国秘书长在主席台公布面壁者，罗辑仍坐在台下第五排" width="1536" height="768" loading="lazy" decoding="async"><figcaption>面壁计划 · 第四个名字，从台上指向观众席　AI 概念插画</figcaption></figure>
 
       <div class="ev-sub"><h3><span>01</span>泰勒 · 量子幽灵舰队</h3><p>前美国国防部长，一个相信技术能解决一切的人。他的方案是用球状闪电制造“宏原子”，让太空军士兵在被宏原子击中后进入量子态——肉体消失，意识以量子态留存，成为一支打不死的幽灵舰队。他秘密招募了上万名士兵，告诉他们：你们会为人类而死，但不会真正死去。</p></div>
       <div class="ev-sub"><h3><span>02</span>雷迪亚兹 · 恒星级氢弹</h3><p>委内瑞拉总统，靠铁腕和反美立场上台。他的方案是在水星上布置大量恒星级氢弹，等三体舰队到达时引爆，让水星减速坠入太阳，引发太阳的连锁反应，把整个太阳系变成一片火海。这不是防御，是同归于尽的讹诈——他要让三体人相信，人类宁可毁灭自己，也不肯投降。</p></div>
@@ -623,6 +669,7 @@ body{
       <div class="ev-when">危机纪元 5—7 年<em>阶梯计划</em></div>
       <h2>阶梯计划</h2>
       <p>云天明身患绝症，用意外得到的钱买下 DX3906 恒星，匿名赠给大学同学程心。程心在他接受安乐死前赶到医院，请他成为阶梯计划的候选人；经过测试，他最终被选中。载着其大脑的飞行器由核爆逐级推进，却因一根帆索断裂而偏离预定航线，失去联系。地球方面将计划视为失败；它后来被三体舰队截获，则是在更晚的故事中才被证实。</p>
+      <figure class="ev-fig" data-illustration="staircase-project"><img src="../../img/generated/staircase-project-v2.jpg" alt="巨型辐射帆像横卧的降落伞向前运动，四根长帆索向后伸向极远处的载荷" width="1536" height="768" loading="lazy" decoding="async"><figcaption>阶梯计划 · 巨帆与五百千米长的帆索　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e33" style="--c:#2f4a6b"
@@ -669,6 +716,7 @@ body{
       <div class="ev-when">危机纪元中期<em>地球</em></div>
       <h2>大低谷</h2>
       <p>三体危机带来的恐慌、经济崩溃、秩序瓦解，把世界拖进长达六十年的萧条。各国把资源全部投入太空军备，民生被彻底榨干；粮食短缺，城市变成废墟，人们在废墟里种土豆；瘟疫、饥荒、内战轮番上演，全球人口锐减。这是人类自己造成的第二次灾难——敌人还在四光年外，人类先被自己的恐惧压垮了。后来有人总结说，大低谷证明了一件事：一个文明在面对外部威胁时，最可能死于内部。</p>
+      <figure class="ev-fig" data-illustration="great-ravine"><img src="../../img/generated/great-ravine.jpg" alt="大低谷时期，沙尘遮蔽的平原上，逃荒人群从干裂农田间缓缓走过" width="1536" height="768" loading="lazy" decoding="async"><figcaption>大低谷 · 沙漠化、饥荒与漫长的逃荒路　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e32" style="--c:#2f4a6b"
@@ -676,6 +724,7 @@ body{
       <div class="ev-when">大低谷后<em>地球</em></div>
       <h2>文艺复兴</h2>
       <p>走出大低谷后，人类逐渐恢复生产与生活，把技术积累用于城市、能源和航天建设。社会从早期的生存恐慌走向对联合舰队的高度自信。但基础物理仍受智子干扰，工程能力的增长没有消除与三体文明之间的根本差距；这种自信后来在水滴面前受到毁灭性的检验。</p>
+      <figure class="ev-fig" data-illustration="orbital-renaissance"><img src="../../img/generated/orbital-renaissance.jpg" alt="地球弧线之上，轨道船坞、太空电梯与成列星舰展现复兴中的人类文明" width="1536" height="768" loading="lazy" decoding="async"><figcaption>复兴年代 · 太空电梯与轨道工程（概念图）　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e38" style="--c:#2f4a6b"
@@ -706,6 +755,9 @@ body{
       <div class="ev-when">危机纪元 205 年<em>太阳系</em></div>
       <h2>末日之战</h2>
       <p>联合舰队以整齐队列迎接三体探测器。丁仪随螳螂号近距离检查水滴后，意识到其表面由远超人类材料强度的强相互作用力结构构成。水滴突然发动攻击，依次贯穿战舰，舰队在极短时间内遭到毁灭性打击。蓝色空间号和青铜时代号在现场逃离；早已远航的自然选择号及四艘追击舰也没有在此战中被毁。攻击后，水滴转向太阳，封锁了人类的恒星广播通道。</p>
+      <figure class="ev-fig"><img src="../../img/mantis.jpg" alt="机械臂捕获镜面水滴" loading="lazy"><figcaption>“螳螂”号 · 机械臂捕获镜面水滴　图：三体宇宙官方概念图</figcaption></figure>
+      <figure class="ev-fig" data-illustration="doomsday-battle"><img src="../../img/generated/doomsday-battle-v2.jpg" alt="远离地球的深空里，水滴沿舰队矩形队列穿行，被击中的战舰依次红炽爆裂" width="1536" height="768" loading="lazy" decoding="async"><figcaption>末日之战 · 被逐列贯穿的联合舰队　AI 概念插画</figcaption></figure>
+
       <div class="ev-sub"><h3><span>其一</span>列队与探测</h3><p>人类对自身舰队的信心，使接近水滴被当作展示实力与争夺荣誉的机会。螳螂号通过机械臂捕获水滴，丁仪在检查中发现危险。</p></div>
       <div class="ev-sub"><h3><span>其二</span>强相互作用力材料</h3><p>水滴外壳的强度远超人类舰船材料，它直接以高速撞击贯穿目标。联合舰队的庞大数量没有转化为有效抵抗。</p></div>
       <div class="ev-sub"><h3><span>其三</span>战场幸存者</h3><p>现场逃离的是蓝色空间号和青铜时代号；自然选择号与四艘追击舰早已离开，属于另一条远航线索。</p></div>
@@ -716,6 +768,7 @@ body{
       <div class="ev-when">危机纪元 205 年<em>星舰地球</em></div>
       <h2>黑暗战役</h2>
       <p>自然选择号与四艘追击舰在末日之战后组成星舰地球。漫长远航需要的燃料和备件不足，舰员们逐渐意识到，其他飞船既是同伴，也可能是获取资源的目标。终极规律号率先以次声波氢弹攻击其余四舰，自然选择号、企业号和探空号上的人员遇难。蓝色空间号因事先将舱内抽成真空而幸存，随即反击并摧毁终极规律号。五舰最后只剩一艘，猜疑链第一次以人类内部战争的形式在深空中显现。</p>
+      <figure class="ev-fig" data-illustration="dark-battle"><img src="../../img/generated/dark-battle-v2.jpg" alt="蓝色空间号船员穿着航天服悬浮在已抽成真空的舱内，远方目标只是一点光" width="1536" height="768" loading="lazy" decoding="async"><figcaption>黑暗战役 · 抽成真空的舰舱与遥远的对手　AI 概念插画</figcaption></figure>
       <div class="ev-sub"><h3><span>其一</span>终极规律号先开火</h3><p>它向另外四舰发射次声波氢弹。核爆产生的电磁作用使舰体振动，能量转为次声波，对舱内人员造成杀伤。</p></div>
       <div class="ev-sub"><h3><span>其二</span>自然选择号遇难</h3><p>章北海在准备发起攻击时稍晚一步，来袭警报响起后已来不及挽回。他与东方延绪等船员死于次声波攻击，而非被弹体直接贯穿。</p></div>
       <div class="ev-sub"><h3><span>其三</span>蓝色空间号的真空防御</h3><p>褚岩事先让舰员穿上航天服，把舱内抽成真空。由于缺少传播介质，次声波未造成人员伤亡；蓝色空间号立即以激光等武器反击。</p></div>
@@ -727,6 +780,7 @@ body{
       <div class="ev-when">危机纪元 205 年<em>新生活五村附近</em></div>
       <h2>顿悟</h2>
       <p>末日之战后，人类发现恒星 187J3X1 已被光粒摧毁，罗辑的“咒语”得到验证，他也重新获得面壁者身份。在新生活五村附近的黑暗中，他向史强解释宇宙社会学：生存压力、资源有限、猜疑链与技术爆炸，使文明难以确认彼此的安全。黑暗森林并非他在雪地工程图上才偶然想到的结论，而是早年发出恒星坐标时就已用于检验的推论。</p>
+      <figure class="ev-fig"><img src="../../img/darkforest.jpg" alt="幽暗森林中透下的光" loading="lazy"><figcaption>黑暗森林 · 宇宙社会学的森林隐喻（意象插画）　插画：三体艺术插画集</figcaption></figure>
     </section>
 
     <section class="event" id="e40" style="--c:#2f4a6b"
@@ -747,6 +801,7 @@ body{
       <div class="ev-when">危机纪元 208 年<em>墓园与后续威慑系统</em></div>
       <h2>执剑人</h2>
       <p>罗辑在叶文洁与杨冬的墓前，以自己的生命维持信号控制雪地工程的反触发系统：一旦他死亡，核弹就会起爆，尘埃云按预设位置遮挡太阳，把三体世界的坐标编码进太阳光的变化中。他没有实际引爆核弹，也没有在此刻广播坐标。三体方面接受要求，停止水滴对太阳的封锁，并命令探测器与舰队改变航向。黑暗森林威慑由此建立。此后，人类建设引力波广播系统，罗辑长期担任执剑人，直到威慑纪元 62 年交接控制权。</p>
+      <figure class="ev-fig" data-illustration="swordholder"><img src="../../img/generated/swordholder-v2.jpg" alt="极高的纯白半圆大厅中，白发罗辑背对镜头盘腿坐地，右手握着红色条状开关" width="1536" height="768" loading="lazy" decoding="async"><figcaption>执剑人 · 白色大厅中的罗辑与红色开关　AI 概念插画</figcaption></figure>
       <div class="ev-sub"><h3><span>其一</span>尚未发出的广播</h3><p>威慑成立的前提，是罗辑确实拥有发出坐标的能力，同时尚未将其发出。实际广播三体坐标发生在后来万有引力号的情节中。</p></div>
       <div class="ev-sub"><h3><span>其二</span>太阳光的变化</h3><p>雪地工程以尘埃云遮挡恒星光线传递信息，绕开水滴对太阳电波放大通道的封锁；广播信号不是核爆本身的电磁辐射。</p></div>
       <div class="ev-sub"><h3><span>其三</span>执剑人的责任</h3><p>后续威慑系统改用引力波广播，执剑人握有启动权。罗辑长期保持对三体方面可信的威慑，白色大厅中的背影表现的是这段守候。</p></div>
@@ -764,6 +819,7 @@ body{
       <div class="ev-when">威慑纪元 61 年<em>冬眠中心</em></div>
       <h2>六十年后</h2>
       <p>程心在威慑纪元 61 年苏醒。她是因为阶梯计划受到辐射损伤而冬眠的，也是为了一个约定：云天明说过，他会在未来等她。她醒来时，世界已经和平了六十年，人们穿着柔软的衣服，住在树屋里，相信爱可以解决一切。她走进城市，看见孩子们在阳光下奔跑，看见情侣在河边接吻，看见没有军队、没有警报的街道。她哭了。有人在旁边轻声说：这一切，都是因为罗辑博士。然后那人又补了一句：可他也该歇歇了。</p>
+      <figure class="ev-fig" data-illustration="deterrence-city"><img src="../../img/generated/deterrence-city-v2.jpg" alt="程心站在地表树形城市最高的枝形街道上，头顶是无遮蔽的夜空" width="1536" height="768" loading="lazy" decoding="async"><figcaption>威慑纪元 · 地表巨树城市上的星空　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e47" style="--c:#5a3a6b"
@@ -785,6 +841,7 @@ body{
       <div class="ev-when">威慑纪元 62 年<em>引力波发射站</em></div>
       <h2>十分钟</h2>
       <p>程心接过控制权。她坐在那把椅子上，手心出汗。几分钟后，警报响了：十颗水滴同时从不同方向冲向地球。它们的目标不是城市，是分布在全球的引力波发射器。程心的手放在按钮上，只要按下去，三体世界的坐标就会被广播出去，两个文明同归于尽。她想起了那些树屋、那些孩子、那些在阳光下接吻的情侣。她按不下去。十座发射器在几分钟内被逐个摧毁。威慑中止。她坐在椅子上，看着屏幕上跳动的红色警告，什么也做不了。三体世界赌赢了。</p>
+      <figure class="ev-fig"><img src="../../img/drop-window.jpg" alt="舷窗中的水滴" loading="lazy"><figcaption>水滴 · 强相互作用力探测器　图：三体宇宙官方概念图</figcaption></figure>
     </section>
 
     <section class="event" id="e51" style="--c:#5a3a6b"
@@ -792,6 +849,7 @@ body{
       <div class="ev-when">威慑纪元末至威慑后第五天<em>奥尔特星云外</em></div>
       <h2>四维碎片</h2>
       <p>在威慑失效前后，奥尔特星云外的蓝色空间号船员利用四维空间破坏了两颗水滴，阻止其摧毁万有引力号。此后几天，两舰船员继续探索四维碎片。从四维方向观察，三维世界中封闭的舱室、人体与设备内部都可以直接看见和触及；原本在三维空间中几乎不可摧毁的水滴外壳，无法在更高维度中继续封住内部。</p>
+      <figure class="ev-fig" data-illustration="fourth-dimension"><img src="../../img/generated/fourth-dimension-v2.jpg" alt="四维视角意象中，飞船的封闭舱室与管线同时敞开在观察者面前" width="1536" height="768" loading="lazy" decoding="async"><figcaption>四维碎片 · 三维封闭空间在高维视角中敞开（意象图）　AI 概念插画</figcaption></figure>
       <div class="ev-sub"><h3><span>里面</span>更高维度的敞开</h3><p>船员看到封闭结构的内部，并不表示三维物体本身变成了二维薄片；他们仍保持三维形态，只是可以从原本不存在的方向接近内部。</p></div>
       <div class="ev-sub"><h3><span>然后</span>破坏水滴内部</h3><p>蓝色空间号船员借四维空间绕过水滴的强大外壳，直接破坏内部结构。碎片持续衰退，他们必须在四维区域消失前返回安全的三维空间。</p></div>
     </section>
@@ -823,6 +881,7 @@ body{
       <div class="ev-when">广播纪元初期<em>三体星系</em></div>
       <h2>光粒</h2>
       <p>引力波广播之后，三体星系的一颗恒星遭到光粒打击。恒星失稳，喷出的物质吞没三体行星，三体母世界毁灭。地球方面在星光传来后观测到这场灾难，意识到黑暗森林打击不再只是理论。但三体文明并未就此绝灭：已经远航的舰队仍然存在，第二舰队也已掌握曲率驱动技术。</p>
+      <figure class="ev-fig" data-illustration="photoid-strike"><img src="../../img/generated/photoid-strike.jpg" alt="三体星系的一颗恒星被光粒击中后剧烈膨胀，外层物质向太空喷出" width="1536" height="768" loading="lazy" decoding="async"><figcaption>光粒打击 · 被引爆的三体恒星　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e56" style="--c:#1f5d57"
@@ -837,6 +896,7 @@ body{
       <div class="ev-when">广播纪元 7 年<em>拉格朗日点</em></div>
       <h2>三个童话</h2>
       <p>在广播纪元 7 年的受监视会面中，程心位于太阳系内的会面舱，云天明则通过远程通信出现，并非亲自来到拉格朗日点。他借叙旧讲出《王国的新画师》《饕餮海》《深水王子》。三个故事首尾相连，围绕露珠公主、长帆、针眼画师与深水王子展开；技术信息藏在多个意象的组合中，不能简单地把每个故事各对应成一项技术。</p>
+      <figure class="ev-fig" data-illustration="fairy-tales"><img src="../../img/generated/fairy-tales.jpg" alt="一本打开的童话书中，画师的平面王国、饕餮海与深水王子的倒影连成一幅画" width="1536" height="768" loading="lazy" decoding="async"><figcaption>三个童话 · 画师、渡海与违背透视的王子（意象图）　AI 概念插画</figcaption></figure>
       <div class="ev-sub"><h3><span>其一</span>《王国的新画师》</h3><p>冰沙王子利用针眼画师，将国王、王后与忠臣画入画中。露珠公主得到空灵画师的旋转黑伞保护，与长帆和宽姨逃离；她并未直接走入画像消失。</p></div>
       <div class="ev-sub"><h3><span>其二</span>《饕餮海》</h3><p>海中的饕餮鱼封锁了航路。公主一行用赫尔辛根默斯肯香皂产生泡沫，开辟通往墓岛的航道，寻找深水王子。危险在海上，并非“海里的人上岸就会死”。</p></div>
       <div class="ev-sub"><h3><span>其三</span>《深水王子》</h3><p>深水王子在观察者眼中的大小不随距离改变，针眼画师无法按西洋透视法把他画入画中。他回国击败冰沙王子；露珠公主最终与长帆乘船远行。</p></div>
@@ -868,6 +928,7 @@ body{
       <div class="ev-when">广播纪元 8 年起<em>巨行星背阳面</em></div>
       <h2>掩体计划</h2>
       <p>人类选择以木星、土星、天王星与海王星作为掩体，在巨行星背阳面建设太空城。依据太阳遭受光粒打击的模型，巨行星能够保存整体结构，并为背后的城市遮挡太阳爆发物质与辐射。建设与迁移需要数十年，因此计划逐步展开。这个方案依赖一个关键假设：攻击者仍会像摧毁三体恒星那样攻击太阳。面对降维打击，这套模型没有提供生路。</p>
+      <figure class="ev-fig" data-illustration="bunker-cities"><img src="../../img/generated/bunker-cities.jpg" alt="木星背日面的深空中，多座圆柱太空城排列在巨行星的阴影里" width="1536" height="768" loading="lazy" decoding="async"><figcaption>掩体计划 · 木星背后的太空城（构型概念图）　AI 概念插画</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -908,6 +969,7 @@ body{
       <div class="ev-when">掩体纪元 66 年<em>太阳系</em></div>
       <h2>二向箔</h2>
       <p>歌者文明在路过太阳系时，随手向这里丢出了一片二向箔。那是一片只有银行卡大小的透明薄膜，看起来无害，甚至有点漂亮。它落向太阳，然后开始“熨”这个星系：凡是接触到它的三维空间，都会向二维坍缩。歌者甚至没有为这个决定停顿一秒，就像人类踩死一只蚂蚁，不需要理由，也不需要汇报。在宇宙的尺度上，一个文明的灭亡，只是一次例行的清理。</p>
+      <figure class="ev-fig" data-illustration="solar-flattening"><img src="../../img/generated/solar-flattening-v2.jpg" alt="二维太阳呈现明亮核心、宽阔辐射区与外侧对流区，行星内部也在无厚度平面中展开" width="1536" height="768" loading="lazy" decoding="async"><figcaption>二维化 · 太阳与行星的内部向平面展开　AI 概念插画</figcaption></figure>
 
       <div class="ev-sub"><h3><span>其一</span>一片薄膜</h3><p>二向箔是一片被封装的二维空间，只有银行卡大小，透明、柔软，看起来像一片会飘的玻璃纸。它的外面有一层力场封套，一旦封套解除，里面的二维空间就会向外扩散，把接触到的三维空间“吸”进二维。</p></div>
       <div class="ev-sub"><h3><span>其二</span>逃逸速度</h3><p>二维化的过程不可逆，而且速度越来越快。在二维化的空间里，物体的逃逸速度等于光速——也就是说，只有以光速飞行，才能逃出去。人类的飞船达不到这个速度，所以整个太阳系里，没有一艘船能逃掉。</p></div>
@@ -930,6 +992,7 @@ body{
       <div class="ev-when">银河纪元<em>DX3906</em></div>
       <h2>黑域</h2>
       <p>程心与艾 AA 抵达 DX3906 星系，在蓝星遇到万有引力号原船员、宇宙学研究者关一帆。程心与关一帆乘穿梭机前往灰星，AA 留在蓝星。附近死线扩散，降低了星系内的光速；穿梭机陷入低光速造成的漫长航程，程心与关一帆因此错过云天明到访。关一帆是当年参与四维探索的本人，而非万有引力号船员的后裔。</p>
+      <figure class="ev-fig" data-illustration="black-domain"><img src="../../img/generated/black-domain-v2.jpg" alt="从黑域内部望出去，远方星光因穿越低光速界面与视界扭曲成纷繁银线" width="1536" height="768" loading="lazy" decoding="async"><figcaption>黑域 · 视界之外，可望不可即的银线星空　AI 概念插画</figcaption></figure>
     </section>
 
     <section class="event" id="e66" style="--c:#4a4a58"
@@ -956,6 +1019,7 @@ body{
       <div class="ev-when">647 号宇宙<em>回归运动</em></div>
       <h2>五公斤</h2>
       <p>在宇宙之外的 647 号小宇宙里，程心、关一帆与智子重逢。这里有一座房子、一片田野、一个永远不会落下的太阳。回归运动向所有小宇宙广播：宇宙的质量不足，无法坍缩，请归还你们带走的一切。他们决定归还，只留下一个五公斤的生态球——里面有水、有鱼、有一小片草，是程心最后舍不得放下的东西。宇宙是否还能坍缩，是否会重启，没有人知道。故事在这里停住，像一束电波消失在黑暗里。</p>
+      <figure class="ev-fig" data-illustration="miniature-universe"><img src="../../img/generated/miniature-universe-v2.jpg" alt="空无一物的小宇宙中，半米直径的生态球发着微光，球内水球、小鱼与微型陆地失重漂浮" width="1536" height="768" loading="lazy" decoding="async"><figcaption>647 号宇宙 · 黑暗中留下的五公斤生命　AI 概念插画</figcaption></figure>
     </section>
 
   </article>
@@ -987,7 +1051,9 @@ body{
   <p class="q">“给岁月以文明，而不是给文明以岁月。”</p>
   <p class="tiny">
     按事件真实发生的先后重排，不分部次，只问先后。<br>
-    部分时间为书中纪元换算所得，取近似值。
+    部分时间为书中纪元换算所得，取近似值。<br>
+    配图：23 幅 AI 概念插画、《三体艺术插画集》与三体宇宙官方概念图。<br>
+    AI 插画用于情节想象与视觉表达，均已在图注中标明。
   </p>
 </footer>
 
@@ -1118,7 +1184,6 @@ body{
     var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
     topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
 
-    floatTtl.classList.toggle('on', window.pageYOffset > window.innerHeight * 0.55);
     if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
 
     var line = window.innerHeight * 0.42;
@@ -1169,5 +1234,6 @@ body{
   setTimeout(function(){ active = -1; requestSync(); }, 400);
 })();
 </script>
+<script src="../../assets/three-body.js"></script>
 </body>
 </html>
