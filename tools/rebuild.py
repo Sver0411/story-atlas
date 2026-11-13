@@ -29,10 +29,23 @@ QUOTES = {
     'and-then-there-were-none': '一个小士兵，落单孤零零，悬梁了此生，一个也不剩。',
     'orient-express': '我荣幸地退出这个案子。',
     'long-goodbye': '说一声再见，就是死去一点点。',
+    'sherlock': '排除一切不可能，剩下的即使再不可能，也是真相。',
 }
 
 
 DECOR = {
+'sherlock': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="286" cy="266" r="92" fill="none" stroke="#a08b6c" stroke-width="1.4"/>
+  <circle cx="286" cy="266" r="82" fill="none" stroke="#a08b6c" stroke-width=".5" stroke-dasharray="2 9"/>
+  <path d="M348 330 L424 414" stroke="#a08b6c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M348 330 L424 414" stroke="#c9bca6" stroke-width="1.4" stroke-dasharray="3 5"/>
+  <g fill="#8a7355">
+    <ellipse cx="252" cy="242" rx="5" ry="9" transform="rotate(-24 252 242)"/>
+    <ellipse cx="282" cy="230" rx="5" ry="9" transform="rotate(-18 282 230)"/>
+    <ellipse cx="312" cy="222" rx="5" ry="9" transform="rotate(-12 312 222)"/>
+  </g>
+  <path d="M120 520 H480" stroke="#c0b39c" stroke-width=".6" stroke-dasharray="2 8"/>
+</svg>''',
 'long-goodbye': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M212 232 H388 L300 358 Z" fill="none" stroke="#8d8b82" stroke-width="1.1"/>
   <path d="M300 358 V470" stroke="#8d8b82" stroke-width="1.1"/>

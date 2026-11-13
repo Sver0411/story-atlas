@@ -148,5 +148,17 @@
     "events": 26,
     "people": 13,
     "scope": "全本 · 1950—1951"
+  },
+  {
+    "id": "sherlock",
+    "title": "福尔摩斯探案集",
+    "author": "柯南·道尔",
+    "category": "推理",
+    "description": "六十年，六十个案子，一个不肯退休的人。",
+    "accent": "#5a4632",
+    "cover": "",
+    "events": 23,
+    "people": 16,
+    "scope": "精选 19 案 · 1878—1914"
   }
 ]

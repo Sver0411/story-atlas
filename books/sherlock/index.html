@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>福尔摩斯探案集 · 时间线 | 23 个故事节点</title>
+<meta name="description" content="六十年，六十个案子，一个不肯退休的人。他从一顶帽子看出一个人的一生，也从一条蛇身上看出一个人的死法。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="286" cy="266" r="92" fill="none" stroke="#a08b6c" stroke-width="1.4"/>
+  <circle cx="286" cy="266" r="82" fill="none" stroke="#a08b6c" stroke-width=".5" stroke-dasharray="2 9"/>
+  <path d="M348 330 L424 414" stroke="#a08b6c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M348 330 L424 414" stroke="#c9bca6" stroke-width="1.4" stroke-dasharray="3 5"/>
+  <g fill="#8a7355">
+    <ellipse cx="252" cy="242" rx="5" ry="9" transform="rotate(-24 252 242)"/>
+    <ellipse cx="282" cy="230" rx="5" ry="9" transform="rotate(-18 282 230)"/>
+    <ellipse cx="312" cy="222" rx="5" ry="9" transform="rotate(-12 312 222)"/>
+  </g>
+  <path d="M120 520 H480" stroke="#c0b39c" stroke-width=".6" stroke-dasharray="2 8"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">阿瑟·柯南·道尔</p>
+    <h1><em>福尔摩斯探案集</em><span>时间线</span></h1>
+    <p class="hero-deck">六十年，六十个案子，一个不肯退休的人。他从一顶帽子看出一个人的一生，也从一条蛇身上看出一个人的死法。<br>23 个时间点，从「一个不毕业的人」到「最后一封电报」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>23 个时间点 · 16 位人物</span><i></i>
+      <span>精选 19 案 · 1878—1914</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">贝克街</span>
+      <span class="era-sub">01 — 23</span>
+    </div>
+
+    <section class="event" id="sh01" style="--c:#5a4632"
+      data-color="#5a4632" data-era="贝克街" data-short="一个不毕业的人" data-label="1878 年 · 伦敦">
+      <div class="ev-when">1878 年<em>伦敦</em></div>
+      <h2>一个不毕业的人</h2>
+      <p>福尔摩斯在伦敦大学读化学，读了两年就搬出来，在蒙塔古街租了间房。他不看病，不上法庭，只在报纸的寻人启事栏里找活干。警察说他是疯子，他说警察只会走路。这一年他二十三岁，口袋里常常只有几个先令，却已经想清楚这辈子要做什么：把犯罪当成一门科学来研究。他做过一些奇怪的实验：用棍子打尸体，看死后多久会出现淤青；养一缸金鱼，看它们在黑暗里会不会变白。同屋的人受不了，一个个搬走。他不在乎。他说：我要的是准确，不是舒服。</p>
+    </section>
+
+    <section class="event" id="sh02" style="--c:#5a4632"
+      data-color="#5a4632" data-era="贝克街" data-short="两个穷光蛋" data-label="1881 年 1 月 · 伦敦 · 圣巴托罗缪医院">
+      <div class="ev-when">1881 年 1 月<em>伦敦 · 圣巴托罗缪医院</em></div>
+      <h2>两个穷光蛋</h2>
+      <p>华生从阿富汗回来，身上带着一颗子弹和一笔不够花的抚恤金。他在医院的实验室里碰到一个拿试管的人，那人一见面就说：你从阿富汗来。华生愣了。福尔摩斯说：你走路的样子是军人，脸色是晒的，手腕上有伤，英国人只有在那儿才会受这种伤。他们合租了贝克街 221B。贝克街的房间不大，壁炉在中间，两扇窗对着街。房东哈德森太太起初不太愿意，说两个单身男人住一起不像话。福尔摩斯说：我是个体面人。她说：你半夜拉琴。他说：那我白天拉。她后来还是租了，一租二十年。</p>
+    </section>
+
+    <section class="event" id="sh03" style="--c:#5a4632"
+      data-color="#5a4632" data-era="贝克街" data-short="血字" data-label="1881 年 3 月 · 伦敦 · 劳瑞斯顿花园街">
+      <div class="ev-when">1881 年 3 月<em>伦敦 · 劳瑞斯顿花园街</em></div>
+      <h2>血字</h2>
+      <p>一具男尸躺在空屋里，身上没有伤，墙上用血写着两个字：RACHE。警察说是德国人干的。福尔摩斯蹲在地上看了十分钟，站起来说：凶手是个六英尺高的男人，脸色红，穿方头靴，抽雪茄，坐四轮马车来的。他后来用一个戒指钓出了凶手——一个车夫，叫杰斐逊·霍普。格雷格森和雷斯垂德都来了。一个说凶手是德国人，一个说是死者的情敌。福尔摩斯听完，说：你们两个都对了一半，也错了一半。他在墙上那两个字下面站了很久，说：写字的人个子很高，抬手就能够到这个位置。格雷格森说：你怎么知道。他说：因为血是往下流的。</p>
+    </section>
+
+    <section class="event" id="sh04" style="--c:#5a4632"
+      data-color="#5a4632" data-era="贝克街" data-short="室友的规矩" data-label="1881 年 · 伦敦 · 贝克街">
+      <div class="ev-when">1881 年<em>伦敦 · 贝克街</em></div>
+      <h2>室友的规矩</h2>
+      <p>华生很快发现这个室友有些毛病：半夜拉小提琴，把烟草放在拖鞋里，用刀在壁炉上刻东西，客人来时一句话不说。但他也发现，这个人能从一顶帽子上看出主人的一生，从一块表上看出一个家族的败落。华生把这些事记在本子上，后来投给了杂志社。福尔摩斯看了说：你把我写得像个英雄。哈德森太太说：你们这屋子里，不是死人就是警察。福尔摩斯说：这说明我们生意好。她把茶放下，说：我看你早晚要一个人死在沙发上。他说：那你就把我的烟斗留着。她骂了一句，下楼去了。</p>
+    </section>
+
+    <section class="event" id="sh05" style="--c:#5a4632"
+      data-color="#5a4632" data-era="贝克街" data-short="四签名" data-label="1883 年 · 伦敦 · 贝克街">
+      <div class="ev-when">1883 年<em>伦敦 · 贝克街</em></div>
+      <h2>四签名</h2>
+      <p>一个叫玛丽·摩斯坦的姑娘来找福尔摩斯，说她父亲十年前失踪，此后每年收到一颗珍珠。案子牵出一张藏宝图、一个独腿人、一条河上的追逐。最后 treasure（财宝）沉进了泰晤士河的泥里。华生在这一年里爱上了玛丽，后来娶了她。福尔摩斯没有去婚礼，说：我不擅长那种场合。雷斯垂德在河边的船上找到那个独腿人，那人把一把珍珠撒进水里，说：你们拿去吧。他后来被押上船，一句话不说。玛丽站在码头上，看着水面。华生说：那些东西本来是你的。她说：我父亲才是我的。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">成名</span>
+      <span class="era-sub">06 — 23</span>
+    </div>
+
+    <section class="event" id="sh06" style="--c:#5a4632"
+      data-color="#5a4632" data-era="成名" data-short="斑点带子" data-label="1886 年 4 月 · 萨里 · 斯托克莫兰">
+      <div class="ev-when">1886 年 4 月<em>萨里 · 斯托克莫兰</em></div>
+      <h2>斑点带子</h2>
+      <p>海伦·斯通纳的姐姐在结婚前夜死了，死前说：那条带子，带斑点的带子。海伦搬进了姐姐的房间。福尔摩斯去看了一夜，发现墙上的通风口是新开的，床被固定在地上，床边有一根绳子——那是给蛇爬的。他打了一条蛇，蛇回头咬了主人。罗伊洛特医生死了，死法跟他设计的一模一样。他在那间屋子里坐了一夜，没有点灯。凌晨三点，他听见一声很轻的响，像是有什么东西从通风口掉下来滑过绳子。他跳起来，点灯，用藤鞭抽打那根绳子。蛇回头，钻进了隔壁的房间。隔壁传来一声惨叫。福尔摩斯说：我没有杀他，是他的东西杀了他。</p>
+    </section>
+
+    <section class="event" id="sh07" style="--c:#5a4632"
+      data-color="#5a4632" data-era="成名" data-short="那位女人" data-label="1887 年 · 伦敦 · 贝克街">
+      <div class="ev-when">1887 年<em>伦敦 · 贝克街</em></div>
+      <h2>那位女人</h2>
+      <p>波希米亚国王要结婚了，有人拿着一张三年前的合影来敲诈。福尔摩斯扮成马夫、扮成牧师，最后扮成受伤的牧师被人抬进艾琳·艾德勒的家。他摸清了照片藏在哪里，第二天去取，发现照片早就换成了她自己的照片，还有一封信：晚安，福尔摩斯先生。他后来一直叫她「那位女人」。艾琳·艾德勒后来嫁给了一个律师，搬到伦敦郊外。福尔摩斯从此不再提她的名字。有一次华生问他：你对她是什么感觉。他放下琴弓，说：她是唯一一个赢过我的人。华生说：就这些。他说：就这些。他说完，又拉起了琴。</p>
+    </section>
+
+    <section class="event" id="sh08" style="--c:#5a4632"
+      data-color="#5a4632" data-era="成名" data-short="红发会" data-label="1888 年 · 伦敦 · 萨克斯-科伯格广场">
+      <div class="ev-when">1888 年<em>伦敦 · 萨克斯-科伯格广场</em></div>
+      <h2>红发会</h2>
+      <p>一个红头发的当铺老板来找福尔摩斯，说他被一个叫「红发会」的组织雇去抄百科全书，每天四小时，工钱很高，条件是不得离开房间。八周之后，红发会忽然解散了。福尔摩斯去看了一眼当铺的地窖，说：他们不是在雇你，是在把你从店里支开。那天夜里，他们在银行金库下面抓住了挖地道的人。那个当铺老板姓威尔逊，红头发，说话很慢。他说他这辈子没遇到过这么好的事。福尔摩斯听完，说：你被人利用了。威尔逊说：利用我做什么。福尔摩斯说：利用你不在店里。那天夜里他们守在地窖里，听见墙那边有人挖土。</p>
+    </section>
+
+    <section class="event" id="sh09" style="--c:#5a4632"
+      data-color="#5a4632" data-era="成名" data-short="巴斯克维尔的猎犬" data-label="1889 年 10 月 · 德文郡 · 达特穆尔">
+      <div class="ev-when">1889 年 10 月<em>德文郡 · 达特穆尔</em></div>
+      <h2>巴斯克维尔的猎犬</h2>
+      <p>巴斯克维尔家族的每一代人都死于同一件事：一只发着磷光的巨犬。查尔斯爵士死在庄园外的水松道上，脸扭曲得不像人。福尔摩斯派华生去德文郡，自己躲在沼泽地里住了几天。凶手是邻居斯坦普顿，一个博物学家，他用一只涂了磷的猎犬吓死了两代人，为的是继承那份产业。斯台普顿有一只黑色的猎犬，养在沼泽中间的小岛上。他用磷粉涂在狗身上，夜里放出去，谁看见都会以为是鬼。查尔斯爵士心脏不好，看见那只狗就倒了。亨利差点也死在那儿。福尔摩斯最后说：这案子里没有鬼，只有一个人想要一份产业。</p>
+    </section>
+
+    <section class="event" id="sh10" style="--c:#5a4632"
+      data-color="#5a4632" data-era="成名" data-short="工程师的大拇指" data-label="1890 年 · 伦敦 · 贝克街">
+      <div class="ev-when">1890 年<em>伦敦 · 贝克街</em></div>
+      <h2>工程师的大拇指</h2>
+      <p>一个工程师半夜来找福尔摩斯，右手包着血布，大拇指被齐根切掉了。他说有人请他去修一台水压机，出的钱很多，去了以后发现那台机器是用来造假币的。他要走，被人用刀剁了手指。福尔摩斯带着警察回去，那栋房子已经烧了。他在灰里找到一枚袖扣，说：人没跑远。那个工程师姓维克多，说话很实在。他说那台水压机有一吨重，压下去能把人压成一张纸。他说：我当时就想，这钱不能挣。福尔摩斯说：你比大多数人都聪明。他说：可我丢了一个大拇指。福尔摩斯说：一根手指换一条命，不亏。</p>
+    </section>
+
+    <section class="event" id="sh11" style="--c:#5a4632"
+      data-color="#5a4632" data-era="成名" data-short="哥哥" data-label="1890 年 · 伦敦 · 第欧根尼俱乐部">
+      <div class="ev-when">1890 年<em>伦敦 · 第欧根尼俱乐部</em></div>
+      <h2>哥哥</h2>
+      <p>迈克罗夫特比福尔摩斯大七岁，胖，不爱动，每天在俱乐部里坐同一个位置，从窗口看对面的楼。他不上班，也不办案，但政府的很多决定背后有他的字。福尔摩斯说：他比我聪明，只是懒得证明。两兄弟坐在一起的时候，谁也不说话，各看各的报纸，一坐一下午。迈克罗夫特说：你又在查那些小案子。福尔摩斯说：小案子也是案子。迈克罗夫特说：我这里的案子，一动就是几个国家。福尔摩斯说：那你去动。迈克罗夫特说：我不动，我只想。两个人都不说话了，看着窗外的雨。</p>
+    </section>
+
+    <section class="event" id="sh12" style="--c:#5a4632"
+      data-color="#5a4632" data-era="成名" data-short="教授" data-label="1891 年 4 月 · 伦敦 · 贝克街">
+      <div class="ev-when">1891 年 4 月<em>伦敦 · 贝克街</em></div>
+      <h2>教授</h2>
+      <p>福尔摩斯接了最后一件案子：一个庞大的犯罪网络，中心是一个退休的数学教授。莫里亚蒂来贝克街找过他一次，坐下来说：你挡了我的路，我可以给你一条出路。福尔摩斯说：我只有一条路。莫里亚蒂说：那太可惜了。他走后，福尔摩斯对华生说：这个人，是我这辈子遇到的最大的对手。莫里亚蒂说：你我都知道，这个城市里有一半的犯罪是我安排的。福尔摩斯说：我知道。他说：那你还追。福尔摩斯说：因为另外一半不是。莫里亚蒂笑了一下，说：你这个人，可惜了。他站起来，拿起帽子，说：我们很快会再见。</p>
+    </section>
+
+    <section class="event" id="sh13" style="--c:#5a4632"
+      data-color="#5a4632" data-era="成名" data-short="最后一案" data-label="1891 年 5 月 4 日 · 瑞士 · 莱辛巴赫瀑布">
+      <div class="ev-when">1891 年 5 月 4 日<em>瑞士 · 莱辛巴赫瀑布</em></div>
+      <h2>最后一案</h2>
+      <p>他们一路追到瑞士。福尔摩斯让华生先回旅馆，说还有个病人要看。华生走到半路觉得不对，跑回来，只看见瀑布边的泥地上有两行脚印，一直走到崖边，然后没有了。崖边留着一根登山杖和一封信。信上写：我亲爱的华生，当你读到这封信的时候，我已经不在了。全国哀悼了三年。华生在瀑布边站了很久，后来在崖下找到一根登山杖。他回到旅馆，写了一份报告，交给警方。警方说没有尸体，不能立案。三年里他每年写一篇文章，纪念这个人。第三年的时候，他收到了一个信封，里面是一枚旧硬币，什么字也没有。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">归来</span>
+      <span class="era-sub">14 — 23</span>
+    </div>
+
+    <section class="event" id="sh14" style="--c:#5a4632"
+      data-color="#5a4632" data-era="归来" data-short="空屋" data-label="1894 年 4 月 · 伦敦 · 贝克街">
+      <div class="ev-when">1894 年 4 月<em>伦敦 · 贝克街</em></div>
+      <h2>空屋</h2>
+      <p>华生站在贝克街 221B 的窗前，看见一个老头搬着一箱书走进来。他追进去，老头转过身，抹了脸，是福尔摩斯。他说：我需要你帮我抓一个人。那天晚上他们在空屋里等来了塞巴斯蒂安·莫兰上校，一枪打穿了他的窗户。福尔摩斯说：这三年我在西藏、波斯、法国，还有，我在养蜂。哈德森太太在楼下喊：先生，有位客人。华生回头，看见一个瘦高的老头站在门口，手里提着一箱书。老头说：先生，你的书。华生说：我没订书。老头把箱子放下，转过身，用手抹了一下脸。华生看见那张脸，手里的报纸掉在地上。</p>
+    </section>
+
+    <section class="event" id="sh15" style="--c:#5a4632"
+      data-color="#5a4632" data-era="归来" data-short="建筑师的秘密" data-label="1895 年 · 伦敦 · 诺伍德">
+      <div class="ev-when">1895 年<em>伦敦 · 诺伍德</em></div>
+      <h2>建筑师的秘密</h2>
+      <p>一个建筑师失踪了，家里只剩一堆烧过的纸。福尔摩斯从灰里拼出半张图纸，说：他被关在自己设计的房子里。他们在墙里找到了他——一间隔音的房间，只有一个小孔透气。他被关了三天，靠一块巧克力活着。福尔摩斯说：这个人不是要杀他，是要他消失。雷斯垂德说：这案子没指望了。福尔摩斯说：人不会凭空消失，除非有人替他消失。他在那栋房子里走了一圈，用拳头敲了敲一面墙，说：这儿是空的。他们拆开墙，看见一个人蜷在里面，嘴唇干裂，眼睛还睁着。</p>
+    </section>
+
+    <section class="event" id="sh16" style="--c:#5a4632"
+      data-color="#5a4632" data-era="归来" data-short="丢失的图纸" data-label="1896 年 · 伦敦">
+      <div class="ev-when">1896 年<em>伦敦</em></div>
+      <h2>丢失的图纸</h2>
+      <p>一个政府小职员死在铁路边，身上有一份布鲁斯—帕廷顿潜水艇的图纸。警察说是意外。福尔摩斯看了看他身上的一枚车票，说：他不是坐这趟车来的。他查到凶手的哥哥是个间谍，图纸被塞进了一个死人的口袋，那个人自己也死了。福尔摩斯说：国家机密有时候就藏在一张车票里。迈克罗夫特把图纸摊在桌上，说：这东西丢出去，我们的船就白造了。福尔摩斯说：那你们为什么让一个小职员带着它坐火车。迈克罗夫特说：因为便宜。福尔摩斯说：便宜的东西，往往最贵。他用一根手指在地图上点了点，说：凶手从这儿下车。</p>
+    </section>
+
+    <section class="event" id="sh17" style="--c:#5a4632"
+      data-color="#5a4632" data-era="归来" data-short="魔鬼之足" data-label="1897 年 · 康沃尔">
+      <div class="ev-when">1897 年<em>康沃尔</em></div>
+      <h2>魔鬼之足</h2>
+      <p>一个村子里接连死人，死前都疯了，脸上带着笑。福尔摩斯查到一种从非洲带来的粉末，烧起来会让人发狂。凶手是死者的弟弟，一个传教士，他为了遗产把粉末吹进了屋里。他自己也吸了，死在椅子上，脸上还带着那种笑。福尔摩斯说：我这一辈子，第一次觉得自己看见了地狱。那个村子在海边，风很大。死者死的时候脸上带着笑，家里人以为是中了邪。福尔摩斯在壁炉里找到一点灰，闻了闻，说：这是非洲的东西。他让华生把窗打开，说：别吸进去。他说完，自己也退了一步。</p>
+    </section>
+
+    <section class="event" id="sh18" style="--c:#5a4632"
+      data-color="#5a4632" data-era="归来" data-short="六座半身像" data-label="1898 年 · 伦敦">
+      <div class="ev-when">1898 年<em>伦敦</em></div>
+      <h2>六座半身像</h2>
+      <p>有人在伦敦到处砸拿破仑的半身像。警察以为是疯子。福尔摩斯说：不是疯子，是在找东西。他查到一批半身像里有一颗黑珍珠，藏在其中一尊的石膏里。他守了三天，抓住了一个人，那人是当年偷珍珠的贼。福尔摩斯说：一个贼为了藏一颗珠子，砸了五尊像，砸出了六条线索。六尊半身像散在伦敦六个地方，买主彼此不认识。福尔摩斯说：这不是恶作剧，是有人在找东西，而且他不知道东西在哪一尊里。他守到第三夜，看见一个人翻墙进了院子，手里拿着一把锤子。他站起来，说：晚上好。</p>
+    </section>
+
+    <section class="event" id="sh19" style="--c:#5a4632"
+      data-color="#5a4632" data-era="归来" data-short="三个加里德布" data-label="1902 年 · 伦敦">
+      <div class="ev-when">1902 年<em>伦敦</em></div>
+      <h2>三个加里德布</h2>
+      <p>三个同姓的人被一则广告引来，说只要凑够三个人，就能继承一笔遗产。第三个人一直没来。福尔摩斯说：不是他没来，是他已经在里面了——被砌在墙里。他在墙上敲了敲，说：这儿的声音不对。警察拆开墙，找到了那个人，也找到了凶手。那栋房子在伦敦南边，很旧，墙皮一块块掉。福尔摩斯在客厅里站了一会儿，说：这屋子少了一个人。警察说：我们查过了。他说：你们查的是名字。他走到墙边，用指节敲了三下，说：这儿的声音跟别处不一样。</p>
+    </section>
+
+    <section class="event" id="sh20" style="--c:#5a4632"
+      data-color="#5a4632" data-era="归来" data-short="米尔沃顿" data-label="1903 年 · 伦敦">
+      <div class="ev-when">1903 年<em>伦敦</em></div>
+      <h2>米尔沃顿</h2>
+      <p>米尔沃顿专门收买别人的私信，靠这个勒索了半个伦敦。一个贵妇来找福尔摩斯，说她愿意出一大笔钱。福尔摩斯说：这不是钱的事。他扮成水管工进了米尔沃顿的家，看见那个人在书房里，被一个蒙面的女人开枪打死。他没有指认那个人。他说：这一枪，不是我的案子。米尔沃顿的书房里有一张桌子，桌上摆着一排信封，每一封都能毁掉一个人。福尔摩斯扮成水管工进去，看见那些信，也看见了那个女人的照片。他出来的时候说：这案子我不办了。华生问：为什么。他说：因为有人比我更该办。</p>
+    </section>
+
+    <section class="event" id="sh21" style="--c:#5a4632"
+      data-color="#5a4632" data-era="归来" data-short="最后的致意" data-label="1903 年 · 伦敦">
+      <div class="ev-when">1903 年<em>伦敦</em></div>
+      <h2>最后的致意</h2>
+      <p>一个德国间谍在伦敦活动，福尔摩斯把他引到海边，让他看见一支不存在的舰队。事后他说：我这一辈子只做过一件大事，就是让别人以为我们准备好了。那年他四十九岁。他回到贝克街，把案子结了，把笔记收了。华生说：你还会再办案吗。他说：不会了。他把那件案子办完，回到贝克街，把桌上的东西收进箱子。华生说：你才四十九岁。他说：我知道。华生说：那为什么。他说：因为我开始觉得，抓住一个人不如想明白一个人。他把箱子扣上，说：我想去乡下住一段。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">养蜂</span>
+      <span class="era-sub">22 — 23</span>
+    </div>
+
+    <section class="event" id="sh22" style="--c:#5a4632"
+      data-color="#5a4632" data-era="养蜂" data-short="养蜂的人" data-label="1903 年 后 · 苏塞克斯 · 丘陵">
+      <div class="ev-when">1903 年 后<em>苏塞克斯 · 丘陵</em></div>
+      <h2>养蜂的人</h2>
+      <p>福尔摩斯搬到苏塞克斯的丘陵上，住一间小屋，养蜂，写一本关于蜂王的书。他说：蜂群比人讲道理。华生偶尔去看他，两人坐在院子里，看着蜜蜂飞来飞去，一句话不说。有一次华生问他：你这一辈子破过多少案子。他想了想，说：记不清了。华生说：那最好的一个呢。他说：还没发生。他在丘陵上写的那本书叫《养蜂实用手册》，印得不多。他说：蜂群里有一只蜂王，什么都不做，所有的蜂都为它活。这跟人很像，也不像。华生问：哪里不像。他说：蜂王不知道自己被伺候着，人知道。</p>
+    </section>
+
+    <section class="event" id="sh23" style="--c:#5a4632"
+      data-color="#5a4632" data-era="养蜂" data-short="最后一封电报" data-label="1914 年 · 苏塞克斯">
+      <div class="ev-when">1914 年<em>苏塞克斯</em></div>
+      <h2>最后一封电报</h2>
+      <p>华生收到一封电报：他病了，来看我。他赶到的时候，福尔摩斯躺在床上，瘦得不像样子。他握着华生的手说：你还记得那座瀑布吗。华生说：记得。他说：我那年其实没打算活下来。华生问：为什么还活着。他说：因为我还想看看，人到底能聪明到什么地步。他后来活到了很大的年纪，比华生想的长。有人说他死在苏塞克斯，有人说他去了南美。华生一直没有写他最后那几天。他只在回忆录的最后一页写了一句：我认识他四十年，他从没有对我说过一句谎。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 23</span>
+        </div>
+        <div class="rail-era" id="railNow">1878 年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“排除一切不可能，剩下的即使再不可能，也是真相。”</p>
+  <p class="tiny">福尔摩斯探案集 · 阿瑟·柯南·道尔　·　23 个时间点，16 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>
