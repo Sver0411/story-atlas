@@ -172,5 +172,17 @@
     "events": 24,
     "people": 15,
     "scope": "千禧年系列第一部 · 全本"
+  },
+  {
+    "id": "gone-girl",
+    "title": "消失的爱人",
+    "author": "吉莉安·弗林",
+    "category": "推理",
+    "description": "结婚五周年那天，妻子不见了。",
+    "accent": "#4b3f45",
+    "cover": "",
+    "events": 26,
+    "people": 13,
+    "scope": "全本 · 2005—2013"
   }
 ]

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>消失的爱人 · 时间线 | 26 个故事节点</title>
+<meta name="description" content="结婚五周年那天，妻子不见了。丈夫在电视上笑了一下，全国都认定他是凶手。三天后她自己走了回来，讲了一个更可怕的故事。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <rect x="196" y="150" width="208" height="248" fill="none" stroke="#a09396" stroke-width="1"/>
+  <rect x="212" y="166" width="176" height="216" fill="none" stroke="#a09396" stroke-width=".5" stroke-dasharray="2 7"/>
+  <circle cx="300" cy="256" r="34" fill="none" stroke="#6f6468" stroke-width="1.1"/>
+  <path d="M278 292 q22 20 44 0" fill="none" stroke="#6f6468" stroke-width="1.1"/>
+  <path d="M262 244 q10 -8 20 0 M318 244 q10 -8 20 0" fill="none" stroke="#6f6468" stroke-width=".8"/>
+  <path d="M232 344 H368" stroke="#8c8184" stroke-width=".5"/>
+  <path d="M140 430 H460" stroke="#b0a5a7" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">吉莉安·弗林</p>
+    <h1><em>消失的爱人</em><span>时间线</span></h1>
+    <p class="hero-deck">结婚五周年那天，妻子不见了。丈夫在电视上笑了一下，全国都认定他是凶手。三天后她自己走了回来，讲了一个更可怕的故事。<br>26 个时间点，从「两个写字的人」到「冷的」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>26 个时间点 · 13 位人物</span><i></i>
+      <span>全本 · 2005—2013</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">结婚以前</span>
+      <span class="era-sub">01 — 26</span>
+    </div>
+
+    <section class="event" id="gg01" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="结婚以前" data-short="两个写字的人" data-label="2005 年 · 纽约 · 布鲁克林">
+      <div class="ev-when">2005 年<em>纽约 · 布鲁克林</em></div>
+      <h2>两个写字的人</h2>
+      <p>尼克在一家杂志写稿，艾米写心理测试题。他们在一个派对上认识，聊了十分钟，发现彼此都在假装比别人聪明。艾米说：我最讨厌那种以为自己很聪明的男人。尼克说：那我完了。她笑了。三个月后他们住在一起。尼克后来回忆，那天晚上她说了一句话：我这个人，一旦决定了，就不会回头。他记得她那天穿一件灰毛衣，头发扎起来，说话的时候会看着你的眼睛，看得太久。他后来跟玛戈说：我遇到一个很聪明的女人。玛戈说：聪明的女人很麻烦。他说：我不怕麻烦。他说这句话的时候，还不知道麻烦是什么意思。</p>
+    </section>
+
+    <section class="event" id="gg02" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="结婚以前" data-short="神奇的艾米" data-label="2006 年 · 纽约">
+      <div class="ev-when">2006 年<em>纽约</em></div>
+      <h2>神奇的艾米</h2>
+      <p>艾米是童书《神奇的艾米》的原型，那套书是她父母写的，卖了上百万册。书里的艾米聪明、勇敢、永远做对的事。现实里的艾米从小到大都在被问：你怎么不像书里那样。她说：因为书里那个不是我。她说这话的时候在笑，眼睛没有笑。她母亲玛丽贝丝和父亲兰德都是心理医生，一起写了那套书。书里的艾米会解决所有问题，现实里的艾米只会解决自己。高中时她跟一个叫汤米·奥哈拉的男孩交往过，分手以后他搬去了另一个州，很多年不敢提她的名字。</p>
+    </section>
+
+    <section class="event" id="gg03" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="结婚以前" data-short="婚礼" data-label="2009 年 · 纽约">
+      <div class="ev-when">2009 年<em>纽约</em></div>
+      <h2>婚礼</h2>
+      <p>婚礼在一个小岛上办，来了六十个人。艾米穿一件旧婚纱，是她祖母的。尼克在致辞里说：我这个人不完美，但我会一直诚实。台下鼓掌。艾米后来在她的日记里写：那一刻我知道，他在撒谎。他连自己都不诚实。岛上那天风很大，艾米的头纱一直飞。尼克念完誓词，看见她在笑，笑得很标准。他后来想，一个人可以把一场婚礼办得像一场演出，而他直到三年后才看出观众席上只有他一个人。</p>
+    </section>
+
+    <section class="event" id="gg04" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="结婚以前" data-short="搬回去" data-label="2010 年 · 密苏里 · 北迦太基">
+      <div class="ev-when">2010 年<em>密苏里 · 北迦太基</em></div>
+      <h2>搬回去</h2>
+      <p>金融危机，两个人的工作都没了。尼克的母亲病重，他说我们回去吧。艾米说好。他们从纽约搬回密苏里一个小镇，用艾米剩下的钱开了一家酒吧。艾米在日记里写：我成了一个我不认识的人。她写这句话的时候，用的是铅笔。艾米把纽约的房子卖了，把钱投进酒吧。她说：这是我们的新生活。她开始学做当地的菜，学着跟邻居打招呼，学着在超市里笑。她在日记里写：我每天都在演一个叫艾米的女人。她把这一页撕下来，烧了。</p>
+    </section>
+
+    <section class="event" id="gg05" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="结婚以前" data-short="一杯啤酒" data-label="2011 年 · 密苏里 · 酒吧">
+      <div class="ev-when">2011 年<em>密苏里 · 酒吧</em></div>
+      <h2>一杯啤酒</h2>
+      <p>酒吧叫「邓恩家」，尼克和妹妹玛戈一起开。他每天十点到，站在吧台后面，跟所有人说话。玛戈说：你在这儿比在纽约开心。他说：因为在这儿没人问我写过什么。她说：也因为这儿有个二十二岁的学生。他愣住了，说：你怎么知道。她说：我是你妹妹。玛戈说：你跟她说过话吗。尼克说：谁。她说：那个学生。他说：没有。她说：那你为什么每次她来，你都要多擦一遍杯子。他没有回答。那天晚上他回家，艾米坐在沙发上看书，抬头说：你身上有香水味。他说：酒吧里人多。</p>
+    </section>
+
+    <section class="event" id="gg06" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="结婚以前" data-short="五周年" data-label="2012 年 7 月 5 日 晨 · 密苏里 · 家">
+      <div class="ev-when">2012 年 7 月 5 日 晨<em>密苏里 · 家</em></div>
+      <h2>五周年</h2>
+      <p>那天是他们结婚五周年。尼克早上出门，艾米在厨房煮咖啡，说：你今天早点回来。他说好。他去了酒吧，跟玛戈抱怨了一通婚姻。中午他接到邻居电话：你家的门开着，猫在外面。他回家，客厅的茶几翻在地上，地上有血。艾米不见了。那天早上艾米煮了咖啡，还煎了蛋。她说：晚上我有个惊喜。他说：我也有。他出门的时候她在门口站着，看着他走。他后来回想，那个眼神不像告别，像在确认一件事：他终于走了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">失踪</span>
+      <span class="era-sub">07 — 26</span>
+    </div>
+
+    <section class="event" id="gg07" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="失踪" data-short="现场" data-label="2012 年 7 月 5 日 下午 · 密苏里 · 家">
+      <div class="ev-when">2012 年 7 月 5 日 下午<em>密苏里 · 家</em></div>
+      <h2>现场</h2>
+      <p>警察来了，拍照、取样。厨房的地上有碎玻璃，壁炉里烧过东西，灰里有纸的残片。血被擦过，又用漂白剂洗过——像是有人想让人看见，又不想让人看清。朗达蹲在壁炉前，说：这个血不是擦掉的，是抹开的。吉尔平说：那就是有人在这儿打过一架。客厅的茶几翻在地上，地毯上有一摊血，被拖过。厨房的柜子全开着，像被人翻过。可电视还在，首饰还在，抽屉里的现金还在。朗达说：抢东西的人不会只拿一样。吉尔平说：也许他慌了。她说：慌的人不会记得擦血。</p>
+    </section>
+
+    <section class="event" id="gg08" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="失踪" data-short="记者会" data-label="2012 年 7 月 6 日 · 密苏里 · 警局">
+      <div class="ev-when">2012 年 7 月 6 日<em>密苏里 · 警局</em></div>
+      <h2>记者会</h2>
+      <p>警局开记者会，尼克站在台上，请公众帮忙找妻子。他说：艾米，如果你在看，回家吧。台下有人问：你昨晚在哪。他说：在家。他说这句话的时候笑了一下——那是因为紧张。第二天所有报纸都用了那张笑脸。标题是：妻子失踪，丈夫在笑。记者问：你们最后一次说话是什么时候。尼克说：早上。记者问：说了什么。他说：她说晚上有惊喜。台下有人笑。他没有听见。他后来在电视上看见自己那个笑容，愣了很久，说：我当时在想别的事。玛戈说：全国不这么想。</p>
+    </section>
+
+    <section class="event" id="gg09" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="失踪" data-short="日记" data-label="2012 年 7 月 8 日 · 密苏里">
+      <div class="ev-when">2012 年 7 月 8 日<em>密苏里</em></div>
+      <h2>日记</h2>
+      <p>警察在客厅的壁炉后面找到一本日记，是艾米的笔迹。前面几年写得很甜，后面越来越怕。最后一页写着：他今天又发脾气了，我怕他有一天会杀了我。朗达把日记读完，合上，看着尼克，说：你太太怕你。尼克说：她写的不是真的。朗达说：那你告诉我什么是真的。日记是从 2005 年写到 2012 年，一年比一年薄。前面写他怎么逗她笑，后面写他怎么摔门。最后一页的日期是失踪前一天，上面写着：如果有一天我死了，请去找我丈夫。朗达把本子合上，说：这本东西，像写给别人看的。</p>
+    </section>
+
+    <section class="event" id="gg10" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="失踪" data-short="搜索队" data-label="2012 年 7 月 10 日 · 密苏里">
+      <div class="ev-when">2012 年 7 月 10 日<em>密苏里</em></div>
+      <h2>搜索队</h2>
+      <p>镇上来了三百个志愿者，穿黄T恤，在田野和河边排成队。尼克站在队伍前面讲话，说谢谢大家。有人喊：邓恩先生，你太太平时穿什么鞋。他说：我不记得了。人群安静了一下。那天晚上，玛戈在厨房里问他：你真的不记得。他说：我记得，我只是不能说。那天晚上尼克一个人去了河边。他站在水边，想那根高尔夫球杆——他确实买了，也确实扔进了河里，因为他不想让艾米知道他花了那笔钱。他站在那儿，忽然听见身后有脚步声。是玛戈。她说：你在这儿干什么。他说：我在想怎么解释。</p>
+    </section>
+
+    <section class="event" id="gg11" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="失踪" data-short="一件一件" data-label="2012 年 7 月 12 日 · 密苏里 · 警局">
+      <div class="ev-when">2012 年 7 月 12 日<em>密苏里 · 警局</em></div>
+      <h2>一件一件</h2>
+      <p>警察查出三件事：尼克用艾米的钱买了一支高尔夫球杆；他在艾米失踪那天下午去过河边；他跟一个叫安迪的学生有不正当关系。朗达把这些摆在桌上，说：你还有什么没告诉我。尼克说：没有了。她说：邓恩先生，你每次说谎之前，都会先笑一下。朗达说：你四月买了一根球杆，五月你太太失踪，六月你把球杆扔了。尼克说：那是我自己的钱。她说：那是你太太的钱。他说：我们的钱。她说：你们分账。他忽然发现，这个女人比他想的仔细得多。他笑了。她说：你又笑了。</p>
+    </section>
+
+    <section class="event" id="gg12" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="失踪" data-short="妹妹" data-label="2012 年 7 月 15 日 · 密苏里 · 玛戈家">
+      <div class="ev-when">2012 年 7 月 15 日<em>密苏里 · 玛戈家</em></div>
+      <h2>妹妹</h2>
+      <p>尼克半夜去找玛戈，把一切都说了：他不爱艾米了，他有外遇，他想过离婚，但他没有杀她。玛戈听完，说：那本日记呢。他说：不是我写的。她说：可那是她的字。他说：我知道。她说：那你就完了。她说这话的时候在哭。玛戈说：你为什么不早说。他说：因为说了就成真的了。她说：什么成真的。他说：我不爱她这件事。玛戈坐在楼梯上，抱着膝盖，说：哥，你完蛋了。他说：我知道。她说：那你还坐着。他说：因为我不知道该往哪走。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">另一个名字</span>
+      <span class="era-sub">13 — 26</span>
+    </div>
+
+    <section class="event" id="gg13" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="另一个名字" data-short="另一个名字" data-label="2012 年 7 月 5 日 · 密苏里 · 汽车旅馆">
+      <div class="ev-when">2012 年 7 月 5 日<em>密苏里 · 汽车旅馆</em></div>
+      <h2>另一个名字</h2>
+      <p>艾米没有死。她剪短了头发，染成深色，买了一副眼镜，在驾照上写自己叫南希。她在一个偏远的营地里租了一间小屋，屋里有一台电视、一张床、一箱罐头。她每天看新闻，看丈夫在电视上求她回家。她一边看一边吃薯片，笑得很轻。她在那间小屋里住了三个星期，每天只看两样东西：新闻和她自己的脸。她把头发剪得很短，照镜子的时候会练习表情——惊恐的、无辜的、崩溃的。她练得很好。她给自己取名叫南希，因为她觉得这个名字听起来像个好人。</p>
+    </section>
+
+    <section class="event" id="gg14" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="另一个名字" data-short="被抢" data-label="2012 年 7 月 20 日 · 密苏里 · 营地">
+      <div class="ev-when">2012 年 7 月 20 日<em>密苏里 · 营地</em></div>
+      <h2>被抢</h2>
+      <p>两个住在隔壁的年轻人——杰夫和格蕾塔——看出她带着现金。他们闯进她的屋子，抢走了她的钱和车。她坐在被翻乱的地板上，第一次觉得害怕。她算过每一步，没有算到这一种人：不聪明，也不怕。她给他们钱，说：你们走吧。他们走的时候，把她最后一罐可乐也拿走了。她跑去找杰夫要钱，杰夫说：你有的是钱。她说：我可以报警。他说：你报警，警察就会问你为什么一个人住在这儿。她愣住了。她第一次发现，自己编的故事，别人也能拿来用。她把最后一枚戒指给了他。</p>
+    </section>
+
+    <section class="event" id="gg15" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="另一个名字" data-short="一个旧号码" data-label="2012 年 7 月 22 日 · 密苏里 · 电话亭">
+      <div class="ev-when">2012 年 7 月 22 日<em>密苏里 · 电话亭</em></div>
+      <h2>一个旧号码</h2>
+      <p>她给一个十年前的男人打了电话。德西·科林斯，有钱，痴情，至今未婚。她说：德西，我遇到麻烦了，你能来接我吗。他在电话那头沉默了三秒，说：你在哪。她说了一个地址。挂了电话，她对着玻璃理了理头发。她知道他一定会来。德西接电话的时候背景里有电视的声音。她说：我在一个加油站，身上没有钱。他说：你别动，我四个小时到。她说：你不问我为什么。他说：我等你这句话等了十年。她挂了电话，站在便利店的灯下，脸上没有一点表情。</p>
+    </section>
+
+    <section class="event" id="gg16" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="另一个名字" data-short="德西的家" data-label="2012 年 7 月 23 日 · 密苏里 · 湖边别墅">
+      <div class="ev-when">2012 年 7 月 23 日<em>密苏里 · 湖边别墅</em></div>
+      <h2>德西的家</h2>
+      <p>德西的别墅在湖边，很安静，四周是树林。他给她煮了汤，说：我这些年一直在等你。她说：我知道。他说：你丈夫打你了吗。她低下头，说：他不让我出门。他说：你安全了。她抬起头看他，眼睛里有眼泪。她算好这一刻已经很久了。别墅里有壁炉、有钢琴、有一整面墙的书。他给她铺了床，说：你睡主卧，我睡客厅。她说：德西，你人真好。他说：我不是好人，我只是没办法不管你。她低下头，把脸埋在手里，肩膀在抖。她从指缝里看见他在看她，眼神很软。</p>
+    </section>
+
+    <section class="event" id="gg17" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="另一个名字" data-short="那把刀" data-label="2012 年 8 月 · 密苏里 · 湖边别墅">
+      <div class="ev-when">2012 年 8 月<em>密苏里 · 湖边别墅</em></div>
+      <h2>那把刀</h2>
+      <p>她在德西的厨房里找到一把刀，藏在自己枕头下面。她给德西写了一封信，写得很温柔，说谢谢他救了她。然后她躺在床上，等他进来。他进来的时候她叫了一声他的名字。他弯下腰。她把刀送进了他的喉咙。她后来说，那是她这辈子做过的最干净的一件事。她后来在日记里写：我杀他的时候，他看着我，眼睛里没有恨，只有不明白。她说：我最受不了那种眼神。她把现场布置成一个绑架犯的屋子，把手腕上勒出痕迹，把头发弄乱，然后光着脚走出去，走进九月的光里。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">归来</span>
+      <span class="era-sub">18 — 26</span>
+    </div>
+
+    <section class="event" id="gg18" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="归来" data-short="回来了" data-label="2012 年 9 月 · 密苏里 · 医院">
+      <div class="ev-when">2012 年 9 月<em>密苏里 · 医院</em></div>
+      <h2>回来了</h2>
+      <p>一个浑身是血的女人走进小镇的医院，说：我叫艾米·邓恩，我被绑架了。护士愣了三秒，然后整栋楼都动了起来。电视直播、警察、记者，全挤在走廊上。尼克赶到的时候，她躺在床上，看见他，伸出手，说：你来了。他握住那只手，觉得冰凉。医生给她检查，说：你有脱水的迹象，身上有多处擦伤。她点点头，说：他把我关在一个房间里。她说这句话的时候声音很小。护士在旁边听着，眼睛红了。尼克站在门口，看见她抬起眼，朝他看过来，那一眼很稳。</p>
+    </section>
+
+    <section class="event" id="gg19" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="归来" data-short="故事" data-label="2012 年 9 月 · 密苏里 · 医院">
+      <div class="ev-when">2012 年 9 月<em>密苏里 · 医院</em></div>
+      <h2>故事</h2>
+      <p>她对着警察讲了三个小时：德西怎么跟踪她、怎么把她关起来、怎么强奸她、她怎么逃出来、怎么反抗。每一个细节都对得上——因为她提前想过。朗达在门口听着，说：这个故事太完整了。吉尔平说：完整有什么不好。她说：真话不会这么完整。朗达问她：你为什么不早点跑。她说：他锁着门。朗达说：可你说他白天去上班。她说：他有时候回来。朗达说：哪一天。她说：我记不清了。朗达把笔放下，说：邓恩太太，你记得清每一件事，除了这一件。她抬起头，说：你什么意思。</p>
+    </section>
+
+    <section class="event" id="gg20" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="归来" data-short="英雄" data-label="2012 年 9 月 · 密苏里">
+      <div class="ev-when">2012 年 9 月<em>密苏里</em></div>
+      <h2>英雄</h2>
+      <p>媒体一夜之间转了向。昨天尼克是杀妻嫌疑犯，今天他是守候妻子的好丈夫。艾米成了全国的勇士。出版社来找她，电视节目请她，她的父母站在她身边，说：我们一直相信她。只有玛戈在厨房里对尼克说：她杀了人。尼克说：我知道。她说：那你打算怎么办。他说：我不知道。玛丽贝丝在电视上说：我的女儿从小就很坚强。兰德站在她旁边，一句话没说。尼克在厨房里看着屏幕，玛戈在旁边说：他们卖书卖了一辈子，现在卖女儿。尼克说：别这么说。她说：我说错了么。他没有回答，把电视关了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">往后</span>
+      <span class="era-sub">21 — 26</span>
+    </div>
+
+    <section class="event" id="gg21" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="往后" data-short="关上的门" data-label="2012 年 10 月 · 密苏里 · 家">
+      <div class="ev-when">2012 年 10 月<em>密苏里 · 家</em></div>
+      <h2>关上的门</h2>
+      <p>那天夜里，艾米坐在床上，对尼克说：我知道你在想什么。他说：你知道就好。她说：你想揭发我。他说：我没有证据。她说：你不需要证据，你只需要一个愿意相信你的人。他说：那你为什么要回来。她说：因为我怀孕了。艾米说：你恨我，是因为你恨自己。他说：别来这套。她说：那你为什么不去报警。他说：因为没人会信。她说：对，因为你是那个在电视上笑的人。她把被子拉上来，说：睡吧，明天还要接受采访。他坐在床沿，一夜没躺下。</p>
+    </section>
+
+    <section class="event" id="gg22" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="往后" data-short="冷冻的精子" data-label="2012 年 10 月 · 密苏里 · 家">
+      <div class="ev-when">2012 年 10 月<em>密苏里 · 家</em></div>
+      <h2>冷冻的精子</h2>
+      <p>孩子是用尼克存在诊所的精子做的。她算好时间，算好手续，算好他会怎么反应。她说：你可以走，但你要想清楚，你走了以后，这个孩子会跟着谁。尼克看着她，忽然明白，他从头到尾没有赢过一次。他说：你疯了。她说：也许。可我要这个孩子。她说：诊所的电话号码我存了三年，就等这一天。尼克说：你早就想好了。她说：我从结婚第一年就想好了。他说：那你为什么不走。她说：因为走了就输了。她说这句话的时候，把手放在肚子上，像在护着什么东西。</p>
+    </section>
+
+    <section class="event" id="gg23" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="往后" data-short="律师的话" data-label="2012 年 10 月 · 密苏里 · 酒吧">
+      <div class="ev-when">2012 年 10 月<em>密苏里 · 酒吧</em></div>
+      <h2>律师的话</h2>
+      <p>律师坦纳说：你要是揭发她，第一，你没有证据；第二，全国都会恨你；第三，孩子生下来就没有母亲。他说：你现在唯一的出路，是当一个好丈夫。尼克说：那我这辈子就完了。坦纳说：你早就完了，现在只是选一种完法。坦纳说：我办过十七个杀妻案，十一个有罪。他说：你不是最坏的那个，你只是最倒霉的那个。尼克说：那我该怎么办。坦纳说：回家，给她煮咖啡，陪她上节目，等孩子生下来。他说：然后呢。坦纳说：然后你这辈子就这么过。</p>
+    </section>
+
+    <section class="event" id="gg24" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="往后" data-short="采访" data-label="2013 年 · 密苏里">
+      <div class="ev-when">2013 年<em>密苏里</em></div>
+      <h2>采访</h2>
+      <p>他们一起上了一档电视节目，坐在同一张沙发上，手牵着手。主持人问：你们是怎么挺过来的。艾米说：因为我们相爱。尼克说：因为她是我妻子。他说这句话的时候看着镜头，笑得很好看。节目播出后，他们的婚姻被评为「年度最坚强」。主持人问：你们有什么想对观众说的。艾米说：婚姻不容易，但只要两个人都愿意，就能走下去。尼克在旁边点头。台下的女观众在擦眼泪。录完节目，两人在后台分开走，各自上了一辆车。司机问尼克：回家吗。他说：回。</p>
+    </section>
+
+    <section class="event" id="gg25" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="往后" data-short="一句真话" data-label="2013 年 冬 · 密苏里 · 家">
+      <div class="ev-when">2013 年 冬<em>密苏里 · 家</em></div>
+      <h2>一句真话</h2>
+      <p>夜里，尼克躺在妻子旁边，看着天花板。他想起第一天认识她的时候，她说：我这个人，一旦决定了，就不会回头。他忽然想问一个问题，问了三年也没问出口。他侧过身，说：艾米，你到底有没有爱过我。她闭着眼睛，过了很久，说：有过。然后她翻过身去，睡了。她说有过的时候，声音很轻，像在说别人的事。尼克躺着没动，听见她的呼吸慢慢变长。他想，这个人连一句真话都要算好怎么说。他又想，也许那句「有过」是真的。他宁愿相信是真的。他闭上眼，天已经亮了。</p>
+    </section>
+
+    <section class="event" id="gg26" style="--c:#4b3f45"
+      data-color="#4b3f45" data-era="往后" data-short="冷的" data-label="2013 年 冬 · 密苏里 · 家">
+      <div class="ev-when">2013 年 冬<em>密苏里 · 家</em></div>
+      <h2>冷的</h2>
+      <p>他一个人走到客厅，坐在沙发上。窗外在下雪，屋子里很暖。他想起那本日记，想起那个笑，想起德西家湖边的别墅。他知道自己在跟一个什么人过日子。他也知道，明天早上，他还是会给她煮咖啡，还是会说早安。他坐了很久，然后回房间去了。他给猫添了食，给自己倒了一杯威士忌，没有喝。他想起德西，那个到死都不明白自己为什么会死的男人。他忽然觉得，自己和德西只差一件事：德西死在了她手里，他活着。他把杯子放下，回到卧室，躺在她旁边，闭上眼睛。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 26</span>
+        </div>
+        <div class="rail-era" id="railNow">2005 年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“每当我想起我的妻子，我总是先想起她的脑袋。”</p>
+  <p class="tiny">消失的爱人 · 吉莉安·弗林　·　26 个时间点，13 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

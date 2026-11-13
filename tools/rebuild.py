@@ -31,10 +31,20 @@ QUOTES = {
     'long-goodbye': '说一声再见，就是死去一点点。',
     'sherlock': '排除一切不可能，剩下的即使再不可能，也是真相。',
     'millennium': '恨女人的男人。',
+    'gone-girl': '每当我想起我的妻子，我总是先想起她的脑袋。',
 }
 
 
 DECOR = {
+'gone-girl': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <rect x="196" y="150" width="208" height="248" fill="none" stroke="#a09396" stroke-width="1"/>
+  <rect x="212" y="166" width="176" height="216" fill="none" stroke="#a09396" stroke-width=".5" stroke-dasharray="2 7"/>
+  <circle cx="300" cy="256" r="34" fill="none" stroke="#6f6468" stroke-width="1.1"/>
+  <path d="M278 292 q22 20 44 0" fill="none" stroke="#6f6468" stroke-width="1.1"/>
+  <path d="M262 244 q10 -8 20 0 M318 244 q10 -8 20 0" fill="none" stroke="#6f6468" stroke-width=".8"/>
+  <path d="M232 344 H368" stroke="#8c8184" stroke-width=".5"/>
+  <path d="M140 430 H460" stroke="#b0a5a7" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'millennium': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <g fill="none" stroke="#8d97a1" stroke-width="1.1">
     <path d="M300 300 m0 -14 a14 14 0 1 1 -14 14 a28 28 0 1 1 28 -28 a42 42 0 1 1 -42 42 a56 56 0 1 1 56 -56 a70 70 0 1 1 -70 70"/>
