@@ -196,5 +196,17 @@
     "events": 25,
     "people": 13,
     "scope": "全本 · 1757—1794"
+  },
+  {
+    "id": "les-miserables",
+    "title": "悲惨世界",
+    "author": "维克多·雨果",
+    "category": "世界文学",
+    "description": "一个人偷了一块面包，坐了十九年牢。",
+    "accent": "#5a4a3c",
+    "cover": "",
+    "events": 30,
+    "people": 14,
+    "scope": "全本 · 1815—1833"
   }
 ]

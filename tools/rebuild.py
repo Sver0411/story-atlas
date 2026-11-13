@@ -33,10 +33,26 @@ QUOTES = {
     'millennium': '恨女人的男人。',
     'gone-girl': '每当我想起我的妻子，我总是先想起她的脑袋。',
     'two-cities': '这是最好的时代，也是最坏的时代。',
+    'les-miserables': '比天空更宽阔的，是人的心灵。',
 }
 
 
 DECOR = {
+'les-miserables': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g fill="none" stroke="#b09a7e" stroke-width="1.1">
+    <path d="M246 470 V330 M234 330 H258"/>
+    <path d="M234 330 V300 H258 V330"/>
+    <path d="M354 470 V330 M342 330 H366"/>
+    <path d="M342 330 V300 H366 V330"/>
+  </g>
+  <g fill="none" stroke="#8c3a34" stroke-width="1">
+    <path d="M246 300 q-8 -14 0 -26 q8 12 0 26Z"/>
+    <path d="M354 300 q-8 -14 0 -26 q8 12 0 26Z"/>
+  </g>
+  <path d="M246 274 V246 M354 274 V246" stroke="#c08a72" stroke-width=".6" stroke-dasharray="2 6"/>
+  <path d="M120 470 H480" stroke="#a08b76" stroke-width="1"/>
+  <path d="M120 512 H480" stroke="#b9a894" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'two-cities': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <g fill="none" stroke="#b09a86" stroke-width=".9">
     <path d="M96 420 V300 M112 420 V262 L120 248 L128 262 V420"/>
