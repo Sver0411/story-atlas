@@ -390,13 +390,37 @@ body{
   .js .event{opacity:1;transform:none}
   .event::before{transform:scaleY(1)}
 }
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),width .42s cubic-bezier(.2,.7,.2,1),opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body id="top">
 
 <div class="top-progress"><i id="topBar"></i></div>
 <nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
   <a href="../../index.html">书架</a>
   <a href="index.html" class="on">时间线</a>
   <a href="characters.html">人物志</a>
@@ -1049,12 +1073,12 @@ body{
 
 <footer class="site-foot">
   <p class="q">“给岁月以文明，而不是给文明以岁月。”</p>
-  <p class="tiny">
-    按事件真实发生的先后重排，不分部次，只问先后。<br>
-    部分时间为书中纪元换算所得，取近似值。<br>
-    配图：23 幅 AI 概念插画、《三体艺术插画集》与三体宇宙官方概念图。<br>
-    AI 插画用于情节想象与视觉表达，均已在图注中标明。
-  </p>
+  <p class="tiny">三体 · 刘慈欣　·　68 个时间点，32 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
 </footer>
 
 <script>
@@ -1235,5 +1259,20 @@ body{
 })();
 </script>
 <script src="../../assets/three-body.js"></script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
 </body>
 </html>
