@@ -398,6 +398,13 @@ body{
 }
 .hero-deco svg{width:100%;height:auto;display:block}
 @media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 </style>
 </head>
 <body>
@@ -855,7 +862,12 @@ body{
 
 <footer class="site-foot">
   <p class="q">“注定经受百年孤独的家族，不会有第二次机会在大地上出现。”</p>
-  <p class="tiny">百年孤独 · 加夫列尔·加西亚·马尔克斯</p>
+  <p class="tiny">百年孤独 · 加夫列尔·加西亚·马尔克斯　·　45 个时间点，26 位人物</p>
+  <nav class="foot-nav">
+    <a href="index.html">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
 </footer>
 
 <script>

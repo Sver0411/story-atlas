@@ -18,6 +18,11 @@ QUOTES = {
     'lotr': '道路不停向前延伸，从我脚下一直伸向远方。',
     'dune': '恐惧是思维的杀手。',
     'red-chamber': '满纸荒唐言，一把辛酸泪。都云作者痴，谁解其中味。',
+    'three-kingdoms': '纷纷世事无穷尽，天数茫茫不可逃。',
+    'water-margin': '生时服侍哥哥，死了也只是哥哥部下一个小鬼。',
+    'journey-west': '心生，种种魔生；心灭，种种魔灭。',
+    'to-live': '少年去游荡，中年想掘藏，老年做和尚。',
+    'foundation': '暴力是无能者的最后手段。',
 }
 
 
@@ -192,7 +197,14 @@ def build_index(b):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(title)s · 时间线 | %(n)d 个故事节点</title>
 <meta name="description" content="%(desc)s">
-<style>%(css)s</style>
+<style>%(css)s.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
 </head>
 <body>
 
@@ -235,14 +247,19 @@ def build_index(b):
 
 <footer class="site-foot">
   <p class="q">“%(quote)s”</p>
-  <p class="tiny">%(title)s · %(author)s</p>
+  <p class="tiny">%(title)s · %(author)s　·　%(n)d 个时间点，%(people)d 位人物</p>
+  <nav class="foot-nav">
+    <a href="index.html">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
 </footer>
 
 <script>%(js)s</script>
 </body>
 </html>''' % dict(title=esc(b['title']), author=esc(b['author']), desc=esc(b['description']),
                   n=total, css=IDX_CSS, js=IDX_JS, hero=hero, body=''.join(parts),
-                  first=esc(b['events'][0]['when']), quote=QUOTES.get(b['id'], ''))
+                  first=esc(b['events'][0]['when']), quote=QUOTES.get(b['id'], ''), people=people)
 
     out = '%s/books/%s/index.html' % (ROOT, b['id'])
     io.open(out, 'w', encoding='utf-8').write(html)
@@ -316,7 +333,34 @@ def name_size(name):
 def build_chars(b):
     people = b['people']
     by_id = {p['id']: p for p in people}
-    pos, gmeta = layout_positions(people)
+
+    # 人数过多时，关系网只取核心人物（每组按事件数排序取前若干），卡片仍列全部
+    net_people = people
+    if len(people) > 56:
+        buckets = {}
+        for p in people:
+            buckets.setdefault(p.get('group', ''), []).append(p)
+        for g in buckets:
+            buckets[g].sort(key=lambda x: (-len(x.get('events') or []), x['name']))
+        net_people = []
+        quota = 6
+        while len(net_people) < 52 and quota > 0:
+            added = False
+            for g, lst in buckets.items():
+                for p in lst:
+                    if p in net_people:
+                        continue
+                    if len([x for x in net_people if x.get('group') == g]) >= quota:
+                        continue
+                    net_people.append(p)
+                    added = True
+                    break
+                if len(net_people) >= 52:
+                    break
+            if not added:
+                quota -= 1
+    net_ids = {p['id'] for p in net_people}
+    pos, gmeta = layout_positions(net_people)
 
     # 分组颜色
     groups = []
@@ -346,7 +390,7 @@ def build_chars(b):
                       % ((x1 + x2) / 2, (y1 + y2) / 2 - 4, a, bb, esc(rel['label'])))
 
     nodes = []
-    for p in people:
+    for p in net_people:
         x, y = pos[p['id']]
         sn = short_name(p['name'])
         nodes.append('<g class="pnode" data-id="%s" transform="translate(%.0f,%.0f)">'
@@ -436,7 +480,14 @@ def build_chars(b):
 <title>%(title)s · 人物志 | %(n)d 个人物</title>
 <meta name="description" content="%(desc)s">
 <style>%(css)s</style>
-<style>%(extra)s</style>
+<style>%(extra)s.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
 </head>
 <body>
 

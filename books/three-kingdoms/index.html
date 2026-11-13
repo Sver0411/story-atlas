@@ -398,6 +398,13 @@ body{
 }
 .hero-deco svg{width:100%;height:auto;display:block}
 @media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 </style>
 </head>
 <body>
@@ -788,8 +795,13 @@ body{
 </main>
 
 <footer class="site-foot">
-  <p class="q">“”</p>
-  <p class="tiny">三国演义 · 罗贯中</p>
+  <p class="q">“纷纷世事无穷尽，天数茫茫不可逃。”</p>
+  <p class="tiny">三国演义 · 罗贯中　·　42 个时间点，33 位人物</p>
+  <nav class="foot-nav">
+    <a href="index.html">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
 </footer>
 
 <script>
