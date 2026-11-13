@@ -268,5 +268,41 @@
     "events": 20,
     "people": 9,
     "scope": "全本 · 1873—1877"
+  },
+  {
+    "id": "gone-wind",
+    "title": "飘",
+    "author": "玛格丽特·米切尔",
+    "category": "世界文学",
+    "description": "一场战争把她的世界烧成了灰。",
+    "accent": "#7a4a3a",
+    "cover": "",
+    "events": 18,
+    "people": 11,
+    "scope": "全本 · 1861—1870"
+  },
+  {
+    "id": "godfather",
+    "title": "教父",
+    "author": "马里奥·普佐",
+    "category": "世界文学",
+    "description": "一个西西里家庭在纽约扎根。",
+    "accent": "#3f3a33",
+    "cover": "",
+    "events": 14,
+    "people": 10,
+    "scope": "第一部 · 1945—1955"
+  },
+  {
+    "id": "notre-dame",
+    "title": "巴黎圣母院",
+    "author": "维克多·雨果",
+    "category": "世界文学",
+    "description": "钟楼、广场、一口水。",
+    "accent": "#4a4136",
+    "cover": "",
+    "events": 16,
+    "people": 8,
+    "scope": "全本 · 1482"
   }
 ]

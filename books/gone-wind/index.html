@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>飘 · 时间线 | 18 个故事节点</title>
+<meta name="description" content="一个姑娘在门廊上想着舞会，一场战争把她的世界烧成了灰。她什么都没了，只剩下一片红土和一句明天再说。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M120 470 H480" stroke="#a97f6c" stroke-width="1"/>
+  <path d="M300 470 V300 M300 300 L200 250 M300 300 L400 250" stroke="#8f6a58" stroke-width="1.1"/>
+  <path d="M186 258 q14 -30 28 0 q-14 18 -28 0Z" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M386 258 q14 -30 28 0 q-14 18 -28 0Z" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <g stroke="#c19a86" stroke-width=".5"><path d="M150 420 q40 -14 80 0 M370 420 q40 -14 80 0"/></g>
+  <path d="M60 520 H540" stroke="#b58a76" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">玛格丽特·米切尔</p>
+    <h1><em>飘</em><span>时间线</span></h1>
+    <p class="hero-deck">一个姑娘在门廊上想着舞会，一场战争把她的世界烧成了灰。她什么都没了，只剩下一片红土和一句明天再说。<br>18 个时间点，从「十二棵橡树」到「明天」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>18 个时间点 · 11 位人物</span><i></i>
+      <span>全本 · 1861—1870</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">旧日子</span>
+      <span class="era-sub">01 — 18</span>
+    </div>
+
+    <section class="event" id="gw01" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="旧日子" data-short="十二棵橡树" data-label="1861 年 4 月 · 塔拉庄园">
+      <div class="ev-when">1861 年 4 月<em>塔拉庄园</em></div>
+      <h2>十二棵橡树</h2>
+      <p>斯佳丽十六岁，坐在门廊上，听两个小伙子说战争。她说：战争太无聊了。她说：我关心的是明天的舞会。她父亲杰拉尔德说：土地是唯一值得为之工作的东西。她没听进去。她只想着艾希礼·威尔克斯要宣布婚事了。嬷嬷在旁边替她梳头，说：小姐，你别坐得那么开。她穿着绿裙子，裙摆铺在台阶上。两个小伙子争着给她拿扇子。她说：你们要是再讲战争，我就进屋去了。</p>
+    </section>
+
+    <section class="event" id="gw02" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="旧日子" data-short="书房" data-label="1861 年 4 月 · 十二棵橡树">
+      <div class="ev-when">1861 年 4 月<em>十二棵橡树</em></div>
+      <h2>书房</h2>
+      <p>她在舞会上把艾希礼叫进书房，说：我爱你。他说：我也喜欢你。她说：那你娶我。他说：我要娶梅兰妮。她说：为什么。他说：因为我们是一样的人。她说：那我们才该在一起。他摇头，走了。她说：你爱我。他说：我说过吗。她说：你的眼睛说了。他说：那你别信眼睛。她打了他一巴掌。</p>
+    </section>
+
+    <section class="event" id="gw03" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="旧日子" data-short="一个男人" data-label="1861 年 4 月 · 十二棵橡树">
+      <div class="ev-when">1861 年 4 月<em>十二棵橡树</em></div>
+      <h2>一个男人</h2>
+      <p>她一个人在书房里哭，把花瓶砸了。沙发上躺着一个男人，一直在看她。他站起来，说：你打赢了。她说：你是谁。他说：瑞德·巴特勒。他说：我这个人，从来不当真。他说：可你比我还会演。他一直没有起身。她说：你偷听。他说：我一直在睡。她说：你撒谎。他说：大家都撒谎。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">战争</span>
+      <span class="era-sub">04 — 18</span>
+    </div>
+
+    <section class="event" id="gw04" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="战争" data-short="结婚" data-label="1861 年 · 塔拉">
+      <div class="ev-when">1861 年<em>塔拉</em></div>
+      <h2>结婚</h2>
+      <p>她嫁给了梅兰妮的哥哥查尔斯，两个月后成了寡妇。她穿着黑衣服，坐在屋子里，说：我才十七岁。她母亲埃伦说：你要守一年。她说：一年太长了。她后来去了亚特兰大，住在梅兰妮家。婚礼办得很急，因为她想赶在艾希礼的婚礼之前。两个月后她穿上了黑衣服，坐在窗边，看着外面的人跳舞。</p>
+    </section>
+
+    <section class="event" id="gw05" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="战争" data-short="寡妇" data-label="1862 年 · 亚特兰大">
+      <div class="ev-when">1862 年<em>亚特兰大</em></div>
+      <h2>寡妇</h2>
+      <p>她在医院里做看护，穿着黑衣服，不能跳舞，不能笑。瑞德来看她，给她带了一顶绿色的帽子。她说：我不能戴。他说：你会的。她果然戴了。她说：你怎么知道我想要。他说：因为你跟我一样坏。她戴着那顶帽子照了镜子，说：这不合适。他说：合适。她说：别人会说。他说：别人本来就在说。</p>
+    </section>
+
+    <section class="event" id="gw06" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="战争" data-short="舞会" data-label="1863 年 · 亚特兰大">
+      <div class="ev-when">1863 年<em>亚特兰大</em></div>
+      <h2>舞会</h2>
+      <p>募捐舞会上，瑞德出了一百五十金元，请她跳舞。全场哗然。她说：我是个寡妇。他说：那正好，寡妇跳得最好。她跳了。她后来说：那是我这辈子最快活的一支舞。她跳完一支，又跳一支。梅兰妮坐在旁边，替她担心。她说：你不该这样。斯佳丽说：我为什么不该。</p>
+    </section>
+
+    <section class="event" id="gw07" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="战争" data-short="围城" data-label="1864 年 · 亚特兰大">
+      <div class="ev-when">1864 年<em>亚特兰大</em></div>
+      <h2>围城</h2>
+      <p>谢尔曼的军队围了亚特兰大，炮弹天天落。梅兰妮要生了，医生全在前线。斯佳丽接生，手在抖，孩子生下来的时候她坐在地上哭。她说：我再也不干这种事了。瑞德弄来一辆马车，把她们送出城。梅兰妮说：你走吧，别管我。斯佳丽说：我走了你怎么办。她说：我死在这儿也不怪你。斯佳丽说：闭嘴。</p>
+    </section>
+
+    <section class="event" id="gw08" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="战争" data-short="回家" data-label="1864 年 冬 · 塔拉">
+      <div class="ev-when">1864 年 冬<em>塔拉</em></div>
+      <h2>回家</h2>
+      <p>她回到塔拉，母亲死了，父亲疯了，棉花烧了，仓库空了。她站在菜地里，挖出一根萝卜，吃了，然后吐了。她对着天说：我向上帝发誓，我不要再挨饿，我的家人也不要。就算去偷、去骗、去杀人。她说：我不要再挨饿。她把那根萝卜从土里拔出来，泥都没擦就咬了一口。她吐了，然后坐下来，把脸埋在膝盖里。</p>
+    </section>
+
+    <section class="event" id="gw09" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="战争" data-short="一百五十元" data-label="1865 年 · 塔拉">
+      <div class="ev-when">1865 年<em>塔拉</em></div>
+      <h2>一百五十元</h2>
+      <p>战后，北方人要收三百元的地税，交不出就没收塔拉。她去找瑞德，瑞德在监狱里，说：我没有钱。她出来的时候，遇见弗兰克·肯尼迪，一个开小店的。她撒了个谎，说自己要嫁给他。她抢了妹妹的未婚夫。妹妹苏埃伦在家里哭，说：那是我的未婚夫。她穿了一件用窗帘做的裙子去看瑞德。瑞德说：你这身打扮，像来要债的。她说：我是来借钱的。</p>
+    </section>
+
+    <section class="event" id="gw10" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="战争" data-short="锯木厂" data-label="1866 年 · 亚特兰大">
+      <div class="ev-when">1866 年<em>亚特兰大</em></div>
+      <h2>锯木厂</h2>
+      <p>她用弗兰克的钱开了锯木厂，雇犯人干活，挣钱挣得比谁都狠。有人说她不像个女人。她说：我像不像女人不重要，我的孩子要不要挨饿才重要。她一个人赶车，夜里走，被人在树林里袭击过一次。她雇犯人的时候，有人劝她：这不体面。她说：体面多少钱一斤。她说：我孩子要吃饭。</p>
+    </section>
+
+    <section class="event" id="gw11" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="战争" data-short="三K党" data-label="1866 年 · 亚特兰大">
+      <div class="ev-when">1866 年<em>亚特兰大</em></div>
+      <h2>三K党</h2>
+      <p>那次袭击之后，弗兰克和一帮人夜里出去报仇，回来的时候弗兰克被打死了。瑞德把他们都弄出了城，做了一份假证。斯佳丽成了第二次寡妇。她说：我不爱他。瑞德说：可你欠他一条命。贝尔·沃特林派人送来一篮花，斯佳丽让人退了回去。他死的时候，她还穿着黑衣服。她站在棺材旁边，想的是一件事：锯木厂现在归我了。她为这个想法羞愧了一下，然后就不羞愧了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">重建</span>
+      <span class="era-sub">12 — 18</span>
+    </div>
+
+    <section class="event" id="gw12" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="重建" data-short="蜜月" data-label="1868 年 · 新奥尔良">
+      <div class="ev-when">1868 年<em>新奥尔良</em></div>
+      <h2>蜜月</h2>
+      <p>她嫁给瑞德。瑞德有钱，给她买衣服、买首饰、盖房子。她说：你怎么这么有钱。他说：战争的时候我一直在做生意。她说：什么生意。他说：什么赚钱做什么。她说：你不觉得羞耻吗。他说：不觉得。房子是新的，家具是从欧洲订的。她请全城的人来吃饭，来的人不多。她说：他们嫉妒。他说：他们是不喜欢你。</p>
+    </section>
+
+    <section class="event" id="gw13" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="重建" data-short="女儿" data-label="1868 年 · 亚特兰大">
+      <div class="ev-when">1868 年<em>亚特兰大</em></div>
+      <h2>女儿</h2>
+      <p>她生了一个女儿，叫邦妮。瑞德爱这个孩子爱得不像话，天天抱着她，说要让她什么都有。斯佳丽说：你把她宠坏了。他说：我就是要宠坏她。他说：我这辈子没对谁好过，就对她好一次。邦妮三岁就会骑马。瑞德给她买了一匹小马，天天带她出去。斯佳丽说：她会摔的。他说：摔了我扶。</p>
+    </section>
+
+    <section class="event" id="gw14" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="重建" data-short="艾希礼的生日" data-label="1869 年 · 亚特兰大">
+      <div class="ev-when">1869 年<em>亚特兰大</em></div>
+      <h2>艾希礼的生日</h2>
+      <p>梅兰妮办生日会，斯佳丽在工厂里跟艾希礼抱在一起，被人看见。全城传开。瑞德回来，把她拖回家，说：你把我当什么。她说：你不在乎。他说：我在乎。他说：我这辈子只在乎过你一个人。他把她按在沙发上，说：你毁了自己。她说：我不在乎。他说：你也不在乎我。她说：你从来不在乎。他松开了手。</p>
+    </section>
+
+    <section class="event" id="gw15" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="重建" data-short="梅兰妮" data-label="1870 年 · 亚特兰大">
+      <div class="ev-when">1870 年<em>亚特兰大</em></div>
+      <h2>梅兰妮</h2>
+      <p>梅兰妮怀孕，流产，病重。她临死前拉着斯佳丽的手，说：替我照顾艾希礼。又说：瑞德先生很爱你。斯佳丽站在床边，忽然明白自己从来没有喜欢过梅兰妮，可这一刻她需要一个朋友。梅兰妮说：答应我。斯佳丽说：我答应。她说：你从来不喜欢我。斯佳丽说：不是的。她说：是的，我知道。</p>
+    </section>
+
+    <section class="event" id="gw16" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="重建" data-short="说清楚" data-label="1870 年 · 亚特兰大">
+      <div class="ev-when">1870 年<em>亚特兰大</em></div>
+      <h2>说清楚</h2>
+      <p>梅兰妮死后，斯佳丽去找艾希礼，看见他坐在那儿，一脸茫然。她忽然明白：她爱的那个人，从来就不存在。她是一个小姑娘在门廊上想象出来的。她转身跑回家，找瑞德。艾希礼说：我什么都没有了。她说：你还有我。他说：不，我没有。她忽然觉得这个人很陌生。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">明天</span>
+      <span class="era-sub">17 — 18</span>
+    </div>
+
+    <section class="event" id="gw17" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="明天" data-short="走了" data-label="1870 年 · 亚特兰大">
+      <div class="ev-when">1870 年<em>亚特兰大</em></div>
+      <h2>走了</h2>
+      <p>瑞德在收拾行李。她说：你要去哪。他说：回家。她说：这里就是你的家。他说：不是。她说：那我怎么办。他说：你怎么办，我从来不知道。她说：我爱你。他说：那是你的不幸。她说：我以后会改。他说：你不用改。她说：那你要我怎么样。他说：我什么都不要了。</p>
+    </section>
+
+    <section class="event" id="gw18" style="--c:#7a4a3a"
+      data-color="#7a4a3a" data-era="明天" data-short="明天" data-label="1870 年 · 亚特兰大">
+      <div class="ev-when">1870 年<em>亚特兰大</em></div>
+      <h2>明天</h2>
+      <p>他走了，门关上。她坐在楼梯上，哭了一场。然后她站起来，说：我明天再想。她说：明天又是新的一天。她想起父亲说过的话：土地是唯一值得为之工作的东西。她想起塔拉的红土。她坐在楼梯上，听见门外的马车走远。她想起塔拉的红土，想起父亲说土地是唯一值得为之工作的东西。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 18</span>
+        </div>
+        <div class="rail-era" id="railNow">1861 年 4 月</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“明天又是新的一天。”</p>
+  <p class="tiny">飘 · 玛格丽特·米切尔　·　18 个时间点，11 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

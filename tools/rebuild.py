@@ -39,10 +39,38 @@ QUOTES = {
     'wuthering': '我对他的爱，就像脚下恒久不变的岩石。',
     'war-peace': '我要活，要爱，要相信。',
     'anna-karenina': '幸福的家庭都是相似的，不幸的家庭各有各的不幸。',
+    'gone-wind': '明天又是新的一天。',
+    'godfather': '我会给他一个不能拒绝的条件。',
+    'notre-dame': '美与丑，只隔着一层皮。',
 }
 
 
 DECOR = {
+'gone-wind': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M120 470 H480" stroke="#a97f6c" stroke-width="1"/>
+  <path d="M300 470 V300 M300 300 L200 250 M300 300 L400 250" stroke="#8f6a58" stroke-width="1.1"/>
+  <path d="M186 258 q14 -30 28 0 q-14 18 -28 0Z" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M386 258 q14 -30 28 0 q-14 18 -28 0Z" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <g stroke="#c19a86" stroke-width=".5"><path d="M150 420 q40 -14 80 0 M370 420 q40 -14 80 0"/></g>
+  <path d="M60 520 H540" stroke="#b58a76" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'godfather': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 200 q-52 0 -52 40 q0 30 24 40 q-20 8 -20 28 h96 q0 -20 -20 -28 q24 -10 24 -40 q0 -40 -52 -40Z" fill="none" stroke="#9a9186" stroke-width="1.1"/>
+  <path d="M300 200 q-40 -18 -62 6 M300 200 q40 -18 62 6" fill="none" stroke="#8a8176" stroke-width=".8"/>
+  <path d="M214 330 H386 M228 350 H372" stroke="#8a8176" stroke-width=".6"/>
+  <circle cx="300" cy="278" r="2.6" fill="#8c3a34"/>
+  <path d="M150 470 H450" stroke="#a9a096" stroke-width=".8"/>
+  <path d="M120 512 H480" stroke="#b9b0a6" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'notre-dame': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 180 V470" stroke="#a08b6a" stroke-width="1.1"/>
+  <path d="M300 200 L240 470 M300 200 L360 470" fill="none" stroke="#a08b6a" stroke-width=".8"/>
+  <circle cx="300" cy="300" r="46" fill="none" stroke="#8f7a5a" stroke-width="1.1"/>
+  <circle cx="300" cy="300" r="30" fill="none" stroke="#8f7a5a" stroke-width=".5" stroke-dasharray="2 7"/>
+  <path d="M254 300 H346 M300 254 V346" stroke="#8f7a5a" stroke-width=".4"/>
+  <path d="M120 470 H480" stroke="#a08b6a" stroke-width="1"/>
+  <path d="M150 500 H450" stroke="#c0ab8a" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'wuthering': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M120 500 Q220 460 300 500 T480 500" fill="none" stroke="#9a9aa4" stroke-width=".7"/>
   <path d="M150 500 V330 L190 300 L230 330 V500" fill="none" stroke="#8a8a94" stroke-width="1.1"/>
