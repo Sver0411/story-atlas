@@ -210,6 +210,7 @@ def build_index(b):
 
 <div class="top-progress"><i id="topBar"></i></div>
 <nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
   <a href="../../index.html">书架</a>
   <a href="index.html" class="on">时间线</a>
   <a href="characters.html">人物志</a>
@@ -256,6 +257,21 @@ def build_index(b):
 </footer>
 
 <script>%(js)s</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
 </body>
 </html>''' % dict(title=esc(b['title']), author=esc(b['author']), desc=esc(b['description']),
                   n=total, css=IDX_CSS, js=IDX_JS, hero=hero, body=''.join(parts),
@@ -499,6 +515,7 @@ def build_chars(b):
 <body id="top">
 
 <nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
   <a href="../../index.html">书架</a>
   <a href="index.html">时间线</a>
   <a href="characters.html" class="on">人物志</a>
@@ -557,6 +574,21 @@ def build_chars(b):
 </footer>
 
 <script>%(js)s</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
 </body>
 </html>''' % dict(title=esc(b['title']), author=esc(b['author']), desc=esc(b['description']),
                   n=len(people), evcount=len(b['events']), quote=QUOTES.get(b['id'], ''), css=CH_CSS, extra=extra_css, js=js, filters=filters,

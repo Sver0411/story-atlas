@@ -391,3 +391,22 @@ body{
 }
 .hero-deco svg{width:100%;height:auto;display:block}
 @media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
