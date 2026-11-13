@@ -32,10 +32,27 @@ QUOTES = {
     'sherlock': '排除一切不可能，剩下的即使再不可能，也是真相。',
     'millennium': '恨女人的男人。',
     'gone-girl': '每当我想起我的妻子，我总是先想起她的脑袋。',
+    'two-cities': '这是最好的时代，也是最坏的时代。',
 }
 
 
 DECOR = {
+'two-cities': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g fill="none" stroke="#b09a86" stroke-width=".9">
+    <path d="M96 420 V300 M112 420 V262 L120 248 L128 262 V420"/>
+    <path d="M146 420 V330 M160 420 V286 M176 420 V340"/>
+    <path d="M440 420 V276 L450 258 L460 276 V420"/>
+    <path d="M476 420 V320 M492 420 V300 M508 420 V352"/>
+  </g>
+  <path d="M60 420 H540" stroke="#a08b76" stroke-width="1"/>
+  <g fill="none" stroke="#8e7a66" stroke-width=".6">
+    <path d="M60 462 Q110 448 160 462 T260 462 T360 462 T460 462 T560 462"/>
+    <path d="M60 486 Q110 472 160 486 T260 486 T360 486 T460 486 T560 486"/>
+  </g>
+  <path d="M300 150 V214" stroke="#7a6656" stroke-width="1.1"/>
+  <path d="M268 214 H332" stroke="#7a6656" stroke-width="1.1"/>
+  <path d="M284 214 L300 258 L316 214" fill="none" stroke="#8c3a34" stroke-width="1.2"/>
+</svg>''',
 'gone-girl': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <rect x="196" y="150" width="208" height="248" fill="none" stroke="#a09396" stroke-width="1"/>
   <rect x="212" y="166" width="176" height="216" fill="none" stroke="#a09396" stroke-width=".5" stroke-dasharray="2 7"/>

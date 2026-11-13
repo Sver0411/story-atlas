@@ -184,5 +184,17 @@
     "events": 26,
     "people": 13,
     "scope": "全本 · 2005—2013"
+  },
+  {
+    "id": "two-cities",
+    "title": "双城记",
+    "author": "查尔斯·狄更斯",
+    "category": "世界文学",
+    "description": "一个医生被关了十八年，一个贵族放弃了姓氏，一个酒鬼替别人上了断头台。",
+    "accent": "#5c3f39",
+    "cover": "",
+    "events": 25,
+    "people": 13,
+    "scope": "全本 · 1757—1794"
   }
 ]
