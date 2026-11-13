@@ -424,5 +424,17 @@
     "events": 19,
     "people": 18,
     "scope": "全本 · 1199—1227"
+  },
+  {
+    "id": "swordman",
+    "title": "笑傲江湖",
+    "author": "金庸",
+    "category": "武侠",
+    "description": "人就是江湖。",
+    "accent": "#4a4a3a",
+    "cover": "",
+    "events": 19,
+    "people": 15,
+    "scope": "全本 · 明 · 某年"
   }
 ]

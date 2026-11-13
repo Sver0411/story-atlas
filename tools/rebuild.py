@@ -52,10 +52,21 @@ QUOTES = {
     'muslim-funeral': '玉碎了，月亮还在。',
     'demi-gods': '无人不冤，有情皆孽。',
     'legend-condor': '侠之大者，为国为民。',
+    'swordman': '只要有人的地方就有恩怨，有恩怨就有江湖。',
 }
 
 
 DECOR = {
+'swordman': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 160 V360" stroke="#8d8a72" stroke-width="1.4"/>
+  <path d="M300 160 l5 16 l-5 8 l-5 -8 Z" fill="none" stroke="#8d8a72" stroke-width=".8"/>
+  <path d="M272 360 H328" stroke="#8d8a72" stroke-width="1.2"/>
+  <path d="M300 360 V400" stroke="#8d8a72" stroke-width=".9"/>
+  <path d="M366 380 q0 -30 -18 -40 q-10 -6 -14 4 q-4 10 6 16 q14 8 14 20 v42" fill="none" stroke="#8c3a34" stroke-width="1.1"/>
+  <path d="M366 380 v42" stroke="#8c3a34" stroke-width="1.1"/>
+  <circle cx="348" cy="344" r="3" fill="#8c3a34"/>
+  <path d="M120 470 H480" stroke="#b0ac90" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'legend-condor': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M220 400 Q160 300 220 200" fill="none" stroke="#9c8354" stroke-width="1.6"/>
   <path d="M220 400 Q160 300 220 200" fill="none" stroke="#b59a68" stroke-width=".4" transform="translate(6,0)"/>
