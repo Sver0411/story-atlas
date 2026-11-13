@@ -42,10 +42,38 @@ QUOTES = {
     'gone-wind': '明天又是新的一天。',
     'godfather': '我会给他一个不能拒绝的条件。',
     'notre-dame': '美与丑，只隔着一层皮。',
+    'quiet-don': '我们这儿的人，一辈子就守着一条河。',
+    'zhivago': '喧哗静了，我走上台。',
+    'fortress': '城外的人想冲进去，城里的人想逃出来。',
 }
 
 
 DECOR = {
+'quiet-don': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M60 380 Q160 364 260 380 T460 380 T560 380" fill="none" stroke="#8f8a75" stroke-width="1"/>
+  <path d="M60 420 Q160 404 260 420 T460 420 T560 420" fill="none" stroke="#a09a84" stroke-width=".6"/>
+  <path d="M60 460 Q160 444 260 460 T460 460 T560 460" fill="none" stroke="#b0aa94" stroke-width=".4"/>
+  <path d="M200 380 V300 L230 276 L260 300 V380" fill="none" stroke="#7d7864" stroke-width=".9"/>
+  <path d="M360 380 V330 L382 312 L404 330 V380" fill="none" stroke="#7d7864" stroke-width=".7"/>
+  <circle cx="486" cy="214" r="30" fill="none" stroke="#8c3a34" stroke-width="1.4"/>
+  <path d="M120 520 H480" stroke="#a09a84" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'zhivago': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M180 470 V300 L240 240 L300 300 V470" fill="none" stroke="#8d929a" stroke-width="1"/>
+  <path d="M300 470 V330 L360 280 L420 330 V470" fill="none" stroke="#8d929a" stroke-width=".8"/>
+  <path d="M240 470 V400 H270 V470" fill="none" stroke="#a5aab2" stroke-width=".5"/>
+  <g stroke="#b8bcc4" stroke-width=".4"><path d="M120 500 H480 M120 522 H480"/></g>
+  <path d="M300 150 V210" stroke="#8c3a34" stroke-width=".8"/>
+  <circle cx="300" cy="140" r="8" fill="none" stroke="#8c3a34" stroke-width="1"/>
+</svg>''',
+'fortress': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <rect x="176" y="230" width="248" height="240" fill="none" stroke="#a3967c" stroke-width="1"/>
+  <path d="M176 230 H424 M176 300 H424 M176 370 H424" stroke="#a3967c" stroke-width=".4"/>
+  <path d="M212 470 V380 H252 V470 M348 470 V380 H388 V470" fill="none" stroke="#8f8368" stroke-width=".8"/>
+  <path d="M300 470 V410 Q300 380 330 380" fill="none" stroke="#8f8368" stroke-width=".6"/>
+  <circle cx="300" cy="330" r="14" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M120 500 H480" stroke="#b0a48c" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'gone-wind': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M120 470 H480" stroke="#a97f6c" stroke-width="1"/>
   <path d="M300 470 V300 M300 300 L200 250 M300 300 L400 250" stroke="#8f6a58" stroke-width="1.1"/>

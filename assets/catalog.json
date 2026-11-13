@@ -304,5 +304,41 @@
     "events": 16,
     "people": 8,
     "scope": "全本 · 1482"
+  },
+  {
+    "id": "quiet-don",
+    "title": "静静的顿河",
+    "author": "肖洛霍夫",
+    "category": "世界文学",
+    "description": "一个哥萨克农民的两边。",
+    "accent": "#5a5342",
+    "cover": "",
+    "events": 12,
+    "people": 8,
+    "scope": "全本 · 1912—1921"
+  },
+  {
+    "id": "zhivago",
+    "title": "日瓦戈医生",
+    "author": "帕斯捷尔纳克",
+    "category": "世界文学",
+    "description": "一个人和一场革命。",
+    "accent": "#4f5257",
+    "cover": "",
+    "events": 13,
+    "people": 7,
+    "scope": "全本 · 1903—1929"
+  },
+  {
+    "id": "fortress",
+    "title": "围城",
+    "author": "钱锺书",
+    "category": "中文小说",
+    "description": "城里的人想出去。",
+    "accent": "#5c5445",
+    "cover": "",
+    "events": 15,
+    "people": 7,
+    "scope": "全本 · 1937—1939"
   }
 ]
