@@ -496,5 +496,41 @@
     "events": 16,
     "people": 5,
     "scope": "全本 · 未来"
+  },
+  {
+    "id": "hitchhiker",
+    "title": "银河系搭车客指南",
+    "author": "道格拉斯·亚当斯",
+    "category": "科幻",
+    "description": "别慌。",
+    "accent": "#4f5a63",
+    "cover": "",
+    "events": 16,
+    "people": 5,
+    "scope": "第一部 · 全本"
+  },
+  {
+    "id": "fahrenheit-451",
+    "title": "华氏 451",
+    "author": "布拉德伯里",
+    "category": "科幻",
+    "description": "纸的燃点。",
+    "accent": "#5c4033",
+    "cover": "",
+    "events": 15,
+    "people": 6,
+    "scope": "全本 · 未来"
+  },
+  {
+    "id": "rama",
+    "title": "与拉玛相会",
+    "author": "阿瑟·克拉克",
+    "category": "科幻",
+    "description": "它连头都没回。",
+    "accent": "#4e555c",
+    "cover": "",
+    "events": 15,
+    "people": 5,
+    "scope": "第一部 · 全本"
   }
 ]

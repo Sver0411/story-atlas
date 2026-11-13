@@ -58,10 +58,37 @@ QUOTES = {
     'brave-new-world': '我选择了幸福，没选美。',
     'childhoods-end': '我们只是接生的人。',
     'solaris': '它一直在说话，只是我们听不见。',
+    'hitchhiker': '别慌。',
+    'fahrenheit-451': '纸的燃点是华氏 451 度。',
+    'rama': '它连头都没回。',
 }
 
 
 DECOR = {
+'hitchhiker': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="286" r="92" fill="none" stroke="#8b96a0" stroke-width="1.1"/>
+  <path d="M300 194 q42 46 0 92 q-42 46 0 92" fill="none" stroke="#a5aeb6" stroke-width=".6"/>
+  <circle cx="300" cy="286" r="5" fill="#8c3a34"/>
+  <path d="M392 286 H452 M148 286 H208" stroke="#b0b8c0" stroke-width=".5" stroke-dasharray="3 7"/>
+  <path d="M120 470 H480" stroke="#b0b8c0" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'fahrenheit-451': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 470 V300" stroke="#8d7a68" stroke-width="1.2"/>
+  <path d="M264 300 H336" stroke="#8d7a68" stroke-width="1"/>
+  <path d="M272 300 V258 M288 300 V244 M304 300 V236 M320 300 V250" stroke="#8d7a68" stroke-width=".6"/>
+  <path d="M300 470 q-24 -40 -6 -70 q10 -16 6 -30 q22 22 18 52 q-4 26 -18 48Z" fill="none" stroke="#8c3a34" stroke-width="1.1"/>
+  <path d="M120 470 H480" stroke="#b9a894" stroke-width=".8"/>
+  <path d="M150 500 H450" stroke="#c9bca6" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'rama': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <ellipse cx="300" cy="300" rx="70" ry="46" fill="none" stroke="#8d97a0" stroke-width="1.1"/>
+  <path d="M230 300 H370" stroke="#8d97a0" stroke-width=".5"/>
+  <ellipse cx="300" cy="300" rx="70" ry="16" fill="none" stroke="#a5aeb6" stroke-width=".5"/>
+  <path d="M300 254 V346" stroke="#a5aeb6" stroke-width=".4" stroke-dasharray="2 7"/>
+  <g stroke="#b8c0c8" stroke-width=".3"><path d="M244 276 H356 M244 324 H356"/></g>
+  <circle cx="300" cy="300" r="4" fill="#8c3a34"/>
+  <path d="M120 430 H480" stroke="#b8c0c8" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'brave-new-world': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <rect x="214" y="200" width="172" height="240" rx="6" fill="none" stroke="#8d9a8a" stroke-width="1.1"/>
   <path d="M214 268 H386 M214 336 H386" stroke="#a5b0a0" stroke-width=".5"/>

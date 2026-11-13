@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>银河系搭车客指南 · 时间线 | 16 个故事节点</title>
+<meta name="description" content="地球在星期四被拆了，一个英国人带着一条毛巾逃了出来。宇宙很大，答案很小：42。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="286" r="92" fill="none" stroke="#8b96a0" stroke-width="1.1"/>
+  <path d="M300 194 q42 46 0 92 q-42 46 0 92" fill="none" stroke="#a5aeb6" stroke-width=".6"/>
+  <circle cx="300" cy="286" r="5" fill="#8c3a34"/>
+  <path d="M392 286 H452 M148 286 H208" stroke="#b0b8c0" stroke-width=".5" stroke-dasharray="3 7"/>
+  <path d="M120 470 H480" stroke="#b0b8c0" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">道格拉斯·亚当斯</p>
+    <h1><em>银河系搭车客指南</em><span>时间线</span></h1>
+    <p class="hero-deck">地球在星期四被拆了，一个英国人带着一条毛巾逃了出来。宇宙很大，答案很小：42。<br>16 个时间点，从「推土机」到「别慌」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>16 个时间点 · 5 位人物</span><i></i>
+      <span>第一部 · 全本</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">地球</span>
+      <span class="era-sub">01 — 16</span>
+    </div>
+
+    <section class="event" id="hg01" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="地球" data-short="推土机" data-label="某日 晨 · 英国 · 乡村">
+      <div class="ev-when">某日 晨<em>英国 · 乡村</em></div>
+      <h2>推土机</h2>
+      <p>亚瑟·邓特站在自家门前，挡在一台推土机前面。工头说：先生，这是规划，房子要拆，修一条支路。亚瑟说：没有人通知我。工头说：通知在规划办公室的地下室里，挂了九个月。亚瑟说：我在那儿没看见。工头说：那是因为你从来没去过。他躺在泥里，说：你们要从我身上压过去。工头说：那我们只好压过去。这时候他的朋友福特跑过来，手里拿着一瓶啤酒，说：别争了，还有更大的事。</p>
+    </section>
+
+    <section class="event" id="hg02" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="地球" data-short="十二分钟" data-label="某日 中午 · 英国 · 酒馆">
+      <div class="ev-when">某日 中午<em>英国 · 酒馆</em></div>
+      <h2>十二分钟</h2>
+      <p>福特·普里弗克特不是地球人，他来自参宿四，在地球上待了十五年，写一本旅行指南的条目。他告诉亚瑟：地球还有十二分钟就要被拆了。亚瑟说：为什么。福特说：因为要修一条超空间快速通道。亚瑟说：谁决定的。福特说：银河系超空间规划委员会。亚瑟说：那我们怎么办。福特说：喝酒。他把两杯酒推过来，说：喝完就走。亚瑟说：走去哪。福特说：随便哪。亚瑟说：你说的是真的。福特说：我说的都是真的。他说：我从来不说假话，因为假话太费脑子。</p>
+    </section>
+
+    <section class="event" id="hg03" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="地球" data-short="拆除" data-label="某日 中午 · 地球外轨道">
+      <div class="ev-when">某日 中午<em>地球外轨道</em></div>
+      <h2>拆除</h2>
+      <p>十二分钟以后，一队沃根飞船出现在地球上空。广播说：地球居民请注意，你们这个行星将在两分钟后拆除。请做好准备。亚瑟说：这是真的。福特说：这是真的。他说完，按下一个按钮。地球在两分钟以后没了。亚瑟在最后一秒被传送上飞船，手里还拿着那瓶啤酒。他说：我的房子。福特说：你的房子也没了。广播又响了一次：拆除完毕。谢谢合作。亚瑟说：谢谢合作。福特说：他们总是这么说。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">宇宙</span>
+      <span class="era-sub">04 — 16</span>
+    </div>
+
+    <section class="event" id="hg04" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="黄金之心" data-label="某日 · 黄金之心号">
+      <div class="ev-when">某日<em>黄金之心号</em></div>
+      <h2>黄金之心</h2>
+      <p>救他们的是银河系总统赞法德·毕博布鲁克斯，一个两headed、神经兮兮的人。他偷了一艘新飞船，叫黄金之心，用无限非概率驱动。他说：这艘船能去任何地方，只要你能算出概率。亚瑟说：那怎么算。他说：不用算，它自己会算。船上还有一个地球女人，叫崔莉安。亚瑟认识她——她曾经在一个派对上拒绝过他。他说：你怎么在这儿。她说：我跟他来的。他说：你跟他。她说：对。</p>
+    </section>
+
+    <section class="event" id="hg05" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="马文" data-label="某日 · 黄金之心号 · 舰桥">
+      <div class="ev-when">某日<em>黄金之心号 · 舰桥</em></div>
+      <h2>马文</h2>
+      <p>船上有一台机器人，叫马文，有一个真正的人格，和一个巨大的脑子。他整天抱怨。他说：你们让我开门，我有五千万倍于你们的智力。他说：你们知道那是什么感觉吗。没有人回答。他说：你们不知道。亚瑟说：你能不能帮我们想想办法。马文说：我已经想了。他说：办法是你们都会死。他说完，转过身去，肩膀垂下来。马文说：门开了。他说：你们自己看。他说完，转过身，用很慢的速度走开。</p>
+    </section>
+
+    <section class="event" id="hg06" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="银河系总统" data-label="某日 · 马格拉西亚">
+      <div class="ev-when">某日<em>马格拉西亚</em></div>
+      <h2>银河系总统</h2>
+      <p>赞法德带他们去马格拉西亚，那里在举行一个仪式。他偷了总统的职位，因为他想出名。他说：当总统没有权力，只有名气。他说：这正合我意。可他现在被人追，因为他偷了船。追他的人是银河系警察，还有他的副总统。赞法德说：我们要跑。福特说：跑哪。他说：跑去见一个人。他说：那个人能告诉我们终极问题的答案。赞法德说：你们知道当总统最爽的是什么吗。福特说：什么。他说：什么都不用做。</p>
+    </section>
+
+    <section class="event" id="hg07" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="深思" data-label="某日 · 玛格丽塔">
+      <div class="ev-when">某日<em>玛格丽塔</em></div>
+      <h2>深思</h2>
+      <p>他们去找一台叫「深思」的计算机。这台计算机在七百五十万年前被造出来，专门回答一个问题：生命、宇宙以及一切的意义是什么。它算了七百五十万年，最后给出答案：42。亚瑟说：四十二。福特说：四十二。他们说：那问题是什么。深思说：你们不知道问题是什么。它说：所以我建议你们造一台更大的计算机，去算这个问题。亚瑟说：四十二。他说：这不可能。深思说：可能。它说：我算了七百五十万年，不会错。</p>
+    </section>
+
+    <section class="event" id="hg08" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="地球" data-label="某日 · 玛格丽塔">
+      <div class="ev-when">某日<em>玛格丽塔</em></div>
+      <h2>地球</h2>
+      <p>深思说：那台更大的计算机，就是地球。它说：你们是程序的一部分，运行了一千万年。它说：五分钟前，地球被拆了。亚瑟说：所以答案没了。深思说：对。亚瑟坐在那儿，半天没说话。他说：我们花了一千万年，就为了算一个问题，然后问题被人拆了。福特说：这就是银河系。深思说：还有一件事。它说：你们会喜欢那台新计算机的。它说：它叫地球。亚瑟说：那它现在在哪儿。深思说：刚被拆了。</p>
+    </section>
+
+    <section class="event" id="hg09" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="毛巾" data-label="某日 · 黄金之心号">
+      <div class="ev-when">某日<em>黄金之心号</em></div>
+      <h2>毛巾</h2>
+      <p>福特告诉亚瑟：一个搭车客最重要的东西是毛巾。他说：毛巾有很多用处：可以擦，可以裹，可以铺，可以当武器，还可以在必要时挥动表示友好。他说：一个人要是带着毛巾，别人就会觉得他准备好了。亚瑟说：我有一条毛巾。福特说：那你还活着。他说：这不是玩笑。他说：这是这本书里唯一有用的建议。亚瑟说：这听起来像胡说。福特说：宇宙里大部分事都像胡说。他说：你习惯就好。</p>
+    </section>
+
+    <section class="event" id="hg10" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="沃根人" data-label="某日 · 沃根旗舰">
+      <div class="ev-when">某日<em>沃根旗舰</em></div>
+      <h2>沃根人</h2>
+      <p>他们被沃根人抓住。沃根人是那种会把公文念三小时的生物。船长说：你们将被处死，程序是先读一份文件。福特说：那份文件有多长。船长说：三个小时。福特说：那我们先死了。亚瑟忽然想起一件事。他说：我能说一句话吗。船长说：可以。他说：你们知道毛巾吗。全场安静了。船长说：你带着毛巾。他说：我带着。船长说：那他是个好人。船长说：你带着毛巾。他说：我带着。船长说：那你是好人。他说：那我们不杀你了。</p>
+    </section>
+
+    <section class="event" id="hg11" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="无限非概率" data-label="某日 · 黄金之心号">
+      <div class="ev-when">某日<em>黄金之心号</em></div>
+      <h2>无限非概率</h2>
+      <p>飞船的驱动器叫无限非概率驱动。它的原理是：当你算出穿过宇宙某一点的概率，然后让它发生，你就到那儿了。副作用是：一路上会遇到各种不可能的事。他们遇到过会说话的沙发，遇到过一只想学飞的鲸鱼。那只鲸鱼在半空中被造出来，它想：我是谁，我为什么在这儿，我为什么在往下掉。它想到第三件事的时候，已经落到地上了。亚瑟问：我们刚才是不是撞到了一只沙发。福特说：是。他说：这很正常。</p>
+    </section>
+
+    <section class="event" id="hg12" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="两个脑袋" data-label="某日 · 黄金之心号">
+      <div class="ev-when">某日<em>黄金之心号</em></div>
+      <h2>两个脑袋</h2>
+      <p>赞法德有两个脑袋，三条手臂。他说这是他当总统的时候做的手术，为了「看得更全面」。他的第二个脑袋很少说话，偶尔冒出一句，没人听得懂。有一次它说：你们都错了。没有人理它。崔莉安说：你为什么带着我。他说：因为你好看。她说：就这个。他说：还有，因为你聪明。她说：你从来没说过。他说：我说过吗。她说：没有。第二个脑袋说：你们都错了。赞法德说：别理它。他说：它总这么说。</p>
+    </section>
+
+    <section class="event" id="hg13" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="指南" data-label="某日 · 贝特尔吉斯">
+      <div class="ev-when">某日<em>贝特尔吉斯</em></div>
+      <h2>指南</h2>
+      <p>他们查《银河系搭车客指南》，查地球那一条。上面写着：地球——基本无害。亚瑟说：就这样。福特说：就这样。他说：我写了那一句。他说：我改了三次，最后决定这样写最准确。亚瑟说：一千万年的历史，就写「基本无害」。福特说：你要是写长了，没人看。他说：指南的编辑跟我说过，第一，要准确；第二，要短。亚瑟说：你们就这样写地球。福特说：不然写什么。他说：写一千万年，没人看。</p>
+    </section>
+
+    <section class="event" id="hg14" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="新的地球" data-label="某日 · 地球二号">
+      <div class="ev-when">某日<em>地球二号</em></div>
+      <h2>新的地球</h2>
+      <p>他们找到了一个叫「地球二号」的星球，是地球的复制品，建在一个巨大的工厂里。那里的居民全是演员，他们的工作是把地球的历史重演一遍。亚瑟说：那他们的意义是什么。福特说：跟你一样。亚瑟在那儿住了几年，后来决定走。他说：这不是我的地球。他说：我的地球已经没了。他说完，上了船。福特说：这儿的天气是造的。亚瑟说：那我们呢。福特说：我们也是造的，只是造得早一点。</p>
+    </section>
+
+    <section class="event" id="hg15" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="宇宙" data-short="最后" data-label="某日 · 宇宙尽头">
+      <div class="ev-when">某日<em>宇宙尽头</em></div>
+      <h2>最后</h2>
+      <p>他们去了宇宙尽头的一家餐厅，看宇宙结束。餐厅的招牌上写着：这里是宇宙尽头，您可以边吃边看世界末日。亚瑟说：这太荒唐了。福特说：你觉得荒唐，是因为你还没点菜。马文说：我在这儿坐了三个小时，没有人跟我说话。他说：你们知道那是什么感觉吗。他说：你们不知道。他说完，把头低下去。餐厅的菜单上写着：今日特餐——宇宙末日。亚瑟说：这太荒唐了。福特说：你还没看价钱。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">别慌</span>
+      <span class="era-sub">16 — 16</span>
+    </div>
+
+    <section class="event" id="hg16" style="--c:#4f5a63"
+      data-color="#4f5a63" data-era="别慌" data-short="别慌" data-label="某日 · 某处">
+      <div class="ev-when">某日<em>某处</em></div>
+      <h2>别慌</h2>
+      <p>指南的封面上印着两个大字：别慌。亚瑟问福特：这是什么意思。福特说：意思是，无论发生什么，都别慌。他说：这句话救过很多人的命。他说：也害死过很多人。亚瑟说：那我现在该干什么。福特说：去找一条毛巾，然后搭一辆车。他说：这是银河系唯一的规矩。亚瑟说：那我们去哪。福特说：随便。他说：在银河系里，随便就是最好的方向。亚瑟说：这算什么方向。福特说：这是唯一的方向。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 16</span>
+        </div>
+        <div class="rail-era" id="railNow">某日 晨</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“别慌。”</p>
+  <p class="tiny">银河系搭车客指南 · 道格拉斯·亚当斯　·　16 个时间点，5 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>华氏 451 · 时间线 | 15 个故事节点</title>
+<meta name="description" content="一个烧书的人，某天翻开了一本。他没打算改变什么，可他已经回不去了。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 470 V300" stroke="#8d7a68" stroke-width="1.2"/>
+  <path d="M264 300 H336" stroke="#8d7a68" stroke-width="1"/>
+  <path d="M272 300 V258 M288 300 V244 M304 300 V236 M320 300 V250" stroke="#8d7a68" stroke-width=".6"/>
+  <path d="M300 470 q-24 -40 -6 -70 q10 -16 6 -30 q22 22 18 52 q-4 26 -18 48Z" fill="none" stroke="#8c3a34" stroke-width="1.1"/>
+  <path d="M120 470 H480" stroke="#b9a894" stroke-width=".8"/>
+  <path d="M150 500 H450" stroke="#c9bca6" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">雷·布拉德伯里</p>
+    <h1><em>华氏 451</em><span>时间线</span></h1>
+    <p class="hero-deck">一个烧书的人，某天翻开了一本。他没打算改变什么，可他已经回不去了。<br>15 个时间点，从「烧书」到「最后」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>15 个时间点 · 6 位人物</span><i></i>
+      <span>全本 · 未来</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">烧</span>
+      <span class="era-sub">01 — 15</span>
+    </div>
+
+    <section class="event" id="fh01" style="--c:#5c4033"
+      data-color="#5c4033" data-era="烧" data-short="烧书" data-label="未来 · 美国 · 某城">
+      <div class="ev-when">未来<em>美国 · 某城</em></div>
+      <h2>烧书</h2>
+      <p>盖伊·蒙塔格是消防员，他的工作不是灭火，是烧书。夜里他戴着黑色头盔，穿着防火服，把煤油浇在书上，点火。他说：书是空的，书里的人从来没活过。他说这句话的时候，脸上有一种很舒服的表情。他烧了十年。他回家的时候，妻子米尔德里德戴着耳机，坐在客厅里，墙上三面屏幕在说话。她说：你回来了。她没有抬头。他把煤油浇在书堆上，火柴一划，火就起来了。书页卷起来，字一个个变黑。他站在旁边，觉得暖和。</p>
+    </section>
+
+    <section class="event" id="fh02" style="--c:#5c4033"
+      data-color="#5c4033" data-era="烧" data-short="克拉丽丝" data-label="未来 · 街上">
+      <div class="ev-when">未来<em>街上</em></div>
+      <h2>克拉丽丝</h2>
+      <p>他在回家的路上遇见一个十七岁的姑娘，叫克拉丽丝。她问他：你烧书的时候，书里写的是什么。他说：没人知道。她说：那你为什么不看看。他说：看了会想。她说：想了又怎样。她说：我叔叔说，从前有个人开车会减速，会看路边的花。她说：你开车会减速吗。他说：不会。她说：为什么。他说：没有理由。她说：我十七岁，我不上学。他说：为什么。她说：因为学校只教怎么不思考。他说：那你怎么想。她说：我自己想。</p>
+    </section>
+
+    <section class="event" id="fh03" style="--c:#5c4033"
+      data-color="#5c4033" data-era="烧" data-short="米尔德里德" data-label="未来 · 蒙塔格家">
+      <div class="ev-when">未来<em>蒙塔格家</em></div>
+      <h2>米尔德里德</h2>
+      <p>米尔德里德吞了一瓶安眠药，被发现的时候已经快没气了。他们给她洗胃，换血，第二天早上她醒过来，说：我怎么这么累。她不记得自己做过什么。她说：昨天晚上我们不是在看电视吗。他看着她的脸，忽然想：这个人我认识吗。他说：你昨天吃药了。她说：我吃了吗。她说：那你为什么不拦我。他说：我拦了。她说：我们今晚看电视吧。他说：电视里有什么。她说：有我们。她说：我们可以在里面说话。</p>
+    </section>
+
+    <section class="event" id="fh04" style="--c:#5c4033"
+      data-color="#5c4033" data-era="烧" data-short="比蒂队长" data-label="未来 · 消防站">
+      <div class="ev-when">未来<em>消防站</em></div>
+      <h2>比蒂队长</h2>
+      <p>比蒂队长是消防队长，读过很多书，能引用很多句子。他跟蒙塔格说：书里什么都教不了你，除了让你不快乐。他说：我们让文化变得简单，让人不思考。他说：这样大家都开心。他说：你知道书为什么被禁吗。他说：因为有人不喜欢，有人不喜欢就要吵，吵起来就不安宁。他说：所以我们把书烧了，让大家安静。比蒂说：你知道现在有多少人读书吗。他说：百分之几。比蒂说：百分之一。他说：那为什么不干脆烧光。比蒂说：我们在烧。</p>
+    </section>
+
+    <section class="event" id="fh05" style="--c:#5c4033"
+      data-color="#5c4033" data-era="烧" data-short="那个女人" data-label="未来 · 空屋">
+      <div class="ev-when">未来<em>空屋</em></div>
+      <h2>那个女人</h2>
+      <p>他们去烧一屋子的书。屋主是个老太太，她没有跑，站在客厅里说：你们烧吧。他们把书堆起来，浇上煤油。她说：你们可以烧掉纸，烧不掉里面的东西。她说完，自己划了一根火柴。她烧死在书堆上。蒙塔格站在那儿，手里还拿着喷火器。他后来说：那一晚以后，我每次点火，手都在抖。火烧起来的时候，她站在那儿，一动不动。她说：你们烧不掉。她说完，自己走进了火里。他伸手去拉，被热浪逼回来。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">翻开</span>
+      <span class="era-sub">06 — 15</span>
+    </div>
+
+    <section class="event" id="fh06" style="--c:#5c4033"
+      data-color="#5c4033" data-era="翻开" data-short="第一本" data-label="未来 · 蒙塔格家">
+      <div class="ev-when">未来<em>蒙塔格家</em></div>
+      <h2>第一本</h2>
+      <p>他偷了一本书，藏在枕头下面。他不敢看，也不敢扔。他躺了一夜，听见自己的心跳。第二天他带了一本去上班，藏在衣服里。他想：如果他们发现了，我就完了。他后来偷了十几本，藏在通风口里。他晚上拿出来看，看不懂，可他觉得那些字有重量。他说：这些东西在等我。他把书藏在通风口里，用一块布盖着。他每天晚上拿出来一本，闻一闻。他说：这味道像什么。他说：像下雨。</p>
+    </section>
+
+    <section class="event" id="fh07" style="--c:#5c4033"
+      data-color="#5c4033" data-era="翻开" data-short="费伯" data-label="未来 · 费伯家">
+      <div class="ev-when">未来<em>费伯家</em></div>
+      <h2>费伯</h2>
+      <p>费伯是一个退休的英语教授，二十年前他最后一个离开讲台。他见到蒙塔格，第一句话是：你想要什么。蒙塔格说：我想要有人跟我说说话。他说：你找错人了。他说：你走吧。他没有走。费伯说：我不出门，因为我怕。他说：我这一辈子，只做了一件勇敢的事，就是记住。他说：这不是勇敢，这是没有办法。费伯说：你知道我为什么不出门吗。他说：因为外面的人都一样。他说：一个人说话，没人听，说了也没用。</p>
+    </section>
+
+    <section class="event" id="fh08" style="--c:#5c4033"
+      data-color="#5c4033" data-era="翻开" data-short="计划" data-label="未来 · 费伯家">
+      <div class="ev-when">未来<em>费伯家</em></div>
+      <h2>计划</h2>
+      <p>他们商量了一个计划：把书印出来，藏进消防员的家里，让他们自己发现，自己乱。费伯说：我们不推翻制度，我们让它自己烂。他说：这需要很多年。蒙塔格说：我等不了很多年。费伯给他一个小耳机，说：我在里面跟你说话，你听着就行。他说：你听我的声音，比听他们的声音好。费伯说：我们得等。他说：等什么。费伯说：等他们自己发现自己是空的。他说：那要多久。费伯说：也许一辈子。</p>
+    </section>
+
+    <section class="event" id="fh09" style="--c:#5c4033"
+      data-color="#5c4033" data-era="翻开" data-short="米尔德里德的朋友" data-label="未来 · 蒙塔格家">
+      <div class="ev-when">未来<em>蒙塔格家</em></div>
+      <h2>米尔德里德的朋友</h2>
+      <p>家里来了两个朋友，一起看墙上的电视。蒙塔格读了一首诗给她们听，读到一半，一个女人哭了，另一个女人说：这是侮辱。她们打电话举报。米尔德里德说：你为什么这样。他说：因为我想说一句话。那首诗的题目他后来忘了，只记得里面有一句：海是蓝的。那两个女人说：海是什么颜色。他说：蓝的。她们说：那不可能。那两个女人说：诗有什么用。他说：诗能让你想起一样东西。她们说：什么东西。他说：你自己。她们笑了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">烧</span>
+      <span class="era-sub">10 — 15</span>
+    </div>
+
+    <section class="event" id="fh10" style="--c:#5c4033"
+      data-color="#5c4033" data-era="烧" data-short="克拉丽丝之死" data-label="未来 · 街上">
+      <div class="ev-when">未来<em>街上</em></div>
+      <h2>克拉丽丝之死</h2>
+      <p>克拉丽丝被车撞死了。她十七岁。广播说：一名少女在街上被撞，司机没有停车。蒙塔格站在那儿，觉得有什么东西在他胸口断掉了。他想起她问过他的那些问题。他去找米尔德里德说这件事。她说：我不认识她。他说：我跟你说过她。她说：我忘了。她说：我们今晚看什么节目。他回到家，坐在客厅里。米尔德里德说：你怎么了。他说：一个人死了。她说：谁。他说：一个女孩。她说：哦。</p>
+    </section>
+
+    <section class="event" id="fh11" style="--c:#5c4033"
+      data-color="#5c4033" data-era="烧" data-short="烧自己的房子" data-label="未来 · 消防站">
+      <div class="ev-when">未来<em>消防站</em></div>
+      <h2>烧自己的房子</h2>
+      <p>比蒂让他去烧自己的房子。他去了，站在自己家门口，手里拿着喷火器。米尔德里德跑出去，抱着她的电视。他说：你走。她说：你疯了。他说：我没疯，我第一次醒着。他把整栋房子点着了。火起来的时候，他站在院子里，觉得身上很轻。比蒂在旁边说：你看，这就是快乐。他说：这不是。他点火的时候，手很稳。他看着窗帘烧起来，看着书架塌下去。他想：这是我自己的房子。他忽然笑了。</p>
+    </section>
+
+    <section class="event" id="fh12" style="--c:#5c4033"
+      data-color="#5c4033" data-era="烧" data-short="比蒂" data-label="未来 · 街上">
+      <div class="ev-when">未来<em>街上</em></div>
+      <h2>比蒂</h2>
+      <p>比蒂揭穿他，说他藏了书，说他跟费伯有联系。蒙塔格说：你读过。比蒂说：我读过。他说：那你为什么还烧。比蒂说：因为我读完了，我知道那没有用。比蒂逼他烧自己的房子，又逼他说出费伯的地址。蒙塔格把喷火器转过来，对准他。比蒂说：你不敢。他说：我敢。火喷出去。比蒂说：你烧的是纸，不是思想。他说：那思想在哪。比蒂说：在人的脑子里。他说：那你的脑子里有什么。比蒂愣住了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">跑</span>
+      <span class="era-sub">13 — 15</span>
+    </div>
+
+    <section class="event" id="fh13" style="--c:#5c4033"
+      data-color="#5c4033" data-era="跑" data-short="机械狗" data-label="未来 · 河边">
+      <div class="ev-when">未来<em>河边</em></div>
+      <h2>机械狗</h2>
+      <p>他杀了比蒂，跑了。全城的人在追他，电视直播。一只机械狗跟着他，鼻子能闻出一万种味道。他跳进河里，让水流带走他的味道。他把衣服脱了，在河里泡了半个小时。他爬上岸，往乡下走。他想：我现在什么都没有了。他又想：我终于什么都没有了。他这一辈子第一次觉得轻松。他躺在河边，水很凉。他想：我杀了一个人。他又想：那个人读过书。他坐起来，往北走。</p>
+    </section>
+
+    <section class="event" id="fh14" style="--c:#5c4033"
+      data-color="#5c4033" data-era="跑" data-short="那些人" data-label="未来 · 树林">
+      <div class="ev-when">未来<em>树林</em></div>
+      <h2>那些人</h2>
+      <p>他在树林里遇见一群人，围着火堆坐着。火很小，是用来取暖的。他们每个人都说自己是一本书：一个说我是《理想国》，一个说我是《圣经》，一个说我是《白鲸》。他们说：我们把书背下来，藏在脑子里。他们说：烧不掉。他们说：等有一天，人们想看书了，我们就把它写出来。格兰杰说：我们不是书，我们是封面。他说：书在里面，我们只是把它包着。他说：有一天会有人来拆开。</p>
+    </section>
+
+    <section class="event" id="fh15" style="--c:#5c4033"
+      data-color="#5c4033" data-era="跑" data-short="最后" data-label="未来 · 树林">
+      <div class="ev-when">未来<em>树林</em></div>
+      <h2>最后</h2>
+      <p>那天夜里，城市被炸了。远处亮了一下，然后什么声音都没有。蒙塔格站在山坡上，看着那个方向。他想起米尔德里德，想起克拉丽丝，想起那一屋子书。那些人站起来，往城市走。他们说要去看，要去帮忙，要去把记得的东西写下来。他跟着他们走，走在最前面。他想：我还有一句话没说完。城市那边升起一朵云。有人说：我们该去了。格兰杰说：去吧。他说：带好你们记得的东西。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 15</span>
+        </div>
+        <div class="rail-era" id="railNow">未来</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“纸的燃点是华氏 451 度。”</p>
+  <p class="tiny">华氏 451 · 雷·布拉德伯里　·　15 个时间点，6 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>
