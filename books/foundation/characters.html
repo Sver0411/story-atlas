@@ -209,6 +209,13 @@ h1.big{
 }
 </style>
 <style>
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 .gtag{
   font-family:var(--sans);font-size:12px;letter-spacing:.08em;
   fill:var(--ink-2);opacity:.9;
@@ -222,7 +229,7 @@ h1.big{
 .foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 </style>
 </head>
-<body>
+<body id="top">
 
 <nav class="topnav">
   <a href="../../index.html">书架</a>
@@ -474,8 +481,13 @@ h1.big{
 </main>
 
 <footer class="site-foot">
-  <p class="q">基地 · 艾萨克·阿西莫夫</p>
-  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+  <p class="q">“暴力是无能者的最后手段。”</p>
+  <p class="tiny">基地 · 艾萨克·阿西莫夫　·　18 位人物，38 个时间点</p>
+  <nav class="foot-nav">
+    <a href="index.html">看时间线</a>
+    <a href="#top">回到开头</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
 </footer>
 
 <script>

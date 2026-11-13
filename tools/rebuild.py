@@ -206,7 +206,7 @@ def build_index(b):
 .foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 </style>
 </head>
-<body>
+<body id="top">
 
 <div class="top-progress"><i id="topBar"></i></div>
 <nav class="topnav">
@@ -249,7 +249,7 @@ def build_index(b):
   <p class="q">“%(quote)s”</p>
   <p class="tiny">%(title)s · %(author)s　·　%(n)d 个时间点，%(people)d 位人物</p>
   <nav class="foot-nav">
-    <a href="index.html">回到开头</a>
+    <a href="#top">回到开头</a>
     <a href="characters.html">看人物志</a>
     <a href="../../index.html">回书架</a>
   </nav>
@@ -467,6 +467,13 @@ def build_chars(b):
         '<button class="fbtn" data-camp="%s">%s</button>' % (g, esc(g)) for g in groups)
 
     extra_css = '''
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 .gtag{
   font-family:var(--sans);font-size:12px;letter-spacing:.08em;
   fill:var(--ink-2);opacity:.9;
@@ -489,7 +496,7 @@ def build_chars(b):
 .foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 </style>
 </head>
-<body>
+<body id="top">
 
 <nav class="topnav">
   <a href="../../index.html">书架</a>
@@ -540,14 +547,19 @@ def build_chars(b):
 </main>
 
 <footer class="site-foot">
-  <p class="q">%(title)s · %(author)s</p>
-  <p class="tiny">人物事迹依据原著整理，部分细节为叙事衔接所做概括。</p>
+  <p class="q">“%(quote)s”</p>
+  <p class="tiny">%(title)s · %(author)s　·　%(n)d 位人物，%(evcount)d 个时间点</p>
+  <nav class="foot-nav">
+    <a href="index.html">看时间线</a>
+    <a href="#top">回到开头</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
 </footer>
 
 <script>%(js)s</script>
 </body>
 </html>''' % dict(title=esc(b['title']), author=esc(b['author']), desc=esc(b['description']),
-                  n=len(people), css=CH_CSS, extra=extra_css, js=js, filters=filters,
+                  n=len(people), evcount=len(b['events']), quote=QUOTES.get(b['id'], ''), css=CH_CSS, extra=extra_css, js=js, filters=filters,
                   gtags='\n        '.join(group_tags),
                   links='\n        '.join(links), labels='\n        '.join(labels), nodes='\n        '.join(nodes),
                   groups='\n'.join(group_cards))
