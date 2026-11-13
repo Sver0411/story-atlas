@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白夜行 · 人物志 | 18 个人物</title>
+<meta name="description" content="一桩十九年没破的命案，两个孩子，一条明线一条暗线。她往上走，他替她把路清干净。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+</style>
+<style>
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">东野圭吾 / CHARACTERS</p>
+    <h1 class="big">白夜行 · 人物</h1>
+    <p class="deck">一桩十九年没破的命案，两个孩子，一条明线一条暗线。她往上走，他替她把路清干净。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="桐原">桐原</button><button class="fbtn" data-camp="唐泽">唐泽</button><button class="fbtn" data-camp="高宫">高宫</button><button class="fbtn" data-camp="筱冢">筱冢</button><button class="fbtn" data-camp="旁观者">旁观者</button><button class="fbtn" data-camp="追查者">追查者</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="白夜行人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="106" text-anchor="middle">桐原</text>
+        <text class="gtag" x="837" y="239" text-anchor="middle">唐泽</text>
+        <text class="gtag" x="837" y="495" text-anchor="middle">高宫</text>
+        <text class="gtag" x="620" y="614" text-anchor="middle">筱冢</text>
+        <text class="gtag" x="403" y="481" text-anchor="middle">旁观者</text>
+        <text class="gtag" x="403" y="245" text-anchor="middle">追查者</text></g>
+        <g class="links"><line class="plink" data-a="ryoji" data-b="yukiho" x1="620" y1="128" x2="837" y2="261" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="kiyomasa" x1="620" y1="128" x2="682" y2="190" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="fumiyo" x1="620" y1="128" x2="883" y2="342" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="reiko" x1="620" y1="128" x2="790" y2="342" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="noriko" x1="620" y1="128" x2="403" y2="503" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="tomohiko" x1="620" y1="128" x2="620" y2="252" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="namie" x1="620" y1="128" x2="465" y2="565" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="sasagaki" x1="620" y1="128" x2="403" y2="267" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="yuichi" x1="620" y1="128" x2="558" y2="190" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="imagai" x1="620" y1="128" x2="403" y2="363" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ryoji" data-b="mika" x1="620" y1="128" x2="573" y2="717" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="kiyomasa" x1="837" y1="261" x2="682" y2="190" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="fumiyo" x1="837" y1="261" x2="883" y2="342" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="reiko" x1="837" y1="261" x2="790" y2="342" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="takamasa" x1="837" y1="261" x2="837" y2="517" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="chiduru" x1="837" y1="261" x2="837" y2="613" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="ichisei" x1="837" y1="261" x2="620" y2="636" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="koharu" x1="837" y1="261" x2="667" y2="717" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="mika" x1="837" y1="261" x2="573" y2="717" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="eriko" x1="837" y1="261" x2="403" y2="627" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="tsukiko" x1="837" y1="261" x2="341" y2="565" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="sasagaki" x1="837" y1="261" x2="403" y2="267" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="yukiho" data-b="noriko" x1="837" y1="261" x2="403" y2="503" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="takamasa" data-b="chiduru" x1="837" y1="517" x2="837" y2="613" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ichisei" data-b="koharu" x1="620" y1="636" x2="667" y2="717" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ichisei" data-b="imagai" x1="620" y1="636" x2="403" y2="363" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ichisei" data-b="eriko" x1="620" y1="636" x2="403" y2="627" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="koharu" data-b="mika" x1="667" y1="717" x2="573" y2="717" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="sasagaki" data-b="imagai" x1="403" y1="267" x2="403" y2="363" stroke="#a8823c" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tomohiko" data-b="namie" x1="620" y1="252" x2="465" y2="565" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="fumiyo" data-b="kiyomasa" x1="883" y1="342" x2="682" y2="190" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="eriko" data-b="tsukiko" x1="403" y1="627" x2="341" y2="565" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="labels"><text class="rlabel" x="728" y="190" data-a="ryoji" data-b="yukiho">共犯 · 唯一的太阳</text>
+        <text class="rlabel" x="651" y="155" data-a="ryoji" data-b="kiyomasa">父子 · 弑父</text>
+        <text class="rlabel" x="752" y="231" data-a="ryoji" data-b="fumiyo">知情者</text>
+        <text class="rlabel" x="705" y="231" data-a="ryoji" data-b="reiko">杀害</text>
+        <text class="rlabel" x="512" y="312" data-a="ryoji" data-b="noriko">情人 · 利用</text>
+        <text class="rlabel" x="620" y="186" data-a="ryoji" data-b="tomohiko">同伴</text>
+        <text class="rlabel" x="543" y="343" data-a="ryoji" data-b="namie">同伙 · 灭口</text>
+        <text class="rlabel" x="512" y="194" data-a="ryoji" data-b="sasagaki">追查十九年</text>
+        <text class="rlabel" x="589" y="155" data-a="ryoji" data-b="yuichi">借用姓名</text>
+        <text class="rlabel" x="512" y="242" data-a="ryoji" data-b="imagai">杀害</text>
+        <text class="rlabel" x="597" y="418" data-a="ryoji" data-b="mika">受命行事</text>
+        <text class="rlabel" x="759" y="222" data-a="yukiho" data-b="kiyomasa">被侵害</text>
+        <text class="rlabel" x="860" y="298" data-a="yukiho" data-b="fumiyo">母女 · 被卖</text>
+        <text class="rlabel" x="813" y="298" data-a="yukiho" data-b="reiko">养母女 · 杀害</text>
+        <text class="rlabel" x="837" y="385" data-a="yukiho" data-b="takamasa">夫妻 · 设计离婚</text>
+        <text class="rlabel" x="837" y="433" data-a="yukiho" data-b="chiduru">朋友 · 利用</text>
+        <text class="rlabel" x="728" y="444" data-a="yukiho" data-b="ichisei">觊觎 · 戒备</text>
+        <text class="rlabel" x="752" y="485" data-a="yukiho" data-b="koharu">夫妻 · 利用</text>
+        <text class="rlabel" x="705" y="485" data-a="yukiho" data-b="mika">继母女 · 收服</text>
+        <text class="rlabel" x="620" y="440" data-a="yukiho" data-b="eriko">好友 · 加害</text>
+        <text class="rlabel" x="589" y="409" data-a="yukiho" data-b="tsukiko">同学 · 加害</text>
+        <text class="rlabel" x="620" y="260" data-a="yukiho" data-b="sasagaki">追查 · 对峙</text>
+        <text class="rlabel" x="620" y="378" data-a="yukiho" data-b="noriko">同一枚棋</text>
+        <text class="rlabel" x="837" y="561" data-a="takamasa" data-b="chiduru">错过的人</text>
+        <text class="rlabel" x="643" y="672" data-a="ichisei" data-b="koharu">堂兄弟 · 劝阻</text>
+        <text class="rlabel" x="512" y="496" data-a="ichisei" data-b="imagai">委托</text>
+        <text class="rlabel" x="512" y="628" data-a="ichisei" data-b="eriko">暗恋</text>
+        <text class="rlabel" x="620" y="713" data-a="koharu" data-b="mika">父女</text>
+        <text class="rlabel" x="403" y="311" data-a="sasagaki" data-b="imagai">同行 · 交接</text>
+        <text class="rlabel" x="543" y="405" data-a="tomohiko" data-b="namie">同事</text>
+        <text class="rlabel" x="783" y="262" data-a="fumiyo" data-b="kiyomasa">交易</text>
+        <text class="rlabel" x="372" y="592" data-a="eriko" data-b="tsukiko">同一种遭遇</text></g>
+        <g class="nodes"><g class="pnode" data-id="ryoji" transform="translate(620,128)"><title>桐原亮司 · 当铺之子 · 影子</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">桐原亮司</text></g>
+        <g class="pnode" data-id="yukiho" transform="translate(837,261)"><title>唐泽雪穗 · R&amp;Y 店主</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">唐泽雪穗</text></g>
+        <g class="pnode" data-id="kiyomasa" transform="translate(682,190)"><title>桐原洋介 · 桐原当铺老板</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">桐原洋介</text></g>
+        <g class="pnode" data-id="fumiyo" transform="translate(883,342)"><title>西本文代 · 雪穗的母亲</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">西本文代</text></g>
+        <g class="pnode" data-id="reiko" transform="translate(790,342)"><title>唐泽礼子 · 茶道花道老师 · 养母</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">唐泽礼子</text></g>
+        <g class="pnode" data-id="takamasa" transform="translate(837,517)"><title>高宫诚 · 高宫家长子</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">高宫诚</text></g>
+        <g class="pnode" data-id="ichisei" transform="translate(620,636)"><title>筱冢一成 · 筱冢药品长子</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">筱冢一成</text></g>
+        <g class="pnode" data-id="koharu" transform="translate(667,717)"><title>筱冢康晴 · 筱冢药品常务</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">筱冢康晴</text></g>
+        <g class="pnode" data-id="mika" transform="translate(573,717)"><title>筱冢美佳 · 康晴的女儿</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">筱冢美佳</text></g>
+        <g class="pnode" data-id="noriko" transform="translate(403,503)"><title>栗原典子 · 医院药剂师</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">栗原典子</text></g>
+        <g class="pnode" data-id="sasagaki" transform="translate(403,267)"><title>笹垣润三 · 大阪府警 · 刑警</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">笹垣润三</text></g>
+        <g class="pnode" data-id="imagai" transform="translate(403,363)"><title>今枝直巳 · 私家侦探</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">今枝直巳</text></g>
+        <g class="pnode" data-id="tomohiko" transform="translate(620,252)"><title>园村友彦 · 亮司的同伴</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">园村友彦</text></g>
+        <g class="pnode" data-id="namie" transform="translate(465,565)"><title>西口奈美江 · 银行职员</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">西口奈美江</text></g>
+        <g class="pnode" data-id="eriko" transform="translate(403,627)"><title>川岛江利子 · 雪穗的大学好友</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">川岛江利子</text></g>
+        <g class="pnode" data-id="tsukiko" transform="translate(341,565)"><title>藤村都子 · 中学同学</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">藤村都子</text></g>
+        <g class="pnode" data-id="chiduru" transform="translate(837,613)"><title>三泽千都留 · 英语会话班同学</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">三泽千都留</text></g>
+        <g class="pnode" data-id="yuichi" transform="translate(558,190)"><title>秋吉雄一 · 名字 · 摄影社学生</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">秋吉雄一</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">桐原</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-ryoji" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>桐原亮司</h3></div>
+        <p class="role">当铺之子 · 影子</p>
+        <p class="deeds">十一岁那年在废弃大楼的通风管道里看见父亲和雪穗，用父亲的剪刀杀了人。此后十九年活在暗处：盗版软件、假卡、窃听、杀人。他不留名字，不留照片，只在雪穗需要的时候出现。他一生只做一件事——把光留给她，自己待在黑里。</p>
+        <a class="jump" href="index.html#byx01">时间线 · 当铺老板之死 →</a>
+      </article>
+      <article class="pcard" id="c-kiyomasa" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>桐原洋介</h3></div>
+        <p class="role">桐原当铺老板</p>
+        <p class="deeds">当铺老板，有一百万现金和一间铺子。他嗜好小女孩，出钱从西本文代手里买下她的女儿。1973 年那天他带着钱去那栋废弃大楼，被自己的儿子从背后刺穿。他死的时候，那一百万还在他口袋里。</p>
+        <a class="jump" href="index.html#byx01">时间线 · 当铺老板之死 →</a>
+      </article>
+      <article class="pcard" id="c-tomohiko" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>园村友彦</h3></div>
+        <p class="role">亮司的同伴</p>
+        <p class="deeds">高中时和亮司一起做盗版游戏卡带，后来自己开了电脑公司。他是少数见过亮司另一面的人：会借钱给他，会替他挡事，也会在他动手之后一个字不问。他结婚那天亮司送了一台电脑，包装里没有卡片。</p>
+        <a class="jump" href="index.html#byx06">时间线 · 盗版游戏 →</a>
+      </article>
+      <article class="pcard" id="c-yuichi" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>秋吉雄一</h3></div>
+        <p class="role">名字 · 摄影社学生</p>
+        <p class="deeds">这个名字最早属于一个爱拍照的高中生，后来成了亮司最常用的假身份。名片、驾照、租房合同上都是这三个字。真名叫秋吉雄一的那个男孩毕业后去了东京，再没有人见过他。</p>
+        <a class="jump" href="index.html#byx10">时间线 · 黑市 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">唐泽</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-yukiho" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>唐泽雪穗</h3></div>
+        <p class="role">R&amp;Y 店主</p>
+        <p class="deeds">被母亲卖给男人换钱的孩子。母亲死后被唐泽礼子收养，学会茶道、花道，和一张从不出错的脸。她一生的目标只有一件事：往上走。嫁进高宫家，再嫁进筱冢家，开店，买楼。她从不亲手做事，她只需要有人替她做。</p>
+        <a class="jump" href="index.html#byx01">时间线 · 当铺老板之死 →</a>
+      </article>
+      <article class="pcard" id="c-fumiyo" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>西本文代</h3></div>
+        <p class="role">雪穗的母亲</p>
+        <p class="deeds">丈夫死后靠救济金和零工养女儿，后来开始把女儿卖给男人。1973 年冬天她在家中煤气中毒死亡，警方判定是意外。她死前给女儿留了一封信，信上只有三个字：对不起。雪穗把那封信烧了。</p>
+        <a class="jump" href="index.html#byx02">时间线 · 母亲的“意外” →</a>
+      </article>
+      <article class="pcard" id="c-reiko" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>唐泽礼子</h3></div>
+        <p class="role">茶道花道老师 · 养母</p>
+        <p class="deeds">雪穗的远房亲戚，独居成城，教茶道和花道。她教雪穗怎么端茶、怎么跪坐、怎么把话说得软。她把雪穗当女儿养了十几年，最后在医院的病床上被亮司掐死——雪穗需要她名下的房子和那笔存款。</p>
+        <a class="jump" href="index.html#byx04">时间线 · 两个优等生 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">高宫</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-takamasa" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>高宫诚</h3></div>
+        <p class="role">高宫家长子</p>
+        <p class="deeds">医疗器械公司家的长子，社交舞社社长。他以为自己娶了一个温柔的妻子，五年里被一点点推到自我怀疑里，最后在一本记录他行踪的本子前签字离婚，净身出户。他一直以为是自己先背叛了这段婚姻。</p>
+        <a class="jump" href="index.html#byx07">时间线 · 社交舞社 →</a>
+      </article>
+      <article class="pcard" id="c-chiduru" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>三泽千都留</h3></div>
+        <p class="role">英语会话班同学</p>
+        <p class="deeds">老实姑娘，英语会话班坐在雪穗旁边。她把高宫诚的行程、喜好、常坐哪趟电车都告诉了雪穗——她以为那是朋友之间的闲聊。多年后她和高宫诚在东京重逢，才知道自己一直在别人的算计里。</p>
+        <a class="jump" href="index.html#byx08">时间线 · 英语会话 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">筱冢</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-ichisei" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>筱冢一成</h3></div>
+        <p class="role">筱冢药品长子</p>
+        <p class="deeds">全书写唯一一个从头到尾不信雪穗的人。他在联谊会上说「我不喜欢假的东西」，此后十几年一直在查她：雇侦探、翻户籍、劝堂兄不要娶。他没有赢，但他看对了。今枝死后，他把那份报告锁进了抽屉。</p>
+        <a class="jump" href="index.html#byx17">时间线 · 筱冢一成 →</a>
+      </article>
+      <article class="pcard" id="c-koharu" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>筱冢康晴</h3></div>
+        <p class="role">筱冢药品常务</p>
+        <p class="deeds">一成的堂兄，丧偶，带一个女儿。他在宴会上见到雪穗，回去就说要娶。一成几乎求他也没用。他把雪穗带进筱冢家，也把女儿美佳交到她手里。他到最后都不相信妻子有问题。</p>
+        <a class="jump" href="index.html#byx22">时间线 · 雪穗的第二次婚姻 →</a>
+      </article>
+      <article class="pcard" id="c-mika" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>筱冢美佳</h3></div>
+        <p class="role">康晴的女儿</p>
+        <p class="deeds">十四岁，母亲去世两年，父亲娶了雪穗。她藏鞋、放盐、当面叫「那个女人」。三个月后她在放学路上被人拖进车里，醒来时衣服被脱了。雪穗第一个赶到，抱住她说：姐姐在。从那以后她再没顶过一句嘴。</p>
+        <a class="jump" href="index.html#byx24">时间线 · 美佳 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#1f5d57">旁观者</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-noriko" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>栗原典子</h3></div>
+        <p class="role">医院药剂师</p>
+        <p class="deeds">三十岁的药剂师，独居，养一只猫。她在酒吧认识一个自称「秋吉」的男人，给了他一把钥匙。她为他从医院带出过氰化钾，也问过他到底是谁。他说：知道了对你没好处。他跳楼那天，她在电视上看见了那把剪刀。</p>
+        <a class="jump" href="index.html#byx09">时间线 · 典子 →</a>
+      </article>
+      <article class="pcard" id="c-namie" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>西口奈美江</h3></div>
+        <p class="role">银行职员</p>
+        <p class="deeds">在银行做出纳，替亮司挪了两千万日元洗钱。事情要暴露时她求亮司帮她跑路。亮司替她订了酒店、买了车票、给了现金，第二天她死在床上，被自己的丝巾勒死。她到死都以为他是来救她的。</p>
+        <a class="jump" href="index.html#byx11">时间线 · 第一桩命案 →</a>
+      </article>
+      <article class="pcard" id="c-eriko" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>川岛江利子</h3></div>
+        <p class="role">雪穗的大学好友</p>
+        <p class="deeds">雪穗唯一的朋友，性格软，长得甜。社交舞社里一成喜欢的是她。一个下午她在回家路上被人从背后打晕，醒来时衣服被脱、照片被拍。她从此退社、转学、不再见人。雪穗去看过她三次，每次都带花。</p>
+        <a class="jump" href="index.html#byx07">时间线 · 社交舞社 →</a>
+      </article>
+      <article class="pcard" id="c-tsukiko" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>藤村都子</h3></div>
+        <p class="role">中学同学</p>
+        <p class="deeds">中学时和雪穗争年级第一，也说过雪穗的闲话。一天晚上她在放学路上被人袭击，衣服被脱，照片散在校园里。雪穗「恰好」路过，替她盖了外套。全校都说是雪穗救了她。都子后来转学，再没回来。</p>
+        <a class="jump" href="index.html#byx04">时间线 · 两个优等生 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#a8823c">追查者</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-sasagaki" style="--c:#a8823c">
+        <div class="pcard-top"><h3>笹垣润三</h3></div>
+        <p class="role">大阪府警 · 刑警</p>
+        <p class="deeds">从 1973 年第一次走进那栋废弃大楼起，他查这个案子查了十九年，退休后自己接着查。他找到当年的手印、伪造的户籍、被换掉的身份。他不是为了升职，只是想弄清楚那个在楼道里把拖鞋摆正的小女孩，到底是谁。</p>
+        <a class="jump" href="index.html#byx01">时间线 · 当铺老板之死 →</a>
+      </article>
+      <article class="pcard" id="c-imagai" style="--c:#a8823c">
+        <div class="pcard-top"><h3>今枝直巳</h3></div>
+        <p class="role">私家侦探</p>
+        <p class="deeds">受一成委托调查雪穗，跟了三个月，拍了两百多张照片，查到她少女时代的户籍是伪造的。他把报告整理好，约一成在咖啡馆见面，那天他没有到。三天后他死在一间空屋里，咖啡还温着，杯子上只有他自己的指纹。</p>
+        <a class="jump" href="index.html#byx21">时间线 · 今枝 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">“我的人生，从来就没有太阳，所以不怕失去。”</p>
+  <p class="tiny">白夜行 · 东野圭吾　·　18 位人物，28 个时间点</p>
+  <nav class="foot-nav">
+    <a href="index.html">看时间线</a>
+    <a href="#top">回到开头</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"ryoji": {"name": "桐原亮司", "role": "当铺之子 · 影子", "deeds": "十一岁那年在废弃大楼的通风管道里看见父亲和雪穗，用父亲的剪刀杀了人。此后十九年活在暗处：盗版软件、假卡、窃听、杀人。他不留名字，不留照片，只在雪穗需要的时候出现。他一生只做一件事——把光留给她，自己待在黑里。", "quote": "秋吉雄一", "camp": "桐原", "campKey": "桐原", "color": "#8c2b26", "link": "byx01", "linkName": "当铺老板之死", "rel": [["yukiho", "唐泽雪穗", "共犯 · 唯一的太阳"], ["kiyomasa", "桐原洋介", "父子 · 弑父"], ["fumiyo", "西本文代", "知情者"], ["reiko", "唐泽礼子", "杀害"], ["noriko", "栗原典子", "情人 · 利用"], ["tomohiko", "园村友彦", "同伴"], ["namie", "西口奈美江", "同伙 · 灭口"], ["sasagaki", "笹垣润三", "追查十九年"], ["yuichi", "秋吉雄一", "借用姓名"], ["imagai", "今枝直巳", "杀害"], ["mika", "筱冢美佳", "受命行事"]]}, "yukiho": {"name": "唐泽雪穗", "role": "R&Y 店主", "deeds": "被母亲卖给男人换钱的孩子。母亲死后被唐泽礼子收养，学会茶道、花道，和一张从不出错的脸。她一生的目标只有一件事：往上走。嫁进高宫家，再嫁进筱冢家，开店，买楼。她从不亲手做事，她只需要有人替她做。", "quote": "西本雪穗", "camp": "唐泽", "campKey": "唐泽", "color": "#7a5a38", "link": "byx01", "linkName": "当铺老板之死", "rel": [["ryoji", "桐原亮司", "共犯 · 唯一的太阳"], ["kiyomasa", "桐原洋介", "被侵害"], ["fumiyo", "西本文代", "母女 · 被卖"], ["reiko", "唐泽礼子", "养母女 · 杀害"], ["takamasa", "高宫诚", "夫妻 · 设计离婚"], ["chiduru", "三泽千都留", "朋友 · 利用"], ["ichisei", "筱冢一成", "觊觎 · 戒备"], ["koharu", "筱冢康晴", "夫妻 · 利用"], ["mika", "筱冢美佳", "继母女 · 收服"], ["eriko", "川岛江利子", "好友 · 加害"], ["tsukiko", "藤村都子", "同学 · 加害"], ["sasagaki", "笹垣润三", "追查 · 对峙"], ["noriko", "栗原典子", "同一枚棋"]]}, "kiyomasa": {"name": "桐原洋介", "role": "桐原当铺老板", "deeds": "当铺老板，有一百万现金和一间铺子。他嗜好小女孩，出钱从西本文代手里买下她的女儿。1973 年那天他带着钱去那栋废弃大楼，被自己的儿子从背后刺穿。他死的时候，那一百万还在他口袋里。", "quote": "", "camp": "桐原", "campKey": "桐原", "color": "#8c2b26", "link": "byx01", "linkName": "当铺老板之死", "rel": [["ryoji", "桐原亮司", "父子 · 弑父"], ["yukiho", "唐泽雪穗", "被侵害"], ["fumiyo", "西本文代", "交易"]]}, "fumiyo": {"name": "西本文代", "role": "雪穗的母亲", "deeds": "丈夫死后靠救济金和零工养女儿，后来开始把女儿卖给男人。1973 年冬天她在家中煤气中毒死亡，警方判定是意外。她死前给女儿留了一封信，信上只有三个字：对不起。雪穗把那封信烧了。", "quote": "", "camp": "唐泽", "campKey": "唐泽", "color": "#7a5a38", "link": "byx02", "linkName": "母亲的“意外”", "rel": [["ryoji", "桐原亮司", "知情者"], ["yukiho", "唐泽雪穗", "母女 · 被卖"], ["kiyomasa", "桐原洋介", "交易"]]}, "reiko": {"name": "唐泽礼子", "role": "茶道花道老师 · 养母", "deeds": "雪穗的远房亲戚，独居成城，教茶道和花道。她教雪穗怎么端茶、怎么跪坐、怎么把话说得软。她把雪穗当女儿养了十几年，最后在医院的病床上被亮司掐死——雪穗需要她名下的房子和那笔存款。", "quote": "", "camp": "唐泽", "campKey": "唐泽", "color": "#7a5a38", "link": "byx04", "linkName": "两个优等生", "rel": [["ryoji", "桐原亮司", "杀害"], ["yukiho", "唐泽雪穗", "养母女 · 杀害"]]}, "takamasa": {"name": "高宫诚", "role": "高宫家长子", "deeds": "医疗器械公司家的长子，社交舞社社长。他以为自己娶了一个温柔的妻子，五年里被一点点推到自我怀疑里，最后在一本记录他行踪的本子前签字离婚，净身出户。他一直以为是自己先背叛了这段婚姻。", "quote": "", "camp": "高宫", "campKey": "高宫", "color": "#2f4a6b", "link": "byx07", "linkName": "社交舞社", "rel": [["yukiho", "唐泽雪穗", "夫妻 · 设计离婚"], ["chiduru", "三泽千都留", "错过的人"]]}, "ichisei": {"name": "筱冢一成", "role": "筱冢药品长子", "deeds": "全书写唯一一个从头到尾不信雪穗的人。他在联谊会上说「我不喜欢假的东西」，此后十几年一直在查她：雇侦探、翻户籍、劝堂兄不要娶。他没有赢，但他看对了。今枝死后，他把那份报告锁进了抽屉。", "quote": "", "camp": "筱冢", "campKey": "筱冢", "color": "#5a3a6b", "link": "byx17", "linkName": "筱冢一成", "rel": [["yukiho", "唐泽雪穗", "觊觎 · 戒备"], ["koharu", "筱冢康晴", "堂兄弟 · 劝阻"], ["imagai", "今枝直巳", "委托"], ["eriko", "川岛江利子", "暗恋"]]}, "koharu": {"name": "筱冢康晴", "role": "筱冢药品常务", "deeds": "一成的堂兄，丧偶，带一个女儿。他在宴会上见到雪穗，回去就说要娶。一成几乎求他也没用。他把雪穗带进筱冢家，也把女儿美佳交到她手里。他到最后都不相信妻子有问题。", "quote": "", "camp": "筱冢", "campKey": "筱冢", "color": "#5a3a6b", "link": "byx22", "linkName": "雪穗的第二次婚姻", "rel": [["yukiho", "唐泽雪穗", "夫妻 · 利用"], ["ichisei", "筱冢一成", "堂兄弟 · 劝阻"], ["mika", "筱冢美佳", "父女"]]}, "mika": {"name": "筱冢美佳", "role": "康晴的女儿", "deeds": "十四岁，母亲去世两年，父亲娶了雪穗。她藏鞋、放盐、当面叫「那个女人」。三个月后她在放学路上被人拖进车里，醒来时衣服被脱了。雪穗第一个赶到，抱住她说：姐姐在。从那以后她再没顶过一句嘴。", "quote": "", "camp": "筱冢", "campKey": "筱冢", "color": "#5a3a6b", "link": "byx24", "linkName": "美佳", "rel": [["ryoji", "桐原亮司", "受命行事"], ["yukiho", "唐泽雪穗", "继母女 · 收服"], ["koharu", "筱冢康晴", "父女"]]}, "noriko": {"name": "栗原典子", "role": "医院药剂师", "deeds": "三十岁的药剂师，独居，养一只猫。她在酒吧认识一个自称「秋吉」的男人，给了他一把钥匙。她为他从医院带出过氰化钾，也问过他到底是谁。他说：知道了对你没好处。他跳楼那天，她在电视上看见了那把剪刀。", "quote": "", "camp": "旁观者", "campKey": "旁观者", "color": "#1f5d57", "link": "byx09", "linkName": "典子", "rel": [["ryoji", "桐原亮司", "情人 · 利用"], ["yukiho", "唐泽雪穗", "同一枚棋"]]}, "sasagaki": {"name": "笹垣润三", "role": "大阪府警 · 刑警", "deeds": "从 1973 年第一次走进那栋废弃大楼起，他查这个案子查了十九年，退休后自己接着查。他找到当年的手印、伪造的户籍、被换掉的身份。他不是为了升职，只是想弄清楚那个在楼道里把拖鞋摆正的小女孩，到底是谁。", "quote": "", "camp": "追查者", "campKey": "追查者", "color": "#a8823c", "link": "byx01", "linkName": "当铺老板之死", "rel": [["ryoji", "桐原亮司", "追查十九年"], ["yukiho", "唐泽雪穗", "追查 · 对峙"], ["imagai", "今枝直巳", "同行 · 交接"]]}, "imagai": {"name": "今枝直巳", "role": "私家侦探", "deeds": "受一成委托调查雪穗，跟了三个月，拍了两百多张照片，查到她少女时代的户籍是伪造的。他把报告整理好，约一成在咖啡馆见面，那天他没有到。三天后他死在一间空屋里，咖啡还温着，杯子上只有他自己的指纹。", "quote": "", "camp": "追查者", "campKey": "追查者", "color": "#a8823c", "link": "byx21", "linkName": "今枝", "rel": [["ryoji", "桐原亮司", "杀害"], ["ichisei", "筱冢一成", "委托"], ["sasagaki", "笹垣润三", "同行 · 交接"]]}, "tomohiko": {"name": "园村友彦", "role": "亮司的同伴", "deeds": "高中时和亮司一起做盗版游戏卡带，后来自己开了电脑公司。他是少数见过亮司另一面的人：会借钱给他，会替他挡事，也会在他动手之后一个字不问。他结婚那天亮司送了一台电脑，包装里没有卡片。", "quote": "", "camp": "桐原", "campKey": "桐原", "color": "#8c2b26", "link": "byx06", "linkName": "盗版游戏", "rel": [["ryoji", "桐原亮司", "同伴"], ["namie", "西口奈美江", "同事"]]}, "namie": {"name": "西口奈美江", "role": "银行职员", "deeds": "在银行做出纳，替亮司挪了两千万日元洗钱。事情要暴露时她求亮司帮她跑路。亮司替她订了酒店、买了车票、给了现金，第二天她死在床上，被自己的丝巾勒死。她到死都以为他是来救她的。", "quote": "", "camp": "旁观者", "campKey": "旁观者", "color": "#1f5d57", "link": "byx11", "linkName": "第一桩命案", "rel": [["ryoji", "桐原亮司", "同伙 · 灭口"], ["tomohiko", "园村友彦", "同事"]]}, "eriko": {"name": "川岛江利子", "role": "雪穗的大学好友", "deeds": "雪穗唯一的朋友，性格软，长得甜。社交舞社里一成喜欢的是她。一个下午她在回家路上被人从背后打晕，醒来时衣服被脱、照片被拍。她从此退社、转学、不再见人。雪穗去看过她三次，每次都带花。", "quote": "", "camp": "旁观者", "campKey": "旁观者", "color": "#1f5d57", "link": "byx07", "linkName": "社交舞社", "rel": [["yukiho", "唐泽雪穗", "好友 · 加害"], ["ichisei", "筱冢一成", "暗恋"], ["tsukiko", "藤村都子", "同一种遭遇"]]}, "tsukiko": {"name": "藤村都子", "role": "中学同学", "deeds": "中学时和雪穗争年级第一，也说过雪穗的闲话。一天晚上她在放学路上被人袭击，衣服被脱，照片散在校园里。雪穗「恰好」路过，替她盖了外套。全校都说是雪穗救了她。都子后来转学，再没回来。", "quote": "", "camp": "旁观者", "campKey": "旁观者", "color": "#1f5d57", "link": "byx04", "linkName": "两个优等生", "rel": [["yukiho", "唐泽雪穗", "同学 · 加害"], ["eriko", "川岛江利子", "同一种遭遇"]]}, "chiduru": {"name": "三泽千都留", "role": "英语会话班同学", "deeds": "老实姑娘，英语会话班坐在雪穗旁边。她把高宫诚的行程、喜好、常坐哪趟电车都告诉了雪穗——她以为那是朋友之间的闲聊。多年后她和高宫诚在东京重逢，才知道自己一直在别人的算计里。", "quote": "", "camp": "高宫", "campKey": "高宫", "color": "#2f4a6b", "link": "byx08", "linkName": "英语会话", "rel": [["yukiho", "唐泽雪穗", "朋友 · 利用"], ["takamasa", "高宫诚", "错过的人"]]}, "yuichi": {"name": "秋吉雄一", "role": "名字 · 摄影社学生", "deeds": "这个名字最早属于一个爱拍照的高中生，后来成了亮司最常用的假身份。名片、驾照、租房合同上都是这三个字。真名叫秋吉雄一的那个男孩毕业后去了东京，再没有人见过他。", "quote": "", "camp": "桐原", "campKey": "桐原", "color": "#8c2b26", "link": "byx10", "linkName": "黑市", "rel": [["ryoji", "桐原亮司", "借用姓名"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

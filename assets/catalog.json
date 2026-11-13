@@ -88,5 +88,17 @@
     "events": 34,
     "people": 31,
     "scope": "前三部主线"
+  },
+  {
+    "id": "byakuyakou",
+    "title": "白夜行",
+    "author": "东野圭吾",
+    "category": "推理",
+    "description": "一桩十九年没破的命案，两个孩子，一条明线一条暗线。",
+    "accent": "#3d4653",
+    "cover": "",
+    "events": 28,
+    "people": 18,
+    "scope": "全本 · 1973—1998"
   }
 ]

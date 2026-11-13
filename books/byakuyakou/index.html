@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白夜行 · 时间线 | 28 个故事节点</title>
+<meta name="description" content="一桩十九年没破的命案，两个孩子，一条明线一条暗线。她往上走，他替她把路清干净。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="282" r="128" fill="none" stroke="#8e97a6" stroke-width="1"/>
+  <circle cx="300" cy="282" r="128" fill="none" stroke="#8e97a6" stroke-width=".5" stroke-dasharray="2 10" transform="rotate(26 300 282)"/>
+  <path d="M300 116 V66" stroke="#8e97a6" stroke-width=".7"/>
+  <path d="M300 512 V462" stroke="#8e97a6" stroke-width=".7"/>
+  <path d="M214 430 L292 316" stroke="#6f7787" stroke-width="1.2"/>
+  <path d="M386 430 L308 316" stroke="#6f7787" stroke-width="1.2"/>
+  <circle cx="207" cy="437" r="10" fill="none" stroke="#6f7787" stroke-width="1"/>
+  <circle cx="393" cy="437" r="10" fill="none" stroke="#6f7787" stroke-width="1"/>
+  <path d="M300 282 V196" stroke="#6f7787" stroke-width=".6" stroke-dasharray="3 8"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">东野圭吾</p>
+    <h1><em>白夜行</em><span>时间线</span></h1>
+    <p class="hero-deck">一桩十九年没破的命案，两个孩子，一条明线一条暗线。她往上走，他替她把路清干净。<br>28 个时间点，从「当铺老板之死」到「白夜」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>28 个时间点 · 18 位人物</span><i></i>
+      <span>全本 · 1973—1998</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">最初的罪</span>
+      <span class="era-sub">01 — 28</span>
+    </div>
+
+    <section class="event" id="byx01" style="--c:#3d4653"
+      data-color="#3d4653" data-era="最初的罪" data-short="当铺老板之死" data-label="1973 年 · 大阪 · 废弃大楼">
+      <div class="ev-when">1973 年<em>大阪 · 废弃大楼</em></div>
+      <h2>当铺老板之死</h2>
+      <p>桐原洋介的当铺开在寺田町，生意不错。那天下午他带了一百万现金出门，跟妻子说去买一样东西。晚上十点，警车停在一栋盖了一半就停工的大楼前。他在二楼通风管道里，胸口插着一把剪刀。笹垣润三爬上去看了很久，说：凶手是从上面爬进来的。儿子桐原亮司那天在家，警察问他父亲几点出门，他说七点，母亲说六点半。没人追究这半小时。管道口有一道小小的手印，笹垣没有在意。十九年后他才明白，那是谁的。</p>
+    </section>
+
+    <section class="event" id="byx02" style="--c:#3d4653"
+      data-color="#3d4653" data-era="最初的罪" data-short="母亲的“意外”" data-label="1973 年 · 大阪 · 西本家">
+      <div class="ev-when">1973 年<em>大阪 · 西本家</em></div>
+      <h2>母亲的“意外”</h2>
+      <p>西本文代死的时候，女儿西本雪穗在家。煤气灶上煮着味噌汤，窗户关得严严实实。警察判定是意外，因为西本太太那阵子一直在喝酒。只有一件事对不上：雪穗说她是听见门铃去开门，才发现母亲倒在地上，可那栋楼的门铃坏了半年。笹垣第二次见到这个女孩，她站在楼道里，脸色很白，眼睛很静。他说：你妈妈走了。她说：我知道。然后弯腰把门口的拖鞋摆正了。这个动作他记了十九年。</p>
+    </section>
+
+    <section class="event" id="byx03" style="--c:#3d4653"
+      data-color="#3d4653" data-era="最初的罪" data-short="剪刀" data-label="1974 年 · 大阪">
+      <div class="ev-when">1974 年<em>大阪</em></div>
+      <h2>剪刀</h2>
+      <p>亮司把父亲那把剪刀收进了抽屉。那是当铺里裁布用的老式剪刀，刃口磨得发亮。夏天他一个人在楼顶待到天黑，用剪刀剪纸，剪出一张又一张男孩和女孩牵着手的形状。邻居说这孩子安静，从不吵闹。母亲弥生子那年开始经常不在家，回来时身上有酒味。有一次她问：那天晚上你去哪了？亮司说：在家。她说：你爸死了。他说：我知道。然后低下头，继续剪纸。弥生子后来搬去了一家小酒馆做事，把儿子一个人留在那套房子里。房子有两间，他住朝北的那间。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">两个好学生</span>
+      <span class="era-sub">04 — 28</span>
+    </div>
+
+    <section class="event" id="byx04" style="--c:#3d4653"
+      data-color="#3d4653" data-era="两个好学生" data-short="两个优等生" data-label="1977 年 · 大阪 · 中学">
+      <div class="ev-when">1977 年<em>大阪 · 中学</em></div>
+      <h2>两个优等生</h2>
+      <p>雪穗被唐泽礼子收养，搬到了成城。礼子教她茶道和花道，教她怎么走路、怎么说话、怎么在别人面前把腰弯得恰到好处。雪穗学得比谁都快。中学里她的成绩是年级第一，作文被贴在走廊上。同年级的桐原亮司在另一所学校，成绩也好，但没人注意他。他们从不说话。有一次两校联合办活动，两人在走廊上迎面走过，谁都没有侧头。走过去了，雪穗的手指在裙缝上轻轻动了一下。班上还有个叫藤村都子的女生，成绩和她不相上下，也说过她的闲话。都子后来在一次放学后出了事，雪穗是第一个赶到的人。</p>
+    </section>
+
+    <section class="event" id="byx05" style="--c:#3d4653"
+      data-color="#3d4653" data-era="两个好学生" data-short="皮条客" data-label="1978 年 · 大阪">
+      <div class="ev-when">1978 年<em>大阪</em></div>
+      <h2>皮条客</h2>
+      <p>亮司十六岁开始替人介绍女孩。他不做别的，只当中介，抽三成，从不多要。找他的人说他讲信用，从不出卖客人的名字。有一次一个客人打了他介绍的女孩，亮司第二天带着那把剪刀去了，把人堵在巷子里。他没有动手，只是把剪刀打开又合上，说：再有下一次，我剪的不是头发。那人后来再没在这一带出现过。警察多年后查这段往事，找不到任何记录——他从不留名字。中介这一行他做到十八岁就收了。收手那天他把记着客人名字的本子烧了，说：以后不做了。</p>
+    </section>
+
+    <section class="event" id="byx06" style="--c:#3d4653"
+      data-color="#3d4653" data-era="两个好学生" data-short="盗版游戏" data-label="1979 年 · 大阪">
+      <div class="ev-when">1979 年<em>大阪</em></div>
+      <h2>盗版游戏</h2>
+      <p>亮司和园村友彦在公寓里做盗版游戏卡带。那时任天堂一盘卡带要六千日元，他们卖两千。友彦管技术，亮司管渠道。有一次被黑道盯上，亮司一个人去了，回来时衬衫上有血，说是自己摔的。友彦问要不要收手。亮司说：我做的事，都是我自己选的。他把赚的钱分成三份：一份给友彦，一份留着，一份装进信封，塞进一个没人知道的地方。那年冬天友彦的母亲住院，手术费有人匿名交齐了。友彦后来问是不是他，亮司说：不是我。</p>
+    </section>
+
+    <section class="event" id="byx07" style="--c:#3d4653"
+      data-color="#3d4653" data-era="两个好学生" data-short="社交舞社" data-label="1980 年 · 大阪 · 高中">
+      <div class="ev-when">1980 年<em>大阪 · 高中</em></div>
+      <h2>社交舞社</h2>
+      <p>雪穗进了清华女子大学英文系，加入社交舞社。社长高宫诚是富家子弟，家里开医疗器械公司。雪穗第一次跳舞时脚步跟不上，高宫诚说：没关系，跟着我。她抬头看了他一眼，笑了一下。那天晚上高宫诚跟朋友说：那个女孩不一样。朋友问哪里不一样。他说：她看着你的时候，你觉得她在听你说话。其实她在算。舞社排练结束，雪穗总会留下来把椅子摆好。有人问她为什么，她说：我喜欢整齐。她摆椅子的时候，会把每一把的间距都量成一样宽。</p>
+    </section>
+
+    <section class="event" id="byx08" style="--c:#3d4653"
+      data-color="#3d4653" data-era="两个好学生" data-short="英语会话" data-label="1981 年 · 大阪 · 大学">
+      <div class="ev-when">1981 年<em>大阪 · 大学</em></div>
+      <h2>英语会话</h2>
+      <p>雪穗在大学附近报了英语会话班，学费不便宜，她自己打工付。同班的三泽千都留是个老实姑娘，两人成了朋友。雪穗会约她喝茶，记得她生日，会在她失恋的时候陪她坐到天黑。千都留说：雪穗是我见过最好的人。后来千都留才知道，那一年雪穗从她嘴里问走了高宫诚所有的行程、喜好，还有他每天坐哪一趟电车、坐第几节车厢。毕业那天千都留送她一条手帕，雪穗收下，说：我会一直用。三年后千都留在百货公司的柜台后面看见她，她身边站着高宫诚，那条手帕不在她身上。</p>
+    </section>
+
+    <section class="event" id="byx09" style="--c:#3d4653"
+      data-color="#3d4653" data-era="两个好学生" data-short="典子" data-label="1981 年 · 大阪">
+      <div class="ev-when">1981 年<em>大阪</em></div>
+      <h2>典子</h2>
+      <p>亮司在一家小酒吧认识了栗原典子。她是医院的药剂师，三十岁，一个人住，养一只猫。她问他做什么工作。他说：什么都做一点。她说：那你一定很累。亮司愣了一下——很久没有人这样跟他说话了。他开始偶尔去她那里过夜，天亮前走。典子给了他一把钥匙。他用过三次，每次都在她上班的时候。典子问他：你有没有想过以后？他说：我没有以后。她笑他矫情，替他把外套挂好。那件外套口袋里有一把剪刀，她摸到过，没有问。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">白天与黑夜</span>
+      <span class="era-sub">10 — 28</span>
+    </div>
+
+    <section class="event" id="byx10" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="黑市" data-label="1982 年 · 大阪">
+      <div class="ev-when">1982 年<em>大阪</em></div>
+      <h2>黑市</h2>
+      <p>亮司那几年做的生意越来越杂：盗版软件、假信用卡、帮人办假身份。他给自己换过好几个名字，最常用的一个叫秋吉雄一。他在新宿租了一间小屋，墙上贴满便签，写着日期、地点和名字。友彦见过一次，问这是什么。亮司说：账。友彦说：什么账？他没有回答。那些便签上有几个名字后面画了叉，友彦没敢再看第二眼。画了叉的名字里有一个是女人。友彦问过一次，亮司说：她不该知道太多。后来友彦在报纸上看见那个名字，后面印着两个字：失踪。</p>
+    </section>
+
+    <section class="event" id="byx11" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="第一桩命案" data-label="1983 年 · 大阪">
+      <div class="ev-when">1983 年<em>大阪</em></div>
+      <h2>第一桩命案</h2>
+      <p>西口奈美江是银行职员，帮亮司洗钱，前后挪了两千万。事情快暴露时她来找亮司，说想跑。亮司说：好，我帮你。他给她订了酒店，买了车票，还塞给她一笔现金。第二天早上，奈美江死在酒店的床上，被自己的丝巾勒死。警方查了很久，查不出凶手。亮司那天照常去店里上班，进门跟友彦说了声早。友彦看见他袖口有一点洗不掉的暗色。案子最后定性为「强盗杀人」，没有嫌疑人。奈美江的姐姐来认尸，问警察：她身上那块表呢？警察说没找到。那块表后来出现在当铺的账上。</p>
+    </section>
+
+    <section class="event" id="byx12" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="高宫诚的婚礼" data-label="1985 年 · 东京 · 婚礼">
+      <div class="ev-when">1985 年<em>东京 · 婚礼</em></div>
+      <h2>高宫诚的婚礼</h2>
+      <p>婚礼在东京一家酒店办，三百多人。雪穗穿白无垢，笑得很得体。高宫诚的母亲原本反对这门婚事，理由是雪穗出身不明。雪穗用了两年时间让这位母亲改口：每周去一次，带自己做的点心，从不反驳一句。婚礼上母亲致辞说：我这个媳妇，比我儿子懂事。全场鼓掌。雪穗低头，眼睛弯起来。那天亮司在酒店后门站了一小时，抽了三根烟，没有进去。他在后门的台阶上把烟按灭，听见里面在放一支很老的曲子，是新郎新娘进场时放的。他把烟头捡起来，扔进垃圾桶，然后走了。</p>
+    </section>
+
+    <section class="event" id="byx13" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="新婚之夜" data-label="1985 年 · 大阪">
+      <div class="ev-when">1985 年<em>大阪</em></div>
+      <h2>新婚之夜</h2>
+      <p>新婚之夜高宫诚想碰她，她说今天太累了。第二天说身体不舒服，第三天说妈妈那边有事。一个月过去，高宫诚开始怀疑自己。雪穗从不把拒绝说得难听，她只是让他觉得是自己不好。有一次她背对着他说：对不起，我可能有问题。高宫诚说：没关系，我们慢慢来。她没有回头。她知道这句话会让他愧疚一辈子。高宫诚后来在回忆里写：那几年我总觉得自己做错了什么，可我想不出来。他不知道，一个人只要不断被暗示「你有问题」，最后就会真的相信。</p>
+    </section>
+
+    <section class="event" id="byx14" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="不孕" data-label="1986 年 · 大阪">
+      <div class="ev-when">1986 年<em>大阪</em></div>
+      <h2>不孕</h2>
+      <p>结婚第二年，雪穗去医院做了检查。医生说她的身体没有问题。她回家把报告放在桌上，高宫诚看了很久。她说：也许是我的心有问题。高宫诚说：不是你的错。从那以后，家里再没提过孩子。高宫诚的母亲来过一次，走的时候脸色很难看。雪穗送她到门口，说：妈妈慢走。门关上，她在玄关站了一会儿，然后去厨房烧水。那天晚上高宫诚在书房睡的。雪穗一个人在卧室里把体检报告折了三折，放进抽屉最里面。她不需要孩子，她只需要这个家一直是她的。</p>
+    </section>
+
+    <section class="event" id="byx15" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="离婚" data-label="1987 年 · 大阪">
+      <div class="ev-when">1987 年<em>大阪</em></div>
+      <h2>离婚</h2>
+      <p>高宫诚在外面认识了千都留——其实是多年前就该认识的人，只是当年错过了。雪穗早就知道。她请人查了两个月，把每一次见面的时间地点记在一个本子上，然后挑了一个合适的下午，把本子放在客厅茶几上，自己出门了。高宫诚回家看见本子，坐了一夜。离婚时他净身出户，说：是我对不起你。雪穗说：不，是我不好。签字那天雪穗穿了一件浅灰的套装，头发挽得很整齐。她在门口对高宫诚说：以后有事可以找我。高宫诚点头，走出去十几米才想起来，这句话通常该是他说的。</p>
+    </section>
+
+    <section class="event" id="byx16" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="第一家店" data-label="1988 年 · 大阪 · 心斋桥">
+      <div class="ev-when">1988 年<em>大阪 · 心斋桥</em></div>
+      <h2>第一家店</h2>
+      <p>雪穗在心斋桥开了一家服装精品店，叫 R&Y。开业那天她穿一身黑，站在门口迎客，笑得很淡。店里的衣服都是她亲自挑的，价位不低，来的都是有钱人家的太太。有人说她运气好，离婚还能开店。她听了只是笑。只有她自己知道开店的钱是从哪来的，那笔钱在银行里躺了三年，一分一分洗干净。R&Y，R 是他，Y 是她。这两个字母她写了十年，没有人问过。开业第一个月她亏了钱，第二个月打平，第三个月开始有人专门从东京过来。</p>
+    </section>
+
+    <section class="event" id="byx17" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="筱冢一成" data-label="1989 年 · 大阪">
+      <div class="ev-when">1989 年<em>大阪</em></div>
+      <h2>筱冢一成</h2>
+      <p>筱冢一成是筱冢药品的长子，第一次见雪穗是在一次联谊会上。所有人都在跟她说话，只有他坐在角落。雪穗走过去，说：你好像不太喜欢热闹。一成说：我不喜欢假的东西。她笑了一下，说：那你要小心我。一成后来跟朋友说：那个女人，我看不透。朋友说：你看不透是因为你想看。一成没有说话——他知道朋友说对了。联谊会散场时下着雨，一成把自己的伞给了川岛江利子——那个总跟在雪穗身后的女孩。雪穗站在台阶上看着，没有过去。她记住了那把伞的颜色。</p>
+    </section>
+
+    <section class="event" id="byx18" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="亮司的公司" data-label="1990 年 · 东京">
+      <div class="ev-when">1990 年<em>东京</em></div>
+      <h2>亮司的公司</h2>
+      <p>亮司在东京开了一家叫 MUGEN 的公司，做电脑软件。办公室在写字楼九层，员工十几个人，都以为老板姓秋吉。他从不参加年终聚会，从不让别人拍照，名片上只有公司名字和电话。有一次员工在电梯里问他：社长，你住在哪？他说：很近。其实他住在公司楼下的一间小屋，窗户朝北，一年四季不见太阳。公司的账干净得像刚开的。友彦看过一次，说：你这账，连我都查不出问题。亮司说：因为本来就没有问题。他指的是这一本。</p>
+    </section>
+
+    <section class="event" id="byx19" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="窃听" data-label="1991 年 · 东京">
+      <div class="ev-when">1991 年<em>东京</em></div>
+      <h2>窃听</h2>
+      <p>雪穗要拿下一个客户，对方是个老派的布料商。亮司在他家的电话线上装了窃听器，听了两个月，把他所有的软肋记下来：怕老婆、欠赌债、儿子考不上大学。雪穗在饭桌上只提了一句：听说令郎在准备考试？那人脸色变了。三天后合同签了。亮司拆窃听器时，把那卷录音带带走了。他留着所有东西：一屋子的带子，一箱子的照片。带子最后装在一个纸箱里，箱子放在储物间的最高一层。他从不听，也不扔。有一次典子问箱子里是什么，他说：以前的账。</p>
+    </section>
+
+    <section class="event" id="byx20" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="银行卡" data-label="1992 年 · 东京">
+      <div class="ev-when">1992 年<em>东京</em></div>
+      <h2>银行卡</h2>
+      <p>雪穗用别人的名字办了十几张银行卡，每张卡里的钱都不超过报警线。她把这些卡交给亮司，亮司再分给不同的人去取。取钱的人彼此不认识，也不知道钱是谁的。有一次一个取钱的人被警察盘问，亮司当天就把那条线全部停掉，损失了八百万。友彦说：太狠了。亮司说：命比钱贵。他说的是别人的命。取钱的人里有一个大学生，被抓住后什么都没说。亮司替他把学费交到毕业，还给他介绍了一份工作。那人对谁都说：我不认识什么秋吉。</p>
+    </section>
+
+    <section class="event" id="byx21" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="今枝" data-label="1993 年 · 东京">
+      <div class="ev-when">1993 年<em>东京</em></div>
+      <h2>今枝</h2>
+      <p>今枝直巳是私家侦探，受筱冢一成委托调查雪穗。他跟了三个月，拍了两百多张照片，查到她少女时代的户籍是伪造的。他把这些整理成一份报告，约一成在一家咖啡馆见面。那天他没有到。三天后有人在空屋里发现他，死因是氰化钾中毒，桌上的咖啡还温着。警察在杯子上只找到他自己的指纹。一成本来要去的，那天临时改了行程。今枝的遗物里有一个没寄出的信封，收件人是一成。里面只有一张照片：雪穗站在 R&Y 门口，阳光很好，影子落在台阶上，有两个。</p>
+    </section>
+
+    <section class="event" id="byx22" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="雪穗的第二次婚姻" data-label="1994 年 · 东京">
+      <div class="ev-when">1994 年<em>东京</em></div>
+      <h2>雪穗的第二次婚姻</h2>
+      <p>筱冢康晴是一成的堂兄，四十多岁，丧偶，有一个女儿。他在一次宴会上认识雪穗，回去就跟一成说：我要娶她。一成说：不行。康晴问为什么。一成说：我说不出理由，但我求你。康晴还是娶了。婚礼比第一次小，雪穗这回穿的是西式婚纱。她在致辞里说：我这一生，最想要的就是一个家。台下有人擦眼泪。一成坐在最后一排，一直看着她的手。康晴的女儿美佳在婚礼上一直没笑。雪穗蹲下来跟她平视，说：以后我们是一家人了。美佳转过头。雪穗还蹲着，笑了一下才站起来。</p>
+    </section>
+
+    <section class="event" id="byx23" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="养母之死" data-label="1995 年 · 大阪">
+      <div class="ev-when">1995 年<em>大阪</em></div>
+      <h2>养母之死</h2>
+      <p>唐泽礼子那年住了院，病不重，医生说观察几天就能出院。雪穗每天去，喂饭、擦身、读报。第五天夜里，礼子死了。医院说是心力衰竭。护士记得那天晚上雪穗来过，待了二十分钟就走了。礼子死后，雪穗继承了她在大阪的房子和一笔存款。她在葬礼上哭得很伤心，致辞几度说不下去。那几天亮司也在大阪，住在一家便宜的旅馆里。礼子死后第三天，雪穗把那间教茶道的屋子重新铺了榻榻米，挂轴换成一幅雪景。有人夸她孝顺，她说：妈妈喜欢干净。</p>
+    </section>
+
+    <section class="event" id="byx24" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="美佳" data-label="1996 年 · 东京">
+      <div class="ev-when">1996 年<em>东京</em></div>
+      <h2>美佳</h2>
+      <p>美佳是康晴的女儿，十四岁，从一开始就恨这个后妈。她把雪穗的鞋子藏起来，在她的茶里放盐。雪穗从不生气，只是笑。有一天美佳放学回家，被人从背后捂住嘴拖进车里。她醒来时躺在一间空屋，衣服被脱了，有人拍了照。雪穗是第一个赶到的人。她抱住美佳，说：不要怕，姐姐在。从那以后，美佳再没有跟她顶过一句嘴。后来美佳的桌上多了一支口红，颜色是雪穗常用的那种。她扔掉，第二天又出现一支。第三次她没扔，把它放进了笔袋。</p>
+    </section>
+
+    <section class="event" id="byx25" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="追查" data-label="1997 年 · 东京">
+      <div class="ev-when">1997 年<em>东京</em></div>
+      <h2>追查</h2>
+      <p>笹垣润三退休了，但案子没结。他一个人把十九年的卷宗重看了一遍，把当年的每一个证人都找了一遍。他找到西本家的旧邻居，找到那栋大楼的施工图，找到亮司母亲现在的住址。他去见弥生子，问：那天晚上你儿子几点回家？弥生子说：我不记得了。笹垣说：你记得。她说：我记得，但我不能说。他说：为什么？她说：因为他是我儿子。离开时弥生子送他到门口，忽然说：警官，那孩子小时候很爱笑。笹垣说：我知道。她说：是我把他变成这样的。笹垣没有接话。</p>
+    </section>
+
+    <section class="event" id="byx26" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白天与黑夜" data-short="开业" data-label="1998 年 · 大阪 · 心斋桥">
+      <div class="ev-when">1998 年<em>大阪 · 心斋桥</em></div>
+      <h2>开业</h2>
+      <p>大阪心斋桥的 R&Y 分店开业，是雪穗最大的一家店。开业前一天她接到一个电话，挂断后坐在椅子上很久没动。第二天她照常到场，剪彩、致辞、接受采访。有人在人群里看见一个穿黑外套的男人，站了一会儿就走了。雪穗剪彩时手抖了一下，剪刀落在地上。她弯腰捡起来，笑着说：不好意思，我太紧张了。开业当天卖出三十七件衣服，其中三件是同一个人买的。店员说那位客人戴着帽子，付现金，没留名字。雪穗听完，只说了句：知道了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">白夜</span>
+      <span class="era-sub">27 — 28</span>
+    </div>
+
+    <section class="event" id="byx27" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白夜" data-short="坠落" data-label="1998 年 · 大阪 · 心斋桥">
+      <div class="ev-when">1998 年<em>大阪 · 心斋桥</em></div>
+      <h2>坠落</h2>
+      <p>笹垣在店门口等到了亮司。亮司看见他，转身就跑。他跑上楼梯，跑到二楼，跨过栏杆。笹垣喊了一声：等等！亮司回头看了他一眼，然后跳了下去。他胸口插着那把剪刀——他从十一岁起就一直留着的那把。笹垣跑过去，听见他说了最后一句话：我累了。人群围上来。雪穗站在店门口，脸白得像纸。她没有哭，没有喊，只是转身走了回去。急救车来的时候他已经没有呼吸。警察在他口袋里找到一枚钥匙和一张折得很小的纸，纸上是一栋房子的平面图，画着一扇窗。</p>
+    </section>
+
+    <section class="event" id="byx28" style="--c:#3d4653"
+      data-color="#3d4653" data-era="白夜" data-short="白夜" data-label="1998 年 · 大阪">
+      <div class="ev-when">1998 年<em>大阪</em></div>
+      <h2>白夜</h2>
+      <p>警察问雪穗：你认识那个人吗？她说不认识。语气很平静，眼睛没有躲。笹垣站在旁边看着她的脸，看了很久。他想起十九年前那个在楼道里把拖鞋摆正的小女孩。他想说点什么，最后什么也没说。案子结了，档案上写着「嫌疑人不明」。笹垣后来在自己的笔记里写过一句话：他们两个人，一个在白天走路，一个在黑夜行走。他们没有太阳，所以不怕失去。写完他合上本子，再没打开过。笹垣活到八十七岁。有人问他这辈子最难办的案子是哪个，他说了一个名字，说完又摇头：不是案子难，是人难。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 28</span>
+        </div>
+        <div class="rail-era" id="railNow">1973 年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“我的人生，从来就没有太阳，所以不怕失去。”</p>
+  <p class="tiny">白夜行 · 东野圭吾　·　28 个时间点，18 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

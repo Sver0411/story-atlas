@@ -24,10 +24,22 @@ QUOTES = {
     'to-live': '少年去游荡，中年想掘藏，老年做和尚。',
     'foundation': '暴力是无能者的最后手段。',
     'thrones': '在权力的游戏里，你不赢就得死。',
+    'byakuyakou': '我的人生，从来就没有太阳，所以不怕失去。',
 }
 
 
 DECOR = {
+'byakuyakou': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="282" r="128" fill="none" stroke="#8e97a6" stroke-width="1"/>
+  <circle cx="300" cy="282" r="128" fill="none" stroke="#8e97a6" stroke-width=".5" stroke-dasharray="2 10" transform="rotate(26 300 282)"/>
+  <path d="M300 116 V66" stroke="#8e97a6" stroke-width=".7"/>
+  <path d="M300 512 V462" stroke="#8e97a6" stroke-width=".7"/>
+  <path d="M214 430 L292 316" stroke="#6f7787" stroke-width="1.2"/>
+  <path d="M386 430 L308 316" stroke="#6f7787" stroke-width="1.2"/>
+  <circle cx="207" cy="437" r="10" fill="none" stroke="#6f7787" stroke-width="1"/>
+  <circle cx="393" cy="437" r="10" fill="none" stroke="#6f7787" stroke-width="1"/>
+  <path d="M300 282 V196" stroke="#6f7787" stroke-width=".6" stroke-dasharray="3 8"/>
+</svg>''',
 'monte-cristo': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <g fill="none" stroke="#c2b9a8" stroke-width="1">
     <path d="M20 400 Q120 356 220 400 T420 400 T620 400"/>
@@ -171,7 +183,7 @@ def build_index(b):
             fn, cap = slots[i]
             parts.append(
                 '\n      <figure class="ev-fig"><img src="../../img/anthology/%s" alt="%s" loading="lazy">'
-                '<figcaption>%s · AI 概念插图</figcaption></figure>\n' % (fn, esc(cap), esc(cap)))
+                '<figcaption>%s · 概念配图</figcaption></figure>\n' % (fn, esc(cap), esc(cap)))
 
     hero = '''<header class="masthead">
   <div class="hero-deco">%s</div>
