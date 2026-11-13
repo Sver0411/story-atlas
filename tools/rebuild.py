@@ -50,10 +50,21 @@ QUOTES = {
     'border-town': '这个人也许永远不回来了，也许明天回来。',
     'red-poppies': '我听见了尘埃落定的声音。',
     'muslim-funeral': '玉碎了，月亮还在。',
+    'demi-gods': '无人不冤，有情皆孽。',
 }
 
 
 DECOR = {
+'demi-gods': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M120 470 H480" stroke="#9c8a6a" stroke-width="1"/>
+  <path d="M150 470 V370 H230 V470 M370 470 V370 H450 V470" fill="none" stroke="#8d7c5c" stroke-width=".9"/>
+  <path d="M150 400 H230 M370 400 H450" stroke="#8d7c5c" stroke-width=".5"/>
+  <path d="M300 200 V330" stroke="#8c3a34" stroke-width="1.3"/>
+  <path d="M282 330 H318" stroke="#8c3a34" stroke-width="1.1"/>
+  <path d="M300 330 V370" stroke="#8c3a34" stroke-width=".8"/>
+  <path d="M300 180 l6 20 l-6 6 l-6 -6 Z" fill="none" stroke="#8c3a34" stroke-width=".7"/>
+  <path d="M120 512 H480" stroke="#b5a68a" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'muslim-funeral': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <circle cx="300" cy="250" r="76" fill="none" stroke="#8f9aa6" stroke-width="1"/>
   <path d="M300 174 a76 76 0 0 0 0 152 a58 58 0 0 1 0 -152" fill="none" stroke="#a8b2bc" stroke-width=".5"/>

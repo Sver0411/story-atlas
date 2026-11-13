@@ -400,5 +400,17 @@
     "events": 22,
     "people": 10,
     "scope": "全本 · 1919—1979"
+  },
+  {
+    "id": "demi-gods",
+    "title": "天龙八部",
+    "author": "金庸",
+    "category": "武侠",
+    "description": "无人不冤，有情皆孽。",
+    "accent": "#4a3f33",
+    "cover": "",
+    "events": 23,
+    "people": 17,
+    "scope": "全本 · 1094—1097"
   }
 ]
