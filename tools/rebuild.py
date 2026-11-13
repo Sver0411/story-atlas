@@ -53,10 +53,21 @@ QUOTES = {
     'demi-gods': '无人不冤，有情皆孽。',
     'legend-condor': '侠之大者，为国为民。',
     'swordman': '只要有人的地方就有恩怨，有恩怨就有江湖。',
+    'deer-cauldron': '老子不干了。',
 }
 
 
 DECOR = {
+'deer-cauldron': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M232 260 H368 L352 400 H248 Z" fill="none" stroke="#a08a5e" stroke-width="1.2"/>
+  <path d="M232 260 H368" stroke="#a08a5e" stroke-width="1.6"/>
+  <path d="M262 232 q38 -18 76 0" fill="none" stroke="#a08a5e" stroke-width="1"/>
+  <path d="M248 300 H352 M244 340 H356" stroke="#b8a276" stroke-width=".4"/>
+  <path d="M300 232 v-26" stroke="#8c3a34" stroke-width=".8"/>
+  <circle cx="300" cy="200" r="5" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M120 470 H480" stroke="#b8a276" stroke-width=".8"/>
+  <path d="M150 500 H450" stroke="#c9b58a" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'swordman': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M300 160 V360" stroke="#8d8a72" stroke-width="1.4"/>
   <path d="M300 160 l5 16 l-5 8 l-5 -8 Z" fill="none" stroke="#8d8a72" stroke-width=".8"/>
