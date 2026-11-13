@@ -124,5 +124,17 @@
     "events": 22,
     "people": 13,
     "scope": "全本 · 含结局与手稿"
+  },
+  {
+    "id": "orient-express",
+    "title": "东方快车谋杀案",
+    "author": "阿加莎·克里斯蒂",
+    "category": "推理",
+    "description": "大雪把列车困在荒野，死者身上十二处刀伤。",
+    "accent": "#5b4436",
+    "cover": "",
+    "events": 27,
+    "people": 17,
+    "scope": "全本 · 含两种结局"
   }
 ]

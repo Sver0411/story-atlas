@@ -27,10 +27,29 @@ QUOTES = {
     'byakuyakou': '我的人生，从来就没有太阳，所以不怕失去。',
     'suspect-x': '有时候，一个人只要好好活着，就足以拯救某个人。',
     'and-then-there-were-none': '一个小士兵，落单孤零零，悬梁了此生，一个也不剩。',
+    'orient-express': '我荣幸地退出这个案子。',
 }
 
 
 DECOR = {
+'orient-express': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g stroke="#b9a894" stroke-width=".6">
+    <path d="M40 400 L560 300"/><path d="M40 430 L560 322"/>
+  </g>
+  <g stroke="#a08c76" stroke-width=".9">
+    <path d="M120 414 V438 M180 405 V428 M240 395 V417 M300 386 V407 M360 376 V396 M420 366 V386 M480 356 V375"/>
+  </g>
+  <g fill="#d8cec0">
+    <circle cx="150" cy="180" r="2.2"/><circle cx="214" cy="140" r="1.6"/><circle cx="284" cy="196" r="2"/>
+    <circle cx="352" cy="132" r="1.8"/><circle cx="418" cy="188" r="2.2"/><circle cx="470" cy="150" r="1.5"/>
+    <circle cx="196" cy="236" r="1.8"/><circle cx="330" cy="248" r="1.6"/><circle cx="440" cy="242" r="2"/>
+  </g>
+  <rect x="248" y="286" width="104" height="34" fill="none" stroke="#8c6a50" stroke-width="1"/>
+  <path d="M248 303 H352" stroke="#8c6a50" stroke-width=".6"/>
+  <circle cx="286" cy="320" r="14" fill="none" stroke="#8c6a50" stroke-width=".8"/>
+  <circle cx="322" cy="320" r="14" fill="none" stroke="#8c6a50" stroke-width=".8"/>
+  <circle cx="300" cy="303" r="2" fill="#8c3a34"/>
+</svg>''',
 'and-then-there-were-none': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <g stroke="#9aa8a0" stroke-width="1">
     <path d="M60 470 H540"/>
