@@ -3,46 +3,693 @@
     "coverAlt": "晨光中的海上石砌伊夫堡，帆船在岛下驶过",
     "coverCaption": "伊夫堡与地中海 · 场景意象",
     "events": {
-      "mc04": {"file":"monte-cristo.jpg","caption":"伊夫堡 · 被隔绝的人生","alt":"地中海上的伊夫堡以高石墙隔绝外部世界"},
-      "mc07": {"file":"monte-faria.jpg","caption":"石牢中的法里亚与唐泰斯 · 场景概念图","alt":"狭小石牢里，年老的法里亚在简陋桌前教授年轻囚徒知识"},
-      "mc18": {"file":"monte-paris.jpg","caption":"巴黎社交场中的陌生人 · 身份与布局的意象","alt":"十九世纪巴黎沙龙中，黑礼服男子背对画面观察远处宾客"}
+      "mc04": {
+        "file": "monte-cristo.jpg",
+        "caption": "伊夫堡 · 被隔绝的人生",
+        "alt": "地中海上的伊夫堡以高石墙隔绝外部世界"
+      },
+      "mc07": {
+        "file": "monte-faria.jpg",
+        "caption": "石牢中的法里亚与唐泰斯 · 场景概念图",
+        "alt": "狭小石牢里，年老的法里亚在简陋桌前教授年轻囚徒知识"
+      },
+      "mc18": {
+        "file": "monte-paris.jpg",
+        "caption": "巴黎社交场中的陌生人 · 身份与布局的意象",
+        "alt": "十九世纪巴黎沙龙中，黑礼服男子背对画面观察远处宾客"
+      }
     }
   },
   "solitude": {
     "coverAlt": "栗树下的布恩迪亚家屋与热带村镇马孔多",
     "coverCaption": "马孔多的家屋与栗树 · 场景意象",
     "events": {
-      "so02": {"file":"solitude.jpg","caption":"马孔多 · 家屋与栗树的场景意象","alt":"热带山地村镇中，栗树遮蔽白墙瓦顶的家屋"},
-      "so23": {"file":"solitude-train.jpg","caption":"火车带来的世界 · 场景概念图","alt":"黑色蒸汽机车牵引黄色车厢来到热带村镇，人们在路边观看"},
-      "so31": {"file":"solitude-rain.jpg","caption":"漫长的雨 · 老宅与庭院的衰败","alt":"持续的热带大雨浸湿庭院，摇椅空置在屋檐下，植物侵入老宅"}
+      "so02": {
+        "file": "solitude.jpg",
+        "caption": "马孔多 · 家屋与栗树的场景意象",
+        "alt": "热带山地村镇中，栗树遮蔽白墙瓦顶的家屋"
+      },
+      "so23": {
+        "file": "solitude-train.jpg",
+        "caption": "火车带来的世界 · 场景概念图",
+        "alt": "黑色蒸汽机车牵引黄色车厢来到热带村镇，人们在路边观看"
+      },
+      "so31": {
+        "file": "solitude-rain.jpg",
+        "caption": "漫长的雨 · 老宅与庭院的衰败",
+        "alt": "持续的热带大雨浸湿庭院，摇椅空置在屋檐下，植物侵入老宅"
+      }
     }
   },
   "lotr": {
     "coverAlt": "夏尔丘陵与圆门小屋前，霍比特旅人沿小径离开",
     "coverCaption": "夏尔 · 旅途的起点意象",
     "events": {
-      "lr04": {"file":"lotr.jpg","caption":"走出夏尔 · 旅途起点的场景意象","alt":"圆门小屋和绿丘陵间，背着行囊的霍比特人踏上小路"},
-      "lr10": {"file":"lotr-moria.jpg","caption":"摩瑞亚桥 · 深渊与火焰","alt":"巨大地下深渊上，灰袍巫师站在极窄石桥中面对远处火焰中的阴影"},
-      "lr29": {"file":"lotr-volcano.jpg","caption":"末日火山 · 抵达裂隙前的最后一段路","alt":"两个渺小旅人在黑色火山坡上艰难前进，远处山腰入口透出红光"},
-      "lr36": {"file":"lotr-havens.jpg","caption":"灰港 · 留在岸上的告别","alt":"三个霍比特人的背影站在石码头上，白帆船驶向金色海面"}
+      "lr04": {
+        "file": "lotr.jpg",
+        "caption": "走出夏尔 · 旅途起点的场景意象",
+        "alt": "圆门小屋和绿丘陵间，背着行囊的霍比特人踏上小路"
+      },
+      "lr10": {
+        "file": "lotr-moria.jpg",
+        "caption": "摩瑞亚桥 · 深渊与火焰",
+        "alt": "巨大地下深渊上，灰袍巫师站在极窄石桥中面对远处火焰中的阴影"
+      },
+      "lr29": {
+        "file": "lotr-volcano.jpg",
+        "caption": "末日火山 · 抵达裂隙前的最后一段路",
+        "alt": "两个渺小旅人在黑色火山坡上艰难前进，远处山腰入口透出红光"
+      },
+      "lr36": {
+        "file": "lotr-havens.jpg",
+        "caption": "灰港 · 留在岸上的告别",
+        "alt": "三个霍比特人的背影站在石码头上，白帆船驶向金色海面"
+      }
     }
   },
   "dune": {
     "coverAlt": "厄拉科斯的巨大沙丘与岩壁下的隐蔽穴地，两个蒸馏服旅人走过",
     "coverCaption": "厄拉科斯 · 沙漠与穴地意象",
     "events": {
-      "du16": {"file":"dune.jpg","caption":"沙漠中的新生存方式 · 穴地意象","alt":"穿蒸馏服的两个旅人穿过广阔沙丘，岩壁上藏着小型洞口"},
-      "du18": {"file":"dune-water.jpg","caption":"地下储水池 · 弗雷曼人长期计划的意象","alt":"天然岩洞中保存着巨大储水池，两名蒸馏服人物站在干燥石阶上"},
-      "du24": {"file":"dune-worm.jpg","caption":"驾驭沙虫 · 沙漠中的远行","alt":"巨型环节沙虫穿行于沙丘中，微小骑手用钩索站在其背上"}
+      "du16": {
+        "file": "dune.jpg",
+        "caption": "沙漠中的新生存方式 · 穴地意象",
+        "alt": "穿蒸馏服的两个旅人穿过广阔沙丘，岩壁上藏着小型洞口"
+      },
+      "du18": {
+        "file": "dune-water.jpg",
+        "caption": "地下储水池 · 弗雷曼人长期计划的意象",
+        "alt": "天然岩洞中保存着巨大储水池，两名蒸馏服人物站在干燥石阶上"
+      },
+      "du24": {
+        "file": "dune-worm.jpg",
+        "caption": "驾驭沙虫 · 沙漠中的远行",
+        "alt": "巨型环节沙虫穿行于沙丘中，微小骑手用钩索站在其背上"
+      }
     }
   },
   "red-chamber": {
     "coverAlt": "大观园的竹林、白墙、池水与回廊间，女子与侍女沿小路行走",
     "coverCaption": "大观园 · 园林场景意象",
     "events": {
-      "rc10": {"file":"red-chamber.jpg","caption":"住进大观园 · 园林意象","alt":"竹林白墙与池水回廊围合的园林中，女子与侍女走在小径上"},
-      "rc11": {"file":"red-chamber-flowers.jpg","caption":"黛玉葬花 · 花锄与落花","alt":"女子背对画面持花锄与花袋，在桃树下收拢落花，旁边是一小处花冢"},
-      "rc40": {"file":"red-chamber-snow.jpg","caption":"雪中离去 · 通行一百二十回本结尾意象","alt":"雪中小路上，红毡斗篷的青年随一僧一道远去，老人在路旁目送"}
+      "rc10": {
+        "file": "red-chamber.jpg",
+        "caption": "住进大观园 · 园林意象",
+        "alt": "竹林白墙与池水回廊围合的园林中，女子与侍女走在小径上"
+      },
+      "rc11": {
+        "file": "red-chamber-flowers.jpg",
+        "caption": "黛玉葬花 · 花锄与落花",
+        "alt": "女子背对画面持花锄与花袋，在桃树下收拢落花，旁边是一小处花冢"
+      },
+      "rc40": {
+        "file": "red-chamber-snow.jpg",
+        "caption": "雪中离去 · 通行一百二十回本结尾意象",
+        "alt": "雪中小路上，红毡斗篷的青年随一僧一道远去，老人在路旁目送"
+      }
+    }
+  },
+  "american-gods": {
+    "events": {
+      "ag06": {
+        "file": "american-gods-scene.jpg",
+        "caption": "湖镇 · 冰封的冬日",
+        "alt": "积雪覆盖湖镇的木屋和码头，冰面延伸到灰色的远岸。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "and-then-there-were-none": {
+    "events": {
+      "at02": {
+        "file": "and-then-there-were-none-scene.jpg",
+        "caption": "德文郡外海 · 渡船驶向士兵岛",
+        "alt": "乘客坐在木制渡船上，前方的岩岛上立着一栋白色宅邸。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "anna-karenina": {
+    "events": {
+      "ak03": {
+        "file": "anna-karenina-scene.jpg",
+        "caption": "莫斯科舞会 · 安娜与渥伦斯基共舞",
+        "alt": "穿黑裙的安娜与军装打扮的渥伦斯基在吊灯下共舞，身着浅色舞裙的基蒂在近处望着他们。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "border-town": {
+    "events": {
+      "bc01": {
+        "file": "border-town-scene.jpg",
+        "caption": "茶峒渡口 · 翠翠和老船夫",
+        "alt": "薄雾中的茶峒渡口，翠翠和老船夫坐在木渡船上，黄狗守在岸边。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "brave-new-world": {
+    "events": {
+      "bn01": {
+        "file": "brave-new-world-scene.jpg",
+        "caption": "伦敦 · 孵化与条件设置中心",
+        "alt": "银灰色实验大厅里，成排玻璃瓶在传送带上延伸，一名讲解员带学生参观。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "byakuyakou": {
+    "events": {
+      "byx01": {
+        "file": "byakuyakou-scene.jpg",
+        "caption": "大阪 · 废楼里的第一起案件",
+        "alt": "1973 年大阪，警车停在一座未完工的混凝土楼前，楼内一束手电光照过楼梯。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "childhoods-end": {
+    "events": {
+      "ce01": {
+        "file": "childhoods-end-scene.jpg",
+        "caption": "超主降临 · 悬在城市上空的飞船",
+        "alt": "一艘巨大的黑色飞船悬停在城市天际线之上，楼顶和街道落入阴影。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "deer-cauldron": {
+    "events": {
+      "ld03": {
+        "file": "deer-cauldron-scene.jpg",
+        "caption": "宫中比试 · 小桂子遇见小玄子",
+        "alt": "清宫小院中，两个穿短袍的少年在石砖地上练摔跤。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "demi-gods": {
+    "events": {
+      "tl14": {
+        "file": "demi-gods-scene.jpg",
+        "caption": "少室山前 · 萧峰与群雄相对",
+        "alt": "山门前一名披风侠客独立于石阶上，群雄在松林和山雾间聚集。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "earthsea": {
+    "events": {
+      "ed01": {
+        "file": "earthsea-scene.jpg",
+        "caption": "贡特岛 · 山村起雾",
+        "alt": "层叠雾气涌入贡特岛的石屋和牧道，远处是海岸与群山。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "enders-game": {
+    "events": {
+      "eg06": {
+        "file": "enders-game-scene.jpg",
+        "caption": "战斗学校 · 零重力训练室",
+        "alt": "几名学员在零重力训练室里漂浮，远处可见几何形障碍物。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "first-law": {
+    "events": {
+      "fl01": {
+        "file": "first-law-scene.jpg",
+        "caption": "北境 · 雪中的罗根",
+        "alt": "一名披着旧皮裘的旅人在雪地岩石旁停下，林线隐没在阴天里。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "fortress": {
+    "events": {
+      "wch01": {
+        "file": "fortress-scene.jpg",
+        "caption": "归国邮船 · 方鸿渐站在甲板上",
+        "alt": "身穿西装的方鸿渐倚在邮船栏杆旁，甲板上的藤椅与远处海面浸在晚光里。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "foundation": {
+    "events": {
+      "fd01": {
+        "file": "foundation-scene.jpg",
+        "caption": "川陀 · 金属穹顶下的首都",
+        "alt": "金属穹顶下，川陀的塔楼和交通层一直延伸到视线尽头。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "godfather": {
+    "events": {
+      "gf14": {
+        "file": "godfather-scene.jpg",
+        "caption": "小说尾声 · 凯在教堂为迈克尔祈祷",
+        "alt": "凯独自跪在教堂长椅旁，祭坛上的烛火照亮她面前的空座。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "gone-girl": {
+    "events": {
+      "gg07": {
+        "file": "gone-girl-scene.jpg",
+        "caption": "密苏里 · 消失当天的客厅",
+        "alt": "午后光线照进密苏里州一间客厅，茶几翻倒，一名调查人员在门边查看。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "gone-wind": {
+    "events": {
+      "gw08": {
+        "file": "gone-wind-scene.jpg",
+        "caption": "重返塔拉 · 战火之后的家园",
+        "alt": "斯佳丽站在塔拉庄园的红土路上，望向斑驳的老屋和荒疏的田地。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "hyperion": {
+    "events": {
+      "hp11": {
+        "file": "hyperion-scene.jpg",
+        "caption": "海伯利安 · 黄昏中的光阴冢",
+        "alt": "黄昏的荒原上散落着几座异样的建筑，朝圣者从低处远望。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "jane-eyre": {
+    "events": {
+      "je10": {
+        "file": "jane-eyre-scene.jpg",
+        "caption": "桑菲尔德附近 · 雪路上的初遇",
+        "alt": "简站在结霜的小路边，看向刚从失足马匹旁起身的罗切斯特。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "journey-west": {
+    "events": {
+      "xy32": {
+        "file": "journey-west-scene.jpg",
+        "caption": "凌云渡 · 无底船前",
+        "alt": "师徒四人与白马站在急流边，接引佛祖撑着小船靠岸，细窄木桥横跨水面。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "legend-condor": {
+    "events": {
+      "sd06": {
+        "file": "legend-condor-scene.jpg",
+        "caption": "张家口 · 小叫化与郭靖",
+        "alt": "北方城镇客栈内，郭靖与扮成小乞儿的黄蓉隔桌而坐，桌上摆着刚上来的饭菜。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "les-miserables": {
+    "events": {
+      "lm04": {
+        "file": "les-miserables-scene.jpg",
+        "caption": "米里哀主教 · 两支银烛台",
+        "alt": "米里哀主教把一对银烛台递向冉阿让，门旁两名宪兵在晨光里等候。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "long-goodbye": {
+    "events": {
+      "lg03": {
+        "file": "long-goodbye-scene.jpg",
+        "caption": "洛杉矶 · 酒吧里的两杯酒",
+        "alt": "两名男子坐在二十世纪五十年代洛杉矶酒吧的吧台前，面前各有一杯橙色酒。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "millennium": {
+    "events": {
+      "lg6": {
+        "file": "millennium-scene.jpg",
+        "caption": "海德比岛 · 年年寄来的压花",
+        "alt": "冬日窗边的木桌上，几只旧相框里各有一朵压干的野花。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "muslim-funeral": {
+    "events": {
+      "ms02": {
+        "file": "muslim-funeral-scene.jpg",
+        "caption": "奇珍斋 · 雕琢《郑和航海图》",
+        "alt": "作坊的灯照着尚未完工的航海题材玉雕，玉匠与年轻学徒俯身查看细部。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "narnia": {
+    "events": {
+      "nr01": {
+        "file": "narnia-scene.jpg",
+        "caption": "衣柜另一侧 · 雪林里的路灯",
+        "alt": "露西走进覆雪的林间，一盏亮着暖光的老路灯立在小径旁。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "nineteen-eighty-four": {
+    "events": {
+      "n84_07": {
+        "file": "nineteen-eighty-four-scene.jpg",
+        "caption": "查林顿旧货店楼上 · 玻璃镇纸",
+        "alt": "旧屋的木桌上，一束窗光穿过圆形玻璃镇纸，照亮其中的粉色珊瑚。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "notre-dame": {
+    "events": {
+      "nd04": {
+        "file": "notre-dame-scene.jpg",
+        "caption": "受刑台前 · 爱斯梅拉达递水",
+        "alt": "爱斯梅拉达在刑台前举起水壶，让卡西莫多喝水，围观者退在身后。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "ordinary-world": {
+    "events": {
+      "ph01": {
+        "file": "ordinary-world-scene.jpg",
+        "caption": "县城中学 · 黑面馍",
+        "alt": "雨雪中的县中学校园里，孙少平端着两个黑面馍走到木桌旁。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "orient-express": {
+    "events": {
+      "oe07": {
+        "file": "orient-express-scene.jpg",
+        "caption": "大雪 · 停在荒野中的东方快车",
+        "alt": "雪埋住了铁轨，一列三十年代的卧车停在空旷雪原上，车窗微亮。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "pride-prejudice": {
+    "events": {
+      "pp18": {
+        "file": "pride-prejudice-scene.jpg",
+        "caption": "彭伯里 · 旅行中的一站",
+        "alt": "伊丽莎白与加德纳夫妇沿着草地边的小路走向彭伯里的石砌宅邸。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "quiet-don": {
+    "events": {
+      "qd01": {
+        "file": "quiet-don-scene.jpg",
+        "caption": "顿河岸边 · 两户人家的村庄",
+        "alt": "顿河弯道外铺开大片草地，岸上坐落着围有木篱的哥萨克村舍。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "rama": {
+    "events": {
+      "rm01": {
+        "file": "rama-scene.jpg",
+        "caption": "初遇拉玛 · 奋进号接近巨型圆柱",
+        "alt": "一艘探测飞船靠近旋转的巨大金属圆柱，远处的阳光照亮了圆柱边缘。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "red-poppies": {
+    "events": {
+      "cl06": {
+        "file": "red-poppies-scene.jpg",
+        "caption": "麦子 · 土司领地上的选择",
+        "alt": "雪山下的高原谷地，一片青麦铺到石砌官寨下，二少爷站在田垄边。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "sherlock": {
+    "events": {
+      "sh02": {
+        "file": "sherlock-scene.jpg",
+        "caption": "伦敦 · 医院实验室初遇",
+        "alt": "维多利亚时代伦敦的实验室里，福尔摩斯拿着试管，刚进门的华生看向他。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "solaris": {
+    "events": {
+      "so04": {
+        "file": "solaris-scene.jpg",
+        "caption": "索拉里斯 · 形态不断改变的海",
+        "alt": "索拉里斯海面隆起巨大的褶皱和穹拱，层层波纹围绕着它们。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "stormlight": {
+    "events": {
+      "sa03": {
+        "file": "stormlight-scene.jpg",
+        "caption": "卡拉布兰斯 · 沙兰随加斯娜求学",
+        "alt": "沙兰坐在书桌前翻阅卷册，加斯娜站在石拱窗下的书架旁。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "suspect-x": {
+    "events": {
+      "sx02": {
+        "file": "suspect-x-scene.jpg",
+        "caption": "东京 · 石神每天经过的便当店",
+        "alt": "雨中的东京小店里，靖子在柜台后把一盒便当递向石神。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "swordman": {
+    "events": {
+      "xa06": {
+        "file": "swordman-scene.jpg",
+        "caption": "绿竹巷 · 隔帘听琴",
+        "alt": "洛阳绿竹巷深处，令狐冲坐在竹帘外，屋内隐约可见抚琴人和一床古琴。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "thrones": {
+    "events": {
+      "got02": {
+        "file": "thrones-scene.jpg",
+        "caption": "临冬城 · 王室车马北来",
+        "alt": "王室车马沿积雪的道路驶近临冬城，厚重的石墙和双塔立在阴云下。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "wheel-of-time": {
+    "events": {
+      "tw01": {
+        "file": "wheel-of-time-scene.jpg",
+        "caption": "两河 · 冬日来客",
+        "alt": "披斗篷的沐瑞骑马来到两河村外，远处的屋顶升起炊烟。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "witcher": {
+    "events": {
+      "wt09": {
+        "file": "witcher-scene.jpg",
+        "caption": "凯尔莫罕 · 冬日训练",
+        "alt": "石堡外的积雪庭院里，希里站在训练木桩旁，杰洛特从一边观察。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "fahrenheit-451": {
+    "events": {
+      "fh14": {
+        "file": "fahrenheit-451-scene.jpg",
+        "caption": "城外 · 林中的火堆",
+        "alt": "幽暗树林里，蒙塔格站在林缘，几个人围着小火堆取暖。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "hitchhiker": {
+    "events": {
+      "hg01": {
+        "file": "hitchhiker-scene.jpg",
+        "caption": "英国乡间 · 亚瑟挡在推土机前",
+        "alt": "穿晨袍的亚瑟躺在泥地上，一辆黄色推土机停在他面前，身后是乡间小屋。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "three-kingdoms": {
+    "events": {
+      "tk15": {
+        "file": "three-kingdoms-scene.jpg",
+        "caption": "隆中 · 三顾茅庐",
+        "alt": "一间草庐立在隆中山脚，刘备在门前等候，两位同行者留在石径上。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "to-live": {
+    "events": {
+      "tl14": {
+        "file": "to-live-scene.jpg",
+        "caption": "田间 · 福贵与老牛",
+        "alt": "夕阳下，年老的福贵和一头老牛沿着田垄慢慢走远。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "water-margin": {
+    "events": {
+      "wm07": {
+        "file": "water-margin-scene.jpg",
+        "caption": "山神庙 · 风雪夜",
+        "alt": "风雪压住庙门和枯树，林冲披斗篷走向偏僻的山神庙。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "white-deer": {
+    "events": {
+      "bl04": {
+        "file": "white-deer-scene.jpg",
+        "caption": "白鹿原 · 祠堂之外",
+        "alt": "黄土村落的祠堂门前，黑娃和田小娥立在台阶下，厚重的木门仍然紧闭。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "neuromancer": {
+    "events": {
+      "nm04": {
+        "file": "neuromancer-scene.jpg",
+        "caption": "矩阵 · 凯斯重新接入",
+        "alt": "俯视般的虚拟视角下，蓝紫色网格延伸成一片发亮的塔群和无边数据海。",
+        "width": 1440,
+        "height": 960
+      }
+    }
+  },
+  "two-cities": {
+    "events": {
+      "tc03": {
+        "file": "two-cities-scene.jpg",
+        "caption": "巴黎阁楼 · 曼内特医生做鞋",
+        "alt": "曼内特医生坐在昏暗阁楼里低头做鞋，露西站在阁楼入口看着他。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "war-peace": {
+    "events": {
+      "wp07": {
+        "file": "war-peace-scene.jpg",
+        "caption": "彼得堡舞会 · 娜塔莎的第一支舞",
+        "alt": "娜塔莎与安德烈在烛光下共舞，穿礼服的宾客沿舞厅两侧站立。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "wuthering": {
+    "events": {
+      "wh01": {
+        "file": "wuthering-scene.jpg",
+        "caption": "荒原上的山庄 · 洛克伍德来访",
+        "alt": "洛克伍德沿石墙走向低矮的山庄，风吹过阴云下的约克郡荒原。",
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  },
+  "zhivago": {
+    "events": {
+      "zh07": {
+        "file": "zhivago-scene.jpg",
+        "caption": "尤里亚京 · 图书馆里重逢",
+        "alt": "尤里隔着阅览室的长桌看见伏案读书的拉拉，窗外是积雪的街景。",
+        "width": 1536,
+        "height": 1024
+      }
     }
   }
 }

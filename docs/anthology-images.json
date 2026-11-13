@@ -130,6 +130,443 @@
       "prompt": "Use case: illustration-story. Create a wide 1536x1024 literary scene illustration based on chapter 27 of the Chinese novel Dream of the Red Chamber. In a secluded corner of the Grand View Garden in a Qing-era aristocratic household, a slender young Chinese woman seen from behind in a modest pale blue embroidered jacket and long ivory skirt carries a small flower hoe and a cloth bag of fallen petals. She stands beside a small mound under flowering peach trees, gathering fallen petals rather than planting an ornamental flower bed. A simple winding garden path, white plaster wall with grey tiled coping, scattered pink petals, no gravestone. Quiet sorrow, no melodramatic pose, no actor likeness, no imperial headdress or palace throne. Restrained gongbi linework and watercolor realism on warm silk paper, muted pink, jade and pale blue. No text, calligraphy, seal, labels, border or watermark.",
       "width": 1536,
       "height": 1024
+    },
+    {
+      "id": "american-gods",
+      "event": "ag06",
+      "file": "img/anthology/american-gods-scene.jpg",
+      "prompt": "A sleepy small town on a frozen Wisconsin lake, early 2000s, the snowbound wooden lakeside houses and docks seen from the near bank, a few warmly lit windows against a slate-blue winter dusk, restrained uncanny quiet, no dramatic supernatural beings Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "and-then-there-were-none",
+      "event": "at02",
+      "file": "img/anthology/and-then-there-were-none-scene.jpg",
+      "prompt": "Use case: illustration-story. Landscape 3:2 full-bleed editorial concept art for a literary timeline, inspired by And Then There Were None. Off the Devon coast in 1939, seen from a small dark wooden motor launch low on the water, a craggy isolated English island rises steeply behind a compact white modernist country house. Atlantic gusts, slate-grey water, low whitecaps and distant sea mist, subdued silver sky, small warm lit windows. A few passenger silhouettes are seen only from behind in the launch, hats and period coats, no faces necessary. Restrained cinematic painterly realism, rich fine-grain brush texture, muted indigo and bone-white, polished literary anthology art. No text, typography, frame, branding, watermark or violence.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "anna-karenina",
+      "event": "ak03",
+      "file": "img/anthology/anna-karenina-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide landscape 3:2 narrative art for a Chinese literary timeline, novel Anna Karenina by Leo Tolstoy, the ballroom scene. In an 1870s Moscow mansion, Anna in a black velvet gown with an understated violet garland in dark hair dances with the uniformed Vronsky across a parquet floor. In foreground young Kitty in a light tulle ball gown is stopped mid-step, absorbing what she sees. Period-correct Russian high society, gaslit chandeliers, restrained oil-painted realism with soft textured brushwork, warm candlelight and charcoal fabric, coherent spatial depth, no text or frame, no reference to screen adaptations.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "border-town",
+      "event": "bc01",
+      "file": "img/anthology/border-town-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline, Shen Congwen's Border Town. In a quiet early 20th-century mountain river town in western Hunan, a small low wooden ferry with an elderly boatman and his teenage granddaughter, yellow dog near the landing, mist across the water and small timber houses beyond. Natural, restrained watercolor and gouache on fine paper, cool green river with warm earth accents. No lettering, marks, decorative border, or modern buildings.",
+      "width": 1536,
+      "height": 1024,
+      "original": "exec-8d5118e8-2564-429f-b994-24994cecb2b5.png"
+    },
+    {
+      "id": "brave-new-world",
+      "event": "bn01",
+      "file": "img/anthology/brave-new-world-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nFictional futuristic London Hatchery and Conditioning Centre as envisioned in Aldous Huxley's 1932 novel. Vast antiseptic retrofuturist art-deco industrial laboratory, orderly long conveyor rows of lidded glass incubation bottles glowing faintly with pale fluid, no visible embryos or human forms inside. A small group of adult students in white lab coats stands with their guide beneath overhead lights, distant relative to the machinery. Quiet pastel greens, cream, brushed silver, understated ominous symmetry.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "byakuyakou",
+      "event": "byx01",
+      "file": "img/anthology/byakuyakou-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nAt street level in 1973 Osaka, a dark period Japanese police sedan stands outside a half-finished concrete building. One narrow flashlight beam is visible across the empty stairwell, exposed slabs and concrete pillars, wet pavement catching a small amber reflection. Show the investigation only through architecture and light; no victim, weapons or blood.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "childhoods-end",
+      "event": "ce01",
+      "file": "img/anthology/childhoods-end-scene.jpg",
+      "prompt": "A silent colossal alien spacecraft hovering above a plausible mid-century coastal metropolis under a high overcast sky. Small street-level humans in coats look up in quiet bewilderment, distant skyscrapers framed against a vast shadow Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "deer-cauldron",
+      "event": "ld03",
+      "file": "img/anthology/deer-cauldron-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. A secluded Qing palace courtyard in the late 17th century, two Chinese teenage boys in plain short training robes and period hair styles playfully practicing wrestling, low winter sunlight, vermilion doors and muted stone, no spectators. Natural cinematic editorial gouache with fine paper grain. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-ac48fbbb-e290-4be7-a21a-1fbc73680c72.png"
+    },
+    {
+      "id": "demi-gods",
+      "event": "tl14",
+      "file": "img/anthology/demi-gods-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. Northern Song mountain monastery gate at Mount Shaoshi, Xiao Feng in a plain weathered cloak stands calmly on broad stone steps before several assembled martial travelers, pine slopes and mist, wide distance, no fighting. Refined Chinese ink and mineral color, weathered cinematic texture. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-37908abc-9de8-4fc0-b325-95bf4a0413ee.png"
+    },
+    {
+      "id": "earthsea",
+      "event": "ed01",
+      "file": "img/anthology/earthsea-scene.jpg",
+      "prompt": "Steep coastal sheep pastures and a village of low stone cottages on the fictional island of Gont, a young brown-skinned goatherd is a small silhouette in the foreground as dense mist rolls over the village and the sea falls away beyond the ridge, late afternoon, rugged salt-weathered textures Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "enders-game",
+      "event": "eg06",
+      "file": "img/anthology/enders-game-scene.jpg",
+      "prompt": "Wide interior of a futuristic zero-gravity training chamber, children in simple closed non-military athletic space jumpsuits floating with natural outstretched arms and legs, large fixed geometric foam obstacles at varied distances, crisp indirect panel lights, young Ender a small foreground figure silhouetted at an entry gate, a visual study of orientation and scale, no weapons Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "fahrenheit-451",
+      "event": "fh14",
+      "file": "img/anthology/fahrenheit-451-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nA dark forest beyond the city in Ray Bradbury's Fahrenheit 451. A modest campfire in a sheltered clearing at night, a small group in ordinary practical coats sit around it, and a man has stopped at the edge of the trees to observe. Warm orange glow on a few hands and faces, silhouetted trunks disappearing into ink-blue, reflective silence. No burning books, flames kept to the small warming fire, no weapons or text.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "first-law",
+      "event": "fl01",
+      "file": "img/anthology/first-law-scene.jpg",
+      "prompt": "A weathered adult traveler in a worn dark fur cloak rests on a boulder in a remote northern winter forest, a thick blanket of snow and spruce fading into fog, bleak and human-scale, a scuffed leather bag, late cold overcast daylight, distant wide framing, no combat or injury Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "fortress",
+      "event": "wch01",
+      "file": "img/anthology/fortress-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. A Chinese student in his late twenties, Fang Hongjian, stands near the rail of a 1930s French passenger liner returning to China, wearing a lightly rumpled warm-weather suit, a few wicker deck chairs and traveling passengers behind him, open sea and the sky in soft evening light. Capture self-conscious uncertainty and social distance through a wide composition, not portraiture. Period-correct deck and clothes.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "foundation",
+      "event": "fd01",
+      "file": "img/anthology/foundation-scene.jpg",
+      "prompt": "The enormous enclosed capital of Trantor from a high interior balcony. Thousands of layered metal towers and elevated transit conduits spread to the horizon beneath a vast vaulted metallic shell, integrated bands of warm artificial light in muted gray steel, a few very small figures on the balcony for scale, retrofuturist architectural realism Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "godfather",
+      "event": "gf14",
+      "file": "img/anthology/godfather-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Mario Puzo's novel ending, Kay Adams Corleone, an adult woman in an understated coat and a modest head covering, kneels in a New England Catholic church pew in the mid 1950s, praying quietly for Michael. She is alone in the frame, pews in perspective, few lit votive candles, cool morning daylight spilling through plain high side windows, grief and moral unease. No identifiable movie actors or adaptation iconography.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "gone-girl",
+      "event": "gg07",
+      "file": "img/anthology/gone-girl-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nSuburban Missouri house, July 2012, cool afternoon sunlight through the windows. A tidy family living room with one overturned coffee table and a detective looking in quietly from the doorway. Sparse, observational composition, absence as the focal point, restrained Midwestern blue-green and warm wood. No visible injury, blood, body, evidence text or violence.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "gone-wind",
+      "event": "gw08",
+      "file": "img/anthology/gone-wind-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Margaret Mitchell's novel Gone with the Wind. A young adult Scarlett O'Hara in a travel-worn practical dark dress stands in the red-clay drive of Tara as she returns in 1864. The weathered white house still stands beyond neglected fields, grey southern light, ragged rows of cotton, tired stillness after war. Distant human scale, restrained and grounded atmosphere. No movie likenesses, no romanticizing the plantation.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "hitchhiker",
+      "event": "hg01",
+      "file": "img/anthology/hitchhiker-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nA grey morning in the English countryside in the late 1970s. A dishevelled man in a brown dressing gown lies horizontally in the mud at a safe visible distance from a halted mustard yellow bulldozer with its blade lowered. The scene includes his modest brick cottage beyond a damp hedge, and a quiet construction foreman to the side. Dry visual humor, convincing cloudy British light, vintage yellow and grassy green with muted gray. No physical harm, no lettering.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "hyperion",
+      "event": "hp11",
+      "file": "img/anthology/hyperion-scene.jpg",
+      "prompt": "The Time Tombs of Hyperion across a desolate plain at dusk, several monumental enigmatic structures of different silhouettes, spire, obelisk and weathered stone forms distant on the horizon. Small figures of pilgrims overlook them from a ridge, extraordinary but restrained sense of deep time, weathered sandstone and bruised violet clouds, no monster and no combat Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "jane-eyre",
+      "event": "je10",
+      "file": "img/anthology/jane-eyre-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Charlotte Brontë's novel Jane Eyre. An adult governess in a plain dark wool cloak pauses on a cold English lane in early dusk, encountering a rider whose horse has slipped on ice. The rider Edward Rochester is getting to his feet next to his horse, with a large dog waiting nearby, and Jane is preparing to help. Spare bare hedges, silver mist and straw-colored winter grasses; a little cold moonlight. Early nineteenth century clothing.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "journey-west",
+      "event": "xy32",
+      "file": "img/anthology/journey-west-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. A fantastical Chinese ink-and-color landscape of Lingyun Crossing near Spirit Mountain. A modest monk in red and gold, Monkey with a staff, Pigsy, Sha Monk and a white horse await the ferryman's simple boat by rushing water. A narrow single-log bridge crosses the stream. Mountain mist, pale gold highlights, subdued traditional mineral pigments. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-efdeca12-ced0-4850-a75c-1fbb3abc83d1.png"
+    },
+    {
+      "id": "legend-condor",
+      "event": "sd06",
+      "file": "img/anthology/legend-condor-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. Early 13th-century northern Chinese inn at Zhangjiakou in Jin-era China, Guo Jing in a simple travel coat offers a meal to Huang Rong disguised as a quick-eyed young beggar in rough layers. Steaming plates on a wooden table, worn plaster and gentle late daylight. Cinematic historical watercolor, warm umber and faded jade. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-a2061926-2a2b-4a8e-bdd9-c091613c0999.png"
+    },
+    {
+      "id": "les-miserables",
+      "event": "lm04",
+      "file": "img/anthology/les-miserables-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Victor Hugo’s Les Misérables. 1815 in a plain stone bishop's house in Digne, kindly elderly Bishop Myriel offers a pair of silver candlesticks to a weary former prisoner Jean Valjean, escorted by two French gendarmes. Wide, intimate composition in front room, focus on the exchanged objects and the startled Valjean, pale morning light from the open front door. Historical clothes, plain furniture, small story told by gesture.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "long-goodbye",
+      "event": "lg03",
+      "file": "img/anthology/long-goodbye-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nInside a modest Los Angeles bar around 1950, private detective Philip Marlowe and Terry Lennox sit with their elbows near two orange-colored cocktails. Dark suits, warm shaded lamps, subdued empty booths behind them, an unspoken pause with both men in three-quarter profile. Restrained film-noir atmosphere with the amber drinks and cool shadows as separate colors, no actor likeness.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "millennium",
+      "event": "lg6",
+      "file": "img/anthology/millennium-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nQuiet winter room on a remote Swedish island, 2003. A small collection of modest dark wood frames holding delicate pressed wildflowers stands on a table before a frost-edged window. Blue-gray Nordic daylight with muted dried ochre and purple petals, close still life with visibly distinct flowers, closed plain envelope nearby. No legible writing or signage.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "muslim-funeral",
+      "event": "ms02",
+      "file": "img/anthology/muslim-funeral-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. Early 20th-century Beijing jade workshop from Huo Da's novel. An older Chinese jade carver and apprentice study a large pale-green jade carving in progress depicting a Ming treasure ship and waves. Warm task lamp, simple period tools and wooden bench, fine gouache brushwork, tactile jade and paper grain. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-7a019ee4-2f02-40bc-809c-015f48887a74.png"
+    },
+    {
+      "id": "narnia",
+      "event": "nr01",
+      "file": "img/anthology/narnia-scene.jpg",
+      "prompt": "A small girl in a modest 1940s coat, seen from behind, emerging into a quiet snowy fir forest at dusk and looking toward a solitary old iron lamp-post glowing warmly, beautiful contrast between cold slate-blue snow and warm honey light, tactile wooded textures, fairytale realism, wide inviting composition Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "neuromancer",
+      "event": "nm04",
+      "file": "img/anthology/neuromancer-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nA visualisation of Case's return to cyberspace in William Gibson's Neuromancer. A camera without a visible body hurtles above a dark limitless plane of light, huge precise luminous data towers rising from a receding perspective grid, oceans of tiny signals, pillars of ice blue and fine lavender-red highlights. Retro 1980s cyberpunk through editorial painted light, clear simple scale and depth, poetic abstract digital architecture, no keyboard, no text, no interface, no green falling code.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "nineteen-eighty-four",
+      "event": "n84_07",
+      "file": "img/anthology/nineteen-eighty-four-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nAn old-fashioned rented room above a secondhand shop in the dystopian London of George Orwell's Nineteen Eighty-Four. A round clear glass paperweight containing one small delicate piece of pink coral sits on a scarred wooden table, catching a narrow ray of sunlight. A fragment of old wallpaper and soft furniture in defocus; intimate and still, sense of privacy. No person, text, clock or screens in the composition.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "notre-dame",
+      "event": "nd04",
+      "file": "img/anthology/notre-dame-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Victor Hugo's Notre-Dame de Paris. In fifteenth-century Paris at a rough wooden pillory, Esmeralda, a young woman in modest, period plausible clothes, lifts a plain water flask to offer water to exhausted Quasimodo, sitting restrained at the platform edge. Show kindness between them, his face partially turned, a subdued gathering of witnesses and medieval facades in background. No injury, costume spectacle, or screen adaptation styling.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "ordinary-world",
+      "event": "ph01",
+      "file": "img/anthology/ordinary-world-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. Rural Shaanxi county high school in early 1975. Fine sleet outside, students in worn cotton coats disappearing down a gray courtyard, one teenage student quietly approaching a cafeteria table with two dark coarse steamed buns. Restrained documentary gouache and muted clay-gray palette. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-47997ea2-c4d3-4d46-b9bb-e12f82b4bbaf.png"
+    },
+    {
+      "id": "orient-express",
+      "event": "oe07",
+      "file": "img/anthology/orient-express-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nWide exterior of a stationary 1930s European luxury sleeper train trapped by a deep snowdrift in open Yugoslav countryside, pale early morning and a soft mountain horizon. Refined dark midnight-blue carriages with subtle gold trim and small amber-lit windows trail into the distance, no readable signs. Snow around the wheels and over the rails, no people in foreground.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "pride-prejudice",
+      "event": "pp18",
+      "file": "img/anthology/pride-prejudice-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Jane Austen's Pride and Prejudice. Elizabeth Bennet and her aunt and uncle Mr and Mrs Gardiner are small figures approaching Pemberley during their summer tour. A well-proportioned Georgian stone country house stands across a stream amid wooded slopes, grounds natural rather than excessively manicured. Soft Regency summer light, gentle curve of a gravel walk, British estate and early nineteenth century clothes. No film or television likenesses.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "quiet-don",
+      "event": "qd01",
+      "file": "img/anthology/quiet-don-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Mikhail Sholokhov's And Quiet Flows the Don. A Don Cossack hamlet before World War I, seen from a rise with wood fences and limewashed low houses, the wide quiet river bends through late summer grassland. Two modest households in the near hamlet with adult figures engaged in daily farm tasks. Early twentieth century rural Russian Southern steppe, historically grounded houses, low cloud and ochre grass.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "rama",
+      "event": "rm01",
+      "file": "img/anthology/rama-scene.jpg",
+      "prompt": "Landscape 3:2 editorial book illustration for Arthur C. Clarke's Rendezvous with Rama. A tiny solitary exploratory spacecraft approaches an enormous dark metallic featureless rotating cylinder in deep space. The sheer size contrast is the focal point. A distant sun grazes the cylinder rim and soft pale blue planetary light adds subtle contrast. Quiet scientific wonder, sophisticated realistic painterly space art, muted navy, graphite and amber, textured but crisp, intentional wide composition. No visible words, labels, logos, framing, or watermarks.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "red-poppies",
+      "event": "cl06",
+      "file": "img/anthology/red-poppies-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. Early twentieth century Aba on the eastern Tibetan plateau, a young Tibetan man at the edge of a fresh green wheat field below a historically plausible stone tusi manor, high mountains and luminous spring clouds. Restrained literary landscape with natural textures, cool slate and spring green, realistic watercolor and opaque gouache. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-5e0d00f3-7545-4c75-99c6-46da235137c8.png"
+    },
+    {
+      "id": "sherlock",
+      "event": "sh02",
+      "file": "img/anthology/sherlock-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nA Victorian London hospital chemistry laboratory in 1881. Tall dark-haired Sherlock Holmes with rolled white shirt sleeves lifts a small glass test tube beside a simple wooden laboratory table; Dr Watson, a slightly sun-darkened, mustached former army doctor in a dark waistcoat and coat, has just come through the door. The precise mid-gesture of their first introduction. Cool tall-window daylight against antique amber glass and dark wood. No deerstalker, no actor likeness, no text.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "solaris",
+      "event": "so04",
+      "file": "img/anthology/solaris-scene.jpg",
+      "prompt": "Aerial low oblique view of the vast living ocean of Solaris, dark viscous plum-gray water assembling into massive curving ridges and a delicate rising arch with ripples echoing its shape, planetary haze in distance, eerily beautiful and plausible alien oceanography, no structures or creatures from Earth Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "stormlight",
+      "event": "sa03",
+      "file": "img/anthology/stormlight-scene.jpg",
+      "prompt": "In an original imagined library in the cliffside city of Kharbranth, young adult red-haired Shallan at a manuscript table, Jasnah, a composed dark-haired tan-skinned scholar, searching a shelf beside a tall stone arched window. Ancient architecture with layered alcoves and scattered reflected daylight from the sea, books without legible writing, restrained grounded epic-fantasy illustration Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "suspect-x",
+      "event": "sx02",
+      "file": "img/anthology/suspect-x-scene.jpg",
+      "prompt": "Use case: illustration-story. Produce full-bleed landscape 3:2 concept art for a literary timeline. Restrained cinematic painterly realism, fine-grain brush texture, nuanced surfaces and carefully observed lighting, polished literary anthology art. No titles, text, branding, watermark, frames or graphic overlays.\nA small independently run Tokyo bento shop on a rainy winter midday in the late 1990s. Yasuko, a woman in a simple work apron, stands behind the counter and hands a plain lidded bento box to a reserved middle-aged man in a dark raincoat. Realistic Japanese storefront without readable signage, misted glass and rain on the street, understated everyday light, muted blue with warm counter light. No resemblance to actors.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "swordman",
+      "event": "xa06",
+      "file": "img/anthology/swordman-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. A secluded historic Luoyang green bamboo lane from Jin Yong's wuxia novel. A young Chinese traveler sits outside a hanging bamboo screen listening; inside, a subtly silhouetted player at a low guqin, dense green bamboo and afternoon shade. Historical Chinese ink and muted watercolor, quiet framing. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-f8b2e576-9f14-4e1e-83a3-4dd8ace175cf.png"
+    },
+    {
+      "id": "three-kingdoms",
+      "event": "tk15",
+      "file": "img/anthology/three-kingdoms-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. Late Eastern Han countryside in Longzhong, Liu Bei in modest period robes patiently waits at a thatched cottage while two companions linger on the path, rustic fence, bare trees and low winter clouds. Wide literary illustration, ink wash and subdued earthy color, historically restrained. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-c32e65d5-aa19-44ee-ad58-3660693d031b.png"
+    },
+    {
+      "id": "thrones",
+      "event": "got02",
+      "file": "img/anthology/thrones-scene.jpg",
+      "prompt": "Winterfell from outside its gates on a gray northern morning, a sprawling ancient double-walled stone castle with twin gatehouse towers and smoke from the chimneys, the king's distant party approaching on horseback along a snow-dusted road. Stark northern light, weathered masonry, dark pines, contemplative landscape. Original novel interpretation, no television actor likenesses Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "to-live",
+      "event": "tl14",
+      "file": "img/anthology/to-live-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. Late-20th-century rural Chinese field in Yu Hua's To Live, a lean elderly farmer in faded blue-gray workwear walks alongside one old ox on a narrow earthen field ridge at dusk. Unsentimental warmth, distant low trees and flat fields, documentary gouache with subtle paper texture. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-77558089-c7d4-40bf-810f-79a6dbbcafb7.png"
+    },
+    {
+      "id": "two-cities",
+      "event": "tc03",
+      "file": "img/anthology/two-cities-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Charles Dickens's A Tale of Two Cities. 1775 Paris, Doctor Manette, grey haired and worn by his years of captivity, bent silently over a shoemaker’s bench in a dark garret with a slant of light. Lucie arrives at the doorway and sees him; small human scene set in a sparse cramped room with rough beams. Late eighteenth century period dress, quiet chiaroscuro and warm textured wood, heartbreak through posture.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "war-peace",
+      "event": "wp07",
+      "file": "img/anthology/war-peace-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Tolstoy's War and Peace. Natasha Rostova, a young woman in a simple light empire-waist gown, dances with Prince Andrei in early-nineteenth-century Russian formal uniform during her first grand ball in St Petersburg. Candles in wall sconces, gilded architecture, diagonals of the other dancers, young delight beneath formal restraint. Use an airy wide view from the edge of the floor. Historically plausible Napoleonic-era Russian details.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "water-margin",
+      "event": "wm07",
+      "file": "img/anthology/water-margin-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. A remote small mountain shrine in a Northern Song winter blizzard, Lin Chong in a weathered dark cloak walking toward the snow-covered doors, broken branches, wind driven snow and a quiet sense of suspense. Restrained ink and mineral colors on coarse paper, wide historical illustration, no combat. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-d9657f69-d062-4289-ac29-474f0c91ced4.png"
+    },
+    {
+      "id": "wheel-of-time",
+      "event": "tw01",
+      "file": "img/anthology/wheel-of-time-scene.jpg",
+      "prompt": "Cloaked Moiraine on a pale horse at the edge of Emond's Field in the Two Rivers, a small rustic village among misty mountains with chimney smoke and traces of snow on the fields, cloak a touch of indigo amid muted earth, soft winter daylight, peaceful rural life with a sense of something about to change, original novel interpretation Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "white-deer",
+      "event": "bl04",
+      "file": "img/anthology/white-deer-scene.jpg",
+      "prompt": "Use case: illustration-story. Wide 3:2 landscape editorial concept illustration for a Chinese literary timeline. Early twentieth century Guanzhong plain, closed old timber ancestral hall doors in a loess village, a young rural couple in worn cotton clothes waiting at the foot of stone steps. Earthen courtyard, cool overcast sky, period-accurate vernacular architecture. Restrained watercolor and gouache, dust ochre and faded indigo. No lettering, logos, watermark, decorative borders, or panel divisions.",
+      "width": 1440,
+      "height": 960,
+      "original": "exec-79b1ff08-c794-4c95-9c98-63a1b2b482b5.png"
+    },
+    {
+      "id": "witcher",
+      "event": "wt09",
+      "file": "img/anthology/witcher-scene.jpg",
+      "prompt": "Snowbound courtyard of Kaer Morhen, an old weathered mountain keep set into sheer forested peaks. Young Ciri in a plain cloak pauses beside wooden balance beams and practice posts, white-haired adult Geralt watches from under a stone archway, wide landscape framing, grounded Slavic fantasy, muted winter green and weathered stone, no fighting, no actor or game likenesses Landscape 3:2 scene illustration for a literary timeline website. Original realistic painterly editorial artwork with subtle pigment texture, strong readable focal point, evocative natural lighting, and a muted mature palette. Single coherent scene, edge to edge. No legible text, labels, logos, border, signatures or watermark.",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "id": "wuthering",
+      "event": "wh01",
+      "file": "img/anthology/wuthering-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Emily Brontë's Wuthering Heights. In 1801, newcomer Lockwood in a period dark overcoat approaches the low, sturdy Yorkshire farmhouse called Wuthering Heights, built of weathered grey stone behind a drystone wall. The open moor sweeps across the wide scene under a threatening wind, rough grass and one bent hawthorn, building feels occupied yet unwelcoming. Bleak earth and grey-green palette, softly textured painterly detail, no fantasy castle.",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "zhivago",
+      "event": "zh07",
+      "file": "img/anthology/zhivago-scene.jpg",
+      "prompt": "Use case: illustration-story. Original literary concept illustration for a novel's Chinese timeline page. Wide landscape 3:2, full-bleed restrained oil-painted realism, tactile soft brushwork, naturalistic faces and visual storytelling. No lettering, frame, logos, watermarks or typographic elements. Boris Pasternak's Doctor Zhivago, reunion in the Yuryatin public library during the Russian Civil War. In a provincial reading room with worn wood shelves, Yuri in a plain winter coat recognizes Lara quietly reading across a long table. Wide frame, stacks of books and faded green lamps, frost on the high window, cool outdoor light contrasted with warm paper. Historically plausible early 1920s provincial Russia, no film cast likenesses.",
+      "width": 1536,
+      "height": 1024
     }
   ]
 }
