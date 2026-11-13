@@ -63,10 +63,21 @@ QUOTES = {
     'rama': '它连头都没回。',
     'enders-game': '我做的事，不是我的心做的。',
     'neuromancer': '矩阵里有鬼。',
+    'hyperion': '它不吃人，它收集人。',
 }
 
 
 DECOR = {
+'hyperion': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M180 470 V300 L214 268 L248 300 V470" fill="none" stroke="#9a8c6a" stroke-width="1.1"/>
+  <path d="M352 470 V320 L386 292 L420 320 V470" fill="none" stroke="#9a8c6a" stroke-width=".9"/>
+  <path d="M280 470 V350 L300 330 L320 350 V470" fill="none" stroke="#b0a07c" stroke-width=".6"/>
+  <path d="M120 470 H480" stroke="#a89878" stroke-width="1"/>
+  <g stroke="#8c3a34" stroke-width=".9">
+    <path d="M300 220 V180 M300 180 l-8 -14 M300 180 l8 -14 M300 168 l-6 -12 M300 168 l6 -12"/>
+  </g>
+  <path d="M120 512 H480" stroke="#b8a98a" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'enders-game': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <circle cx="300" cy="286" r="86" fill="none" stroke="#8b98a4" stroke-width="1"/>
   <circle cx="300" cy="286" r="58" fill="none" stroke="#a5b0ba" stroke-width=".5" stroke-dasharray="2 7"/>
