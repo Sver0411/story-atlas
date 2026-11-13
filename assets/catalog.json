@@ -100,5 +100,17 @@
     "events": 28,
     "people": 18,
     "scope": "全本 · 1973—1998"
+  },
+  {
+    "id": "suspect-x",
+    "title": "嫌疑人 X 的献身",
+    "author": "东野圭吾",
+    "category": "推理",
+    "description": "一个数学家用一条人命，替一对母女摆平了一桩命案。",
+    "accent": "#4a5a52",
+    "cover": "",
+    "events": 28,
+    "people": 12,
+    "scope": "全本 · 1997—1998"
   }
 ]

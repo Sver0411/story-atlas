@@ -25,10 +25,22 @@ QUOTES = {
     'foundation': '暴力是无能者的最后手段。',
     'thrones': '在权力的游戏里，你不赢就得死。',
     'byakuyakou': '我的人生，从来就没有太阳，所以不怕失去。',
+    'suspect-x': '有时候，一个人只要好好活着，就足以拯救某个人。',
 }
 
 
 DECOR = {
+'suspect-x': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g stroke="#9aa79c" stroke-width=".4" opacity=".55">
+    <path d="M120 180 H480 M120 240 H480 M120 300 H480 M120 360 H480 M120 420 H480"/>
+    <path d="M180 120 V480 M240 120 V480 M300 120 V480 M360 120 V480 M420 120 V480"/>
+  </g>
+  <path d="M100 300 H500" stroke="#7c8b80" stroke-width=".9"/>
+  <path d="M300 110 V490" stroke="#7c8b80" stroke-width=".9"/>
+  <path d="M150 440 Q225 200 300 300 Q375 400 450 160" fill="none" stroke="#4a5a52" stroke-width="1.3"/>
+  <circle cx="300" cy="300" r="3.2" fill="#4a5a52"/>
+  <path d="M352 348 l18 18 M370 348 l-18 18" stroke="#8c3a34" stroke-width="1.6"/>
+</svg>''',
 'byakuyakou': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <circle cx="300" cy="282" r="128" fill="none" stroke="#8e97a6" stroke-width="1"/>
   <circle cx="300" cy="282" r="128" fill="none" stroke="#8e97a6" stroke-width=".5" stroke-dasharray="2 10" transform="rotate(26 300 282)"/>
