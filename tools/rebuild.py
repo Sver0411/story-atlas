@@ -28,10 +28,24 @@ QUOTES = {
     'suspect-x': '有时候，一个人只要好好活着，就足以拯救某个人。',
     'and-then-there-were-none': '一个小士兵，落单孤零零，悬梁了此生，一个也不剩。',
     'orient-express': '我荣幸地退出这个案子。',
+    'long-goodbye': '说一声再见，就是死去一点点。',
 }
 
 
 DECOR = {
+'long-goodbye': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M212 232 H388 L300 358 Z" fill="none" stroke="#8d8b82" stroke-width="1.1"/>
+  <path d="M300 358 V470" stroke="#8d8b82" stroke-width="1.1"/>
+  <path d="M258 470 H342" stroke="#8d8b82" stroke-width="1.1"/>
+  <path d="M228 262 H372" stroke="#8d8b82" stroke-width=".5" stroke-dasharray="2 6"/>
+  <circle cx="314" cy="290" r="6" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M314 284 q6 -10 14 -8" fill="none" stroke="#8c3a34" stroke-width=".8"/>
+  <path d="M120 508 H480" stroke="#a5a29a" stroke-width=".8"/>
+  <path d="M170 496 V520 M430 496 V520" stroke="#a5a29a" stroke-width=".5"/>
+  <g fill="none" stroke="#b5b2a8" stroke-width=".6">
+    <path d="M392 210 q26 -34 0 -68"/><path d="M378 214 q22 -30 0 -60"/>
+  </g>
+</svg>''',
 'orient-express': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <g stroke="#b9a894" stroke-width=".6">
     <path d="M40 400 L560 300"/><path d="M40 430 L560 322"/>

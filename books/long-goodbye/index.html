@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>漫长的告别 · 时间线 | 26 个故事节点</title>
+<meta name="description" content="一个酒鬼，一个侦探，一杯螺丝起子。朋友死了，又活了过来，然后变成了一个陌生人。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M212 232 H388 L300 358 Z" fill="none" stroke="#8d8b82" stroke-width="1.1"/>
+  <path d="M300 358 V470" stroke="#8d8b82" stroke-width="1.1"/>
+  <path d="M258 470 H342" stroke="#8d8b82" stroke-width="1.1"/>
+  <path d="M228 262 H372" stroke="#8d8b82" stroke-width=".5" stroke-dasharray="2 6"/>
+  <circle cx="314" cy="290" r="6" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M314 284 q6 -10 14 -8" fill="none" stroke="#8c3a34" stroke-width=".8"/>
+  <path d="M120 508 H480" stroke="#a5a29a" stroke-width=".8"/>
+  <path d="M170 496 V520 M430 496 V520" stroke="#a5a29a" stroke-width=".5"/>
+  <g fill="none" stroke="#b5b2a8" stroke-width=".6">
+    <path d="M392 210 q26 -34 0 -68"/><path d="M378 214 q22 -30 0 -60"/>
+  </g>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">雷蒙德·钱德勒</p>
+    <h1><em>漫长的告别</em><span>时间线</span></h1>
+    <p class="hero-deck">一个酒鬼，一个侦探，一杯螺丝起子。朋友死了，又活了过来，然后变成了一个陌生人。<br>26 个时间点，从「台阶上的醉汉」到「一点点」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>26 个时间点 · 13 位人物</span><i></i>
+      <span>全本 · 1950—1951</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">相识</span>
+      <span class="era-sub">01 — 26</span>
+    </div>
+
+    <section class="event" id="lg01" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="相识" data-short="台阶上的醉汉" data-label="1950 年春 · 洛杉矶 · 舞蹈家俱乐部">
+      <div class="ev-when">1950 年春<em>洛杉矶 · 舞蹈家俱乐部</em></div>
+      <h2>台阶上的醉汉</h2>
+      <p>晚上十一点，马洛把车停在俱乐部外面，看见一个男人坐在台阶上。那人穿着夜礼服，一只袖子撕破了，头发垂在额前，笑得很客气，像一个被人丢下的客人。他的同伴已经开车走了。马洛走过去，说：需要帮忙吗。那人抬起头，说：我住得不远，可我不知道在哪。马洛说：上车吧。那人说话很慢，一个字一个字往外放，像在掂量每个字值多少钱。马洛扶他上车的时候，闻到他身上有酒味、香水味，还有一点雨的味道。他后来想，如果那天晚上他直接开走，后面的事也许都不会发生。可他不是那样的人。</p>
+    </section>
+
+    <section class="event" id="lg02" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="相识" data-short="一杯螺丝起子" data-label="1950 年春 · 洛杉矶 · 公寓">
+      <div class="ev-when">1950 年春<em>洛杉矶 · 公寓</em></div>
+      <h2>一杯螺丝起子</h2>
+      <p>马洛把他送到公寓，那人请马洛上去喝一杯。他调了两杯螺丝起子，手法很熟。他说自己叫特里·伦诺克斯。马洛问：你是做什么的。他说：现在是吃软饭的。他说这话的时候没有一点难为情，像在说天气。马洛说：至少你诚实。他说：诚实不花钱。公寓很小，只有一张床、一把椅子、一个书架。书架上摆着几本诗集，书脊都翻旧了。马洛问：你读诗。他说：我太太读。马洛问：那你呢。他说：我读她读过的。他把酒递过来，杯子擦得很干净。</p>
+    </section>
+
+    <section class="event" id="lg03" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="相识" data-short="两个酒鬼" data-label="1950 年春 · 洛杉矶 · 酒吧">
+      <div class="ev-when">1950 年春<em>洛杉矶 · 酒吧</em></div>
+      <h2>两个酒鬼</h2>
+      <p>他们以后又见过几次，每次都喝螺丝起子，都不多话。马洛发现这个人有教养，说话带一点英国腔，酒喝到某个点上就停，从不失态。有一次马洛问他：你在战场上做过什么。特里说：做过一些不该做的事。马洛说：谁都做过。特里说：不，我做的那些，跟别人不一样。有一次特里说：你知道人为什么会喝酒吗。马洛说：因为好喝。特里说：因为喝了以后，昨天的事就变成别人的了。他说完，把杯子放下，说：我昨天的事太多了。马洛没有说话，给他又倒了一杯。</p>
+    </section>
+
+    <section class="event" id="lg04" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="相识" data-short="西尔维亚" data-label="1950 年春 · 洛杉矶 · 酒吧">
+      <div class="ev-when">1950 年春<em>洛杉矶 · 酒吧</em></div>
+      <h2>西尔维亚</h2>
+      <p>特里娶了西尔维亚·伦诺克斯，亿万富翁哈伦·波特的女儿。有一天他们在酒吧遇到，西尔维亚喝多了，当着一屋子人的面说：这个人是我从垃圾堆里捡的。特里站着没动，脸上还带着笑。马洛站起来，说：太太，你喝多了。西尔维亚看了他一眼，说：你又是谁。马洛说：一个管闲事的人。那天晚上特里一句话也没说，把酒喝完，站起来，替西尔维亚拉开椅子，然后走出去。马洛跟出去，看见他站在街边，手插在口袋里，看着来往的车。马洛说：你可以不必这样。特里说：我知道。他说：可我欠她的。</p>
+    </section>
+
+    <section class="event" id="lg05" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="相识" data-short="半夜的门铃" data-label="1950 年 夏 · 洛杉矶 · 马洛家">
+      <div class="ev-when">1950 年 夏<em>洛杉矶 · 马洛家</em></div>
+      <h2>半夜的门铃</h2>
+      <p>一个雨夜，特里来敲门。他脸色很难看，手里提着一个包。他说：我需要你送我去机场。马洛问：出什么事了。他说：西尔维亚死了。马洛站在门口，看了他三秒钟，说：上车。他没有问怎么死的，也没有问是不是他杀的。他知道问了也没有用。车开到半路，特里忽然说：我没有杀她。马洛说：我知道。特里说：你怎么知道。马洛说：因为你要是杀了人，不会来找我，你会直接跑。特里笑了一下，说：你比我自己还了解我。他把头靠在车窗上，闭上了眼睛。</p>
+    </section>
+
+    <section class="event" id="lg06" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="相识" data-short="最后一句话" data-label="1950 年 夏 · 洛杉矶 · 机场">
+      <div class="ev-when">1950 年 夏<em>洛杉矶 · 机场</em></div>
+      <h2>最后一句话</h2>
+      <p>在机场，特里把一只信封塞给马洛，说：如果我不回来，你替我收着。马洛说：你会回来的。特里笑了一下，说：你这个人真奇怪，明明不信，还要说好听的。他走进登机口，回头挥了挥手。马洛站在那儿，看着飞机起飞，然后回家睡了三个小时。第二天早上警察来了。信封很薄，马洛捏了捏，知道里面是一张纸币和一张纸。他没有当场打开。他把信封放进内袋，开车回家，路上没有开收音机。第二天早上七点，门铃响了，外面站着两个人，一个穿警服，一个穿便衣。便衣说：马洛先生，我们谈谈。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">三天</span>
+      <span class="era-sub">07 — 26</span>
+    </div>
+
+    <section class="event" id="lg07" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="三天" data-short="三天" data-label="1950 年 夏 · 洛杉矶 · 警局">
+      <div class="ev-when">1950 年 夏<em>洛杉矶 · 警局</em></div>
+      <h2>三天</h2>
+      <p>马洛被关三天，问了十七遍。他一句话也不改：我送他到机场，我不知道他去了哪，我没问他为什么走。警察说：你这是在替一个杀人犯挡枪。马洛说：我是在替一个朋友挡枪。第三天他们放了他，说：你运气好。马洛说：我一向运气好。奥尔斯坐在对面，把一支烟抽到手指，说：你知道我最讨厌什么吗。马洛说：知道，讨厌不合作的人。奥尔斯说：不，我讨厌聪明人。他说：聪明人总以为自己能替别人扛事，最后扛的都是自己的棺材。他把烟按灭，说：你可以走了。</p>
+    </section>
+
+    <section class="event" id="lg08" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="三天" data-short="墨西哥的枪声" data-label="1950 年 夏 · 洛杉矶 · 报摊">
+      <div class="ev-when">1950 年 夏<em>洛杉矶 · 报摊</em></div>
+      <h2>墨西哥的枪声</h2>
+      <p>报纸上登出来：特里·伦诺克斯在墨西哥一个小镇吞枪自杀，留下一份自白，承认杀了妻子。马洛把报纸看了三遍。他想不通——一个连酒都喝得有分寸的人，会写一份错字连篇的自白书。他去找那个写报道的记者，记者说：我抄的警方通报，一个字没改。朗尼·摩根在警局门口拦住马洛，说：你别查了。马洛说：为什么。摩根说：因为上面已经定了，再查就是跟上面过不去。马洛说：那你为什么告诉我。摩根说：因为我不想哪天喝多了，想起这件事睡不着。他说完就走了。</p>
+    </section>
+
+    <section class="event" id="lg09" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="三天" data-short="没有人来" data-label="1950 年 夏 · 洛杉矶 · 墓地">
+      <div class="ev-when">1950 年 夏<em>洛杉矶 · 墓地</em></div>
+      <h2>没有人来</h2>
+      <p>葬礼在一个不下雨的早上。来的人只有马洛、一个神父、两个工人。西尔维亚家的人一个也没来。马洛问殡仪馆的人：谁付的钱。那人说：一位先生，没留名字。马洛站在墓前，想起那杯螺丝起子，想起那句「诚实不花钱」。他说：特里，你欠我一杯酒。一个年轻女人最后来，站得很远，放下一束花就走了。马洛后来知道她叫琳达·洛林，是西尔维亚的妹妹。神父念完经文，问马洛要不要说两句。马洛说：不了。他想说的话，不适合在墓地讲。</p>
+    </section>
+
+    <section class="event" id="lg10" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="三天" data-short="那封信" data-label="1950 年 夏 · 洛杉矶 · 马洛家">
+      <div class="ev-when">1950 年 夏<em>洛杉矶 · 马洛家</em></div>
+      <h2>那封信</h2>
+      <p>信封里是一张五千美元的钞票，旧得发黄，是麦迪逊头像的那种。还有一封信，写得很短：马洛，你是我在这世上唯一的朋友。别来找我。马洛把钱放进保险箱，把信夹在一本书里。他后来一直没花那张钞票。他知道那不是钱。信纸是旅馆的便笺，上面印着一家墨西哥小城旅馆的名字。字迹很潦草，有几处涂改。马洛把信读了两遍，发现一个地方不对：「我杀了她」这四个字，写得比别的字用力，像是有人扶着他的手写的。他把这个想法记在心里，没有告诉任何人。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">韦德家的案子</span>
+      <span class="era-sub">11 — 26</span>
+    </div>
+
+    <section class="event" id="lg11" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="韦德家的案子" data-short="斯宾塞的委托" data-label="1950 年 秋 · 洛杉矶 · 出版社">
+      <div class="ev-when">1950 年 秋<em>洛杉矶 · 出版社</em></div>
+      <h2>斯宾塞的委托</h2>
+      <p>出版商斯宾塞请马洛去，说他们公司的头号作家罗杰·韦德失踪了，已经四天。这个人喝酒，喝起来不要命，妻子管不住。斯宾塞说：我们不要声张，你把他找回来就行。马洛说：找回来以后呢。斯宾塞说：以后的事以后再说。马洛接了这单，因为他需要钱。斯宾塞说：韦德一年能给我们赚很多钱，可他一年比一年难找。马洛问：他喝酒。斯宾塞说：他喝酒，还失踪，还打老婆。他说到这里停了一下，说：不，是他老婆打他。马洛说：那你们还找他。斯宾塞说：书总得有人写。</p>
+    </section>
+
+    <section class="event" id="lg12" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="韦德家的案子" data-short="艾琳" data-label="1950 年 秋 · 洛杉矶 · 韦德家">
+      <div class="ev-when">1950 年 秋<em>洛杉矶 · 韦德家</em></div>
+      <h2>艾琳</h2>
+      <p>韦德家在山上，院子很大，房子里很暗。开门的是艾琳·韦德，三十多岁，说话很轻，眼睛很亮。她说：我丈夫去疗养院了。马洛说：哪一家。她说：他没说。马洛说：那你怎么知道他去了疗养院。她愣了一下，说：他一向这样。马洛说：太太，我一向不信「一向」。马洛问：你丈夫最近在写什么。艾琳说：一本小说，写了很久。马洛问：写什么。她说：写一个男人替别人顶罪。她说完，抬眼看马洛，说：你觉得这个题材怎么样。马洛说：老套。她说：是啊，老套。可人就是会做老套的事。开门的是个墨西哥小伙子，叫坎迪，眼睛很黑，看马洛的时候一直没眨眼。</p>
+    </section>
+
+    <section class="event" id="lg13" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="韦德家的案子" data-short="醉倒在路边" data-label="1950 年 秋 · 洛杉矶 · 公路">
+      <div class="ev-when">1950 年 秋<em>洛杉矶 · 公路</em></div>
+      <h2>醉倒在路边</h2>
+      <p>马洛在一条公路边的水沟里找到韦德。他脸上有伤，衣服上有草，醒过来第一句话是：你是谁。第二句是：我不能回去。马洛把他扶上车，他一路都在说胡话，说他写不出来，说他欠了一个人。马洛问：欠谁。他说：欠一个死人。韦德在车上睡着了，头一直磕在车窗上。马洛先把他送到了维林杰医生的疗养院，那地方在城郊，门口挂着一块木牌，字都掉了漆。维林杰医生收人很贵，问得很少。安顿好之后马洛把人送回家，艾琳开门，看见丈夫，脸上没有惊讶。马洛转身要走，她忽然说：马洛先生，你喝酒吗。他说：喝。她说：那留下喝一杯吧。</p>
+    </section>
+
+    <section class="event" id="lg14" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="韦德家的案子" data-short="书房" data-label="1950 年 秋 · 洛杉矶 · 韦德家">
+      <div class="ev-when">1950 年 秋<em>洛杉矶 · 韦德家</em></div>
+      <h2>书房</h2>
+      <p>韦德的书房很大，桌上摊着一份稿子，写了三十页就停了。艾琳端茶进来，站在丈夫身后，手放在他肩上。马洛注意到韦德抖了一下。他后来回想，那一抖不像怕老婆，像怕某件事被人说出口。他走的时候，艾琳送到门口，说：马洛先生，你结婚了吗。他说：没有。她说：那很好。茶很烫，谁都没有喝。韦德忽然说：马洛，你相信一个人可以重新开始吗。马洛说：不相信。韦德说：为什么。马洛说：因为过去不会走，它只是站着不动，等你回头。韦德笑了一下，说：你说得对。他端起茶，手抖得洒了一半。</p>
+    </section>
+
+    <section class="event" id="lg15" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="韦德家的案子" data-short="第二次失踪" data-label="1950 年 秋 · 洛杉矶 · 海滩">
+      <div class="ev-when">1950 年 秋<em>洛杉矶 · 海滩</em></div>
+      <h2>第二次失踪</h2>
+      <p>韦德又不见了。这次马洛在海岸边找到他，他坐在礁石上，脚边一堆空瓶子。他说：我梦见一个女人。马洛问：哪个女人。他说：我不能说。马洛说：你不说，我就走了。韦德抓住他的袖子，说：她杀过人。他说完这句话，自己先愣住了，然后开始哭。马洛问：她是谁。韦德说：我不能说。马洛说：那你就一个人在这儿坐着。他转身走了十几步，韦德在后面喊：马洛！他停下来。韦德说：她是我认识的最好的女人。马洛说：那你为什么怕她。韦德没有回答，只是把头埋进手里。</p>
+    </section>
+
+    <section class="event" id="lg16" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="韦德家的案子" data-short="枪声" data-label="1950 年 秋 夜 · 洛杉矶 · 韦德家">
+      <div class="ev-when">1950 年 秋 夜<em>洛杉矶 · 韦德家</em></div>
+      <h2>枪声</h2>
+      <p>那天夜里马洛接到艾琳的电话，声音很急：他疯了，你快来。马洛赶到时，韦德倒在书房的地上，胸口有一个洞，旁边是他的枪。艾琳站在门口，穿着睡袍，说：他要杀我，我躲开了。警察来了，看了现场，定性为意外走火。马洛站在院子里抽了一夜的烟。警察问艾琳：你听见枪声的时候在哪。她说：在楼上，我在睡觉。警察问：你丈夫最近有没有说过想死。她说：他说过很多次。警察合上本子，说：这是意外。马洛站在门口，看见书房的窗开着，窗帘在动。他后来一直记得那扇窗。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">真相</span>
+      <span class="era-sub">17 — 26</span>
+    </div>
+
+    <section class="event" id="lg17" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="真相" data-short="旧档案" data-label="1950 年 冬 · 洛杉矶 · 图书馆">
+      <div class="ev-when">1950 年 冬<em>洛杉矶 · 图书馆</em></div>
+      <h2>旧档案</h2>
+      <p>马洛开始查艾琳的过去。他查到她在战时嫁过一个叫保罗·马斯顿的加拿大飞行员，那人被报失踪，后来被列为阵亡。他又查到特里·伦诺克斯的原名，也是保罗·马斯顿。两个名字，一个人。他在图书馆坐了很久，管理员来提醒他闭馆，他说：再给我十分钟。档案上写着：保罗·马斯顿，加拿大皇家空军，1943 年失踪，1944 年宣告阵亡。另一份档案上写着：保罗·马斯顿，1946 年在西雅图改名为特里·伦诺克斯。马洛把两份档案并排放在桌上，看了很久。他想起特里说过的那句话：我做的那些，跟别人不一样。</p>
+    </section>
+
+    <section class="event" id="lg18" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="真相" data-short="她说了" data-label="1950 年 冬 · 洛杉矶 · 韦德家">
+      <div class="ev-when">1950 年 冬<em>洛杉矶 · 韦德家</em></div>
+      <h2>她说了</h2>
+      <p>马洛去找艾琳，把两份档案放在桌上。她说：你知道了。他说：我知道一部分。她说：那我告诉你剩下的。她说她等了他五年，找到他的时候，他已经改了名字，娶了别人的女儿。她说：我不是恨他，我是恨那个女人把他变成了那样。她说这话的时候，手一直在抖。她说：我们结婚的时候，他二十六岁，我二十三岁。他说等他回来，我们就去一个没人认识的地方。她说到这里笑了一下，说：后来他回来了，可他不想去那个地方了。她说：我不怪他，我怪那个让他不想去的人。她把杯子握得很紧，指节都白了。</p>
+    </section>
+
+    <section class="event" id="lg19" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="真相" data-short="两桩命案" data-label="1950 年 冬 · 洛杉矶 · 韦德家">
+      <div class="ev-when">1950 年 冬<em>洛杉矶 · 韦德家</em></div>
+      <h2>两桩命案</h2>
+      <p>她说：西尔维亚是我杀的。那天晚上我去她家，她喝醉了，躺在沙发上笑。我用一尊铜像砸了她的头。她说：韦德看见了。他什么都没说，可他开始写一本小说，写一个男人替妻子顶罪。她说：我不能让他写下去。马洛问：所以你也杀了他。她没有回答。马洛问：韦德知道你的事吗。她说：他知道一部分。他喝醉了会说梦话，说「我看见过」。马洛问：你为什么不走。她说：因为走了就等于承认。她说：我这辈子只做过一件错事，可我用了五年去遮它，遮到最后，我自己都信了。</p>
+    </section>
+
+    <section class="event" id="lg20" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="真相" data-short="最后一杯" data-label="1950 年 冬 · 洛杉矶 · 韦德家">
+      <div class="ev-when">1950 年 冬<em>洛杉矶 · 韦德家</em></div>
+      <h2>最后一杯</h2>
+      <p>她给自己倒了一杯酒，手很稳。她说：马洛先生，你要抓我吗。他说：我不是警察。她说：那你来做什么。他说：我想知道特里为什么替一个杀妻的人顶罪。她说：因为他欠我。她说：一个人欠了另一个人的时候，会做很蠢的事。她把酒喝完，说：你可以走了。她送马洛到门口，忽然说：你有没有想过，如果没有我，他会在墨西哥活下来。马洛说：想过。她说：那你恨我吗。马洛说：不恨。她说：为什么。马洛说：因为你已经把自己判了。她站在门口，笑了一下，说：你这个人，真难对付。</p>
+    </section>
+
+    <section class="event" id="lg21" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="真相" data-short="药瓶" data-label="1950 年 冬 · 洛杉矶 · 韦德家">
+      <div class="ev-when">1950 年 冬<em>洛杉矶 · 韦德家</em></div>
+      <h2>药瓶</h2>
+      <p>第二天早上，艾琳死在床上，床边有一个空药瓶和一封信。信是写给马洛的，只有两行：我把该还的都还了。别告诉任何人我来过你这里。警察判定自杀。马洛把信烧了。他看着那点火光，想：这世上有些人，活得比死了还累。信纸只有半页。马洛把它折好，放进口袋，走到院子里，点了一支烟。天刚亮，山下的城市一片灰。他想，这个人从头到尾没有求过谁，最后也没有。他把烟抽完，回屋对警察说：她昨天晚上很正常。这是他这辈子说过的最大的谎。</p>
+    </section>
+
+    <section class="event" id="lg22" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="真相" data-short="门南德斯" data-label="1950 年 冬 · 洛杉矶 · 酒吧">
+      <div class="ev-when">1950 年 冬<em>洛杉矶 · 酒吧</em></div>
+      <h2>门南德斯</h2>
+      <p>门南德斯是城里有名的人物，穿得很体面，说话很客气。他请马洛喝酒，说：特里是我的朋友，他为西尔维亚顶了罪，这我知道。马洛说：你知道得不少。门南德斯说：我出钱让他走的。马洛说：那你也知道他没死。门南德斯笑了一下，说：马洛先生，这世上死掉的人，有一半还活着。门南德斯说：特里这个人，一辈子都在替别人活。马洛说：那你为什么帮他。他说：因为他替的那件事，本来该我来做。他说完，把杯子放下，说：马洛先生，有些账，不是钱能算清的。他站起来，替马洛付了酒钱，走了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">告别</span>
+      <span class="era-sub">23 — 26</span>
+    </div>
+
+    <section class="event" id="lg23" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="告别" data-short="一个陌生人" data-label="1951 年 春 · 洛杉矶 · 马洛家">
+      <div class="ev-when">1951 年 春<em>洛杉矶 · 马洛家</em></div>
+      <h2>一个陌生人</h2>
+      <p>一个男人来找马洛，五十岁上下，头发花白，脸有些僵。他说：你不认得我了。马洛看了他很久，说：你的手还是那样，左手小指少一节。那人笑了，说：你还是这么细。他说他整了容，换了身份，现在在另一个城市做生意。他说：我回来是想把那五千块还你。那人说：我在墨西哥做了一次手术，花了两年。他说：现在我有一个新的名字，一家小公司，一个不问我过去的女人。马洛说：那你回来做什么。他说：我想看看你还认不认得我。马洛说：我认得你的手。他说：那就够了。</p>
+    </section>
+
+    <section class="event" id="lg24" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="告别" data-short="不是同一个人" data-label="1951 年 春 · 洛杉矶 · 马洛家">
+      <div class="ev-when">1951 年 春<em>洛杉矶 · 马洛家</em></div>
+      <h2>不是同一个人</h2>
+      <p>马洛把钱推回去，说：你留着。那人说：我们还是朋友吗。马洛说：不。那人愣住了。马洛说：我认识的那个特里·伦诺克斯，在马路边上坐着，衣服破了，还知道说谢谢。他死在了墨西哥。你只是一个长得像他的人。那人站了很久，说：我明白了。那人说：我可以解释。马洛说：不用。他说：你听我说完。马洛说：你听着，我为了你坐了三天牢，被人当成共犯，被人在背后指。这些都不算什么。他说：算什么的是，我在墓地站着的时候，你正在某个地方做手术。那人低下了头。</p>
+    </section>
+
+    <section class="event" id="lg25" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="告别" data-short="告别" data-label="1951 年 春 · 洛杉矶 · 门口">
+      <div class="ev-when">1951 年 春<em>洛杉矶 · 门口</em></div>
+      <h2>告别</h2>
+      <p>那人走到门口，回过头，说：马洛，那杯酒我还欠着。马洛说：不用还了。门关上。马洛站在屋里，听见外面的车开走。他给自己调了一杯螺丝起子，放在桌上，没有喝。他后来想，这大概就是告别——不是有人说再见，是有人走了以后，你还在原地。马洛把门关上，靠在门上站了一会儿。屋里很静，只有冰箱在响。他走到桌前，把那杯酒端起来，闻了闻，又放下。他想起很多年前在警察局，有人问他为什么干这一行。他当时说：因为这行不用穿西装。现在他想，也许是因为这一行，还能遇到几个值得的人。</p>
+    </section>
+
+    <section class="event" id="lg26" style="--c:#4a4b46"
+      data-color="#4a4b46" data-era="告别" data-short="一点点" data-label="1951 年 春 · 洛杉矶">
+      <div class="ev-when">1951 年 春<em>洛杉矶</em></div>
+      <h2>一点点</h2>
+      <p>他把那张五千美元的钞票从保险箱里拿出来，看了很久，最后放回原处。他想，一个人一生要告别多少次，才能学会不难过。他想起艾琳，想起韦德，想起那个在台阶上笑得很客气的男人。他给自己倒了一杯酒，喝完，把杯子洗干净，放回架子上。楼下的街上有人在洗车，水声一直响。马洛把窗关上，坐回椅子上。他想，一个人要告别多少次，才能学会不难过。他想了很久，没有答案。他站起来，把灯关了，屋子里只剩下窗外的一点光。他坐在黑暗里，一直坐到天亮。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 26</span>
+        </div>
+        <div class="rail-era" id="railNow">1950 年春</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“说一声再见，就是死去一点点。”</p>
+  <p class="tiny">漫长的告别 · 雷蒙德·钱德勒　·　26 个时间点，13 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

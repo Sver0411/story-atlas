@@ -136,5 +136,17 @@
     "events": 27,
     "people": 17,
     "scope": "全本 · 含两种结局"
+  },
+  {
+    "id": "long-goodbye",
+    "title": "漫长的告别",
+    "author": "雷蒙德·钱德勒",
+    "category": "推理",
+    "description": "一个酒鬼，一个侦探，一杯螺丝起子。",
+    "accent": "#4a4b46",
+    "cover": "",
+    "events": 26,
+    "people": 13,
+    "scope": "全本 · 1950—1951"
   }
 ]
