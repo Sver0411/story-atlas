@@ -64,10 +64,32 @@ QUOTES = {
     'enders-game': '我做的事，不是我的心做的。',
     'neuromancer': '矩阵里有鬼。',
     'hyperion': '它不吃人，它收集人。',
+    'narnia': '他不是一头驯服的狮子。',
+    'earthsea': '魔法不是用力气，是知道名字。',
 }
 
 
 DECOR = {
+'narnia': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <rect x="216" y="200" width="168" height="270" fill="none" stroke="#8d9a8a" stroke-width="1.1"/>
+  <path d="M216 200 H384 M300 200 V470" stroke="#a5b0a0" stroke-width=".5"/>
+  <circle cx="316" cy="340" r="3" fill="#8c3a34"/>
+  <path d="M140 470 H460" stroke="#b0bbaa" stroke-width=".8"/>
+  <g fill="#c8d2c4"><circle cx="200" cy="160" r="2"/><circle cx="248" cy="140" r="1.6"/><circle cx="356" cy="150" r="1.8"/><circle cx="404" cy="168" r="2.2"/></g>
+  <path d="M120 512 H480" stroke="#b0bbaa" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'earthsea': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g fill="none" stroke="#7f9294" stroke-width=".5">
+    <path d="M80 420 Q180 396 280 420 T480 420 T560 420"/>
+    <path d="M80 452 Q180 428 280 452 T480 452 T560 452"/>
+    <path d="M80 484 Q180 460 280 484 T480 484 T560 484"/>
+  </g>
+  <path d="M300 420 V300" stroke="#8c3a34" stroke-width="1.1"/>
+  <circle cx="300" cy="286" r="14" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M286 286 H314 M300 272 V300" stroke="#8c3a34" stroke-width=".6"/>
+  <path d="M180 420 l24 -22 l24 22" fill="none" stroke="#7f9294" stroke-width=".7"/>
+  <path d="M120 530 H480" stroke="#9aa8aa" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'hyperion': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M180 470 V300 L214 268 L248 300 V470" fill="none" stroke="#9a8c6a" stroke-width="1.1"/>
   <path d="M352 470 V320 L386 292 L420 320 V470" fill="none" stroke="#9a8c6a" stroke-width=".9"/>

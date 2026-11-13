@@ -568,5 +568,29 @@
     "events": 14,
     "people": 9,
     "scope": "第一部 · 全本"
+  },
+  {
+    "id": "narnia",
+    "title": "纳尼亚传奇",
+    "author": "C.S.刘易斯",
+    "category": "奇幻",
+    "description": "衣柜后面。",
+    "accent": "#4a5a52",
+    "cover": "",
+    "events": 15,
+    "people": 14,
+    "scope": "七部 · 1900—1949"
+  },
+  {
+    "id": "earthsea",
+    "title": "地海传奇",
+    "author": "勒古恩",
+    "category": "奇幻",
+    "description": "真名。",
+    "accent": "#3f4e50",
+    "cover": "",
+    "events": 14,
+    "people": 6,
+    "scope": "前四部"
   }
 ]

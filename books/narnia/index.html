@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>纳尼亚传奇 · 时间线 | 15 个故事节点</title>
+<meta name="description" content="一个衣柜，一盏路灯，一百年的雪。四个孩子进去，出来时已经做了很多年的国王。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <rect x="216" y="200" width="168" height="270" fill="none" stroke="#8d9a8a" stroke-width="1.1"/>
+  <path d="M216 200 H384 M300 200 V470" stroke="#a5b0a0" stroke-width=".5"/>
+  <circle cx="316" cy="340" r="3" fill="#8c3a34"/>
+  <path d="M140 470 H460" stroke="#b0bbaa" stroke-width=".8"/>
+  <g fill="#c8d2c4"><circle cx="200" cy="160" r="2"/><circle cx="248" cy="140" r="1.6"/><circle cx="356" cy="150" r="1.8"/><circle cx="404" cy="168" r="2.2"/></g>
+  <path d="M120 512 H480" stroke="#b0bbaa" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">C.S.刘易斯</p>
+    <h1><em>纳尼亚传奇</em><span>时间线</span></h1>
+    <p class="hero-deck">一个衣柜，一盏路灯，一百年的雪。四个孩子进去，出来时已经做了很多年的国王。<br>15 个时间点，从「衣柜」到「戒指」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>15 个时间点 · 14 位人物</span><i></i>
+      <span>七部 · 1900—1949</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">雪</span>
+      <span class="era-sub">01 — 15</span>
+    </div>
+
+    <section class="event" id="nr01" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="雪" data-short="衣柜" data-label="1900 年 · 伦敦 · 老房子">
+      <div class="ev-when">1900 年<em>伦敦 · 老房子</em></div>
+      <h2>衣柜</h2>
+      <p>战争期间，四个孩子被送到乡下一位老教授家。最小的女孩露西在空房间里发现一个大衣柜，她钻进去，摸到的不是木板，是雪。她往前走，走到一片树林里，看见一盏路灯。她在雪地里遇见一个半人半羊的先生，叫图姆纳斯。他请她喝茶，给她讲故事，最后哭了。他说：我是替白女巫做事的。他说：我在抓你。她说：我在这儿。她说：这里在下雪。她把门推开，雪落进来，落在她的鞋上。</p>
+    </section>
+
+    <section class="event" id="nr02" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="雪" data-short="白女巫" data-label="1900 年 · 纳尼亚">
+      <div class="ev-when">1900 年<em>纳尼亚</em></div>
+      <h2>白女巫</h2>
+      <p>纳尼亚已经下了一百年的雪。白女巫把这片土地冻住，说：永远不会有春天。她把不服从的人变成石头。她的城堡里有一个院子，摆满了石像。她说：我不是女人。她说：我是女王，纳尼亚的女王。她说：谁不服从我，就变成石头。她的城堡里没有火。她说：我不需要火。她说：我需要的，你们给不了。她说：你们的世界，春天会来。她说：这里不会。</p>
+    </section>
+
+    <section class="event" id="nr03" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="雪" data-short="土耳其软糖" data-label="1900 年 · 纳尼亚">
+      <div class="ev-when">1900 年<em>纳尼亚</em></div>
+      <h2>土耳其软糖</h2>
+      <p>爱德蒙跟着露西进了纳尼亚，一个人走丢了。他遇见白女巫，她给他吃土耳其软糖，说：你只要把另外三个带来，我就让你当王子。他吃了，也答应了。他回到家，说谎，说纳尼亚不存在。露西哭了一夜。他坐在床上，嘴里还有糖的味道。她说：你只要答应我一件事。他说：什么事。她说：把你的哥哥姐姐带来。他说：好。糖在嘴里化开的时候，他觉得身上暖了。他说：还有吗。她说：有。</p>
+    </section>
+
+    <section class="event" id="nr04" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="雪" data-short="阿斯兰" data-label="1900 年 · 纳尼亚">
+      <div class="ev-when">1900 年<em>纳尼亚</em></div>
+      <h2>阿斯兰</h2>
+      <p>海狸夫妇告诉他们：阿斯兰要来了。阿斯兰是一头狮子，是纳尼亚真正的王。海狸说：他不是一头驯服的狮子。他说：他很吓人，可他很好。爱德蒙一个人跑去了白女巫那边。他说：我带你们去。他后来知道，他带的路，是往石桌去的路。海狸先生说：你们不该来。他说：可你们来了。他说：那就别回去了。他说：他会来的。他说：他已经在这片土地上了。</p>
+    </section>
+
+    <section class="event" id="nr05" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="雪" data-short="交易" data-label="1900 年 · 石桌">
+      <div class="ev-when">1900 年<em>石桌</em></div>
+      <h2>交易</h2>
+      <p>白女巫说：按照古老的法，叛徒的血归我。她说：这个男孩必须死。阿斯兰跟她谈了很久，谈完回来说：事情办好了。他没有说是怎么谈的。那天晚上，他一个人去了石桌。她们把他绑起来，剃了毛，嘲笑他。他没有反抗。天亮之前，刀落下来。她说：他自愿的。她说：他自己走上石桌的。她说：这不关我的事。她说：你们要看他死吗。她说：那就看吧。</p>
+    </section>
+
+    <section class="event" id="nr06" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="雪" data-short="复活" data-label="1900 年 · 石桌">
+      <div class="ev-when">1900 年<em>石桌</em></div>
+      <h2>复活</h2>
+      <p>天亮的时候，石桌裂了。两个女孩守在那里，看见桌子裂开，看见他不见了。然后她们听见一声吼，回头，看见他站在阳光里，鬃毛上还有露水。他说：有一个更古老的法。他说：如果一个自愿的、无辜的人替叛徒死，死本身就会倒过来。他说完，笑了。她说：我不敢看。露西说：我看。她看着那块裂开的石头，眼睛一直没眨。她们跑了一夜。天亮的时候，她们站在山顶上，看见海。</p>
+    </section>
+
+    <section class="event" id="nr07" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="雪" data-short="四王" data-label="1900 年 · 战场">
+      <div class="ev-when">1900 年<em>战场</em></div>
+      <h2>四王</h2>
+      <p>那一战打了一整天。彼得用剑，爱德蒙砸了白女巫的魔杖，自己被砍伤。阿斯兰带着援军赶到，把白女巫扑倒。战争结束了。四个孩子在凯尔帕拉维尔城堡里做了国王和女王。他们统治了很多年，长大，变老。然后有一天，他们在树林里追一头白鹿，回到了衣柜那一头。爱德蒙被抬下去的时候，还在喊：我砸了它。他说：我砸了那根魔杖。他说：我不是英雄。他说：我只是不想再欠了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">回来</span>
+      <span class="era-sub">08 — 15</span>
+    </div>
+
+    <section class="event" id="nr08" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="回来" data-short="回来" data-label="1940 年 · 纳尼亚">
+      <div class="ev-when">1940 年<em>纳尼亚</em></div>
+      <h2>回来</h2>
+      <p>他们从衣柜里出来，衣服还是那件，时间只过去了几个小时。教授听完他们的故事，说：你们以后还会回去。他说：从同一个地方，不能回去两次，可你们会找到别的路。很多年以后，他们在火车站等车，听见一声号角。他们回头，看见纳尼亚的树林。教授说：你们这些孩子，为什么不早说。露西说：你不会信。他说：我会信。他们走出衣柜，身上还有雪。管家说：你们去哪儿了。他们没有回答。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">卡斯宾</span>
+      <span class="era-sub">09 — 15</span>
+    </div>
+
+    <section class="event" id="nr09" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="卡斯宾" data-short="卡斯宾" data-label="1941 年 · 纳尼亚">
+      <div class="ev-when">1941 年<em>纳尼亚</em></div>
+      <h2>卡斯宾</h2>
+      <p>纳尼亚已经过去了一千三百年。现在统治这片土地的是台尔马人，他们从海上来，把纳尼亚人赶进森林。一个叫卡斯宾的王子知道了真相，吹响了苏珊的号角。号角把四个孩子召了回来。他们落在一座废墟里，看见一个矮人，一个獾，一只能说人话的老鼠。老鼠叫瑞皮契普，腰上挂着一把剑。卡斯宾说：我从小听保姆讲纳尼亚。他说：大家都笑我。他说：可我一直信。他说：把号角吹响。他说：不管谁来，我们都打。</p>
+    </section>
+
+    <section class="event" id="nr10" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="卡斯宾" data-short="决斗" data-label="1941 年 · 战场">
+      <div class="ev-when">1941 年<em>战场</em></div>
+      <h2>决斗</h2>
+      <p>彼得跟台尔马的国王弥拉兹决斗，赢了他。弥拉兹的部下不服，说自己不是叛徒。这时候阿斯兰出现了，让他们看见自己。一半的人晕倒，一半的人跪下。卡斯宾加冕那天，森林里所有的树都醒了。树走动的时候，地面在响。弥拉兹死的时候，他的部下没有一个替他拔剑。他躺在那儿，眼睛睁着。树走动的时候，根从土里拔出来，像脚。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">海上</span>
+      <span class="era-sub">11 — 15</span>
+    </div>
+
+    <section class="event" id="nr11" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="海上" data-short="黎明踏浪号" data-label="1942 年 · 海上">
+      <div class="ev-when">1942 年<em>海上</em></div>
+      <h2>黎明踏浪号</h2>
+      <p>爱德蒙和露西跟着卡斯宾出海，去找七位失踪的勋爵。船叫「黎明踏浪号」。他们在岛上遇见各种东西：一条把船吞下去的海蛇，一群看不见的人，一片能变成水的水。航行的尽头，是一片海，海的尽头是一堵浪。阿斯兰在那一边。他说：这一边，你们不会再来了。他说：可你们会从另一条路来。船上有一只老鼠，叫瑞皮契普。它说：我要去世界的尽头。它说：我要看看那儿有什么。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">银椅</span>
+      <span class="era-sub">12 — 15</span>
+    </div>
+
+    <section class="event" id="nr12" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="银椅" data-short="银椅" data-label="1942 年 · 北方">
+      <div class="ev-when">1942 年<em>北方</em></div>
+      <h2>银椅</h2>
+      <p>尤斯塔斯和吉尔被送到纳尼亚，任务是找一个失踪的王子。王子叫瑞利安，被女巫关在地下，坐在一把银椅上，被施了咒。他们找到他，烧了椅子，用剑刺了女巫。王子回到地上，看见父亲已死，他成了国王。他做的第一件事，是让人把所有的学校都改成教真话的地方。女巫说：你们不该来这儿。吉尔说：我们来了。她说：那你们就别想走。她说：这把椅子，会让人忘记自己是谁。吉尔说：那我们把它烧了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">最后一战</span>
+      <span class="era-sub">13 — 15</span>
+    </div>
+
+    <section class="event" id="nr13" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="最后一战" data-short="最后的战斗" data-label="1949 年 · 纳尼亚">
+      <div class="ev-when">1949 年<em>纳尼亚</em></div>
+      <h2>最后的战斗</h2>
+      <p>一只猿猴捡到一张狮子皮，披在驴子拼图身上，说这是阿斯兰。他拿它骗人，跟台尔马人做交易，砍了会说话的树。纳尼亚乱了。纳尼亚的末代国王泰里安带着最后的部下，在一座马厩前面打最后一场仗。门一开，里面不是马厩，是另一个世界。阿斯兰站在那儿，说：你们怕的那扇门，其实是入口。猿猴说：阿斯兰来了。驴子在里面发抖。它说：我不是。猿猴说：你闭嘴。</p>
+    </section>
+
+    <section class="event" id="nr14" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="最后一战" data-short="更远的地方" data-label="1949 年 · 纳尼亚 · 之后">
+      <div class="ev-when">1949 年<em>纳尼亚 · 之后</em></div>
+      <h2>更远的地方</h2>
+      <p>纳尼亚结束了。所有的人都从这个世界上消失，去了一个更大的纳尼亚。那里没有尽头，越往里走越大。有人说：这才是真的。前面那个，只是影子。露西说：我们以后还会回去吗。阿斯兰说：不会。他说：可你们会一直往里走。他说完，带着他们往山上跑。所有的人都往山上跑。跑着跑着，有人发现自己的腿不累了。他们越跑越快。他说：我这一辈子，只做了一件事，就是相信。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">开始</span>
+      <span class="era-sub">15 — 15</span>
+    </div>
+
+    <section class="event" id="nr15" style="--c:#4a5a52"
+      data-color="#4a5a52" data-era="开始" data-short="戒指" data-label="1900 年 · 伦敦">
+      <div class="ev-when">1900 年<em>伦敦</em></div>
+      <h2>戒指</h2>
+      <p>在一切开始之前，有一个男孩叫迪戈里，一个女孩叫波莉。他们从一扇门进了安德鲁舅舅的书房，被戴上戒指，掉进了树林。那树林连接所有的世界。他们在树林里看见一个世界刚刚被造出来：太阳在唱歌，草在长。阿斯兰站在那儿，说：纳尼亚，纳尼亚，纳尼亚，醒过来。迪戈里说：我们不该碰那个戒指。波莉说：我们已经碰了。他说：那就走。树林里很静。所有的水池都通着别的世界。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 15</span>
+        </div>
+        <div class="rail-era" id="railNow">1900 年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“他不是一头驯服的狮子。”</p>
+  <p class="tiny">纳尼亚传奇 · C.S.刘易斯　·　15 个时间点，14 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>
