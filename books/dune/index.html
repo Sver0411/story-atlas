@@ -390,6 +390,14 @@ body{
   .js .event{opacity:1;transform:none}
   .event::before{transform:scaleY(1)}
 }
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
 </style>
 </head>
 <body>
@@ -402,7 +410,15 @@ body{
 </nav>
 
 <header class="masthead">
-  <div class="orbits" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="core"></span></div>
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="410" cy="176" r="52" fill="none" stroke="#c9a46a" stroke-width="1.2"/>
+  <circle cx="410" cy="176" r="62" fill="none" stroke="#c9a46a" stroke-width=".6" opacity=".5"/>
+  <g fill="none" stroke="#b79b74" stroke-width="1">
+    <path d="M-20 392 Q120 316 260 392 T540 392 T820 392"/>
+    <path d="M-20 448 Q140 372 300 448 T580 448 T860 448"/>
+    <path d="M-20 506 Q160 430 340 506 T620 506 T900 506"/>
+  </g>
+</svg></div>
   <div class="mast-inner">
     <p class="hero-kicker">弗兰克·赫伯特</p>
     <h1><em>沙丘</em><span>时间线</span></h1>

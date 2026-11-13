@@ -19,6 +19,60 @@ QUOTES = {
     'red-chamber': '满纸荒唐言，一把辛酸泪。都云作者痴，谁解其中味。',
 }
 
+
+DECOR = {
+'monte-cristo': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g fill="none" stroke="#c2b9a8" stroke-width="1">
+    <path d="M20 400 Q120 356 220 400 T420 400 T620 400"/>
+    <path d="M20 452 Q120 408 220 452 T420 452 T620 452"/>
+    <path d="M20 504 Q120 460 220 504 T420 504 T620 504"/>
+  </g>
+  <circle cx="352" cy="330" r="6" fill="#7a4d35"/>
+  <path d="M118 206 Q236 262 352 330" fill="none" stroke="#7a4d35" stroke-width="1" stroke-dasharray="3 7"/>
+  <circle cx="118" cy="206" r="11" fill="none" stroke="#7a4d35" stroke-width="1"/>
+  <text x="118" y="180" text-anchor="middle" font-size="11" fill="#a89f8e" letter-spacing="3">MARSEILLE</text>
+  <text x="352" y="306" text-anchor="middle" font-size="11" fill="#a89f8e" letter-spacing="3">IF</text>
+</svg>''',
+'solitude': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g fill="none" stroke="#8f9a86" stroke-width="1">
+    <circle cx="300" cy="300" r="58" stroke-dasharray="300 64"/>
+    <circle cx="300" cy="300" r="108" stroke-dasharray="560 118" transform="rotate(38 300 300)"/>
+    <circle cx="300" cy="300" r="158" stroke-dasharray="820 172" transform="rotate(76 300 300)"/>
+    <circle cx="300" cy="300" r="208" stroke-dasharray="1080 226" transform="rotate(114 300 300)"/>
+    <circle cx="300" cy="300" r="258" stroke-dasharray="1340 280" transform="rotate(152 300 300)"/>
+  </g>
+  <circle cx="300" cy="300" r="3" fill="#53664a"/>
+</svg>''',
+'lotr': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M110 540 L300 300 L490 540 Z" fill="none" stroke="#c0b39c" stroke-width="1"/>
+  <path d="M170 540 L300 372 L430 540" fill="none" stroke="#c0b39c" stroke-width=".6" opacity=".6"/>
+  <circle cx="300" cy="212" r="88" fill="none" stroke="#a8823c" stroke-width="1.4"/>
+  <circle cx="300" cy="212" r="76" fill="none" stroke="#a8823c" stroke-width=".7" stroke-dasharray="2 7" opacity=".8"/>
+  <path d="M300 246 Q316 222 300 196 Q284 222 300 246 Z" fill="none" stroke="#a8823c" stroke-width="1.1"/>
+  <path d="M300 142 V96" stroke="#a8823c" stroke-width=".7" stroke-dasharray="2 8"/>
+</svg>''',
+'dune': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="410" cy="176" r="52" fill="none" stroke="#c9a46a" stroke-width="1.2"/>
+  <circle cx="410" cy="176" r="62" fill="none" stroke="#c9a46a" stroke-width=".6" opacity=".5"/>
+  <g fill="none" stroke="#b79b74" stroke-width="1">
+    <path d="M-20 392 Q120 316 260 392 T540 392 T820 392"/>
+    <path d="M-20 448 Q140 372 300 448 T580 448 T860 448"/>
+    <path d="M-20 506 Q160 430 340 506 T620 506 T900 506"/>
+  </g>
+</svg>''',
+'red-chamber': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="330" cy="300" r="172" fill="none" stroke="#c3a2a6" stroke-width="1.2"/>
+  <circle cx="330" cy="300" r="160" fill="none" stroke="#c3a2a6" stroke-width=".6" opacity=".6"/>
+  <path d="M330 472 V300" fill="none" stroke="#c3a2a6" stroke-width=".8" stroke-dasharray="2 8"/>
+  <path d="M330 300 Q368 246 424 232" fill="none" stroke="#984b53" stroke-width="1.1"/>
+  <g fill="#984b53">
+    <circle cx="424" cy="232" r="4"/><circle cx="404" cy="252" r="3"/><circle cx="442" cy="252" r="3"/>
+    <circle cx="392" cy="272" r="2.6"/>
+  </g>
+  <path d="M330 300 Q300 262 268 256" fill="none" stroke="#984b53" stroke-width="1" opacity=".7"/>
+</svg>''',
+}
+
 PALETTE = ['#8c2b26', '#7a5a38', '#2f4a6b', '#5a3a6b', '#1f5d57', '#a8823c', '#4a4a58', '#6b645a']
 
 # 每本书的插图：文件名, 图注, 插入到第几个事件（0-based）
@@ -113,7 +167,7 @@ def build_index(b):
                 '<figcaption>%s · AI 概念插图</figcaption></figure>\n' % (fn, esc(cap), esc(cap)))
 
     hero = '''<header class="masthead">
-  <div class="orbits" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="core"></span></div>
+  <div class="hero-deco">%s</div>
   <div class="mast-inner">
     <p class="hero-kicker">%s</p>
     <h1><em>%s</em><span>时间线</span></h1>
@@ -126,7 +180,7 @@ def build_index(b):
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
-</header>''' % (esc(b['author'].split('；')[0]), esc(b['title']), esc(b['description']),
+</header>''' % (DECOR.get(b['id'], ''), esc(b['author'].split('；')[0]), esc(b['title']), esc(b['description']),
                  total, esc(b['events'][0]['title']), esc(b['events'][-1]['title']),
                  total, people, esc(b['scope']))
 
@@ -411,6 +465,7 @@ def build_chars(b):
       <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="%(title)s人物关系网">
         <g class="gtags">%(gtags)s</g>
         <g class="links">%(links)s</g>
+        <g class="labels">%(labels)s</g>
         <g class="nodes">%(nodes)s</g>
       </svg>
       <aside class="pdetail" id="pdetail">
@@ -442,7 +497,7 @@ def build_chars(b):
 </html>''' % dict(title=esc(b['title']), author=esc(b['author']), desc=esc(b['description']),
                   n=len(people), css=CH_CSS, extra=extra_css, js=js, filters=filters,
                   gtags='\n        '.join(group_tags),
-                  links='\n        '.join(links), nodes='\n        '.join(nodes),
+                  links='\n        '.join(links), labels='\n        '.join(labels), nodes='\n        '.join(nodes),
                   groups='\n'.join(group_cards))
 
     out = '%s/books/%s/characters.html' % (ROOT, b['id'])

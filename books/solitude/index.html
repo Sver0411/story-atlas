@@ -390,6 +390,14 @@ body{
   .js .event{opacity:1;transform:none}
   .event::before{transform:scaleY(1)}
 }
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
 </style>
 </head>
 <body>
@@ -402,7 +410,16 @@ body{
 </nav>
 
 <header class="masthead">
-  <div class="orbits" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="core"></span></div>
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <g fill="none" stroke="#8f9a86" stroke-width="1">
+    <circle cx="300" cy="300" r="58" stroke-dasharray="300 64"/>
+    <circle cx="300" cy="300" r="108" stroke-dasharray="560 118" transform="rotate(38 300 300)"/>
+    <circle cx="300" cy="300" r="158" stroke-dasharray="820 172" transform="rotate(76 300 300)"/>
+    <circle cx="300" cy="300" r="208" stroke-dasharray="1080 226" transform="rotate(114 300 300)"/>
+    <circle cx="300" cy="300" r="258" stroke-dasharray="1340 280" transform="rotate(152 300 300)"/>
+  </g>
+  <circle cx="300" cy="300" r="3" fill="#53664a"/>
+</svg></div>
   <div class="mast-inner">
     <p class="hero-kicker">加夫列尔·加西亚·马尔克斯</p>
     <h1><em>百年孤独</em><span>时间线</span></h1>

@@ -145,9 +145,9 @@ h1.big{
 .plink.hot{stroke-width:1.9;opacity:.95}
 .plink.dim{opacity:.05}
 .rlabel{
-  font-family:var(--sans);font-size:10px;fill:var(--ink-2);text-anchor:middle;
-  opacity:.5;transition:opacity .25s;pointer-events:none;
-  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.4px;stroke-linejoin:round;
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
 }
 .rlabel.show{opacity:1;fill:var(--ink)}
 .rlabel.dim{opacity:.07}

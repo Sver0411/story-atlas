@@ -390,6 +390,14 @@ body{
   .js .event{opacity:1;transform:none}
   .event::before{transform:scaleY(1)}
 }
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
 </style>
 </head>
 <body>
@@ -402,7 +410,14 @@ body{
 </nav>
 
 <header class="masthead">
-  <div class="orbits" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="core"></span></div>
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M110 540 L300 300 L490 540 Z" fill="none" stroke="#c0b39c" stroke-width="1"/>
+  <path d="M170 540 L300 372 L430 540" fill="none" stroke="#c0b39c" stroke-width=".6" opacity=".6"/>
+  <circle cx="300" cy="212" r="88" fill="none" stroke="#a8823c" stroke-width="1.4"/>
+  <circle cx="300" cy="212" r="76" fill="none" stroke="#a8823c" stroke-width=".7" stroke-dasharray="2 7" opacity=".8"/>
+  <path d="M300 246 Q316 222 300 196 Q284 222 300 246 Z" fill="none" stroke="#a8823c" stroke-width="1.1"/>
+  <path d="M300 142 V96" stroke="#a8823c" stroke-width=".7" stroke-dasharray="2 8"/>
+</svg></div>
   <div class="mast-inner">
     <p class="hero-kicker">J. R. R. 托尔金</p>
     <h1><em>魔戒</em><span>时间线</span></h1>

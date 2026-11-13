@@ -390,6 +390,14 @@ body{
   .js .event{opacity:1;transform:none}
   .event::before{transform:scaleY(1)}
 }
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
 </style>
 </head>
 <body>
@@ -402,7 +410,18 @@ body{
 </nav>
 
 <header class="masthead">
-  <div class="orbits" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="core"></span></div>
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <g fill="none" stroke="#c2b9a8" stroke-width="1">
+    <path d="M20 400 Q120 356 220 400 T420 400 T620 400"/>
+    <path d="M20 452 Q120 408 220 452 T420 452 T620 452"/>
+    <path d="M20 504 Q120 460 220 504 T420 504 T620 504"/>
+  </g>
+  <circle cx="352" cy="330" r="6" fill="#7a4d35"/>
+  <path d="M118 206 Q236 262 352 330" fill="none" stroke="#7a4d35" stroke-width="1" stroke-dasharray="3 7"/>
+  <circle cx="118" cy="206" r="11" fill="none" stroke="#7a4d35" stroke-width="1"/>
+  <text x="118" y="180" text-anchor="middle" font-size="11" fill="#a89f8e" letter-spacing="3">MARSEILLE</text>
+  <text x="352" y="306" text-anchor="middle" font-size="11" fill="#a89f8e" letter-spacing="3">IF</text>
+</svg></div>
   <div class="mast-inner">
     <p class="hero-kicker">大仲马</p>
     <h1><em>基督山伯爵</em><span>时间线</span></h1>
