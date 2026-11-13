@@ -628,6 +628,31 @@ window.BOOK = {
       "label": "保姆 · 护了一辈子"
     },
     {
+      "a": "barsad",
+      "b": "carton",
+      "label": "被要挟的人"
+    },
+    {
+      "a": "barsad",
+      "b": "darnay",
+      "label": "作伪证的人"
+    },
+    {
+      "a": "little",
+      "b": "carton",
+      "label": "「说话很难听」的先生"
+    },
+    {
+      "a": "little",
+      "b": "lucie",
+      "label": "母女"
+    },
+    {
+      "a": "little",
+      "b": "darnay",
+      "label": "父女"
+    },
+    {
       "a": "lory",
       "b": "manette",
       "label": "把他接出巴黎的人"
