@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>尘埃落定 · 时间线 | 22 个故事节点</title>
+<meta name="description" content="一个被所有人叫傻子的少爷，种麦子、开粮仓、建市场，看着一个制度慢慢塌下去。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M120 470 L200 340 L280 470" fill="none" stroke="#9c7a63" stroke-width="1"/>
+  <path d="M320 470 L400 340 L480 470" fill="none" stroke="#9c7a63" stroke-width="1"/>
+  <path d="M280 470 L360 360 L440 470" fill="none" stroke="#b08a70" stroke-width=".6"/>
+  <path d="M120 470 H480" stroke="#9c7a63" stroke-width="1"/>
+  <circle cx="300" cy="300" r="4" fill="#8c3a34"/>
+  <path d="M300 304 V360" stroke="#8c3a34" stroke-width=".6" stroke-dasharray="3 7"/>
+  <g fill="#c6ab94"><circle cx="200" cy="220" r="2"/><circle cx="248" cy="188" r="1.6"/><circle cx="352" cy="196" r="1.8"/><circle cx="400" cy="232" r="2.2"/><circle cx="300" cy="170" r="1.4"/></g>
+  <path d="M120 512 H480" stroke="#b9a894" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">阿来</p>
+    <h1><em>尘埃落定</em><span>时间线</span></h1>
+    <p class="hero-deck">一个被所有人叫傻子的少爷，种麦子、开粮仓、建市场，看着一个制度慢慢塌下去。<br>22 个时间点，从「傻子」到「最后」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>22 个时间点 · 11 位人物</span><i></i>
+      <span>全本 · 1920—1939</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">官寨</span>
+      <span class="era-sub">01 — 22</span>
+    </div>
+
+    <section class="event" id="cl01" style="--c:#6a4436"
+      data-color="#6a4436" data-era="官寨" data-short="傻子" data-label="1920 年代 · 麦其土司官寨">
+      <div class="ev-when">1920 年代<em>麦其土司官寨</em></div>
+      <h2>傻子</h2>
+      <p>麦其土司家的二少爷生下来就不哭，三岁才会说话，说话也不像别人那样绕弯子。寨子里的人都说他是个傻子。他自己不这么想，他觉得别人说话太费劲。他母亲是汉人，从前在成都的街上讨生活，被土司用两匹马换了回来。她说：我儿子不傻，他只是不肯装。土司说：这孩子将来会吃亏。他母亲说：不会，他连亏都不认得。寨子里的人当面叫他二少爷，背后叫他傻子。他听见了，也不生气，只是记住了谁这么叫他。</p>
+    </section>
+
+    <section class="event" id="cl02" style="--c:#6a4436"
+      data-color="#6a4436" data-era="官寨" data-short="卓玛" data-label="1930 年代 · 官寨 · 楼上">
+      <div class="ev-when">1930 年代<em>官寨 · 楼上</em></div>
+      <h2>卓玛</h2>
+      <p>侍女卓玛比他大五岁，负责照顾他。她给他梳头，给他暖被窝，教他认寨子里的人。他说：你以后嫁人了怎么办。她说：那我就不能伺候少爷了。他说：那我不让你嫁。她说：少爷，你说的是傻话。他后来果然没留住她。卓玛出嫁那天，穿着一身新衣服，头上戴着银饰。她来给他磕头，说：少爷，我走了。他说：你走吧。她走到门口，回头看了一眼。他把脸转向窗户，听见楼下的门开了又关。</p>
+    </section>
+
+    <section class="event" id="cl03" style="--c:#6a4436"
+      data-color="#6a4436" data-era="官寨" data-short="哥哥" data-label="1930 年代 · 官寨">
+      <div class="ev-when">1930 年代<em>官寨</em></div>
+      <h2>哥哥</h2>
+      <p>大少爷是前妻生的，骑马、打枪、管人，样样都比弟弟强。父亲说：这个家以后要靠你哥哥。傻子说：好。父亲说：你就一点不争。他说：我争不过。父亲看着他，看了很久，说：你这个人，我有时候看不透。哥哥说：你要是生在汉人的地方，早就被人卖了。他说：我生在这儿。哥哥说：所以你还活着。父亲在旁边听着，笑了。后来他对管家说：这两个儿子，一个能打天下，一个能守天下。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">罂粟</span>
+      <span class="era-sub">04 — 22</span>
+    </div>
+
+    <section class="event" id="cl04" style="--c:#6a4436"
+      data-color="#6a4436" data-era="罂粟" data-short="黄特派员" data-label="1930 年代 · 官寨 · 会客厅">
+      <div class="ev-when">1930 年代<em>官寨 · 会客厅</em></div>
+      <h2>黄特派员</h2>
+      <p>国民党政府的黄特派员来了，带着枪和一箱种子。他说：这是罂粟，种下去，一年能赚十年的钱。土司说：这东西害人。特派员说：钱不害人。土司想了一夜，第二天让人把种子撒进了最肥的地。特派员说：种一季，够你们吃十年。土司说：那十年以后呢。特派员说：十年以后我已经不在这个位置上了。土司听懂了他的意思，也听懂了自己该做什么。他把种子收下，给了他一个金罗汉。</p>
+    </section>
+
+    <section class="event" id="cl05" style="--c:#6a4436"
+      data-color="#6a4436" data-era="罂粟" data-short="银子" data-label="1931 年 · 麦其领地">
+      <div class="ev-when">1931 年<em>麦其领地</em></div>
+      <h2>银子</h2>
+      <p>那一年罂粟花开得漫山遍野，白得像雪。麦其家赚的钱装满了三间屋子，银子堆在库房里，晚上有人守着。土司说：我这辈子没见过这么多钱。傻子说：明年就没了。土司说：你说什么。他说：大家都种，就不值钱了。库房里的银子太多，管家每天要去数一遍，数到天黑。傻子站在门口看。管家说：少爷，你看什么。他说：我看这些银子，会不会自己跑掉。管家说：银子不会跑。他说：人会。</p>
+    </section>
+
+    <section class="event" id="cl06" style="--c:#6a4436"
+      data-color="#6a4436" data-era="罂粟" data-short="麦子" data-label="1932 年 · 麦其领地">
+      <div class="ev-when">1932 年<em>麦其领地</em></div>
+      <h2>麦子</h2>
+      <p>父亲问两个儿子明年种什么。哥哥说：种罂粟，别人种我们才赚钱。傻子说：种麦子。父亲说：为什么。他说：人不能吃银子。满屋子的人都笑了。父亲没有笑，他让一半的地种了麦子。那一年，全藏区只有麦其家有粮食。父亲问：你怎么知道别人都种罂粟。他说：因为黄特派员把种子卖给了每一个土司。父亲愣了一下，说：你怎么知道。他说：他走的时候，马车上少了一只箱子，可他说只卖给我们一家。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">荒年</span>
+      <span class="era-sub">07 — 22</span>
+    </div>
+
+    <section class="event" id="cl07" style="--c:#6a4436"
+      data-color="#6a4436" data-era="荒年" data-short="饥荒" data-label="1932 年 冬 · 边界">
+      <div class="ev-when">1932 年 冬<em>边界</em></div>
+      <h2>饥荒</h2>
+      <p>别的土司把地全种了罂粟，遇上荒年，饿死了人。拉雪巴土司的人赶着牛羊来换粮，麦其家开出天价。傻子站在寨墙上，看见山下有人啃树皮。他说：卖给他们吧。哥哥说：等他们死光了，地就是我们的。他说：地是我们的，人不是。哥哥说：你心太软，成不了事。他说：我要是成了事，也就不是我了。那天晚上，他让人开了侧门，放走了十几个饿得走不动的人。管家说：老爷问起来怎么说。他说：就说他们自己跑的。</p>
+    </section>
+
+    <section class="event" id="cl08" style="--c:#6a4436"
+      data-color="#6a4436" data-era="荒年" data-short="开仓" data-label="1932 年 冬 · 北方边界">
+      <div class="ev-when">1932 年 冬<em>北方边界</em></div>
+      <h2>开仓</h2>
+      <p>父亲让他去守北方的寨子。他到了以后，第一件事是开仓放粮。管家说：老爷会怪罪。他说：我担着。饥民跪在雪地里磕头，他把人一个个扶起来，说：粮食不是白给的，你们给我修路。那年冬天，他修出了一条从寨子到边境的路。修路的人一天管两顿饭，一顿干的，一顿稀的。有个老汉说：少爷，这条路修到哪儿。他说：修到你们能走的地方。老汉没听懂，可他还是每天来，一直修到开春。路修完那天，他站在路口，说：这路以后会有人走。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">市场</span>
+      <span class="era-sub">09 — 22</span>
+    </div>
+
+    <section class="event" id="cl09" style="--c:#6a4436"
+      data-color="#6a4436" data-era="市场" data-short="第一个集市" data-label="1933 年 · 边界 · 市场">
+      <div class="ev-when">1933 年<em>边界 · 市场</em></div>
+      <h2>第一个集市</h2>
+      <p>他把粮食换成皮毛、盐和枪，又在路边划出一块地，说：谁来做买卖，我不收税，只收一碗水。三个月后，那里有了十几间铺子，有汉人、有回回、有说各种话的人。他说：这里以后会是一个镇子。管家说：少爷，你真是个傻子。他说：我知道。市场开张那天，来了三十几个人，摆了七张摊子。有人卖盐，有人卖茶，有人卖刀子。他挨个走过去，问人家从哪来。有个回回说：从很远的地方。他说：那你以后就别走那么远了。那人愣了一下，笑了。</p>
+    </section>
+
+    <section class="event" id="cl10" style="--c:#6a4436"
+      data-color="#6a4436" data-era="市场" data-short="汪波土司" data-label="1933 年 · 边界">
+      <div class="ev-when">1933 年<em>边界</em></div>
+      <h2>汪波土司</h2>
+      <p>汪波土司派兵来抢粮。傻子没有打，他让人把粮仓打开，说：你们要多少拿多少。对方愣住了。他又说：拿完了，明年还来不来。对方说：来。他说：那明年我带你们做生意。那一年，汪波土司成了他的客户。汪波土司的兵把粮食搬上车，搬到一半，他让人端出酒来。他说：喝完再走。那些兵你看我我看你。他先喝了一碗。后来他们喝完了，走的时候还朝他鞠了个躬。管家说：少爷，你这是做什么。他说：让他们记住，粮食是从谁手里拿的。</p>
+    </section>
+
+    <section class="event" id="cl11" style="--c:#6a4436"
+      data-color="#6a4436" data-era="市场" data-short="塔娜" data-label="1934 年 · 边界 · 市场">
+      <div class="ev-when">1934 年<em>边界 · 市场</em></div>
+      <h2>塔娜</h2>
+      <p>茸贡土司的女儿塔娜来了。她长得好看，眼睛像两颗黑石头。她是来借粮的。傻子说：粮可以给，人也可以给，你嫁给我。她说：你是个傻子。他说：我知道。她说：那我嫁。她说完，自己先笑了。她进门的时候，院子里的人都停了手。塔娜说：你连枪都不会打。他说：我会数钱。她说：数钱有什么用。他说：钱能买枪。她看了他一眼，说：你要真是个傻子就好了。他说：为什么。她说：那样我就不用怕你。</p>
+    </section>
+
+    <section class="event" id="cl12" style="--c:#6a4436"
+      data-color="#6a4436" data-era="市场" data-short="婚礼" data-label="1934 年 · 官寨">
+      <div class="ev-when">1934 年<em>官寨</em></div>
+      <h2>婚礼</h2>
+      <p>婚礼办了三天，全藏区的土司都来了。哥哥喝多了，拉着塔娜的手说：你嫁给他，可惜了。塔娜说：可惜什么。他说：可惜你是个活人。这句话被傻子听见了。他站在门口，端着一碗酒，说：哥哥，你醉了。婚礼上他喝了很多酒，一直笑。有人说：少爷今天高兴。他说：是。他说：我娶了全藏区最好看的女人。他说这话的时候，眼睛看着哥哥。哥哥把酒碗放下，站起来，走了出去。</p>
+    </section>
+
+    <section class="event" id="cl13" style="--c:#6a4436"
+      data-color="#6a4436" data-era="市场" data-short="翁波意西" data-label="1935 年 · 边界">
+      <div class="ev-when">1935 年<em>边界</em></div>
+      <h2>翁波意西</h2>
+      <p>一个叫翁波意西的喇嘛来到边界，说土司制度要完了，人人平等。土司派人把他抓起来，割了舌头。傻子去看他，他在地上写字：你信不信。傻子说：我信。他又写：那你说出来。傻子说：我说不出来。翁波意西在地上写：你不怕我。他说：不怕。他又写：那你不怕你父亲。他说：怕。他写：那你为什么护我。他说：因为你说的那句话，我父亲听了会发抖，可我听了不会。</p>
+    </section>
+
+    <section class="event" id="cl14" style="--c:#6a4436"
+      data-color="#6a4436" data-era="市场" data-short="翁波意西第二次" data-label="1935 年 · 边界">
+      <div class="ev-when">1935 年<em>边界</em></div>
+      <h2>翁波意西第二次</h2>
+      <p>翁波意西被放回来，又开口说话。土司又抓他，这次要杀。傻子跪在父亲面前，说：留他一条命。父亲说：你为什么护他。他说：因为他说的跟我想的一样。父亲看了他很久，说：把他舌头割了，人留着。行刑的人在院子里等着。傻子跪在父亲脚边，膝盖压在石板上，压得生疼。他说：父亲，你杀了他，这个寨子里就再没有人敢说真话了。父亲说：本来也没有。他说：有，只是他们不敢说。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">打仗</span>
+      <span class="era-sub">15 — 22</span>
+    </div>
+
+    <section class="event" id="cl15" style="--c:#6a4436"
+      data-color="#6a4436" data-era="打仗" data-short="哥哥的战功" data-label="1936 年 · 南方">
+      <div class="ev-when">1936 年<em>南方</em></div>
+      <h2>哥哥的战功</h2>
+      <p>哥哥带兵去打汪波土司，打了两年，赢了三场仗，丢了半个寨子的人。他回来的时候，马后面拖着俘虏的头。父亲在寨门口接他，说：你辛苦了。傻子站在后面，看见那些头，转过身吐了。那些头挂在马鞍边上，苍蝇围着转。哥哥说：你怕了。他说：我怕。哥哥说：怕就对了。他说：你不怕。哥哥说：我怕过。他说：什么时候。哥哥说：第一次杀人的时候。他说完，把马牵走了。</p>
+    </section>
+
+    <section class="event" id="cl16" style="--c:#6a4436"
+      data-color="#6a4436" data-era="打仗" data-short="传位" data-label="1936 年 · 官寨">
+      <div class="ev-when">1936 年<em>官寨</em></div>
+      <h2>传位</h2>
+      <p>父亲老了，要传位。他把两个儿子叫到跟前，说：这个家，谁接。管家说：大少爷。头人说：大少爷。父亲看着傻子，说：你说。傻子说：我接不了。父亲说：为什么。他说：我不喜欢杀人。父亲闭上眼睛，说：那就是你哥哥了。父亲说：你不喜欢杀人，可你要管人。他说：管人不用杀。父亲说：你试试。他说：我试过，在边界。父亲沉默了一会儿，说：边界那点人，不算人。他说：在我这儿算。</p>
+    </section>
+
+    <section class="event" id="cl17" style="--c:#6a4436"
+      data-color="#6a4436" data-era="打仗" data-short="塔娜和哥哥" data-label="1937 年 · 边界">
+      <div class="ev-when">1937 年<em>边界</em></div>
+      <h2>塔娜和哥哥</h2>
+      <p>塔娜常常回官寨，说是去看婆婆。有人告诉傻子：你哥哥和她在一起。傻子说：我知道。那人说：你不生气。他说：她本来就不喜欢我。他说：她喜欢的是土司的儿子，不是我。雪落在官寨的屋顶上，一层一层。他一个人坐在楼上，听楼下的脚步声。他知道那是谁。他没有下去，也没有叫人。他想：这栋楼里，只有我一个人是清醒的。他又想：清醒的人最难受。他把灯吹灭了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">尘埃</span>
+      <span class="era-sub">18 — 22</span>
+    </div>
+
+    <section class="event" id="cl18" style="--c:#6a4436"
+      data-color="#6a4436" data-era="尘埃" data-short="父亲之死" data-label="1938 年 · 官寨">
+      <div class="ev-when">1938 年<em>官寨</em></div>
+      <h2>父亲之死</h2>
+      <p>父亲死在冬天。他死前把傻子叫到床边，说：我一直知道你不傻。傻子说：我知道。父亲说：那你为什么装。他说：因为不装，我活不到今天。父亲笑了一下，说：你比你哥哥强。他说完，手就凉了。他说：你为什么不早说。父亲说：早说了，你就装不成了。他说：你一直知道。父亲说：我是你父亲。他说：那你为什么还让哥哥接。父亲说：因为他会杀人，你不会。他说：这算理由吗。父亲说：在这个地方，算。</p>
+    </section>
+
+    <section class="event" id="cl19" style="--c:#6a4436"
+      data-color="#6a4436" data-era="尘埃" data-short="母亲之死" data-label="1938 年 · 官寨">
+      <div class="ev-when">1938 年<em>官寨</em></div>
+      <h2>母亲之死</h2>
+      <p>母亲死在他怀里。她说：我这辈子，从成都的街上走到这儿，值了。她说：你别学你父亲。他说：我知道。她说：你要活着。他说：我尽量。她闭上眼睛，脸上还带着妆。那天寨子里的人都在忙着办丧事，没有人来管他。他给她擦脸，把胭脂擦掉，露出一张黄黄的脸。他说：你从来不喜欢这些东西。他说：你是为了让别人看。他把她的手放好，站起来，走到窗前。外面在下雪，院子里没有一个人。</p>
+    </section>
+
+    <section class="event" id="cl20" style="--c:#6a4436"
+      data-color="#6a4436" data-era="尘埃" data-short="哥哥之死" data-label="1938 年 · 官寨">
+      <div class="ev-when">1938 年<em>官寨</em></div>
+      <h2>哥哥之死</h2>
+      <p>哥哥被人杀死在路上，凶手是当年被他父亲杀掉的仇人的儿子。那个人叫多吉次仁，等了十几年。傻子去看尸体，说：他死的时候，脸是朝上的。有人说：那又怎样。他说：说明他不怕。他蹲下去，把哥哥的眼睛合上。他说：你这个人，一辈子没怕过谁。他说：可你也没爱过谁。他站起来，对管家说：把他抬回去，按土司儿子的规矩办。管家说：老爷那边。他说：我去说。</p>
+    </section>
+
+    <section class="event" id="cl21" style="--c:#6a4436"
+      data-color="#6a4436" data-era="尘埃" data-short="解放军" data-label="1939 年 · 边界">
+      <div class="ev-when">1939 年<em>边界</em></div>
+      <h2>解放军</h2>
+      <p>有一天，边界上来了一支队伍，穿灰衣服，说话客气，买东西给钱。他们说：土司制度要结束了。傻子站在市场上，看着他们走过去，说：我知道这一天会来。管家说：那我们怎么办。他说：等着。那些兵在市场上买了两袋青稞，给了钱，还问能不能借宿。管家说：他们是来夺我们地方的。傻子说：他们要是来夺，就不会给钱。他说：你看他们走路的样子，不像打仗的。他说：他们像走了很远的路。</p>
+    </section>
+
+    <section class="event" id="cl22" style="--c:#6a4436"
+      data-color="#6a4436" data-era="尘埃" data-short="最后" data-label="1939 年 · 官寨 · 楼下">
+      <div class="ev-when">1939 年<em>官寨 · 楼下</em></div>
+      <h2>最后</h2>
+      <p>那个杀了哥哥的人来找他。傻子坐在楼梯上，说：你来了。那人说：你知道我要来。他说：我知道。那人说：你不跑。他说：我跑不动了。他站起来，把衣服整了整，说：你动手吧。刀进去的时候，他看见窗外的麦子黄了。那人说：你不怕死。他说：我怕。他说：可我等这一天等了很久。那人说：为什么。他说：因为我想看看，一个人把刀捅进另一个人身体里，是什么样子。他说：现在我知道了。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 22</span>
+        </div>
+        <div class="rail-era" id="railNow">1920 年代</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“我听见了尘埃落定的声音。”</p>
+  <p class="tiny">尘埃落定 · 阿来　·　22 个时间点，11 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

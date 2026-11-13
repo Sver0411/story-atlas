@@ -376,5 +376,17 @@
     "events": 9,
     "people": 4,
     "scope": "全本 · 1930 年代"
+  },
+  {
+    "id": "red-poppies",
+    "title": "尘埃落定",
+    "author": "阿来",
+    "category": "中文小说",
+    "description": "傻子少爷和一座土司官寨。",
+    "accent": "#6a4436",
+    "cover": "",
+    "events": 22,
+    "people": 11,
+    "scope": "全本 · 1920—1939"
   }
 ]

@@ -48,10 +48,21 @@ QUOTES = {
     'white-deer': '这地还是这地，人换了几茬了。',
     'ordinary-world': '即使是最平凡的人，也要为他那个世界的存在而战斗。',
     'border-town': '这个人也许永远不回来了，也许明天回来。',
+    'red-poppies': '我听见了尘埃落定的声音。',
 }
 
 
 DECOR = {
+'red-poppies': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M120 470 L200 340 L280 470" fill="none" stroke="#9c7a63" stroke-width="1"/>
+  <path d="M320 470 L400 340 L480 470" fill="none" stroke="#9c7a63" stroke-width="1"/>
+  <path d="M280 470 L360 360 L440 470" fill="none" stroke="#b08a70" stroke-width=".6"/>
+  <path d="M120 470 H480" stroke="#9c7a63" stroke-width="1"/>
+  <circle cx="300" cy="300" r="4" fill="#8c3a34"/>
+  <path d="M300 304 V360" stroke="#8c3a34" stroke-width=".6" stroke-dasharray="3 7"/>
+  <g fill="#c6ab94"><circle cx="200" cy="220" r="2"/><circle cx="248" cy="188" r="1.6"/><circle cx="352" cy="196" r="1.8"/><circle cx="400" cy="232" r="2.2"/><circle cx="300" cy="170" r="1.4"/></g>
+  <path d="M120 512 H480" stroke="#b9a894" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'white-deer': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M60 440 Q300 360 540 440" fill="none" stroke="#b3a184" stroke-width="1"/>
   <path d="M60 470 Q300 400 540 470" fill="none" stroke="#c2b096" stroke-width=".5"/>
