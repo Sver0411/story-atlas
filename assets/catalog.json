@@ -460,5 +460,41 @@
     "events": 20,
     "people": 10,
     "scope": "全本 · 1984 年"
+  },
+  {
+    "id": "brave-new-world",
+    "title": "美丽新世界",
+    "author": "赫胥黎",
+    "category": "科幻",
+    "description": "幸福是被造出来的。",
+    "accent": "#5b6b5a",
+    "cover": "",
+    "events": 18,
+    "people": 8,
+    "scope": "全本 · 福特纪元 632 年"
+  },
+  {
+    "id": "childhoods-end",
+    "title": "童年的终结",
+    "author": "阿瑟·克拉克",
+    "category": "科幻",
+    "description": "接生的人。",
+    "accent": "#4a5560",
+    "cover": "",
+    "events": 15,
+    "people": 6,
+    "scope": "全本 · 超主纪元 80 年"
+  },
+  {
+    "id": "solaris",
+    "title": "索拉里斯星",
+    "author": "莱姆",
+    "category": "科幻",
+    "description": "它一直在说话。",
+    "accent": "#46525a",
+    "cover": "",
+    "events": 16,
+    "people": 5,
+    "scope": "全本 · 未来"
   }
 ]

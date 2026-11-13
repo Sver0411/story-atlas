@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>童年的终结 · 时间线 | 15 个故事节点</title>
+<meta name="description" content="超主来了，给了人类一个黄金时代，然后带走所有的孩子。剩下的人，只能看着。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 180 V300" stroke="#8d98a2" stroke-width="1.2"/>
+  <path d="M240 300 q60 -26 120 0" fill="none" stroke="#8d98a2" stroke-width="1"/>
+  <path d="M228 300 q72 -40 144 0" fill="none" stroke="#a5aeb6" stroke-width=".6"/>
+  <path d="M216 300 q84 -56 168 0" fill="none" stroke="#bcc3ca" stroke-width=".4"/>
+  <circle cx="300" cy="180" r="8" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M120 420 H480" stroke="#a5aeb6" stroke-width=".8"/>
+  <path d="M150 452 H450" stroke="#bcc3ca" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">阿瑟·克拉克</p>
+    <h1><em>童年的终结</em><span>时间线</span></h1>
+    <p class="hero-deck">超主来了，给了人类一个黄金时代，然后带走所有的孩子。剩下的人，只能看着。<br>15 个时间点，从「飞船」到「超主」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>15 个时间点 · 6 位人物</span><i></i>
+      <span>全本 · 近未来—超主纪元 80 年</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">飞船</span>
+      <span class="era-sub">01 — 15</span>
+    </div>
+
+    <section class="event" id="ce01" style="--c:#4a5560"
+      data-color="#4a5560" data-era="飞船" data-short="飞船" data-label="近未来 · 世界各大城市">
+      <div class="ev-when">近未来<em>世界各大城市</em></div>
+      <h2>飞船</h2>
+      <p>同一天，几艘巨大的飞船出现在世界各大城市上空，一动不动。它们不攻击，不通讯，只是悬着。人类慌了三个月。联合国请一个叫斯托姆格伦的人去谈。他被带上飞船，只听见一个声音，看不见人。声音说：我们叫超主。我们来，是为了让你们过好日子。斯托姆格伦说：你们要什么。声音说：什么都不要。他说：那我们凭什么信你们。声音说：你们可以试试不信。飞船的底部是平的，黑得像一块铁。它悬在伦敦上空，把一条街的太阳挡住了。街上的人抬头看，看了一整天，脖子都酸了。</p>
+    </section>
+
+    <section class="event" id="ce02" style="--c:#4a5560"
+      data-color="#4a5560" data-era="飞船" data-short="五年" data-label="近未来 · 联合国">
+      <div class="ev-when">近未来<em>联合国</em></div>
+      <h2>五年</h2>
+      <p>五年里，超主解决了所有问题：粮食、能源、战争、疾病。国界慢慢没有用了。有人欢喜，有人害怕。斯托姆格伦成了地球上最忙的人，也成了最孤独的人。他每天跟一个看不见的声音说话。他问：你们为什么不露面。卡瑞林说：因为你们还受不了我们的样子。他说：什么样子。卡瑞林说：等你们受得了，我们就露面。卡瑞林说：我们知道你们会怀疑。他说：怀疑是好事。他说：你们怀疑了五十年，才敢相信我们。</p>
+    </section>
+
+    <section class="event" id="ce03" style="--c:#4a5560"
+      data-color="#4a5560" data-era="飞船" data-short="绑架" data-label="近未来 · 联合国">
+      <div class="ev-when">近未来<em>联合国</em></div>
+      <h2>绑架</h2>
+      <p>一个组织绑架了斯托姆格伦，要他交出超主的秘密。他们把他关在一间地下室里，逼他说话。他说：我什么都不知道。他们说：你天天跟他们说话。他说：我只听见一个声音。他们不信。超主找到了他，用一束光把他从地下室里提了出来。他落在外面的草地上，衣服上还有绳子。他说：你们怎么找到我的。卡瑞林说：我们一直在看着你。他在那间地下室里待了三天。绑他的人说：你只要说一句话，我们就放你。他说：我没有什么可说。他们说：那你就等着。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">黄金时代</span>
+      <span class="era-sub">04 — 15</span>
+    </div>
+
+    <section class="event" id="ce04" style="--c:#4a5560"
+      data-color="#4a5560" data-era="黄金时代" data-short="黄金时代" data-label="超主纪元 10 年 · 地球">
+      <div class="ev-when">超主纪元 10 年<em>地球</em></div>
+      <h2>黄金时代</h2>
+      <p>十年后，地球上没有战争，没有饥荒，没有人再为吃穿发愁。人们有更多的时间，更多的娱乐，更长的寿命。也有人说：这个时代太舒服了，舒服得让人不想动。艺术开始退化，科学只剩下应用。一个老科学家说：我们什么都有了，就是没有问题。他说：没有问题，就没有好奇心。他说完，把实验室的灯关了。有人说：我们被养起来了。也有人说：被养起来有什么不好。那个老科学家说：被养起来的动物，最后都会失去野性。</p>
+    </section>
+
+    <section class="event" id="ce05" style="--c:#4a5560"
+      data-color="#4a5560" data-era="黄金时代" data-short="露面" data-label="超主纪元 20 年 · 地球">
+      <div class="ev-when">超主纪元 20 年<em>地球</em></div>
+      <h2>露面</h2>
+      <p>五十年后，超主终于露面了。他们长得像传说中的魔鬼：黑皮肤，巨大的翅膀，头上两只角。人类花了很多年才习惯。有人说：他们故意选这个样子的。也有人说：他们本来就长这样。卡瑞林说：我们知道你们会害怕。他说：所以我们等了五十年。他说：你们现在怕，但不会疯。他们的翅膀张开有三米，站在那儿像一堵墙。有个孩子问：你们会飞吗。卡瑞林说：会。孩子说：那你们为什么不飞走。他说：因为你们还没长大。</p>
+    </section>
+
+    <section class="event" id="ce06" style="--c:#4a5560"
+      data-color="#4a5560" data-era="黄金时代" data-short="扬" data-label="超主纪元 30 年 · 地球">
+      <div class="ev-when">超主纪元 30 年<em>地球</em></div>
+      <h2>扬</h2>
+      <p>扬·罗德里克斯是个工程师，从小就想上太空。他研究超主的飞船，写论文，被人嘲笑。他说：他们不让我们出去，可我想知道外面有什么。他三十五岁那年，决定偷渡上船。他做了一个假身份，混进超主的补给队。他在船上躲了六天，靠一箱饼干和一壶水。第七天，船起飞了。他从货舱里爬出来，说：我成功了。他藏在一只货箱里，箱子上写着「种子」。他想：种子，这个词不错。他把手电关了，坐在黑暗里，听着飞船的震动。</p>
+    </section>
+
+    <section class="event" id="ce07" style="--c:#4a5560"
+      data-color="#4a5560" data-era="黄金时代" data-short="看看" data-label="超主纪元 30 年 · 超主的星球">
+      <div class="ev-when">超主纪元 30 年<em>超主的星球</em></div>
+      <h2>看看</h2>
+      <p>他在超主的星球上待了八个星期。他看见的东西，他后来一句也说不清。他说：那里没有城市，没有机器，只有一些很大的、很慢的东西。他说：我不知道那是不是活的。卡瑞林说：你看见的，是我们的家。他说：我们不住在那里，我们只是把它留着。他说：我们这一族，早就不能生孩子了。他看见那些东西在动，很慢，像云。他说：它们是不是在呼吸。卡瑞林说：也许。他说：你们也不知道。卡瑞林说：我们也不知道。</p>
+    </section>
+
+    <section class="event" id="ce08" style="--c:#4a5560"
+      data-color="#4a5560" data-era="黄金时代" data-short="回来" data-label="超主纪元 30 年 · 地球">
+      <div class="ev-when">超主纪元 30 年<em>地球</em></div>
+      <h2>回来</h2>
+      <p>他回到地球，发现时间过去了。相对论让他比同龄人年轻了几十年。他去见扬的儿子——他自己的儿子，已经是个老人。他站在门口，说：我是你父亲。那人说：我父亲早就死了。他后来一个人住在海边，写一本书，写他在外面看见的东西。书写了一半就停了。他说：写不出来。他说：有些东西，说出来就假了。他儿子说：你走的时候我六岁。他说：我记得。儿子说：我不记得你。他说：我知道。两个人坐在客厅里，一直没有再说话。</p>
+    </section>
+
+    <section class="event" id="ce09" style="--c:#4a5560"
+      data-color="#4a5560" data-era="黄金时代" data-short="奇怪的孩子" data-label="超主纪元 50 年 · 地球">
+      <div class="ev-when">超主纪元 50 年<em>地球</em></div>
+      <h2>奇怪的孩子</h2>
+      <p>超主对地球的干预越来越少。他们说：我们已经做完了。有人发现，一部分孩子开始做梦，做同样的梦。他们醒来说：我们看见了一个地方。大人问：什么地方。他们说：说不出来。格雷格森家的两个孩子最先这样。他们的父亲乔治说：他们只是累了。母亲琼说：不是累。那些孩子不再玩耍，不再读书，整天坐着，眼睛看着同一个方向。医生说：他们很健康。家长说：可他们不像孩子了。乔治说：他们只是安静了一点。琼说：安静了三个月。他说：孩子都这样。他说完，自己也不信。那天晚上，两个孩子的手开始发光。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">转变</span>
+      <span class="era-sub">10 — 15</span>
+    </div>
+
+    <section class="event" id="ce10" style="--c:#4a5560"
+      data-color="#4a5560" data-era="转变" data-short="转变" data-label="超主纪元 60 年 · 地球">
+      <div class="ev-when">超主纪元 60 年<em>地球</em></div>
+      <h2>转变</h2>
+      <p>有一天，所有的孩子同时进入了一种状态。他们不吃，不睡，不动，身上的皮肤开始发光。大人们围在外面，喊他们的名字。没有人回答。卡瑞林说：开始了。他说：我们等了一百年，就是等这一天。扬问：他们在做什么。卡瑞林说：他们在变成别的东西。他说：他们要离开你们了。他说：不是死，是走。卡瑞林说：你们的种族完成了一件事。他说：什么事。卡瑞林说：你们把孩子送到了一个我们进不去的地方。他说：那不是我们送的。卡瑞林说：是你们养的。</p>
+    </section>
+
+    <section class="event" id="ce11" style="--c:#4a5560"
+      data-color="#4a5560" data-era="转变" data-short="分离" data-label="超主纪元 60 年 · 地球">
+      <div class="ev-when">超主纪元 60 年<em>地球</em></div>
+      <h2>分离</h2>
+      <p>大人们试图拦住孩子。有人把孩子锁在屋里，孩子穿墙走了。有人抱着孩子哭，孩子没有反应。那一天，全世界的孩子一起走了。他们走向天空，一群一群，像候鸟。扬站在海边，看着天上。他说：我的儿子也在里面。他说：他走的时候，没有回头。他说完，坐下来，坐了很久。有个母亲抱住孩子，孩子从她怀里走过去，像穿过一层雾。她坐在地上，看着自己的手。她说：我的手还在。她说：可他不在。</p>
+    </section>
+
+    <section class="event" id="ce12" style="--c:#4a5560"
+      data-color="#4a5560" data-era="转变" data-short="最后的岛屿" data-label="超主纪元 60 年 · 地球">
+      <div class="ev-when">超主纪元 60 年<em>地球</em></div>
+      <h2>最后的岛屿</h2>
+      <p>剩下的人，一天比一天少。他们不再生孩子，也不再想做别的事。有人喝酒，有人睡觉，有人只是坐着。城市慢慢安静下来，草从马路上长出来。扬在岛上种了一片菜。他说：我这一辈子，看过两个世界。他说：一个正在死，一个我不知道是什么。他说：我都不属于。他每天早晨走到海边，看太阳升起来。他想：这个太阳，以后没有人看了。他坐下来，把这件事想了一遍又一遍。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">熄灭</span>
+      <span class="era-sub">13 — 15</span>
+    </div>
+
+    <section class="event" id="ce13" style="--c:#4a5560"
+      data-color="#4a5560" data-era="熄灭" data-short="最后一个人" data-label="超主纪元 80 年 · 地球">
+      <div class="ev-when">超主纪元 80 年<em>地球</em></div>
+      <h2>最后一个人</h2>
+      <p>地球上只剩他一个人。他每天早上起来，煮一壶水，坐在门口看海。超主的飞船还在天上，一动不动。他有时候会跟他们说话，他们有时候回答。卡瑞林说：你可以跟我们走。他说：我不走。他说：我想看看这个地方最后是什么样子。卡瑞林说：你会的。岛上只剩他一个人，连鸟都少了。卡瑞林说：你怕死吗。他说：怕。他说：可我已经活得够久了。卡瑞林说：你活得比你的儿子久。他说：是。</p>
+    </section>
+
+    <section class="event" id="ce14" style="--c:#4a5560"
+      data-color="#4a5560" data-era="熄灭" data-short="熄灭" data-label="超主纪元 80 年 · 地球">
+      <div class="ev-when">超主纪元 80 年<em>地球</em></div>
+      <h2>熄灭</h2>
+      <p>最后一夜，他坐在灯塔上，看见天上所有的星都亮了一次，然后灭了。他不知道为什么。他写下一行字：他们走了。他把笔放下，闭上眼睛。第二天早上，地球上没有人了。草长满了城市，海还在。超主的飞船升起来，走了。这个星球又安静了。他活了很久，久到忘了自己几岁。他最后写的那行字，用的是铅笔，字很小。写完他把纸压在石头下面，怕风把它吹走。他不知道还有谁会来看。</p>
+    </section>
+
+    <section class="event" id="ce15" style="--c:#4a5560"
+      data-color="#4a5560" data-era="熄灭" data-short="超主" data-label="超主纪元 80 年 · 宇宙">
+      <div class="ev-when">超主纪元 80 年<em>宇宙</em></div>
+      <h2>超主</h2>
+      <p>卡瑞林在船上写下最后一份报告：这个种族完成了。他说：我们只是接生的人，我们一辈子也进不去那个门。他说：我们看见过很多次，每一次都很难过。报告的最后一句话是：我们送走了他们，我们留在这里。飞船离开的时候，地球上已经没有人了。卡瑞林在报告的最后加了一句：我们见过很多种族，每一个都以为自己是唯一的。他说：我们不纠正他们，因为纠正没有用。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 15</span>
+        </div>
+        <div class="rail-era" id="railNow">近未来</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“我们只是接生的人。”</p>
+  <p class="tiny">童年的终结 · 阿瑟·克拉克　·　15 个时间点，6 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

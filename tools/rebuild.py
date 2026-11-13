@@ -55,10 +55,39 @@ QUOTES = {
     'swordman': '只要有人的地方就有恩怨，有恩怨就有江湖。',
     'deer-cauldron': '老子不干了。',
     'nineteen-eighty-four': '他战胜了自己。他热爱老大哥。',
+    'brave-new-world': '我选择了幸福，没选美。',
+    'childhoods-end': '我们只是接生的人。',
+    'solaris': '它一直在说话，只是我们听不见。',
 }
 
 
 DECOR = {
+'brave-new-world': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <rect x="214" y="200" width="172" height="240" rx="6" fill="none" stroke="#8d9a8a" stroke-width="1.1"/>
+  <path d="M214 268 H386 M214 336 H386" stroke="#a5b0a0" stroke-width=".5"/>
+  <circle cx="300" cy="234" r="16" fill="none" stroke="#6f7d6b" stroke-width=".9"/>
+  <circle cx="300" cy="302" r="16" fill="none" stroke="#6f7d6b" stroke-width=".9"/>
+  <circle cx="300" cy="370" r="16" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M292 370 h16 M300 362 v16" stroke="#8c3a34" stroke-width=".7"/>
+  <path d="M120 470 H480" stroke="#b0bbaa" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'childhoods-end': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 180 V300" stroke="#8d98a2" stroke-width="1.2"/>
+  <path d="M240 300 q60 -26 120 0" fill="none" stroke="#8d98a2" stroke-width="1"/>
+  <path d="M228 300 q72 -40 144 0" fill="none" stroke="#a5aeb6" stroke-width=".6"/>
+  <path d="M216 300 q84 -56 168 0" fill="none" stroke="#bcc3ca" stroke-width=".4"/>
+  <circle cx="300" cy="180" r="8" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M120 420 H480" stroke="#a5aeb6" stroke-width=".8"/>
+  <path d="M150 452 H450" stroke="#bcc3ca" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'solaris': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M60 380 Q140 356 220 380 T380 380 T540 380" fill="none" stroke="#7f8d96" stroke-width="1.2"/>
+  <path d="M60 410 Q140 386 220 410 T380 410 T540 410" fill="none" stroke="#96a3ab" stroke-width=".7"/>
+  <path d="M60 440 Q140 416 220 440 T380 440 T540 440" fill="none" stroke="#aab5bc" stroke-width=".4"/>
+  <path d="M236 340 q64 -60 128 0" fill="none" stroke="#6c7a84" stroke-width=".8"/>
+  <circle cx="300" cy="316" r="6" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M300 322 V380" stroke="#8c3a34" stroke-width=".6" stroke-dasharray="3 6"/>
+</svg>''',
 'nineteen-eighty-four': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <rect x="196" y="216" width="208" height="132" fill="none" stroke="#8d8d8d" stroke-width="1.2"/>
   <rect x="212" y="232" width="176" height="100" fill="none" stroke="#a8a8a8" stroke-width=".4" stroke-dasharray="2 6"/>
