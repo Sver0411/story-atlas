@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>猎魔人 · 时间线 | 15 个故事节点</title>
+<meta name="description" content="一个被改造过的人，在两边都不讨好的地方，选一个自己觉得对的。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M246 200 V420 M234 420 H258" stroke="#9a8e78" stroke-width="1.3"/>
+  <path d="M354 200 V420 M342 420 H366" stroke="#b0a48c" stroke-width="1.1"/>
+  <path d="M246 200 l-6 -18 l6 -6 l6 6 Z" fill="none" stroke="#9a8e78" stroke-width=".8"/>
+  <path d="M354 200 l-6 -18 l6 -6 l6 6 Z" fill="none" stroke="#b0a48c" stroke-width=".8"/>
+  <path d="M234 300 H258 M342 300 H366" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M120 470 H480" stroke="#b5a890" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">安杰伊·萨普科夫斯基</p>
+    <h1><em>猎魔人</em><span>时间线</span></h1>
+    <p class="hero-deck">一个被改造过的人，在两边都不讨好的地方，选一个自己觉得对的。<br>15 个时间点，从「两把剑」到「猎魔人」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>15 个时间点 · 7 位人物</span><i></i>
+      <span>短篇集与五部曲 · 全本</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">短篇</span>
+      <span class="era-sub">01 — 15</span>
+    </div>
+
+    <section class="event" id="wt01" style="--c:#4a453c"
+      data-color="#4a453c" data-era="短篇" data-short="两把剑" data-label="某年 · 北方诸国">
+      <div class="ev-when">某年<em>北方诸国</em></div>
+      <h2>两把剑</h2>
+      <p>猎魔人背两把剑，一把钢的，给人用；一把银的，给怪物用。他们从小被灌药、练剑、改造身体，活下来的十个人里有一个。杰洛特是其中一个。他的头发白了，眼睛像猫。有人说他们没有感情。杰洛特听了不反驳。他只是把剑擦干净，收进鞘里。他说：我们不是人。他说：我们是被做出来的人。他说完，把剑收进鞘。他一辈子没有穿过别的颜色。有人问他为什么。他说：这样血不明显。</p>
+    </section>
+
+    <section class="event" id="wt02" style="--c:#4a453c"
+      data-color="#4a453c" data-era="短篇" data-short="屠夫" data-label="某年 · 布拉维坎">
+      <div class="ev-when">某年<em>布拉维坎</em></div>
+      <h2>屠夫</h2>
+      <p>他在布拉维坎的市场上杀了一群人。那些人先动手，可老百姓只看见他杀人。他们给他起了一个外号：布拉维坎的屠夫。他后来一直带着这个外号。有个姑娘叫伦芙芮，是那件事的中心。她死了。他每年回那个城市一次，站在市场中央，站一会儿就走。他不知道那天死的人里，有几个是该死的。他只知道，从那以后，没有人再请他喝过酒。那个城市的名字他后来不提。有人问起，他说：我在那儿做过一件事。</p>
+    </section>
+
+    <section class="event" id="wt03" style="--c:#4a453c"
+      data-color="#4a453c" data-era="短篇" data-short="意外律" data-label="某年 · 辛特拉">
+      <div class="ev-when">某年<em>辛特拉</em></div>
+      <h2>意外律</h2>
+      <p>辛特拉的卡兰瑟女王请他去解决一个问题。他用了「意外律」：他要一样她不知道已经有的东西。她要了一个孩子——她女儿肚子里的孩子。那个孩子叫希里。他说：我不要这个孩子。卡兰瑟说：你已经要了。他说：那是意外。她说：意外也是命。他说：意外律是古老的规矩。女王说：古老的东西最靠得住。他说：也最害人。她说：你要是敢碰她，我就杀了你。他说：我不碰。她说：你发誓。他说：我发誓。</p>
+    </section>
+
+    <section class="event" id="wt04" style="--c:#4a453c"
+      data-color="#4a453c" data-era="短篇" data-short="叶奈法" data-label="某年 · 温格堡">
+      <div class="ev-when">某年<em>温格堡</em></div>
+      <h2>叶奈法</h2>
+      <p>叶奈法是女术士，驼背，丑，后来用魔法把自己改成了一个美人。她跟杰洛特认识是因为一个迪精。他们打了一架，然后在一起了。他们在一起很多年，分分合合。她说：我们两个都是被改造过的。他说：我知道。她说：所以我们才配。他说：这话不好听。她说：好听的话我不说。她说：你为什么不说话。他说：我在听。她说：听什么。他说：听你说。她说：我们两个都不正常。他说：我知道。她说：那正好。</p>
+    </section>
+
+    <section class="event" id="wt05" style="--c:#4a453c"
+      data-color="#4a453c" data-era="短篇" data-short="丹德里恩" data-label="某年 · 北境">
+      <div class="ev-when">某年<em>北境</em></div>
+      <h2>丹德里恩</h2>
+      <p>丹德里恩是吟游诗人，爱吹牛，爱女人，爱钱。他跟着杰洛特到处跑，把那些事写成歌。歌里杰洛特是英雄，现实里杰洛特常常只是运气好。丹德里恩说：你需要一个诗人。他说：为什么。诗人说：因为没有人会唱一个不说话的猎魔人。他说：你要是把我的事写进歌里，我就打断你的手。诗人说：那你打吧。他后来还是写了。他后来写了三十首歌，二十九首是假的。只有一首是真的，他没有说哪一首。</p>
+    </section>
+
+    <section class="event" id="wt06" style="--c:#4a453c"
+      data-color="#4a453c" data-era="短篇" data-short="维瑟米尔" data-label="某年 · 凯尔莫罕">
+      <div class="ev-when">某年<em>凯尔莫罕</em></div>
+      <h2>维瑟米尔</h2>
+      <p>维瑟米尔是老猎魔人，凯尔莫罕城堡的看守。他把杰洛特养大，教他剑，也教他别的东西。他说：我们这一行，死得早，别爱上谁。杰洛特没听。他说：你小时候问我，为什么我们要杀怪物。我说：因为它们杀人。你说：那人也杀人。我答不上来。他说：你以后会死得很惨。杰洛特说：我知道。他说：那你还干。杰洛特说：我只会这个。他说：我年轻的时候也爱过一个人。杰洛特说：后来呢。他说：后来她死了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">长篇</span>
+      <span class="era-sub">07 — 15</span>
+    </div>
+
+    <section class="event" id="wt07" style="--c:#4a453c"
+      data-color="#4a453c" data-era="长篇" data-short="尼弗迦德" data-label="某年 · 南方">
+      <div class="ev-when">某年<em>南方</em></div>
+      <h2>尼弗迦德</h2>
+      <p>南方帝国尼弗迦德在扩张。皇帝恩希尔要娶辛特拉的希里，因为她的血统能证明他对那片土地的所有权。他派了很多人去找她。有人说：那个皇帝找了她很多年。有人说：他不是要找她，他是要找她的子宫。他说：她是我女儿。有人说：她是辛特拉的继承人。他说：这两个身份不冲突。他说：我不打仗。有人说：你是猎魔人。他说：我杀怪物，不杀人。他说：你们打你们的。他说：我走我的路。他说完，把斗篷拉紧。</p>
+    </section>
+
+    <section class="event" id="wt08" style="--c:#4a453c"
+      data-color="#4a453c" data-era="长篇" data-short="希里" data-label="某年 · 逃亡">
+      <div class="ev-when">某年<em>逃亡</em></div>
+      <h2>希里</h2>
+      <p>辛特拉被攻破，卡兰瑟跳楼死了。希里逃出来，一个人在北方的森林里活了下来。她学会了偷、骗、跑。她后来被杰洛特找到。他说：你叫什么。她说：希里。他说：你几岁。她说：十一。他说：你跟我走。她说：为什么。他说：因为我要过你。她说：我外祖母从窗口跳下去了。她说：她跳之前，把我推出去了。她学会了在树上睡觉。她说：这样狼找不到我。他说：狼不会爬树。她说：人会。</p>
+    </section>
+
+    <section class="event" id="wt09" style="--c:#4a453c"
+      data-color="#4a453c" data-era="长篇" data-short="训练" data-label="某年 · 凯尔莫罕">
+      <div class="ev-when">某年<em>凯尔莫罕</em></div>
+      <h2>训练</h2>
+      <p>他把她带回凯尔莫罕，教她剑，教她药，教她怎么在雪地里活。叶奈法教她魔法。她说：我不喜欢魔法。叶奈法说：那你喜欢什么。她说：剑。维瑟米尔说：这孩子比你当年还野。杰洛特说：她比我聪明。他说：这更麻烦。她说：你为什么对我这么好。他说：因为我答应过。她说：答应谁。他说：答应我自己。他教她剑的时候很凶。她说：你为什么这么凶。他说：因为我不凶，你就会死。</p>
+    </section>
+
+    <section class="event" id="wt10" style="--c:#4a453c"
+      data-color="#4a453c" data-era="长篇" data-short="火" data-label="某年 · 沙漠">
+      <div class="ev-when">某年<em>沙漠</em></div>
+      <h2>火</h2>
+      <p>希里在一次逃亡中走进一片沙漠，差点死。她在沙漠里学会了用火。她后来能从一个地方跳到另一个地方，那是「上古之血」的力量。她说：我看见很多世界。她说：有的世界没有冬天，有的世界没有太阳。她说：我不知道哪个是真的。她说：我在沙漠里看见一座城。她说：走近了，就没有了。她说：我不知道那是不是真的。她说：我看见一个地方，那里没有战争。他说：那是假的。她说：我知道。</p>
+    </section>
+
+    <section class="event" id="wt11" style="--c:#4a453c"
+      data-color="#4a453c" data-era="长篇" data-short="女术士" data-label="某年 · 巫师集会">
+      <div class="ev-when">某年<em>巫师集会</em></div>
+      <h2>女术士</h2>
+      <p>叶奈法被女术士集会所抓，说她叛变。她被打，被审。她没有说出希里的下落。她说：你们要杀就杀。她说：我不会说她。杰洛特去救她。他说：你为什么不说。她说：因为她是我女儿。他说：她不是。她说：她是。她说：你们可以杀我。她说：可我不会说她一个字。他们打了她三个小时。她说：你要是说出来，我就死。她说：你要是不说，我也死。她说：那我不说。她被打完了，还是那句话。审她的人说：你为什么。她说：因为她叫我一声妈。</p>
+    </section>
+
+    <section class="event" id="wt12" style="--c:#4a453c"
+      data-color="#4a453c" data-era="长篇" data-short="决斗" data-label="某年 · 斯提加城堡">
+      <div class="ev-when">某年<em>斯提加城堡</em></div>
+      <h2>决斗</h2>
+      <p>他们在一个城堡里找到了希里。那里有一场混战，很多人在杀。杰洛特被一把叉子捅穿，叶奈法用自己的命去救他。他们两个都倒在血里。希里把他们带走了。她把他們放在一个没有战争的地方。她说：你们休息吧。她说：我去处理完。他说：我看不见你了。她说：我在这儿。他说：我的手在哪儿。她说：在我手里。他倒下的时候还在喊她的名字。她抱着他，说：你别死。他说：我尽量。</p>
+    </section>
+
+    <section class="event" id="wt13" style="--c:#4a453c"
+      data-color="#4a453c" data-era="长篇" data-short="湖中夫人" data-label="某年 · 湖中">
+      <div class="ev-when">某年<em>湖中</em></div>
+      <h2>湖中夫人</h2>
+      <p>希里后来到了一个世界，那里有亚瑟王和湖中夫人。她在那里待了一段时间，学会了一些事。她最后回到自己的世界，做了一件她必须做的事。她说：我不当女王。她说：我要当猎魔人。有人说：女人不能当猎魔人。她说：那我就是第一个。她说：我不想当女王。她说：女王不能走。她说：我想走。她说：我要一把银剑。有人说：银剑是杀怪物的。她说：我知道。她第一次杀怪物的时候，手在抖。杀完她坐在雪地里，哭了。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">之后</span>
+      <span class="era-sub">14 — 15</span>
+    </div>
+
+    <section class="event" id="wt14" style="--c:#4a453c"
+      data-color="#4a453c" data-era="之后" data-short="之后" data-label="某年 · 路">
+      <div class="ev-when">某年<em>路</em></div>
+      <h2>之后</h2>
+      <p>故事结束的时候，杰洛特和叶奈法在一个小地方，开了一间小屋。有人说他们死了，有人说他们走了。希里在路上，背着一把剑。她说：我要去看看别的地方。他说：去吧。她说：你不拦我。他说：我拦不住。她说：你会想我吗。他说：会。她说：那你别哭。他说：我没哭。他们三个人坐在门口，谁也没说话。太阳落下去了，他们还在坐着。她说：我们以后还见面吗。他说：会。她说：什么时候。他说：不知道。</p>
+    </section>
+
+    <section class="event" id="wt15" style="--c:#4a453c"
+      data-color="#4a453c" data-era="之后" data-short="猎魔人" data-label="某年 · 酒馆">
+      <div class="ev-when">某年<em>酒馆</em></div>
+      <h2>猎魔人</h2>
+      <p>有人说，那个白头发的人还在接活。有人说，他早就不干了。酒馆里的人讲这些故事的时候，谁也不确定哪一句是真的。酒馆老板说：你们说的那个人，前天还来过。他说：他点了一杯酒，喝完就走了。他说：那个人我见过。他说：他眼睛像猫。他说完，把杯子推回去。酒馆里的人说：那个猎魔人，早死了。老板说：他前天还来过。他说：那个人欠我一杯酒。老板说：他每次都这么说。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 15</span>
+        </div>
+        <div class="rail-era" id="railNow">某年</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“我杀怪物，不杀人。”</p>
+  <p class="tiny">猎魔人 · 安杰伊·萨普科夫斯基　·　15 个时间点，7 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

@@ -66,10 +66,28 @@ QUOTES = {
     'hyperion': '它不吃人，它收集人。',
     'narnia': '他不是一头驯服的狮子。',
     'earthsea': '魔法不是用力气，是知道名字。',
+    'witcher': '我杀怪物，不杀人。',
+    'american-gods': '神是被人想出来的。',
 }
 
 
 DECOR = {
+'witcher': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M246 200 V420 M234 420 H258" stroke="#9a8e78" stroke-width="1.3"/>
+  <path d="M354 200 V420 M342 420 H366" stroke="#b0a48c" stroke-width="1.1"/>
+  <path d="M246 200 l-6 -18 l6 -6 l6 6 Z" fill="none" stroke="#9a8e78" stroke-width=".8"/>
+  <path d="M354 200 l-6 -18 l6 -6 l6 6 Z" fill="none" stroke="#b0a48c" stroke-width=".8"/>
+  <path d="M234 300 H258 M342 300 H366" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M120 470 H480" stroke="#b5a890" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'american-gods': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M60 470 L200 300 L300 470 L400 280 L540 470" fill="none" stroke="#8d8a90" stroke-width="1"/>
+  <path d="M60 470 H540" stroke="#8d8a90" stroke-width=".8"/>
+  <g stroke="#a5a2a8" stroke-width=".4"><path d="M140 470 V430 M240 470 V420 M340 470 V440 M440 470 V410"/></g>
+  <circle cx="300" cy="220" r="26" fill="none" stroke="#8c3a34" stroke-width="1.1"/>
+  <path d="M300 246 V280" stroke="#8c3a34" stroke-width=".7" stroke-dasharray="3 6"/>
+  <path d="M120 512 H480" stroke="#a5a2a8" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'narnia': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <rect x="216" y="200" width="168" height="270" fill="none" stroke="#8d9a8a" stroke-width="1.1"/>
   <path d="M216 200 H384 M300 200 V470" stroke="#a5b0a0" stroke-width=".5"/>

@@ -592,5 +592,29 @@
     "events": 14,
     "people": 6,
     "scope": "前四部"
+  },
+  {
+    "id": "witcher",
+    "title": "猎魔人",
+    "author": "萨普科夫斯基",
+    "category": "奇幻",
+    "description": "两把剑。",
+    "accent": "#4a453c",
+    "cover": "",
+    "events": 15,
+    "people": 7,
+    "scope": "短篇集与五部曲"
+  },
+  {
+    "id": "american-gods",
+    "title": "美国众神",
+    "author": "尼尔·盖曼",
+    "category": "奇幻",
+    "description": "神是被人想出来的。",
+    "accent": "#474a52",
+    "cover": "",
+    "events": 15,
+    "people": 6,
+    "scope": "全本 · 2000 年代"
   }
 ]
