@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>冰与火之歌 · 人物志 | 31 个人物</title>
+<meta name="description" content="七个王国，九个家族，一张铁王座。每个人都以为自己在做正确的事，每个人都在为别人的野心付账。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+</style>
+<style>
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">乔治·R·R·马丁 / CHARACTERS</p>
+    <h1 class="big">冰与火之歌 · 人物</h1>
+    <p class="deck">七个王国，九个家族，一张铁王座。每个人都以为自己在做正确的事，每个人都在为别人的野心付账。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="史塔克">史塔克</button><button class="fbtn" data-camp="守夜人">守夜人</button><button class="fbtn" data-camp="兰尼斯特">兰尼斯特</button><button class="fbtn" data-camp="拜拉席恩">拜拉席恩</button><button class="fbtn" data-camp="坦格利安">坦格利安</button><button class="fbtn" data-camp="多斯拉克">多斯拉克</button><button class="fbtn" data-camp="君临">君临</button><button class="fbtn" data-camp="葛雷乔伊">葛雷乔伊</button><button class="fbtn" data-camp="北境">北境</button><button class="fbtn" data-camp="河间地">河间地</button><button class="fbtn" data-camp="提利尔">提利尔</button><button class="fbtn" data-camp="艾林">艾林</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="冰与火之歌人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="82" text-anchor="middle">史塔克</text>
+        <text class="gtag" x="745" y="139" text-anchor="middle">守夜人</text>
+        <text class="gtag" x="837" y="215" text-anchor="middle">兰尼斯特</text>
+        <text class="gtag" x="870" y="370" text-anchor="middle">拜拉席恩</text>
+        <text class="gtag" x="837" y="489" text-anchor="middle">坦格利安</text>
+        <text class="gtag" x="745" y="587" text-anchor="middle">多斯拉克</text>
+        <text class="gtag" x="620" y="620" text-anchor="middle">君临</text>
+        <text class="gtag" x="495" y="587" text-anchor="middle">葛雷乔伊</text>
+        <text class="gtag" x="403" y="495" text-anchor="middle">北境</text>
+        <text class="gtag" x="370" y="370" text-anchor="middle">河间地</text>
+        <text class="gtag" x="403" y="245" text-anchor="middle">提利尔</text>
+        <text class="gtag" x="495" y="153" text-anchor="middle">艾林</text></g>
+        <g class="links"><line class="plink" data-a="ned" data-b="catelyn" x1="620" y1="104" x2="687" y2="136" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ned" data-b="robb" x1="620" y1="104" x2="704" y2="209" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ned" data-b="sansa" x1="620" y1="104" x2="657" y2="267" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ned" data-b="arya" x1="620" y1="104" x2="583" y2="267" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ned" data-b="bran" x1="620" y1="104" x2="536" y2="209" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ned" data-b="jon" x1="620" y1="104" x2="745" y2="161" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="catelyn" data-b="robb" x1="687" y1="136" x2="704" y2="209" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="catelyn" data-b="sansa" x1="687" y1="136" x2="657" y2="267" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="catelyn" data-b="arya" x1="687" y1="136" x2="583" y2="267" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="catelyn" data-b="bran" x1="687" y1="136" x2="536" y2="209" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="catelyn" data-b="lysa" x1="687" y1="136" x2="495" y2="223" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="robb" data-b="sansa" x1="704" y1="209" x2="657" y2="267" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="robb" data-b="arya" x1="704" y1="209" x2="583" y2="267" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="robb" data-b="bran" x1="704" y1="209" x2="536" y2="209" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jon" data-b="arya" x1="745" y1="161" x2="583" y2="267" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jon" data-b="robb" x1="745" y1="161" x2="704" y2="209" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jon" data-b="bran" x1="745" y1="161" x2="536" y2="209" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="ned" data-b="robert" x1="620" y1="104" x2="870" y2="392" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="robert" data-b="cersei" x1="870" y1="392" x2="837" y2="237" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="robert" data-b="joffrey" x1="870" y1="392" x2="769" y2="354" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="cersei" data-b="jaime" x1="837" y1="237" x2="904" y2="276" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="cersei" data-b="joffrey" x1="837" y1="237" x2="769" y2="354" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jaime" data-b="joffrey" x1="904" y1="276" x2="769" y2="354" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="cersei" data-b="tyrion" x1="837" y1="237" x2="904" y2="354" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="jaime" data-b="tyrion" x1="904" y1="276" x2="904" y2="354" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tywin" data-b="cersei" x1="837" y1="393" x2="837" y2="237" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tywin" data-b="jaime" x1="837" y1="393" x2="904" y2="276" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="tywin" data-b="tyrion" x1="837" y1="393" x2="904" y2="354" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="joffrey" data-b="sansa" x1="769" y1="354" x2="657" y2="267" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="joffrey" data-b="margaery" x1="769" y1="354" x2="403" y2="315" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="joffrey" data-b="tyrion" x1="769" y1="354" x2="904" y2="354" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="daenerys" data-b="viserys" x1="837" y1="511" x2="883" y2="592" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="daenerys" data-b="drogo" x1="837" y1="511" x2="745" y2="657" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="daenerys" data-b="jorah" x1="837" y1="511" x2="790" y2="592" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="viserys" data-b="drogo" x1="883" y1="592" x2="745" y2="657" stroke="#1f5d57" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="littlefinger" data-b="catelyn" x1="620" y1="642" x2="687" y2="136" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="littlefinger" data-b="sansa" x1="620" y1="642" x2="657" y2="267" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="littlefinger" data-b="ned" x1="620" y1="642" x2="620" y2="104" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="varys" data-b="ned" x1="620" y1="738" x2="620" y2="104" stroke="#4a4a58" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="robb" data-b="theon" x1="704" y1="209" x2="495" y2="657" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="theon" data-b="bran" x1="495" y1="657" x2="536" y2="209" stroke="#6b645a" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="robb" data-b="bolton" x1="704" y1="209" x2="403" y2="517" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="robb" data-b="frey" x1="704" y1="209" x2="370" y2="440" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="stannis" data-b="robert" x1="870" y1="488" x2="870" y2="392" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="brienne" data-b="catelyn" x1="553" y1="136" x2="687" y2="136" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="brienne" data-b="jaime" x1="553" y1="136" x2="904" y2="276" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="hound" data-b="sansa" x1="769" y1="276" x2="657" y2="267" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="hound" data-b="joffrey" x1="769" y1="276" x2="769" y2="354" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lysa" data-b="ned" x1="495" y1="223" x2="620" y2="104" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="greatjon" data-b="robb" x1="403" y1="613" x2="704" y2="209" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="mormont" data-b="jon" x1="745" y1="285" x2="745" y2="161" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="sam" data-b="jon" x1="807" y1="223" x2="745" y2="161" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="labels"><text class="rlabel" x="654" y="116" data-a="ned" data-b="catelyn">夫妻</text>
+        <text class="rlabel" x="662" y="153" data-a="ned" data-b="robb">父子</text>
+        <text class="rlabel" x="639" y="182" data-a="ned" data-b="sansa">父女</text>
+        <text class="rlabel" x="601" y="182" data-a="ned" data-b="arya">父女</text>
+        <text class="rlabel" x="578" y="153" data-a="ned" data-b="bran">父子</text>
+        <text class="rlabel" x="682" y="129" data-a="ned" data-b="jon">父子</text>
+        <text class="rlabel" x="696" y="169" data-a="catelyn" data-b="robb">母子</text>
+        <text class="rlabel" x="672" y="198" data-a="catelyn" data-b="sansa">母女</text>
+        <text class="rlabel" x="635" y="198" data-a="catelyn" data-b="arya">母女</text>
+        <text class="rlabel" x="612" y="169" data-a="catelyn" data-b="bran">母子</text>
+        <text class="rlabel" x="591" y="176" data-a="catelyn" data-b="lysa">姐妹</text>
+        <text class="rlabel" x="681" y="234" data-a="robb" data-b="sansa">兄妹</text>
+        <text class="rlabel" x="643" y="234" data-a="robb" data-b="arya">兄妹</text>
+        <text class="rlabel" x="620" y="205" data-a="robb" data-b="bran">兄妹</text>
+        <text class="rlabel" x="664" y="210" data-a="jon" data-b="arya">同父异母</text>
+        <text class="rlabel" x="724" y="181" data-a="jon" data-b="robb">同父异母</text>
+        <text class="rlabel" x="641" y="181" data-a="jon" data-b="bran">同父异母</text>
+        <text class="rlabel" x="745" y="244" data-a="ned" data-b="robert">挚友</text>
+        <text class="rlabel" x="853" y="310" data-a="robert" data-b="cersei">夫妻</text>
+        <text class="rlabel" x="819" y="369" data-a="robert" data-b="joffrey">父子（名义）</text>
+        <text class="rlabel" x="870" y="252" data-a="cersei" data-b="jaime">孪生姐弟</text>
+        <text class="rlabel" x="803" y="292" data-a="cersei" data-b="joffrey">母子</text>
+        <text class="rlabel" x="837" y="311" data-a="jaime" data-b="joffrey">父子（实为）</text>
+        <text class="rlabel" x="870" y="292" data-a="cersei" data-b="tyrion">姐弟相残</text>
+        <text class="rlabel" x="904" y="311" data-a="jaime" data-b="tyrion">兄弟</text>
+        <text class="rlabel" x="837" y="311" data-a="tywin" data-b="cersei">父女</text>
+        <text class="rlabel" x="870" y="330" data-a="tywin" data-b="jaime">父子</text>
+        <text class="rlabel" x="870" y="370" data-a="tywin" data-b="tyrion">父子相残</text>
+        <text class="rlabel" x="713" y="307" data-a="joffrey" data-b="sansa">婚约</text>
+        <text class="rlabel" x="586" y="330" data-a="joffrey" data-b="margaery">夫妻</text>
+        <text class="rlabel" x="837" y="350" data-a="joffrey" data-b="tyrion">仇视</text>
+        <text class="rlabel" x="860" y="548" data-a="daenerys" data-b="viserys">兄妹</text>
+        <text class="rlabel" x="791" y="580" data-a="daenerys" data-b="drogo">夫妻</text>
+        <text class="rlabel" x="813" y="548" data-a="daenerys" data-b="jorah">君臣</text>
+        <text class="rlabel" x="814" y="620" data-a="viserys" data-b="drogo">交易</text>
+        <text class="rlabel" x="654" y="385" data-a="littlefinger" data-b="catelyn">青梅竹马</text>
+        <text class="rlabel" x="639" y="451" data-a="littlefinger" data-b="sansa">挟持</text>
+        <text class="rlabel" x="620" y="369" data-a="littlefinger" data-b="ned">出卖</text>
+        <text class="rlabel" x="620" y="417" data-a="varys" data-b="ned">暗中周旋</text>
+        <text class="rlabel" x="599" y="429" data-a="robb" data-b="theon">养兄弟</text>
+        <text class="rlabel" x="516" y="429" data-a="theon" data-b="bran">背叛</text>
+        <text class="rlabel" x="554" y="359" data-a="robb" data-b="bolton">被背叛</text>
+        <text class="rlabel" x="537" y="321" data-a="robb" data-b="frey">婚约破裂</text>
+        <text class="rlabel" x="870" y="436" data-a="stannis" data-b="robert">兄弟</text>
+        <text class="rlabel" x="620" y="132" data-a="brienne" data-b="catelyn">效忠</text>
+        <text class="rlabel" x="728" y="202" data-a="brienne" data-b="jaime">护送</text>
+        <text class="rlabel" x="713" y="268" data-a="hound" data-b="sansa">护送</text>
+        <text class="rlabel" x="769" y="311" data-a="hound" data-b="joffrey">御林铁卫</text>
+        <text class="rlabel" x="558" y="160" data-a="lysa" data-b="ned">诬告</text>
+        <text class="rlabel" x="554" y="407" data-a="greatjon" data-b="robb">拥立</text>
+        <text class="rlabel" x="745" y="219" data-a="mormont" data-b="jon">上下级</text>
+        <text class="rlabel" x="776" y="188" data-a="sam" data-b="jon">挚友</text></g>
+        <g class="nodes"><g class="pnode" data-id="ned" transform="translate(620,104)"><title>艾德·史塔克 · 临冬城公爵 · 国王之手</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">史塔克</text></g>
+        <g class="pnode" data-id="catelyn" transform="translate(687,136)"><title>凯特琳·徒利 · 临冬城夫人</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">徒利</text></g>
+        <g class="pnode" data-id="robb" transform="translate(704,209)"><title>罗柏·史塔克 · 北境之王</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">史塔克</text></g>
+        <g class="pnode" data-id="sansa" transform="translate(657,267)"><title>珊莎·史塔克 · 临冬城长女</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">史塔克</text></g>
+        <g class="pnode" data-id="arya" transform="translate(583,267)"><title>艾莉亚·史塔克 · 临冬城次女</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">史塔克</text></g>
+        <g class="pnode" data-id="bran" transform="translate(536,209)"><title>布兰·史塔克 · 临冬城次子</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">史塔克</text></g>
+        <g class="pnode" data-id="jon" transform="translate(745,161)"><title>琼恩·雪诺 · 守夜人总司令</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">雪诺</text></g>
+        <g class="pnode" data-id="cersei" transform="translate(837,237)"><title>瑟曦·兰尼斯特 · 七国王后</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">兰尼斯特</text></g>
+        <g class="pnode" data-id="jaime" transform="translate(904,276)"><title>詹姆·兰尼斯特 · 御林铁卫</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">兰尼斯特</text></g>
+        <g class="pnode" data-id="tyrion" transform="translate(904,354)"><title>提利昂·兰尼斯特 · 凯岩城继承人 · 代理首相</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">兰尼斯特</text></g>
+        <g class="pnode" data-id="tywin" transform="translate(837,393)"><title>泰温·兰尼斯特 · 凯岩城公爵 · 西境守护</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">兰尼斯特</text></g>
+        <g class="pnode" data-id="joffrey" transform="translate(769,354)"><title>乔佛里·拜拉席恩 · 七国国王</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">拜拉席恩</text></g>
+        <g class="pnode" data-id="robert" transform="translate(870,392)"><title>劳勃·拜拉席恩 · 七国国王</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">拜拉席恩</text></g>
+        <g class="pnode" data-id="daenerys" transform="translate(837,511)"><title>丹妮莉丝·坦格利安 · 龙之母</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">坦格利安</text></g>
+        <g class="pnode" data-id="viserys" transform="translate(883,592)"><title>韦赛里斯·坦格利安 · 流亡王子</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">坦格利安</text></g>
+        <g class="pnode" data-id="drogo" transform="translate(745,657)"><title>卓戈卡奥 · 多斯拉克马王</title><circle r="26" fill="#f7f4ed" stroke="#a8823c" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">卓戈卡奥</text></g>
+        <g class="pnode" data-id="jorah" transform="translate(790,592)"><title>乔拉·莫尔蒙 · 流亡骑士</title><circle r="26" fill="#f7f4ed" stroke="#1f5d57" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">莫尔蒙</text></g>
+        <g class="pnode" data-id="littlefinger" transform="translate(620,642)"><title>培提尔·贝里席 · 财政大臣</title><circle r="26" fill="#f7f4ed" stroke="#4a4a58" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">贝里席</text></g>
+        <g class="pnode" data-id="varys" transform="translate(620,738)"><title>瓦里斯 · 情报总管</title><circle r="26" fill="#f7f4ed" stroke="#4a4a58" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">瓦里斯</text></g>
+        <g class="pnode" data-id="stannis" transform="translate(870,488)"><title>史坦尼斯·拜拉席恩 · 龙石岛公爵</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">拜拉席恩</text></g>
+        <g class="pnode" data-id="sam" transform="translate(807,223)"><title>山姆威尔·塔利 · 守夜人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">塔利</text></g>
+        <g class="pnode" data-id="mormont" transform="translate(745,285)"><title>杰奥·莫尔蒙 · 守夜人总司令</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">莫尔蒙</text></g>
+        <g class="pnode" data-id="theon" transform="translate(495,657)"><title>席恩·葛雷乔伊 · 铁群岛继承人</title><circle r="26" fill="#f7f4ed" stroke="#6b645a" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">葛雷乔伊</text></g>
+        <g class="pnode" data-id="bolton" transform="translate(403,517)"><title>卢斯·波顿 · 恐怖堡伯爵</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">波顿</text></g>
+        <g class="pnode" data-id="frey" transform="translate(370,440)"><title>瓦德·弗雷 · 孪河城侯爵</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">弗雷</text></g>
+        <g class="pnode" data-id="hound" transform="translate(769,276)"><title>桑铎·克里冈 · 御林铁卫</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">克里冈</text></g>
+        <g class="pnode" data-id="brienne" transform="translate(553,136)"><title>布蕾妮·塔斯 · 蓝岛骑士</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">塔斯</text></g>
+        <g class="pnode" data-id="margaery" transform="translate(403,315)"><title>玛格丽·提利尔 · 高庭之女</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">提利尔</text></g>
+        <g class="pnode" data-id="lysa" transform="translate(495,223)"><title>莱莎·艾林 · 鹰巢城夫人</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">艾林</text></g>
+        <g class="pnode" data-id="yoren" transform="translate(683,223)"><title>尤伦 · 守夜人游骑兵</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">尤伦</text></g>
+        <g class="pnode" data-id="greatjon" transform="translate(403,613)"><title>大琼恩·安柏 · 最后壁炉城伯爵</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">安柏</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">史塔克</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-ned" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>艾德·史塔克</h3></div>
+        <p class="role">临冬城公爵 · 国王之手</p>
+        <p class="deeds">北境守护，以荣誉立身。劳勃请他出任首相，他查出于兰尼斯特的乱伦，却在最后关头选择效忠而不是夺权，被小指头出卖，在贝勒大圣堂前被斩。他一生没有背叛过任何人，最后死于自己的诚实。</p>
+        <a class="jump" href="index.html#got02">时间线 · 国王来访 →</a>
+      </article>
+      <article class="pcard" id="c-catelyn" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>凯特琳·徒利</h3></div>
+        <p class="role">临冬城夫人</p>
+        <p class="deeds">徒利家长女，五个孩子的母亲。她抓提利昂引发战争，放走詹姆换回女儿，最后在红色婚礼上被割喉。她一生在为孩子做选择，每一个选择都把家族推得更远。</p>
+        <a class="jump" href="index.html#got04">时间线 · 莱莎的信 →</a>
+      </article>
+      <article class="pcard" id="c-robb" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>罗柏·史塔克</h3></div>
+        <p class="role">北境之王</p>
+        <p class="deeds">艾德长子，十八岁起兵，呓语森林活捉詹姆，被拥为北境之王。他违背婚约娶了简妮，触怒佛雷家族，在红色婚礼上被屠杀。他打赢了每一场仗，却输掉了整场战争。</p>
+        <a class="jump" href="index.html#got20">时间线 · 北境之王 →</a>
+      </article>
+      <article class="pcard" id="c-sansa" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>珊莎·史塔克</h3></div>
+        <p class="role">临冬城长女</p>
+        <p class="deeds">爱读骑士故事的女孩。父亲死后被扣在君临做人质，被迫嫁给提利昂，在紫色婚礼上被小指头带走。她学会了笑、学会了低头，也学会了活下来。</p>
+        <a class="jump" href="index.html#got17">时间线 · 人质 →</a>
+      </article>
+      <article class="pcard" id="c-arya" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>艾莉亚·史塔克</h3></div>
+        <p class="role">临冬城次女</p>
+        <p class="deeds">不爱针线爱剑，父亲给她找了布拉佛斯的剑客西利欧。父亲被斩时她逃出君临，一路往北，杀人、逃亡、学艺，最后成了无面者。她的名单上写满了名字。</p>
+        <a class="jump" href="index.html#got06">时间线 · 南下 →</a>
+      </article>
+      <article class="pcard" id="c-bran" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>布兰·史塔克</h3></div>
+        <p class="role">临冬城次子</p>
+        <p class="deeds">爱爬墙的男孩，撞见詹姆与瑟曦，被推下塔楼，双腿残废。此后他梦见三眼乌鸦，成了绿先知，能看见过去与未来。</p>
+        <a class="jump" href="index.html#got03">时间线 · 布兰坠落 →</a>
+      </article>
+      <article class="pcard" id="c-brienne" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>布蕾妮·塔斯</h3></div>
+        <p class="role">蓝岛骑士</p>
+        <p class="deeds">女骑士，被嘲笑“美人”。她效忠凯特琳，护送詹姆，寻找珊莎和艾莉亚。她相信骑士的誓言，而且真的照做。</p>
+        <a class="jump" href="index.html#got21">时间线 · 呓语森林 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">守夜人</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-jon" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>琼恩·雪诺</h3></div>
+        <p class="role">守夜人总司令</p>
+        <p class="deeds">艾德的私生子，从小不被凯特琳接纳。他加入守夜人，宣誓、远征、爱上野人、被杀又被复活。他一生在问“我是谁”，答案是：他是冰与火之间的那个人。</p>
+        <a class="jump" href="index.html#got05">时间线 · 私生子 →</a>
+      </article>
+      <article class="pcard" id="c-sam" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>山姆威尔·塔利</h3></div>
+        <p class="role">守夜人</p>
+        <p class="deeds">胖子，胆小鬼，被父亲赶到长城。他杀了第一个异鬼，抄了古籍，找到了龙晶。琼恩说：你是懦夫，但你比谁都勇敢。</p>
+        <a class="jump" href="index.html#got22">时间线 · 守夜人 →</a>
+      </article>
+      <article class="pcard" id="c-mormont" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>杰奥·莫尔蒙</h3></div>
+        <p class="role">守夜人总司令</p>
+        <p class="deeds">老熊，守夜人第九百九十八任总司令。他率三百人远征，在先民拳峰被围，战死。他最后说：告诉所有人，长城守不住了。</p>
+        <a class="jump" href="index.html#got22">时间线 · 守夜人 →</a>
+      </article>
+      <article class="pcard" id="c-yoren" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>尤伦</h3></div>
+        <p class="role">守夜人游骑兵</p>
+        <p class="deeds">负责招募新兵的守夜人。他在君临救了艾莉亚，把她藏在囚车里带出城。他死于路上的一场战斗。</p>
+        <a class="jump" href="index.html#got18">时间线 · 缝衣针 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">兰尼斯特</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-cersei" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>瑟曦·兰尼斯特</h3></div>
+        <p class="role">七国王后</p>
+        <p class="deeds">劳勃的王后，三个孩子的母亲，孩子的父亲是她的孪生弟弟。她爱权力胜过一切，也爱自己的孩子胜过一切。她说过：在权力的游戏里，要么赢，要么死。</p>
+        <a class="jump" href="index.html#got03">时间线 · 布兰坠落 →</a>
+      </article>
+      <article class="pcard" id="c-jaime" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>詹姆·兰尼斯特</h3></div>
+        <p class="role">御林铁卫</p>
+        <p class="deeds">十五岁杀死疯王，从此背负“弑君者”的骂名。他与姐姐瑟曦相爱，把布兰推下塔楼，被罗柏活捉，失去右手。他后来明白：他一生都在为别人的期待而活。</p>
+        <a class="jump" href="index.html#got03">时间线 · 布兰坠落 →</a>
+      </article>
+      <article class="pcard" id="c-tyrion" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>提利昂·兰尼斯特</h3></div>
+        <p class="role">凯岩城继承人 · 代理首相</p>
+        <p class="deeds">侏儒，嗜酒好色，读遍全书。他任代理首相守住君临，被姐姐诬陷杀乔佛里，比武审判失败后逃走，用十字弓射死父亲。他说：我这一生，只想让你说一句我是你的儿子。</p>
+        <a class="jump" href="index.html#got10">时间线 · 擒获 →</a>
+      </article>
+      <article class="pcard" id="c-tywin" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>泰温·兰尼斯特</h3></div>
+        <p class="role">凯岩城公爵 · 西境守护</p>
+        <p class="deeds">兰尼斯特家之主，冷酷、精确、从不失手。他灭了卡斯塔梅家，把女儿嫁给国王，把儿子培养成骑士。他最后死在厕所里，被自己最看不起的儿子射死。</p>
+        <a class="jump" href="index.html#got13">时间线 · 泰温起兵 →</a>
+      </article>
+      <article class="pcard" id="c-joffrey" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>乔佛里·拜拉席恩</h3></div>
+        <p class="role">七国国王</p>
+        <p class="deeds">劳勃与瑟曦的长子，实际上是詹姆的儿子。他残忍、怯懦、喜怒无常，下令斩了艾德，在婚宴上被毒死。他到死都以为自己是狮子。</p>
+        <a class="jump" href="index.html#got15">时间线 · 野猪 →</a>
+      </article>
+      <article class="pcard" id="c-hound" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>桑铎·克里冈</h3></div>
+        <p class="role">御林铁卫</p>
+        <p class="deeds">脸被火毁容，怕火，怕哥哥。他护送珊莎、艾莉亚，最后在决斗中重伤。他说：我这一生，只做过一件好事。</p>
+        <a class="jump" href="index.html#got17">时间线 · 人质 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">拜拉席恩</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-robert" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>劳勃·拜拉席恩</h3></div>
+        <p class="role">七国国王</p>
+        <p class="deeds">推翻疯王的叛军领袖，娶了瑟曦，爱的是莱安娜。他当了十七年国王，打了九场仗，最后被一头野猪挑死。他说：我这辈子只爱过一个女人。</p>
+        <a class="jump" href="index.html#got02">时间线 · 国王来访 →</a>
+      </article>
+      <article class="pcard" id="c-stannis" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>史坦尼斯·拜拉席恩</h3></div>
+        <p class="role">龙石岛公爵</p>
+        <p class="deeds">劳勃的弟弟，相信自己是合法继承人。他信光之王，烧活人献祭，攻打君临失败。他是一个被正义感压垮的人。</p>
+        <a class="jump" href="index.html#got26">时间线 · 黑水河 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#1f5d57">坦格利安</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-daenerys" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>丹妮莉丝·坦格利安</h3></div>
+        <p class="role">龙之母</p>
+        <p class="deeds">疯王的女儿，十三岁被哥哥卖给马王。她在火里孵出三条龙，解放奴隶湾，在弥林学统治。她一生在两种身份之间摇摆：征服者，还是母亲。</p>
+        <a class="jump" href="index.html#got07">时间线 · 龙之女 →</a>
+      </article>
+      <article class="pcard" id="c-viserys" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>韦赛里斯·坦格利安</h3></div>
+        <p class="role">流亡王子</p>
+        <p class="deeds">丹妮的哥哥，自称“龙”。他把妹妹卖给卓戈换军队，最后被卓戈用金冠烫死。他说：我是龙。卓戈说：你不是。</p>
+        <a class="jump" href="index.html#got07">时间线 · 龙之女 →</a>
+      </article>
+      <article class="pcard" id="c-jorah" style="--c:#1f5d57">
+        <div class="pcard-top"><h3>乔拉·莫尔蒙</h3></div>
+        <p class="role">流亡骑士</p>
+        <p class="deeds">被流放的北境骑士，最初为瓦里斯监视丹妮，后来真心效忠。他说：我不是好人，但我是你的人。</p>
+        <a class="jump" href="index.html#got07">时间线 · 龙之女 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#a8823c">多斯拉克</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-drogo" style="--c:#a8823c">
+        <div class="pcard-top"><h3>卓戈卡奥</h3></div>
+        <p class="role">多斯拉克马王</p>
+        <p class="deeds">四万骑兵的首领，从不剪发。他娶了丹妮，发誓要为她夺回铁王座，受伤后被女巫治成活死人，被丹妮闷死。</p>
+        <a class="jump" href="index.html#got07">时间线 · 龙之女 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#4a4a58">君临</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-littlefinger" style="--c:#4a4a58">
+        <div class="pcard-top"><h3>培提尔·贝里席</h3></div>
+        <p class="role">财政大臣</p>
+        <p class="deeds">出身卑微，靠头脑爬到财政大臣。他开妓院、放高利贷、挑拨离间。他对艾德说：在权力的游戏里，你不赢就得死。他最后死在珊莎手里。</p>
+        <a class="jump" href="index.html#got08">时间线 · 首相 →</a>
+      </article>
+      <article class="pcard" id="c-varys" style="--c:#4a4a58">
+        <div class="pcard-top"><h3>瓦里斯</h3></div>
+        <p class="role">情报总管</p>
+        <p class="deeds">太监，君临的情报网。他说：我服务于王国，不是国王。他一生在平衡，也在等待一个更好的君主。</p>
+        <a class="jump" href="index.html#got09">时间线 · 蛛网 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#6b645a">葛雷乔伊</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-theon" style="--c:#6b645a">
+        <div class="pcard-top"><h3>席恩·葛雷乔伊</h3></div>
+        <p class="role">铁群岛继承人</p>
+        <p class="deeds">艾德的养子，与罗柏一起长大。他回到铁群岛，带兵占领临冬城，杀了两个农夫的男孩冒充布兰和瑞肯。他一生在问：我是史塔克，还是葛雷乔伊。</p>
+        <a class="jump" href="index.html#got28">时间线 · 席恩 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">北境</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-bolton" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>卢斯·波顿</h3></div>
+        <p class="role">恐怖堡伯爵</p>
+        <p class="deeds">北境最老的家族之一，剥皮为徽。他在红色婚礼上背叛罗柏，事后被泰温封为北境守护。他说：兰尼斯特付钱，我办事。</p>
+        <a class="jump" href="index.html#got29">时间线 · 红色婚礼 →</a>
+      </article>
+      <article class="pcard" id="c-greatjon" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>大琼恩·安柏</h3></div>
+        <p class="role">最后壁炉城伯爵</p>
+        <p class="deeds">北境最大的封臣，第一个喊出“北境之王”。他在红色婚礼上被俘，后来死在牢里。</p>
+        <a class="jump" href="index.html#got20">时间线 · 北境之王 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">河间地</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-frey" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>瓦德·弗雷</h3></div>
+        <p class="role">孪河城侯爵</p>
+        <p class="deeds">九十多岁，结过八次婚。罗柏违背婚约后，他在婚宴上屠杀史塔克全军。他说：我给了你机会，你不要。</p>
+        <a class="jump" href="index.html#got29">时间线 · 红色婚礼 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">提利尔</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-margaery" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>玛格丽·提利尔</h3></div>
+        <p class="role">高庭之女</p>
+        <p class="deeds">提利尔家的女儿，嫁给乔佛里、托曼、蓝礼。她懂得如何做一个受欢迎的王后，也懂得如何在宫廷里活下来。</p>
+        <a class="jump" href="index.html#got30">时间线 · 紫色婚礼 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">艾林</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-lysa" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>莱莎·艾林</h3></div>
+        <p class="role">鹰巢城夫人</p>
+        <p class="deeds">凯特琳的妹妹，琼恩·艾林的遗孀。她写信说兰尼斯特毒死了丈夫，实际上是她和凶手合谋。她后来被小指头推下月亮门。</p>
+        <a class="jump" href="index.html#got04">时间线 · 莱莎的信 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">“在权力的游戏里，你不赢就得死。”</p>
+  <p class="tiny">冰与火之歌 · 乔治·R·R·马丁　·　31 位人物，34 个时间点</p>
+  <nav class="foot-nav">
+    <a href="index.html">看时间线</a>
+    <a href="#top">回到开头</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"ned": {"name": "艾德·史塔克", "role": "临冬城公爵 · 国王之手", "deeds": "北境守护，以荣誉立身。劳勃请他出任首相，他查出于兰尼斯特的乱伦，却在最后关头选择效忠而不是夺权，被小指头出卖，在贝勒大圣堂前被斩。他一生没有背叛过任何人，最后死于自己的诚实。", "quote": "奈德", "camp": "史塔克", "campKey": "史塔克", "color": "#8c2b26", "link": "got02", "linkName": "国王来访", "rel": [["catelyn", "凯特琳·徒利", "夫妻"], ["robb", "罗柏·史塔克", "父子"], ["sansa", "珊莎·史塔克", "父女"], ["arya", "艾莉亚·史塔克", "父女"], ["bran", "布兰·史塔克", "父子"], ["jon", "琼恩·雪诺", "父子"], ["robert", "劳勃·拜拉席恩", "挚友"], ["littlefinger", "培提尔·贝里席", "出卖"], ["varys", "瓦里斯", "暗中周旋"], ["lysa", "莱莎·艾林", "诬告"]]}, "catelyn": {"name": "凯特琳·徒利", "role": "临冬城夫人", "deeds": "徒利家长女，五个孩子的母亲。她抓提利昂引发战争，放走詹姆换回女儿，最后在红色婚礼上被割喉。她一生在为孩子做选择，每一个选择都把家族推得更远。", "quote": "石心夫人", "camp": "史塔克", "campKey": "史塔克", "color": "#8c2b26", "link": "got04", "linkName": "莱莎的信", "rel": [["ned", "艾德·史塔克", "夫妻"], ["robb", "罗柏·史塔克", "母子"], ["sansa", "珊莎·史塔克", "母女"], ["arya", "艾莉亚·史塔克", "母女"], ["bran", "布兰·史塔克", "母子"], ["lysa", "莱莎·艾林", "姐妹"], ["littlefinger", "培提尔·贝里席", "青梅竹马"], ["brienne", "布蕾妮·塔斯", "效忠"]]}, "robb": {"name": "罗柏·史塔克", "role": "北境之王", "deeds": "艾德长子，十八岁起兵，呓语森林活捉詹姆，被拥为北境之王。他违背婚约娶了简妮，触怒佛雷家族，在红色婚礼上被屠杀。他打赢了每一场仗，却输掉了整场战争。", "quote": "", "camp": "史塔克", "campKey": "史塔克", "color": "#8c2b26", "link": "got20", "linkName": "北境之王", "rel": [["ned", "艾德·史塔克", "父子"], ["catelyn", "凯特琳·徒利", "母子"], ["sansa", "珊莎·史塔克", "兄妹"], ["arya", "艾莉亚·史塔克", "兄妹"], ["bran", "布兰·史塔克", "兄妹"], ["jon", "琼恩·雪诺", "同父异母"], ["theon", "席恩·葛雷乔伊", "养兄弟"], ["bolton", "卢斯·波顿", "被背叛"], ["frey", "瓦德·弗雷", "婚约破裂"], ["greatjon", "大琼恩·安柏", "拥立"]]}, "sansa": {"name": "珊莎·史塔克", "role": "临冬城长女", "deeds": "爱读骑士故事的女孩。父亲死后被扣在君临做人质，被迫嫁给提利昂，在紫色婚礼上被小指头带走。她学会了笑、学会了低头，也学会了活下来。", "quote": "", "camp": "史塔克", "campKey": "史塔克", "color": "#8c2b26", "link": "got17", "linkName": "人质", "rel": [["ned", "艾德·史塔克", "父女"], ["catelyn", "凯特琳·徒利", "母女"], ["robb", "罗柏·史塔克", "兄妹"], ["joffrey", "乔佛里·拜拉席恩", "婚约"], ["littlefinger", "培提尔·贝里席", "挟持"], ["hound", "桑铎·克里冈", "护送"]]}, "arya": {"name": "艾莉亚·史塔克", "role": "临冬城次女", "deeds": "不爱针线爱剑，父亲给她找了布拉佛斯的剑客西利欧。父亲被斩时她逃出君临，一路往北，杀人、逃亡、学艺，最后成了无面者。她的名单上写满了名字。", "quote": "", "camp": "史塔克", "campKey": "史塔克", "color": "#8c2b26", "link": "got06", "linkName": "南下", "rel": [["ned", "艾德·史塔克", "父女"], ["catelyn", "凯特琳·徒利", "母女"], ["robb", "罗柏·史塔克", "兄妹"], ["jon", "琼恩·雪诺", "同父异母"]]}, "bran": {"name": "布兰·史塔克", "role": "临冬城次子", "deeds": "爱爬墙的男孩，撞见詹姆与瑟曦，被推下塔楼，双腿残废。此后他梦见三眼乌鸦，成了绿先知，能看见过去与未来。", "quote": "", "camp": "史塔克", "campKey": "史塔克", "color": "#8c2b26", "link": "got03", "linkName": "布兰坠落", "rel": [["ned", "艾德·史塔克", "父子"], ["catelyn", "凯特琳·徒利", "母子"], ["robb", "罗柏·史塔克", "兄妹"], ["jon", "琼恩·雪诺", "同父异母"], ["theon", "席恩·葛雷乔伊", "背叛"]]}, "jon": {"name": "琼恩·雪诺", "role": "守夜人总司令", "deeds": "艾德的私生子，从小不被凯特琳接纳。他加入守夜人，宣誓、远征、爱上野人、被杀又被复活。他一生在问“我是谁”，答案是：他是冰与火之间的那个人。", "quote": "私生子", "camp": "守夜人", "campKey": "守夜人", "color": "#7a5a38", "link": "got05", "linkName": "私生子", "rel": [["ned", "艾德·史塔克", "父子"], ["arya", "艾莉亚·史塔克", "同父异母"], ["robb", "罗柏·史塔克", "同父异母"], ["bran", "布兰·史塔克", "同父异母"], ["mormont", "杰奥·莫尔蒙", "上下级"], ["sam", "山姆威尔·塔利", "挚友"]]}, "cersei": {"name": "瑟曦·兰尼斯特", "role": "七国王后", "deeds": "劳勃的王后，三个孩子的母亲，孩子的父亲是她的孪生弟弟。她爱权力胜过一切，也爱自己的孩子胜过一切。她说过：在权力的游戏里，要么赢，要么死。", "quote": "", "camp": "兰尼斯特", "campKey": "兰尼斯特", "color": "#2f4a6b", "link": "got03", "linkName": "布兰坠落", "rel": [["robert", "劳勃·拜拉席恩", "夫妻"], ["jaime", "詹姆·兰尼斯特", "孪生姐弟"], ["joffrey", "乔佛里·拜拉席恩", "母子"], ["tyrion", "提利昂·兰尼斯特", "姐弟相残"], ["tywin", "泰温·兰尼斯特", "父女"]]}, "jaime": {"name": "詹姆·兰尼斯特", "role": "御林铁卫", "deeds": "十五岁杀死疯王，从此背负“弑君者”的骂名。他与姐姐瑟曦相爱，把布兰推下塔楼，被罗柏活捉，失去右手。他后来明白：他一生都在为别人的期待而活。", "quote": "弑君者", "camp": "兰尼斯特", "campKey": "兰尼斯特", "color": "#2f4a6b", "link": "got03", "linkName": "布兰坠落", "rel": [["cersei", "瑟曦·兰尼斯特", "孪生姐弟"], ["joffrey", "乔佛里·拜拉席恩", "父子（实为）"], ["tyrion", "提利昂·兰尼斯特", "兄弟"], ["tywin", "泰温·兰尼斯特", "父子"], ["brienne", "布蕾妮·塔斯", "护送"]]}, "tyrion": {"name": "提利昂·兰尼斯特", "role": "凯岩城继承人 · 代理首相", "deeds": "侏儒，嗜酒好色，读遍全书。他任代理首相守住君临，被姐姐诬陷杀乔佛里，比武审判失败后逃走，用十字弓射死父亲。他说：我这一生，只想让你说一句我是你的儿子。", "quote": "小恶魔", "camp": "兰尼斯特", "campKey": "兰尼斯特", "color": "#2f4a6b", "link": "got10", "linkName": "擒获", "rel": [["cersei", "瑟曦·兰尼斯特", "姐弟相残"], ["jaime", "詹姆·兰尼斯特", "兄弟"], ["tywin", "泰温·兰尼斯特", "父子相残"], ["joffrey", "乔佛里·拜拉席恩", "仇视"]]}, "tywin": {"name": "泰温·兰尼斯特", "role": "凯岩城公爵 · 西境守护", "deeds": "兰尼斯特家之主，冷酷、精确、从不失手。他灭了卡斯塔梅家，把女儿嫁给国王，把儿子培养成骑士。他最后死在厕所里，被自己最看不起的儿子射死。", "quote": "", "camp": "兰尼斯特", "campKey": "兰尼斯特", "color": "#2f4a6b", "link": "got13", "linkName": "泰温起兵", "rel": [["cersei", "瑟曦·兰尼斯特", "父女"], ["jaime", "詹姆·兰尼斯特", "父子"], ["tyrion", "提利昂·兰尼斯特", "父子相残"]]}, "joffrey": {"name": "乔佛里·拜拉席恩", "role": "七国国王", "deeds": "劳勃与瑟曦的长子，实际上是詹姆的儿子。他残忍、怯懦、喜怒无常，下令斩了艾德，在婚宴上被毒死。他到死都以为自己是狮子。", "quote": "", "camp": "兰尼斯特", "campKey": "兰尼斯特", "color": "#2f4a6b", "link": "got15", "linkName": "野猪", "rel": [["robert", "劳勃·拜拉席恩", "父子（名义）"], ["cersei", "瑟曦·兰尼斯特", "母子"], ["jaime", "詹姆·兰尼斯特", "父子（实为）"], ["sansa", "珊莎·史塔克", "婚约"], ["margaery", "玛格丽·提利尔", "夫妻"], ["tyrion", "提利昂·兰尼斯特", "仇视"], ["hound", "桑铎·克里冈", "御林铁卫"]]}, "robert": {"name": "劳勃·拜拉席恩", "role": "七国国王", "deeds": "推翻疯王的叛军领袖，娶了瑟曦，爱的是莱安娜。他当了十七年国王，打了九场仗，最后被一头野猪挑死。他说：我这辈子只爱过一个女人。", "quote": "", "camp": "拜拉席恩", "campKey": "拜拉席恩", "color": "#5a3a6b", "link": "got02", "linkName": "国王来访", "rel": [["ned", "艾德·史塔克", "挚友"], ["cersei", "瑟曦·兰尼斯特", "夫妻"], ["joffrey", "乔佛里·拜拉席恩", "父子（名义）"], ["stannis", "史坦尼斯·拜拉席恩", "兄弟"]]}, "daenerys": {"name": "丹妮莉丝·坦格利安", "role": "龙之母", "deeds": "疯王的女儿，十三岁被哥哥卖给马王。她在火里孵出三条龙，解放奴隶湾，在弥林学统治。她一生在两种身份之间摇摆：征服者，还是母亲。", "quote": "丹妮", "camp": "坦格利安", "campKey": "坦格利安", "color": "#1f5d57", "link": "got07", "linkName": "龙之女", "rel": [["viserys", "韦赛里斯·坦格利安", "兄妹"], ["drogo", "卓戈卡奥", "夫妻"], ["jorah", "乔拉·莫尔蒙", "君臣"]]}, "viserys": {"name": "韦赛里斯·坦格利安", "role": "流亡王子", "deeds": "丹妮的哥哥，自称“龙”。他把妹妹卖给卓戈换军队，最后被卓戈用金冠烫死。他说：我是龙。卓戈说：你不是。", "quote": "", "camp": "坦格利安", "campKey": "坦格利安", "color": "#1f5d57", "link": "got07", "linkName": "龙之女", "rel": [["daenerys", "丹妮莉丝·坦格利安", "兄妹"], ["drogo", "卓戈卡奥", "交易"]]}, "drogo": {"name": "卓戈卡奥", "role": "多斯拉克马王", "deeds": "四万骑兵的首领，从不剪发。他娶了丹妮，发誓要为她夺回铁王座，受伤后被女巫治成活死人，被丹妮闷死。", "quote": "", "camp": "多斯拉克", "campKey": "多斯拉克", "color": "#a8823c", "link": "got07", "linkName": "龙之女", "rel": [["daenerys", "丹妮莉丝·坦格利安", "夫妻"], ["viserys", "韦赛里斯·坦格利安", "交易"]]}, "jorah": {"name": "乔拉·莫尔蒙", "role": "流亡骑士", "deeds": "被流放的北境骑士，最初为瓦里斯监视丹妮，后来真心效忠。他说：我不是好人，但我是你的人。", "quote": "", "camp": "坦格利安", "campKey": "坦格利安", "color": "#1f5d57", "link": "got07", "linkName": "龙之女", "rel": [["daenerys", "丹妮莉丝·坦格利安", "君臣"]]}, "littlefinger": {"name": "培提尔·贝里席", "role": "财政大臣", "deeds": "出身卑微，靠头脑爬到财政大臣。他开妓院、放高利贷、挑拨离间。他对艾德说：在权力的游戏里，你不赢就得死。他最后死在珊莎手里。", "quote": "小指头", "camp": "君临", "campKey": "君临", "color": "#4a4a58", "link": "got08", "linkName": "首相", "rel": [["catelyn", "凯特琳·徒利", "青梅竹马"], ["sansa", "珊莎·史塔克", "挟持"], ["ned", "艾德·史塔克", "出卖"]]}, "varys": {"name": "瓦里斯", "role": "情报总管", "deeds": "太监，君临的情报网。他说：我服务于王国，不是国王。他一生在平衡，也在等待一个更好的君主。", "quote": "八爪蜘蛛", "camp": "君临", "campKey": "君临", "color": "#4a4a58", "link": "got09", "linkName": "蛛网", "rel": [["ned", "艾德·史塔克", "暗中周旋"]]}, "stannis": {"name": "史坦尼斯·拜拉席恩", "role": "龙石岛公爵", "deeds": "劳勃的弟弟，相信自己是合法继承人。他信光之王，烧活人献祭，攻打君临失败。他是一个被正义感压垮的人。", "quote": "", "camp": "拜拉席恩", "campKey": "拜拉席恩", "color": "#5a3a6b", "link": "got26", "linkName": "黑水河", "rel": [["robert", "劳勃·拜拉席恩", "兄弟"]]}, "sam": {"name": "山姆威尔·塔利", "role": "守夜人", "deeds": "胖子，胆小鬼，被父亲赶到长城。他杀了第一个异鬼，抄了古籍，找到了龙晶。琼恩说：你是懦夫，但你比谁都勇敢。", "quote": "山姆", "camp": "守夜人", "campKey": "守夜人", "color": "#7a5a38", "link": "got22", "linkName": "守夜人", "rel": [["jon", "琼恩·雪诺", "挚友"]]}, "mormont": {"name": "杰奥·莫尔蒙", "role": "守夜人总司令", "deeds": "老熊，守夜人第九百九十八任总司令。他率三百人远征，在先民拳峰被围，战死。他最后说：告诉所有人，长城守不住了。", "quote": "", "camp": "守夜人", "campKey": "守夜人", "color": "#7a5a38", "link": "got22", "linkName": "守夜人", "rel": [["jon", "琼恩·雪诺", "上下级"]]}, "theon": {"name": "席恩·葛雷乔伊", "role": "铁群岛继承人", "deeds": "艾德的养子，与罗柏一起长大。他回到铁群岛，带兵占领临冬城，杀了两个农夫的男孩冒充布兰和瑞肯。他一生在问：我是史塔克，还是葛雷乔伊。", "quote": "", "camp": "葛雷乔伊", "campKey": "葛雷乔伊", "color": "#6b645a", "link": "got28", "linkName": "席恩", "rel": [["robb", "罗柏·史塔克", "养兄弟"], ["bran", "布兰·史塔克", "背叛"]]}, "bolton": {"name": "卢斯·波顿", "role": "恐怖堡伯爵", "deeds": "北境最老的家族之一，剥皮为徽。他在红色婚礼上背叛罗柏，事后被泰温封为北境守护。他说：兰尼斯特付钱，我办事。", "quote": "", "camp": "北境", "campKey": "北境", "color": "#8c2b26", "link": "got29", "linkName": "红色婚礼", "rel": [["robb", "罗柏·史塔克", "被背叛"]]}, "frey": {"name": "瓦德·弗雷", "role": "孪河城侯爵", "deeds": "九十多岁，结过八次婚。罗柏违背婚约后，他在婚宴上屠杀史塔克全军。他说：我给了你机会，你不要。", "quote": "", "camp": "河间地", "campKey": "河间地", "color": "#7a5a38", "link": "got29", "linkName": "红色婚礼", "rel": [["robb", "罗柏·史塔克", "婚约破裂"]]}, "hound": {"name": "桑铎·克里冈", "role": "御林铁卫", "deeds": "脸被火毁容，怕火，怕哥哥。他护送珊莎、艾莉亚，最后在决斗中重伤。他说：我这一生，只做过一件好事。", "quote": "猎狗", "camp": "兰尼斯特", "campKey": "兰尼斯特", "color": "#2f4a6b", "link": "got17", "linkName": "人质", "rel": [["sansa", "珊莎·史塔克", "护送"], ["joffrey", "乔佛里·拜拉席恩", "御林铁卫"]]}, "brienne": {"name": "布蕾妮·塔斯", "role": "蓝岛骑士", "deeds": "女骑士，被嘲笑“美人”。她效忠凯特琳，护送詹姆，寻找珊莎和艾莉亚。她相信骑士的誓言，而且真的照做。", "quote": "", "camp": "史塔克", "campKey": "史塔克", "color": "#8c2b26", "link": "got21", "linkName": "呓语森林", "rel": [["catelyn", "凯特琳·徒利", "效忠"], ["jaime", "詹姆·兰尼斯特", "护送"]]}, "margaery": {"name": "玛格丽·提利尔", "role": "高庭之女", "deeds": "提利尔家的女儿，嫁给乔佛里、托曼、蓝礼。她懂得如何做一个受欢迎的王后，也懂得如何在宫廷里活下来。", "quote": "", "camp": "提利尔", "campKey": "提利尔", "color": "#2f4a6b", "link": "got30", "linkName": "紫色婚礼", "rel": [["joffrey", "乔佛里·拜拉席恩", "夫妻"]]}, "lysa": {"name": "莱莎·艾林", "role": "鹰巢城夫人", "deeds": "凯特琳的妹妹，琼恩·艾林的遗孀。她写信说兰尼斯特毒死了丈夫，实际上是她和凶手合谋。她后来被小指头推下月亮门。", "quote": "", "camp": "艾林", "campKey": "艾林", "color": "#5a3a6b", "link": "got04", "linkName": "莱莎的信", "rel": [["catelyn", "凯特琳·徒利", "姐妹"], ["ned", "艾德·史塔克", "诬告"]]}, "yoren": {"name": "尤伦", "role": "守夜人游骑兵", "deeds": "负责招募新兵的守夜人。他在君临救了艾莉亚，把她藏在囚车里带出城。他死于路上的一场战斗。", "quote": "", "camp": "守夜人", "campKey": "守夜人", "color": "#7a5a38", "link": "got18", "linkName": "缝衣针", "rel": []}, "greatjon": {"name": "大琼恩·安柏", "role": "最后壁炉城伯爵", "deeds": "北境最大的封臣，第一个喊出“北境之王”。他在红色婚礼上被俘，后来死在牢里。", "quote": "", "camp": "北境", "campKey": "北境", "color": "#8c2b26", "link": "got20", "linkName": "北境之王", "rel": [["robb", "罗柏·史塔克", "拥立"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>冰与火之歌 · 时间线 | 34 个故事节点</title>
+<meta name="description" content="七个王国，九个家族，一张铁王座。每个人都以为自己在做正确的事，每个人都在为别人的野心付账。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">乔治·R·R·马丁</p>
+    <h1><em>冰与火之歌</em><span>时间线</span></h1>
+    <p class="hero-deck">七个王国，九个家族，一张铁王座。每个人都以为自己在做正确的事，每个人都在为别人的野心付账。<br>34 个时间点，从「异鬼」到「凛冬将至」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>34 个时间点 · 31 位人物</span><i></i>
+      <span>前三部主线 · 含红色婚礼</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">临冬城</span>
+      <span class="era-sub">01 — 34</span>
+    </div>
+
+    <section class="event" id="got01" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="异鬼" data-label="298 AC · 序幕 · 长城之外">
+      <div class="ev-when">298 AC · 序幕<em>长城之外</em></div>
+      <h2>异鬼</h2>
+      <p>守夜人游骑兵威玛·罗伊斯带着两个新兵越过长城，追踪一群野人。雪地里没有脚印，没有营火，只有越来越冷的风。他们找到野人的营地，人全不见了，尸体摆成一个奇怪的图案。夜里，一个蓝眼睛的死人站起来，用剑割开了罗伊斯的喉咙。一个活着的守夜人逃回长城，说了一句话：异鬼回来了。威尔活了下来，一路跑回长城。他被问了三遍，每次都说得一样。最后他被带去处决，行刑的人是琼恩·雪诺。琼恩说：他吓疯了。父亲说：不，他看见了我们没看见的东西。</p>
+    </section>
+
+    <section class="event" id="got02" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="国王来访" data-label="298 AC · 临冬城">
+      <div class="ev-when">298 AC<em>临冬城</em></div>
+      <h2>国王来访</h2>
+      <p>劳勃·拜拉席恩带着整个宫廷北上，要请老友艾德·史塔克出任首相。临冬城忙了整整一个月，地窖里翻出陈年的酒。劳勃胖得骑不上马，见到艾德第一句话是：你瘦了。艾德说：你胖了。两个人在墓窖里站了很久，劳勃说：我欠你一条命，现在我需要你。劳勃在饭桌上说：我想要你当首相。艾德说：我不合适。劳勃说：你合适，因为你不想要这个位置。他喝了一口酒，说：我身边全是想从我这里拿东西的人。</p>
+    </section>
+
+    <section class="event" id="got03" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="布兰坠落" data-label="298 AC · 临冬城">
+      <div class="ev-when">298 AC<em>临冬城</em></div>
+      <h2>布兰坠落</h2>
+      <p>布兰喜欢爬墙，母亲说了多少次也不听。那天他爬到废弃的塔楼顶上，听见里面有声音。推开门，看见王后瑟曦和她的孪生弟弟詹姆抱在一起。詹姆抓住他，说：我把你推下去，是为了我的孩子们。布兰从四十尺高的塔上掉下来，没有死，但再也没站起来。詹姆推完他，关上门，对瑟曦说：我爱我的孩子们。瑟曦说：我也爱。他们没有再看窗外一眼。布兰的狼在院子里叫了一夜。</p>
+    </section>
+
+    <section class="event" id="got04" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="莱莎的信" data-label="298 AC · 临冬城">
+      <div class="ev-when">298 AC<em>临冬城</em></div>
+      <h2>莱莎的信</h2>
+      <p>凯特琳收到妹妹莱莎从鹰巢城寄来的信，信上说：琼恩·艾林不是病死的，是兰尼斯特家毒死的。凯特琳把信烧了，对艾德说：你不能去君临。艾德说：劳勃是我朋友。她说：朋友会害死你。凯特琳把信烧了，说：如果我让你去，我就是把我丈夫送进狼窝。艾德说：劳勃不是狼。她说：他的妻子是。</p>
+    </section>
+
+    <section class="event" id="got05" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="私生子" data-label="298 AC · 临冬城">
+      <div class="ev-when">298 AC<em>临冬城</em></div>
+      <h2>私生子</h2>
+      <p>琼恩·雪诺是艾德的私生子，从小在临冬城长大，凯特琳从不正眼看他。艾德南下前，琼恩说：我想加入守夜人。艾德沉默了很久，说：你母亲……我回来再告诉你。他没有回来。琼恩后来说：我这一生，都在问同一个问题——我是谁。琼恩走的那天，艾德把他送到门口，说：你母亲的事，我欠你一个解释。琼恩说：你欠我一条命。艾德说：我知道。他们再也没有见面。</p>
+    </section>
+
+    <section class="event" id="got06" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="南下" data-label="298 AC · 临冬城">
+      <div class="ev-when">298 AC<em>临冬城</em></div>
+      <h2>南下</h2>
+      <p>艾德带着两个女儿南下。艾莉亚抱着剑，珊莎抱着琴。琼恩骑马送到路口，对艾莉亚说：别让他们欺负你。艾莉亚说：我不会。她把剑叫“针”。琼恩北上长城，父女三人南下君临，一家人从此散了。艾莉亚在马车上问父亲：我能不能学剑？艾德说：你母亲不许。她说：那你许不许？他说：我给你找个老师。他找了西利欧，一个布拉佛斯的剑客。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">狭海对岸</span>
+      <span class="era-sub">07 — 34</span>
+    </div>
+
+    <section class="event" id="got07" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="狭海对岸" data-short="龙之女" data-label="298 AC · 潘托斯">
+      <div class="ev-when">298 AC<em>潘托斯</em></div>
+      <h2>龙之女</h2>
+      <p>丹妮莉丝十三岁，被哥哥韦赛里斯卖给多斯拉克马王卓戈。韦赛里斯说：他会给我一支军队，我就能夺回铁王座。丹妮说：那我呢？他说：你是我的代价。婚礼上，她赤脚走在草地上，看见一匹白马被牵来，马上的人比她大二十岁。婚礼上，卓戈看了她一眼，没有说话。丹妮对哥哥说：他看起来不像国王。韦赛里斯说：他不需要像，他有四万骑兵。她说：那我是什么？他说：你是四万骑兵的价钱。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">临冬城</span>
+      <span class="era-sub">08 — 34</span>
+    </div>
+
+    <section class="event" id="got08" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="首相" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>首相</h2>
+      <p>艾德到君临任首相，发现国库欠了六百万金龙，一半欠兰尼斯特。他问小指头：钱去哪了？小指头说：去该去的地方。艾德开始查琼恩·艾林的死，查到一个叫“种子”的私生子，查到一本族谱，查到一句话：兰尼斯特的孩子，从来没有狮子头发。艾德翻账本时，发现一笔钱给了“情报”。他问小指头：这是什么？小指头说：买消息。艾德问：什么消息？他说：谁在说谎。艾德说：那你知道谁在说谎吗？他说：我知道，但我不告诉你。</p>
+    </section>
+
+    <section class="event" id="got09" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="蛛网" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>蛛网</h2>
+      <p>瓦里斯是太监，管着君临的情报网。他对艾德说：我服务于王国，不是国王。小指头是财政大臣，开妓院，放高利贷。他说：在权力的游戏里，你不赢就得死。这两个人都不站队，只站在自己那边。艾德听不懂他们，他们也不指望他听懂。瓦里斯对艾德说：我小时候被割了，扔在街上。一个戏子把我捡回去，让我讨饭。我学会了听，学会了记。艾德说：你恨他们吗？他说：我恨所有人，所以我谁也不帮。</p>
+    </section>
+
+    <section class="event" id="got10" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="擒获" data-label="298 AC · 河间地">
+      <div class="ev-when">298 AC<em>河间地</em></div>
+      <h2>擒获</h2>
+      <p>凯特琳在十字路口客栈认出提利昂·兰尼斯特，拔剑说：你派人杀我儿子。提利昂说：我没做过。她不信，把他押往鹰巢城。这一押，点燃了兰尼斯特与史塔克之间的第一把火。提利昂被押走时，对凯特琳说：你抓错人了。她说：那你为什么派人杀我儿子？他说：我没有。她说：刀是我儿子的。他说：那把刀不是我的。</p>
+    </section>
+
+    <section class="event" id="got11" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="月亮门" data-label="298 AC · 鹰巢城">
+      <div class="ev-when">298 AC<em>鹰巢城</em></div>
+      <h2>月亮门</h2>
+      <p>莱莎·艾林在鹰巢城审判提利昂，要把他从月亮门扔下去。提利昂说：我要求比武审判。佣兵波隆替他出战，杀了对手。提利昂走出鹰巢城时说：我这一辈子，从来没有靠过家族，靠的是一张舌头。波隆杀了对手后，对提利昂说：我替你打，你付钱。提利昂说：你为什么不救那个骑士？他说：他没付钱。提利昂笑了：你是我见过的最诚实的人。</p>
+    </section>
+
+    <section class="event" id="got12" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="街上的刀" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>街上的刀</h2>
+      <p>詹姆·兰尼斯特带人在街上截住艾德，杀了他三个卫兵。艾德腿上中了一箭，昏迷了三天。瑟曦对詹姆说：你疯了。詹姆说：他抓了我弟弟。瑟曦说：他抓了提利昂，你砍了史塔克，你知道这意味着什么吗？他说：战争。艾德醒来后，对凯特琳说：詹姆要杀我。她说：那你为什么不抓他？他说：我抓他，就是战争。她说：战争已经开始了。</p>
+    </section>
+
+    <section class="event" id="got13" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="泰温起兵" data-label="298 AC · 凯岩城">
+      <div class="ev-when">298 AC<em>凯岩城</em></div>
+      <h2>泰温起兵</h2>
+      <p>泰温·兰尼斯特听说提利昂被擒，派兵攻打河间地。他说：狮子不在乎绵羊怎么想。他烧了村庄，屠了城堡，把河间地变成一片焦土。他要让所有人知道：动了兰尼斯特的人，要付代价。泰温对詹姆说：史塔克家有一个弱点——他们讲荣誉。詹姆说：那我们呢？泰温说：我们讲结果。他下令把河间地的村庄一个一个烧掉。</p>
+    </section>
+
+    <section class="event" id="got14" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="真相" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>真相</h2>
+      <p>艾德查到瑟曦的三个孩子都不是劳勃的，是詹姆的。他去找瑟曦，说：带着孩子走吧，我不会杀你们。瑟曦说：你太天真了。她说：在权力的游戏里，要么赢，要么死。艾德说：我不玩这个游戏。瑟曦说：你知道了，然后呢？艾德说：我给他一个机会，让他走。她说：你以为他会走？他说：我会让他走。她说：你真是一个好人，好人活不长。</p>
+    </section>
+
+    <section class="event" id="got15" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="野猪" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>野猪</h2>
+      <p>劳勃出猎时喝醉了，被一头野猪挑开肚皮。他躺在床上，对艾德说：让我儿子当个好国王。艾德说：我会的。劳勃说：还有，别让我妹妹嫁给任何人。他死前把王位给了乔佛里，一个不是他儿子的人。劳勃死前，对艾德说：我这辈子，只爱过一个女人。艾德问：莱安娜？他说：对。他说：我为了她打了一场仗，最后她死了。他闭上眼睛，再也没有睁开。</p>
+    </section>
+
+    <section class="event" id="got16" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="背叛" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>背叛</h2>
+      <p>艾德本可以扶持史坦尼斯，却选择支持乔佛里，因为他答应过劳勃。小指头说：我帮你，金袍子会站在你这边。艾德信了。他走进王座厅，宣布乔佛里继位，金袍子却把刀架在他脖子上。小指头说：我提醒过你，不要信我。小指头把刀架在艾德脖子上时，说：我告诉过你，不要信我。艾德说：我以为你至少忠于王国。他说：我只忠于我自己。金袍子把艾德按在地上。</p>
+    </section>
+
+    <section class="event" id="got17" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="人质" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>人质</h2>
+      <p>珊莎被留在君临，成了乔佛里的人质。她跪在乔佛里面前，说：我爱你。乔佛里说：你哥哥是叛徒。她说：我会劝他。乔佛里说：你会吗？她说：我会。她学会了笑，学会了低头，学会了活下去。珊莎写信给罗柏，说：父亲是叛徒，你要来君临效忠。她把信写完，手在抖。瑟曦说：好孩子。珊莎说：我能见父亲吗？瑟曦说：不能。</p>
+    </section>
+
+    <section class="event" id="got18" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="缝衣针" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>缝衣针</h2>
+      <p>艾莉亚在贝勒大圣堂外看见父亲被押出来认罪。她冲上去，被一个守夜人拦住。那人说：你父亲要你活着。他把她的剑“针”收走，说：我会还你。艾莉亚后来杀了那个马夫，逃出城，一路往北。守夜人把“针”塞给她，说：往北走，别回头。艾莉亚说：我父亲呢？他说：你父亲要你活着。她跑了，跑到城门，看见父亲的头挂在枪上。</p>
+    </section>
+
+    <section class="event" id="got19" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="临冬城" data-short="处决" data-label="298 AC · 君临">
+      <div class="ev-when">298 AC<em>君临</em></div>
+      <h2>处决</h2>
+      <p>乔佛里在贝勒大圣堂前宣布：叛国者艾德·史塔克，斩首。艾德跪在台上，对刽子手说：我发过誓，要保护这个国家。他看见人群里的艾莉亚，摇了摇头。剑落下。君临的钟声响了一整天，北境的人说：那一天，冬天提前来了。剑落下时，人群里有人喊：叛徒！也有人哭。珊莎昏了过去。艾莉亚被守夜人抱住，捂住眼睛。乔佛里说：看看，这就是叛徒的下场。瑟曦没有说话，她看着人群，像在看一群羊。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">五王之战</span>
+      <span class="era-sub">20 — 34</span>
+    </div>
+
+    <section class="event" id="got20" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="五王之战" data-short="北境之王" data-label="299 AC · 北境">
+      <div class="ev-when">299 AC<em>北境</em></div>
+      <h2>北境之王</h2>
+      <p>罗柏·史塔克召集封臣，率两万大军南下。在奔流城，封臣们把剑放在他脚下，喊：北境之王！罗柏十八岁，第一次杀人是在呓语森林，他一剑刺穿了一个兰尼斯特斥候的喉咙。他母亲说：你父亲第一次杀人，也吐了。大琼恩第一个拔剑，喊：北境之王！其他人跟着喊。罗柏站起来，说：我父亲说过，北境的人只跪给史塔克。他说：我不是要做国王，我是要报仇。</p>
+    </section>
+
+    <section class="event" id="got21" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="五王之战" data-short="呓语森林" data-label="299 AC · 呓语森林">
+      <div class="ev-when">299 AC<em>呓语森林</em></div>
+      <h2>呓语森林</h2>
+      <p>罗柏用一支部队诱敌，主力从侧翼包抄，活捉了詹姆·兰尼斯特。这一仗让他名声大振，也让他犯了一个错误——他没有杀詹姆，把他留作筹码。母亲说：你应该杀了他。他说：杀了他，我就没有牌了。詹姆被押到罗柏面前时，说：你父亲死的时候，我在场。罗柏说：你杀了他？他说：不是我，是乔佛里。罗柏说：那你也该死。他说：那你杀我。罗柏没有杀。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">长城</span>
+      <span class="era-sub">22 — 34</span>
+    </div>
+
+    <section class="event" id="got22" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="长城" data-short="守夜人" data-label="299 AC · 长城">
+      <div class="ev-when">299 AC<em>长城</em></div>
+      <h2>守夜人</h2>
+      <p>琼恩·雪诺在长城上宣誓：我是黑暗中的利剑，长城上的守卫。他没见过父亲死，也没见过兄弟打仗。他只知道，长城之外有比兰尼斯特更可怕的东西。他说：我不是史塔克，我是守夜人。琼恩宣誓时，山姆在旁边看着。宣誓完，山姆说：你哭了。琼恩说：没有。山姆说：你鼻子红了。琼恩说：闭嘴。他们笑了，那是琼恩在长城上第一次笑。</p>
+    </section>
+
+    <section class="event" id="got23" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="长城" data-short="远征" data-label="299 AC · 先民拳峰">
+      <div class="ev-when">299 AC<em>先民拳峰</em></div>
+      <h2>远征</h2>
+      <p>莫尔蒙总司令率三百守夜人越过长城，寻找野人的踪迹。他们在先民拳峰扎营，夜里被异鬼和尸鬼围攻。琼恩用火烧尸鬼，山姆杀了第一个异鬼——用一把龙晶匕首。莫尔蒙说：告诉所有人，长城守不住了。先民拳峰上，尸鬼冲进来时，守夜人还在睡。琼恩喊：点火！他们用火烧尸鬼，火一灭，尸鬼又站起来。山姆用龙晶匕首刺进一个异鬼的喉咙，那东西碎了，像冰一样。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">狭海对岸</span>
+      <span class="era-sub">24 — 34</span>
+    </div>
+
+    <section class="event" id="got24" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="狭海对岸" data-short="马王" data-label="299 AC · 多斯拉克">
+      <div class="ev-when">299 AC<em>多斯拉克</em></div>
+      <h2>马王</h2>
+      <p>卓戈在决斗中受伤，伤口发炎。丹妮请来女巫弥丽·马兹·笃尔，用血魔法救他。女巫说：只能救一个，要么救他，要么救孩子。丹妮说：救他。卓戈活了下来，成了一个不会说话、不会动的活死人。孩子死了。卓戈受伤后，丹妮问他：你能听见我吗？他不能说话。她守了他三天，孩子没了，他只剩一口气。她说：我救了你，你却这样活着。她哭了，然后用枕头闷死了他。</p>
+    </section>
+
+    <section class="event" id="got25" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="狭海对岸" data-short="火葬" data-label="299 AC · 多斯拉克">
+      <div class="ev-when">299 AC<em>多斯拉克</em></div>
+      <h2>火葬</h2>
+      <p>丹妮把卓戈的尸体放在柴堆上，把女巫绑在中间，点燃。火熄之后，她从灰烬里站起来，怀里抱着三条小龙。她说：我是龙之母。她烧不死。从那天起，她不再是一个被卖的女孩。火葬时，丹妮走进火里。乔拉喊：不要！她没有回头。火烧了一夜，天亮时，她坐在灰里，怀里三条小龙，肩膀上的头发烧光了。她说：我是龙之母。乔拉跪下。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">五王之战</span>
+      <span class="era-sub">26 — 34</span>
+    </div>
+
+    <section class="event" id="got26" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="五王之战" data-short="黑水河" data-label="299 AC · 君临">
+      <div class="ev-when">299 AC<em>君临</em></div>
+      <h2>黑水河</h2>
+      <p>史坦尼斯率军攻打君临，舰队从黑水河进发。提利昂在城墙上指挥，用野火烧了半支舰队。瑟曦在地牢里喝酒，准备毒死自己和儿子。史坦尼斯败了，提利昂被削去半个鼻子。他说：我救了这座城，现在他们要杀我。黑水河上，野火把船烧成一片绿焰。提利昂在城墙上喊：放！链子拉起来，史坦尼斯的船撞在一起。他自己被一个骑士砍中脸，醒来时，半个鼻子没了。</p>
+    </section>
+
+    <section class="event" id="got27" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="五王之战" data-short="首相之手" data-label="299 AC · 君临">
+      <div class="ev-when">299 AC<em>君临</em></div>
+      <h2>首相之手</h2>
+      <p>提利昂任代理首相，整顿财政、修下水道、清除内奸。他查出卖他的人是姐姐瑟曦，也查出瑟曦的三个孩子是詹姆的。他对瑟曦说：我知道你的秘密。瑟曦说：那你也知道，我什么都做得出来。提利昂对瑟曦说：我知道你和詹姆的事。瑟曦说：那你也知道，乔佛里是我儿子。他说：我知道。她说：那你最好闭嘴。他说：我已经闭了很多年了。</p>
+    </section>
+
+    <section class="event" id="got28" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="五王之战" data-short="席恩" data-label="299 AC · 临冬城">
+      <div class="ev-when">299 AC<em>临冬城</em></div>
+      <h2>席恩</h2>
+      <p>席恩·葛雷乔伊是艾德的养子，铁群岛的继承人。他回到临冬城，带着铁民，占领了这座城。他说：我不是史塔克，我是葛雷乔伊。他杀了两个农夫的男孩，说是布兰和瑞肯，把他们的头挂在城墙上。席恩占领临冬城后，对布兰说：我是你的哥哥。布兰说：你不是。他说：我是。布兰说：你杀了那两个男孩。他打了布兰一巴掌。</p>
+    </section>
+
+    <section class="event" id="got29" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="五王之战" data-short="红色婚礼" data-label="299 AC · 孪河城">
+      <div class="ev-when">299 AC<em>孪河城</em></div>
+      <h2>红色婚礼</h2>
+      <p>罗柏违背婚约，娶了简妮·维斯特林。佛雷家族觉得受辱，暗中与卢斯·波顿联手。罗柏到孪河城参加婚礼，婚宴上，佛雷的人关上大门，开始屠杀。凯特琳抓住佛雷的妻子做人质，说：放我们走。一刀砍下，然后一刀砍向凯特琳。罗柏的尸体被割下头，缝上灰风狼头，游街。婚宴上，罗柏看见佛雷的人关上门。他站起来，说：这是怎么回事？一支箭射进他的胸口。他爬向母亲，说：母亲。凯特琳抓住佛雷的妻子，说：放我们走。刀砍下来。</p>
+    </section>
+
+    <section class="event" id="got30" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="五王之战" data-short="紫色婚礼" data-label="300 AC · 君临">
+      <div class="ev-when">300 AC<em>君临</em></div>
+      <h2>紫色婚礼</h2>
+      <p>乔佛里与玛格丽·提利尔大婚。婚宴上，乔佛里喝下毒酒，挣扎而死。瑟曦当场指控提利昂，说：是他，这个怪物。提利昂被关进黑牢。珊莎在混乱中被小指头带走。乔佛里死时，脸变成紫色，手指抓着喉咙。瑟曦尖叫：他被人下毒了！她指着提利昂：是你！提利昂说：我什么都没做。她说：你一直想杀他。他说：我想，但我没有。</p>
+    </section>
+
+    <section class="event" id="got31" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="五王之战" data-short="弑父" data-label="300 AC · 君临">
+      <div class="ev-when">300 AC<em>君临</em></div>
+      <h2>弑父</h2>
+      <p>提利昂在狱中要求比武审判，败了。詹姆放他走，告诉他一个秘密：他的第一任妻子是詹姆安排的妓女，不是父亲说的那样。提利昂走进父亲的房间，用十字弓指着他说：我这一生，只想让你说一句我是你的儿子。泰温说：你不是。提利昂扣动扳机。提利昂用十字弓指着父亲时，泰温说：你不会。提利昂说：我这一辈子，你从来没有承认过我。泰温说：你不是我的儿子。提利昂扣动扳机，箭穿过泰温的肚子。他说：我永远是兰尼斯特。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">长城</span>
+      <span class="era-sub">32 — 34</span>
+    </div>
+
+    <section class="event" id="got32" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="长城" data-short="琼恩之死" data-label="300 AC · 黑城堡">
+      <div class="ev-when">300 AC<em>黑城堡</em></div>
+      <h2>琼恩之死</h2>
+      <p>琼恩·雪诺被选为守夜人总司令。他决定让野人越过长城，一起对抗异鬼。守夜人中的保守派认为这是背叛。他们把他骗到院子里，一人一刀，说：为了守夜人。琼恩倒在雪地里，胸口四刀。他最后看见的是自己的血在雪上散开。琼恩被刺时，看见奥利把刀插进他胸口。他说：为了守夜人。琼恩说：为了守夜人。他倒在雪里，听见有人说：他死了。他想：还没有。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">狭海对岸</span>
+      <span class="era-sub">33 — 34</span>
+    </div>
+
+    <section class="event" id="got33" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="狭海对岸" data-short="打破锁链" data-label="300 AC · 弥林">
+      <div class="ev-when">300 AC<em>弥林</em></div>
+      <h2>打破锁链</h2>
+      <p>丹妮莉丝解放了奴隶湾，在弥林停下来。她说：我不走，我要在这里学会统治。她把龙锁在地下，因为龙吃了孩子。她嫁给了当地贵族，想用婚姻换和平。她说：我不是来当征服者的，我是来当母亲的。可这座城市一直在流血。丹妮把龙锁在地下时，龙在叫。她说：对不起。她转身走了，龙在黑暗里撞墙。她后来对巴利斯坦说：我是不是做错了？他说：你是女王，女王要选择。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">凛冬将至</span>
+      <span class="era-sub">34 — 34</span>
+    </div>
+
+    <section class="event" id="got34" style="--c:#5a3a44"
+      data-color="#5a3a44" data-era="凛冬将至" data-short="凛冬将至" data-label="300 AC · 长城">
+      <div class="ev-when">300 AC<em>长城</em></div>
+      <h2>凛冬将至</h2>
+      <p>长城之外，异鬼的大军正在集结。临冬城被波顿家族占据，北境的人在白港等着。君临的瑟曦坐上了铁王座，脚下是灰烬。丹妮莉丝的龙在弥林上空盘旋。所有人都在争夺一个不属于自己的位置，而没有人在看北方的天空。冬天来了。凛冬将至，长城上的火把被风吹灭。北境的人在白港等着，君临的人还在争王座，弥林的龙在叫。只有一个人在看北方——布兰，他看见异鬼的军队，像一片移动的雪。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 34</span>
+        </div>
+        <div class="rail-era" id="railNow">298 AC · 序幕</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“在权力的游戏里，你不赢就得死。”</p>
+  <p class="tiny">冰与火之歌 · 乔治·R·R·马丁　·　34 个时间点，31 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>
