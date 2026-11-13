@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无人生还 · 人物志 | 13 个人物</title>
+<meta name="description" content="十个人被请到一座没有退路的岛上，一首童谣，一段一条命。等警察上岛时，一个也没剩。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+</style>
+<style>
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">阿加莎·克里斯蒂 / CHARACTERS</p>
+    <h1 class="big">无人生还 · 人物</h1>
+    <p class="deck">十个人被请到一座没有退路的岛上，一首童谣，一段一条命。等警察上岛时，一个也没剩。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="岛主">岛主</button><button class="fbtn" data-camp="客人">客人</button><button class="fbtn" data-camp="岛上">岛上</button><button class="fbtn" data-camp="岛外">岛外</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="无人生还人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="145" text-anchor="middle">岛主</text>
+        <text class="gtag" x="845" y="332" text-anchor="middle">客人</text>
+        <text class="gtag" x="620" y="595" text-anchor="middle">岛上</text>
+        <text class="gtag" x="395" y="370" text-anchor="middle">岛外</text></g>
+        <g class="links"><line class="plink" data-a="wargrave" data-b="vera" x1="620" y1="167" x2="845" y2="354" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wargrave" data-b="armstrong" x1="620" y1="167" x2="808" y2="517" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wargrave" data-b="morris" x1="620" y1="167" x2="395" y2="392" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wargrave" data-b="owen" x1="620" y1="167" x2="620" y2="263" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wargrave" data-b="blore" x1="620" y1="167" x2="778" y2="386" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wargrave" data-b="lombard" x1="620" y1="167" x2="912" y2="386" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="vera" data-b="lombard" x1="845" y1="354" x2="912" y2="386" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="vera" data-b="brent" x1="845" y1="354" x2="929" y2="459" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="vera" data-b="macarthur" x1="845" y1="354" x2="882" y2="517" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lombard" data-b="blore" x1="912" y1="386" x2="778" y2="386" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="armstrong" data-b="rogers_w" x1="808" y1="517" x2="620" y2="713" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="armstrong" data-b="brent" x1="808" y1="517" x2="929" y2="459" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="rogers" data-b="rogers_w" x1="620" y1="617" x2="620" y2="713" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="rogers" data-b="marston" x1="620" y1="617" x2="761" y2="459" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="macarthur" data-b="armstrong" x1="882" y1="517" x2="808" y2="517" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lombard" data-b="armstrong" x1="912" y1="386" x2="808" y2="517" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="vera" data-b="armstrong" x1="845" y1="354" x2="808" y2="517" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="blore" data-b="rogers" x1="778" y1="386" x2="620" y2="617" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="narracott" data-b="vera" x1="395" y1="488" x2="845" y2="354" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="rogers" data-b="armstrong" x1="620" y1="617" x2="808" y2="517" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="narracott" data-b="owen" x1="395" y1="488" x2="620" y2="263" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="morris" data-b="owen" x1="395" y1="392" x2="620" y2="263" stroke="#5a3a6b" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="marston" data-b="vera" x1="761" y1="459" x2="845" y2="354" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="wargrave" data-b="macarthur" x1="620" y1="167" x2="882" y2="517" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="labels"><text class="rlabel" x="732" y="256" data-a="wargrave" data-b="vera">第十个 · 看着她死</text>
+        <text class="rlabel" x="714" y="338" data-a="wargrave" data-b="armstrong">合谋 · 灭口</text>
+        <text class="rlabel" x="508" y="276" data-a="wargrave" data-b="morris">委托买岛</text>
+        <text class="rlabel" x="620" y="211" data-a="wargrave" data-b="owen">同一个人</text>
+        <text class="rlabel" x="699" y="273" data-a="wargrave" data-b="blore">审判过的人</text>
+        <text class="rlabel" x="766" y="273" data-a="wargrave" data-b="lombard">审判过的人</text>
+        <text class="rlabel" x="879" y="366" data-a="vera" data-b="lombard">最后一枪</text>
+        <text class="rlabel" x="887" y="403" data-a="vera" data-b="brent">同屋的邻居</text>
+        <text class="rlabel" x="864" y="432" data-a="vera" data-b="macarthur">最后一个见到他的人</text>
+        <text class="rlabel" x="845" y="382" data-a="lombard" data-b="blore">互相提防</text>
+        <text class="rlabel" x="714" y="611" data-a="armstrong" data-b="rogers_w">开药的人</text>
+        <text class="rlabel" x="868" y="484" data-a="armstrong" data-b="brent">验尸的人</text>
+        <text class="rlabel" x="620" y="661" data-a="rogers" data-b="rogers_w">夫妻</text>
+        <text class="rlabel" x="691" y="534" data-a="rogers" data-b="marston">主仆一场</text>
+        <text class="rlabel" x="845" y="513" data-a="macarthur" data-b="armstrong">同船的人</text>
+        <text class="rlabel" x="860" y="448" data-a="lombard" data-b="armstrong">同盟</text>
+        <text class="rlabel" x="826" y="432" data-a="vera" data-b="armstrong">依赖</text>
+        <text class="rlabel" x="699" y="498" data-a="blore" data-b="rogers">搜过他的身</text>
+        <text class="rlabel" x="620" y="417" data-a="narracott" data-b="vera">渡她上岛</text>
+        <text class="rlabel" x="714" y="563" data-a="rogers" data-b="armstrong">发现尸体</text>
+        <text class="rlabel" x="508" y="372" data-a="narracott" data-b="owen">送上岛的人</text>
+        <text class="rlabel" x="508" y="324" data-a="morris" data-b="owen">替人办事</text>
+        <text class="rlabel" x="803" y="403" data-a="marston" data-b="vera">同龄人</text>
+        <text class="rlabel" x="751" y="338" data-a="wargrave" data-b="macarthur">同一场战争</text></g>
+        <g class="nodes"><g class="pnode" data-id="wargrave" transform="translate(620,167)"><title>劳伦斯·沃格雷夫 · 退休法官</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">沃格雷夫</text></g>
+        <g class="pnode" data-id="vera" transform="translate(845,354)"><title>维拉·克拉克 · 女教师</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">克拉克</text></g>
+        <g class="pnode" data-id="lombard" transform="translate(912,386)"><title>菲利普·隆巴德 · 冒险家</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">隆巴德</text></g>
+        <g class="pnode" data-id="brent" transform="translate(929,459)"><title>埃米莉·布伦特 · 清教徒 · 老小姐</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">布伦特</text></g>
+        <g class="pnode" data-id="macarthur" transform="translate(882,517)"><title>麦克阿瑟将军 · 退役将军</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">麦克阿瑟将</text></g>
+        <g class="pnode" data-id="armstrong" transform="translate(808,517)"><title>阿姆斯特朗医生 · 外科医生</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">阿姆斯特朗</text></g>
+        <g class="pnode" data-id="marston" transform="translate(761,459)"><title>安东尼·马斯顿 · 富家子弟</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">马斯顿</text></g>
+        <g class="pnode" data-id="rogers" transform="translate(620,617)"><title>罗杰斯 · 管家</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">罗杰斯</text></g>
+        <g class="pnode" data-id="rogers_w" transform="translate(620,713)"><title>罗杰斯太太 · 女仆</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">罗杰斯太太</text></g>
+        <g class="pnode" data-id="blore" transform="translate(778,386)"><title>威廉·布洛尔 · 前警察 · 私人侦探</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">布洛尔</text></g>
+        <g class="pnode" data-id="owen" transform="translate(620,263)"><title>尤·尼·欧文 · 不存在的主人</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">欧文</text></g>
+        <g class="pnode" data-id="morris" transform="translate(395,392)"><title>艾萨克·莫里斯 · 中间人</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">莫里斯</text></g>
+        <g class="pnode" data-id="narracott" transform="translate(395,488)"><title>纳拉科特 · 船夫</title><circle r="26" fill="#f7f4ed" stroke="#5a3a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">纳拉科特</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">岛主</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-wargrave" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>劳伦斯·沃格雷夫</h3></div>
+        <p class="role">退休法官</p>
+        <p class="deeds">在法庭上坐了四十年，判过无数人死刑，从没有亲手执行过一次。他得了绝症，剩下的日子不多，于是决定做一件他这辈子没做过的事：亲手杀人。他选了九个在法律上逃掉的人，加上自己，凑成十个。他把这场谋杀当成最后一件作品。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      <article class="pcard" id="c-owen" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>尤·尼·欧文</h3></div>
+        <p class="role">不存在的主人</p>
+        <p class="deeds">这个名字是假的。签合同的是一个中间人，付钱的是一个律师，律师手上只有一封信。八个人为了这个名字上了岛，又在岛上找了一整天，什么也没找到。因为这个人从一开始就和他们坐同一条船，就坐在餐桌的主位上。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">客人</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-vera" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>维拉·克拉克</h3></div>
+        <p class="role">女教师</p>
+        <p class="deeds">年轻时做过一个孩子的家庭教师，那孩子水性不好。她和孩子的叔叔有了感情，只要孩子在，一切都不可能。那天她站在岸边，看着孩子游向远处的礁石，没有喊。她后来一直做噩梦，梦见水。在岛上她最后一个死，死法跟童谣里写的一样。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      <article class="pcard" id="c-lombard" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>菲利普·隆巴德</h3></div>
+        <p class="role">冒险家</p>
+        <p class="deeds">在非洲做过各种不干净的生意，靠胆子和一把枪活着。信上请他上岛，他来的理由很简单：有钱。他在岛上第一个提议大家武装起来，也是唯一一个从头到尾没怎么害怕的人。他最后死在一个女人手里，那女人前一天还在发抖。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      <article class="pcard" id="c-brent" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>埃米莉·布伦特</h3></div>
+        <p class="role">清教徒 · 老小姐</p>
+        <p class="deeds">一辈子没结过婚，每天读一章圣经，认为世上所有的坏事都是因为人不守规矩。她家的女仆未婚先孕，被她赶出门，后来投河死了。她不觉得自己有错，在岛上被人当面指控时，她只说了一句：那个姑娘本来就不该活着。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      <article class="pcard" id="c-macarthur" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>麦克阿瑟将军</h3></div>
+        <p class="role">退役将军</p>
+        <p class="deeds">打过仗，立过功，晚年一个人住在乡下。他曾经把一个年轻军官派去执行一次必死的任务，那个人是他妻子的情人。他在岛上最先认命，坐在海边不动，说：我在这里很安心。他是第三个死的人，死的时候没有反抗。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      <article class="pcard" id="c-armstrong" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>阿姆斯特朗医生</h3></div>
+        <p class="role">外科医生</p>
+        <p class="deeds">手艺好，名声也好，只是年轻时有过一次醉酒上台。那次手术台上的女人再没醒过来。他在岛上负责验尸、发药，是所有人里最被信任的一个。也是他，在法官的授意下宣布了那场假死。他最后死在礁石下，涨潮的时候没人听见。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      <article class="pcard" id="c-marston" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>安东尼·马斯顿</h3></div>
+        <p class="role">富家子弟</p>
+        <p class="deeds">开跑车，穿好衣服，笑起来很好看。他曾经在雨天超速撞死两个孩子，驾照吊销三个月，家里赔了钱，事情就过去了。他从不觉得自己做错了什么。在岛上他是第一个死的，死得很快，快到连一句后悔的话都没来得及说。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      <article class="pcard" id="c-blore" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>威廉·布洛尔</h3></div>
+        <p class="role">前警察 · 私人侦探</p>
+        <p class="deeds">在警局干过，后来自己开事务所。他曾经在一桩案子里做伪证，把一个无辜的人送进监狱，那个人死在牢里。上岛时他谎称自己叫戴维斯，是来度假的商人。他块头大，胆子小，最后被一块做成熊形的石头砸死在露台下。</p>
+        <a class="jump" href="index.html#at01">时间线 · 八封信 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">岛上</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-rogers" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>罗杰斯</h3></div>
+        <p class="role">管家</p>
+        <p class="deeds">在士兵岛上看房子，做事周到，话很少。他和妻子照顾过一位老太太，老太太病重时，他们商量着少给了一次药。遗产留给了他们。他在岛上劈柴时被人从背后打倒，斧子落在脚边，厨房里的小士兵瓷像又少了一个。</p>
+        <a class="jump" href="index.html#at03">时间线 · 管家夫妇 →</a>
+      </article>
+      <article class="pcard" id="c-rogers_w" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>罗杰斯太太</h3></div>
+        <p class="role">女仆</p>
+        <p class="deeds">胆子小，上岛第一天就说想回家。她比丈夫更怕，夜里听见声音就睡不着。医生给她开了安眠药，第二天早上她没有醒。丈夫坐在床边，说她昨天还好好的。她说过的最后一句话是：我想回家。</p>
+        <a class="jump" href="index.html#at03">时间线 · 管家夫妇 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#5a3a6b">岛外</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-morris" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>艾萨克·莫里斯</h3></div>
+        <p class="role">中间人</p>
+        <p class="deeds">在伦敦替人处理各种不方便出面的事。他替一个不肯露面的委托人买下士兵岛，收了一笔不小的佣金。签完合同第三天，他死在自己的办公室里，桌上有一杯没喝完的酒。警察说是自杀。他死的时候，岛上的人还没上船。</p>
+        <a class="jump" href="index.html#at21">时间线 · 莫里斯 →</a>
+      </article>
+      <article class="pcard" id="c-narracott" style="--c:#5a3a6b">
+        <div class="pcard-top"><h3>纳拉科特</h3></div>
+        <p class="role">船夫</p>
+        <p class="deeds">在斯蒂克尔海文开船，靠摆渡和打鱼过日子。他送八个人上岛那天，问了一句：你们都是欧文先生请的。他还说下午来接。下午风大，他没有出海。第二天他听说岛上死了人，第一句话是：我早就说过，那地方不干净。</p>
+        <a class="jump" href="index.html#at02">时间线 · 渡船 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">“一个小士兵，落单孤零零，悬梁了此生，一个也不剩。”</p>
+  <p class="tiny">无人生还 · 阿加莎·克里斯蒂　·　13 位人物，22 个时间点</p>
+  <nav class="foot-nav">
+    <a href="index.html">看时间线</a>
+    <a href="#top">回到开头</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"wargrave": {"name": "劳伦斯·沃格雷夫", "role": "退休法官", "deeds": "在法庭上坐了四十年，判过无数人死刑，从没有亲手执行过一次。他得了绝症，剩下的日子不多，于是决定做一件他这辈子没做过的事：亲手杀人。他选了九个在法律上逃掉的人，加上自己，凑成十个。他把这场谋杀当成最后一件作品。", "quote": "法官", "camp": "岛主", "campKey": "岛主", "color": "#8c2b26", "link": "at01", "linkName": "八封信", "rel": [["vera", "维拉·克拉克", "第十个 · 看着她死"], ["armstrong", "阿姆斯特朗医生", "合谋 · 灭口"], ["morris", "艾萨克·莫里斯", "委托买岛"], ["owen", "尤·尼·欧文", "同一个人"], ["blore", "威廉·布洛尔", "审判过的人"], ["lombard", "菲利普·隆巴德", "审判过的人"], ["macarthur", "麦克阿瑟将军", "同一场战争"]]}, "vera": {"name": "维拉·克拉克", "role": "女教师", "deeds": "年轻时做过一个孩子的家庭教师，那孩子水性不好。她和孩子的叔叔有了感情，只要孩子在，一切都不可能。那天她站在岸边，看着孩子游向远处的礁石，没有喊。她后来一直做噩梦，梦见水。在岛上她最后一个死，死法跟童谣里写的一样。", "quote": "", "camp": "客人", "campKey": "客人", "color": "#7a5a38", "link": "at01", "linkName": "八封信", "rel": [["wargrave", "劳伦斯·沃格雷夫", "第十个 · 看着她死"], ["lombard", "菲利普·隆巴德", "最后一枪"], ["brent", "埃米莉·布伦特", "同屋的邻居"], ["macarthur", "麦克阿瑟将军", "最后一个见到他的人"], ["armstrong", "阿姆斯特朗医生", "依赖"], ["narracott", "纳拉科特", "渡她上岛"], ["marston", "安东尼·马斯顿", "同龄人"]]}, "lombard": {"name": "菲利普·隆巴德", "role": "冒险家", "deeds": "在非洲做过各种不干净的生意，靠胆子和一把枪活着。信上请他上岛，他来的理由很简单：有钱。他在岛上第一个提议大家武装起来，也是唯一一个从头到尾没怎么害怕的人。他最后死在一个女人手里，那女人前一天还在发抖。", "quote": "", "camp": "客人", "campKey": "客人", "color": "#7a5a38", "link": "at01", "linkName": "八封信", "rel": [["wargrave", "劳伦斯·沃格雷夫", "审判过的人"], ["vera", "维拉·克拉克", "最后一枪"], ["blore", "威廉·布洛尔", "互相提防"], ["armstrong", "阿姆斯特朗医生", "同盟"]]}, "brent": {"name": "埃米莉·布伦特", "role": "清教徒 · 老小姐", "deeds": "一辈子没结过婚，每天读一章圣经，认为世上所有的坏事都是因为人不守规矩。她家的女仆未婚先孕，被她赶出门，后来投河死了。她不觉得自己有错，在岛上被人当面指控时，她只说了一句：那个姑娘本来就不该活着。", "quote": "", "camp": "客人", "campKey": "客人", "color": "#7a5a38", "link": "at01", "linkName": "八封信", "rel": [["vera", "维拉·克拉克", "同屋的邻居"], ["armstrong", "阿姆斯特朗医生", "验尸的人"]]}, "macarthur": {"name": "麦克阿瑟将军", "role": "退役将军", "deeds": "打过仗，立过功，晚年一个人住在乡下。他曾经把一个年轻军官派去执行一次必死的任务，那个人是他妻子的情人。他在岛上最先认命，坐在海边不动，说：我在这里很安心。他是第三个死的人，死的时候没有反抗。", "quote": "", "camp": "客人", "campKey": "客人", "color": "#7a5a38", "link": "at01", "linkName": "八封信", "rel": [["vera", "维拉·克拉克", "最后一个见到他的人"], ["armstrong", "阿姆斯特朗医生", "同船的人"], ["wargrave", "劳伦斯·沃格雷夫", "同一场战争"]]}, "armstrong": {"name": "阿姆斯特朗医生", "role": "外科医生", "deeds": "手艺好，名声也好，只是年轻时有过一次醉酒上台。那次手术台上的女人再没醒过来。他在岛上负责验尸、发药，是所有人里最被信任的一个。也是他，在法官的授意下宣布了那场假死。他最后死在礁石下，涨潮的时候没人听见。", "quote": "", "camp": "客人", "campKey": "客人", "color": "#7a5a38", "link": "at01", "linkName": "八封信", "rel": [["wargrave", "劳伦斯·沃格雷夫", "合谋 · 灭口"], ["rogers_w", "罗杰斯太太", "开药的人"], ["brent", "埃米莉·布伦特", "验尸的人"], ["macarthur", "麦克阿瑟将军", "同船的人"], ["lombard", "菲利普·隆巴德", "同盟"], ["vera", "维拉·克拉克", "依赖"], ["rogers", "罗杰斯", "发现尸体"]]}, "marston": {"name": "安东尼·马斯顿", "role": "富家子弟", "deeds": "开跑车，穿好衣服，笑起来很好看。他曾经在雨天超速撞死两个孩子，驾照吊销三个月，家里赔了钱，事情就过去了。他从不觉得自己做错了什么。在岛上他是第一个死的，死得很快，快到连一句后悔的话都没来得及说。", "quote": "", "camp": "客人", "campKey": "客人", "color": "#7a5a38", "link": "at01", "linkName": "八封信", "rel": [["rogers", "罗杰斯", "主仆一场"], ["vera", "维拉·克拉克", "同龄人"]]}, "rogers": {"name": "罗杰斯", "role": "管家", "deeds": "在士兵岛上看房子，做事周到，话很少。他和妻子照顾过一位老太太，老太太病重时，他们商量着少给了一次药。遗产留给了他们。他在岛上劈柴时被人从背后打倒，斧子落在脚边，厨房里的小士兵瓷像又少了一个。", "quote": "", "camp": "岛上", "campKey": "岛上", "color": "#2f4a6b", "link": "at03", "linkName": "管家夫妇", "rel": [["rogers_w", "罗杰斯太太", "夫妻"], ["marston", "安东尼·马斯顿", "主仆一场"], ["blore", "威廉·布洛尔", "搜过他的身"], ["armstrong", "阿姆斯特朗医生", "发现尸体"]]}, "rogers_w": {"name": "罗杰斯太太", "role": "女仆", "deeds": "胆子小，上岛第一天就说想回家。她比丈夫更怕，夜里听见声音就睡不着。医生给她开了安眠药，第二天早上她没有醒。丈夫坐在床边，说她昨天还好好的。她说过的最后一句话是：我想回家。", "quote": "", "camp": "岛上", "campKey": "岛上", "color": "#2f4a6b", "link": "at03", "linkName": "管家夫妇", "rel": [["armstrong", "阿姆斯特朗医生", "开药的人"], ["rogers", "罗杰斯", "夫妻"]]}, "blore": {"name": "威廉·布洛尔", "role": "前警察 · 私人侦探", "deeds": "在警局干过，后来自己开事务所。他曾经在一桩案子里做伪证，把一个无辜的人送进监狱，那个人死在牢里。上岛时他谎称自己叫戴维斯，是来度假的商人。他块头大，胆子小，最后被一块做成熊形的石头砸死在露台下。", "quote": "", "camp": "客人", "campKey": "客人", "color": "#7a5a38", "link": "at01", "linkName": "八封信", "rel": [["wargrave", "劳伦斯·沃格雷夫", "审判过的人"], ["lombard", "菲利普·隆巴德", "互相提防"], ["rogers", "罗杰斯", "搜过他的身"]]}, "owen": {"name": "尤·尼·欧文", "role": "不存在的主人", "deeds": "这个名字是假的。签合同的是一个中间人，付钱的是一个律师，律师手上只有一封信。八个人为了这个名字上了岛，又在岛上找了一整天，什么也没找到。因为这个人从一开始就和他们坐同一条船，就坐在餐桌的主位上。", "quote": "U. N. Owen", "camp": "岛主", "campKey": "岛主", "color": "#8c2b26", "link": "at01", "linkName": "八封信", "rel": [["wargrave", "劳伦斯·沃格雷夫", "同一个人"], ["narracott", "纳拉科特", "送上岛的人"], ["morris", "艾萨克·莫里斯", "替人办事"]]}, "morris": {"name": "艾萨克·莫里斯", "role": "中间人", "deeds": "在伦敦替人处理各种不方便出面的事。他替一个不肯露面的委托人买下士兵岛，收了一笔不小的佣金。签完合同第三天，他死在自己的办公室里，桌上有一杯没喝完的酒。警察说是自杀。他死的时候，岛上的人还没上船。", "quote": "", "camp": "岛外", "campKey": "岛外", "color": "#5a3a6b", "link": "at21", "linkName": "莫里斯", "rel": [["wargrave", "劳伦斯·沃格雷夫", "委托买岛"], ["owen", "尤·尼·欧文", "替人办事"]]}, "narracott": {"name": "纳拉科特", "role": "船夫", "deeds": "在斯蒂克尔海文开船，靠摆渡和打鱼过日子。他送八个人上岛那天，问了一句：你们都是欧文先生请的。他还说下午来接。下午风大，他没有出海。第二天他听说岛上死了人，第一句话是：我早就说过，那地方不干净。", "quote": "", "camp": "岛外", "campKey": "岛外", "color": "#5a3a6b", "link": "at02", "linkName": "渡船", "rel": [["vera", "维拉·克拉克", "渡她上岛"], ["owen", "尤·尼·欧文", "送上岛的人"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

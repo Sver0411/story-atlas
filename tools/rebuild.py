@@ -26,10 +26,28 @@ QUOTES = {
     'thrones': '在权力的游戏里，你不赢就得死。',
     'byakuyakou': '我的人生，从来就没有太阳，所以不怕失去。',
     'suspect-x': '有时候，一个人只要好好活着，就足以拯救某个人。',
+    'and-then-there-were-none': '一个小士兵，落单孤零零，悬梁了此生，一个也不剩。',
 }
 
 
 DECOR = {
+'and-then-there-were-none': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g stroke="#9aa8a0" stroke-width="1">
+    <path d="M60 470 H540"/>
+    <path d="M150 470 Q300 372 450 470" fill="none" stroke-width=".7" stroke-dasharray="2 7"/>
+  </g>
+  <g fill="none" stroke="#6b7b72" stroke-width="1">
+    <circle cx="165" cy="300" r="7"/><circle cx="204" cy="300" r="7"/><circle cx="243" cy="300" r="7"/>
+    <circle cx="282" cy="300" r="7"/><circle cx="321" cy="300" r="7"/><circle cx="360" cy="300" r="7"/>
+    <circle cx="399" cy="300" r="7"/><circle cx="438" cy="300" r="7"/><circle cx="477" cy="300" r="7"/>
+  </g>
+  <g stroke="#6b7b72" stroke-width=".9">
+    <path d="M165 307 V326 M204 307 V326 M243 307 V326 M282 307 V326 M321 307 V326 M360 307 V326 M399 307 V326 M438 307 V326 M477 307 V326"/>
+  </g>
+  <circle cx="410" cy="360" r="11" fill="none" stroke="#8c3a34" stroke-width="1.2"/>
+  <path d="M410 349 V318" stroke="#8c3a34" stroke-width="1.2"/>
+  <path d="M120 512 H480" stroke="#9aa8a0" stroke-width=".5" stroke-dasharray="2 8"/>
+</svg>''',
 'suspect-x': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <g stroke="#9aa79c" stroke-width=".4" opacity=".55">
     <path d="M120 180 H480 M120 240 H480 M120 300 H480 M120 360 H480 M120 420 H480"/>

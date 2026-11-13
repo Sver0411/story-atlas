@@ -112,5 +112,17 @@
     "events": 28,
     "people": 12,
     "scope": "全本 · 1997—1998"
+  },
+  {
+    "id": "and-then-there-were-none",
+    "title": "无人生还",
+    "author": "阿加莎·克里斯蒂",
+    "category": "推理",
+    "description": "十个人被请到一座没有退路的岛上，一首童谣，一段一条命。",
+    "accent": "#3f4a44",
+    "cover": "",
+    "events": 22,
+    "people": 13,
+    "scope": "全本 · 含结局与手稿"
   }
 ]

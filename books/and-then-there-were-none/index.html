@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无人生还 · 时间线 | 22 个故事节点</title>
+<meta name="description" content="十个人被请到一座没有退路的岛上，一首童谣，一段一条命。等警察上岛时，一个也没剩。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <g stroke="#9aa8a0" stroke-width="1">
+    <path d="M60 470 H540"/>
+    <path d="M150 470 Q300 372 450 470" fill="none" stroke-width=".7" stroke-dasharray="2 7"/>
+  </g>
+  <g fill="none" stroke="#6b7b72" stroke-width="1">
+    <circle cx="165" cy="300" r="7"/><circle cx="204" cy="300" r="7"/><circle cx="243" cy="300" r="7"/>
+    <circle cx="282" cy="300" r="7"/><circle cx="321" cy="300" r="7"/><circle cx="360" cy="300" r="7"/>
+    <circle cx="399" cy="300" r="7"/><circle cx="438" cy="300" r="7"/><circle cx="477" cy="300" r="7"/>
+  </g>
+  <g stroke="#6b7b72" stroke-width=".9">
+    <path d="M165 307 V326 M204 307 V326 M243 307 V326 M282 307 V326 M321 307 V326 M360 307 V326 M399 307 V326 M438 307 V326 M477 307 V326"/>
+  </g>
+  <circle cx="410" cy="360" r="11" fill="none" stroke="#8c3a34" stroke-width="1.2"/>
+  <path d="M410 349 V318" stroke="#8c3a34" stroke-width="1.2"/>
+  <path d="M120 512 H480" stroke="#9aa8a0" stroke-width=".5" stroke-dasharray="2 8"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">阿加莎·克里斯蒂</p>
+    <h1><em>无人生还</em><span>时间线</span></h1>
+    <p class="hero-deck">十个人被请到一座没有退路的岛上，一首童谣，一段一条命。等警察上岛时，一个也没剩。<br>22 个时间点，从「八封信」到「十个小士兵」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>22 个时间点 · 13 位人物</span><i></i>
+      <span>全本 · 含结局与手稿</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">上岛</span>
+      <span class="era-sub">01 — 22</span>
+    </div>
+
+    <section class="event" id="at01" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="上岛" data-short="八封信" data-label="1939 年 8 月 · 伦敦">
+      <div class="ev-when">1939 年 8 月<em>伦敦</em></div>
+      <h2>八封信</h2>
+      <p>八个人在同一天收到信，笔迹不同，内容一样：一位不愿透露姓名的朋友邀请您到士兵岛小住，一切费用已付。签名是两个字母：U. N.。有人以为是旧友，有人以为是生意，有人把它当成一个假期。医生阿姆斯特朗把信放进外套口袋时想，欧文这个姓，他好像在哪听过。他想不起来了。沃格雷夫法官的信封上贴着一张便签：希望您能来，岛上很安静，适合读书。他把便签对着光看了看，笑了。他这一生收过很多请柬，没有一张是请他去看别人死的。</p>
+    </section>
+
+    <section class="event" id="at02" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="上岛" data-short="渡船" data-label="1939 年 8 月 8 日 · 德文郡 · 斯蒂克尔海文">
+      <div class="ev-when">1939 年 8 月 8 日<em>德文郡 · 斯蒂克尔海文</em></div>
+      <h2>渡船</h2>
+      <p>船夫纳拉科特把八个人一批批送上岛。他一句话也不多说，只在开船前问了一句：你们都是欧文先生请的？有人说是。他点点头，把缆绳解开。船靠岸时，他把行李扔上码头，说：下午我来接你们，如果你们还在。有人笑他说笑话。他没有笑。维拉是最后一个上船的。她站在船头，看岛越来越近，忽然觉得这个岛的形状像一头趴着的兽。她把这个想法说给旁边的人听，那人说：你想太多了。</p>
+    </section>
+
+    <section class="event" id="at03" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="上岛" data-short="管家夫妇" data-label="1939 年 8 月 8 日 · 士兵岛 · 庄园">
+      <div class="ev-when">1939 年 8 月 8 日<em>士兵岛 · 庄园</em></div>
+      <h2>管家夫妇</h2>
+      <p>罗杰斯先生和罗杰斯太太已经先到了。他们把八个房间收拾好，餐桌摆上十份餐具。有人问：还有两位客人？罗杰斯说：主人和女主人。可主人一直没来。晚饭前，客厅里的留声机忽然响了，一个冷静的声音念出每一个人的名字，念完之后说出他们做过的事。屋子里没有人动。罗杰斯太太端着汤出来，手在抖。有人问她怎么了，她说没事，只是这屋子太静。罗杰斯在旁边接了一句：主人不在，总是这样。他说这句话的时候低着头，谁也没有看清他的脸。</p>
+    </section>
+
+    <section class="event" id="at04" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="上岛" data-short="童谣" data-label="1939 年 8 月 8 日 · 士兵岛 · 客房">
+      <div class="ev-when">1939 年 8 月 8 日<em>士兵岛 · 客房</em></div>
+      <h2>童谣</h2>
+      <p>每个房间的墙上都裱着一首童谣，一共十段，讲十个小士兵怎么一个接一个地死掉。维拉把那首童谣从头读到尾，读到「一个也不剩」的时候笑了一下，说：谁挂的这种东西。她把它摘下来，想扔进壁炉，手举到一半又放下了。她把它挂回原处，位置摆得比原来正。童谣下面印着十个小士兵的图案，一个一个排着队，最后一个手里拿着一根绳子。维拉数了两遍，都是十个。她把手指按在最后一个图案上，指尖有点凉。</p>
+    </section>
+
+    <section class="event" id="at05" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="上岛" data-short="第一杯酒" data-label="1939 年 8 月 8 日 夜 · 士兵岛 · 客厅">
+      <div class="ev-when">1939 年 8 月 8 日 夜<em>士兵岛 · 客厅</em></div>
+      <h2>第一杯酒</h2>
+      <p>马斯顿给自己倒了一杯威士忌，一口喝下去，忽然呛住。他抓着喉咙，脸变成紫色，倒在地上抽了几下就不动了。医生跑过去，闻了闻杯子，说：氰化钾。有人在酒里下了氰化钾。屋外下起大雨，渡船早就走了。十个人里，有一个再也不会说话。马斯顿倒下去的时候手里还攥着杯子。杯子摔在地毯上，没有碎。隆巴德第一个冲过去，摸了摸他的脉搏，抬起头摇了摇头。客厅里没有人喊，只有雨点打在窗上的声音。</p>
+    </section>
+
+    <section class="event" id="at06" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="上岛" data-short="长眠" data-label="1939 年 8 月 9 日 晨 · 士兵岛 · 卧室">
+      <div class="ev-when">1939 年 8 月 9 日 晨<em>士兵岛 · 卧室</em></div>
+      <h2>长眠</h2>
+      <p>罗杰斯太太昨夜吃了医生给的安眠药，一直没有醒。医生去看的时候，她的脸已经凉了。药量不对——不是多一点，是多很多。罗杰斯坐在床边，说她昨天还好好的。法官问他：她昨晚说了什么。罗杰斯说：她说她想回家。屋里的人都没有接话。餐桌上，小士兵的瓷像少了一个。罗杰斯说，太太昨晚睡前跟他说，这屋里有些东西不对。他问什么东西。她说不上来，只说听见有人在走廊上走来走去。他说那是房子旧了。现在他坐在床边，一遍一遍地说：我不该那么说。</p>
+    </section>
+
+    <section class="event" id="at07" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="上岛" data-short="没有欧文" data-label="1939 年 8 月 9 日 · 士兵岛 · 书房">
+      <div class="ev-when">1939 年 8 月 9 日<em>士兵岛 · 书房</em></div>
+      <h2>没有欧文</h2>
+      <p>八个人把整座岛搜了一遍。房子不大，没有地窖，没有暗门，没有第十一个人。欧文先生不存在。那个买下岛的人用的是一连串假名，最后一层是一个已经死掉的中间人。法官坐在椅子上说：我们是被人请来受死的。隆巴德笑了一声，说：那我们就等着。他说完，看了看窗外的海。他们把人名一个一个念出来：欧文、欧文太太，还有一个叫莫里斯的中间人。念到最后谁都不说话了。法官说：这栋房子里只有我们十个，也就是说，凶手在我们中间。他说完，把手杖在地板上顿了一下。</p>
+    </section>
+
+    <section class="event" id="at08" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="上岛" data-short="将军" data-label="1939 年 8 月 9 日 傍晚 · 士兵岛 · 海边">
+      <div class="ev-when">1939 年 8 月 9 日 傍晚<em>士兵岛 · 海边</em></div>
+      <h2>将军</h2>
+      <p>麦克阿瑟将军一个人坐在海边的椅子上，看着对岸。他说：我在这里很安心。维拉说：天要黑了，回去吧。他说：你先走。半小时后有人来找他，他还坐在那儿，后脑上有一个洞，血已经凝了。旁边放着一块石头，石头上没有指纹。潮水正在涨，声音很大。维拉在他旁边站了一会儿，说：将军，这里风大。他说：我知道。她又说：您在想什么。他说：想一件很久以前的事，我一直以为自己做对了。他说完这句，就没有再开口。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">一个接一个</span>
+      <span class="era-sub">09 — 22</span>
+    </div>
+
+    <section class="event" id="at09" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="一个接一个" data-short="劈柴" data-label="1939 年 8 月 10 日 晨 · 士兵岛 · 厨房">
+      <div class="ev-when">1939 年 8 月 10 日 晨<em>士兵岛 · 厨房</em></div>
+      <h2>劈柴</h2>
+      <p>罗杰斯一早去柴房劈柴，说要给大家烧热水。中午他没回来。有人去找，看见他倒在柴堆旁边，斧子落在脚边，后脑上挨了一下。厨房的架子上原本摆着八个小士兵瓷像，现在只剩六个。法官数了一遍，说：他在按童谣杀人，一段一段地对。布洛尔说：那下一个是谁。没有人回答。布洛尔说，斧子是正面挥下去的，可罗杰斯脸上的表情很平静，像是没看见人。法官说：那就是熟人。布洛尔说：这屋里全是熟人。法官说：所以我们要小心的是，谁在什么时候，站在了谁的身后。</p>
+    </section>
+
+    <section class="event" id="at10" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="一个接一个" data-short="蜜蜂" data-label="1939 年 8 月 11 日 中午 · 士兵岛 · 客厅">
+      <div class="ev-when">1939 年 8 月 11 日 中午<em>士兵岛 · 客厅</em></div>
+      <h2>蜜蜂</h2>
+      <p>布伦特小姐坐在客厅的窗边织毛线，说头有点晕。大家让她回房躺一会儿。半小时后，医生上楼，看见她坐在床边，脸上有一个小小的针眼，旁边放着一支注射器。窗外飞着几只蜜蜂。她的毛线掉在地上，织了一半，针还插在上面。维拉站在门口，说：她昨天晚上还在说，这一切都是报应。医生拔出针头看了看，说：剂量很大，几秒钟就没了。他把注射器放在床头柜上，手很稳。维拉忽然说：她昨天跟我说，这个岛上没有一个人是无辜的，包括她自己。医生抬起头看了她一眼，没有说话。</p>
+    </section>
+
+    <section class="event" id="at11" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="一个接一个" data-short="失踪的医生" data-label="1939 年 8 月 11 日 夜 · 士兵岛 · 走廊">
+      <div class="ev-when">1939 年 8 月 11 日 夜<em>士兵岛 · 走廊</em></div>
+      <h2>失踪的医生</h2>
+      <p>夜里有人敲医生的门，说布洛尔受伤了。医生披上衣服出去，走廊上只有一盏灯。第二天早上，他不在房间里，床没睡过，外套还挂着。剩下的人站在走廊上面面相觑。隆巴德说：他要么自己躲起来了，要么已经死了。维拉说：他不会的。隆巴德说：你认识他几天。四个人把房子翻了一遍，连阁楼都上去了。阁楼里堆着旧箱子，箱子上落着厚灰。隆巴德用刀挑开一个，里面是一件紫色的长袍。他说：这是法官的。布洛尔说：他带这个上岛干什么。没有人回答。</p>
+    </section>
+
+    <section class="event" id="at12" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="一个接一个" data-short="熊" data-label="1939 年 8 月 12 日 上午 · 士兵岛 · 露台">
+      <div class="ev-when">1939 年 8 月 12 日 上午<em>士兵岛 · 露台</em></div>
+      <h2>熊</h2>
+      <p>剩下四个人：法官、维拉、隆巴德、布洛尔。他们把门窗全部锁上，谁也不许单独行动。中午布洛尔说要去拿点吃的，走出露台不到三分钟，楼上传来一声闷响。他们跑上去，看见一扇窗户开着，窗下躺着一块做成熊形的石头，布洛尔的头被砸开了。窗外是海，海上什么也没有。他们跑下楼，看见露台的门开着，风把窗帘吹得很高。维拉说：我们三个人，从现在起不许分开。法官说：好。他说这句话的时候手里握着一块怀表，表盖一直开着。后来才知道，他是在看时间。</p>
+    </section>
+
+    <section class="event" id="at13" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="一个接一个" data-short="枪" data-label="1939 年 8 月 12 日 下午 · 士兵岛 · 海滩">
+      <div class="ev-when">1939 年 8 月 12 日 下午<em>士兵岛 · 海滩</em></div>
+      <h2>枪</h2>
+      <p>维拉在海滩上看见隆巴德，他正低头捡什么东西。她手里握着那把枪——那是从布洛尔身上拿到的。隆巴德抬头，说：把它给我。她没有给。他往前走了一步，说：维拉，你听我说。她开了枪。他倒下去，眼睛还睁着。她站在那里，听见自己的呼吸声，很响，像有人在旁边喘气。她放下枪，蹲下去看他。隆巴德的眼睛还睁着，嘴角有一点血。她伸手去合他的眼睛，手抖得合不上。她说：对不起。她说这句话的时候声音很轻，像怕吵醒他。远处海面上有一艘船，很小，一直没有靠近。</p>
+    </section>
+
+    <section class="event" id="at14" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="一个接一个" data-short="绳圈" data-label="1939 年 8 月 12 日 夜 · 士兵岛 · 卧室">
+      <div class="ev-when">1939 年 8 月 12 日 夜<em>士兵岛 · 卧室</em></div>
+      <h2>绳圈</h2>
+      <p>维拉回到屋里，屋里没有人。她上楼，房间里摆着一张床，床上放着一段绳子，绳圈已经打好。她想起那个孩子，想起自己曾经站在岸边看着水面，没有喊。她搬来椅子，踩上去，把绳圈套在脖子上。窗外月亮很亮，海面一平如镜。她踢开椅子的时候，看见门缝里站着一个人影，一动不动。她最后想到的不是那个孩子，是那封信，那封请她上岛的信。她想，如果那天她把信扔掉，现在应该在哪个教室里，给孩子们读一首诗。她把椅子踢开。楼下的钟响了一下，是九点。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">手稿</span>
+      <span class="era-sub">15 — 22</span>
+    </div>
+
+    <section class="event" id="at15" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="手稿" data-short="十具尸体" data-label="1939 年 8 月 13 日 · 士兵岛 · 庄园">
+      <div class="ev-when">1939 年 8 月 13 日<em>士兵岛 · 庄园</em></div>
+      <h2>十具尸体</h2>
+      <p>警察上岛的时候，屋里很安静。餐桌上的十个盘子还摆着，蜡烛烧到底。他们一共找到十具尸体：马斯顿在客厅，罗杰斯太太在床上，将军在海边，罗杰斯在柴房，布伦特在客房，医生在礁石下，布洛尔在露台，隆巴德在海滩，维拉吊在卧室，法官穿着紫色长袍死在书房的地上。警察在餐桌上找到一本记事簿，最后一页写着十个人的名字，每个名字后面画了一个勾。十个勾，一个不少。带队的警官把本子合上，说：把这座岛封了。他走出门回头看了一眼这栋房子，忽然觉得它很像一座墓碑。</p>
+    </section>
+
+    <section class="event" id="at16" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="手稿" data-short="法官的死" data-label="1939 年 8 月 13 日 · 士兵岛 · 书房">
+      <div class="ev-when">1939 年 8 月 13 日<em>士兵岛 · 书房</em></div>
+      <h2>法官的死</h2>
+      <p>法官躺在书房的地上，穿着一件紫色的长袍，那是他当法官时的旧衣。他额头上有一个红点，像被子弹打过。验尸的医生说：死亡时间在其他人之前。这句话让在场的人全愣住了——如果是这样，后面的六个人是怎么死的。案子从第一天起就走错了方向，而错的那一步，是他们自己验的。法医把尸体翻过来看了很久，说：这个人死得比他们都晚。警官说：不可能，医生当场验过。法医说：医生验的时候，他还活着。他的脉搏被什么东西压住了，或者他自己屏住了呼吸。屋里没有人说话，窗外的海一直在响。</p>
+    </section>
+
+    <section class="event" id="at17" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="手稿" data-short="瓶子" data-label="1939 年 8 月 13 日 夜 · 海上">
+      <div class="ev-when">1939 年 8 月 13 日 夜<em>海上</em></div>
+      <h2>瓶子</h2>
+      <p>一个渔夫在海上捞起一个瓶子，里面有一份手稿。手稿写得很整齐，开头第一句是：我写这份东西，是为了让人知道，这不是一桩无解的案子。作者署名劳伦斯·沃格雷夫。他写道：我一生判过很多次死刑，从没有亲手执行过。这一次，我想自己动手。手稿是用钢笔写的，字很小，一页一页编了号。渔夫不识字，把它交给了警察。警察读到第三页就站起来了。他后来说：我办了三十年案子，从没见过凶手自己写结案报告的。</p>
+    </section>
+
+    <section class="event" id="at18" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="手稿" data-short="法官的计划" data-label="1939 年 8 月 13 日 · 手稿">
+      <div class="ev-when">1939 年 8 月 13 日<em>手稿</em></div>
+      <h2>法官的计划</h2>
+      <p>他先摸清了每个人做过什么，再用一个不存在的名字把他们请到岛上。他杀人的顺序不是随机的：最轻的罪先死，因为他想让剩下的人有时间互相怀疑。他要的不只是十条命，是一场没有人能解开的演出。他写道：我一生追求的是完美，这一次也一样。他写道：我选的这九个人，每一个都在法律上逃脱了。有的证据不足，有的舆论同情，有的根本没上法庭。我不是在替天行道，我只是想看看，当法律不在场的时候，正义能不能自己站起来。</p>
+    </section>
+
+    <section class="event" id="at19" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="手稿" data-short="假死" data-label="1939 年 8 月 11 日 · 手稿">
+      <div class="ev-when">1939 年 8 月 11 日<em>手稿</em></div>
+      <h2>假死</h2>
+      <p>他找到了阿姆斯特朗。医生在岛上已经快疯了，法官说：你只要在所有人面前宣布我死了，剩下的我自己来。医生照做了。他们把他抬到书房，盖上毯子，医生把一块红蜡按在他额头上，说是枪伤。第二天医生就死了——法官不需要活着的同谋。他在手稿里写：这是我唯一一次，向人求助。他写道：阿姆斯特朗是个好人，也是个懦夫。他只问了一句：你会不会连我也杀。我说不会。他信了。我看着他相信的样子，忽然觉得这件事比我想的更有意思。</p>
+    </section>
+
+    <section class="event" id="at20" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="手稿" data-short="最后一枪" data-label="1939 年 8 月 12 日 夜 · 手稿">
+      <div class="ev-when">1939 年 8 月 12 日 夜<em>手稿</em></div>
+      <h2>最后一枪</h2>
+      <p>他坐在书房的椅子上，把手枪的枪口对准自己的额头。他算好了角度、时间、尸体的位置。他写道：我要让警察看见一具穿着法官袍的尸体，然后永远想不明白最后三个人是怎么死的。他扣下扳机之前，最后想到的一句话是：这个案子里，只有一个人是无辜的——那个孩子。他写道：我本来可以活下去，只要把那把枪扔进海里。可那样的话，这个作品就没有结尾。一个没有结尾的故事会被写成悬案，被人在酒馆里猜上几十年。我不喜欢那样。</p>
+    </section>
+
+    <section class="event" id="at21" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="手稿" data-short="莫里斯" data-label="1939 年 8 月 · 伦敦">
+      <div class="ev-when">1939 年 8 月<em>伦敦</em></div>
+      <h2>莫里斯</h2>
+      <p>替法官买下士兵岛的人叫艾萨克·莫里斯，一个在市面上混久了的中间人。他收钱办事，从不多问。签完合同的第三天，他在自己的办公室里死了，桌上留着一杯没喝完的酒。警察说是自杀。手稿里提到他时只写了一句：他知道得太多了，但不是我知道的。莫里斯死的那天，法官在伦敦的俱乐部里吃午饭。他后来在手稿里写：我听说他死了，一点也不意外。一个人如果一辈子都在替别人办事，最后总会替自己办一件蠢事。</p>
+    </section>
+
+    <section class="event" id="at22" style="--c:#3f4a44"
+      data-color="#3f4a44" data-era="手稿" data-short="十个小士兵" data-label="1939 年 8 月 8 日 夜 · 士兵岛">
+      <div class="ev-when">1939 年 8 月 8 日 夜<em>士兵岛</em></div>
+      <h2>十个小士兵</h2>
+      <p>童谣的最后一段是：一个小士兵，落单孤零零，悬梁了此生，一个也不剩。维拉吊死的那间屋子里，墙上那张裱框的童谣还在。最后一个瓷像掉在地毯上，摔成了三块。第二天警察推门进来的时候，看见的就是这幅景象——十个句子，十个人，一个不多，一个不少。警察把瓷像的碎片收进证物袋，一共十块。他数了两遍，还是十块。他把袋子封好，在标签上写了日期。那天下着小雨，岛上的草被打得很平，像有人刚刚走过。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 22</span>
+        </div>
+        <div class="rail-era" id="railNow">1939 年 8 月</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“一个小士兵，落单孤零零，悬梁了此生，一个也不剩。”</p>
+  <p class="tiny">无人生还 · 阿加莎·克里斯蒂　·　22 个时间点，13 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>
