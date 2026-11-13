@@ -616,5 +616,41 @@
     "events": 15,
     "people": 6,
     "scope": "全本 · 2000 年代"
+  },
+  {
+    "id": "wheel-of-time",
+    "title": "时光之轮",
+    "author": "罗伯特·乔丹",
+    "category": "奇幻",
+    "description": "轮子转动。",
+    "accent": "#4a4658",
+    "cover": "",
+    "events": 14,
+    "people": 6,
+    "scope": "全本"
+  },
+  {
+    "id": "first-law",
+    "title": "第一律法",
+    "author": "乔·阿克罗比",
+    "category": "奇幻",
+    "description": "没有好人。",
+    "accent": "#4a423a",
+    "cover": "",
+    "events": 12,
+    "people": 5,
+    "scope": "三部曲"
+  },
+  {
+    "id": "stormlight",
+    "title": "飓光志",
+    "author": "布兰登·桑德森",
+    "category": "奇幻",
+    "description": "我要护住几个人。",
+    "accent": "#3f4a5a",
+    "cover": "",
+    "events": 13,
+    "people": 6,
+    "scope": "第一、二部"
   }
 ]

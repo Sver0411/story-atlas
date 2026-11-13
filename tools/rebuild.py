@@ -68,10 +68,39 @@ QUOTES = {
     'earthsea': '魔法不是用力气，是知道名字。',
     'witcher': '我杀怪物，不杀人。',
     'american-gods': '神是被人想出来的。',
+    'wheel-of-time': '轮子转动，时代来去，留下的只有记忆。',
+    'first-law': '这就是第一律法：魔法不能用。',
+    'stormlight': '我这一辈子，只想护住几个人。',
 }
 
 
 DECOR = {
+'wheel-of-time': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="290" r="96" fill="none" stroke="#8b88a0" stroke-width="1.1"/>
+  <circle cx="300" cy="290" r="66" fill="none" stroke="#a5a2b6" stroke-width=".5" stroke-dasharray="2 8"/>
+  <g stroke="#8b88a0" stroke-width=".7">
+    <path d="M300 194 V386 M204 290 H396 M232 222 L368 358 M368 222 L232 358"/>
+  </g>
+  <circle cx="300" cy="290" r="10" fill="none" stroke="#8c3a34" stroke-width="1.1"/>
+  <path d="M120 470 H480" stroke="#a5a2b6" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'first-law': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 200 V400" stroke="#9a8f80" stroke-width="1.4"/>
+  <path d="M300 200 l6 18 l-6 8 l-6 -8 Z" fill="none" stroke="#9a8f80" stroke-width=".8"/>
+  <path d="M272 400 H328" stroke="#9a8f80" stroke-width="1.2"/>
+  <path d="M300 400 V440" stroke="#9a8f80" stroke-width=".9"/>
+  <path d="M220 440 H380" stroke="#b0a494" stroke-width=".5"/>
+  <circle cx="300" cy="150" r="18" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M120 490 H480" stroke="#b0a494" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'stormlight': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M300 180 V420" stroke="#8d9aae" stroke-width="1.2"/>
+  <path d="M300 240 L232 300 L300 360 L368 300 Z" fill="none" stroke="#8d9aae" stroke-width=".9"/>
+  <path d="M300 200 L262 240 M300 200 L338 240" stroke="#a5b0c2" stroke-width=".5"/>
+  <circle cx="300" cy="420" r="6" fill="none" stroke="#8c3a34" stroke-width="1"/>
+  <g stroke="#b8c2d0" stroke-width=".4"><path d="M120 470 H480 M120 500 H480"/></g>
+  <path d="M150 530 H450" stroke="#b8c2d0" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'witcher': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M246 200 V420 M234 420 H258" stroke="#9a8e78" stroke-width="1.3"/>
   <path d="M354 200 V420 M342 420 H366" stroke="#b0a48c" stroke-width="1.1"/>
