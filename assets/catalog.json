@@ -412,5 +412,17 @@
     "events": 23,
     "people": 17,
     "scope": "全本 · 1094—1097"
+  },
+  {
+    "id": "legend-condor",
+    "title": "射雕英雄传",
+    "author": "金庸",
+    "category": "武侠",
+    "description": "侠之大者，为国为民。",
+    "accent": "#5a4a2e",
+    "cover": "",
+    "events": 19,
+    "people": 18,
+    "scope": "全本 · 1199—1227"
   }
 ]

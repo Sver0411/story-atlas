@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>射雕英雄传 · 时间线 | 19 个故事节点</title>
+<meta name="description" content="一个在蒙古长大的汉人孩子，笨得学一套拳要三个月。他一辈子只认一个理：不能忘本。">
+<style>
+:root{
+  --paper:#f7f4ed;
+  --paper-2:#f1ece2;
+  --ink:#1d1a16;
+  --ink-2:#4a443d;
+  --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --red:#8c2b26;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+/* ============ 顶部滚动进度 ============ */
+.top-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:100;
+  background:rgba(29,26,22,.06);
+}
+.top-progress i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,#8c2b26,#b5793a 60%,#a8823c);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear;
+}
+
+/* ============ 悬浮标题 ============ */
+.float-title{
+  position:fixed;left:30px;top:24px;z-index:90;
+  font-family:var(--serif);font-size:13px;letter-spacing:.22em;
+  color:var(--ink-3);opacity:0;transform:translateY(-6px);
+  transition:opacity .5s ease,transform .5s ease;pointer-events:none;
+}
+.float-title.on{opacity:1;transform:none}
+
+/* ============ 首屏 ============ */
+.masthead{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 74% 12%, rgba(140,43,38,.07), transparent 62%),
+    radial-gradient(900px 520px at 8% 92%, rgba(47,74,107,.07), transparent 60%),
+    linear-gradient(180deg,#f9f6f0,#f7f4ed);
+  border-bottom:1px solid var(--line);
+}
+.orbits{
+  position:absolute;right:-12%;top:50%;width:min(690px,62vw);aspect-ratio:1;
+  transform:translateY(-50%);pointer-events:none;
+}
+.orbits span{position:absolute;border:1px solid rgba(29,26,22,.075);border-radius:50%}
+.orbits .o1{inset:0}
+.orbits .o2{inset:11%;animation:spin 52s linear infinite}
+.orbits .o3{inset:27%}
+.orbits .o2::after{
+  content:'';position:absolute;left:50%;top:-2.5px;width:5px;height:5px;margin-left:-2.5px;
+  border-radius:50%;background:var(--red);opacity:.45;
+}
+.orbits .core{
+  left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border:0;
+  background:var(--red);box-shadow:0 0 28px 6px rgba(140,43,38,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mast-inner{
+  position:relative;z-index:2;width:100%;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.hero-kicker{
+  font-size:11px;letter-spacing:.36em;color:var(--ink-3);margin:0 0 30px;
+  text-transform:uppercase;
+}
+.hero-kicker .sep{opacity:.45;margin:0 8px}
+.masthead h1{
+  margin:0;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;
+  font-family:var(--serif);font-weight:600;line-height:.92;
+}
+.masthead h1 em{
+  font-style:normal;font-size:clamp(64px,9vw,132px);letter-spacing:.09em;
+}
+.masthead h1 span{
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:.42em;color:var(--ink-2);
+  font-weight:400;transform:translateY(-6px);
+}
+.hero-deck{
+  margin:34px 0 0;max-width:620px;
+  font-size:15px;line-height:2.05;color:var(--ink-2);letter-spacing:.02em;
+}
+.hero-rule{
+  width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
+}
+.hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.scroll-hint{
+  position:absolute;left:56px;bottom:34px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;
+}
+.scroll-hint::after{
+  content:'';width:36px;height:1px;background:var(--ink-3);opacity:.5;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.2;transform:scaleX(.6);transform-origin:left}50%{opacity:.6;transform:scaleX(1)}}
+
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-2);
+  text-decoration:none;padding:5px 14px;border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ===== 插图 ===== */
+.ev-fig{
+  margin:24px 0 0;padding:20px 18px 14px;
+  background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
+  border-radius:2px;
+}
+.ev-fig img{
+  display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+  filter:saturate(.94) contrast(1.03);
+}
+.ev-fig figcaption{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-align:center;margin-top:14px;line-height:1.7;
+}
+@media (max-width:1080px){
+  .topnav{right:14px;top:12px}
+}
+
+/* ============ 布局 ============ */
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 224px;
+  gap:32px;
+  max-width:1360px;margin:0 auto;padding:0 56px;
+}
+.content{max-width:920px;padding:104px 0 190px}
+
+/* 纪元分隔 */
+.era-divider{margin:0 0 76px}
+.era-divider:not(:first-child){margin-top:104px}
+.era-divider::before{
+  content:'';display:block;height:1px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(29,26,22,.2),rgba(29,26,22,.02));
+}
+.era-divider .era-name{
+  display:block;font-family:var(--serif);font-size:33px;
+  letter-spacing:.3em;color:var(--ink);font-weight:600;
+}
+.era-divider .era-sub{
+  display:block;margin-top:11px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.26em;color:var(--ink-3);text-transform:uppercase;
+}
+
+/* 事件 */
+.event{position:relative;padding-left:30px;margin-bottom:74px}
+.event::before{
+  content:'';position:absolute;left:0;top:6px;width:1px;height:calc(100% - 12px);
+  background:var(--c,#8c2b26);opacity:.5;
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .05s;
+}
+.js .event{opacity:0;transform:translateY(28px);transition:opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)}
+.js .event.in{opacity:1;transform:none}
+.js .event.in::before{transform:scaleY(1)}
+
+.ev-when{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.3;
+  letter-spacing:.02em;color:var(--c,#8c2b26);margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+.ev-when em{
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:400;
+  letter-spacing:.14em;color:var(--ink-3);
+  padding-left:12px;border-left:1px solid var(--line);
+}
+.event h2{
+  font-family:var(--serif);font-size:26px;line-height:1.5;font-weight:600;
+  margin:0 0 14px;letter-spacing:.015em;color:var(--ink);
+}
+.ev-sub{
+  margin:26px 0 0;padding:2px 0 2px 18px;
+  border-left:1px solid color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+}
+.ev-sub h3{
+  font-family:var(--serif);font-size:16.5px;font-weight:600;
+  margin:0 0 8px;color:var(--ink);letter-spacing:.02em;line-height:1.5;
+}
+.ev-sub h3 span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--c,#8c2b26);margin-right:9px;vertical-align:2px;
+}
+.ev-sub p{
+  font-size:15.5px;line-height:1.92;color:#47413a;margin:0 0 6px;
+}
+.ev-sub p:last-child{margin-bottom:0}
+.event p{
+  margin:0;font-size:17px;line-height:1.95;color:#3c3731;
+  text-align:justify;letter-spacing:.012em;
+}
+.hl{
+  color:var(--c,#8c2b26);font-weight:500;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--c,#8c2b26) 32%,transparent);
+  padding-bottom:1px;
+}
+
+/* ============ 右侧时间线 ============ */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding-left:6px;
+}
+.rail-inner{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 0 0 18px;border-left:1px solid var(--line);
+  transition:opacity .5s ease;
+}
+.rail.away .rail-inner{opacity:0;pointer-events:none}
+.rail-head{flex:0 0 auto;display:block}
+.rail-topline{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rail-head .kicker{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rail-era{
+  font-family:var(--serif);font-size:16px;letter-spacing:.03em;margin-top:4px;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+}
+.rail-era.flip{animation:railIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes railIn{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:none}}
+.rail-count{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-3);
+  white-space:nowrap;
+}
+.rail-count b{color:var(--ink);font-weight:600;font-size:13px}
+
+.rail-viewport{
+  position:relative;flex:0 0 auto;height:min(57vh,520px);overflow:hidden;margin:11px 0 13px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.tl-track{position:relative;will-change:transform}
+.tl-axis{position:absolute;left:9px;width:1px;background:rgba(29,26,22,.17)}
+.tl-fill{
+  position:absolute;left:8px;width:2px;
+  background-color:var(--fc,#8c2b26);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.08),#000 22%);
+  transition:height .55s cubic-bezier(.2,.7,.2,1),background-color .6s ease;
+}
+
+.tl-era{
+  position:relative;padding:13px 0 3px 28px;margin-top:2px;
+  font-family:var(--sans);font-size:9px;letter-spacing:.2em;
+  color:#8b847a;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.tl-era:first-child{padding-top:2px}
+.tl-era::before{
+  content:'';position:absolute;left:2px;top:calc(50% + 3px);
+  width:14px;height:1px;background:rgba(29,26,22,.34);
+}
+.tl-node{
+  position:relative;display:block;width:100%;
+  padding:4px 0 4px 28px;margin:0;border:0;background:none;
+  text-align:left;cursor:pointer;font-family:inherit;
+  color:#3a352f;transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.tl-node .dot{
+  position:absolute;left:9px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--paper);border:1px solid color-mix(in srgb,var(--c,#8c2b26) 34%,#cdc6b8);
+  transform:translate(-50%,-50%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s,border-color .35s;
+}
+.tl-node .dot::after{
+  content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;
+  margin:-8px 0 0 -8px;border-radius:50%;border:1px solid var(--c,#8c2b26);
+  opacity:0;pointer-events:none;
+}
+.tl-node .txt{
+  display:flex;flex-direction:column;gap:1px;min-width:0;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tl-node::before{
+  content:'';position:absolute;left:12px;top:50%;width:5px;height:1px;
+  background:rgba(29,26,22,.2);transition:width .35s ease,background .35s ease;
+}
+.tl-node b{
+  font-weight:500;font-size:11px;line-height:1.3;letter-spacing:.02em;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node i{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;
+  opacity:.9;color:#918a7f;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tl-node.active::before{width:10px;background:var(--c,#8c2b26)}
+.tl-node.active b{color:var(--c,#8c2b26)}
+.tl-node.active i{color:#2b2620;opacity:.95}
+.tl-node.done::before{background:color-mix(in srgb,var(--c,#8c2b26) 45%,transparent)}
+
+.tl-node.done{color:#4a443d}
+.tl-node.done .dot{background:color-mix(in srgb,var(--c,#8c2b26) 55%,transparent);border-color:transparent}
+.tl-node.active{color:var(--ink)}
+.tl-node.active b{font-weight:600}
+.tl-node.active .dot{
+  background:var(--c,#8c2b26);border-color:var(--c,#8c2b26);
+  transform:translate(-50%,-50%) scale(1.45);
+  box-shadow:0 0 0 3px var(--paper);
+}
+.tl-node.active .dot::after{animation:ring 2.4s ease-out infinite}
+.tl-node.active .txt{transform:translateX(4px)}
+@keyframes ring{
+  0%{transform:scale(.35);opacity:.55}
+  75%,100%{transform:scale(1.55);opacity:0}
+}
+.tl-node:focus-visible{outline:1px solid var(--c,#8c2b26);outline-offset:2px}
+.tl-node:hover{color:var(--ink-2)}
+
+.rail-foot{flex:0 0 auto}
+.rail-bar{height:1px;background:rgba(29,26,22,.12);margin-bottom:10px;overflow:hidden}
+.rail-bar i{
+  display:block;height:100%;width:0;
+  background:var(--red);transition:width .5s cubic-bezier(.2,.7,.2,1);
+}
+.rail-hint{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink-3);opacity:.7;
+}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1360px;margin:0 auto;padding:0 56px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:52px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{
+  font-family:var(--serif);font-size:19px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 20px;
+}
+.site-foot .tiny{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .layout{display:block;padding:0 32px;max-width:none}
+  .rail{display:none}
+  .content{max-width:720px;margin:0 auto;padding:80px 0 140px}
+  .mast-inner,.site-foot{padding:0 32px}
+  .scroll-hint{left:32px}
+  .orbits{right:-30%;opacity:.7}
+  .float-title{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .event{opacity:1;transform:none}
+  .event::before{transform:scaleY(1)}
+}
+
+/* ===== 首屏专属装饰 ===== */
+.hero-deco{
+  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(560px,44vw);pointer-events:none;opacity:.55;
+}
+.hero-deco svg{width:100%;height:auto;display:block}
+@media (max-width:1080px){.hero-deco{right:-22%;opacity:.35}}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<div class="top-progress"><i id="topBar"></i></div>
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html" class="on">时间线</a>
+  <a href="characters.html">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="hero-deco"><svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M220 400 Q160 300 220 200" fill="none" stroke="#9c8354" stroke-width="1.6"/>
+  <path d="M220 400 Q160 300 220 200" fill="none" stroke="#b59a68" stroke-width=".4" transform="translate(6,0)"/>
+  <path d="M220 200 V400" stroke="#8c7448" stroke-width=".6"/>
+  <path d="M220 300 H420" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M420 300 l-16 -6 v12 Z" fill="none" stroke="#8c3a34" stroke-width=".8"/>
+  <g stroke="#a89070" stroke-width=".5"><path d="M262 296 h6 M282 296 h6 M302 296 h6"/></g>
+  <path d="M120 470 H480" stroke="#b5a07a" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg></div>
+  <div class="mast-inner">
+    <p class="hero-kicker">金庸</p>
+    <h1><em>射雕英雄传</em><span>时间线</span></h1>
+    <p class="hero-deck">一个在蒙古长大的汉人孩子，笨得学一套拳要三个月。他一辈子只认一个理：不能忘本。<br>19 个时间点，从「两个名字」到「守」。</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <span>19 个时间点 · 18 位人物</span><i></i>
+      <span>全本 · 1199—1227</span><i></i>
+      <span>向下滚动</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<main class="layout">
+  <article class="content" id="content">
+
+    <div class="era-divider">
+      <span class="era-name">牛家村</span>
+      <span class="era-sub">01 — 19</span>
+    </div>
+
+    <section class="event" id="sd01" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="牛家村" data-short="两个名字" data-label="1199 年 冬 · 临安 · 牛家村">
+      <div class="ev-when">1199 年 冬<em>临安 · 牛家村</em></div>
+      <h2>两个名字</h2>
+      <p>郭啸天和杨铁心是从北方逃到江南的两兄弟，一个打猎，一个种地，都娶了妻。一天夜里，一个道士路过，三人喝了一场酒。道士说：你们的孩子，一个叫郭靖，一个叫杨康。两个人问为什么。他说：靖康之耻，还没洗呢。道士叫丘处机，走的时候留下一把短剑，剑上刻着两个字。第二年冬天，官兵来了，带路的人叫段天德。郭啸天死在门口，杨铁心掉进井里。官兵走后，雪把血迹盖住了。屋里还有一个婴儿在哭，是杨铁心的儿子。他被一个金人抱走了。</p>
+    </section>
+
+    <section class="event" id="sd02" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="牛家村" data-short="李萍" data-label="1200 年 · 蒙古 · 草原">
+      <div class="ev-when">1200 年<em>蒙古 · 草原</em></div>
+      <h2>李萍</h2>
+      <p>郭靖的母亲李萍被掳走，半路逃出来，一个人在雪地里走了几十里，最后昏倒在一片帐篷前。蒙古人收留了她。她在羊圈里生下孩子，取名郭靖。她没有奶，就用羊奶喂。她不会说蒙古话，就先教儿子说汉话。她常对儿子说：你爹是汉人，死在汉人手里。她说：你以后要做一个好人。郭靖问：什么是好人。她说：就是不忘本。她把儿子裹在羊皮里，白天放羊，晚上缝衣服。她一辈子没有改嫁，也没有回过中原。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">蒙古</span>
+      <span class="era-sub">03 — 19</span>
+    </div>
+
+    <section class="event" id="sd03" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="蒙古" data-short="哲别" data-label="1206 年 · 蒙古 · 部落">
+      <div class="ev-when">1206 年<em>蒙古 · 部落</em></div>
+      <h2>哲别</h2>
+      <p>郭靖六岁那年，看见一个受伤的武士被追兵围住，就把他藏在草垛里。追兵问他看见没有，他说没有。追兵走后，那个武士出来，说：你叫什么。他说：郭靖。那人说：我叫哲别，以后我教你射箭。他学射箭学了六年，能射落天上的雕。成吉思汗看见他，说：这孩子以后有出息。郭靖说：我娘说，我要做个好人。成吉思汗笑了。哲别教他射箭的时候说：别看箭，看风。他学了很久才懂。后来他一箭射落双雕，大汗把金腰带解下来给了他。</p>
+    </section>
+
+    <section class="event" id="sd04" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="蒙古" data-short="安答" data-label="1206 年 · 蒙古 · 大汗帐">
+      <div class="ev-when">1206 年<em>蒙古 · 大汗帐</em></div>
+      <h2>安答</h2>
+      <p>他和成吉思汗的小儿子拖雷结拜，做了安答。两个人一起骑马、摔跤、偷羊。拖雷说：你以后跟我一起打仗。他说：我不打汉人。拖雷说：为什么。他说：我娘说我是汉人。拖雷说：那你也别打我。他说：好。那年冬天，江南七怪找到了他。七个人站在雪地里，为首的是个瞎子，叫柯镇恶。他说：你是郭啸天的儿子。郭靖说：是。他说：那我们教你武功。七怪输了十八年的赌约，可他们还是留下来教他。柯镇恶说：赌是赌，人是人。</p>
+    </section>
+
+    <section class="event" id="sd05" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="蒙古" data-short="七怪" data-label="1206 年 · 蒙古 · 草原">
+      <div class="ev-when">1206 年<em>蒙古 · 草原</em></div>
+      <h2>七怪</h2>
+      <p>江南七怪教了他十年。他笨，一套拳要学三个月，师父们气得骂人。柯镇恶说：这孩子不是练武的料。可他每天天不亮就起来练，练到天黑。有一天他打了一套拳，韩宝驹说：他没打错。七个人都不说话了。后来全真教的马钰偷偷教他内功，教了两年。他不知道那是谁，只知道每天夜里有个道士在崖上等他。他学会了呼吸，也学会了怎么坐一夜不动。马钰走的时候留了一句话：你资质不好，可你不肯停。这句话郭靖记了一辈子。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">南下</span>
+      <span class="era-sub">06 — 19</span>
+    </div>
+
+    <section class="event" id="sd06" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="南下" data-short="小叫化" data-label="1221 年 · 张家口">
+      <div class="ev-when">1221 年<em>张家口</em></div>
+      <h2>小叫化</h2>
+      <p>郭靖南下，在张家口遇见一个小叫化，脏兮兮的，说话很凶。他请小叫化吃饭，点了满满一桌。小叫化说：你钱够吗。他说：够。小叫化吃了半桌，说：你这个人真傻。他说：我娘说，见人饿就要给饭。临走他把自己那匹汗血宝马送给了小叫化。小叫化愣住了，说：你知道这匹马值多少钱吗。他说：不知道。小叫化说：那你还送。他说：我看你喜欢。小叫化把一盘牛肉吃完了，说：我好久没吃饱。他说：那你再点。小叫化看了他一眼，眼睛很亮。</p>
+    </section>
+
+    <section class="event" id="sd07" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="南下" data-short="黄蓉" data-label="1221 年 · 张家口 · 河边">
+      <div class="ev-when">1221 年<em>张家口 · 河边</em></div>
+      <h2>黄蓉</h2>
+      <p>小叫化洗了脸，换了衣服，变成一个姑娘。她说：你看。他说：你是谁。她说：我叫黄蓉。他说：那个小叫化呢。她说：也是我。他说：你为什么骗我。她说：我想看看你是不是真的傻。他说：那你看出什么了。她说：你是真的傻。她说完，转身就走。他追上去，说：你去哪。她说：我饿了。他说：那我请你吃饭。她回过头，笑了。她说：你送我马，我送你一样东西。她从怀里摸出一块点心，掰了一半给他。点心已经压扁了。</p>
+    </section>
+
+    <section class="event" id="sd08" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="南下" data-short="杨康" data-label="1221 年 · 金国 · 赵王府">
+      <div class="ev-when">1221 年<em>金国 · 赵王府</em></div>
+      <h2>杨康</h2>
+      <p>他在赵王府看见一个少年，穿着锦袍，腰上挂着一把短剑。那把剑和他母亲给他的那把是一对。少年说：你是谁。他说：郭靖。少年说：我叫完颜康。他说：你姓杨。少年脸色变了，说：我姓完颜。那个少年是杨铁心的儿子，被完颜洪烈养大，做了金国的小王爷。他母亲包惜弱住在王府后院，屋里摆着丈夫的灵位，一摆十八年。完颜洪烈站在门口，说：康儿，过来。杨康看了他一眼，又看了郭靖一眼，最后走到了完颜洪烈身边。</p>
+    </section>
+
+    <section class="event" id="sd09" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="南下" data-short="比武招亲" data-label="1221 年 · 中都">
+      <div class="ev-when">1221 年<em>中都</em></div>
+      <h2>比武招亲</h2>
+      <p>穆念慈在街上比武招亲，摆了一个擂台。杨康上台，三招把她打倒，抢了她的绣鞋，笑着走了。穆念慈站在台上，脸涨得通红。郭靖看不下去，追上去要鞋。杨康说：你算什么东西。两个人打了起来。穆念慈后来跟了杨康，跟了很多年。她知道他不是好人，可她说：我这一辈子，只喜欢过一个人。她说完，自己先低下头。穆念慈的绣鞋是红色的，鞋底绣着一对鸳鸯。杨康把它揣在怀里，揣了很多年。</p>
+    </section>
+
+    <section class="event" id="sd10" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="南下" data-short="黄药师" data-label="1221 年 · 桃花岛">
+      <div class="ev-when">1221 年<em>桃花岛</em></div>
+      <h2>黄药师</h2>
+      <p>黄蓉带他上桃花岛。岛上种满桃花，摆着阵。黄药师坐在亭子里，看了他一眼，说：你想娶我女儿。他说：是。黄药师说：你凭什么。他说：我什么都没有。黄药师说：那你走吧。黄蓉说：爹。黄药师出了三道题：比武功、比音律、比背书。郭靖前两样都输，第三样赢了——他背的是九阴真经的残篇。黄药师愣了半天，说：你这个人，运气太好。三道题答完，黄药师沉默了很久，说：你娶她可以，但要留在我岛上。郭靖说：我要回中原。黄药师说：那你走吧。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">身世</span>
+      <span class="era-sub">11 — 19</span>
+    </div>
+
+    <section class="event" id="sd11" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="身世" data-short="洪七公" data-label="1221 年 · 中原 · 破庙">
+      <div class="ev-when">1221 年<em>中原 · 破庙</em></div>
+      <h2>洪七公</h2>
+      <p>黄蓉用一只叫化鸡引来了洪七公。老叫化吃了半只，说：这鸡做得不错。她说：那我天天给你做。他说：你想学什么。她说：降龙十八掌。他说：那是丐帮的功夫。她说：你教他。他看了看郭靖，说：这孩子笨。洪七公教了他一个月，教了十五掌。他说：剩下的三掌，以后再说。郭靖跪下磕头，说：师父。洪七公摆手说：别叫，我还没收你。他说完，又啃了一口鸡腿。洪七公说：你学武是为了什么。郭靖说：为了不让人欺负我娘。洪七公说：你娘已经不在了。郭靖说：那我为了不让人欺负别人。</p>
+    </section>
+
+    <section class="event" id="sd12" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="身世" data-short="周伯通" data-label="1222 年 · 桃花岛 · 山洞">
+      <div class="ev-when">1222 年<em>桃花岛 · 山洞</em></div>
+      <h2>周伯通</h2>
+      <p>他在岛上遇见一个白胡子老头，被关在山洞里十五年。老头说：我叫周伯通，是王重阳的师弟。他说：你为什么被关。老头说：因为我好玩。他说：那你不冤。老头说：我不冤，我就是闷。周伯通教他双手互搏，一手画圆一手画方。他学了三个月才会。周伯通又把九阴真经的口诀教给了他，说：你别告诉别人是我教的。他说：为什么。老头说：因为我自己没练。周伯通说：你这个人真闷。郭靖说：我师父也这么说。周伯通说：那你跟我玩。他说：玩什么。周伯通说：玩什么都行。</p>
+    </section>
+
+    <section class="event" id="sd13" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="身世" data-short="欧阳锋" data-label="1222 年 · 太湖 · 归云庄">
+      <div class="ev-when">1222 年<em>太湖 · 归云庄</em></div>
+      <h2>欧阳锋</h2>
+      <p>欧阳锋带着侄儿欧阳克来中原，为的是九阴真经。他在归云庄放蛇，把一屋子人困住。郭靖用降龙十八掌打退了他三招，他退了一步，说：这孩子有古怪。他说完，看了郭靖一眼，那一眼很冷。欧阳克看上了黄蓉，处处纠缠。他叔叔说：你要是喜欢，就抢。他说：我抢不过她。他叔叔说：那就用毒。他笑了，说：好。欧阳锋的蛇阵摆开，地上全是蛇。郭靖把黄蓉护在身后，说：你别动。她说：我不动。他说：我数三下，你就跑。</p>
+    </section>
+
+    <section class="event" id="sd14" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="身世" data-short="身世" data-label="1223 年 · 牛家村 · 旧屋">
+      <div class="ev-when">1223 年<em>牛家村 · 旧屋</em></div>
+      <h2>身世</h2>
+      <p>杨铁心没有死。他在江湖上找了妻子十八年，最后在赵王府后院找到了她。包惜弱说：你活着。他说：我活着。她说：我嫁给了他。他说：我知道。她说：你为什么现在才来。他说：我一直在找。两个人抱在一起，被追兵围住。杨铁心一枪刺死几个，回头说：康儿，你过来。杨康站在原地没动。杨铁心说：你是我儿子。杨康说：我姓完颜。包惜弱说：他对我很好。杨铁心说：我知道。她说：可我没有一天不想你。他说：我知道。他说完，把她抱住了。</p>
+    </section>
+
+    <section class="event" id="sd15" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="身世" data-short="死" data-label="1223 年 · 牛家村">
+      <div class="ev-when">1223 年<em>牛家村</em></div>
+      <h2>死</h2>
+      <p>杨铁心把枪尖对准自己的胸口，说：我这一辈子，对不起你娘。他刺下去。包惜弱扑上去，夺过枪，也刺了自己。两个人倒在一起。杨康站在门口，脸是白的。郭靖把他拉走的时候，他一直在发抖。那天夜里下雪。郭靖把两具尸体放在一起，说：他们是夫妻。他说：应该埋在一起。杨康站在旁边，一句话没说。郭靖挖了两个坑，把他们并排埋了。他在坟前站了很久，说：杨叔，我会照顾康弟。他后来没有做到。</p>
+    </section>
+
+    <section class="event" id="sd16" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="身世" data-short="杨康之死" data-label="1223 年 · 铁掌山">
+      <div class="ev-when">1223 年<em>铁掌山</em></div>
+      <h2>杨康之死</h2>
+      <p>杨康为了抢丐帮帮主之位，杀了欧阳克，又嫁祸给别人。事情败露，他在铁掌山上被黄蓉揭穿。他扑上去要杀她，一掌打在铁掌帮的毒砂上。他中了毒，倒在庙里。穆念慈赶到的时候，他已经说不出话。他抓住她的手，指了指自己的胸口。她把他抱起来，说：我不怪你。她说：我从来没有怪过你。他死在她怀里。穆念慈把他的眼睛合上，说：你这一辈子，太累了。她说：下辈子别生在王府。她说完，一个人走出庙门。</p>
+    </section>
+
+    <section class="event" id="sd17" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="身世" data-short="论剑" data-label="1224 年 · 华山">
+      <div class="ev-when">1224 年<em>华山</em></div>
+      <h2>论剑</h2>
+      <p>华山之巅，天下五绝论剑。黄药师、洪七公、欧阳锋、段智兴，还有周伯通。打了七天七夜，没有输赢。最后欧阳锋练了假的九阴真经，疯了，一边打一边喊：我是天下第一。其他人都停了手。洪七公说：他疯了。黄药师说：疯了才好。他说：他一辈子想当第一，现在他觉得自己是第一。他说完，转身下山。周伯通说：他疯了。洪七公说：他早就疯了。黄药师说：我们回去吧。三个人转身下山，谁也没有回头看欧阳锋。</p>
+    </section>
+
+    <div class="era-divider">
+      <span class="era-name">襄阳</span>
+      <span class="era-sub">18 — 19</span>
+    </div>
+
+    <section class="event" id="sd18" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="襄阳" data-short="两难" data-label="1225 年 · 蒙古">
+      <div class="ev-when">1225 年<em>蒙古</em></div>
+      <h2>两难</h2>
+      <p>成吉思汗要他带兵打金国，他去了。后来又要他打宋，他不肯。成吉思汗说：你是蒙古人。他说：我是汉人。成吉思汗说：你在我这儿长大。他说：我知道。他说：可我不能打自己的地方。他带着母亲南逃。李萍为了不拖累儿子，趁他不注意，用匕首刺了自己。她死前说：你要记住你爹是谁。他说：我记住。李萍说：你走吧。他说：我带你走。她说：你带不动我。她说：你记住，你是郭啸天的儿子。她说完，把匕首转了个方向。</p>
+    </section>
+
+    <section class="event" id="sd19" style="--c:#5a4a2e"
+      data-color="#5a4a2e" data-era="襄阳" data-short="守" data-label="1227 年 · 襄阳">
+      <div class="ev-when">1227 年<em>襄阳</em></div>
+      <h2>守</h2>
+      <p>很多年后，他站在襄阳的城墙上。城下是蒙古的兵，城上是宋的旗。黄蓉站在他旁边，说：你后悔吗。他说：不后悔。她说：我们守不住。他说：我知道。她说：那为什么守。他说：因为这是我们自己的城。他这一守守了几十年。后来的人说：郭大侠守襄阳。没有人说他是蒙古长大的。黄蓉说：城破了怎么办。他说：那就死在这儿。她说：我陪你。他说：你别。她说：我偏要。</p>
+    </section>
+
+  </article>
+
+  <aside class="rail" id="rail">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <div class="rail-topline">
+          <span class="kicker">Current</span>
+          <span class="rail-count"><b id="railIdx">01</b> / 19</span>
+        </div>
+        <div class="rail-era" id="railNow">1199 年 冬</div>
+      </div>
+      <div class="rail-viewport" id="railViewport">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis"></div>
+          <div class="tl-fill" id="tlFill"></div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="rail-bar"><i id="railBar"></i></div>
+        <div class="rail-hint">CHRONOLOGICAL ORDER</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p class="q">“侠之大者，为国为民。”</p>
+  <p class="tiny">射雕英雄传 · 金庸　·　19 个时间点，18 位人物</p>
+  <nav class="foot-nav">
+    <a href="#top">回到开头</a>
+    <a href="characters.html">看人物志</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var events   = Array.prototype.slice.call(document.querySelectorAll('.event'));
+  var track    = document.getElementById('tlTrack');
+  var viewport = document.getElementById('railViewport');
+  var axis     = document.getElementById('tlAxis');
+  var fill     = document.getElementById('tlFill');
+  var railNow  = document.getElementById('railNow');
+  var railIdx  = document.getElementById('railIdx');
+  var railBar  = document.getElementById('railBar');
+  var topBar   = document.getElementById('topBar');
+  var floatTtl = document.getElementById('floatTitle');
+  var railEl   = document.getElementById('rail');
+
+  if (!events.length) return;
+
+  /* ---------- 构建时间线节点 ---------- */
+  var lastEra = '';
+  events.forEach(function(el){
+    var era = el.getAttribute('data-era') || '';
+    if (era !== lastEra){
+      var tag = document.createElement('div');
+      tag.className = 'tl-era';
+      tag.textContent = era;
+      track.appendChild(tag);
+      lastEra = era;
+    }
+    var color = el.getAttribute('data-color') || '#8c2b26';
+    var label = el.getAttribute('data-label') || '';
+    var seg = label.split(' · ');
+    var when = seg[0];
+    var place = seg.slice(1).join(' · ');
+    var name = el.getAttribute('data-short') || '';
+    var sub = name;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-node';
+    btn.setAttribute('data-target', el.id);
+    btn.style.setProperty('--c', color);
+    btn.innerHTML =
+      '<span class="dot"></span>' +
+      '<span class="txt"><b>' + when + '</b>' +
+      '<i>' + sub + '</i></span>';
+    btn.addEventListener('click', function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - window.innerHeight * 0.16;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+    track.appendChild(btn);
+  });
+
+  var nodes = Array.prototype.slice.call(track.querySelectorAll('.tl-node'));
+  var total = nodes.length;
+
+  /* ---------- 状态 ---------- */
+  var active = -1;
+  var curY = 0, tgtY = 0, raf = null;
+  var railOK = false;
+
+  function nodeCenter(n){ return n.offsetTop + n.offsetHeight / 2; }
+
+  function measure(){
+    railOK = viewport && viewport.clientHeight > 80;
+    if (!railOK) return null;
+    var H = viewport.clientHeight;
+    var first = nodeCenter(nodes[0]);
+    var lastEl = nodes[total - 1];
+    var last = nodeCenter(lastEl);
+    axis.style.top = first + 'px';
+    axis.style.height = Math.max(0, last - first) + 'px';
+    return { H: H, first: first, last: last, trackH: lastEl.offsetTop + lastEl.offsetHeight };
+  }
+
+  function loop(){
+    raf = null;
+    var d = tgtY - curY;
+    curY += d * 0.17;
+    if (Math.abs(d) < 0.4) curY = tgtY;
+    track.style.transform = 'translate3d(0,' + curY.toFixed(2) + 'px,0)';
+    if (Math.abs(tgtY - curY) > 0.4) raf = requestAnimationFrame(loop);
+  }
+  function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+
+  /* ---------- 渲染 ---------- */
+  function render(i){
+    var g = measure();
+
+    if (g){
+      var center = nodeCenter(nodes[i]);
+      var off = g.H * 0.44 - center;
+      var minOff = Math.min(0, g.H - g.trackH - 18);
+      off = Math.max(minOff, Math.min(0, off));
+      tgtY = off;
+      kick();
+
+      fill.style.top = g.first + 'px';
+      fill.style.height = Math.max(0, center - g.first) + 'px';
+      fill.style.setProperty('--fc', events[i].getAttribute('data-color') || '#8c2b26');
+    }
+
+    for (var k = 0; k < total; k++){
+      nodes[k].classList.toggle('active', k === i);
+      nodes[k].classList.toggle('done', k < i);
+    }
+
+    var era = events[i].getAttribute('data-era') || '';
+    var now = (events[i].getAttribute('data-label') || '').split(' · ')[0];
+    if (railNow && railNow.textContent !== now){
+      railNow.textContent = now;
+      railNow.classList.remove('flip');
+      void railNow.offsetWidth;
+      railNow.classList.add('flip');
+    }
+    railIdx.textContent = i + 1 < 10 ? '0' + (i + 1) : String(i + 1);
+    railBar.style.width = ((i + 1) / total * 100) + '%';
+  }
+
+  /* ---------- 滚动同步 ---------- */
+  var ticking = false;
+
+  function onScroll(){
+    var docEl = document.documentElement;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+    topBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+
+    if (railEl) railEl.classList.toggle('away', (max - window.pageYOffset) < 170);
+
+    var line = window.innerHeight * 0.42;
+    var idx = 0;
+    for (var i = 0; i < total; i++){
+      if (events[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.pageYOffset >= docEl.scrollHeight - 4) idx = total - 1;
+
+    if (idx !== active){ active = idx; render(idx); }
+  }
+
+  function requestSync(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', function(){
+    active = -1;
+    curY = 0; tgtY = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+    requestSync();
+  });
+  window.addEventListener('load', requestSync);
+
+  /* ---------- 入场动画 ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    events.forEach(function(el){ io.observe(el); });
+  } else {
+    events.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 初始化 ---------- */
+  requestSync();
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ active = -1; requestSync(); });
+  }
+  setTimeout(function(){ active = -1; requestSync(); }, 400);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>

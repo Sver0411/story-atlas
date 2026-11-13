@@ -51,10 +51,20 @@ QUOTES = {
     'red-poppies': '我听见了尘埃落定的声音。',
     'muslim-funeral': '玉碎了，月亮还在。',
     'demi-gods': '无人不冤，有情皆孽。',
+    'legend-condor': '侠之大者，为国为民。',
 }
 
 
 DECOR = {
+'legend-condor': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M220 400 Q160 300 220 200" fill="none" stroke="#9c8354" stroke-width="1.6"/>
+  <path d="M220 400 Q160 300 220 200" fill="none" stroke="#b59a68" stroke-width=".4" transform="translate(6,0)"/>
+  <path d="M220 200 V400" stroke="#8c7448" stroke-width=".6"/>
+  <path d="M220 300 H420" stroke="#8c3a34" stroke-width="1"/>
+  <path d="M420 300 l-16 -6 v12 Z" fill="none" stroke="#8c3a34" stroke-width=".8"/>
+  <g stroke="#a89070" stroke-width=".5"><path d="M262 296 h6 M282 296 h6 M302 296 h6"/></g>
+  <path d="M120 470 H480" stroke="#b5a07a" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
 'demi-gods': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M120 470 H480" stroke="#9c8a6a" stroke-width="1"/>
   <path d="M150 470 V370 H230 V470 M370 470 V370 H450 V470" fill="none" stroke="#8d7c5c" stroke-width=".9"/>
