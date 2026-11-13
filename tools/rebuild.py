@@ -36,10 +36,46 @@ QUOTES = {
     'les-miserables': '比天空更宽阔的，是人的心灵。',
     'pride-prejudice': '凡是有钱的单身汉，总想娶位太太，这已经成了一条举世公认的真理。',
     'jane-eyre': '你以为我穷、低微、不美、矮小，我就没有灵魂没有心吗。',
+    'wuthering': '我对他的爱，就像脚下恒久不变的岩石。',
+    'war-peace': '我要活，要爱，要相信。',
+    'anna-karenina': '幸福的家庭都是相似的，不幸的家庭各有各的不幸。',
 }
 
 
 DECOR = {
+'wuthering': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M120 500 Q220 460 300 500 T480 500" fill="none" stroke="#9a9aa4" stroke-width=".7"/>
+  <path d="M150 500 V330 L190 300 L230 330 V500" fill="none" stroke="#8a8a94" stroke-width="1.1"/>
+  <path d="M300 500 V300 L360 256 L420 300 V500" fill="none" stroke="#8a8a94" stroke-width="1.1"/>
+  <path d="M330 500 V420 H390 V500" fill="none" stroke="#8a8a94" stroke-width=".6"/>
+  <path d="M340 330 H380 M340 366 H380" stroke="#b0b0ba" stroke-width=".5"/>
+  <path d="M470 470 q18 -40 0 -80 q-18 40 0 80Z" fill="none" stroke="#8c3a34" stroke-width=".9"/>
+  <path d="M60 540 H540" stroke="#a5a5ae" stroke-width=".4" stroke-dasharray="2 9"/>
+</svg>''',
+'war-peace': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <path d="M120 430 Q300 360 480 430" fill="none" stroke="#a3ab99" stroke-width="1"/>
+  <path d="M300 250 V430" stroke="#8f9785" stroke-width="1.1"/>
+  <path d="M262 250 H338" stroke="#8f9785" stroke-width="1.4"/>
+  <circle cx="300" cy="222" r="26" fill="none" stroke="#8c3a34" stroke-width="1.2"/>
+  <path d="M286 222 H314 M300 208 V236" stroke="#8c3a34" stroke-width=".7"/>
+  <g stroke="#b6bdab" stroke-width=".5">
+    <path d="M150 470 V430 M180 470 V440 M210 470 V434 M400 470 V436 M430 470 V442 M460 470 V430"/>
+  </g>
+  <path d="M60 470 H540" stroke="#a3ab99" stroke-width="1"/>
+</svg>''',
+'anna-karenina': '''<svg viewBox="0 0 600 600" aria-hidden="true">
+  <g stroke="#b09a9a" stroke-width=".6">
+    <path d="M60 400 H540"/><path d="M60 424 H540"/>
+    <path d="M120 400 V424 M180 400 V424 M240 400 V424 M300 400 V424 M360 400 V424 M420 400 V424 M480 400 V424"/>
+  </g>
+  <path d="M60 460 Q140 440 220 460 T380 460 T540 460" fill="none" stroke="#c0aaaa" stroke-width=".5"/>
+  <g fill="none" stroke="#8c3a34" stroke-width="1.1">
+    <path d="M300 250 q-14 -22 0 -44 q14 22 0 44Z"/>
+    <path d="M300 250 V330" stroke-width=".8"/>
+    <path d="M282 330 H318" stroke-width="1"/>
+  </g>
+  <circle cx="300" cy="206" r="3" fill="#8c3a34"/>
+</svg>''',
 'jane-eyre': '''<svg viewBox="0 0 600 600" aria-hidden="true">
   <path d="M300 470 V250" stroke="#a89478" stroke-width="1.1"/>
   <path d="M232 470 V300 Q232 214 300 186 Q368 214 368 300 V470" fill="none" stroke="#a89478" stroke-width="1"/>

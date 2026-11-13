@@ -232,5 +232,41 @@
     "events": 28,
     "people": 14,
     "scope": "全本 · 1820—1831"
+  },
+  {
+    "id": "wuthering",
+    "title": "呼啸山庄",
+    "author": "艾米莉·勃朗特",
+    "category": "世界文学",
+    "description": "一个捡回来的孩子，一个嫁错人的姑娘。",
+    "accent": "#4a4a52",
+    "cover": "",
+    "events": 20,
+    "people": 11,
+    "scope": "全本 · 1771—1802"
+  },
+  {
+    "id": "war-peace",
+    "title": "战争与和平",
+    "author": "列夫·托尔斯泰",
+    "category": "世界文学",
+    "description": "五大家族，一场入侵。",
+    "accent": "#57604f",
+    "cover": "",
+    "events": 19,
+    "people": 12,
+    "scope": "全本 · 1805—1815"
+  },
+  {
+    "id": "anna-karenina",
+    "title": "安娜·卡列尼娜",
+    "author": "列夫·托尔斯泰",
+    "category": "世界文学",
+    "description": "一个女人为了爱情抛下一切。",
+    "accent": "#5c4749",
+    "cover": "",
+    "events": 20,
+    "people": 9,
+    "scope": "全本 · 1873—1877"
   }
 ]

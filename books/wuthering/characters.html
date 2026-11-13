@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>呼啸山庄 · 人物志 | 11 个人物</title>
+<meta name="description" content="一个捡回来的孩子，一个嫁错人的姑娘，两座庄园，三代人。爱和恨在这里是同一样东西。">
+<style>
+:root{
+  --paper:#f7f4ed; --ink:#1d1a16; --ink-2:#4a443d; --ink-3:#8b847a;
+  --line:rgba(29,26,22,.12);
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC","STSong",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 50%, rgba(29,26,22,.03) .6px, transparent .6px);
+  background-size:4px 4px;color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(140,43,38,.16)}
+
+.topnav{
+  position:fixed;right:26px;top:16px;z-index:95;display:flex;gap:2px;
+  background:rgba(247,244,237,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.topnav a{
+  font-size:11px;letter-spacing:.14em;color:var(--ink-2);text-decoration:none;
+  padding:5px 14px;border-radius:999px;transition:.3s;
+}
+.topnav a:hover{color:var(--ink)}
+.topnav a.on{background:var(--ink);color:var(--paper)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* hero */
+.masthead{
+  padding:120px 0 70px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(140,43,38,.06), transparent 60%),
+    radial-gradient(700px 380px at 6% 92%, rgba(47,74,107,.06), transparent 60%);
+}
+.kicker{font-size:11px;letter-spacing:.34em;color:var(--ink-3);margin:0 0 26px}
+h1.big{
+  font-family:var(--serif);font-size:clamp(52px,7vw,96px);font-weight:600;
+  letter-spacing:.1em;margin:0;line-height:1;
+}
+.deck{margin:30px 0 0;max-width:600px;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.rule{width:64px;height:1px;background:#8c2b26;opacity:.55;margin:34px 0 0}
+
+/* 关系网 */
+.netwrap{margin:0 0 56px;padding:26px 0 6px;border-top:1px solid var(--line)}
+.nethead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.nethead h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.06em}
+.nethead p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.1em;color:var(--ink-3)}
+.legend i{width:16px;height:1.5px;display:block}
+.net{width:100%;height:auto;display:block;margin-top:6px}
+.pnode{cursor:pointer}
+.pnode circle{transition:stroke-width .25s,fill .25s}
+.pnode:hover circle{stroke-width:2.2;fill:#fff}
+.pnode .pname{
+  font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;
+  pointer-events:none;letter-spacing:.02em;
+}
+.pnode.dim{opacity:.16}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+
+/* 人物分组 */
+.pgroup{margin:64px 0 0}
+.pgroup-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.pgroup-head h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin:0;letter-spacing:.12em;
+  color:var(--c,#1d1a16);
+}
+.pgroup-head span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.pcard{
+  position:relative;padding:24px 26px 22px;
+  background:rgba(255,255,255,.42);
+  border:1px solid rgba(29,26,22,.09);border-radius:2px;
+  transition:box-shadow .4s,border-color .4s,transform .4s;
+}
+.pcard::before{
+  content:'';position:absolute;left:0;top:22px;bottom:22px;width:1px;
+  background:var(--c);opacity:.45;
+}
+.pcard:hover{border-color:rgba(29,26,22,.18);box-shadow:0 10px 30px -18px rgba(29,26,22,.35);transform:translateY(-2px)}
+.pcard:target{box-shadow:0 0 0 1px var(--c), 0 12px 34px -18px rgba(29,26,22,.4)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pcard h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;margin:0;letter-spacing:.04em;
+}
+.pcard .dot{width:6px;height:6px;border-radius:50%;background:var(--c);opacity:.75;flex:none}
+.pcard .role{
+  margin:6px 0 14px;font-size:10.5px;letter-spacing:.14em;color:var(--c);opacity:.9;
+}
+.pcard .deeds{margin:0;font-size:14.5px;line-height:1.95;color:#3c3731;text-align:justify}
+.pcard blockquote{
+  margin:16px 0 0;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,transparent);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-2);
+}
+.quote-source{display:block;margin-top:6px;font-size:10px;line-height:1.8;color:var(--ink-3);text-decoration:none}.quote-source[hidden]{display:none}.quote-source:hover{text-decoration:underline}
+.pcard .jump{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid transparent;transition:.3s;
+}
+.pcard .jump:hover{color:var(--c);border-bottom-color:var(--c)}
+
+.site-foot{
+  max-width:1280px;margin:100px auto 0;padding:0 48px 90px;text-align:center;
+}
+.site-foot::before{
+  content:'';display:block;height:1px;margin-bottom:48px;
+  background:linear-gradient(90deg,transparent,rgba(29,26,22,.16),transparent);
+}
+.site-foot .q{font-family:var(--serif);font-size:18px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 18px}
+.site-foot .tiny{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin:0;line-height:2}
+
+@media (max-width:900px){
+  .wrap{padding:0 24px}
+  .pgrid{grid-template-columns:1fr}
+  .masthead{padding:90px 0 50px}
+  .netwrap{overflow-x:auto}
+  .net{min-width:900px}
+}
+
+/* 筛选条 */
+.netbar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.fbtn{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(29,26,22,.14);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.28s;
+}
+.fbtn:hover{border-color:rgba(29,26,22,.3);color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.netbox{position:relative}
+.pnode circle{transition:stroke-width .25s,fill .25s,opacity .25s}
+.pnode:hover circle{stroke-width:2.4;fill:#fff}
+.pnode.sel circle{stroke-width:2.6;fill:#fff}
+.pnode .pname{font-family:var(--sans);font-size:11px;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.pnode.dim{opacity:.13}
+.plink{transition:opacity .25s,stroke-width .25s}
+.plink.hot{stroke-width:1.9;opacity:.95}
+.plink.dim{opacity:.05}
+.rlabel{
+  font-family:var(--sans);font-size:9px;fill:var(--ink-2);text-anchor:middle;
+  opacity:.4;transition:opacity .25s;pointer-events:none;
+  paint-order:stroke;stroke:#f7f4ed;stroke-width:3.6px;stroke-linejoin:round;
+}
+.rlabel.show{opacity:1;fill:var(--ink)}
+.rlabel.dim{opacity:.07}
+
+/* 详情面板 */
+.pdetail{
+  position:absolute;right:2px;top:2px;width:338px;max-height:calc(100% - 4px);
+  overflow:auto;padding:26px 26px 22px;
+  background:rgba(252,250,246,.975);backdrop-filter:blur(10px);
+  border:1px solid rgba(29,26,22,.14);border-radius:3px;
+  box-shadow:0 24px 60px -30px rgba(29,26,22,.5);
+  opacity:0;transform:translateX(14px);pointer-events:none;
+  transition:opacity .32s ease,transform .32s ease;
+}
+.pdetail.on{opacity:1;transform:none;pointer-events:auto}
+.pd-close{
+  position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;
+  line-height:1;color:var(--ink-3);cursor:pointer;padding:4px;
+}
+.pd-close:hover{color:var(--ink)}
+.pd-camp{
+  display:inline-block;font-size:9.5px;letter-spacing:.16em;
+  padding:3px 9px;border-radius:2px;margin-bottom:10px;
+}
+.pdetail h3{font-family:var(--serif);font-size:26px;margin:0 0 6px;letter-spacing:.04em}
+.pdetail .pd-role{font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px}
+.pdetail .pd-deeds{font-size:13.5px;line-height:1.9;color:#3c3731;margin:0;text-align:justify}
+.pdetail blockquote{
+  margin:14px 0 0;padding-left:12px;border-left:2px solid rgba(29,26,22,.16);
+  font-family:var(--serif);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+}
+.pd-rel-title{
+  margin:18px 0 8px;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);
+  padding-top:14px;border-top:1px solid rgba(29,26,22,.1);
+}
+.pd-rel{display:flex;flex-direction:column;gap:2px}
+.pd-rel button{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  background:none;border:0;padding:4px 0;cursor:pointer;font-family:inherit;
+  font-size:12px;color:var(--ink-2);transition:color .25s;
+}
+.pd-rel button:hover{color:var(--ink)}
+.pd-rel button b{font-weight:500;font-family:var(--serif);font-size:13.5px}
+.pd-rel button i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);margin-left:auto}
+.pd-link{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+}
+.pd-link:hover{color:#8c2b26;border-bottom-color:#8c2b26}
+@media (max-width:900px){
+  .pdetail{position:fixed;right:16px;left:16px;bottom:16px;top:auto;width:auto;max-height:56vh}
+}
+
+/* ===== 导航指示器与跨页转场 ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root){ animation: vtOut .22s ease both }
+::view-transition-new(root){ animation: vtIn .34s cubic-bezier(.2,.7,.2,1) both }
+@keyframes vtOut{ to{ opacity:0; transform:translateY(-6px) } }
+@keyframes vtIn{ from{ opacity:0; transform:translateY(8px) } }
+.topnav{ view-transition-name: siteNav; }
+::view-transition-old(siteNav),::view-transition-new(siteNav){ animation:none; mix-blend-mode:normal }
+
+.nav-ind{
+  position:absolute; left:0; top:3px; bottom:3px; width:0; border-radius:999px;
+  background:var(--ink); opacity:0; z-index:0;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),
+             width .42s cubic-bezier(.2,.7,.2,1),
+             opacity .3s ease;
+}
+.topnav a{ position:relative; z-index:1; }
+.topnav a.on{ background:transparent; color:var(--paper); }
+</style>
+<style>
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.gtag{
+  font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+  fill:var(--ink-2);opacity:.9;
+}
+.foot-nav{display:flex;gap:26px;justify-content:center;margin-top:26px}
+.foot-nav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent;
+  padding-bottom:2px;transition:.3s;
+}
+.foot-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body id="top">
+
+<nav class="topnav">
+  <span class="nav-ind" aria-hidden="true"></span>
+  <a href="../../index.html">书架</a>
+  <a href="index.html">时间线</a>
+  <a href="characters.html" class="on">人物志</a>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">艾米莉·勃朗特 / CHARACTERS</p>
+    <h1 class="big">呼啸山庄 · 人物</h1>
+    <p class="deck">一个捡回来的孩子，一个嫁错人的姑娘，两座庄园，三代人。爱和恨在这里是同一样东西。</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="netwrap">
+    <div class="nethead">
+      <h2>关系网</h2>
+      <p>点击人物 · 查看羁绊</p>
+    </div>
+    <div class="netbar"><button class="fbtn on" id="allBtn">全览</button><button class="fbtn" data-camp="山庄">山庄</button><button class="fbtn" data-camp="田庄">田庄</button><button class="fbtn" data-camp="两家">两家</button></div>
+    <div class="netbox">
+      <svg class="net" viewBox="0 0 1240 900" role="img" aria-label="呼啸山庄人物关系网">
+        <g class="gtags"><text class="gtag" x="620" y="115" text-anchor="middle">山庄</text>
+        <text class="gtag" x="815" y="468" text-anchor="middle">田庄</text>
+        <text class="gtag" x="425" y="483" text-anchor="middle">两家</text></g>
+        <g class="links"><line class="plink" data-a="heathcliff" data-b="catherine" x1="620" y1="137" x2="688" y2="176" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="heathcliff" data-b="hindley" x1="620" y1="137" x2="688" y2="254" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="heathcliff" data-b="edgar" x1="620" y1="137" x2="815" y2="490" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="heathcliff" data-b="isabella" x1="620" y1="137" x2="877" y2="552" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="heathcliff" data-b="hareton" x1="620" y1="137" x2="620" y2="293" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="heathcliff" data-b="linton" x1="620" y1="137" x2="552" y2="254" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="heathcliff" data-b="cathy" x1="620" y1="137" x2="753" y2="552" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="catherine" data-b="edgar" x1="688" y1="176" x2="815" y2="490" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="catherine" data-b="nelly" x1="688" y1="176" x2="425" y2="553" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="catherine" data-b="cathy" x1="688" y1="176" x2="753" y2="552" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="hindley" data-b="hareton" x1="688" y1="254" x2="620" y2="293" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edgar" data-b="isabella" x1="815" y1="490" x2="877" y2="552" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="edgar" data-b="cathy" x1="815" y1="490" x2="753" y2="552" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="isabella" data-b="linton" x1="877" y1="552" x2="552" y2="254" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="cathy" data-b="hareton" x1="753" y1="552" x2="620" y2="293" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="cathy" data-b="linton" x1="753" y1="552" x2="552" y2="254" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lockwood" data-b="heathcliff" x1="815" y1="614" x2="620" y2="137" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="lockwood" data-b="nelly" x1="815" y1="614" x2="425" y2="553" stroke="#7a5a38" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="old_earnshaw" data-b="heathcliff" x1="552" y1="176" x2="620" y2="137" stroke="#8c2b26" stroke-width="0.9" opacity="0.32"/>
+        <line class="plink" data-a="nelly" data-b="hareton" x1="425" y1="553" x2="620" y2="293" stroke="#2f4a6b" stroke-width="0.9" opacity="0.32"/></g>
+        <g class="labels"><text class="rlabel" x="654" y="152" data-a="heathcliff" data-b="catherine">一生只爱一个人</text>
+        <text class="rlabel" x="654" y="192" data-a="heathcliff" data-b="hindley">被虐待 · 复仇</text>
+        <text class="rlabel" x="717" y="310" data-a="heathcliff" data-b="edgar">夺走他的爱人 · 夺走他的产业</text>
+        <text class="rlabel" x="748" y="341" data-a="heathcliff" data-b="isabella">骗她私奔 · 恨她</text>
+        <text class="rlabel" x="620" y="211" data-a="heathcliff" data-b="hareton">养大仇人的儿子</text>
+        <text class="rlabel" x="586" y="192" data-a="heathcliff" data-b="linton">把儿子当工具</text>
+        <text class="rlabel" x="686" y="341" data-a="heathcliff" data-b="cathy">逼她嫁给自己的儿子</text>
+        <text class="rlabel" x="751" y="329" data-a="catherine" data-b="edgar">夫妻 · 心不在这里</text>
+        <text class="rlabel" x="556" y="360" data-a="catherine" data-b="nelly">主仆 · 她看着她死</text>
+        <text class="rlabel" x="720" y="360" data-a="catherine" data-b="cathy">母女 · 从未见面</text>
+        <text class="rlabel" x="654" y="270" data-a="hindley" data-b="hareton">父子 · 五岁分开</text>
+        <text class="rlabel" x="846" y="518" data-a="edgar" data-b="isabella">兄妹</text>
+        <text class="rlabel" x="784" y="518" data-a="edgar" data-b="cathy">父女</text>
+        <text class="rlabel" x="715" y="399" data-a="isabella" data-b="linton">母子</text>
+        <text class="rlabel" x="686" y="419" data-a="cathy" data-b="hareton">从敌对到相爱</text>
+        <text class="rlabel" x="653" y="399" data-a="cathy" data-b="linton">被逼的婚姻</text>
+        <text class="rlabel" x="717" y="372" data-a="lockwood" data-b="heathcliff">房东与租客</text>
+        <text class="rlabel" x="620" y="580" data-a="lockwood" data-b="nelly">听故事的人</text>
+        <text class="rlabel" x="586" y="152" data-a="old_earnshaw" data-b="heathcliff">把他捡回来的人</text>
+        <text class="rlabel" x="523" y="419" data-a="nelly" data-b="hareton">看着他长大</text></g>
+        <g class="nodes"><g class="pnode" data-id="heathcliff" transform="translate(620,137)"><title>希斯克利夫 · 呼啸山庄的主人</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">希斯克利夫</text></g>
+        <g class="pnode" data-id="catherine" transform="translate(688,176)"><title>凯瑟琳·恩肖 · 恩肖家的女儿</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">恩肖</text></g>
+        <g class="pnode" data-id="hindley" transform="translate(688,254)"><title>辛德雷·恩肖 · 恩肖家的长子</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">恩肖</text></g>
+        <g class="pnode" data-id="edgar" transform="translate(815,490)"><title>埃德加·林顿 · 画眉田庄的主人</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">林顿</text></g>
+        <g class="pnode" data-id="isabella" transform="translate(877,552)"><title>伊莎贝拉·林顿 · 埃德加的妹妹</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">林顿</text></g>
+        <g class="pnode" data-id="nelly" transform="translate(425,553)"><title>内莉·丁恩 · 管家 · 讲述者</title><circle r="26" fill="#f7f4ed" stroke="#2f4a6b" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">丁恩</text></g>
+        <g class="pnode" data-id="lockwood" transform="translate(815,614)"><title>洛克伍德 · 画眉田庄的租客</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:10px">洛克伍德</text></g>
+        <g class="pnode" data-id="cathy" transform="translate(753,552)"><title>凯茜·林顿 · 凯瑟琳的女儿</title><circle r="26" fill="#f7f4ed" stroke="#7a5a38" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">林顿</text></g>
+        <g class="pnode" data-id="hareton" transform="translate(620,293)"><title>哈里顿·恩肖 · 辛德雷的儿子</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">恩肖</text></g>
+        <g class="pnode" data-id="linton" transform="translate(552,254)"><title>林顿·希斯克利夫 · 希斯克利夫的儿子</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:9px">希斯克利夫</text></g>
+        <g class="pnode" data-id="old_earnshaw" transform="translate(552,176)"><title>老恩肖 · 呼啸山庄的老主人</title><circle r="26" fill="#f7f4ed" stroke="#8c2b26" stroke-width="1.1"/><text class="pname" y="4" style="font-size:11px">老恩肖</text></g></g>
+      </svg>
+      <aside class="pdetail" id="pdetail">
+        <button class="pd-close" id="pdClose" aria-label="关闭">×</button>
+        <div class="pd-camp" id="pdCamp"></div>
+        <h3 id="pdName"></h3>
+        <p class="pd-role" id="pdRole"></p>
+        <p class="pd-deeds" id="pdDeeds"></p>
+        <blockquote id="pdQuote"></blockquote>
+        <a id="pdQuoteSource" hidden></a>
+        <div class="pd-rel-title">羁绊</div>
+        <div class="pd-rel" id="pdRel"></div>
+        <a class="pd-link" id="pdLink" href="#">在时间线中查看 →</a>
+      </aside>
+    </div>
+  </section>
+
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#8c2b26">山庄</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-heathcliff" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>希斯克利夫</h3></div>
+        <p class="role">呼啸山庄的主人</p>
+        <p class="deeds">被老恩肖从利物浦捡回来的孩子，一生只爱一个人，也一生只恨所有人。他出走三年，带着钱回来，用赌局、婚姻和遗嘱把两家人一个个吞掉。他赢到最后，却连一顿饭都吃不下。他死的时候窗开着，雨落进来。</p>
+        <a class="jump" href="index.html#wh01">时间线 · 租客 →</a>
+      </article>
+      <article class="pcard" id="c-catherine" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>凯瑟琳·恩肖</h3></div>
+        <p class="role">恩肖家的女儿</p>
+        <p class="deeds">野，犟，跑起来像风。她爱希斯克利夫，却嫁给了埃德加，因为她不想做一个乞丐的妻子。她为这个决定付了一辈子的账：病了，疯了，死了。她死前抓住他的衣领说：你别走。她死后二十年，还在敲窗户。</p>
+        <a class="jump" href="index.html#wh02">时间线 · 窗上的名字 →</a>
+      </article>
+      <article class="pcard" id="c-hindley" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>辛德雷·恩肖</h3></div>
+        <p class="role">恩肖家的长子</p>
+        <p class="deeds">父亲疼外人胜过疼他，他就恨了一辈子。妻子死后他开始喝酒赌钱，把家产输给了那个他恨的人。他死的时候，儿子才五岁。他一生只做对了一件事：把希斯克利夫带回了家——不，那是他父亲做的。</p>
+        <a class="jump" href="index.html#wh04">时间线 · 捡回来的孩子 →</a>
+      </article>
+      <article class="pcard" id="c-hareton" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>哈里顿·恩肖</h3></div>
+        <p class="role">辛德雷的儿子</p>
+        <p class="deeds">五岁没了父亲，被仇人养大，不许读书，只许干活。他脾气坏，不认字，被人叫「野小子」。凯茜教他念书，他学了半年才写出自己的名字。他后来娶了她，把两家的地合在一起。</p>
+        <a class="jump" href="index.html#wh15">时间线 · 小哈里顿 →</a>
+      </article>
+      <article class="pcard" id="c-linton" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>林顿·希斯克利夫</h3></div>
+        <p class="role">希斯克利夫的儿子</p>
+        <p class="deeds">在南方长大，身体弱，脾气软，怕父亲。他被接回山庄，成了父亲复仇的工具：娶凯茜，拿到她的财产。他照做了，然后死了。他这一辈子没有做过一个自己的决定。</p>
+        <a class="jump" href="index.html#wh14">时间线 · 伊莎贝拉走了 →</a>
+      </article>
+      <article class="pcard" id="c-old_earnshaw" style="--c:#8c2b26">
+        <div class="pcard-top"><h3>老恩肖</h3></div>
+        <p class="role">呼啸山庄的老主人</p>
+        <p class="deeds">去利物浦办事，看见一个饿得走不动的孩子，就把他带回了家。他疼这个孩子，疼得让亲生儿子恨了一辈子。他死的时候，那个孩子站在床边，一句话没说。这栋房子里后来发生的一切，都是从这一趟利物浦开始的。</p>
+        <a class="jump" href="index.html#wh04">时间线 · 捡回来的孩子 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#7a5a38">田庄</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-edgar" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>埃德加·林顿</h3></div>
+        <p class="role">画眉田庄的主人</p>
+        <p class="deeds">安静，体面，爱读书，爱妹妹。他娶了一个心不在这里的女人，忍了十几年。他死的时候，女儿被关在四英里外。他这一辈子没有跟人吵过架，也没有赢过一件事。</p>
+        <a class="jump" href="index.html#wh06">时间线 · 被狗咬 →</a>
+      </article>
+      <article class="pcard" id="c-isabella" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>伊莎贝拉·林顿</h3></div>
+        <p class="role">埃德加的妹妹</p>
+        <p class="deeds">十八岁，读小说读多了。她爱上希斯克利夫，跟他私奔，第二天就后悔了。她逃到南方，一个人把儿子养大，再不回北方。她给内莉写信说：我这一辈子做错了一件事，就是相信一个男人说的话。</p>
+        <a class="jump" href="index.html#wh11">时间线 · 伊莎贝拉 →</a>
+      </article>
+      <article class="pcard" id="c-lockwood" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>洛克伍德</h3></div>
+        <p class="role">画眉田庄的租客</p>
+        <p class="deeds">从城里来，想在乡下住一年，躲开人。他第一次进呼啸山庄就做了噩梦，第二次去就看见了鬼。他听完了整个故事，第二年春天离开，再没有回来。他说：这地方比我想的复杂。</p>
+        <a class="jump" href="index.html#wh01">时间线 · 租客 →</a>
+      </article>
+      <article class="pcard" id="c-cathy" style="--c:#7a5a38">
+        <div class="pcard-top"><h3>凯茜·林顿</h3></div>
+        <p class="role">凯瑟琳的女儿</p>
+        <p class="deeds">跟她母亲一个名字，一半的脾气。她在荒原上长大，没见过世面，第一次出门就碰见了哈里顿。她被希斯克利夫关起来逼婚，嫁了一个快死的男人。她最后没有走，她留下来教那个不会读书的男孩认字。</p>
+        <a class="jump" href="index.html#wh13">时间线 · 天亮 →</a>
+      </article>
+      </div>
+    </section>
+    <section class="pgroup">
+      <div class="pgroup-head"><h2 style="--c:#2f4a6b">两家</h2></div>
+      <div class="pgrid">
+      <article class="pcard" id="c-nelly" style="--c:#2f4a6b">
+        <div class="pcard-top"><h3>内莉·丁恩</h3></div>
+        <p class="role">管家 · 讲述者</p>
+        <p class="deeds">在两家做了几十年管家，看着两代人长大、结婚、死掉。她什么都看见，什么都记着，也什么都拦不住。这个故事是她讲给洛克伍德听的。她讲完说：你现在明白了吧。他说：我明白了一点。</p>
+        <a class="jump" href="index.html#wh03">时间线 · 希斯克利夫的脸色 →</a>
+      </article>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-foot">
+  <p class="q">“我对他的爱，就像脚下恒久不变的岩石。”</p>
+  <p class="tiny">呼啸山庄 · 艾米莉·勃朗特　·　11 位人物，20 个时间点</p>
+  <nav class="foot-nav">
+    <a href="index.html">看时间线</a>
+    <a href="#top">回到开头</a>
+    <a href="../../index.html">回书架</a>
+  </nav>
+</footer>
+
+<script>
+(function(){
+  var DATA = {"heathcliff": {"name": "希斯克利夫", "role": "呼啸山庄的主人", "deeds": "被老恩肖从利物浦捡回来的孩子，一生只爱一个人，也一生只恨所有人。他出走三年，带着钱回来，用赌局、婚姻和遗嘱把两家人一个个吞掉。他赢到最后，却连一顿饭都吃不下。他死的时候窗开着，雨落进来。", "quote": "吉普赛人", "camp": "山庄", "campKey": "山庄", "color": "#8c2b26", "link": "wh01", "linkName": "租客", "rel": [["catherine", "凯瑟琳·恩肖", "一生只爱一个人"], ["hindley", "辛德雷·恩肖", "被虐待 · 复仇"], ["edgar", "埃德加·林顿", "夺走他的爱人 · 夺走他的产业"], ["isabella", "伊莎贝拉·林顿", "骗她私奔 · 恨她"], ["hareton", "哈里顿·恩肖", "养大仇人的儿子"], ["linton", "林顿·希斯克利夫", "把儿子当工具"], ["cathy", "凯茜·林顿", "逼她嫁给自己的儿子"], ["lockwood", "洛克伍德", "房东与租客"], ["old_earnshaw", "老恩肖", "把他捡回来的人"]]}, "catherine": {"name": "凯瑟琳·恩肖", "role": "恩肖家的女儿", "deeds": "野，犟，跑起来像风。她爱希斯克利夫，却嫁给了埃德加，因为她不想做一个乞丐的妻子。她为这个决定付了一辈子的账：病了，疯了，死了。她死前抓住他的衣领说：你别走。她死后二十年，还在敲窗户。", "quote": "", "camp": "山庄", "campKey": "山庄", "color": "#8c2b26", "link": "wh02", "linkName": "窗上的名字", "rel": [["heathcliff", "希斯克利夫", "一生只爱一个人"], ["edgar", "埃德加·林顿", "夫妻 · 心不在这里"], ["nelly", "内莉·丁恩", "主仆 · 她看着她死"], ["cathy", "凯茜·林顿", "母女 · 从未见面"]]}, "hindley": {"name": "辛德雷·恩肖", "role": "恩肖家的长子", "deeds": "父亲疼外人胜过疼他，他就恨了一辈子。妻子死后他开始喝酒赌钱，把家产输给了那个他恨的人。他死的时候，儿子才五岁。他一生只做对了一件事：把希斯克利夫带回了家——不，那是他父亲做的。", "quote": "", "camp": "山庄", "campKey": "山庄", "color": "#8c2b26", "link": "wh04", "linkName": "捡回来的孩子", "rel": [["heathcliff", "希斯克利夫", "被虐待 · 复仇"], ["hareton", "哈里顿·恩肖", "父子 · 五岁分开"]]}, "edgar": {"name": "埃德加·林顿", "role": "画眉田庄的主人", "deeds": "安静，体面，爱读书，爱妹妹。他娶了一个心不在这里的女人，忍了十几年。他死的时候，女儿被关在四英里外。他这一辈子没有跟人吵过架，也没有赢过一件事。", "quote": "", "camp": "田庄", "campKey": "田庄", "color": "#7a5a38", "link": "wh06", "linkName": "被狗咬", "rel": [["heathcliff", "希斯克利夫", "夺走他的爱人 · 夺走他的产业"], ["catherine", "凯瑟琳·恩肖", "夫妻 · 心不在这里"], ["isabella", "伊莎贝拉·林顿", "兄妹"], ["cathy", "凯茜·林顿", "父女"]]}, "isabella": {"name": "伊莎贝拉·林顿", "role": "埃德加的妹妹", "deeds": "十八岁，读小说读多了。她爱上希斯克利夫，跟他私奔，第二天就后悔了。她逃到南方，一个人把儿子养大，再不回北方。她给内莉写信说：我这一辈子做错了一件事，就是相信一个男人说的话。", "quote": "", "camp": "田庄", "campKey": "田庄", "color": "#7a5a38", "link": "wh11", "linkName": "伊莎贝拉", "rel": [["heathcliff", "希斯克利夫", "骗她私奔 · 恨她"], ["edgar", "埃德加·林顿", "兄妹"], ["linton", "林顿·希斯克利夫", "母子"]]}, "nelly": {"name": "内莉·丁恩", "role": "管家 · 讲述者", "deeds": "在两家做了几十年管家，看着两代人长大、结婚、死掉。她什么都看见，什么都记着，也什么都拦不住。这个故事是她讲给洛克伍德听的。她讲完说：你现在明白了吧。他说：我明白了一点。", "quote": "", "camp": "两家", "campKey": "两家", "color": "#2f4a6b", "link": "wh03", "linkName": "希斯克利夫的脸色", "rel": [["catherine", "凯瑟琳·恩肖", "主仆 · 她看着她死"], ["lockwood", "洛克伍德", "听故事的人"], ["hareton", "哈里顿·恩肖", "看着他长大"]]}, "lockwood": {"name": "洛克伍德", "role": "画眉田庄的租客", "deeds": "从城里来，想在乡下住一年，躲开人。他第一次进呼啸山庄就做了噩梦，第二次去就看见了鬼。他听完了整个故事，第二年春天离开，再没有回来。他说：这地方比我想的复杂。", "quote": "", "camp": "田庄", "campKey": "田庄", "color": "#7a5a38", "link": "wh01", "linkName": "租客", "rel": [["heathcliff", "希斯克利夫", "房东与租客"], ["nelly", "内莉·丁恩", "听故事的人"]]}, "cathy": {"name": "凯茜·林顿", "role": "凯瑟琳的女儿", "deeds": "跟她母亲一个名字，一半的脾气。她在荒原上长大，没见过世面，第一次出门就碰见了哈里顿。她被希斯克利夫关起来逼婚，嫁了一个快死的男人。她最后没有走，她留下来教那个不会读书的男孩认字。", "quote": "", "camp": "田庄", "campKey": "田庄", "color": "#7a5a38", "link": "wh13", "linkName": "天亮", "rel": [["heathcliff", "希斯克利夫", "逼她嫁给自己的儿子"], ["catherine", "凯瑟琳·恩肖", "母女 · 从未见面"], ["edgar", "埃德加·林顿", "父女"], ["hareton", "哈里顿·恩肖", "从敌对到相爱"], ["linton", "林顿·希斯克利夫", "被逼的婚姻"]]}, "hareton": {"name": "哈里顿·恩肖", "role": "辛德雷的儿子", "deeds": "五岁没了父亲，被仇人养大，不许读书，只许干活。他脾气坏，不认字，被人叫「野小子」。凯茜教他念书，他学了半年才写出自己的名字。他后来娶了她，把两家的地合在一起。", "quote": "", "camp": "山庄", "campKey": "山庄", "color": "#8c2b26", "link": "wh15", "linkName": "小哈里顿", "rel": [["heathcliff", "希斯克利夫", "养大仇人的儿子"], ["hindley", "辛德雷·恩肖", "父子 · 五岁分开"], ["cathy", "凯茜·林顿", "从敌对到相爱"], ["nelly", "内莉·丁恩", "看着他长大"]]}, "linton": {"name": "林顿·希斯克利夫", "role": "希斯克利夫的儿子", "deeds": "在南方长大，身体弱，脾气软，怕父亲。他被接回山庄，成了父亲复仇的工具：娶凯茜，拿到她的财产。他照做了，然后死了。他这一辈子没有做过一个自己的决定。", "quote": "", "camp": "山庄", "campKey": "山庄", "color": "#8c2b26", "link": "wh14", "linkName": "伊莎贝拉走了", "rel": [["heathcliff", "希斯克利夫", "把儿子当工具"], ["isabella", "伊莎贝拉·林顿", "母子"], ["cathy", "凯茜·林顿", "被逼的婚姻"]]}, "old_earnshaw": {"name": "老恩肖", "role": "呼啸山庄的老主人", "deeds": "去利物浦办事，看见一个饿得走不动的孩子，就把他带回了家。他疼这个孩子，疼得让亲生儿子恨了一辈子。他死的时候，那个孩子站在床边，一句话没说。这栋房子里后来发生的一切，都是从这一趟利物浦开始的。", "quote": "", "camp": "山庄", "campKey": "山庄", "color": "#8c2b26", "link": "wh04", "linkName": "捡回来的孩子", "rel": [["heathcliff", "希斯克利夫", "把他捡回来的人"]]}};
+
+  var nodes = [].slice.call(document.querySelectorAll('.pnode'));
+  var links = [].slice.call(document.querySelectorAll('.plink'));
+  var labels = [].slice.call(document.querySelectorAll('.rlabel'));
+  var panel = document.getElementById('pdetail');
+
+  // 邻接表
+  var adj = {};
+  nodes.forEach(function(n){ adj[n.dataset.id] = []; });
+  links.forEach(function(l){
+    var a = l.dataset.a, b = l.dataset.b;
+    if (adj[a] && adj[a].indexOf(b) < 0) adj[a].push(b);
+    if (adj[b] && adj[b].indexOf(a) < 0) adj[b].push(a);
+  });
+
+  // 原始坐标
+  var pos = {}, orig = {};
+  nodes.forEach(function(n){
+    var mm = n.getAttribute('transform').match(/translate\(([-\d.]+),([-\d.]+)\)/);
+    var x = parseFloat(mm[1]), y = parseFloat(mm[2]);
+    pos[n.dataset.id] = { x: x, y: y };
+    orig[n.dataset.id] = { x: x, y: y };
+  });
+
+  var CX = 620, CY = 440;
+  var raf = null;
+
+  function apply(){
+    nodes.forEach(function(n){
+      var p = pos[n.dataset.id];
+      n.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+    });
+    links.forEach(function(l){
+      var a = pos[l.dataset.a], b = pos[l.dataset.b];
+      if (!a || !b) return;
+      l.setAttribute('x1', a.x.toFixed(1));
+      l.setAttribute('y1', a.y.toFixed(1));
+      l.setAttribute('x2', b.x.toFixed(1));
+      l.setAttribute('y2', b.y.toFixed(1));
+    });
+    labels.forEach(function(t){
+      var a = pos[t.dataset.a], b = pos[t.dataset.b];
+      if (!a || !b) return;
+      t.setAttribute('x', ((a.x + b.x) / 2).toFixed(1));
+      t.setAttribute('y', ((a.y + b.y) / 2 - 4).toFixed(1));
+    });
+  }
+
+  function animateTo(targets, dur){
+    if (raf) cancelAnimationFrame(raf);
+    var start = {};
+    Object.keys(targets).forEach(function(id){ start[id] = { x: pos[id].x, y: pos[id].y }; });
+    var t0 = performance.now();
+    dur = dur || 620;
+
+    function step(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      Object.keys(targets).forEach(function(id){
+        var s0 = start[id], tg = targets[id];
+        pos[id] = { x: s0.x + (tg.x - s0.x) * e, y: s0.y + (tg.y - s0.y) * e };
+      });
+      apply();
+      if (k < 1) raf = requestAnimationFrame(step);
+      else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var cur = null;
+
+  function resetStyles(){
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = 0; });
+    nodes.forEach(function(n){
+      n.style.opacity = '';
+      n.style.pointerEvents = '';
+      n.removeAttribute('aria-hidden');
+      n.classList.remove('dim','sel');
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.classList.remove('dim','hot'); });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+  }
+
+  // 以某人为中心重排
+  function layoutEgo(id){
+    resetStyles();
+    var nbrs = (adj[id] || []).slice();
+
+    // 二阶：一阶的邻居，排除中心和一阶
+    var seen = {};
+    seen[id] = 1;
+    nbrs.forEach(function(n){ seen[n] = 1; });
+    var second = [];
+    nbrs.forEach(function(n){
+      (adj[n] || []).forEach(function(k){
+        if (!seen[k]){ seen[k] = 1; second.push(k); }
+      });
+    });
+    second = second.slice(0, 14);
+
+    var targets = {};
+
+    // 其余节点收拢到中心（几乎不可见），避免飞出画面
+    nodes.forEach(function(n){
+      if (n.dataset.id !== id && nbrs.indexOf(n.dataset.id) < 0 && second.indexOf(n.dataset.id) < 0){
+        targets[n.dataset.id] = { x: CX, y: CY };
+        n.style.opacity = 0;
+        n.style.pointerEvents = 'none';
+        n.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // 中心
+    targets[id] = { x: CX, y: CY };
+    var nc = nodes.filter(function(x){ return x.dataset.id === id; })[0];
+    nc.style.opacity = 1;
+    nc.classList.add('sel');
+    nc.querySelector('circle').setAttribute('r', 34);
+    nc.querySelector('.pname').style.fontSize = '13px';
+
+    // 一阶
+    var R1 = 180;
+    nbrs.forEach(function(nid, i){
+      var ang = (i / Math.max(1, nbrs.length)) * Math.PI * 2 - Math.PI / 2;
+      targets[nid] = { x: CX + Math.cos(ang) * R1, y: CY + Math.sin(ang) * R1 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 1;
+      g.querySelector('circle').setAttribute('r', 25);
+    });
+
+    // 二阶
+    var R2 = 300;
+    second.forEach(function(nid, i){
+      var ang = (i / Math.max(1, second.length)) * Math.PI * 2 - Math.PI / 2 + 0.22;
+      targets[nid] = { x: CX + Math.cos(ang) * R2, y: CY + Math.sin(ang) * R2 };
+      var g = nodes.filter(function(x){ return x.dataset.id === nid; })[0];
+      g.style.opacity = 0.5;
+      g.querySelector('circle').setAttribute('r', 18);
+      g.querySelector('.pname').style.fontSize = '9px';
+    });
+
+    // 线：只保留中心相关的 + 一阶之间的
+    links.forEach(function(l){
+      var a = l.dataset.a, b = l.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      l.classList.toggle('hot', a === id || b === id);
+      l.classList.toggle('dim', !on);
+      l.style.opacity = on ? '' : 0.04;
+    });
+    labels.forEach(function(t){
+      var a = t.dataset.a, b = t.dataset.b;
+      var on = (a === id || b === id) || (nbrs.indexOf(a) >= 0 && nbrs.indexOf(b) >= 0);
+      t.classList.toggle('show', on);
+      t.classList.toggle('dim', !on);
+    });
+
+    animateTo(targets);
+  }
+
+  function layoutAll(){
+    resetStyles();
+    cur = null;
+    CX = 620;
+    var targets = {};
+    nodes.forEach(function(n){
+      targets[n.dataset.id] = orig[n.dataset.id];
+      n.style.opacity = '';
+      n.querySelector('circle').setAttribute('r', 27);
+      n.querySelector('.pname').style.fontSize = '';
+    });
+    links.forEach(function(l){ l.style.opacity = ''; });
+    labels.forEach(function(t){ t.classList.remove('show','dim'); });
+    panel.classList.remove('on');
+    [].forEach.call(document.querySelectorAll('.gtag'), function(t){ t.style.opacity = ''; });
+    animateTo(targets);
+  }
+
+  function openDetail(id){
+    var d = DATA[id];
+    if (!d) return;
+    cur = id;
+    // 面板占据右侧，把网络重心左移，避免任何节点被压住
+    CX = window.innerWidth > 1080 ? 450 : 620;
+    layoutEgo(id);
+
+    var camp = document.getElementById('pdCamp');
+    camp.textContent = d.camp;
+    camp.style.color = d.color;
+    camp.style.boxShadow = 'inset 0 0 0 1px ' + d.color + '55';
+    camp.style.background = 'rgba(0,0,0,0.025)';
+
+    document.getElementById('pdName').textContent = d.name;
+    document.getElementById('pdRole').textContent = d.role;
+    document.getElementById('pdDeeds').textContent = d.deeds;
+    var quote = document.getElementById('pdQuote');
+    quote.textContent = d.quote;
+    if (quote) quote.hidden = !d.quote;
+    var source = document.getElementById('pdQuoteSource');
+    if (source) source.hidden = !d.quoteSource;
+    source.href = d.quoteSource || '#';
+    source.textContent = d.quoteSource ? '原文出处 · ' + d.quoteSourceName + ' ↗' : '';
+    var lk = document.getElementById('pdLink');
+    lk.href = 'index.html#' + d.link;
+    lk.textContent = '时间线 · ' + d.linkName + ' →';
+
+    var rel = document.getElementById('pdRel');
+    rel.innerHTML = '';
+    (d.rel || []).forEach(function(r){
+      var b = document.createElement('button');
+      b.innerHTML = '<b>' + r[1] + '</b><i>' + r[2] + '</i>';
+      b.addEventListener('click', function(){ openDetail(r[0]); });
+      rel.appendChild(b);
+    });
+    panel.classList.add('on');
+  }
+
+  nodes.forEach(function(n){
+    n.addEventListener('click', function(){
+      if (cur === n.dataset.id) return;
+      openDetail(n.dataset.id);
+    });
+  });
+
+  document.getElementById('pdClose').addEventListener('click', layoutAll);
+
+  document.getElementById('allBtn').addEventListener('click', function(){
+    var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    document.getElementById('allBtn').classList.add('on');
+    layoutAll();
+  });
+
+  // 阵营筛选（不改变布局，只淡化）
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  btns.forEach(function(b){
+    if (b.id === 'allBtn') return;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      layoutAll();
+      var camp = b.dataset.camp;
+      nodes.forEach(function(n){
+        var d = DATA[n.dataset.id];
+        if (!(d && d.campKey === camp)) n.style.opacity = 0.1;
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.topnav');
+  if(!nav) return;
+  var on=nav.querySelector('.on'), ind=nav.querySelector('.nav-ind');
+  if(!on||!ind) return;
+  function place(){
+    ind.style.width=on.offsetWidth+'px';
+    ind.style.transform='translateX('+on.offsetLeft+'px)';
+    ind.style.opacity='1';
+  }
+  requestAnimationFrame(function(){ requestAnimationFrame(place); });
+  window.addEventListener('resize',place);
+})();
+</script>
+</body>
+</html>
