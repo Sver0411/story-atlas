@@ -4,7 +4,7 @@ window.BOOK = {
   "author": "金庸",
   "subtitle": "人就是江湖",
   "description": "一个爱喝酒的大弟子，被师父逐出门，学了天下第一的剑法，最后什么也没要，跟一个魔教姑娘走了。",
-  "scope": "全本 · 明 · 某年",
+  "scope": "全本 · 原著未标明确年份",
   "accent": "#4a4a3a",
   "cover": "",
   "eras": [
