@@ -8,17 +8,17 @@
 
 ## 书目
 
-共 59 部 · 1396 个故事节点 · 930 位人物 · 1195 条关系 · 137 个节点带章节出处。
+共 59 部 · 1410 个故事节点 · 941 位人物 · 1210 条关系。
 
 
 ### 古典小说
 
 | 作品 | 作者 | 收录范围 | 节点 | 人物 |
 | --- | --- | --- | ---: | ---: |
-| [红楼梦](books/red-chamber/index.html) | 曹雪芹；后四十回作者问题另见说明 | 通行一百二十回本：前八十回与后四十回分段标明，包含结局剧透。 | 50 | 40 |
-| [西游记](books/journey-west/index.html) | 吴承恩 | 通行一百回本 · 完整主线 | 50 | 32 |
-| [三国演义](books/three-kingdoms/index.html) | 罗贯中 | 通行一百二十回本 · 完整主线 | 42 | 33 |
-| [水浒传](books/water-margin/index.html) | 施耐庵 | 通行一百二十回本 · 完整主线 | 40 | 128 |
+| [红楼梦](books/red-chamber/index.html) | 曹雪芹；后四十回作者问题另见说明 | 通行一百二十回本：前八十回与后四十回分段标明，包含结局剧透。 | 52 | 40 |
+| [西游记](books/journey-west/index.html) | 吴承恩 | 通行一百回本 · 完整主线 | 51 | 37 |
+| [三国演义](books/three-kingdoms/index.html) | 罗贯中 | 通行一百二十回本 · 完整主线 | 49 | 35 |
+| [水浒传](books/water-margin/index.html) | 施耐庵 | 通行一百二十回本 · 完整主线 | 44 | 128 |
 
 ### 中文小说
 
@@ -66,7 +66,7 @@
 | --- | --- | --- | ---: | ---: |
 | [嫌疑人 X 的献身](books/suspect-x/index.html) | 东野圭吾 | 全本 · 1997—1998 | 28 | 12 |
 | [白夜行](books/byakuyakou/index.html) | 东野圭吾 | 全本 · 1973—1998 | 28 | 18 |
-| [东方快车谋杀案](books/orient-express/index.html) | 阿加莎·克里斯蒂 | 全本 · 含两种结局 | 27 | 17 |
+| [东方快车谋杀案](books/orient-express/index.html) | 阿加莎·克里斯蒂 | 全本 · 含两种结局 | 27 | 21 |
 | [消失的爱人](books/gone-girl/index.html) | 吉莉安·弗林 | 全本 · 2005—2013 | 26 | 13 |
 | [漫长的告别](books/long-goodbye/index.html) | 雷蒙德·钱德勒 | 全本 · 1950—1951 | 26 | 13 |
 | [龙纹身的女孩](books/millennium/index.html) | 斯蒂格·拉森 | 千禧年系列第一部 · 全本 | 24 | 15 |
@@ -119,8 +119,6 @@ assets/catalog.json         书架元数据
 ```
 
 改内容只动 `data.js`，然后 `python3 tools/rebuild.py`、`python3 tools/check.py`。
-
-时间线每本至少收录 5 张场景插图。配图按事件 ID 配置在 [assets/illustrations.json](assets/illustrations.json)，提示词见 [docs/anthology-images.json](docs/anthology-images.json)。《三体》使用独立的时间线页面，保留原有 26 张。
 
 ## 几条约定
 
