@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一片会思考的海，把死人还给你。你知道那不是真的，可你还是跟她住了下去。<br>16 个时间点，从「到达」到「报告」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>16 个时间点 · 5 位人物</span><i></i>
+      <span>16 个时间点 · 5 位人物 · 5 张插图</span><i></i>
       <span>全本 · 未来</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#so01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -477,6 +478,7 @@ body{
       <div class="ev-when">未来<em>索拉里斯站</em></div>
       <h2>到达</h2>
       <p>凯尔文坐着一艘小飞船降落在索拉里斯站。这个站建在一片海的上方，海是胶质的，会动。他学过十年心理学，被派来研究这片海。站里应该有三个人，可接他的只有一个人，斯纳特。斯纳特说：你来得正好，也来得不好。斯纳特说：吉巴里安死了。他说：昨天。他说：他自己注射的。凯尔文说：为什么。斯纳特说：你住两天就知道了。斯纳特说：这里的规矩有三条：不要相信你看见的，不要一个人待着，不要开那扇门。凯尔文说：哪扇门。他说：你会知道。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/solaris-so01.jpg" alt="小飞船降落在孤悬于胶质海面之上的研究站。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>凯尔文抵达研究站 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="so02" style="--c:#46525a"
@@ -506,6 +508,7 @@ body{
       <div class="ev-when">未来<em>索拉里斯站 · 房间</em></div>
       <h2>海若</h2>
       <p>他醒来的时候，看见一个姑娘坐在床边。她穿着黄裙子，黑头发，脸是他二十年前的脸。她叫海若。她在他十岁那年死了，是自己注射的。她说：你怎么了。他说：你不是真的。她说：我是。他冲出去，把门锁上。她在里面敲门，敲了一夜。他坐在走廊上，抱着头。斯纳特走过来说：你也看见了。他说：是。斯纳特说：习惯就好。她说：你不认识我了。他说：我认识。她说：那你为什么不抱我。他说：因为你死了。她说：我没有。她说这句话的时候，眼睛是湿的。</p><p class="ev-src">出处 · 第 6 章 海若</p>
+      <figure class="ev-fig"><img src="../../img/anthology/solaris-so05.jpg" alt="凯尔文在研究站的床上醒来，穿着黄裙的海若坐在近旁。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>海若出现在床边 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="so06" style="--c:#46525a"
@@ -534,6 +537,7 @@ body{
       <div class="ev-when">未来<em>索拉里斯站</em></div>
       <h2>书</h2>
       <p>海若在房间里找到一本书，是凯尔文小时候的相册。她一页一页地看，问他：这个孩子是你吗。他说：是。她说：你那时候很快乐。他说：是。她说：你现在不快乐。他说：是。她说：我想让你快乐。他说：你做不到。她说：为什么。他说：因为你不是真的。她低下头，说：我知道。她指着相册里一个女人问：这是谁。他说：我母亲。她说：她死了吗。他说：死了。她说：那她有没有回来找你。他说：没有。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/solaris-so09.jpg" alt="海若在研究站的桌边翻开相册，凯尔文看着照片。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>海若翻看凯尔文的旧相册 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="so10" style="--c:#46525a"
@@ -581,6 +585,7 @@ body{
       <div class="ev-when">未来<em>索拉里斯 · 海面</em></div>
       <h2>最后</h2>
       <p>他一个人降到海面上，站在那个会动的、胶质的东西前面。他伸出手，摸了一下。它没有反应。他说：你到底是什么。它没有回答。他站了很久，然后笑了。他后来在报告里写：我们找了一百年，想跟它说一句话。他说：也许它一直在说，只是我们听不见。海面在他脚下起伏，很慢，像呼吸。他站了很久，膝盖都僵了。他想：如果它现在把我吞下去，我也不知道该不该怪它。</p><p class="ev-src">出处 · 第 14 章 海边</p>
+      <figure class="ev-fig"><img src="../../img/anthology/solaris-so15.jpg" alt="凯尔文蹲在海边的岩石上，向缓慢起伏的海面伸出手。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>向索拉里斯的海伸手 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="so16" style="--c:#46525a"

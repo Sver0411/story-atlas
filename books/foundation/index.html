@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -449,9 +450,9 @@ body{
     <p class="hero-deck">银河帝国将在一万年后彻底崩溃，随后是三万年的黑暗。哈里·谢顿用心理史学算出这一切，并把两万人送到银河边缘，试图把黑暗缩短到一千年。<br>38 个时间点，从「四千万人的首都」到「最后的决定」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>38 个时间点 · 18 位人物</span><i></i>
+      <span>38 个时间点 · 18 位人物 · 6 张插图</span><i></i>
       <span>基地系列七部 · 主线</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#fd01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -525,6 +526,7 @@ body{
       <div class="ev-when">银河纪元 12038 年<em>法庭</em></div>
       <h2>公开审判</h2>
       <p>谢顿被控叛国。审判在帝国法庭公开进行，旁听席上坐满了人，还有记者。检察官问他：你承认说过帝国将要崩溃吗？他说：我承认。你承认无法阻止吗？我承认。你知道这会引起恐慌吗？我知道。他每答一句，旁听席就安静一分。最后检察官问：那你为什么要说？谢顿说：因为我不说，三万年；我说了，一千年。旁听席上有人开始哭。检察官说：你的预言会让股市崩盘。谢顿说：股市已经崩了，只是你们还没看见。旁听席上有人笑，有人记笔记。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/foundation-fd07.jpg" alt="谢顿站在帝国法庭中央，法官高坐在远处，旁听席布满人影。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>帝国法庭 · 谢顿受审 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fd08" style="--c:#3f4f6b"
@@ -572,6 +574,7 @@ body{
       <div class="ev-when">银河纪元 12069 年<em>端点星</em></div>
       <h2>第一次危机</h2>
       <p>安纳克里昂的军队包围了端点星，要求基地交出所有技术。哈定没有开一枪。他下令停止所有核能供应，然后等着。第一天，王国的城市停电；第二天，医院的手术灯灭了；第三天，教士们走上街头，说这是神罚。第四天，国王的宫殿也黑了，他派人来谈判。军队撤了。谢顿的影像第二次出现，说：你们过关了，但下一次危机来自内部。安纳克里昂撤军那天，哈定在市政厅里吃了一顿普通的晚饭。他说：我们没有赢，我们只是没有输。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/foundation-fd13.jpg" alt="哈定独立在办公室窗边，远处王国城镇的灯火渐渐熄灭。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>哈定面对第一次危机 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -652,6 +655,7 @@ body{
       <div class="ev-when">银河纪元 12300 年<em>基地</em></div>
       <h2>贝泰与杜伦</h2>
       <p>贝泰和杜伦是一对夫妻，也是第二基地的特工。他们假装叛逃，投靠骡，取得他的信任。贝泰在骡的宫廷里待了几个月，观察他的情绪波动，发现他每次提到“同类”时都会失控。她编造了一个“第二基地”的坐标，让骡相信那里有另一个突变者。杜伦在外面接应，负责把消息传回川陀。两个人在骡的眼皮底下演了一年的戏。贝泰编的坐标，是川陀的一片废墟。骡在那里站了三天，说：这里什么都没有。贝泰说：也许他还没来。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/foundation-fd21.jpg" alt="贝泰与杜伦在骡的宫廷廊柱间低声交谈。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>贝泰与杜伦走进宫廷 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fd21b" style="--c:#3f4f6b"
@@ -697,6 +701,7 @@ body{
       <div class="ev-when">银河纪元 12500 年<em>盖娅</em></div>
       <h2>盖娅</h2>
       <p>崔维兹是端点星的议员，因为一次政治斗争被放逐。他被带到一颗叫盖娅的星球。这里的石头、植物、动物和人共享一个意识——一个行星级的生命体。盖娅人说：我们不是很多个体，我们是一个整体。崔维兹问：那我算什么？布洛缀克说：你是一个还没学会听的耳朵。她说这话时，脚下的草轻轻动了一下。盖娅的森林里，崔维兹踩断一根树枝。布洛缀克说：它疼。他说：树枝也会疼？她说：在这个星球上，会。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/foundation-fd24.jpg" alt="崔维兹与布洛缀克走进盖娅的森林，草叶在脚边微微摇动。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>盖娅 · 像一个生命体的星球 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fd24b" style="--c:#3f4f6b"
@@ -732,6 +737,7 @@ body{
       <div class="ev-when">银河纪元 12500 年<em>川陀</em></div>
       <h2>图书馆的废墟</h2>
       <p>他们在川陀的废墟里找到一条线索：帝国早期的星图上，有一个坐标被反复涂改，最后彻底抹掉。裴洛拉特比对了几十个版本，发现被抹掉的是一颗距离银河中心不远的单星。他说：有人花了两万年，就为了让人忘记一颗星星。崔维兹说：那不是忘记，是保护。他们把坐标记下来，继续往边缘飞。他们找到的星图版本，最老的有一万两千年。裴洛拉特说：这个坐标被改了十七次。崔维兹说：改的人很怕。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/foundation-fd27b.jpg" alt="两位旅人在川陀的旧图书馆废墟中比较星图，光线从残破的拱窗照进来。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>川陀废墟 · 被抹去的星图坐标 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fd28" style="--c:#3f4f6b"

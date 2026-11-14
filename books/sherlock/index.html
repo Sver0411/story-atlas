@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -460,9 +461,9 @@ body{
     <p class="hero-deck">六十年，六十个案子，一个不肯退休的人。他从一顶帽子看出一个人的一生，也从一条蛇身上看出一个人的死法。<br>23 个时间点，从「一个不毕业的人」到「最后一封电报」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>23 个时间点 · 16 位人物</span><i></i>
+      <span>23 个时间点 · 16 位人物 · 7 张插图</span><i></i>
       <span>精选 19 案 · 1878—1914</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#sh02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -503,6 +504,7 @@ body{
       <div class="ev-when">1881 年<em>伦敦 · 贝克街</em></div>
       <h2>室友的规矩</h2>
       <p>华生很快发现这个室友有些毛病：半夜拉小提琴，把烟草放在拖鞋里，用刀在壁炉上刻东西，客人来时一句话不说。但他也发现，这个人能从一顶帽子上看出主人的一生，从一块表上看出一个家族的败落。华生把这些事记在本子上，后来投给了杂志社。福尔摩斯看了说：你把我写得像个英雄。哈德森太太说：你们这屋子里，不是死人就是警察。福尔摩斯说：这说明我们生意好。她把茶放下，说：我看你早晚要一个人死在沙发上。他说：那你就把我的烟斗留着。她骂了一句，下楼去了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/sherlock-sh04.jpg" alt="福尔摩斯在炉边拉小提琴，华生坐在灯下记笔记。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>贝克街的夜晚 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sh05" style="--c:#5a4632"
@@ -510,6 +512,7 @@ body{
       <div class="ev-when">1883 年<em>伦敦 · 贝克街</em></div>
       <h2>四签名</h2>
       <p>一个叫玛丽·摩斯坦的姑娘来找福尔摩斯，说她父亲十年前失踪，此后每年收到一颗珍珠。案子牵出一张藏宝图、一个独腿人、一条河上的追逐。最后 财宝沉进了泰晤士河的泥里。华生在这一年里爱上了玛丽，后来娶了她。福尔摩斯没有去婚礼，说：我不擅长那种场合。雷斯垂德在河边的船上找到那个独腿人，那人把一把珍珠撒进水里，说：你们拿去吧。他后来被押上船，一句话不说。玛丽站在码头上，看着水面。华生说：那些东西本来是你的。她说：我父亲才是我的。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/sherlock-sh05.jpg" alt="贝克街的会客桌旁，摩斯坦向福尔摩斯和华生展示一颗珍珠。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>摩斯坦带来的珍珠 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -543,6 +546,7 @@ body{
       <div class="ev-when">1889 年 10 月<em>德文郡 · 达特穆尔</em></div>
       <h2>巴斯克维尔的猎犬</h2>
       <p>巴斯克维尔家族的每一代人都死于同一件事：一只发着磷光的巨犬。查尔斯爵士死在庄园外的水松道上，脸扭曲得不像人。福尔摩斯派华生去德文郡，自己躲在沼泽地里住了几天。凶手是邻居斯坦普顿，一个博物学家，他用一只涂了磷的猎犬吓死了两代人，为的是继承那份产业。斯台普顿有一只黑色的猎犬，养在沼泽中间的小岛上。他用磷粉涂在狗身上，夜里放出去，谁看见都会以为是鬼。查尔斯爵士心脏不好，看见那只狗就倒了。亨利差点也死在那儿。福尔摩斯最后说：这案子里没有鬼，只有一个人想要一份产业。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/sherlock-sh09.jpg" alt="薄雾笼罩达特穆尔，华生在石墙旁望向荒原远处的犬影。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>巴斯克维尔的荒原 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sh10" style="--c:#5a4632"
@@ -571,6 +575,7 @@ body{
       <div class="ev-when">1891 年 5 月 4 日<em>瑞士 · 莱辛巴赫瀑布</em></div>
       <h2>最后一案</h2>
       <p>他们一路追到瑞士。福尔摩斯让华生先回旅馆，说还有个病人要看。华生走到半路觉得不对，跑回来，只看见瀑布边的泥地上有两行脚印，一直走到崖边，然后没有了。崖边留着一根登山杖和一封信。信上写：我亲爱的华生，当你读到这封信的时候，我已经不在了。全国哀悼了三年。华生在瀑布边站了很久，后来在崖下找到一根登山杖。他回到旅馆，写了一份报告，交给警方。警方说没有尸体，不能立案。三年里他每年写一篇文章，纪念这个人。第三年的时候，他收到了一个信封，里面是一枚旧硬币，什么字也没有。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/sherlock-sh13.jpg" alt="莱辛巴赫瀑布旁的山径空无一人，水雾遮住石崖。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>莱辛巴赫的水雾 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -611,6 +616,7 @@ body{
       <div class="ev-when">1898 年<em>伦敦</em></div>
       <h2>六座半身像</h2>
       <p>有人在伦敦到处砸拿破仑的半身像。警察以为是疯子。福尔摩斯说：不是疯子，是在找东西。他查到一批半身像里有一颗黑珍珠，藏在其中一尊的石膏里。他守了三天，抓住了一个人，那人是当年偷珍珠的贼。福尔摩斯说：一个贼为了藏一颗珠子，砸了五尊像，砸出了六条线索。六尊半身像散在伦敦六个地方，买主彼此不认识。福尔摩斯说：这不是恶作剧，是有人在找东西，而且他不知道东西在哪一尊里。他守到第三夜，看见一个人翻墙进了院子，手里拿着一把锤子。他站起来，说：晚上好。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/sherlock-sh18.jpg" alt="打碎的拿破仑石膏像旁露出一颗黑珍珠。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>半身像中的黑珍珠 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sh19" style="--c:#5a4632"
@@ -644,6 +650,7 @@ body{
       <div class="ev-when">1903 年 后<em>苏塞克斯 · 丘陵</em></div>
       <h2>养蜂的人</h2>
       <p>福尔摩斯搬到苏塞克斯的丘陵上，住一间小屋，养蜂，写一本关于蜂王的书。他说：蜂群比人讲道理。华生偶尔去看他，两人坐在院子里，看着蜜蜂飞来飞去，一句话不说。有一次华生问他：你这一辈子破过多少案子。他想了想，说：记不清了。华生说：那最好的一个呢。他说：还没发生。他在丘陵上写的那本书叫《养蜂实用手册》，印得不多。他说：蜂群里有一只蜂王，什么都不做，所有的蜂都为它活。这跟人很像，也不像。华生问：哪里不像。他说：蜂王不知道自己被伺候着，人知道。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/sherlock-sh22.jpg" alt="福尔摩斯和华生坐在苏塞克斯乡间的小屋旁，蜂箱排在花地边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>苏塞克斯的蜂箱 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sh23" style="--c:#5a4632"

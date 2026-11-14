@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -449,9 +450,9 @@ body{
     <p class="hero-deck">七个王国，九个家族，一张铁王座。每个人都以为自己在做正确的事，每个人都在为别人的野心付账。<br>34 个时间点，从「异鬼」到「凛冬将至」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>34 个时间点 · 42 位人物</span><i></i>
+      <span>34 个时间点 · 42 位人物 · 8 张插图</span><i></i>
       <span>前三部主线 · 含红色婚礼</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#got02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -530,6 +531,7 @@ body{
       <div class="ev-when">298 AC<em>君临</em></div>
       <h2>首相</h2>
       <p>艾德到君临任首相，发现国库欠了六百万金龙，一半欠兰尼斯特。他问小指头：钱去哪了？小指头说：去该去的地方。艾德开始查琼恩·艾林的死，查到一个叫“种子”的私生子，查到一本族谱，查到一句话：兰尼斯特的孩子，从来没有狮子头发。艾德翻账本时，发现一笔钱给了“情报”。他问小指头：这是什么？小指头说：买消息。艾德问：什么消息？他说：谁在说谎。艾德说：那你知道谁在说谎吗？他说：我知道，但我不告诉你。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/thrones-got08.jpg" alt="艾德在君临的烛光里翻阅王国账册，窗外是层层屋顶。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>君临 · 艾德查阅账册 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="got09" style="--c:#5a3a44"
@@ -551,6 +553,7 @@ body{
       <div class="ev-when">298 AC<em>鹰巢城</em></div>
       <h2>月亮门</h2>
       <p>莱莎·艾林在鹰巢城审判提利昂，要把他从月亮门扔下去。提利昂说：我要求比武审判。佣兵波隆替他出战，杀了对手。提利昂走出鹰巢城时说：我这一辈子，从来没有靠过家族，靠的是一张舌头。波隆杀了对手后，对提利昂说：我替你打，你付钱。提利昂说：你为什么不救那个骑士？他说：他没付钱。提利昂笑了：你是我见过的最诚实的人。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/thrones-got11.jpg" alt="莱莎高坐在鹰巢城大厅里，提利昂站在敞开的月亮门旁，门外浮着云。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>鹰巢城 · 月亮门前 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="got12" style="--c:#5a3a44"
@@ -619,6 +622,7 @@ body{
       <div class="ev-when">299 AC<em>北境</em></div>
       <h2>北境之王</h2>
       <p>罗柏·史塔克召集封臣，率两万大军南下。在奔流城，封臣们把剑放在他脚下，喊：北境之王！罗柏十八岁，第一次杀人是在呓语森林，他一剑刺穿了一个兰尼斯特斥候的喉咙。他母亲说：你父亲第一次杀人，也吐了。大琼恩第一个拔剑，喊：北境之王！其他人跟着喊。罗柏站起来，说：我父亲说过，北境的人只跪给史塔克。他说：我不是要做国王，我是要报仇。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/thrones-got20.jpg" alt="奔流城的厅堂里，众封臣把佩剑放在罗柏面前，火光照亮石柱。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>奔流城拥立罗柏 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="got21" style="--c:#5a3a44"
@@ -638,6 +642,7 @@ body{
       <div class="ev-when">299 AC<em>长城</em></div>
       <h2>守夜人</h2>
       <p>琼恩·雪诺在长城上宣誓：我是黑暗中的利剑，长城上的守卫。他没见过父亲死，也没见过兄弟打仗。他只知道，长城之外有比兰尼斯特更可怕的东西。他说：我不是史塔克，我是守夜人。琼恩宣誓时，山姆在旁边看着。宣誓完，山姆说：你哭了。琼恩说：没有。山姆说：你鼻子红了。琼恩说：闭嘴。他们笑了，那是琼恩在长城上第一次笑。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/thrones-got22.jpg" alt="琼恩与山姆站在长城脚下，抬头望向冰墙。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>琼恩在长城宣誓 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="got23" style="--c:#5a3a44"
@@ -664,6 +669,7 @@ body{
       <div class="ev-when">299 AC<em>多斯拉克</em></div>
       <h2>火葬</h2>
       <p>丹妮把卓戈的尸体放在柴堆上，把女巫绑在中间，点燃。火熄之后，她从灰烬里站起来，怀里抱着三条小龙。她说：我是龙之母。她烧不死。从那天起，她不再是一个被卖的女孩。火葬时，丹妮走进火里。乔拉喊：不要！她没有回头。火烧了一夜，天亮时，她坐在灰里，怀里三条小龙，肩膀上的头发烧光了。她说：我是龙之母。乔拉跪下。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/thrones-got25.jpg" alt="晨光照进冷却的灰烬，披着斗篷的丹妮莉丝抱着三条幼龙。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>灰烬中的三条幼龙 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -704,6 +710,7 @@ body{
       <div class="ev-when">300 AC<em>君临</em></div>
       <h2>紫色婚礼</h2>
       <p>乔佛里与玛格丽·提利尔大婚。婚宴上，乔佛里喝下毒酒，挣扎而死。瑟曦当场指控提利昂，说：是他，这个怪物。提利昂被关进黑牢。珊莎在混乱中被小指头带走。乔佛里死时，脸变成紫色，手指抓着喉咙。瑟曦尖叫：他被人下毒了！她指着提利昂：是你！提利昂说：我什么都没做。她说：你一直想杀他。他说：我想，但我没有。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/thrones-got30.jpg" alt="紫色帷幔下摆着婚宴长桌，乔佛里和玛格丽坐在席首，提利昂在邻近的席位上。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>紫色婚礼 · 宴席刚开 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="got31" style="--c:#5a3a44"
@@ -735,6 +742,7 @@ body{
       <div class="ev-when">300 AC<em>弥林</em></div>
       <h2>弥林</h2>
       <p>丹妮莉丝在阿斯塔波买下所有无垢者，转头就让它们杀了奴隶主。她一路解放渊凯、弥林，把自由还给几万人。她说：我不是来统治的，我是来打破锁链的。可弥林乱成一团，鹰身女妖之子在夜里杀人。她决定留下来，学着当一个女王，而不是一个解放者。她把龙锁进地窖，因为它们开始吃孩子。她说：我会学着统治，然后再走。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/thrones-got33.jpg" alt="丹妮莉丝在弥林大金字塔的露台上俯瞰城镇。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>丹妮莉丝留在弥林 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

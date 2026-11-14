@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -459,9 +460,9 @@ body{
     <p class="hero-deck">一个数学家用一条人命，替一对母女摆平了一桩命案。警察查了四个月，方向从一开始就错了。<br>28 个时间点，从「门铃」到「嚎哭」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>28 个时间点 · 12 位人物</span><i></i>
+      <span>28 个时间点 · 12 位人物 · 5 张插图</span><i></i>
       <span>全本 · 1997—1998</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#sx02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -542,6 +543,7 @@ body{
       <div class="ev-when">1998 年 3 月 13 日<em>东京 · 公寓</em></div>
       <h2>问话</h2>
       <p>刑警第二次上门时，石神正好从楼梯上下来，手里提着垃圾袋。他问了一句：出什么事了吗。岸谷说：隔壁的先生被人杀了。石神说：那真不幸。他下楼，倒垃圾，回来，关门，整个过程不超过三分钟。岸谷后来说：那个人太镇定了。草薙说：镇定不代表有罪。石神走到楼下，把垃圾袋放进桶里，又回身把桶盖压好。他做这些的时候动作很慢，像是在等什么。岸谷后来想起这一幕，总觉得那个人不是在倒垃圾，是在确认什么。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/suspect-x-sx09.jpg" alt="旧公寓楼梯间，拎着垃圾袋的石神与前来调查的刑警擦肩。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>楼梯间的问话 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sx10" style="--c:#4a5a52"
@@ -582,6 +584,7 @@ body{
       <div class="ev-when">1998 年 4 月<em>东京 · 高中</em></div>
       <h2>两个天才</h2>
       <p>汤川去石神的学校找他。两人在走廊上站着聊了半小时，聊的是一个数学猜想。石神说：想出这个问题的人，和解决它的人，哪个更了不起。汤川说：提出问题的那一个。石神说：不对，是解决的那一个。汤川看着他，说：你这些年，在解什么题。石神笑了一下，没有回答。走廊尽头有学生在打球，声音一阵一阵传过来。石神忽然说：你有没有觉得，人到了这个年纪，能做的事就越来越少了。汤川说：我没有想过。石神说：我想过。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/suspect-x-sx14.jpg" alt="放学后的高中走廊，汤川和石神站在窗边交谈。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>高中走廊里的重逢 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sx15" style="--c:#4a5a52"
@@ -629,6 +632,7 @@ body{
       <div class="ev-when">1998 年 6 月<em>东京 · 旧江户川</em></div>
       <h2>少了一个人</h2>
       <p>汤川一个人去了旧江户川的河堤。桥下住着几个流浪汉，彼此叫罐男、技师、老酒鬼。他数了数，少了一个。他问罐男：技师呢。罐男说：好久没见了，大概搬走了。汤川问：他的东西还在吗。罐男说：都在，一件没拿。汤川站在河堤上，风很大，他忽然明白了一件事。他蹲下去看技师的铺位：被子叠得很整齐，饭盒洗过，倒扣在砖头上。一个人如果要走，不会把饭盒洗了。汤川在那儿站了很久，最后说了一句：对不起。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/suspect-x-sx20.jpg" alt="旧江户川的桥下有几处简陋棚架，汤川独自沿河堤走来。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>旧江户川河堤 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sx21" style="--c:#4a5a52"
@@ -664,6 +668,7 @@ body{
       <div class="ev-when">1998 年 7 月<em>东京 · 拘留所</em></div>
       <h2>最后一封信</h2>
       <p>石神从拘留所寄出一封信，只有几行字：花冈女士，请你们忘了我，好好生活。工藤先生是个可靠的人，如果能和他在一起，我会很高兴。这辈子能被你打扰，是我的幸运。信纸很薄，字写得很工整，像一道算完的题。靖子看完，把信折起来放进抽屉，然后坐在椅子上，一动不动地坐到天黑。美里在旁边看着，说：妈妈，他在跟我们告别。靖子说：我知道。她把信放进抽屉，又拿出来，重新读了一遍。那几行字她后来能背下来，一个字不差。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/suspect-x-sx25.jpg" alt="一封薄薄的信摊在窗旁桌上，玻璃上有昏暗的夜色。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>石神寄出的信 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sx26" style="--c:#4a5a52"

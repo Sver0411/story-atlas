@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个在蒙古长大的汉人孩子，笨得学一套拳要三个月。他一辈子只认一个理：不能忘本。<br>19 个时间点，从「两个名字」到「守」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>19 个时间点 · 18 位人物</span><i></i>
+      <span>19 个时间点 · 18 位人物 · 7 张插图</span><i></i>
       <span>全本 · 1199—1227</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#sd03">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -497,6 +498,7 @@ body{
       <div class="ev-when">1206 年<em>蒙古 · 部落</em></div>
       <h2>哲别</h2>
       <p>郭靖六岁那年，看见一个受伤的武士被追兵围住，就把他藏在草垛里。追兵问他看见没有，他说没有。追兵走后，那个武士出来，说：你叫什么。他说：郭靖。那人说：我叫哲别，以后我教你射箭。他学射箭学了六年，能射落天上的雕。成吉思汗看见他，说：这孩子以后有出息。郭靖说：我娘说，我要做个好人。成吉思汗笑了。哲别教他射箭的时候说：别看箭，看风。他学了很久才懂。后来他一箭射落双雕，大汗把金腰带解下来给了他。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/legend-condor-sd03.jpg" alt="蒙古草原上，少年郭靖与负伤的哲别在草垛旁相遇。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>草原 · 郭靖与哲别 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sd04" style="--c:#5a4a2e"
@@ -545,6 +547,7 @@ body{
       <div class="ev-when">1221 年<em>中都</em></div>
       <h2>比武招亲</h2>
       <p>穆念慈在街上比武招亲，摆了一个擂台。杨康上台，三招把她打倒，抢了她的绣鞋，笑着走了。穆念慈站在台上，脸涨得通红。郭靖看不下去，追上去要鞋。杨康说：你算什么东西。两个人打了起来。穆念慈后来跟了杨康，跟了很多年。她知道他不是好人，可她说：我这一辈子，只喜欢过一个人。她说完，自己先低下头。穆念慈的绣鞋是红色的，鞋底绣着一对鸳鸯。杨康把它揣在怀里，揣了很多年。</p><p class="ev-src">出处 · 原著第 7 回 比武招亲</p>
+      <figure class="ev-fig"><img src="../../img/anthology/legend-condor-sd09.jpg" alt="北地街头的木台上，穆念慈着红衣立在围观的人群前。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>比武招亲 · 穆念慈 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sd10" style="--c:#5a4a2e"
@@ -564,6 +567,7 @@ body{
       <div class="ev-when">1221 年<em>中原 · 破庙</em></div>
       <h2>洪七公</h2>
       <p>黄蓉用一只叫化鸡引来了洪七公。老叫化吃了半只，说：这鸡做得不错。她说：那我天天给你做。他说：你想学什么。她说：降龙十八掌。他说：那是丐帮的功夫。她说：你教他。他看了看郭靖，说：这孩子笨。洪七公教了他一个月，教了十五掌。他说：剩下的三掌，以后再说。郭靖跪下磕头，说：师父。洪七公摆手说：别叫，我还没收你。他说完，又啃了一口鸡腿。洪七公说：你学武是为了什么。郭靖说：为了不让人欺负我娘。洪七公说：你娘已经不在了。郭靖说：那我为了不让人欺负别人。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/legend-condor-sd11.jpg" alt="溪边的篝火旁，洪七公与郭靖、黄蓉围坐，火上烤着荷叶裹的鸡。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>叫化鸡 · 洪七公收徒 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sd12" style="--c:#5a4a2e"
@@ -599,6 +603,7 @@ body{
       <div class="ev-when">1223 年<em>铁掌山</em></div>
       <h2>铁枪庙</h2>
       <p>杨康在铁枪庙里被黄蓉揭穿：他杀了欧阳克，嫁祸给别人，还拿走了丐帮的打狗棒。他扑上去要掐死她，一掌打在她胸口——她穿着软猬甲，甲上沾着欧阳锋的蛇毒。他的手被刺破，毒顺着血往上走。他倒在地上，先是笑，然后开始抽搐。穆念慈赶到的时候，他已经说不出话。他抓住她的手，指了指自己的胸口，死在她怀里。</p><p class="ev-src">出处 · 原著第 35 回 铁枪庙</p>
+      <figure class="ev-fig"><img src="../../img/anthology/legend-condor-sd16.jpg" alt="铁枪庙内，黄蓉面对众人讲述桃花岛命案，墙上火光摇动。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>铁枪庙 · 黄蓉揭开真相 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sd17" style="--c:#5a4a2e"
@@ -606,6 +611,7 @@ body{
       <div class="ev-when">1224 年<em>华山</em></div>
       <h2>论剑</h2>
       <p>华山之巅，天下五绝论剑。黄药师、洪七公、欧阳锋、段智兴，还有周伯通。打了七天七夜，没有输赢。最后欧阳锋练了假的九阴真经，疯了，一边打一边喊：我是天下第一。其他人都停了手。洪七公说：他疯了。黄药师说：疯了才好。他说：他一辈子想当第一，现在他觉得自己是第一。他说完，转身下山。周伯通说：他疯了。洪七公说：他早就疯了。黄药师说：我们回去吧。三个人转身下山，谁也没有回头看欧阳锋。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/legend-condor-sd17.jpg" alt="云海涌过华山石脊，数名侠客立在峰顶相对。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>华山 · 再论剑 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -618,6 +624,7 @@ body{
       <div class="ev-when">1225 年<em>蒙古</em></div>
       <h2>两难</h2>
       <p>成吉思汗要他带兵打金国，他去了。后来又要他打宋，他不肯。成吉思汗说：你是蒙古人。他说：我是汉人。成吉思汗说：你在我这儿长大。他说：我知道。他说：可我不能打自己的地方。他带着母亲南逃。李萍为了不拖累儿子，趁他不注意，用匕首刺了自己。她死前说：你要记住你爹是谁。他说：我记住。李萍说：你走吧。他说：我带你走。她说：你带不动我。她说：你记住，你是郭啸天的儿子。她说完，把匕首转了个方向。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/legend-condor-sd18.jpg" alt="蒙古营帐内，郭靖望着案上的密令，帐外是低沉的草原天色。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>草原营帐 · 密令 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sd19" style="--c:#5a4a2e"

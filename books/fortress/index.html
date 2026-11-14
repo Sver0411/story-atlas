@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一个买假文凭的留学生，从船上到大学，从恋爱到婚姻，一路走一路退。<br>16 个时间点，从「回国」到「出走」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>16 个时间点 · 7 位人物</span><i></i>
+      <span>16 个时间点 · 7 位人物 · 5 张插图</span><i></i>
       <span>全本 · 1937—1939</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#wch01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -492,6 +493,7 @@ body{
       <div class="ev-when">1937 年<em>上海 · 苏家</em></div>
       <h2>麻将</h2>
       <p>苏文纨请他去家里打麻将，桌上还有她的表妹唐晓芙。方鸿渐一晚上都在看唐晓芙，看她笑的时候嘴角有一颗小痣。苏文纨说：你在看什么。他说：看牌。她说：你看的是人。苏文纨说：你手气不好。他说：我手气一向不好。她说：那你脑子呢。他说：也不大好。唐晓芙在旁边笑了一声。苏文纨说：你这个人，什么都好，就是不上进。他说：上进到哪儿去。她说：到你该去的地方。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/fortress-wch03.jpg" alt="上海一间客厅里，几位宾客围坐在麻将桌旁。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>苏家 · 麻将桌 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wch04" style="--c:#5c5445"
@@ -525,6 +527,7 @@ body{
       <div class="ev-when">1938 年<em>上海</em></div>
       <h2>走</h2>
       <p>上海待不下去了。赵辛楣给他介绍了一份工作：湖南三闾大学，副教授。他们一行人坐船、坐车、走路，走了两个月。路上有李梅亭，一个带了一箱子药打算卖钱的教授；有顾尔谦，一个什么都点头的人；还有孙柔嘉，一个看着老实、其实很有主意的姑娘。孙柔嘉说：你带的东西太多了。他说：我怕路上买不到。她说：你怕的东西太多。他愣了一下，说：你说得对。孙柔嘉说：你这个人，看着老实。他说：我不老实。她说：我知道，可我喜欢。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/fortress-wch07.jpg" alt="方鸿渐一行带着行李走在通往内地的土路上。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>去三闾大学 · 旅途 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wch08" style="--c:#5c5445"
@@ -539,6 +542,7 @@ body{
       <div class="ev-when">1938 年<em>三闾大学</em></div>
       <h2>副教授</h2>
       <p>学校在乡下，房子是祠堂改的。校长高松年说：你是副教授，教伦理学。方鸿渐说：我没学过。校长说：没学过才好教。他上课第一天，学生问他：老师，你留过学吗。他说：留过。学生说：那你怎么讲成这样。学生说：老师，你讲的跟书上不一样。他说：书上是别人的。学生说：那我们听谁的。他说：你们听自己的。学生笑了。学生问：老师，你留过学吗。他说：留过。学生说：那你为什么讲成这样。他说：因为我没学。</p><p class="ev-src">出处 · 第 5 章 三闾大学</p>
+      <figure class="ev-fig"><img src="../../img/anthology/fortress-wch09.jpg" alt="方鸿渐站在旧祠堂改成的教室里讲课。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>三闾大学 · 第一堂课 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wch10" style="--c:#5c5445"
@@ -598,6 +602,7 @@ body{
       <div class="ev-when">1939 年 冬<em>上海</em></div>
       <h2>出走</h2>
       <p>那天晚上他们又吵了一架，为一只旧皮箱。他摔门出去，在街上走了一夜。天亮的时候，他站在自己家门口，听见里面没有声音。他摸了摸口袋，只有几个铜板。他想起那口老钟，走得不准，敲得也不准。他站在门口，手放在门把上，没有推开。他想：进去说什么。他想不出来。他转身走了。街上有人在卖早点，热气腾腾。他站在门口，手放在门把上。他想：进去说什么。他想不出来。</p><p class="ev-src">出处 · 第 9 章 末章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/fortress-wch15.jpg" alt="方鸿渐独自走进冬夜的上海街巷。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>上海 · 冬夜出门 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

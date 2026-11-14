@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -458,9 +459,9 @@ body{
     <p class="hero-deck">三个不想当英雄的人，被命运推着走：一个成了异类，一个成了皇帝，一个成了宫主。<br>23 个时间点，从「伏击」到「坟头」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>23 个时间点 · 17 位人物</span><i></i>
+      <span>23 个时间点 · 17 位人物 · 7 张插图</span><i></i>
       <span>全本 · 1094—1097</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#tl02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -493,6 +494,7 @@ body{
       <div class="ev-when">1094 年<em>无量山</em></div>
       <h2>石洞</h2>
       <p>他误闯无量山，被门派的人追，掉下悬崖。崖底有一个石洞，洞里有玉像，有一卷帛书。帛书上写的是北冥神功和凌波微步。他不想学，可玉像太好看，他跪下来磕了几个头。磕完他说：我不是想学武，我只是想活着出去。他照着图练了七天，居然练成了。凌波微步走起来像喝醉了酒，可别人打不着他。他出了洞，第一件事是找了个馒头吃。出洞那天他回头看了一眼那尊玉像，说：我以后会回来。他后来回来过一次，玉像已经被人搬走了。地上只剩一个圆形的印子。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/demi-gods-tl02.jpg" alt="段誉举灯望向岩洞深处立着的一尊玉像。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>无量山 · 洞中玉像 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tl03" style="--c:#4a3f33"
@@ -524,6 +526,7 @@ body{
       <div class="ev-when">1094 年<em>无锡 · 杏子林</em></div>
       <h2>乔峰</h2>
       <p>丐帮帮主乔峰在杏子林召集帮众，忽然有人站出来，说他是契丹人。他愣住了，说：我是汉人，我从小在少室山下长大。那人拿出一封信，说：你父亲是契丹武士萧远山。他接过信，看了三遍，说：这不是真的。没有人回答他。他把打狗棒插在地上，说：这根棒子，我今天交出来。他说完，一个一个地看过去。那些跟他喝了十几年酒的兄弟，没有一个敢抬头。有人喊：契丹狗！他没有回头。他把打狗棒放在地上，说：这根棒子是我师父传给我的，我用了十年。他说：今天它不姓乔，也不姓萧。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/demi-gods-tl06.jpg" alt="杏子林里的众人围成半圈，乔峰独自面对展开的信。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>杏子林 · 乔峰身世 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tl07" style="--c:#4a3f33"
@@ -545,6 +548,7 @@ body{
       <div class="ev-when">1095 年<em>小镜湖</em></div>
       <h2>阿朱</h2>
       <p>阿朱是慕容家的丫鬟，会易容。她假扮段正淳，替他去赴约，被乔峰一掌打死。他抱着她，说：你为什么不说。她说：我怕你不打。他说：我怎么会打你。她说：你要是不打，他就得死。她说：我不能让他死。她死在他怀里。他坐在雨里，坐到天亮。他后来把那块她绣的手帕一直带在身上，带了十几年。手帕上有两个字：阿朱。他后来常常想，那一掌如果偏一寸，她是不是还能活。他想了十几年，想的不是那一寸，是她为什么要替别人死。他一直没有想明白。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/demi-gods-tl09.jpg" alt="湖畔暮色渐深，阿朱停在小石桥上，薄雾笼住水面。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>小镜湖 · 黄昏 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -569,6 +573,7 @@ body{
       <div class="ev-when">1095 年<em>少林 · 藏经阁</em></div>
       <h2>虚竹</h2>
       <p>虚竹是少林寺的小和尚，长得丑，脑子慢，只会念经。他后来才知道，那个瘸腿的老太婆是天山童姥，九十六岁，身子却像八九岁。他跟师父下山送信，在珍珑棋局前站着，随手放了一子，把一局死棋解开了。棋局的主人无崖子把七十年功力传给他，说：你以后就是逍遥派掌门。他说：我是和尚。他说：和尚也可以。他得了功力，头发被剃了一半，脸也变了。他跪在佛前，说：弟子不是有意的。他说完，自己也不知道这话是对谁说的。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/demi-gods-tl11.jpg" alt="松林石桌边，虚竹伸手在围棋盘上落下一子。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>珍珑棋局 · 虚竹落子 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tl12" style="--c:#4a3f33"
@@ -615,6 +620,7 @@ body{
       <div class="ev-when">1096 年<em>少林 · 藏经阁</em></div>
       <h2>真相</h2>
       <p>藏经阁里，扫地僧说出了三十年前的真相：带头大哥是少林方丈玄慈，他带人伏击萧远山一家，杀错了人。萧远山是乔峰的父亲，他没有死，一直在少林寺里躲着，看着儿子长大。玄慈听完，跪下来说：是我。玄慈受了两百棍，死在佛前。乔峰站在旁边，一句话没说。他后来对虚竹说：你父亲是我仇人，我父亲杀了你父亲。虚竹说：我知道。两个人都不再说话。扫地僧说：你们父子三人，三十年，杀了多少人。他说完，把萧远山和慕容博的尸体拖过来，一按，两个人又活了。他说：仇恨这东西，得放下。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/demi-gods-tl16.jpg" alt="少林藏经阁内，灰衣老僧持着扫帚，几位访客在书架间驻足。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>少林藏经阁 · 扫地僧 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tl13" style="--c:#4a3f33"
@@ -629,6 +635,7 @@ body{
       <div class="ev-when">1096 年<em>雁门关</em></div>
       <h2>最后一战</h2>
       <p>辽国要南征，乔峰不肯带兵。耶律洪基亲自来劝，说：你是辽人。他说：我是辽人，可我在汉人堆里长大。他说：这一仗打起来，死的是老百姓。他把刀架在自己脖子上，说：你要打，就先杀我。耶律洪基退了兵，说：你我兄弟之情，今天断了。乔峰说：好。他把刀插进胸口。他说：我这一辈子，没做过对不起人的事。他说完，倒下去。他死前看了一眼段誉，又看了一眼虚竹。他说：你们两个，好好活着。他说：别学我。他说完，把刀拔出来，血喷了一地。</p><p class="ev-src">出处 · 原著第 50 回 雁门关</p>
+      <figure class="ev-fig"><img src="../../img/anthology/demi-gods-tl17.jpg" alt="雁门关外，辽帝举起折箭，萧峰立在两军之间。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>雁门关 · 折箭立誓 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tl18" style="--c:#4a3f33"

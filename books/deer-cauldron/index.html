@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -458,9 +459,9 @@ body{
     <p class="hero-deck">一个妓院里长大的小孩，不识字不会武功，靠一张嘴进了皇宫，当了爵爷，最后带着七个老婆跑了。<br>18 个时间点，从「妓院里的小孩」到「不干了」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>18 个时间点 · 15 位人物</span><i></i>
+      <span>18 个时间点 · 15 位人物 · 5 张插图</span><i></i>
       <span>全本 · 康熙初年</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#ld02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -491,6 +492,7 @@ body{
       <div class="ev-when">清 · 康熙初年<em>北京</em></div>
       <h2>进宫</h2>
       <p>茅十八带他进京，跟人打架，被官府抓。他一个人跑进一条巷子，翻墙进了一个大院子——那是皇宫。他遇见一个老太监海大富，海大富正要找一个人顶替死掉的小太监小桂子。他说：我就是小桂子。他在宫里活了下来，靠的是三样东西：会说话、会认怂、会记路。他把宫里的路记在心里，哪条通哪条，哪个门几点换岗，他全都知道。他在宫里第一次吃饭，吃了三碗，被管事太监打了一巴掌。他说：我饿。管事说：你以后不许说饿。他就不说了，从此学会了看人脸色。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/deer-cauldron-ld02.jpg" alt="清宫长廊里，少年韦小宝站在海大富面前。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>初入皇宫 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ld03" style="--c:#5a4b32"
@@ -513,6 +515,7 @@ body{
       <div class="ev-when">清 · 康熙初年<em>天地会</em></div>
       <h2>陈近南</h2>
       <p>天地会是反清的组织，总舵主叫陈近南。他抓到韦小宝，本来要杀，后来收他做了徒弟。他说：你进宫去，替我们做事。韦小宝说：我不会。他说：你会。他说：你什么都不用做，你只要活着，就有用。他给韦小宝背上刺了八个字，刺得他疼了三天。那八个字是：为人不识陈近南，便称英雄也枉然。他后来背着这八个字，做了很多他自己也不明白的事。陈近南说：你怕死吗。他说：怕。他说：我这辈子最怕的就是死。陈近南说：好，你会活着。他说：这话怎么听着不像夸人。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/deer-cauldron-ld05.jpg" alt="烛光照着隐蔽的厅堂，陈近南面前的韦小宝俯身行礼。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>天地会 · 拜师 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ld06" style="--c:#5a4b32"
@@ -532,6 +535,7 @@ body{
       <div class="ev-when">清 · 康熙初年<em>五台山</em></div>
       <h2>顺治</h2>
       <p>顺治没有死，他在五台山出家，法号行痴。康熙要去看父亲，韦小宝先去探路。他在山上遇见一个老和尚，老和尚问他：你来做什么。他说：找人。老和尚说：找谁。他说：找一个死了的人。老和尚笑了，说：他没死。康熙见到父亲，跪在雪地里，一句话说不出来。顺治说：你起来吧。他说：我不起来。顺治说：你是皇帝，不能跪人。他说：我今天不是皇帝。顺治说：你回去吧。康熙说：我不回。顺治说：你是皇帝。他说：我今天不是。顺治说：你天天都是。康熙跪在雪里，一直没有起来。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/deer-cauldron-ld07.jpg" alt="五台山的寺门外，韦小宝沿着积雪石阶上行。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>五台山 · 寻访行痴 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ld08" style="--c:#5a4b32"
@@ -553,6 +557,7 @@ body{
       <div class="ev-when">清 · 康熙初年<em>莫斯科</em></div>
       <h2>苏菲亚</h2>
       <p>他跟着一队人去了俄罗斯，遇见苏菲亚公主。她被人软禁，想夺权。他教她收买军队，教她怎么在夜里换掉守卫。她后来做了摄政王，封他做伯爵。他说：我不会说俄国话。她说：你不用说话，你只要笑。他回国的时候带了一堆礼物，还有一份条约。他其实看不懂条约上写什么，只知道两边都不打了。他后来跟人说：我这辈子做过一件大事，就是让两国不打仗。苏菲亚说：你为什么要帮我。他说：因为你好看。她说：这不是理由。他说：这就是理由。她笑了，笑完说：你们中国人真奇怪。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/deer-cauldron-ld10.jpg" alt="俄式宫室里，苏菲亚和韦小宝隔着一张摆有地图的木桌交谈。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>莫斯科 · 会见苏菲亚 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

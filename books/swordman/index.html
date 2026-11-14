@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -458,9 +459,9 @@ body{
     <p class="hero-deck">一个爱喝酒的大弟子，被师父逐出门，学了天下第一的剑法，最后什么也没要，跟一个魔教姑娘走了。<br>19 个时间点，从「灭门」到「退出」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>19 个时间点 · 15 位人物</span><i></i>
+      <span>19 个时间点 · 15 位人物 · 6 张插图</span><i></i>
       <span>全本 · 明 · 某年</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#xa02b">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -498,6 +499,7 @@ body{
       <div class="ev-when">明 · 某年<em>衡山 · 刘府</em></div>
       <h2>金盆洗手</h2>
       <p>衡山派的刘正风要金盆洗手，退出江湖。他把手伸进铜盆，说：从今天起，我不再是江湖人。嵩山派的人冲进来，说：你勾结魔教，洗手也没用。他们抓住了他的妻子儿女，一个一个杀给他看。刘正风跪在地上，手还泡在水里。他说：我跟你们走。他说：放了我的孩子。嵩山派的人说：已经晚了。那天衡山派的莫大先生也来了，坐在角落里拉胡琴，一直没有说话。莫大先生拉起胡琴，拉的是一支很旧的曲子。曲子拉完，院子里已经没有活人了。他站起来，走出门，从头到尾一句话没说。</p><p class="ev-src">出处 · 原著第 6—7 章 金盆洗手</p>
+      <figure class="ev-fig"><img src="../../img/anthology/swordman-xa02b.jpg" alt="刘正风站在厅堂中央，铜盆搁在身前的木案上。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>金盆洗手 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="xa03" style="--c:#4a4a3a"
@@ -512,6 +514,7 @@ body{
       <div class="ev-when">明 · 某年<em>思过崖</em></div>
       <h2>风清扬</h2>
       <p>他因为在外面惹事，被罚在思过崖面壁一年。崖上有一个山洞，洞里有五岳剑派的剑招，还有一个人。那人叫风清扬，是华山派的前辈，一个人在山里住了几十年。他说：你这套剑法，练得再熟也是死的。风清扬教了他一套剑法，叫独孤九剑，一共九式，没有固定招式。风清扬说：忘掉所有的招，看见破绽就刺。令狐冲说：我看不见破绽。风清扬说：那是因为你还在想着怎么赢。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/swordman-xa04.jpg" alt="华山石崖间，风清扬在岩洞前为令狐冲示范剑式。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>思过崖 · 风清扬授剑 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="xa05" style="--c:#4a4a3a"
@@ -565,6 +568,7 @@ body{
       <div class="ev-when">明 · 某年<em>杭州 · 梅庄</em></div>
       <h2>任我行</h2>
       <p>向问天带他去梅庄，说要救一个人。那个人被关在西湖底下的地牢里，关了十二年。他们用琴谱、棋谱、画、酒骗过四个庄主，进了地牢。地牢里坐着一个老人，头发全白，说：你们是谁。向问天说：教主，我来接你。任我行出来那天，站在太阳底下，闭着眼睛站了很久。他说：十二年。他说：东方不败，我回来了。他说这话的时候，声音很轻，可所有人都听见了。地牢里没有窗，只有一个小口送饭。他十二年没有见过太阳，出来的时候皮肤是白的，眼睛睁不开。</p><p class="ev-src">出处 · 原著第 20—21 章 梅庄</p>
+      <figure class="ev-fig"><img src="../../img/anthology/swordman-xa09.jpg" alt="提灯照亮梅庄地下的石牢，令狐冲隔着栏杆望向里面。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>梅庄 · 湖底地牢 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="xa10" style="--c:#4a4a3a"
@@ -572,6 +576,7 @@ body{
       <div class="ev-when">明 · 某年<em>黑木崖</em></div>
       <h2>东方不败</h2>
       <p>东方不败是日月神教的教主，住在黑木崖上，十几年没有下过崖。他练了葵花宝典，变成了一个女人，绣花，养男宠。令狐冲、任我行、向问天、任盈盈四个人上去杀他。他一根绣花针，打得四个人抬不起头。最后是任盈盈抓住了杨莲亭，东方不败分了一下神，被令狐冲一剑刺中。他倒下去的时候说：我这一生，只爱一个人。他说完，看了一眼杨莲亭，闭上了眼睛。崖上的花园里种满了花。他坐在花丛中间绣花，针脚很细。他说：你们来得正好，我这一朵快绣完了。</p><p class="ev-src">出处 · 原著第 26—31 章 黑木崖</p>
+      <figure class="ev-fig"><img src="../../img/anthology/swordman-xa10.jpg" alt="黑木崖的内室里，东方不败端坐在绣架旁。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>黑木崖 · 绣花针 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -631,6 +636,7 @@ body{
       <div class="ev-when">明 · 某年<em>杭州 · 西湖</em></div>
       <h2>退出</h2>
       <p>令狐冲把恒山派交给了仪琳，把华山派交给了别人，一个人下了山。任盈盈在西湖边等他。她说：你不做掌门了。他说：不做了。她说：那做什么。他说：喝酒，弹琴，跟你在一起。她说：就这样。他说：就这样。他们在西湖边住了下来。有人说，晚上能听见湖上有人弹琴。也有人说，那个人弹得不好，另一个人一直在笑。他们在西湖边盖了三间屋子，一间住人，一间放琴，一间放酒。有客人来，他就弹一曲，弹完说：我弹得不好。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/swordman-xa15.jpg" alt="青山间的亭子里，任盈盈抚琴，令狐冲吹箫。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>曲谐 · 琴箫合奏 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个想退休的杀手，一个自恋的剑士，一个瘸腿的审讯官。背后有一个活了几百年的法师在布棋。<br>12 个时间点，从「九指」到「结局」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>12 个时间点 · 5 位人物</span><i></i>
+      <span>12 个时间点 · 5 位人物 · 5 张插图</span><i></i>
       <span>三部曲 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#fl01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -498,6 +499,7 @@ body{
       <div class="ev-when">某年<em>审讯室</em></div>
       <h2>格洛塔</h2>
       <p>格洛塔曾经是个英俊的剑士，在战场上被俘，被折磨了两年。他回来的时候，没有牙，腿瘸，走路要拄拐。他现在替政府审人。他说：我审人的时候，会想起自己。他说：我这一辈子，只做两件事：让人疼，和自己疼。他说：第二件更难。他说：你们以为我恨你们。他说：我不恨。他说：我只是疼。他说：他们把我的牙一颗一颗拔了。他说：我现在说话漏风。他说：我习惯了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/first-law-fl03.jpg" alt="格洛塔拄拐站在政府石廊的台阶下，侧墙烛灯亮着。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>拄拐的格洛塔 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fl04" style="--c:#4a423a"
@@ -524,6 +526,7 @@ body{
       <div class="ev-when">某年 · 西行<em>北境</em></div>
       <h2>西行</h2>
       <p>他们一路往西，去找「种子」——一样能让土地活、也能让土地死的东西。拜亚兹说它在一座城的废墟底下。他们走了几个月，吃了很多苦，到了那儿，什么也没有。拜亚兹站在空坑边上，说：有人先来了。他没有说是谁。回程的路上，费罗一个人离开了一阵，回来的时候手里多了一个小包。她说：我拿到了。罗根说：你怎么拿到的。她说：我杀了人。</p><p class="ev-src">出处 · 第 2 卷《Before They Are Hanged》</p>
+      <figure class="ev-fig"><img src="../../img/anthology/first-law-fl06.jpg" alt="一行旅人走进风化的古城废墟，拜亚兹站在空坑边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>拜亚兹的西行 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fl07" style="--c:#4a423a"
@@ -543,6 +546,7 @@ body{
       <div class="ev-when">某年<em>王城</em></div>
       <h2>杰查尔</h2>
       <p>杰查尔回了王城，成了英雄。国王死了，他被人推上王位。他说：我不想当国王。有人说：你适合。他说：我什么都不懂。那人说：那正好。他当国王的第二天，就发现所有的事都是别人替他决定的。他说：我以为国王能说了算。他说：我不想当国王。有人说：没人问你想不想。他说：那你们问我做什么。他说：我当了国王，才知道国王什么都不是。他说：国王只是一张脸。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/first-law-fl08.jpg" alt="杰查尔在王座前停步，仪式中的贵族聚在大厅两侧。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>杰查尔登上王位 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fl09" style="--c:#4a423a"
@@ -569,6 +573,7 @@ body{
       <div class="ev-when">某年<em>北方</em></div>
       <h2>回去</h2>
       <p>罗根回了北方，带着一群人。他说：我不当王。有人说：你得当。他说：我不会当。他说：我只会杀人。他后来当了王。他说：我这一辈子，最不想当的就是这个。他说：我不会当王。有人说：你打了一辈子仗，你知道怎么让人活。他说：我不知道。他说：我不会写公文。有人说：你不用写。他说：那我做什么。他说：你们要我当王，我就当。他说：可我不保证什么。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/first-law-fl11.jpg" alt="罗根与同伴沿着北方山路前行，云压在松林上。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>罗根回到北方 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fl12" style="--c:#4a423a"

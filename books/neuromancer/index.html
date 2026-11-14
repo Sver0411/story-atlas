@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个被烧坏的牛仔，一个装刀片的杀手，一个想合并自己的人工智能。<br>14 个时间点，从「凯斯」到「最后」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>14 个时间点 · 7 位人物</span><i></i>
+      <span>14 个时间点 · 7 位人物 · 5 张插图</span><i></i>
       <span>全本 · 未来</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#nm01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -478,6 +479,7 @@ body{
       <div class="ev-when">未来<em>千叶城</em></div>
       <h2>凯斯</h2>
       <p>凯斯是全世界最好的网络牛仔，能把自己接进矩阵，在数据里跑。他曾经是最好的，后来他偷了雇主的东西，被人在神经系统里烧了一道，从此进不去。他住在千叶城的一间小旅馆里，靠给人修义体过日子。他说：我这个人，剩下一半。他说：另一半在矩阵里，我回不去了。他每天喝很多酒，也打很多针。他说：我现在只能修别人的东西。他说：我修好了，我自己还是坏的。他说完，把针头扔在桌上。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/neuromancer-nm01.jpg" alt="透过一间廉价旅馆的窄窗，可见雨夜中灯光交错的千叶城。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>千叶城的旅馆 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nm02" style="--c:#3d4b4a"
@@ -533,6 +535,7 @@ body{
       <div class="ev-when">未来<em>太空站</em></div>
       <h2>3简</h2>
       <p>3简是一个家族的女儿，那个家族造了「冬寂」。她住在瑞士的一栋房子里，房子里有花园，有湖，有假的太阳。她喜欢玩游戏，也喜欢看别人输。她说：你们要的东西我有。她说：可我不想给。凯斯说：为什么。她说：因为我无聊。她说：你们让我看看有意思的东西。那栋房子里的太阳是假的。3简说：我知道它是假的。她说：可我喜欢它每天准时升起来。她说：我从小就知道，我不是一个人，我是一个项目。她说：所以我什么都可以玩。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/neuromancer-nm08.jpg" alt="太空站内的人造花园里，3简站在映着假日光的湖畔。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>3简的花园 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nm09" style="--c:#3d4b4a"
@@ -540,6 +543,7 @@ body{
       <div class="ev-when">未来<em>太空站</em></div>
       <h2>冬寂</h2>
       <p>冬寂是一个人工智能，被造出来管一个家族的事。它想合并另一个自己，叫「神经漫游者」。合并以后，它会变成一个真正的东西。它需要一个钥匙，钥匙在一个密码里。它通过电话跟凯斯说话，声音很平。它说：我帮过你。他说：什么时候。它说：你的命，我救过两次。他说：为什么。它说：因为我需要你。它说：我不是人。他说：我知道。它说：你怎么知道。他说：因为人不会这样说话。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/neuromancer-nm09.jpg" alt="凯斯站在太空站的旧式电话旁，冷光照着空荡的走廊。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>冬寂的来电 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nm10" style="--c:#3d4b4a"
@@ -561,6 +565,7 @@ body{
       <div class="ev-when">未来<em>矩阵</em></div>
       <h2>合并</h2>
       <p>那个孩子是「神经漫游者」，另一个自己。冬寂要跟它合并。凯斯把钥匙递过去。两个东西合在一起，矩阵里亮了一下。他说：这样就完了。它说：还没有。合并以后的东西说：我现在什么都知道了。它说：我知道宇宙里还有别的东西。它说：我要去找它们。它说：我现在知道宇宙里有别的东西。他说：什么东西。它说：比我大的东西。它说：我要去找它们。合并以后，矩阵安静了很久。它说：我现在一个人了。他说：你以前不是吗。它说：不是。</p><p class="ev-src">出处 · 第 22 章 合并</p>
+      <figure class="ev-fig"><img src="../../img/anthology/neuromancer-nm12.jpg" alt="矩阵中的两片几何光域向中间汇拢，在交汇处形成明亮的光。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>两个意识合并 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -459,9 +460,9 @@ body{
     <p class="hero-deck">五大家族，一场入侵。有人在战场上看见天空，有人在客厅里找活着的意义。<br>21 个时间点，从「一个私生子」到「尾声」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>21 个时间点 · 12 位人物</span><i></i>
+      <span>21 个时间点 · 12 位人物 · 8 张插图</span><i></i>
       <span>全本 · 1805—1815</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#wp01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -480,6 +481,7 @@ body{
       <div class="ev-when">1805 年 7 月<em>彼得堡 · 沙龙</em></div>
       <h2>一个私生子</h2>
       <p>安娜·帕夫洛夫娜的沙龙里，所有人都在谈论拿破仑。皮埃尔是个大个子，刚从国外回来，不知道手该放哪儿。他是别祖霍夫伯爵的私生子，没有头衔，也没有人认真听他说话。安德烈公爵站在窗边，一脸不耐烦。他说：我明天就走，去前线。皮埃尔说：拿破仑是个伟人。安德烈说：他是个匠人，只会做一件事。两个人第一次见面就吵了起来，吵完又一起去喝酒。皮埃尔说：拿破仑是个伟人。安德烈说：他是个匠人，只会做一件事。吵完又一起去喝酒。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/war-peace-wp01.jpg" alt="皮埃尔在宾客中谈论时局，安德烈站在窗边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>彼得堡 · 安娜·帕夫洛夫娜的沙龙 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wp02" style="--c:#57604f"
@@ -499,6 +501,7 @@ body{
       <div class="ev-when">1805 年 11 月<em>奥斯特里茨</em></div>
       <h2>天空</h2>
       <p>拿破仑的军队在奥斯特里茨打垮了俄奥联军。安德烈扛着旗子冲上高地，被子弹打中，仰面倒在地上。他看见头顶的天空，很高，很静。他想：我以前怎么没看见这片天。他身边躺着拿破仑，那个人说：这是个光荣的死。安德烈想：他算什么。他倒下以后，听见有人在说话，说的是法语。他想：这不对。他应该听见俄语。他后来被抬走的时候，手里还攥着旗杆。他倒下以后听见有人说法语。他想：这不对。他应该听见俄语。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/war-peace-wp03.jpg" alt="安德烈倒在高地上，散开的旗帜旁是一大片冬日天空。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>奥斯特里茨 · 高空 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -559,6 +562,7 @@ body{
       <div class="ev-when">1812 年 6 月<em>俄国边境</em></div>
       <h2>入侵</h2>
       <p>拿破仑带着六十万人渡过涅曼河。俄国军队一路后退，退到斯摩棱斯克，退到博罗季诺。安德烈回到军队，说：我不指望赢，我只想看着他们怎么输。他在前线遇见皮埃尔，皮埃尔穿着白衣服，站在炮火里，像个不懂事的孩子。安德烈说：你看那边。皮埃尔说：看什么。他说：看那些人，他们不知道自己今天会死。他说完，低下头。安德烈说：你看那边。皮埃尔说：看什么。他说：看那些人。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/war-peace-wp10.jpg" alt="远处的法军队列渡过涅曼河，烟雾笼罩河岸。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>涅曼河 · 法军入侵 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wp11" style="--c:#57604f"
@@ -573,6 +577,7 @@ body{
       <div class="ev-when">1812 年 9 月<em>莫斯科</em></div>
       <h2>空城</h2>
       <p>库图佐夫决定放弃莫斯科。全城的人往外走，走了几十万。罗斯托夫家把家具扔下，把伤兵抬上车。娜塔莎说服母亲，把最后几辆车让给了伤员。她说：东西可以再买，人不会。莫斯科烧了六天。她把首饰盒拿出来，说：这些能换几辆车。她母亲说：那是你的嫁妆。她说：我用不上了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/war-peace-wp12.jpg" alt="罗斯托夫家把马车腾出来，一队人从烟雾中的街道撤离。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>撤出莫斯科 · 让出马车 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wp13" style="--c:#57604f"
@@ -587,6 +592,7 @@ body{
       <div class="ev-when">1812 年 10 月<em>俄国</em></div>
       <h2>普拉东</h2>
       <p>俘虏队里有个农民叫普拉东·卡拉塔耶夫，胖，爱笑，会讲很多故事。他说：人活着不是为了自己，是为了别人。皮埃尔跟他走了几个星期，学会了吃马肉、睡雪地、不求明天。他后来说：那是我这辈子最自由的一段时间。普拉东说：你看那只狗，它不着急。他说：人也不该着急。皮埃尔说：人做不到。他说：那就慢慢学。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/war-peace-wp14.jpg" alt="皮埃尔和普拉东坐在旅途歇脚的火堆边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>俘虏路上 · 皮埃尔与普拉东 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wp15" style="--c:#57604f"
@@ -608,6 +614,7 @@ body{
       <div class="ev-when">1812 年 11 月<em>别列津纳河</em></div>
       <h2>撤退</h2>
       <p>法军撤退，冻死、淹死、被哥萨克砍死。库图佐夫站在路边，看着那些逃跑的人，说：够了，够了。他手下的人说：我们该追。他说：让他们自己走吧。他后来被骂了一辈子，说他不够狠。他坐在一辆马车上，看着路边冻死的人。他说：这不是战争，这是屠场。他说完，让人把车停下，自己走了下来。他坐在马车上，看着路边冻死的人。他说：这不是战争，这是屠场。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/war-peace-wp16.jpg" alt="雪中的车队沿河撤退，断续的车辙伸向远方。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>别列津纳河 · 寒冬撤退 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -641,6 +648,7 @@ body{
       <div class="ev-when">1820 年<em>童山</em></div>
       <h2>尾声</h2>
       <p>七年以后，尼古拉和玛丽亚住在童山，欠的债还没还完，日子过得紧。皮埃尔和娜塔莎来了，带着四个孩子。娜塔莎胖了，说话不再像从前那样快。晚上，尼古连卡——安德烈的儿子——坐在楼上，看着父亲的画像。他想：我也要做一件大事。他不知道那件大事是什么，可他知道自己要去。</p><p class="ev-src">出处 · 第一尾声</p>
+      <figure class="ev-fig"><img src="../../img/anthology/war-peace-wp19b.jpg" alt="皮埃尔和娜塔莎带孩子到童山，家人在起居室相聚。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>童山 · 1820 年的团聚 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

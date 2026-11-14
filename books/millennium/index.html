@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -460,9 +461,9 @@ body{
     <p class="hero-deck">一个身败名裂的记者，一个被国家监护的女孩，一桩四十年没破的失踪案。这座岛上只有三十几个人，凶手就在里面。<br>24 个时间点，从「败诉」到「走了」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>24 个时间点 · 15 位人物</span><i></i>
+      <span>24 个时间点 · 15 位人物 · 5 张插图</span><i></i>
       <span>千禧年系列第一部 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#lg1">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -481,6 +482,7 @@ body{
       <div class="ev-when">2002 年 12 月<em>斯德哥尔摩 · 法院</em></div>
       <h2>败诉</h2>
       <p>米卡尔·布隆维斯特站在被告席上，听法官念完判决。他为《千禧年》杂志写了一篇报道，指控金融家温纳斯壮挪用公款，证据是别人递给他的。开庭前一天，那些证据全变成了伪造的。他被判三个月监禁，罚款十五万，职业生涯到此为止。散庭后记者围上来，他一句话没说。埃里卡在门口等他，说：是我让你写的。他说：是我签的字。散庭后他在法院门口站了半小时，雪落在肩上。有个同行走过来说：你早该知道，那种人不是你能碰的。他说：我知道。那人说：那你为什么还要写。他说：因为是真的。那人笑了一下，走了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/millennium-lg1.jpg" alt="布隆维斯特在瑞典法庭的被告席上听取判决。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>斯德哥尔摩的判决 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="lg2" style="--c:#3b4148"
@@ -500,6 +502,7 @@ body{
       <div class="ev-when">2003 年 1 月<em>海德比岛</em></div>
       <h2>冰上的桥</h2>
       <p>海德比岛在北方，冬天只有一座桥通岸上。范耶尔家族在这座岛上住了五代，岛上有一栋大宅、一个教堂、几座小房子，还有三十几个姓范耶尔的人。亨里克在书房里接待他，第一句话是：我不是请你来写传记的。第二句是：我要你查一个人。岛上有个女人叫塞西莉亚，四十多岁，离过婚，管着一间小画廊。她给他送了一壶咖啡，说：你是今年第三个来查这件事的人。他说：前两个呢。她说：一个放弃了，一个死了。她说完，把杯子收走，没有再说别的。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/millennium-lg3.jpg" alt="冰封海湾上一座桥通向海德比岛，岛上散布着老宅和教堂。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>冰上的桥 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="lg4" style="--c:#3b4148"
@@ -581,6 +584,7 @@ body{
       <div class="ev-when">2003 年 3 月<em>海德比岛</em></div>
       <h2>合作</h2>
       <p>莎兰德来了。她穿着一件黑皮衣，头发很短，脸上没什么表情。她说：我查了你三个月，你比报告里写的笨一点。布隆维斯特说：你为什么帮我。她说：因为那个金融家让我恶心。她坐下来，打开电脑，说：现在开始，你负责问人，我负责查档案。她住进了岛上那间客房，把窗帘拉上，白天也开着台灯。她不吃早饭，喝很多咖啡，说话不超过十个字。第三天下雨，她忽然说：你这个人不错，就是太容易相信人。他说：这是缺点吗。她说：在你这一行，是。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/millennium-lg13.jpg" alt="莎兰德穿黑皮夹克坐到电脑前，布隆维斯特在一旁展开档案。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>两人开始合作 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="lg14" style="--c:#3b4148"
@@ -635,6 +639,7 @@ body{
       <div class="ev-when">2003 年 5 月<em>海德比岛 · 教堂</em></div>
       <h2>三十七年</h2>
       <p>亨里克坐在轮椅上，看见门口进来一个老太太，愣了一下，然后整个人抖起来。他说：哈丽特。她说：叔叔。他伸出手，她没有握，直接跪下去，把脸埋在他膝盖上。屋里没有人说话。窗外的雪下得很大，教堂里的钟响了一下，是下午三点。哈丽特从包里拿出一个铁盒，里面是三十七朵压干的野花。她说：每年我都想寄一朵，寄到后来我自己也不知道在寄给谁。亨里克说：我在等。她说：我知道。他说：我不是等一个答案，我是等你。她没有说话，把盒子放在他手上。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/millennium-lg20.jpg" alt="海德比岛的教堂里，亨里克坐在轮椅上，哈丽特走向他。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>三十七年后的重逢 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

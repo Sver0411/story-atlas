@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -459,9 +460,9 @@ body{
     <p class="hero-deck">沿四十二个故事节点，看宝黛钗的情感、贾府的盛衰，以及园中女儿们各自走向的命运。人物关系与章回依据可随时查阅。<br>50 个时间点，从「石头与失散的女儿」到「石头返本，故事留下」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>50 个时间点 · 40 位人物</span><i></i>
+      <span>50 个时间点 · 40 位人物 · 8 张插图</span><i></i>
       <span>通行一百二十回本：前八十回与后四十回分段标明，包含结局剧透。</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#rc09">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -558,6 +559,7 @@ body{
       <div class="ev-when">第18回 · 前八十回<em>大观园</em></div>
       <h2>省亲之夜</h2>
       <p>元宵夜，元春归省。仪仗从宫门一直排到府门，灯火照得如同白昼。她进了园子，看见“奢华过费”，叹道：当日既送我到那不得见人的去处，好容易今日回家，不说说笑笑，反倒哭起来。她见了贾母、王夫人，三个人抱头痛哭。她给园子题名“大观园”，又命宝玉和姐妹们各题一匾一诗。这一夜，是贾府最后的高光。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-rc09.jpg" alt="大观园回廊灯火通明，仪仗经过水边，远处家人静候。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>元春省亲 · 灯下回廊 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -582,6 +584,7 @@ body{
       <div class="ev-when">第23回 · 前八十回<em>潇湘馆与怡红院</em></div>
       <h2>住进园中，共读西厢</h2>
       <p>三月，宝玉和黛玉在沁芳闸桥边共读《西厢记》。宝玉说：我就是个“多愁多病身”，你就是那“倾国倾城貌”。黛玉红了脸，骂他胡说，又要去告状。宝玉求饶，她笑了，说：原来是苗而不秀，是个银样镴枪头。两个人坐在花树下，花瓣落在书页上。这是他们最像一对少年夫妻的一天。黛玉看完，把书合上，说：果然有趣。宝玉问：妹妹，你说好不好？她说：果然有趣。两个人谁也没说破，可那一句“倾国倾城貌”，她已经记了一辈子。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-chamber.jpg" alt="竹林白墙与池水回廊围合的园林中，女子与侍女走在小径上" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>住进大观园 · 园林意象 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="rc11" style="--c:#984b53"
@@ -589,9 +592,8 @@ body{
       <div class="ev-when">第27—28回 · 前八十回<em>大观园花冢</em></div>
       <h2>葬花与身世之感</h2>
       <p>芒种节，众人在园中饯花神。黛玉一个人扛着花锄，提着花囊，走到埋香冢前，把落花扫起来，埋进土里。她一面埋一面哭，念出那首《葬花吟》：花谢花飞花满天，红消香断有谁怜……侬今葬花人笑痴，他年葬侬知是谁。宝玉在山坡上听见，先是不住点头，后来不觉痴倒。这一段，写尽了她寄人篱下的身世之感。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-flowers.jpg" alt="女子背对画面持花锄与花袋，在桃树下收拢落花，旁边是一小处花冢" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>黛玉葬花 · 花锄与落花 · AI 概念插图</figcaption></figure>
     </section>
-
-      <figure class="ev-fig"><img src="../../img/anthology/red-chamber.jpg" alt="大观园 · 花影与回廊" loading="lazy"><figcaption>大观园 · 花影与回廊 · 概念配图</figcaption></figure>
 
     <div class="era-divider">
       <span class="era-name">前八十回 · 园中岁月</span>
@@ -624,6 +626,7 @@ body{
       <div class="ev-when">第37—38回 · 前八十回<em>秋爽斋与藕香榭</em></div>
       <h2>海棠诗社</h2>
       <p>探春发起海棠诗社，众人各取别号：宝玉是怡红公子，黛玉是潇湘妃子，宝钗是蘅芜君，探春是蕉下客。第一次咏白海棠，黛玉的“偷来梨蕊三分白，借得梅花一缕魂”夺魁。后来湘云做东，又咏菊花，一口气写了十二首。这些诗社的日子，是园子里最有生气的时候。诗社定了规矩：每月初二、十六开社，风雨无阻。李纨自荐做社长，说：我虽不会作诗，却会看。众人笑她“老实人办老实事”。第一次开社，宝玉就落了第，被罚去求一枝红梅。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-rc14.jpg" alt="大观园内，年轻女子围桌作诗，窗外海棠映进屋中。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>海棠诗社 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="rc15" style="--c:#984b53"
@@ -666,6 +669,7 @@ body{
       <div class="ev-when">第52回 · 前八十回<em>怡红院</em></div>
       <h2>病中补雀金裘</h2>
       <p>贾母给宝玉一件雀金裘，是用孔雀毛捻线织的，天下只有这一件。宝玉穿了一天就烧了个洞，第二天还要穿去给舅舅拜寿。城里织补匠都不敢接。晴雯正病着，强撑着起来，用孔雀金线一针一针地补，补到天亮，补得看不出痕迹。她自己却因此病重，这一补，补掉了半条命。晴雯补完，天已经亮了。她把衣服叠好，说：补虽补了，到底不像。若再换一件，我是不能了。宝玉说：够了，够了。她笑了笑，倒在床上，从此再没起来。这件雀金裘，后来被当掉了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-rc18.jpg" alt="夜深灯亮，晴雯披着薄衣俯身缝补泛着蓝绿光泽的衣裘。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>怡红院 · 病中补裘 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="rc19" style="--c:#984b53"
@@ -681,8 +685,6 @@ body{
       <h2>探春理家</h2>
       <p>探春理家时，赵姨娘来闹，说她不给亲舅舅多拨丧葬费。探春说：谁是我舅舅？我舅舅早升了九省检点了。她当众不认自己的生母。赵姨娘哭着走了。探春不是无情，是她太清楚：在这个家里，庶出的身份是一道永远跨不过去的坎。赵姨娘走后，探春一个人在屋里坐了半晌。她说：我但凡是个男人，可以出得去，我早走了，立一番事业，那时自有我一番道理。偏我是个女孩儿，一句多话也没有我乱说的。</p>
     </section>
-
-      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-snow.jpg" alt="雪中的园子 · 盛景之后" loading="lazy"><figcaption>雪中的园子 · 盛景之后 · 概念配图</figcaption></figure>
 
     <section class="event" id="rc20" style="--c:#984b53"
       data-color="#984b53" data-era="前八十回 · 园中岁月" data-short="紫鹃试玉" data-label="第57回 · 前八十回 · 潇湘馆与怡红院">
@@ -786,9 +788,8 @@ body{
       <div class="ev-when">第96—98回 · 后四十回<em>潇湘馆与婚房</em></div>
       <h2>焚稿与成婚</h2>
       <p>贾母、王熙凤定下“调包计”：让宝玉娶宝钗，却告诉他娶的是黛玉。宝玉信了，天天盼着。黛玉从傻大姐嘴里听到真相，心里一凉，回房就吐了血。她烧掉诗稿和宝玉送的旧帕，说：我的身子是干净的，你好生看着。宝玉揭开盖头，看见是宝钗，傻了。那一夜，园子里的灯很亮，潇湘馆的灯灭了。</p><p class="ev-src">出处 · 第 97—98 回</p><div class="ev-sub"><h3><span>其一</span>调包</h3><p>贾母、王熙凤定下调包计，让宝玉娶宝钗，却告诉他娶的是黛玉。整个贾府都知道，只有宝玉不知道。</p></div><div class="ev-sub"><h3><span>其二</span>焚稿</h3><p>黛玉在潇湘馆烧掉诗稿和题帕，含恨而死。宝玉揭开盖头，才发现新娘不是她。那一夜，园子里的灯很亮，潇湘馆的灯灭了。</p></div>
+      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-rc30.jpg" alt="潇湘馆的冬夜里，黛玉将手稿送向炭盆，火光照着她的袖口。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>潇湘馆 · 黛玉焚稿 · AI 概念插图</figcaption></figure>
     </section>
-
-      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-flowers.jpg" alt="葬花 · 花谢花飞" loading="lazy"><figcaption>葬花 · 花谢花飞 · 概念配图</figcaption></figure>
 
     <section class="event" id="rc31" style="--c:#984b53"
       data-color="#984b53" data-era="后四十回 · 失玉与婚变" data-short="探春远嫁" data-label="第100回 · 后四十回 · 贾府至远方任所">
@@ -809,6 +810,7 @@ body{
       <div class="ev-when">第105—107回 · 后四十回<em>宁荣两府</em></div>
       <h2>抄家与散财</h2>
       <p>贾府被抄家。锦衣军闯进来，封了库房，搜出违禁之物，贾赦、贾珍被拿问，贾政革职。凤姐攒了一辈子的体己，一箱一箱被抬走。她站在院子里，看着那些人搬东西，一句话没说。贾母把体己拿出来分给众人，说：我活了这么大年纪，也该散了。抄家那天，贾政跪在院子里接旨，浑身发抖。贾赦被锁走时，还在喊：我是国丈！没有人理他。贾母把体己分给众人，说：你们各自去罢。这一夜，荣国府的大门第一次没有关。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-rc33.jpg" alt="贾府院内，几个差役在箱笼旁清点，家眷静立回廊下。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>贾府 · 抄家 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="rc34" style="--c:#984b53"
@@ -863,6 +865,7 @@ body{
       <div class="ev-when">第119—120回 · 后四十回<em>贡院与雪中渡口</em></div>
       <h2>中举之后离去</h2>
       <p>宝玉、贾兰去考乡试。出场那天，宝玉交了卷，出来就失踪了。有人说看见一个和尚在雪地里走。放榜那天，宝玉中了第七名举人，贾兰中了一百三十名。可人已经不见了。王夫人哭得昏过去，宝钗坐着，一句话没说。宝玉失踪后，王夫人派人四处找，找了半年，没有消息。宝钗说：他不会回来了。她把宝玉的旧衣裳收起来，放在箱底。后来贾桂长大，问起父亲，她说：你父亲出了远门。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-chamber-snow.jpg" alt="雪中小路上，红毡斗篷的青年随一僧一道远去，老人在路旁目送" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>雪中离去 · 通行一百二十回本结尾意象 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="rc41" style="--c:#984b53"

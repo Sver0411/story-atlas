@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一个姑娘在门廊上想着舞会，一场战争把她的世界烧成了灰。她什么都没了，只剩下一片红土和一句明天再说。<br>18 个时间点，从「十二棵橡树」到「明天」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>18 个时间点 · 11 位人物</span><i></i>
+      <span>18 个时间点 · 11 位人物 · 6 张插图</span><i></i>
       <span>全本 · 1861—1870</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#gw01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -477,6 +478,7 @@ body{
       <div class="ev-when">1861 年 4 月<em>塔拉庄园</em></div>
       <h2>十二棵橡树</h2>
       <p>斯佳丽十六岁，坐在门廊上，听两个小伙子说战争。她说：战争太无聊了。她说：我关心的是明天的舞会。她父亲杰拉尔德说：土地是唯一值得为之工作的东西。她没听进去。她只想着艾希礼·威尔克斯要宣布婚事了。嬷嬷在旁边替她梳头，说：小姐，你别坐得那么开。她穿着绿裙子，裙摆铺在台阶上。两个小伙子争着给她拿扇子。她说：你们要是再讲战争，我就进屋去了。她穿着绿裙子坐在门廊上，两个小伙子争着给她扇风。她说：你们再讲战争，我就进屋。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/gone-wind-gw01.jpg" alt="斯佳丽站在庄园门廊上，两个年轻人停在台阶边与她说话。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>塔拉 · 门廊 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="gw02" style="--c:#7a4a3a"
@@ -517,6 +519,7 @@ body{
       <div class="ev-when">1863 年<em>亚特兰大</em></div>
       <h2>舞会</h2>
       <p>募捐舞会上，瑞德出了一百五十金元，请她跳舞。全场哗然。她说：我是个寡妇。他说：那正好，寡妇跳得最好。她跳了。她后来说：那是我这辈子最快活的一支舞。她跳完一支，又跳一支。梅兰妮坐在旁边，替她担心。她说：你不该这样。斯佳丽说：我为什么不该。她跳完一支又跳一支。梅兰妮在旁边看着，替她担心。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/gone-wind-gw06.jpg" alt="瑞德与穿黑色丧服的斯佳丽起舞，宾客转头望向他们。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>亚特兰大 · 筹款舞会 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="gw07" style="--c:#7a4a3a"
@@ -524,6 +527,7 @@ body{
       <div class="ev-when">1864 年<em>亚特兰大</em></div>
       <h2>围城</h2>
       <p>谢尔曼的军队围了亚特兰大，炮弹天天落。梅兰妮要生了，医生全在前线。斯佳丽接生，手在抖，孩子生下来的时候她坐在地上哭。她说：我再也不干这种事了。瑞德弄来一辆马车，把她们送出城。梅兰妮说：你走吧，别管我。斯佳丽说：我走了你怎么办。她说：我死在这儿也不怪你。斯佳丽说：闭嘴。梅兰妮说：你走吧。斯佳丽说：我走了你怎么办。她说：我死在这儿也不怪你。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/gone-wind-gw07.jpg" alt="昏暗房间里，斯佳丽在床边照顾梅兰妮，窗外的亚特兰大被烟雾笼罩。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>围城 · 梅兰妮的房间 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="gw08" style="--c:#7a4a3a"
@@ -546,6 +550,7 @@ body{
       <div class="ev-when">1866 年<em>亚特兰大</em></div>
       <h2>锯木厂</h2>
       <p>她用弗兰克的钱开了锯木厂，雇犯人干活，挣钱挣得比谁都狠。有人说她不像个女人。她说：我像不像女人不重要，我的孩子要不要挨饿才重要。她一个人赶车，夜里走，被人在树林里袭击过一次。她雇犯人的时候，有人劝她：这不体面。她说：体面多少钱一斤。她说：我孩子要吃饭。她雇犯人的时候，有人说：这不体面。她说：体面多少钱一斤。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/gone-wind-gw10.jpg" alt="斯佳丽站在锯木厂的木材堆旁查看工场。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>亚特兰大 · 锯木厂 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="gw11" style="--c:#7a4a3a"
@@ -612,6 +617,7 @@ body{
       <div class="ev-when">1870 年<em>亚特兰大</em></div>
       <h2>明天</h2>
       <p>他走了，门关上。她坐在楼梯上，哭了一场。然后她站起来，说：我明天再想。她说：明天又是新的一天。她想起父亲说过的话：土地是唯一值得为之工作的东西。她想起塔拉的红土。她坐在楼梯上，听见门外的马车走远。她想起塔拉的红土，想起父亲说土地是唯一值得为之工作的东西。她坐在楼梯上，听见马车走远。她想起塔拉的红土。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/gone-wind-gw18.jpg" alt="斯佳丽独自坐在楼梯上，门厅已经安静下来。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>楼梯 · 明天 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

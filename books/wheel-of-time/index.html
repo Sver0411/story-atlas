@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">三个从偏远村子出来的年轻人，一个被预言选中，两个跟着他走。世界要结束了。<br>14 个时间点，从「冬天」到「三个」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>14 个时间点 · 6 位人物</span><i></i>
+      <span>14 个时间点 · 6 位人物 · 7 张插图</span><i></i>
       <span>第一部至最后 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#tw01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -500,6 +501,7 @@ body{
       <div class="ev-when">第三纪元<em>白塔</em></div>
       <h2>两仪师</h2>
       <p>白塔是两仪师的家。她们能用一种力量，叫「至上力」。只有女人能用，男人用了会疯。三千年前有一个男人用了，世界裂了。从那以后，男人只要碰它，就会被找出来，被「静断」。艾雯是村里的姑娘，跟兰德一起来的。她说：我要学。沐瑞说：你会疯的。她说：女人不会。沐瑞说：女人不会。她说：至上力不是武器。她说：它是一种责任。艾雯说：可它能打仗。她说：那才危险。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wheel-of-time-tw04.jpg" alt="艾雯和沐瑞在塔瓦隆的石桥上望向两仪师的白塔。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>艾雯初见白塔 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tw05" style="--c:#4a4658"
@@ -519,6 +521,7 @@ body{
       <div class="ev-when">第三纪元<em>提尔</em></div>
       <h2>剑</h2>
       <p>提尔城的一块石头里插着一把剑，叫「卡拉科兰」。传说只有真龙能拔出来。几百年了，没有人拔得动。兰德走过去，一伸手，剑就出来了。城里的人跪下。有人说：真龙来了。也有人说：真龙来了，我们完了。他站在那儿，手里握着剑，不知道该说什么。剑出鞘的时候，发出一声很长的响。有人说：那是剑在唱歌。有人说：那是世界在哭。他拔出剑的时候，天空暗了一下。有人说：这是预兆。有人说：这是开始。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wheel-of-time-tw06.jpg" alt="兰德站在提尔的石厅中，手上握着刚取出的晶亮长剑。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>兰德取出卡拉科兰 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tw07" style="--c:#4a4658"
@@ -526,6 +529,7 @@ body{
       <div class="ev-when">第三纪元<em>荒漠</em></div>
       <h2>艾伊尔</h2>
       <p>他去了荒漠，找到艾伊尔人。他们说：你是我们的血脉。他说：我不是。他们说：你是。他们教他打仗，教他怎么在沙里活。他们在他的手臂上刺了两条龙。他说：你们为什么信我。他们说：因为预言。他说：预言可能是假的。他们说：那我们也信。他们说：你要去死。他说：我知道。他们说：那我们还跟着你。他说：为什么。他们说：因为你去了。他们在他手臂上刺龙的时候，他没有喊疼。他说：这个我能忍。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wheel-of-time-tw07.jpg" alt="兰德在赤色峡谷里同艾伊尔人相会，橙色暮光落在远处岩壁上。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>兰德走进艾伊尔荒漠 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tw08" style="--c:#4a4658"
@@ -533,6 +537,7 @@ body{
       <div class="ev-when">第三纪元<em>白塔</em></div>
       <h2>分裂</h2>
       <p>白塔分裂了。一半的姐妹说：兰德是敌人。一半说：他是希望。两派打起来，死了很多人。艾雯被推上玉座，成了最年轻的玉座。她说：你们打完了没有。没有人回答。她说：那我说。她说：谁再动手，我就把她静断。她说：我不是来争权。她说：我是来停手的。有人说：你太年轻。她说：那你来。她坐上玉座的时候，才十九岁。她说：我不是最合适的。她说：可我是唯一站着的。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wheel-of-time-tw08.jpg" alt="艾雯站在白塔的圆形议事厅里，分席而坐的两仪师都望向她。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>分裂中的白塔 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tw09" style="--c:#4a4658"
@@ -540,6 +545,7 @@ body{
       <div class="ev-when">第三纪元<em>两河</em></div>
       <h2>佩林</h2>
       <p>佩林回了两河。他的眼睛变成了金色，能看见很远的东西。有人说他是狼。他娶了菲儿，做了两河的领主。他说：我不想当领主。她说：那你当什么。他说：铁匠。他打铁的时候，锤子落下去，声音很稳。他说：这个我懂。他说：别的我都不懂。他说：我眼睛变了。她说：我知道。他说：你不怕。她说：我怕。她说：可我还是嫁给你。他打铁的时候，村里的小孩来看。他说：你们别碰火。他们说：我们不碰。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wheel-of-time-tw09.jpg" alt="佩林在铁砧前打铁，菲儿站在门边，夕阳照进木梁下的工坊。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>佩林回到两河的铁匠铺 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tw10" style="--c:#4a4658"
@@ -566,6 +572,7 @@ body{
       <div class="ev-when">第三纪元 · 最后之战<em>最后之战</em></div>
       <h2>沙约古尔</h2>
       <p>最后一场仗打了很多天。所有的人都来了：两仪师、狼、海民、沙漠人、被遗忘的人。兰德在沙约古尔山上，手里没有剑，只有一种力量。他没有杀暗帝。他把它重新封起来，用三种力量编成一道新的锁。封完的那一刻，他和莫瑞丁换了身体。躺在地上的是兰德的身体，站起来的是另一个人。后来有人说真龙死了。也有人说，他在一个没人知道的地方，点了一支烟。</p><p class="ev-src">出处 · 第 14 卷《光明回忆》</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wheel-of-time-tw12.jpg" alt="兰德在岩洞口凝望沙约古尔的黑暗深处，远方三道光交汇。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>沙约古尔 · 封印重合 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tw13" style="--c:#4a4658"

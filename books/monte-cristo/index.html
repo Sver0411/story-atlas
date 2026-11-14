@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -460,9 +461,9 @@ body{
     <p class="hero-deck">从马赛港的一场订婚宴，到巴黎客厅里缓慢展开的清算。沿唐泰斯的归途，重看罪、报恩与复仇的边界。<br>44 个时间点，从「法老号归来」到「等待之后的希望」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>44 个时间点 · 28 位人物</span><i></i>
+      <span>44 个时间点 · 28 位人物 · 7 张插图</span><i></i>
       <span>小说完整主线 · 含结局剧透</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#mc01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -481,6 +482,7 @@ body{
       <div class="ev-when">1815 年<em>马赛港</em></div>
       <h2>法老号归来</h2>
       <p>1815 年 2 月，法老号驶进马赛港。船长勒克莱尔在途中病死，临终前把船交给年轻的大副爱德蒙·唐泰斯。十九岁的唐泰斯把船平安带回，船东莫雷尔拍着他的肩说：孩子，你干得好。他上岸先去看父亲——老人住在昏暗的阁楼里，欠着三个月的房租。然后是未婚妻梅尔塞苔丝，一个加泰罗尼亚渔民的女儿，眼睛黑得像夜。他们定在第二天订婚。船上有个记账员叫唐格拉尔，看着这一切，把一支笔捏断了。唐泰斯把船靠岸时，码头上有人喊：法老号回来了！莫雷尔跑下台阶，抓住他的手说：勒克莱尔呢？唐泰斯低下头。莫雷尔沉默了一会儿，说：你来当船长。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/monte-cristo-mc01.jpg" alt="帆船驶入清晨的马赛港，唐泰斯站在船首望向码头。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>马赛港 · 法老号归来 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="mc02" style="--c:#7a4d35"
@@ -502,6 +504,7 @@ body{
       <div class="ev-when">1815 年<em>检察官办公室</em></div>
       <h2>被烧毁的信</h2>
       <p>维尔福烧信的时候，唐泰斯还抱着希望。他以为只要说清楚，就能回家。可那封信烧完，维尔福抬起头，说了一句：押下去，严密看管。唐泰斯被推进伊夫堡的地下牢房，编号 34。他不知道，那个判他入狱的人，正是靠这封信保住了自己的前途，娶了一位保王党贵族的女儿，从此官运亨通。维尔福回到家里，对未婚妻勒内说：今天判了一个波拿巴党间谍。他说这话时，手在发抖。她问：你冷吗？他说：不，我只是累了。唐泰斯被推进牢房时，回头喊：我要见检察官！狱卒把铁门关上。他听见钥匙转动的声音，那是他此后十四年每天听见的声音。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/monte-cristo.jpg" alt="地中海上的伊夫堡以高石墙隔绝外部世界" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>伊夫堡 · 被隔绝的人生 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="mc05" style="--c:#7a4d35"
@@ -528,6 +531,7 @@ body{
       <div class="ev-when">囚禁数年后<em>伊夫堡</em></div>
       <h2>墙后的另一个人</h2>
       <p>唐泰斯用铁锅碎片和凿子挖了六年，以为在挖向自由，结果挖进了隔壁牢房。对面是法里亚神甫，一个被所有人认为疯了的学者。两个人隔着石墙第一次说话时，唐泰斯已经独自待了六年。法里亚说：我挖了五年，算错了一个数，挖到了你这里。唐泰斯笑了，那是他六年来第一次笑。法里亚第一次跟他说话，问：你判了多少年？唐泰斯说：无期。法里亚说：那你比我好，我还有三年。唐泰斯说：三年之后呢？法里亚说：死。</p><div class="ev-sub"><h3><span>其一</span>挖错的方向</h3><p>唐泰斯用铁锅碎片和凿子挖了六年，以为自己在挖向自由，结果挖进了隔壁牢房。对面是法里亚神甫——一个被所有人认为疯了的学者。两个人隔着石墙第一次说话时，唐泰斯已经独自待了六年。</p></div><div class="ev-sub"><h3><span>其二</span>十四年</h3><p>法里亚教他数学、物理、语言和剑术，还把基督山岛的宝藏告诉了他。两人一起挖了五年，法里亚病死在牢里。唐泰斯裹上他的尸布，被狱卒扔进海里——十四年，他从一个水手变成了一个握有知识、财富和仇恨的人。</p></div>
+      <figure class="ev-fig"><img src="../../img/anthology/monte-faria.jpg" alt="狭小石牢里，年老的法里亚在简陋桌前教授年轻囚徒知识" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>石牢中的法里亚与唐泰斯 · 场景概念图 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="mc08" style="--c:#7a4d35"
@@ -563,9 +567,8 @@ body{
       <div class="ev-when">逃离伊夫堡后<em>基督山岛</em></div>
       <h2>藏在岩石后的财富</h2>
       <p>唐泰斯成了富翁。他没有立刻回法国，而是花了十年游历、学习、布局：他学会了七八种语言，学会了化学、医学、剑术，学会了在任何一个客厅里做一个让人舒服的人。他给自己编了十几个身份：布索尼神甫、威尔莫勋爵、水手辛巴达、基督山伯爵。他每一次出场，都是算好的。他第一次以基督山伯爵的身份出现，是在罗马的舞会上。他穿着一件黑天鹅绒外套，胸前挂着一枚不知名的勋章。有人问他是谁，他说：一个从东方回来的人。他第一次以伯爵身份出现，是在巴黎的剧院。有人问他的来历，他说：我从东方来，那里有金子，也有秘密。那人问：你有很多秘密吗？他说：比金子多。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/monte-cristo-mc12.jpg" alt="岩洞的暗处，唐泰斯举灯照见藏在石壁后的箱子。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>基督山岛 · 洞中宝藏 · AI 概念插图</figcaption></figure>
     </section>
-
-      <figure class="ev-fig"><img src="../../img/anthology/monte-cristo.jpg" alt="马赛港 · 法老号归来的清晨" loading="lazy"><figcaption>马赛港 · 法老号归来的清晨 · 概念配图</figcaption></figure>
 
     <div class="era-divider">
       <span class="era-name">归来与报恩</span>
@@ -636,6 +639,7 @@ body{
       <div class="ev-when">1838 年<em>巴黎</em></div>
       <h2>伯爵走进客厅</h2>
       <p>基督山伯爵在巴黎第一次设宴。他让仆人端上来自世界各地的珍馐：意大利的火腿、土耳其的蜜饯、中国的茶。他让阿里在门后持刀站立，让每一个客人都在席间感到不安。唐格拉尔试探他的财富，维尔福试探他的来历，莫尔塞夫伯爵夫人——梅尔塞苔丝——从进门起就没说话，只看了他一眼。晚宴结束时，伯爵送客到门口。梅尔塞苔丝走过他身边，低声说：你为什么要在我们家里出现？他说：因为我在你们家里吃过一顿饭，二十四年前。她愣住了。晚宴上，伯爵说：我这一生，只喝一种酒，产自基督山岛。唐格拉尔问：那岛上有葡萄园？伯爵说：有，还有别的。唐格拉尔的手停了一下。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/monte-paris.jpg" alt="十九世纪巴黎沙龙中，黑礼服男子背对画面观察远处宾客" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>巴黎社交场中的陌生人 · 身份与布局的意象 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="mc18b" style="--c:#7a4d35"
@@ -658,8 +662,6 @@ body{
       <h2>信用与消息</h2>
       <p>唐格拉尔在银行里收到一封来自罗马的信，要他兑现一笔巨额汇票。他付了，心里不安。接着是第二封、第三封。他去查，发现这些钱都是从基督山伯爵的账户转来的。他想拒付，又怕得罪这位神秘的阔佬。他开始失眠，开始在夜里数金币。唐格拉尔去问银行家德布雷：基督山伯爵到底有多少钱？德布雷说：比你我加起来多一百倍。唐格拉尔说：那他为什么还要跟我做生意？德布雷说：你说呢。</p>
     </section>
-
-      <figure class="ev-fig"><img src="../../img/anthology/monte-faria.jpg" alt="伊夫堡 · 法里亚神甫与那场漫长的授课" loading="lazy"><figcaption>伊夫堡 · 法里亚神甫与那场漫长的授课 · 概念配图</figcaption></figure>
 
     <section class="event" id="mc21" style="--c:#7a4d35"
       data-color="#7a4d35" data-era="巴黎布局" data-short="海黛保存的记忆" data-label="1838 年夏 · 伯爵住所">
@@ -727,6 +729,7 @@ body{
       <div class="ev-when">莫尔塞夫名誉危机<em>巴黎贵族院</em></div>
       <h2>海黛指认叛徒</h2>
       <p>海黛走进法庭，穿着黑色的长裙，脸上没有表情。她讲父亲阿里帕夏如何被费尔南出卖：费尔南收了土耳其人的钱，把父亲的城堡地图交出去，然后亲眼看着父亲被枪杀。她讲母亲如何病死，自己如何被卖为奴。费尔南坐在被告席上，听到自己的名字被念出来，第一次没有反驳。海黛讲完，法庭里没有人说话。费尔南站起来，说：这是诬陷。海黛把一份文件递上去——那是他当年收钱的收据，上面有他的签名。</p><div class="ev-sub"><h3><span>其一</span>法庭</h3><p>海黛走进法庭，讲父亲阿里帕夏如何被费尔南出卖、被杀，母亲如何病死，自己如何被卖为奴。费尔南坐在被告席上，听到自己的名字被念出来，第一次没有反驳。</p></div><div class="ev-sub"><h3><span>其二</span>代价</h3><p>梅尔塞苔丝带着阿尔贝来求情。唐泰斯看着她，想起马赛港那个下午。他放过了阿尔贝，但没有放过费尔南——莫尔塞夫家在羞愧中自尽，梅尔塞苔丝带着儿子离开。</p></div>
+      <figure class="ev-fig"><img src="../../img/anthology/monte-cristo-mc28.jpg" alt="巴黎的厅堂里，海黛站在席前作证，众人朝她望去。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>海黛 · 当庭作证 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="mc29" style="--c:#7a4d35"
@@ -741,9 +744,8 @@ body{
       <div class="ev-when">1838 年<em>巴黎</em></div>
       <h2>梅尔塞苔丝的夜访</h2>
       <p>梅尔塞苔丝在深夜找到唐泰斯，求他放过阿尔贝。她说：你可以杀我，但不要杀我的儿子。唐泰斯看着她，想起马赛港的订婚宴。他答应了，却在关上门之后，第一次感到复仇并不比失去更轻。他坐在黑暗里，坐了一整夜。她走后，唐泰斯在黑暗里坐了一夜。他想起马赛港的订婚宴，想起她说“我会等你”。他对自己说：我等了二十四年，等来的是这句话。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/monte-cristo-mc29b.jpg" alt="深夜的书房里，梅尔塞苔丝站在唐泰斯面前，窗外一片黑暗。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>夜访 · 梅尔塞苔丝的请求 · AI 概念插图</figcaption></figure>
     </section>
-
-      <figure class="ev-fig"><img src="../../img/anthology/monte-paris.jpg" alt="巴黎 · 客厅里的清算" loading="lazy"><figcaption>巴黎 · 客厅里的清算 · 概念配图</figcaption></figure>
 
     <section class="event" id="mc30" style="--c:#7a4d35"
       data-color="#7a4d35" data-era="清算交汇" data-short="没有开出的枪" data-label="决斗之晨及其后 · 巴黎">

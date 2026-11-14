@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一个衣柜，一盏路灯，一百年的雪。四个孩子进去，出来时已经做了很多年的国王。<br>16 个时间点，从「衣柜」到「戒指」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>16 个时间点 · 16 位人物</span><i></i>
+      <span>16 个时间点 · 16 位人物 · 7 张插图</span><i></i>
       <span>七部 · 1900—1949</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#nr01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -499,6 +500,7 @@ body{
       <div class="ev-when">1900 年<em>纳尼亚</em></div>
       <h2>阿斯兰</h2>
       <p>海狸夫妇告诉他们：阿斯兰要来了。阿斯兰是一头狮子，是纳尼亚真正的王。海狸说：他不是一头驯服的狮子。他说：他很吓人，可他很好。爱德蒙一个人跑去了白女巫那边。他说：我带你们去。他后来知道，他带的路，是往石桌去的路。海狸先生说：你们不该来。他说：可你们来了。他说：那就别回去了。他说：他会来的。他说：他已经在这片土地上了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/narnia-nr04.jpg" alt="海狸夫妇引着孩子们走过石桌附近的雪地，阿斯兰站在远处晨光里。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>纳尼亚真正的王 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nr05" style="--c:#4a5a52"
@@ -527,6 +529,7 @@ body{
       <div class="ev-when">纳尼亚纪年 · 四王时期<em>卡乐门 · 北方</em></div>
       <h2>能言马与男孩</h2>
       <p>四王统治纳尼亚的年代，南边的卡乐门抓了一个小男孩当奴隶，叫沙斯塔。他跟着一匹会说话的马往北逃，路上遇见一个女扮男装的姑娘阿拉维斯，也骑着一匹能言马。他们一起穿过沙漠，赶在卡乐门军队之前把消息送到阿钦兰。沙斯塔后来被发现是阿钦兰王子的儿子。阿斯兰在路上抓过他的脸，留下了几道痕。</p><p class="ev-src">出处 · 《能言马与男孩》</p>
+      <figure class="ev-fig"><img src="../../img/anthology/narnia-nr07b.jpg" alt="沙斯塔和阿拉维斯骑着两匹能言马，在黎明前穿过沙漠。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>沙斯塔和阿拉维斯穿越沙漠 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -551,6 +554,7 @@ body{
       <div class="ev-when">1941 年<em>纳尼亚</em></div>
       <h2>卡斯宾</h2>
       <p>纳尼亚已经过去了一千三百年。现在统治这片土地的是台尔马人，他们从海上来，把纳尼亚人赶进森林。一个叫卡斯宾的王子知道了真相，吹响了苏珊的号角。号角把四个孩子召了回来。他们落在一座废墟里，看见一个矮人，一个獾，一只能说人话的老鼠。老鼠叫瑞皮契普，腰上挂着一把剑。卡斯宾说：我从小听保姆讲纳尼亚。他说：大家都笑我。他说：可我一直信。他说：把号角吹响。他说：不管谁来，我们都打。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/narnia-nr09.jpg" alt="卡斯宾在林间废墟举起象牙号角，藤蔓爬过身后的残墙。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>卡斯宾吹响苏珊的号角 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nr10" style="--c:#4a5a52"
@@ -570,6 +574,7 @@ body{
       <div class="ev-when">1942 年<em>海上</em></div>
       <h2>黎明踏浪号</h2>
       <p>爱德蒙和露西跟着卡斯宾出海，去找七位失踪的勋爵。船叫「黎明踏浪号」。他们在岛上遇见各种东西：一条把船吞下去的海蛇，一群看不见的人，一片能变成水的水。航行的尽头，是一片海，海的尽头是一堵浪。阿斯兰在那一边。他说：这一边，你们不会再来了。他说：可你们会从另一条路来。船上有一只老鼠，叫瑞皮契普。它说：我要去世界的尽头。它说：我要看看那儿有什么。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/narnia-nr11.jpg" alt="龙首木船黎明踏浪号驶向晨光，露西和爱德蒙站在甲板上。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>黎明踏浪号出海 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -582,6 +587,7 @@ body{
       <div class="ev-when">1942 年<em>北方</em></div>
       <h2>银椅</h2>
       <p>尤斯塔斯和吉尔被送到纳尼亚，任务是找一个失踪的王子。王子叫瑞利安，被女巫关在地下，坐在一把银椅上，被施了咒。他们找到他，烧了椅子，用剑刺了女巫。王子回到地上，看见父亲已死，他成了国王。他做的第一件事，是让人把所有的学校都改成教真话的地方。女巫说：你们不该来这儿。吉尔说：我们来了。她说：那你们就别想走。她说：这把椅子，会让人忘记自己是谁。吉尔说：那我们把它烧了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/narnia-nr12.jpg" alt="吉尔和尤斯塔斯举灯来到地下石厅，看见水晶石柱之间的银椅。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>抵达地下国的银椅 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -601,6 +607,7 @@ body{
       <div class="ev-when">1949 年<em>纳尼亚 · 之后</em></div>
       <h2>更远的地方</h2>
       <p>纳尼亚结束了。所有的人都从这个世界上消失，去了一个更大的纳尼亚。那里没有尽头，越往里走越大。有人说：这才是真的。前面那个，只是影子。露西说：我们以后还会回去吗。阿斯兰说：不会。他说：可你们会一直往里走。他说完，带着他们往山上跑。所有的人都往山上跑。跑着跑着，有人发现自己的腿不累了。他们越跑越快。他说：我这一辈子，只做了一件事，就是相信。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/narnia-nr14.jpg" alt="阿斯兰引着露西和伙伴们走过草地，远方群山一重比一重高。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>再向里面走 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

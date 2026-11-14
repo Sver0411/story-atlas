@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -455,9 +456,9 @@ body{
     <p class="hero-deck">地球在星期四被拆了，一个英国人带着一条毛巾逃了出来。宇宙很大，答案很小：42。<br>15 个时间点，从「推土机」到「别慌」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>15 个时间点 · 5 位人物</span><i></i>
+      <span>15 个时间点 · 5 位人物 · 5 张插图</span><i></i>
       <span>第一部 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#hg01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -503,6 +504,7 @@ body{
       <div class="ev-when">某日<em>黄金之心号</em></div>
       <h2>黄金之心</h2>
       <p>救他们的是银河系总统赞法德·毕博布鲁克斯，一个两个脑袋、神经兮兮的人。他偷了一艘新飞船，叫黄金之心，用无限非概率驱动。他说：这艘船能去任何地方，只要你能算出概率。亚瑟说：那怎么算。他说：不用算，它自己会算。船上还有一个地球女人，叫崔莉安。亚瑟认识她——她曾经在一个派对上拒绝过他。他说：你怎么在这儿。她说：我跟他来的。他说：你跟他。她说：对。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/hitchhiker-hg04.jpg" alt="黄金之心号航行在群星间，舷窗泛出一线金光。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>黄金之心号 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="hg05" style="--c:#4f5a63"
@@ -510,6 +512,7 @@ body{
       <div class="ev-when">某日<em>黄金之心号 · 舰桥</em></div>
       <h2>马文</h2>
       <p>船上有一台机器人，叫马文，有一个真正的人格，和一个巨大的脑子。他整天抱怨。他说：你们让我开门，我有五千万倍于你们的智力。他说：你们知道那是什么感觉吗。没有人回答。他说：你们不知道。亚瑟说：你能不能帮我们想想办法。马文说：我已经想了。他说：办法是你们都会死。他说完，转过身去，肩膀垂下来。马文说：门开了。他说：你们自己看。他说完，转过身，用很慢的速度走开。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/hitchhiker-hg05.jpg" alt="舰桥上，银灰色机器人马文垂着头坐在舱门旁。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>舰桥上的马文 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="hg06" style="--c:#4f5a63"
@@ -524,6 +527,7 @@ body{
       <div class="ev-when">某日<em>玛格丽塔</em></div>
       <h2>深思</h2>
       <p>他们去找一台叫「深思」的计算机。这台计算机在七百五十万年前被造出来，专门回答一个问题：生命、宇宙以及一切的意义是什么。它算了七百五十万年，最后给出答案：42。亚瑟说：四十二。福特说：四十二。他们说：那问题是什么。深思说：你们不知道问题是什么。它说：所以我建议你们造一台更大的计算机，去算这个问题。亚瑟说：四十二。他说：这不可能。深思说：可能。它说：我算了七百五十万年，不会错。</p><p class="ev-src">出处 · 第一部第 27 章 深思</p>
+      <figure class="ev-fig"><img src="../../img/anthology/hitchhiker-hg07.jpg" alt="庞大的计算机安静地立在拱顶大厅里，两名来访者显得十分渺小。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>深思的计算室 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="hg08" style="--c:#4f5a63"
@@ -573,6 +577,7 @@ body{
       <div class="ev-when">某日<em>地球二号</em></div>
       <h2>启程</h2>
       <p>他们在一颗叫马格拉西亚的星球上补给了水和毛巾。赞法德说：我知道一个地方，宇宙的尽头有一家餐厅，可以边吃边看世界末日。福特说：那得多久。赞法德说：大概六亿年。亚瑟说：那我订个位置。赞法德说：已经订了。他说：六亿年以后，我们到那儿吃饭。第一部到这里结束。</p><p class="ev-src">出处 · 第一部末章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/hitchhiker-hg14.jpg" alt="一艘小飞船离开马格拉西亚，星球的灰色地平线落在它身后。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>从马格拉西亚启程 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -449,9 +450,9 @@ body{
     <p class="hero-deck">福贵从地主少爷输成佃农，经历内战、土改、饥荒，亲手送走每一位亲人。最后陪着他的，是一头也叫福贵的老牛。<br>14 个时间点，从「少爷福贵」到「一个人和一头牛」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>14 个时间点 · 11 位人物</span><i></i>
+      <span>14 个时间点 · 11 位人物 · 5 张插图</span><i></i>
       <span>完整长篇 · 含结局</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#tl02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -477,6 +478,7 @@ body{
       <div class="ev-when">1940 年代<em>赌坊</em></div>
       <h2>最后一局</h2>
       <p>赌坊里的局是龙二设的。头几次让福贵赢，赢得他心热；再几次让他输，输得他想翻本。那晚福贵把祖宅、田契都押上，最后一局开出来，他呆住了。龙二把账本推过来，说：徐少爷，签字吧。福贵签完字，走出赌坊，天还没亮，青石板上有霜。他站在街上想吐，又吐不出来。回家路上他绕了三圈，不敢进门。福贵输光家产那夜，龙二说：徐少爷，签字吧。他签完，走出赌坊，天还没亮。他在街上站了很久，想吐，又吐不出来。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/to-live-tl02.jpg" alt="灯光昏暗的赌桌边，年轻福贵盯着散落的筹码。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>赌桌 · 输掉家产 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tl03" style="--c:#6b5a45"
@@ -484,6 +486,7 @@ body{
       <div class="ev-when">1940 年代<em>徐家老宅</em></div>
       <h2>搬出老宅</h2>
       <p>他爹知道后，没有打他，只说：赌债也是债，还了就好。老人把一百亩地和宅子抵出去，换了一担铜钱，让福贵挑着去还。钱还完，老人往家走，在粪缸边绊了一跤，再没起来。一家人搬进村头的茅屋，家珍脱下旗袍，换上粗布衣裳，去井边挑水。她肩膀磨破了，晚上偷偷用热毛巾敷。福贵在田里学耕地，牛不听话，他摔了七八次。搬进茅屋的第一夜，家珍把旗袍叠好，放进箱子。福贵问：你还留着？她说：留着，等以后。他们没有以后。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/to-live-tl03.jpg" alt="福贵和家珍拎着简单行李走出旧院，田野在门外展开。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>搬离老宅 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -510,6 +513,7 @@ body{
       <div class="ev-when">1947 年<em>徐家村</em></div>
       <h2>回家</h2>
       <p>他走了两个月，沿途讨饭，回到村口时天已经黑。家珍在灶前烧火，抬头看见他，手里的柴掉在地上。她没哭，只是说：回来了。母亲已经死了半年，死前一直喊他的名字。凤霞那年五岁，发高烧，烧退了，人哑了，从此不说话。有庆还小，躲在门后看他，不认得这个爹。福贵蹲下来，想抱他，他往后退了一步。福贵回家那晚，家珍在灶前烧火。她抬头看见他，手里的柴掉在地上。她说：回来了。就这三个字，没有哭，没有骂。</p><p class="ev-src">出处 · 第 6 章 回家</p>
+      <figure class="ev-fig"><img src="../../img/anthology/to-live-tl06.jpg" alt="福贵站在低矮屋门口，家珍从灶前回头看他。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>回家 · 家珍在灶前 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -529,6 +533,7 @@ body{
       <div class="ev-when">1958 年<em>医院</em></div>
       <h2>有庆献血</h2>
       <p>有庆在县中学读书，每天跑十几里路回家割草喂羊，鞋磨破了就光脚跑。那年县长的女人难产，医院缺血，学校组织学生去献。有庆跑得最快，第一个到。护士抽了一管，说不够，再抽；又抽一管，孩子脸白了，说头晕。医生看了一眼，说：再抽一点。抽到第三管，有庆倒在地上，没再起来。福贵赶到时，孩子已经凉了。那个县长，是春生。有庆死时，福贵在医院走廊上坐了一夜。天亮时，他抱着儿子的尸体回家，家珍问：有庆呢？他说：睡着了。</p><p class="ev-src">出处 · 第 8 章 有庆</p>
+      <figure class="ev-fig"><img src="../../img/anthology/to-live-tl08.jpg" alt="清晨的田间小路上，背着书包的有庆一路跑向学校。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>有庆 · 上学路上 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tl09" style="--c:#6b5a45"

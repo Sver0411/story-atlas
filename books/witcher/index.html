@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一个被改造过的人，在两边都不讨好的地方，选一个自己觉得对的。<br>16 个时间点，从「两把剑」到「猎魔人」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>16 个时间点 · 7 位人物</span><i></i>
+      <span>16 个时间点 · 7 位人物 · 5 张插图</span><i></i>
       <span>短篇集与五部曲 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#wt03">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -491,6 +492,7 @@ body{
       <div class="ev-when">某年<em>辛特拉</em></div>
       <h2>意外律</h2>
       <p>辛特拉的卡兰瑟女王请他去解决一个问题。他用了「意外律」：他要一样她不知道已经有的东西。她要了一个孩子——她女儿肚子里的孩子。那个孩子叫希里。他说：我不要这个孩子。卡兰瑟说：你已经要了。他说：那是意外。她说：意外也是命。他说：意外律是古老的规矩。女王说：古老的东西最靠得住。他说：也最害人。她说：你要是敢碰她，我就杀了你。他说：我不碰。她说：你发誓。他说：我发誓。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/witcher-wt03.jpg" alt="白发的杰洛特站在辛特拉的宴会厅里，卡兰瑟女王坐在台阶上方。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>辛特拉宫廷里的意外律 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wt04" style="--c:#4a453c"
@@ -505,6 +507,7 @@ body{
       <div class="ev-when">某年<em>北境</em></div>
       <h2>丹德里恩</h2>
       <p>丹德里恩是吟游诗人，爱吹牛，爱女人，爱钱。他跟着杰洛特到处跑，把那些事写成歌。歌里杰洛特是英雄，现实里杰洛特常常只是运气好。丹德里恩说：你需要一个诗人。他说：为什么。诗人说：因为没有人会唱一个不说话的猎魔人。他说：你要是把我的事写进歌里，我就打断你的手。诗人说：那你打吧。他后来还是写了。他后来写了三十首歌，二十九首是假的。只有一首是真的，他没有说哪一首。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/witcher-wt05.jpg" alt="丹德里恩在旅店里拨动鲁特琴，白发的杰洛特独坐在壁炉边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>吟游诗人丹德里恩 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wt06" style="--c:#4a453c"
@@ -546,6 +549,7 @@ body{
       <div class="ev-when">某年<em>沙漠</em></div>
       <h2>火</h2>
       <p>希里在一次逃亡中走进一片沙漠，差点死。她在沙漠里学会了用火。她后来能从一个地方跳到另一个地方，那是「上古之血」的力量。她说：我看见很多世界。她说：有的世界没有冬天，有的世界没有太阳。她说：我不知道哪个是真的。她说：我在沙漠里看见一座城。她说：走近了，就没有了。她说：我不知道那是不是真的。她说：我看见一个地方，那里没有战争。他说：那是假的。她说：我知道。</p><p class="ev-src">出处 · 第 4 卷《燕子之塔》</p>
+      <figure class="ev-fig"><img src="../../img/anthology/witcher-wt10.jpg" alt="白发的希里在沙丘间停步，遥远的城影浮在热雾中。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>希里的沙漠幻景 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wt11" style="--c:#4a453c"
@@ -574,6 +578,7 @@ body{
       <div class="ev-when">某年<em>湖中</em></div>
       <h2>湖中夫人</h2>
       <p>希里后来到了一个世界，那里有亚瑟王和湖中夫人。她在那里待了一段时间，学会了一些事。她最后回到自己的世界，做了一件她必须做的事。她说：我不当女王。她说：我要当猎魔人。有人说：女人不能当猎魔人。她说：那我就是第一个。她说：我不想当女王。她说：女王不能走。她说：我想走。她说：我要一把银剑。有人说：银剑是杀怪物的。她说：我知道。她第一次杀怪物的时候，手在抖。杀完她坐在雪地里，哭了。</p><p class="ev-src">出处 · 第 5 卷《湖中夫人》</p>
+      <figure class="ev-fig"><img src="../../img/anthology/witcher-wt13.jpg" alt="希里牵马站在雾中的湖岸，对面有一位穿白袍的人影。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>异世界的湖岸 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

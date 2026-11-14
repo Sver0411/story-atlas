@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个丑得没人愿意看的敲钟人，一个在广场上跳舞的姑娘，一个学问高到发疯的教士。<br>16 个时间点，从「愚人节」到「两具骨头」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>16 个时间点 · 8 位人物</span><i></i>
+      <span>16 个时间点 · 8 位人物 · 6 张插图</span><i></i>
       <span>全本 · 1482</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#nd02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -485,6 +486,7 @@ body{
       <div class="ev-when">1482 年 1 月 6 日<em>巴黎 · 广场</em></div>
       <h2>跳舞的姑娘</h2>
       <p>广场上有个吉普赛姑娘跳舞，叫爱斯梅拉达。她转起来的时候，裙子像一朵花。围观的人里有一个穿黑袍的教士，一直盯着她看。他看着她，手在发抖。他后来跟人说：那是我第一次恨一个人，恨她让我想活。她跳舞的时候，脚边放着一块小地毯，一只小山羊在旁边敲鼓。有人扔钱，她弯腰捡，头发垂下来。她跳舞的时候脚边放着小地毯，一只小山羊在旁边敲鼓，有人往地上扔钱。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/notre-dame-nd02.jpg" alt="爱斯梅拉达在石铺广场上跳舞，一只小山羊立在旁边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>广场 · 爱斯梅拉达起舞 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nd03" style="--c:#4a4136"
@@ -507,6 +509,7 @@ body{
       <div class="ev-when">1482 年 1 月<em>巴黎 · 奇迹街</em></div>
       <h2>甘果瓦的婚礼</h2>
       <p>甘果瓦误入乞丐的地盘，按规矩要被吊死，除非有女人肯嫁他。爱斯梅拉达说：我嫁他。他们假结婚，她给他一间小屋、一张床、一块面包，说：你别碰我。他说：为什么。她说：因为我在等一个人。乞丐们说：吊死他。她说：我嫁他。他们愣住了。她说：按规矩，有人嫁他，他就活。克洛潘说：规矩是这样。乞丐们说：吊死他。她说：我嫁他。他们愣住了。她说：按规矩，他就活了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/notre-dame-nd05.jpg" alt="火把照亮奇迹宫的庭院，爱斯梅拉达站在甘果瓦身边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>奇迹宫 · 临时婚礼 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -540,6 +543,7 @@ body{
       <div class="ev-when">1482 年<em>巴黎 · 圣母院</em></div>
       <h2>避难</h2>
       <p>行刑那天，卡西莫多从钟楼上荡下一根绳子，冲进人群，把她抱起来，喊：避难！他把她带进圣母院。按当时的规矩，教堂里不能抓人。她住在一间小屋里，他每天给她送面包和水，站在门外，不说话。他把绳子系在柱子上，说：你抓住我。她说：我们会摔死。他说：不会。他抱着她荡过去，落地的时候，他的手在流血。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/notre-dame-nd09.jpg" alt="卡西莫多抱着爱斯梅拉达退到圣母院高大的门廊下。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>圣母院 · 庇护 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nd10" style="--c:#4a4136"
@@ -547,6 +551,7 @@ body{
       <div class="ev-when">1482 年<em>巴黎 · 圣母院</em></div>
       <h2>钟声</h2>
       <p>她听见钟声，说：这钟真好听。他说：是我敲的。她说：你敲得很响。他说：因为我想让你听见。她笑了一下。他把脸转过去——他知道自己丑。他说：你别看我。她说：我看你的时候，你不可怕。她说：你的耳朵真的听不见吗。他说：听不见。她说：那你怎么知道我在说话。他说：我看你的嘴。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/notre-dame-nd10.jpg" alt="卡西莫多坐在巨钟旁，巴黎屋顶从塔楼窗洞延伸出去。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>钟楼 · 卡西莫多敲钟 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nd11" style="--c:#4a4136"
@@ -575,6 +580,7 @@ body{
       <div class="ev-when">1482 年<em>巴黎 · 老鼠洞</em></div>
       <h2>母女</h2>
       <p>那个隐居的女人叫居迪尔，住在一间石屋里，十几年不出门。她看见姑娘脖子上挂着一个小鞋，愣住了——那是她女儿的东西。她抱住她，说：我的孩子。外面的士兵来了。她说：你们不能带走她。她把女儿藏在自己身后。居迪尔说：你脖子上挂的是什么。她说：是我妈妈留给我的。居迪尔说：给我看。她看了，手开始抖。居迪尔说：你脖子上挂的是什么。她说：我妈妈留给我的。居迪尔的手开始抖。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/notre-dame-nd14.jpg" alt="石窗旁，隐居老妇看见爱斯梅拉达手中的婴孩小鞋，伸手迎向她。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>巴黎石屋 · 母女相认 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="nd15" style="--c:#4a4136"

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个捡回来的孩子，一个嫁错人的姑娘，两座庄园，三代人。爱和恨在这里是同一样东西。<br>20 个时间点，从「租客」到「最后一夜」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>20 个时间点 · 11 位人物</span><i></i>
+      <span>20 个时间点 · 11 位人物 · 6 张插图</span><i></i>
       <span>全本 · 1771—1802</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#wh01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -486,6 +487,7 @@ body{
       <div class="ev-when">1801 年 冬<em>呼啸山庄</em></div>
       <h2>窗上的名字</h2>
       <p>夜里下大雪，他只好留宿。仆人把他领进一间没人住的房间，床边的窗台上有人用指甲刻了三个名字：凯瑟琳·恩肖、希斯克利夫、凯瑟琳·林顿。他睡着以后梦见一只手敲窗玻璃，一个女人的声音说：让我进来。他抓住那只手，在碎玻璃上磨出了血。他醒来以后，把那只手按在窗台上，血滴在刻字上。他把窗子推开，外面的雪扑进来。他后来想，那不是梦。他醒来以后把那只手按在窗台上，血滴在刻字上。他后来想，那不是梦。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wuthering-wh02.jpg" alt="洛克伍德在床边望向风雪中的窗扉，旧窗台隐在烛光里。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>雪夜 · 洛克伍德梦醒 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wh03" style="--c:#4a4a52"
@@ -512,6 +514,7 @@ body{
       <div class="ev-when">1777 年<em>荒原</em></div>
       <h2>两个野孩子</h2>
       <p>老恩肖死后，辛德雷继承了山庄，把希斯克利夫降到马夫的位置，不让他念书，让他干活。凯瑟琳照旧跟他一起跑到荒原上，一跑就是一整天。他们说：我们就是这个样子，改不了。内莉说：你们早晚要改。凯瑟琳说：那我们就先过完今天。他们被抓回来的时候，一身泥，头发里全是草。内莉说：你们像两个野人。凯瑟琳说：我们就是。他们被抓回来的时候一身泥，头发里全是草。内莉说：你们像两个野人。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wuthering-wh05.jpg" alt="凯瑟琳和希斯克利夫在风吹过的荒原上奔跑。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>荒原 · 两个孩子 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wh06" style="--c:#4a4a52"
@@ -540,6 +543,7 @@ body{
       <div class="ev-when">1783 年<em>呼啸山庄</em></div>
       <h2>回来了</h2>
       <p>一个秋天的晚上，内莉听见有人敲门。门外站着一个高个子男人，穿一身黑，脸上有风霜。他说：是我。她说：天啊。凯瑟琳从楼上跑下来，赤着脚，抓住他的手，说：你回来了。他说：我回来了。他这三年的钱，没有人知道是怎么来的。他说：我在外面赚了点钱。她说：多少。他说：够买下这栋房子。她笑了，笑着笑着就哭了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wuthering-wh09.jpg" alt="夜色中，穿黑衣的希斯克利夫站在打开的门外。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>呼啸山庄 · 希斯克利夫归来 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -566,6 +570,7 @@ body{
       <div class="ev-when">1784 年 冬<em>呼啸山庄</em></div>
       <h2>最后一夜</h2>
       <p>凯瑟琳病了，病得很重，孩子快生了。希斯克利夫半夜溜进她的房间，站在床边，说：你看看我。她说：我看了。他说：你为什么要嫁给他。她说：因为你走了。他说：我没有走，是你把我推走的。她抓住他的衣领，说：你别走。他说：我不走。她说：我这一辈子，只做错过一件事。他说：什么。她说：嫁给他。他说：那你现在怎么办。她说：我等着。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wuthering-wh12.jpg" alt="希斯克利夫站在凯瑟琳床边，两人隔着烛光对望。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>深夜 · 病中的凯瑟琳 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wh13" style="--c:#4a4a52"
@@ -620,6 +625,7 @@ body{
       <div class="ev-when">1802 年<em>呼啸山庄</em></div>
       <h2>书和花</h2>
       <p>凯茜留在山庄，教哈里顿读书。他笨，也倔，学了半年才学会写自己的名字。她给他念书，他给她种花。希斯克利夫看着他们，忽然说：这是报应。他说：我看见她（凯瑟琳）的脸在他身上。他说完，一个人走进雨里。他说：你教我认字，我就给你种一院子的花。她说：你先认字。他说：那你先种花。两个人都笑了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/wuthering-wh19.jpg" alt="凯茜在窗边给哈里顿读书，两人身边有新开的花。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>书与花 · 凯茜和哈里顿 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="wh20" style="--c:#4a4a52"

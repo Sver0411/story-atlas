@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -458,9 +459,9 @@ body{
     <p class="hero-deck">七个人去一个地方，找一个不该找的东西。路上他们讲了自己的故事，一个比一个糟。<br>14 个时间点，从「伯劳鸟」到「没有讲完」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>14 个时间点 · 9 位人物</span><i></i>
+      <span>14 个时间点 · 9 位人物 · 5 张插图</span><i></i>
       <span>第一部 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#hp03">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -498,6 +499,7 @@ body{
       <div class="ev-when">未来<em>世界树飞船</em></div>
       <h2>七个人</h2>
       <p>他们坐一艘叫「世界树」的飞船，船上有一棵真树。七个人：领事、神父雷纳·霍伊特、军人卡萨德上校、诗人马丁·塞利纳斯、学者索尔·温特伯、圣殿骑士海特·马斯蒂恩、侦探布劳恩·拉米亚。飞船要飞几天。领事说：我们到了那儿，可能都会死。他说：所以在到之前，每个人讲一个故事。他说：讲你为什么来。船上有一颗树，是真的树，长在舱里。有人说这是为了让人记得家。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/hyperion-hp03.jpg" alt="世界树飞船里，七位朝圣者围坐在树干旁的长桌边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>世界树飞船上的七位朝圣者 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="hp04" style="--c:#4a4436"
@@ -505,6 +507,7 @@ body{
       <div class="ev-when">未来<em>世界树飞船</em></div>
       <h2>第一个故事</h2>
       <p>神父讲他的故事。他年轻时在一个叫佩森的地方传教，遇见一个叫杜雷的神父。杜雷在一个叫「火林」的地方待了七年，回来的时候身上全是十字形的疤。杜雷说：我看见它了。他说：它让我活着，是为了让我受苦。杜雷后来死了。他死的时候，身上那些疤还在发光。神父说：我这一辈子都在想，他看见的到底是什么。七个人坐在一张长桌边上，谁也不看谁。领事说：我们开始吧。他说：从谁开始。没有人回答。</p><p class="ev-src">出处 · 第一部 神父的故事</p>
+      <figure class="ev-fig"><img src="../../img/anthology/hyperion-hp04.jpg" alt="霍伊特坐在长桌旁讲述往事，舱内投影隐约显出一片红光中的树。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>霍伊特讲起火林 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="hp05" style="--c:#4a4436"
@@ -526,6 +529,7 @@ body{
       <div class="ev-when">未来<em>世界树飞船</em></div>
       <h2>学者的故事</h2>
       <p>索尔讲他的故事。他有一个女儿，叫瑞秋。瑞秋去了光阴冢，回来以后开始逆着长：一天比一天小。医生说：她会在某一天回到出生的那一刻，然后消失。他说：她现在每天早上叫我爸爸，晚上叫我哥哥。他说：我知道有一天她会叫我什么都不是。他说完，把手捂住脸。他说：我写不出诗了。他说：我的缪斯死了，我得再找一个。他说完，笑了。她说：我昨天问她，你几岁了。她说：我四岁。她说：前天她六岁。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/hyperion-hp07.jpg" alt="索尔怀抱年幼的瑞秋，光阴冢的轮廓落在远处天际。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>索尔与逆时生长的瑞秋 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="hp08" style="--c:#4a4436"
@@ -547,6 +551,7 @@ body{
       <div class="ev-when">未来<em>世界树飞船</em></div>
       <h2>领事的故事</h2>
       <p>领事最后一个讲。他说：我不是地球人，我是海伯利安人。他说：我的外婆是这个星球上的人。他说：我做过一件事，害死了一个星球上的人。他说：我当了霸主的外交官，替他们劝一个星球投降。他说：那个星球不肯，他们就烧了它。他说：我在飞船上看完了整个过程。她说：我脑子里有一个人。她说：她不是我，可她一直跟我说话。他说：我最后一次看见那个星球，它还在亮。他说：亮了三十秒，然后就黑了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/hyperion-hp10.jpg" alt="领事在飞船舷窗前讲述自己的经历，远处有一颗发光的行星。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>领事最后讲述自己的往事 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -465,9 +466,9 @@ body{
     <p class="hero-deck">十个人被请到一座没有退路的岛上，一首童谣，一段一条命。等警察上岛时，一个也没剩。<br>22 个时间点，从「八封信」到「十个小士兵」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>22 个时间点 · 13 位人物</span><i></i>
+      <span>22 个时间点 · 13 位人物 · 5 张插图</span><i></i>
       <span>全本 · 含结局与手稿</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#at02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -501,6 +502,7 @@ body{
       <div class="ev-when">第 1 天 · 管家夫妇<em>士兵岛 · 庄园</em></div>
       <h2>管家夫妇</h2>
       <p>罗杰斯先生和罗杰斯太太已经先到了。他们把八个房间收拾好，餐桌摆上十份餐具。有人问：还有两位客人？罗杰斯说：主人和女主人。可主人一直没来。晚饭前，客厅里的留声机忽然响了，一个冷静的声音念出每一个人的名字，念完之后说出他们做过的事。屋子里没有人动。罗杰斯太太端着汤出来，手在抖。有人问她怎么了，她说没事，只是这屋子太静。罗杰斯在旁边接了一句：主人不在，总是这样。他说这句话的时候低着头，谁也没有看清他的脸。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/and-then-there-were-none-at03.jpg" alt="无人落座的长餐桌摆好了餐具，两位管家站在门边。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>主人未至 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="at04" style="--c:#3f4a44"
@@ -508,6 +510,7 @@ body{
       <div class="ev-when">第 1 天 · 童谣<em>士兵岛 · 客房</em></div>
       <h2>童谣</h2>
       <p>每个房间的墙上都裱着一首童谣，一共十段，讲十个小士兵怎么一个接一个地死掉。维拉把那首童谣从头读到尾，读到「一个也不剩」的时候笑了一下，说：谁挂的这种东西。她把它摘下来，想扔进壁炉，手举到一半又放下了。她把它挂回原处，位置摆得比原来正。童谣下面印着十个小士兵的图案，一个一个排着队，最后一个手里拿着一根绳子。维拉数了两遍，都是十个。她把手指按在最后一个图案上，指尖有点凉。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/and-then-there-were-none-at04.jpg" alt="维拉站在客房壁灯旁，伸手取下墙上一张装在相框里的童谣。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>墙上的童谣 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="at05" style="--c:#3f4a44"
@@ -529,6 +532,7 @@ body{
       <div class="ev-when">第 2 天 · 没有欧文<em>士兵岛 · 书房</em></div>
       <h2>没有欧文</h2>
       <p>八个人把整座岛搜了一遍。房子不大，没有地窖，没有暗门，没有第十一个人。欧文先生不存在。那个买下岛的人用的是一连串假名，最后一层是一个已经死掉的中间人。法官坐在椅子上说：我们是被人请来受死的。隆巴德笑了一声，说：那我们就等着。他说完，看了看窗外的海。他们把人名一个一个念出来：欧文、欧文太太，还有一个叫莫里斯的中间人。念到最后谁都不说话了。法官说：这栋房子里只有我们十个，也就是说，凶手在我们中间。他说完，把手杖在地板上顿了一下。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/and-then-there-were-none-at07.jpg" alt="宾客聚在岛上庄园的书房，桌前的法官摊开调查所得的文件。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>找不到的主人 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="at08" style="--c:#3f4a44"
@@ -609,6 +613,7 @@ body{
       <div class="ev-when">手稿 · 海上<em>海上</em></div>
       <h2>瓶子</h2>
       <p>一个渔夫在海上捞起一个瓶子，里面有一份手稿。手稿写得很整齐，开头第一句是：我写这份东西，是为了让人知道，这不是一桩无解的案子。作者署名劳伦斯·沃格雷夫。他写道：我一生判过很多次死刑，从没有亲手执行过。这一次，我想自己动手。手稿是用钢笔写的，字很小，一页一页编了号。渔夫不识字，把它交给了警察。警察读到第三页就站起来了。他后来说：我办了三十年案子，从没见过凶手自己写结案报告的。</p><p class="ev-src">出处 · 原著第 16 章 手稿</p>
+      <figure class="ev-fig"><img src="../../img/anthology/and-then-there-were-none-at17.jpg" alt="渔船船舷边，一只装有卷起手稿的玻璃瓶从灰蓝色海浪中被拾起。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>海上的瓶子 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="at18" style="--c:#3f4a44"

@@ -602,37 +602,6 @@ DECOR = {
 
 PALETTE = ['#8c2b26', '#7a5a38', '#2f4a6b', '#5a3a6b', '#1f5d57', '#a8823c', '#4a4a58', '#6b645a']
 
-# 已有插图保留原先在时间线上的分布。
-IMAGES = {
-    'monte-cristo': [
-        ('monte-cristo.jpg', '马赛港 · 法老号归来的清晨'),
-        ('monte-faria.jpg', '伊夫堡 · 法里亚神甫与那场漫长的授课'),
-        ('monte-paris.jpg', '巴黎 · 客厅里的清算'),
-    ],
-    'solitude': [
-        ('solitude.jpg', '马孔多 · 建村时的雨季与荒地'),
-        ('solitude-rain.jpg', '下了四年十一个月零两天的雨'),
-        ('solitude-train.jpg', '香蕉公司 · 驶向马孔多的列车'),
-    ],
-    'lotr': [
-        ('lotr.jpg', '夏尔 · 出发前的最后一个清晨'),
-        ('lotr-moria.jpg', '墨瑞亚 · 矿坑深处的黑暗'),
-        ('lotr-volcano.jpg', '末日火山 · 最后一段路'),
-        ('lotr-havens.jpg', '灰港 · 最后的船'),
-    ],
-    'dune': [
-        ('dune.jpg', '厄拉科斯 · 沙海与香料'),
-        ('dune-worm.jpg', '沙虫 · 沙漠深处的震动'),
-        ('dune-water.jpg', '水 · 弗雷曼人最贵的东西'),
-    ],
-    'red-chamber': [
-        ('red-chamber.jpg', '大观园 · 花影与回廊'),
-        ('red-chamber-snow.jpg', '雪中的园子 · 盛景之后'),
-        ('red-chamber-flowers.jpg', '葬花 · 花谢花飞'),
-    ],
-}
-
-
 def load(book_id):
     s = io.open('%s/books/%s/data.js' % (ROOT, book_id), encoding='utf-8').read()
     body = s[s.index('{'):s.rindex('}') + 1]
@@ -666,18 +635,10 @@ def build_index(b):
     total = len(b['events'])
     people = len(b['people'])
 
-    imgs = IMAGES.get(b['id'], [])
-    event_art = ILLUSTRATIONS.get(b['id'], {}).get('events', {}) if not imgs else {}
+    event_art = ILLUSTRATIONS.get(b['id'], {}).get('events', {})
     unknown_events = set(event_art) - {event['id'] for event in b['events']}
     if unknown_events:
         raise ValueError(f"{b['id']}: unknown illustrated events {sorted(unknown_events)}")
-    slots = {}
-    if imgs:
-        step = max(1, total // (len(imgs) + 1))
-        for i, (fn, cap) in enumerate(imgs):
-            idx = min(total - 1, step * (i + 1))
-            slots[idx] = (fn, cap)
-
     parts = []
     last_era = None
     for i, ev in enumerate(b['events']):
@@ -708,12 +669,12 @@ def build_index(b):
             % (ev['id'], b['accent'], b['accent'], esc(era_label.get(era, '')),
                esc(ev['title']), esc(label), esc(ev['when']), esc(ev.get('place', '')),
                esc(ev['title']), ev['text'], src_html(ev), subs_html(b['id'], ev['id']), illustration))
-        if i in slots:
-            fn, cap = slots[i]
-            parts.append(
-                '\n      <figure class="ev-fig"><img src="../../img/anthology/%s" alt="%s" loading="lazy">'
-                '<figcaption>%s · 概念配图</figcaption></figure>\n' % (fn, esc(cap), esc(cap)))
 
+    first_art = next((ev['id'] for ev in b['events'] if ev['id'] in event_art), None)
+    art_link = (
+        '<a class="hero-art-link" href="#%s">看插图 ↓</a>' % escape(first_art)
+        if first_art else ''
+    )
     hero = '''<header class="masthead">
   <div class="hero-deco">%s</div>
   <div class="mast-inner">
@@ -722,15 +683,15 @@ def build_index(b):
     <p class="hero-deck">%s<br>%d 个时间点，从「%s」到「%s」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>%d 个时间点 · %d 位人物</span><i></i>
+      <span>%d 个时间点 · %d 位人物 · %d 张插图</span><i></i>
       <span>%s</span><i></i>
-      <span>向下滚动</span>
+      %s
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
 </header>''' % (DECOR.get(b['id'], ''), esc(b['author'].split('；')[0]), esc(b['title']), esc(b['description']),
                  total, esc(b['events'][0]['title']), esc(b['events'][-1]['title']),
-                 total, people, esc(b['scope']))
+                 total, people, len(event_art), esc(b['scope']), art_link or '<span>向下滚动</span>')
 
     html = '''<!DOCTYPE html>
 <html lang="zh-CN">

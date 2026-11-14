@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一枚戒指使平静的家园与中洲的命运相连。沿护戒、洛汗、刚铎与魔多几条道路，阅读权力的诱惑、微小的坚持和战后的归家。<br>44 个时间点，从「一枚保存着主人的戒指」到「留下的人回到家中」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>44 个时间点 · 27 位人物</span><i></i>
+      <span>44 个时间点 · 27 位人物 · 8 张插图</span><i></i>
       <span>《护戒同盟》《双塔殊途》《王者归来》小说三卷六部，含夏尔清洗与灰港结局</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#lr04">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -503,6 +504,7 @@ body{
       <div class="ev-when">第三纪元3018年秋<em>夏尔与老林</em></div>
       <h2>走出熟悉的田野</h2>
       <p>佛罗多以搬家为掩护离开袋底洞，山姆、梅里和皮平与他同行。黑骑士的追踪让乡间道路变得危险，伙伴们决定穿越老林。在柳树老人的陷阱中，他们险些无法脱身，幸被汤姆·邦巴迪尔救出。边界之外并非只有索隆的爪牙，还有比夏尔记忆更古老、不能凭常识解释的力量。老林里的柳树把梅里和皮平吞了进去，佛罗多和山姆砍不开。邦巴迪尔唱着歌走来，把手掌按在树干上，柳树抖了一下，把人吐了出来。他说：这条老柳，欠我一顿骂。他们走出夏尔边界时，佛罗多回头看了一眼。山姆说：我们会回来的。佛罗多说：也许吧。他没有回头第二次。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/lotr.jpg" alt="圆门小屋和绿丘陵间，背着行囊的霍比特人踏上小路" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>走出夏尔 · 旅途起点的场景意象 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -560,8 +562,6 @@ body{
       <p>戒灵在风云顶围住旅人，佛罗多在诱惑下戴上魔戒，更清楚地看见了他们的幽影。他被巫王的魔窟刀刺伤，阿拉贡逼退敌人，却无法完全阻止伤势蔓延。刀刃碎片正把佛罗多拖向幽影世界，前往瑞文戴尔不再只是寻找安全之所，也成为一场必须赶在伤者消失前结束的竞速。佛罗多的伤口越来越冷。他说：我看见他们了，九个。阿拉贡说：别看。他说：他们戴着王冠。阿拉贡说：那是戒灵，曾经是人。</p>
     </section>
 
-      <figure class="ev-fig"><img src="../../img/anthology/lotr.jpg" alt="夏尔 · 出发前的最后一个清晨" loading="lazy"><figcaption>夏尔 · 出发前的最后一个清晨 · 概念配图</figcaption></figure>
-
     <section class="event" id="lr08" style="--c:#46634f"
       data-color="#46634f" data-era="走出夏尔" data-short="洪水隔开的追兵" data-label="第三纪元3018年秋 · 布鲁伊能渡口">
       <div class="ev-when">第三纪元3018年秋<em>布鲁伊能渡口</em></div>
@@ -586,6 +586,7 @@ body{
       <div class="ev-when">第三纪元3019年初<em>摩瑞亚</em></div>
       <h2>桥上的坠落</h2>
       <p>卡拉兹拉斯的风雪阻断翻山之路，护戒队转入摩瑞亚矿坑。巴林殖民队的墓室揭示矮人的失败，奥克与炎魔随即将队伍逼向深处。甘道夫在凯萨督姆桥上迎战炎魔，斩断桥梁后仍被拖入深渊。阿拉贡带领余下成员逃出矿坑，队伍保住了魔戒，却失去最熟悉整个使命的引路人。甘道夫掉下去时，只喊了一句：快跑，你们这些傻瓜。阿拉贡把佛罗多拖出矿坑，回头看了一眼，什么也没说。他们在山外哭了很久，然后继续走。甘道夫掉下桥时，佛罗多喊：甘道夫！他没有回应。阿拉贡把他拉走，说：走，别回头。他们走出矿坑，阳光照在脸上，像另一个世界。</p><div class="ev-sub"><h3><span>其一</span>卡扎督姆</h3><p>护戒队在墨瑞亚矿坑中遭遇半兽人和炎魔。甘道夫在桥上与炎魔对峙，喊出“你不能通过”——桥断了，炎魔的鞭子把他一起拖下深渊。</p></div><div class="ev-sub"><h3><span>其二</span>代价</h3><p>队友们逃出矿坑，在山外为他哀悼。没有人知道，他会以白袍的身份回来。</p></div>
+      <figure class="ev-fig"><img src="../../img/anthology/lotr-moria.jpg" alt="巨大地下深渊上，灰袍巫师站在极窄石桥中面对远处火焰中的阴影" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>摩瑞亚桥 · 深渊与火焰 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="lr11" style="--c:#46634f"
@@ -638,8 +639,6 @@ body{
       <p>佛罗多与山姆在崎岖山地迷失方向，发现咕噜一直尾随。两人制服他后，佛罗多没有杀死这个被戒指折磨的旧主人，而让他起誓担任向导。咕噜带他们穿越死亡沼泽，避开大路的监视。山姆始终保持戒备，佛罗多则在咕噜身上看到了持戒者可能的未来，这份怜悯将影响最后的结局。佛罗多说：你带我们去找魔多。咕噜说：那条路很危险。佛罗多说：你走过？他说：走过，很久以前。山姆说：他在骗你。佛罗多说：我知道。</p>
     </section>
 
-      <figure class="ev-fig"><img src="../../img/anthology/lotr-moria.jpg" alt="墨瑞亚 · 矿坑深处的黑暗" loading="lazy"><figcaption>墨瑞亚 · 矿坑深处的黑暗 · 概念配图</figcaption></figure>
-
     <section class="event" id="lr15" style="--c:#46634f"
       data-color="#46634f" data-era="分开的道路" data-short="白袍巫师归来" data-label="第三纪元3019年3月初 · 法贡与埃多拉斯">
       <div class="ev-when">第三纪元3019年3月初<em>法贡与埃多拉斯</em></div>
@@ -652,6 +651,7 @@ body{
       <div class="ev-when">第三纪元3019年3月初<em>圣盔谷</em></div>
       <h2>围城直到黎明</h2>
       <p>希优顿与洛汗军队退守圣盔谷，面对萨鲁曼派来的强兽人和人类联军。城墙被爆破，防御者逐步退入要塞深处；阿拉贡与国王仍寻找突围的机会。黎明时，甘道夫带来的援军加入战斗，敌军退路又出现树人调来的胡恩森林。洛汗保住了主力，萨鲁曼赖以扩张的军队在山谷中崩溃。圣盔谷的城墙被炸开时，希优顿说：我们退到内堡，打到最后一个人。阿拉贡说：还有援军。希优顿问：谁？阿拉贡说：甘道夫。希优顿说：他走了。阿拉贡说：他会回来。圣盔谷的夜里，希优顿对阿拉贡说：我年轻时，以为战争是荣耀。阿拉贡说：现在呢？他说：现在是活着。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/lotr-lr16.jpg" alt="暴雨冲刷圣盔谷的城墙，远处火把照亮幽深的峡谷。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>圣盔谷 · 围城之夜 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="lr17" style="--c:#46634f"
@@ -659,6 +659,7 @@ body{
       <div class="ev-when">第三纪元3019年3月初·并行战线<em>艾辛格</em></div>
       <h2>树人打开堤坝</h2>
       <p>在圣盔谷的战事前后，树人攻入艾辛格，拆毁机器与围墙，并引水淹没萨鲁曼的工场。梅里和皮平在废墟旁等到伙伴，护戒队的一部分终于重聚。萨鲁曼仍躲在欧尔桑克塔中，试图凭声音和说辞扭转局势；甘道夫拒绝他的条件，折断其法杖，却没有当场杀死这个失败的巫师。树胡攻进艾辛格时，把水坝打开。水冲进工厂，机器一个接一个停。他说：这就是砍树的下场。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/lotr-lr17.jpg" alt="树人站在破开的堤坝旁，水漫向远处的黑色石塔。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>艾森加德 · 树人决堤 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -711,8 +712,6 @@ body{
       <p>洛汗集结援军准备救援刚铎，希优顿认为梅里无法跟上骑兵，命他留守。伊欧玟也不愿留在后方，以德恩赫尔姆的身份带梅里随军。骑兵得到林中居民指路，避开被封锁的大道，赶赴王城。两名原本被排除在战场外的人，由此进入了最终与戒灵之首交锋的队伍。伊欧玟对梅里说：你会骑马吗？他说：会一点。她说：那就跟上，别掉队。她戴上头盔，把脸遮住。</p>
     </section>
 
-      <figure class="ev-fig"><img src="../../img/anthology/lotr-volcano.jpg" alt="末日火山 · 最后一段路" loading="lazy"><figcaption>末日火山 · 最后一段路 · 概念配图</figcaption></figure>
-
     <section class="event" id="lr22" style="--c:#46634f"
       data-color="#46634f" data-era="魔戒大战" data-short="通往尸罗的阶梯" data-label="第三纪元3019年3月·东线 · 米那斯魔窟与奇立斯乌苟">
       <div class="ev-when">第三纪元3019年3月·东线<em>米那斯魔窟与奇立斯乌苟</em></div>
@@ -746,6 +745,7 @@ body{
       <div class="ev-when">第三纪元3019年3月15日<em>佩兰诺平野</em></div>
       <h2>王城之外的转机</h2>
       <p>洛汗骑兵冲入战场，希优顿在冲锋后遭巫王攻击而亡。伊欧玟迎战戒灵，梅里用古冢中得到的剑刺伤敌人，使她得以完成致命一击。黑船同时沿河抵达，阿拉贡带来的南方援军加入战斗。围城军终于被击退，但胜利伴随着国王与众多战士的死亡，索隆的总体兵力也远未耗尽。希优顿被巫王的坐骑压住，伊欧玟挡在他身前。巫王说：没有男人能杀我。伊欧玟摘下头盔：我不是男人。梅里的剑从后面刺进去，巫王的斗篷塌在地上。伊欧玟砍下巫王的头时，头盔掉了。巫王说：没有男人能杀我。她说：我不是男人。她站在战场上，风把头发吹起来。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/lotr-lr25.jpg" alt="佩兰诺平野上，洛汗骑队从晨雾里出现，远处是米那斯提力斯。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>佩兰诺平野 · 破晓 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="lr26" style="--c:#46634f"
@@ -769,8 +769,6 @@ body{
       <p>甘道夫与阿拉贡判断无法凭剩余军队打败索隆，仍率领联军来到黑门前。他们希望让索隆以为西方领袖已经掌握并准备使用魔戒，从而把注意力集中于这支军队。索隆之口拿出佛罗多的衣物威吓，甘道夫拒绝屈服。联军被巨大兵力包围，唯一真正可能扭转局势的事发生在他们看不见的山上。阿拉贡在黑门前说：我们打不过他们。甘道夫说：我们不需要打赢，我们需要让他看这里。阿拉贡说：那就让他看。</p>
     </section>
 
-      <figure class="ev-fig"><img src="../../img/anthology/lotr-havens.jpg" alt="灰港 · 最后的船" loading="lazy"><figcaption>灰港 · 最后的船 · 概念配图</figcaption></figure>
-
     <section class="event" id="lr28b" style="--c:#46634f"
       data-color="#46634f" data-era="魔戒大战" data-short="黑门前的挑衅" data-label="黑门 · 魔拉南">
       <div class="ev-when">黑门<em>魔拉南</em></div>
@@ -783,6 +781,7 @@ body{
       <div class="ev-when">第三纪元3019年3月25日<em>末日火山</em></div>
       <h2>最后一步没有按计划发生</h2>
       <p>山姆背着无法继续前进的佛罗多爬上火山。到了能够毁掉戒指的裂隙前，佛罗多却无法放手，宣称魔戒归自己所有。咕噜扑上来，咬断他的手指夺得戒指，又在狂喜中跌入火焰。远征终于完成，靠的既有持戒者走到此处的忍耐，也有此前多次没有杀死咕噜的怜悯，以及无法由任何人完整掌控的转折。佛罗多站在裂缝边，说：戒指是我的。山姆喊：扔下去！他没有动。咕噜扑上来，咬断他的手指，戒指掉进火里。</p><div class="ev-sub"><h3><span>其一</span>最后一步</h3><p>弗罗多站在末日裂缝边，最终没有把戒指扔下去。他说：戒指是我的。</p></div><div class="ev-sub"><h3><span>其二</span>咕噜</h3><p>咕噜扑上来咬断他的手指，带着戒指掉进岩浆。魔戒被销毁，不是靠意志，是靠贪婪——这是托尔金留给“胜利”最冷的一句话。</p></div>
+      <figure class="ev-fig"><img src="../../img/anthology/lotr-volcano.jpg" alt="两个渺小旅人在黑色火山坡上艰难前进，远处山腰入口透出红光" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>末日火山 · 抵达裂隙前的最后一段路 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -857,6 +856,7 @@ body{
       <div class="ev-when">第三纪元3019年秋<em>临水与袋底洞</em></div>
       <h2>夏尔清洗</h2>
       <p>霍比特人击败盘踞乡间的暴徒，来到袋底洞后发现幕后主使就是萨鲁曼。佛罗多拒绝杀死这个已经衰败的敌人，让他离开；萨鲁曼却继续羞辱巧言，最终被后者割喉。巧言又遭霍比特弓箭手射杀。夏尔的胜利没有抹平伤害，佛罗多对暴力的克制也与伙伴们的战斗领导形成了不同的英雄道路。佛罗多说：不要杀他。山姆说：他杀了多少人？佛罗多说：杀了他，我们就和他们一样。萨鲁曼笑了，说：你真是个傻瓜。</p><p class="ev-src">出处 · 第 6 卷第 8 章 夏尔清洗</p>
+      <figure class="ev-fig"><img src="../../img/anthology/lotr-lr34.jpg" alt="四位归乡的霍比特人站在袋底洞外，山坡上的树木稀疏了。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>袋底洞 · 夏尔清洗之后 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="lr35" style="--c:#46634f"
@@ -871,6 +871,7 @@ body{
       <div class="ev-when">第三纪元3021年<em>灰港</em></div>
       <h2>留下的人回到家中</h2>
       <p>佛罗多将记录旅程的红皮书交给山姆，随后与比尔博、甘道夫、埃尔隆德和凯兰崔尔来到灰港，乘船西去。梅里与皮平赶来道别，山姆则回到妻女身边，继续生活。魔戒的故事以一次离去和一次归家结束：有人需要远离受伤的世界寻找疗愈，也有人承担起守护土地、家庭与记忆的未来。灰港的船上，佛罗多对山姆说：你不能跟我走。山姆说：为什么？他说：因为你要留下，替我记得。船开了，山姆站在码头上，一直站到看不见。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/lotr-havens.jpg" alt="三个霍比特人的背影站在石码头上，白帆船驶向金色海面" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>灰港 · 留在岸上的告别 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

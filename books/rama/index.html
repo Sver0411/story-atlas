@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一根巨大的圆柱飞进太阳系，人类进去看了一圈，出来时它已经走了。<br>15 个时间点，从「拉玛」到「报告」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>15 个时间点 · 5 位人物</span><i></i>
+      <span>15 个时间点 · 5 位人物 · 5 张插图</span><i></i>
       <span>第一部 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#rm01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -493,6 +494,7 @@ body{
       <div class="ev-when">2130 年<em>拉玛 · 南极</em></div>
       <h2>开门</h2>
       <p>在南极，他们发现三条槽，拼成一个三角形。一个叫吉米·帕克的年轻人说：这是螺丝。他们用激光切开，三角板慢慢松开，露出一个洞。洞下面是黑的，深得看不见底。有人说：我们进去吗。诺顿说：我们来了就是为了进去。他说：第一批人，自愿。全船的人都举手了。三角板松开的时候，没有声音。他们站在那个洞边上，闻见一股很淡的味道，像是铁锈。他们打了一盏灯进去，光在洞里照出去，照不到底。有人数了三下，说：走了。</p><p class="ev-src">出处 · 第 8 章 南极</p>
+      <figure class="ev-fig"><img src="../../img/anthology/rama-rm03.jpg" alt="几名宇航员在拉玛外壳上围住刚开启的三角形舱口。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>探险队打开拉玛的舱门 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -512,6 +514,7 @@ body{
       <div class="ev-when">2130 年<em>拉玛 · 平原</em></div>
       <h2>冰湖</h2>
       <p>平原中间有一个冰湖，湖对面有一座城市，叫「纽约」。城市是空的，没有窗，没有门，只有一些塔和沟。他们走过去，站在那些建筑前面，觉得自己很小。吉米说：这里有人住过吗。诺顿说：没有。他说：这些东西是新的。他说：它们等着什么。城市的塔是八面体，没有窗。他们绕着走了一圈，找到的只有墙。吉米说：这不是给人住的。他们给那座城市取名纽约，因为它也是那么高，那么挤，那么空。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/rama-rm05.jpg" alt="拉玛内部的冰湖泛着白光，湖边是没有窗门的多面体塔楼。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>冰湖对面的空城 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="rm06" style="--c:#4e555c"
@@ -533,6 +536,7 @@ body{
       <div class="ev-when">2130 年<em>拉玛 · 内部</em></div>
       <h2>日出</h2>
       <p>拉玛内部有白天和黑夜。灯带会暗下去，然后从一头亮起来，慢慢移到另一头。第一次「日出」的时候，全船的人都跑到窗口看。有人说：这像家。诺顿说：一个机器为什么要做白天黑夜。他说：除非它想养什么东西。他说完，自己打了个寒战。灯带亮起来的时候，全船的人都停下了手里的事。有人说：这是早上。他说：这是一个人造的早上。有人说：我们是不是该睡觉了。诺顿说：按拉玛的时间睡。他说：我们现在住在别人的钟里。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/rama-rm08.jpg" alt="拉玛的长条灯带依次亮起，几个人站在窗边凝望。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>拉玛里的第一次日出 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="rm09" style="--c:#4e555c"
@@ -580,6 +584,7 @@ body{
       <div class="ev-when">2130 年<em>拉玛 · 外部</em></div>
       <h2>导弹</h2>
       <p>导弹被拉玛自己拦住了。它没有开火，只是转动了一下，导弹就偏了。然后拉玛开始加速，往太阳系外面飞。人类看着它走，什么也做不了。诺顿站在舰桥上，看着那个灰色的圆柱越来越小。他说：它连头都没回。他说：我们这一趟，像个笑话。导弹偏了，飞向太阳。人类看着它烧掉。有人说：拉玛救了我们。有人说：拉玛根本没在意。飞船里很安静。有人问：我们是不是白来了。诺顿说：我们带回了照片。他说：照片也是东西。</p><p class="ev-src">出处 · 第 43 章 撤离</p>
+      <figure class="ev-fig"><img src="../../img/anthology/rama-rm14.jpg" alt="奋进号舰桥上的诺顿目送巨大的灰色圆柱远去。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>拉玛离开太阳系 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个哥萨克农民，爱一个女人，娶另一个女人，在红军和白军之间来回走，最后什么都没剩下。<br>12 个时间点，从「两家人」到「回来」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>12 个时间点 · 8 位人物</span><i></i>
+      <span>12 个时间点 · 8 位人物 · 5 张插图</span><i></i>
       <span>全本 · 1912—1921</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#qd01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -493,6 +494,7 @@ body{
       <div class="ev-when">1913 年<em>顿河</em></div>
       <h2>出走</h2>
       <p>他带着阿克西妮亚跑了，去地主家做长工。她给他生了一个女儿。他说：我这辈子就这样了。她说：你别许愿。他说：我许了。第二年孩子死了，他说：这是报应。她说：报应在我身上，不在你身上。地主说：你们这样不像话。他说：我知道。地主说：那你还这样。他说：我没有别的办法。地主说：你有，你只是不肯。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/quiet-don-qd03.jpg" alt="格里高利和阿克西妮娅带着包裹离开顿河村庄。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>离开村庄 · 格里高利与阿克西妮娅 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -512,6 +514,7 @@ body{
       <div class="ev-when">1916 年<em>前线</em></div>
       <h2>医院</h2>
       <p>他受了伤，住在医院里。隔壁床是个布尔什维克，叫彭楚克，天天跟他讲道理。他听着，觉得有道理，又觉得不对。他说：你们要的是道理，我们要的是活命。彭楚克说：活命也是道理。他没有说话。彭楚克说：你为谁打仗。他说：为我自己。彭楚克说：那你打不赢。他说：那我也得打。彭楚克说：你这个人，可惜了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/quiet-don-qd05.jpg" alt="格里高利躺在军医院的病床上，窗边摆着简单的医疗用品。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>前线医院 · 病床 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="qd06" style="--c:#5a5342"
@@ -533,6 +536,7 @@ body{
       <div class="ev-when">1919 年<em>顿河</em></div>
       <h2>暴动</h2>
       <p>哥萨克暴动，杀红了眼。格里高力带了一队人，杀人，也看见人被杀。他回家的时候，手上还有血。阿克西妮亚给他端水，他说：你别看我。她说：我看过更脏的。嫂子达丽亚在院子里晾衣服，看见他手上的血，什么也没说。同村的米什卡·科舍沃伊站在门口，说：你杀了几个。他杀了人，回家洗手，洗了三遍。水是红的。他看着水，说：这不是我的血。他说完，把水倒了。他杀了人，回家洗手，洗了三遍。水是红的。他说：这不是我的血。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/quiet-don-qd08.jpg" alt="顿河村落的路上，几个远处的人影在暮色中集结。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>顿河 · 起事中的村庄 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="qd09" style="--c:#5a5342"
@@ -566,6 +570,7 @@ body{
       <div class="ev-when">1921 年<em>顿河</em></div>
       <h2>回来</h2>
       <p>他把阿克西妮亚埋了，一个人在草原上走了很久。他回家，看见儿子站在门口。儿子说：爸爸。他说：我回来了。他站在自家门口，手里抱着儿子，这是他在这本书里唯一一次觉得活着还有点意思。儿子说：妈妈说你会回来。他说：我回来了。儿子说：那你还走吗。他说：不走了。他把儿子抱起来，往家里走。门开着。</p><p class="ev-src">出处 · 第 4 卷末</p>
+      <figure class="ev-fig"><img src="../../img/anthology/quiet-don-qd12.jpg" alt="格里高利回到村口，俯身迎向年幼的儿子。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>归来 · 村口父子 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

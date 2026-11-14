@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个人想保住一小块自己的脑子，最后连那一小块也被拿走了。他走出来的时候，真心爱着那个拿走它的人。<br>20 个时间点，从「日记」到「他爱老大哥」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>20 个时间点 · 10 位人物</span><i></i>
+      <span>20 个时间点 · 10 位人物 · 6 张插图</span><i></i>
       <span>全本 · 1984 年</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#n84_01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -478,6 +479,7 @@ body{
       <div class="ev-when">1984 年 4 月 4 日<em>伦敦 · 胜利大厦</em></div>
       <h2>日记</h2>
       <p>温斯顿·史密斯三十九岁，在真理部做事，右踝上有一块静脉曲张的疮。他回到公寓，把桌子搬到墙角，因为电幕看不见那个角度。他拿出一个本子，一支笔，写下一行字：1984 年 4 月 4 日。然后他停下，不知道下一句该写什么。他妻子凯瑟琳两年前走了，走的时候说：你没有孩子，是因为你不够努力。他最后写的是：打倒老大哥。写完他盯着那四个字看了很久，手在抖。他知道这行字如果被发现，他会被枪毙，或者更糟。他把它留在本子上，没有撕。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/nineteen-eighty-four-n84_01.jpg" alt="温斯顿坐在逼仄客厅的壁龛里，打开纸质日记。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>日记的第一页 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="n84_02" style="--c:#4a4a4a"
@@ -492,6 +494,7 @@ body{
       <div class="ev-when">1984 年<em>真理部</em></div>
       <h2>改报纸</h2>
       <p>他在真理部记录司工作，每天的任务是改旧报纸。党说今年的棉花产量是多少，去年的报纸就得改成多少。改完的报纸投入火炉，原件销毁。他做这件事做了很多年，做得又快又好，还得过一次表扬。同屋的赛姆是个语文学家，正在编新话词典，他说：我们要把语言削到只剩骨头。走廊那头还有诗人安普福斯，他后来消失了。他有一句口头禅：这是技术活。他说：改得看不出痕迹，才叫本事。他后来想，我这一辈子，就是在一张一张地擦掉过去。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/nineteen-eighty-four-n84_03.jpg" alt="温斯顿在真理部的小隔间里改写报纸记录。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>真理部的记录员 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="n84_04" style="--c:#4a4a4a"
@@ -518,6 +521,7 @@ body{
       <div class="ev-when">1984 年<em>乡下 · 树林</em></div>
       <h2>第一次</h2>
       <p>他们约在乡下的树林里见面。她穿了一件工作服，头发用一条红绳子扎着。她说：我带了一块巧克力，黑市的。他说：你怎么弄到的。她说：我换的。她说：我这个人，很会换东西。他们在一棵树下躺着，草很高，看不见路。她说：你看起来比我想的瘦。他说：你看起来比我想的年轻。她说：我二十六。他说：我三十九。她说：我知道。她说：你这个人，看起来像四十岁。他说：我三十九。她说：我看到你的时候，你总是低着头。他说：我怕人。她说：你怕的不是人，是电视。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/nineteen-eighty-four-n84_06.jpg" alt="春日树林的空地上，温斯顿和茱莉亚隔着一片开花的草地坐着。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>乡间的相见 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="n84_07" style="--c:#4a4a4a"
@@ -540,6 +544,7 @@ body{
       <div class="ev-when">1984 年<em>奥勃良的家</em></div>
       <h2>兄弟会</h2>
       <p>他去找奥勃良，说要加入兄弟会。奥勃良给他倒了一杯酒，说：你要做好准备，可能一辈子都在做无用的事，可能被抓，可能死。他说：我知道。奥勃良说：你愿意吗。他说：愿意。奥勃良说：我们会联系你。他说完，关掉了电幕。那是温斯顿第一次看见电幕被关掉。他心里松了一口气，又紧了一下。奥勃良说：我们会让你读那本书。他说：那本书存在吗。奥勃良说：存在。他说：那本书里写的是什么。奥勃良说：写的是你现在已经知道的东西。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/nineteen-eighty-four-n84_09.jpg" alt="在奥勃良家的起居室里，温斯顿站在一旁，看着奥勃良关掉电幕。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>奥勃良关掉电幕 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="n84_10" style="--c:#4a4a4a"
@@ -601,6 +606,7 @@ body{
       <div class="ev-when">1984 年<em>咖啡馆</em></div>
       <h2>栗树咖啡馆</h2>
       <p>他被放出来了。他有了一个清闲的职位，一份够吃的口粮，一间干净的屋子。他每天下午去栗树咖啡馆，喝一杯胜利咖啡，下一盘棋。电幕里播着前线的胜利消息，他听着，觉得很安心。他有时候会想起那间小屋，想起玻璃镇纸，想起她的头发。他想起的时候，心里没有难过，只有一点模糊的痒。他想：那不是真的。他就不想了。他下棋赢了三次。他以前最喜欢下棋，现在下得像在做工。他看着棋盘，忽然想不起来自己为什么喜欢过。他把棋子摆回原位，说：再来一盘。</p><p class="ev-src">出处 · 第三部第 6 章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/nineteen-eighty-four-n84_17.jpg" alt="温斯顿独坐在栗树咖啡馆，桌前摆着一盘棋。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>栗树咖啡馆 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="n84_18" style="--c:#4a4a4a"

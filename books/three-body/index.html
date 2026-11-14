@@ -109,7 +109,7 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
@@ -145,6 +145,7 @@ body{
   background:rgba(29,26,22,.022);border:1px solid rgba(29,26,22,.08);
   border-radius:2px;
 }
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .ev-fig img{
   display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
   filter:saturate(.94) contrast(1.03);
@@ -445,7 +446,7 @@ body{
     <div class="hero-meta">
       <span>68 个时间点 · 26 幅配图</span><i></i>
       <span>1453 — 时间尽头</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#e5">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>

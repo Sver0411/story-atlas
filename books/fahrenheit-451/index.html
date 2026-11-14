@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一个烧书的人，某天翻开了一本。他没打算改变什么，可他已经回不去了。<br>15 个时间点，从「烧书」到「最后」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>15 个时间点 · 6 位人物</span><i></i>
+      <span>15 个时间点 · 6 位人物 · 5 张插图</span><i></i>
       <span>全本 · 未来</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#fh02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -484,6 +485,7 @@ body{
       <div class="ev-when">未来<em>街上</em></div>
       <h2>克拉丽丝</h2>
       <p>他在回家的路上遇见一个十七岁的姑娘，叫克拉丽丝。她问他：你烧书的时候，书里写的是什么。他说：没人知道。她说：那你为什么不看看。他说：看了会想。她说：想了又怎样。她说：我叔叔说，从前有个人开车会减速，会看路边的花。她说：你开车会减速吗。他说：不会。她说：为什么。他说：没有理由。她说：我十七岁，我不上学。他说：为什么。她说：因为学校只教怎么不思考。他说：那你怎么想。她说：我自己想。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/fahrenheit-451-fh02.jpg" alt="昏暗街灯下，蒙塔格停下来，听克拉丽丝在街边发问。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>夜路上的克拉丽丝 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fh03" style="--c:#5c4033"
@@ -517,6 +519,7 @@ body{
       <div class="ev-when">未来<em>蒙塔格家</em></div>
       <h2>第一本</h2>
       <p>他偷了一本书，藏在枕头下面。他不敢看，也不敢扔。他躺了一夜，听见自己的心跳。第二天他带了一本去上班，藏在衣服里。他想：如果他们发现了，我就完了。他后来偷了十几本，藏在通风口里。他晚上拿出来看，看不懂，可他觉得那些字有重量。他说：这些东西在等我。他把书藏在通风口里，用一块布盖着。他每天晚上拿出来一本，闻一闻。他说：这味道像什么。他说：像下雨。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/fahrenheit-451-fh06.jpg" alt="蒙塔格坐在床沿，掀起枕头一角看见藏着的书。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>偷偷留下的书 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fh07" style="--c:#5c4033"
@@ -524,6 +527,7 @@ body{
       <div class="ev-when">未来<em>费伯家</em></div>
       <h2>费伯</h2>
       <p>费伯是一个退休的英语教授，二十年前他最后一个离开讲台。他见到蒙塔格，第一句话是：你想要什么。蒙塔格说：我想要有人跟我说说话。他说：你找错人了。他说：你走吧。他没有走。费伯说：我不出门，因为我怕。他说：我这一辈子，只做了一件勇敢的事，就是记住。他说：这不是勇敢，这是没有办法。费伯说：你知道我为什么不出门吗。他说：因为外面的人都一样。他说：一个人说话，没人听，说了也没用。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/fahrenheit-451-fh07.jpg" alt="费伯坐在简朴房间里，蒙塔格站在门边同他交谈。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>费伯的家 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fh08" style="--c:#5c4033"
@@ -576,6 +580,7 @@ body{
       <div class="ev-when">未来<em>河边</em></div>
       <h2>机械狗</h2>
       <p>他杀了比蒂，跑了。全城的人在追他，电视直播。一只机械狗跟着他，鼻子能闻出一万种味道。他跳进河里，让水流带走他的味道。他把衣服脱了，在河里泡了半个小时。他爬上岸，往乡下走。他想：我现在什么都没有了。他又想：我终于什么都没有了。他这一辈子第一次觉得轻松。他躺在河边，水很凉。他想：我杀了一个人。他又想：那个人读过书。他坐起来，往北走。</p><p class="ev-src">出处 · 第 3 部 火光</p>
+      <figure class="ev-fig"><img src="../../img/anthology/fahrenheit-451-fh13.jpg" alt="夜色中的河水绕过岸边，蒙塔格顺流远离身后的城市灯光。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>逃到河边 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="fh14" style="--c:#5c4033"

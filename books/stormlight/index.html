@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一个奴隶带着一群桥夫逃出来，成了骑士。他说：我这一辈子，只想护住几个人。<br>13 个时间点，从「卡拉丁」到「誓言」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>13 个时间点 · 6 位人物</span><i></i>
+      <span>13 个时间点 · 6 位人物 · 7 张插图</span><i></i>
       <span>第一、二部 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#sa02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -484,6 +485,7 @@ body{
       <div class="ev-when">某年<em>破碎平原</em></div>
       <h2>桥四</h2>
       <p>他带着一群桥夫逃了出来，成了一支队伍，叫「桥四」。他说：从今天起，你们不是桥夫。他说：你们是兵。有人说：我们不会打。他说：我教。他们打了一场，赢了。他说：你们看见了吗。他说：我们能赢。他教他们拿枪的时候，说：你们不是要赢，你们是要活着。他说：赢是以后的事。他说：你们要是想跑，现在就跑。没有人跑。他说：那好。他说：那我们打。他说：我们不是兵。他说：可我们能打。他说：这就够了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/stormlight-sa02.jpg" alt="卡拉丁和桥四的伙伴聚在木桥下，远处是破碎平原的裂谷。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>桥四训练 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sa03" style="--c:#3f4a5a"
@@ -506,6 +508,7 @@ body{
       <div class="ev-when">某年<em>破碎平原</em></div>
       <h2>誓言</h2>
       <p>卡拉丁在战场上说出了一句誓言。那一刻，风变了。他身上的光变了。有人说：他是光辉骑士。他说：我不知道那是什么。他说：我只知道我要保护人。他说：我这一辈子，只想护住几个人。他说：可每次都没护住。他说：我要保护人。他说完，身上的光就亮了。他说：我不知道这算什么。他说：我不知道我是什么。他说：可我知道我该做什么。他说：我发誓要护住人。他说：我做到了吗。没有人回答。</p><p class="ev-src">出处 · 《王道》第 57 章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/stormlight-sa05.jpg" alt="卡拉丁站在风雨中，蓝白色的光在肩头微微亮起。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>卡拉丁立下誓言 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sa06" style="--c:#3f4a5a"
@@ -520,6 +523,7 @@ body{
       <div class="ev-when">某年<em>乌有城</em></div>
       <h2>阿多林</h2>
       <p>阿多林是达力拿的儿子，会打架，会说话，不会想事情。他决斗赢了很多次。他说：我这一辈子，只想做一个好人。有人说：你已经是个好人了。他说：不够。他后来杀了一个人，在暗巷里。他说：我这一辈子，第一次做了一件自己决定的事。他说：我决斗赢了十七次。他说：可我一次也没有杀过人。他说：那天我杀了。他说：我父亲打了一辈子仗。他说：我不想变成他。他说：我已经变了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/stormlight-sa07.jpg" alt="阿多林站在裂纹纵横的石质赛场中央，看台上的观众望向他。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>阿多林走上决斗场 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sa08" style="--c:#3f4a5a"
@@ -527,6 +531,7 @@ body{
       <div class="ev-when">某年<em>战争</em></div>
       <h2>真相</h2>
       <p>他们发现：这场战争打了几千年，不是为了土地，是为了一个约定。人类和「虚空使者」有一个约定，一代一代地换。现在约定到期了。达力拿说：我要重新立约。有人说：你凭什么。他说：凭我站在这里。他说：我要重新立约。他说：如果没有人应，那就我来应。他说：这个约定，是用人命换的。他说：我不想再换。他说：我不怕死。他说：我怕的是白死。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/stormlight-sa08.jpg" alt="达力拿在灰暗的幻景中注视风化的古石建筑，几名同伴站在远处。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>达力拿面对古老的约定 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sa09" style="--c:#3f4a5a"
@@ -534,6 +539,7 @@ body{
       <div class="ev-when">某年<em>营地</em></div>
       <h2>加斯娜</h2>
       <p>加斯娜在研究一样东西：为什么有些力量会回来。她写了一本书。她说：这个世界的规则在变。她说：我们得在它变完之前弄明白。她后来死了，又活了。她说：这件事我也没弄明白。她说：这个世界的规则在变。她说：我们要在它变完之前弄明白。她说：我知道的太少。她说：可我不知道的更多。她说：这才是问题。她说：我写了一本书。她说：可我不知道对不对。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/stormlight-sa09.jpg" alt="加斯娜独自在书库里比对古卷，灯光照着铺满手稿的桌面。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>加斯娜研究消失又归来的力量 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="sa10" style="--c:#3f4a5a"
@@ -548,6 +554,7 @@ body{
       <div class="ev-when">某年 · 纳拉克<em>战场</em></div>
       <h2>纳拉克</h2>
       <p>第二卷的结尾不在城墙上。卡拉丁在纳拉克的决斗里对上赛兹，两个人都说过誓，两个人都不知道自己算不算守住了。达力拿在城里，面对着风暴之父，听见一句他等了很久的话。沙兰打开了一扇不该开的门，把整支军队送到了乌瑞希鲁。她站在雪地里，手上还有血。她说：我做到了。她说：可我不知道我做对没有。</p><p class="ev-src">出处 · 《光辉真言》第 86—89 章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/stormlight-sa11.jpg" alt="沙兰站在古老的誓门前，门后是乌瑞希鲁所在的雪山。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>从纳拉克开启的誓门 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

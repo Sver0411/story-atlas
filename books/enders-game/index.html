@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一个六岁的孩子被带走，训练了五年，打赢了一场战争。他以为那是模拟。<br>16 个时间点，从「监视器」到「彼得」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>16 个时间点 · 7 位人物</span><i></i>
+      <span>16 个时间点 · 7 位人物 · 5 张插图</span><i></i>
       <span>第一部 · 全本</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#eg01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -477,6 +478,7 @@ body{
       <div class="ev-when">未来<em>地球 · 维京家</em></div>
       <h2>监视器</h2>
       <p>安德六岁，额头上戴着一个监视器。那是政府装的，用来观察他。他的哥哥彼得也戴过，被淘汰了。他的姐姐瓦伦蒂也戴过，也被淘汰了。他们说他可能是那个人。监视器被取下来那天，安德哭了。他不是舍不得，他是害怕——他知道从此以后，没有人再看着他的后脑勺了。政府的人说：我们不需要天才，我们需要一个能赢的人。他们在他身上花了多少钱，没有人算过。监视器里有一个声音，一直在跟他说话。他说：你是谁。那个声音说：我是看着你的人。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/enders-game-eg01.jpg" alt="年幼的安德在检查室坐着，医护人员低头查看监视器。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>取下监视器的那天 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="eg02" style="--c:#3f4a56"
@@ -525,6 +527,7 @@ body{
       <div class="ev-when">未来<em>战斗学校</em></div>
       <h2>游戏</h2>
       <p>他们在电脑上玩一个游戏，叫「心理游戏」。游戏里有一个小人，要走过各种障碍。安德玩到最后一关，那个小人走进一个房间，房间里有一面镜子，镜子里是安德自己的脸。他后来常常想那个房间。他问格拉夫：那是什么意思。格拉夫说：我不知道。他说：那是你自己。游戏里的那个房间，他后来又去过几次。每一次镜子里的人都不一样，一次比一次老。最后一关结束的时候，屏幕上出现一行字：你赢了。他坐在那儿，觉得有什么不对。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/enders-game-eg07.jpg" alt="安德对着终端屏幕，屏幕里的一道镜子映出少年的脸。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>心理游戏里的镜子 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="eg08" style="--c:#3f4a56"
@@ -553,6 +556,7 @@ body{
       <div class="ev-when">未来<em>指挥学院</em></div>
       <h2>模拟</h2>
       <p>他们给他一台模拟器，说这是考试。他打了几个月，每一次都赢了。最后一次，他看见虫族的母星，旁边有一颗行星，上面有几百万人。他下令开火。他赢了。他赢了以后，屋子里的人开始欢呼。他问：怎么了。格拉夫说：结束了。他说：什么结束了。格拉夫说：战争。他说：这是真的。格拉夫说：是。他按下按钮的时候，手指有点抖。他说：这只是一个模拟。他说完，屏幕上亮起一片白光。</p><p class="ev-src">出处 · 第 14 章 末战</p>
+      <figure class="ev-fig"><img src="../../img/anthology/enders-game-eg11.jpg" alt="安德站在训练台前，巨大的屏幕上浮现一颗遥远的行星。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>最后一场模拟 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -591,6 +595,7 @@ body{
       <div class="ev-when">未来<em>新星球</em></div>
       <h2>带走</h2>
       <p>虫族留下的东西是一个茧，茧里有一个女王，还在睡。她通过梦跟他说话，说：我们不恨你。她说：请你替我们活着。安德把茧装进背包，写下一本书，叫《死者的代言人》，用她的名义说话。然后他上了一艘船，去找一个能让虫族重新活下来的星球。他没有回地球。</p><p class="ev-src">出处 · 第 15 章 死者代言人</p>
+      <figure class="ev-fig"><img src="../../img/anthology/enders-game-eg15.jpg" alt="安德背着包走上飞船的舷梯，背包里装着虫族女王的茧。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>带着虫族女王出发 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="eg16" style="--c:#3f4a56"

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个没有母亲、没有痛苦、没有书的世界。所有人都很快乐，除了那个从外面来的人。<br>18 个时间点，从「流水线」到「结尾的一句」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>18 个时间点 · 8 位人物</span><i></i>
+      <span>18 个时间点 · 8 位人物 · 6 张插图</span><i></i>
       <span>全本 · 福特纪元 632 年</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#bn01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -507,6 +508,7 @@ body{
       <div class="ev-when">福特纪元 632 年<em>新墨西哥 · 保留区</em></div>
       <h2>度假</h2>
       <p>他们去新墨西哥的保留区度假。那里还有人住在土屋里，生孩子，养孩子，生病，祷告，挨饿。列宁娜看了一眼就说：太脏了。伯纳德说：这就是我们以前的样子。她说：我不要看以前。他们遇见一个白人年轻人，衣服破，头发长，手里拿着一本旧书。他说：你们是从文明世界来的。他说：我叫约翰。他说这句话的时候，眼睛很亮。飞机飞过保留区的上空，下面是黄土和石头。列宁娜说：这里的人怎么活。伯纳德说：他们一直这么活。她说：那多可怕。他说：也许吧。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/brave-new-world-bn05.jpg" alt="伯纳德和列宁娜走在新墨西哥保留区的土屋之间。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>保留区之行 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -545,6 +547,7 @@ body{
       <div class="ev-when">福特纪元 632 年<em>伦敦</em></div>
       <h2>奇观</h2>
       <p>约翰到了伦敦，成了全城的名人。他不明白人们为什么围着他，不明白他们为什么笑，不明白他们为什么一见面就上床。他说：你们这里的人，都是空心的。有人说：你说得真好听，再说一遍。他被请去参加宴会，站在一群人中间，脸涨得通红。一个女人伸手摸他的脸，说：你真有野性。他把她的手打开，说：别碰我。全屋子的人都笑了。一个记者问他：你觉得我们的世界怎么样。他说：你们的女人都是妓女。记者笑了，说：这个说法很有力，我可以引用吗。他说：滚。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/brave-new-world-bn09.jpg" alt="在一间明亮的伦敦会客厅，约翰站在人群中，周围宾客打量着他。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>伦敦的新面孔 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="bn10" style="--c:#5b6b5a"
@@ -566,6 +569,7 @@ body{
       <div class="ev-when">福特纪元 632 年<em>伦敦</em></div>
       <h2>眼泪</h2>
       <p>穆斯塔法·蒙德说：我以前也想过自由。他说：我做科学家的时候，写过一篇论文，被否决了。他指了指墙上的保险柜，说：那里面是禁书，圣经、莎士比亚、一切旧东西。约翰说：你读过。他说：我读过。约翰说：那你为什么还要这样。蒙德说：因为我选择了幸福。他说：我选了舒服，没选美。他说这话的时候，脸上没有一点遗憾。他从保险柜里拿出一本圣经，说：这本东西，我读了三十年。他说：我读它是为了知道我放弃了什么。他说完，把书放回去，锁上。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/brave-new-world-bn12.jpg" alt="蒙德坐在办公室里，身后敞开的保险柜中露出几本旧书。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>蒙德的保险柜 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="bn13" style="--c:#5b6b5a"
@@ -573,6 +577,7 @@ body{
       <div class="ev-when">福特纪元 632 年<em>伦敦</em></div>
       <h2>赫姆霍尔兹</h2>
       <p>赫姆霍尔兹·华生是伯纳德的朋友，阿尔法加，长得高大，写宣传词。他也觉得有什么不对，可他说不出哪里不对。约翰给他念莎士比亚，他听了半天，说：这些话，比我们所有的宣传词都好。他说：我们写的东西，是为了让人相信一句话。他说：这些话是为了让人看见一样东西。他说完，把书合上，说：我想写这样的东西。赫姆霍尔兹说：我写一句广告词，能让一百万人买一样他们不需要的东西。他说：这算本事吗。约翰说：不算。他说：我也觉得不算。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/brave-new-world-bn13.jpg" alt="约翰捧着一本旧书朗读，赫姆霍尔兹坐在一旁听。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>约翰念莎士比亚 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="bn14" style="--c:#5b6b5a"
@@ -599,6 +604,7 @@ body{
       <div class="ev-when">福特纪元 632 年<em>英国 · 灯塔</em></div>
       <h2>鞭子</h2>
       <p>约翰一个人住进一座废弃的灯塔。他要过干净的日子：种地，祷告，用鞭子抽自己，为了把身上的脏东西赶出去。有人从城里来看他，站在铁丝网外面拍照。他说：你们走开。他们说：我们来看看。来看他的人越来越多，一天几百个。有人朝他扔东西，有人学他的样子。他站在门口，说：你们不配看。他说完，转身进去，把门关上。他种了一片地，种出来的东西又小又难看。他说：这是我种的。他吃着那些东西，脸上有一种很满足的表情。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/brave-new-world-bn16.jpg" alt="废弃灯塔立在旷野，约翰独自照看一小片菜地。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>灯塔的退隐 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="bn17" style="--c:#5b6b5a"

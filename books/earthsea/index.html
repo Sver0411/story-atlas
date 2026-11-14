@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -460,9 +461,9 @@ body{
     <p class="hero-deck">一个学得太快的男孩，放出了自己的影子，追了它半辈子。最后他转过身，抱住了它。<br>15 个时间点，从「牧羊人」到「名字」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>15 个时间点 · 7 位人物</span><i></i>
+      <span>15 个时间点 · 7 位人物 · 6 张插图</span><i></i>
       <span>前四部 · 远古</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#ed01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -496,6 +497,7 @@ body{
       <div class="ev-when">远古<em>柔克岛</em></div>
       <h2>影子</h2>
       <p>他在学院里跟一个叫贾斯伯的学生斗法，为了证明自己更强。他念了一个不该念的咒，打开了一道缝。缝里出来一个东西，没有形状，像一团影子。那东西扑向他，抓破了他的脸。大法师奈莫尔把他救下来，说：你把一个东西放出来了。他说：那是什么。奈莫尔说：那是你。他说：我。奈莫尔说：你的另一半。奈莫尔说：你打开的是你自己。他说：我不明白。奈莫尔说：你会明白的，用一辈子。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/earthsea-ed03.jpg" alt="月下的山坡上，少年格得望着一道裂隙里涌出的影子。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>柔克岛 · 被放出的影子 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ed04" style="--c:#3f4e50"
@@ -510,6 +512,7 @@ body{
       <div class="ev-when">远古<em>地海 · 极西</em></div>
       <h2>名字</h2>
       <p>他坐船一直往西，追到海的尽头。影子在那儿等他。他站在船上，说：你是谁。影子说：我是格得。他说：那不是我的名字。影子说：那是你起的名。他伸出手，说：来吧。影子扑上来，他抱住它。两个合成一个。他倒在地上，脸上有疤，活着。他后来说：那一刻我才知道我是谁。他抱住它的时候，觉得冷，然后觉得暖。他说：我知道你叫什么了。他说：你叫格得。他说：我追了它十年。他说：它一直在我前面。</p><p class="ev-src">出处 · 《地海巫师》第 5 章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/earthsea-ed05.jpg" alt="格得站在小帆船边，向与自己轮廓相似的影子伸出手。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>格得认出影子的真名 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -522,6 +525,7 @@ body{
       <div class="ev-when">远古<em>地海 · 安卓</em></div>
       <h2>大祭司</h2>
       <p>他被派去安卓的一座古墓，那里有一个女祭司守着一块石头。石头下面压着一样东西，是远古的死灵。女祭司说：你不能打开。他说：我要打开。女祭司叫泰娜。她从小被养在墓里，不知道外面的太阳。他带她走出来，她第一次看见光的时候，哭了。泰娜说：你不能打开。他说：为什么。她说：因为下面有东西。他说：我知道。那块石头下面，压着的是名字。她说：你要是打开，就没有回头路了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/earthsea-ed06.jpg" alt="泰娜举灯站在古墓的石门前，格得从黑暗的通道里走来。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>安卓古墓 · 泰娜守在石门前 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ed07" style="--c:#3f4e50"
@@ -548,6 +552,7 @@ body{
       <div class="ev-when">远古<em>地海 · 旱地</em></div>
       <h2>死亡之地</h2>
       <p>他们去了旱地，那是死人的地方。那里没有太阳，只有灰色的光。他们在那里走了很久，看见很多死人，蹲在墙边，不说话。亚刃说：这就是死。格得说：这不是死，这是不肯死。他说：他们把名字丢了，所以走不了。旱地上没有风。他们走的时候，脚下没有声音。亚刃说：这儿的人都死了吗。他说：都不是。他说：这里的人不肯走，因为他们不肯放。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/earthsea-ed09.jpg" alt="格得和亚刃走在无风的灰色荒地里，低石墙伸向远处。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>旱地 · 越过死者之境 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ed10" style="--c:#3f4e50"
@@ -588,6 +593,7 @@ body{
       <div class="ev-when">远古 · 之后<em>弓特</em></div>
       <h2>瑟鲁</h2>
       <p>格得把法力还回去以后，成了一个不会法术的普通人。他在海上漂了很久，没人知道他去了哪儿。同一段时间，泰娜在弓特收留了一个被烧坏脸的女孩，叫瑟鲁。那个女孩被自己的父亲烧过，因为她身上有力量，而他不想要。泰娜守着她，教她认字，替她挡人。后来格得回来了，老，安静，什么也不会。再后来他们才发现，瑟鲁不是一个普通的女孩。她是那条龙的后代，是这个世界留给自己的另一条路。泰娜说：我这一辈子，先是被关在墓里，后来是自己走出来的。</p><p class="ev-src">出处 · 《地海孤雏》</p>
+      <figure class="ev-fig"><img src="../../img/anthology/earthsea-ed13b.jpg" alt="泰娜在弓特岛的石屋里陪瑟鲁读书，窗外是山坡。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>弓特 · 泰娜照料瑟鲁 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ed14" style="--c:#3f4e50"

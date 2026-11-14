@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">从卡拉丹的继承人到厄拉科斯的穆阿迪布，沿家族覆灭、荒漠求生与帝国易手，读懂水、香料、信仰和权力如何相互牵动。<br>40 个时间点，从「一份带着陷阱的封赏」到「王位、婚约与无法收回的神话」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>40 个时间点 · 23 位人物</span><i></i>
+      <span>40 个时间点 · 23 位人物 · 8 张插图</span><i></i>
       <span>1965 年《沙丘》第一部小说，含三篇及帝国易手的结局</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#du02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -502,6 +503,7 @@ body{
       <div class="ev-when">迁居前<em>卡拉丹城堡</em></div>
       <h2>盒子与毒针</h2>
       <p>贝尼·杰瑟里特圣母莫希阿姆前来检验保罗，令他把手伸入产生剧痛幻觉的盒子，同时以毒针限制他的逃避。保罗忍过考验，却无法理解自己为何被当作一项长期计划的结果来观察。母亲杰西卡曾违背姐妹会要求生下儿子；她传授的训练给了保罗生存能力，也使他走进一套跨越家族的育种与权力安排。保罗把手从盒子里抽出来，指尖在抖。圣母说：痛是暂时的，恐惧会杀死你。她说：你母亲当年也通过了。保罗问：她怕吗？圣母说：怕，但她没抽手。</p><div class="ev-sub"><h3><span>其一</span>戈姆刺</h3><p>圣母用一根毒针抵住保罗的脖子，让他把手伸进盒子。盒子里是剧痛，但他不能抽手，否则会被刺死。</p></div><div class="ev-sub"><h3><span>其二</span>人</h3><p>他忍住了。圣母说：一个动物会抽手，一个人不会。这是他成为魁萨茨·哈德拉克的第一道门。</p></div>
+      <figure class="ev-fig"><img src="../../img/anthology/dune-du02.jpg" alt="保罗把手伸进盒子，莫希阿姆在他面前沉默地观察。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>盒子与毒针 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="du03" style="--c:#986b39"
@@ -566,6 +568,7 @@ body{
       <div class="ev-when">接管香料生产期间<em>沙漠采集区</em></div>
       <h2>舍弃香料救人</h2>
       <p>雷托与保罗随帝国行星学家列特·凯恩斯视察香料采集。沙虫接近采集车时，本应前来吊走设备的运载机失约，雷托立即组织撤走工人，放弃整车香料。凯恩斯从这个选择中重新评价公爵。对当地人而言，新主人是否会把生命放在利润之前，远比一份宣称善意的政令更能建立信任。采集车被沙虫吞掉时，雷托没有命令开炮。他说：让机器沉下去，人上来。凯恩斯看着他把工人一个一个点齐，说：你跟他们说的不一样。雷托问：他们怎么说我？她说：说你是厄崔迪。雷托下令放弃整车香料时，会计说：那是三十万。雷托说：那是三十万，这些是人命。凯恩斯在旁边听着，什么也没说，但她后来对弗雷曼人说：这个公爵不一样。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/dune-du07.jpg" alt="救援飞行器低飞接近采香机，沙丘之间扬起大片沙尘。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>采香机 · 沙虫将至 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="du08" style="--c:#986b39"
@@ -574,8 +577,6 @@ body{
       <h2>一张桌子上的多重效忠</h2>
       <p>公爵举行宴会，将地方商人、帝国代表与新统治者的随员聚到一起。围绕水、香料与贸易的谈话，让保罗和杰西卡看到礼节之下的利益冲突。凯恩斯既有帝国官员的身份，也与弗雷曼人紧密相连；家族试图从这些模糊的效忠中寻找盟友，却还没有足够时间把初步的接触变成稳固的防御。宴会上，一个商人问保罗：公爵的儿子，你喝过真正的水吗？保罗说：喝过。那人说：那你不知道水的价钱。保罗说：我知道，一斤水等于一条命。</p>
     </section>
-
-      <figure class="ev-fig"><img src="../../img/anthology/dune.jpg" alt="厄拉科斯 · 沙海与香料" loading="lazy"><figcaption>厄拉科斯 · 沙海与香料 · 概念配图</figcaption></figure>
 
     <div class="era-divider">
       <span class="era-name">家族覆灭</span>
@@ -658,6 +659,7 @@ body{
       <div class="ev-when">进入弗雷曼世界<em>沙漠岩地</em></div>
       <h2>斯第尔格的判断</h2>
       <p>母子遇到斯第尔格率领的弗雷曼队伍。保罗迅速制服对手，杰西卡则用姐妹会武技控制斯第尔格，使族人看到两名外来者具备值得保留的能力。保罗认出梦中少女契妮，她是凯恩斯的女儿。接纳仍然不是无条件的庇护，部族要衡量水、训练与生存的收益，而贾米斯并不愿意接受首领的决定。斯第尔格被杰西卡制住，动弹不得。他说：你是谁？她说：一个母亲。他说：你不是。她说：那你告诉我，我是什么。他沉默了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/dune.jpg" alt="穿蒸馏服的两个旅人穿过广阔沙丘，岩壁上藏着小型洞口" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>沙漠中的新生存方式 · 穴地意象 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="du17" style="--c:#986b39"
@@ -667,13 +669,12 @@ body{
       <p>贾米斯依照习俗发起挑战，保罗代表母亲迎战。他习惯了护盾训练，起初收住攻击，反而让旁观者误以为他在戏弄对手。决斗不允许以投降结束，保罗最终杀死贾米斯。胜利使母子取得进入部族的资格，也使保罗第一次直接承担夺取生命的后果；这个门槛无法只凭技巧或预知绕过。贾米斯死时，保罗听见人群里有人说：他哭了。他确实哭了。斯第尔格说：你为敌人哭？保罗说：我为自己哭。斯第尔格说：那你还是个孩子。保罗杀了贾米斯后，跪在地上吐了。斯第尔格说：第一次都这样。保罗说：我不想习惯。斯第尔格说：你会习惯的。</p>
     </section>
 
-      <figure class="ev-fig"><img src="../../img/anthology/dune-worm.jpg" alt="沙虫 · 沙漠深处的震动" loading="lazy"><figcaption>沙虫 · 沙漠深处的震动 · 概念配图</figcaption></figure>
-
     <section class="event" id="du18" style="--c:#986b39"
       data-color="#986b39" data-era="进入弗雷曼" data-short="献给死者的水" data-label="贾米斯死后 · 洞穴与蓄水处">
       <div class="ev-when">贾米斯死后<em>洞穴与蓄水处</em></div>
       <h2>献给死者的水</h2>
       <p>弗雷曼人举行葬礼，将贾米斯身体中的水归还群体。保罗说起死者给自己带来的认识，并流下眼泪；在极端缺水的社会，这种举动具有特别的分量。贾米斯的遗孀哈拉与孩子也成为他需要承担的责任。保罗逐渐明白，融入部族既是学习怎样杀敌，也是接受一个人的死亡如何继续改变活着的人。葬礼上，弗雷曼人把贾米斯的水倒进水池。保罗哭了，一个老人说：你为死者流泪，就是把水还给他。保罗说：我不是弗雷曼人。老人说：现在你是了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/dune-water.jpg" alt="天然岩洞中保存着巨大储水池，两名蒸馏服人物站在干燥石阶上" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>地下储水池 · 弗雷曼人长期计划的意象 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="du19" style="--c:#986b39"
@@ -688,6 +689,7 @@ body{
       <div class="ev-when">进入部族之后<em>弗雷曼仪式</em></div>
       <h2>生命之水与未出生的孩子</h2>
       <p>为接续年老圣母拉玛罗，杰西卡饮下从幼年沙虫获得的毒液，以受训的身体转化毒性，并承接女性先人的记忆。她尚未出生的女儿艾莉娅也因此在胎中提前觉醒。部族获得新的圣母，母女却承受了仪式不曾为孕妇准备的后果。宗教传统、姐妹会训练和血缘，在同一具身体里发生了难以逆转的交汇。杰西卡喝下生命之水时，全身抽搐。她看见祖先的记忆涌来，男人和女人的声音一起说话。她醒来时，说：我看见了。拉玛罗说：你看见了什么？她说：所有的我。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/dune-du20.jpg" alt="岩洞里，杰西卡在族人围坐的静默中捧起一只小杯。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>生命之水 · 弗雷曼仪式 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -731,6 +733,7 @@ body{
       <div class="ev-when">成为沙漠战士之后<em>大沙漠</em></div>
       <h2>骑上沙虫</h2>
       <p>保罗接受沙虫骑乘考验，用制造震动的工具引来巨虫，再以钩索打开鳞甲，使它留在地表。他成功登上沙虫，获得弗雷曼成年战士的重要认可。曾经最可怕的环境力量成为交通与战争的资源，外来继承人也进一步进入部族的核心；他的成功既建立在学习之上，也被周围人纳入不断增长的预言。保罗第一次骑沙虫，被拖了几百米。他上岸时，浑身是沙，手上全是血。斯第尔格说：你是弗雷曼人了。保罗说：我一直是。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/dune-worm.jpg" alt="巨型环节沙虫穿行于沙丘中，微小骑手用钩索站在其背上" width="1536" height="1024" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>驾驭沙虫 · 沙漠中的远行 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -764,8 +767,6 @@ body{
       <p>保罗的威望已使他面临一项习俗压力：若要接掌部族，似乎应挑战并杀死斯第尔格。他拒绝用失去一位有能力的盟友来证明自己的位置，转而以厄崔迪公爵和穆阿迪布的双重身份统合追随者。政治领导开始改变旧有规则，但保罗也看到，忠诚于朋友的人正在成为崇敬宗教领袖的人。有人劝保罗杀了斯第尔格，按习俗夺位。保罗说：我杀他，就少一个能打仗的人。那人说：这是规矩。保罗说：规矩可以改。</p>
     </section>
 
-      <figure class="ev-fig"><img src="../../img/anthology/dune-water.jpg" alt="水 · 弗雷曼人最贵的东西" loading="lazy"><figcaption>水 · 弗雷曼人最贵的东西 · 概念配图</figcaption></figure>
-
     <section class="event" id="du26" style="--c:#986b39"
       data-color="#986b39" data-era="穆阿迪布崛起" data-short="保罗饮下毒液" data-label="最终决战前 · 弗雷曼秘密据点">
       <div class="ev-when">最终决战前<em>弗雷曼秘密据点</em></div>
@@ -797,6 +798,7 @@ body{
       <div class="ev-when">沙暴到来时<em>厄拉肯屏障山</em></div>
       <h2>让沙漠进入城中</h2>
       <p>保罗选择风暴逼近的时机进攻，以家族原子武器炸开屏障山，让暴风与沙虫能够进入原本受保护的区域。弗雷曼人骑乘巨虫冲击敌军，瓦解皇帝的军事优势。核武在这里用于破坏地形，真正完成进攻的是长期被低估的沙漠战士、对环境的认识，以及反抗者此前积累的训练和组织。原子弹炸开屏障山，沙暴灌进盆地。弗雷曼人骑着沙虫冲下来，萨多卡军从没见过这样的仗。保罗站在沙丘上，看着他们说：现在，沙漠是我们的。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/dune-du29.jpg" alt="几个人从岩壁缺口望向卷入沙暴的城市。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>屏障山 · 风暴入城 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -852,6 +854,7 @@ body{
       <div class="ev-when">第一部结局<em>厄拉肯</em></div>
       <h2>王位、婚约与无法收回的神话</h2>
       <p>保罗以破坏香料生产的能力迫使宇航公会接受条件，也使皇帝无法依靠外部舰队扭转败局。他要求迎娶伊如兰，以政治婚姻取得帝国权力，同时明确保留与契妮的真实伴侣关系。杰西卡安慰契妮，自己也曾只有妾的名分。胜利解决了继承与复仇，却没有消除保罗已看见的危险：追随者的战争可能继续以他的名字扩张。保罗要求娶伊如兰时，契妮站在旁边。他说：这是政治。她说：我知道。他说：我爱的是你。她说：我知道。她转身走了，再没有回头。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/dune-du32.jpg" alt="保罗和契妮站在高窗前，远方的厄拉科斯被夕阳照亮。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>厄拉科斯 · 决战之后 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

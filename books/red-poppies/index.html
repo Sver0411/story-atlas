@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -458,9 +459,9 @@ body{
     <p class="hero-deck">一个被所有人叫傻子的少爷，种麦子、开粮仓、建市场，看着一个制度慢慢塌下去。<br>22 个时间点，从「傻子」到「最后」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>22 个时间点 · 11 位人物</span><i></i>
+      <span>22 个时间点 · 11 位人物 · 5 张插图</span><i></i>
       <span>全本 · 1920—1939</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#cl01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -479,6 +480,7 @@ body{
       <div class="ev-when">1920 年代<em>麦其土司官寨</em></div>
       <h2>傻子</h2>
       <p>麦其土司家的二少爷生下来就不哭，三岁才会说话，说话也不像别人那样绕弯子。寨子里的人都说他是个傻子。他自己不这么想，他觉得别人说话太费劲。他母亲是汉人，从前在成都的街上讨生活，被土司用两匹马换了回来。她说：我儿子不傻，他只是不肯装。土司说：这孩子将来会吃亏。他母亲说：不会，他连亏都不认得。寨子里的人当面叫他二少爷，背后叫他傻子。他听见了，也不生气，只是记住了谁这么叫他。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-poppies-cl01.jpg" alt="年轻的二少爷站在石砌官寨的窗边，望向高原谷地。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>麦其官寨 · 二少爷 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="cl02" style="--c:#6a4436"
@@ -551,6 +553,7 @@ body{
       <div class="ev-when">1933 年<em>边界 · 市场</em></div>
       <h2>第一个集市</h2>
       <p>他把粮食换成皮毛、盐和枪，又在路边划出一块地，说：谁来做买卖，我不收税，只收一碗水。三个月后，那里有了十几间铺子，有汉人、有回回、有说各种话的人。他说：这里以后会是一个镇子。管家说：少爷，你真是个傻子。他说：我知道。市场开张那天，来了三十几个人，摆了七张摊子。有人卖盐，有人卖茶，有人卖刀子。他挨个走过去，问人家从哪来。有个回回说：从很远的地方。他说：那你以后就别走那么远了。那人愣了一下，笑了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-poppies-cl09.jpg" alt="土司领地的山路旁，初成规模的集市摆着粮袋、布匹和皮货。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>边境集市 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="cl10" style="--c:#6a4436"
@@ -579,6 +582,7 @@ body{
       <div class="ev-when">1935 年<em>边界</em></div>
       <h2>翁波意西</h2>
       <p>一个叫翁波意西的喇嘛来到边界，说土司制度要完了，人人平等。土司派人把他抓起来，割了舌头。傻子去看他，他在地上写字：你信不信。傻子说：我信。他又写：那你说出来。傻子说：我说不出来。翁波意西在地上写：你不怕我。他说：不怕。他又写：那你不怕你父亲。他说：怕。他写：那你为什么护我。他说：因为你说的那句话，我父亲听了会发抖，可我听了不会。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-poppies-cl13.jpg" alt="翁波意西身着僧袍走过高原石路，远处是麦其官寨。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>翁波意西 · 官寨来客 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="cl14" style="--c:#6a4436"
@@ -645,6 +649,7 @@ body{
       <div class="ev-when">1939 年<em>边界</em></div>
       <h2>解放军</h2>
       <p>有一天，边界上来了一支队伍，穿灰衣服，说话客气，买东西给钱。他们说：土司制度要结束了。傻子站在市场上，看着他们走过去，说：我知道这一天会来。管家说：那我们怎么办。他说：等着。那些兵在市场上买了两袋青稞，给了钱，还问能不能借宿。管家说：他们是来夺我们地方的。傻子说：他们要是来夺，就不会给钱。他说：你看他们走路的样子，不像打仗的。他说：他们像走了很远的路。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/red-poppies-cl21.jpg" alt="高原城镇的石屋之间，一小队穿灰衣的人沿街走过。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>尘埃落定前 · 高原来客 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="cl22" style="--c:#6a4436"

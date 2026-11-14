@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -459,9 +460,9 @@ body{
     <p class="hero-deck">一桩十九年没破的命案，两个孩子，一条明线一条暗线。她往上走，他替她把路清干净。<br>28 个时间点，从「当铺老板之死」到「白夜」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>28 个时间点 · 18 位人物</span><i></i>
+      <span>28 个时间点 · 18 位人物 · 7 张插图</span><i></i>
       <span>全本 · 1973—1998</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#byx01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -495,6 +496,7 @@ body{
       <div class="ev-when">1974 年<em>大阪</em></div>
       <h2>剪刀</h2>
       <p>亮司把父亲那把剪刀收进了抽屉。那是当铺里裁布用的老式剪刀，刃口磨得发亮。夏天他一个人在楼顶待到天黑，用剪刀剪纸，剪出一张又一张男孩和女孩牵着手的形状。邻居说这孩子安静，从不吵闹。母亲弥生子那年开始经常不在家，回来时身上有酒味。有一次她问：那天晚上你去哪了？亮司说：在家。她说：你爸死了。他说：我知道。然后低下头，继续剪纸。弥生子后来搬去了一家小酒馆做事，把儿子一个人留在那套房子里。房子有两间，他住朝北的那间。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/byakuyakou-byx03.jpg" alt="大阪楼顶的黄昏，一个男孩身旁有一把旧剪刀和几片牵手人形的纸剪。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>亮司的剪纸 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -521,6 +523,7 @@ body{
       <div class="ev-when">1979 年<em>大阪</em></div>
       <h2>盗版游戏</h2>
       <p>亮司和园村友彦在公寓里做盗版游戏卡带。那时任天堂一盘卡带要六千日元，他们卖两千。友彦管技术，亮司管渠道。有一次被黑道盯上，亮司一个人去了，回来时衬衫上有血，说是自己摔的。友彦问要不要收手。亮司说：我做的事，都是我自己选的。他把赚的钱分成三份：一份给友彦，一份留着，一份装进信封，塞进一个没人知道的地方。那年冬天友彦的母亲住院，手术费有人匿名交齐了。友彦后来问是不是他，亮司说：不是我。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/byakuyakou-byx06.jpg" alt="亮司和园村在狭小的公寓里整理桌上堆放的游戏卡带。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>公寓里的旧卡带 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="byx07" style="--c:#3d4653"
@@ -528,6 +531,7 @@ body{
       <div class="ev-when">1980 年<em>大阪 · 高中</em></div>
       <h2>社交舞社</h2>
       <p>雪穗进了清华女子大学英文系，加入社交舞社。社长高宫诚是富家子弟，家里开医疗器械公司。雪穗第一次跳舞时脚步跟不上，高宫诚说：没关系，跟着我。她抬头看了他一眼，笑了一下。那天晚上高宫诚跟朋友说：那个女孩不一样。朋友问哪里不一样。他说：她看着你的时候，你觉得她在听你说话。其实她在算。舞社排练结束，雪穗总会留下来把椅子摆好。有人问她为什么，她说：我喜欢整齐。她摆椅子的时候，会把每一把的间距都量成一样宽。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/byakuyakou-byx07.jpg" alt="舞蹈教室里，雪穗和高宫练习双人舞，窗边的木地板被斜阳照亮。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>第一次练舞 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="byx08" style="--c:#3d4653"
@@ -596,6 +600,7 @@ body{
       <div class="ev-when">1988 年<em>大阪 · 心斋桥</em></div>
       <h2>第一家店</h2>
       <p>雪穗在心斋桥开了一家服装精品店，叫 R&Y。开业那天她穿一身黑，站在门口迎客，笑得很淡。店里的衣服都是她亲自挑的，价位不低，来的都是有钱人家的太太。有人说她运气好，离婚还能开店。她听了只是笑。只有她自己知道开店的钱是从哪来的，那笔钱在银行里躺了三年，一分一分洗干净。R&Y，R 是他，Y 是她。这两个字母她写了十年，没有人问过。开业第一个月她亏了钱，第二个月打平，第三个月开始有人专门从东京过来。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/byakuyakou-byx16.jpg" alt="暖光照着大阪精品店的橱窗，穿黑衣的雪穗站在店门内。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>雪穗的第一家店 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="byx17" style="--c:#3d4653"
@@ -659,6 +664,7 @@ body{
       <div class="ev-when">1997 年<em>东京</em></div>
       <h2>追查</h2>
       <p>笹垣润三退休了，但案子没结。他一个人把二十五年的卷宗重看了一遍，把当年的每一个证人都找了一遍。他找到西本家的旧邻居，找到那栋大楼的施工图，找到亮司母亲现在的住址。他去见弥生子，问：那天晚上你儿子几点回家？弥生子说：我不记得了。笹垣说：你记得。她说：我记得，但我不能说。他说：为什么？她说：因为他是我儿子。离开时弥生子送他到门口，忽然说：警官，那孩子小时候很爱笑。笹垣说：我知道。她说：是我把他变成这样的。笹垣没有接话。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/byakuyakou-byx25.jpg" alt="退休刑警笹垣坐在台灯下，翻检卷宗、建筑图和老照片。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>笹垣重新翻查卷宗 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="byx26" style="--c:#3d4653"
@@ -666,6 +672,7 @@ body{
       <div class="ev-when">1998 年<em>大阪 · 心斋桥</em></div>
       <h2>开业</h2>
       <p>大阪心斋桥的 R&Y 分店开业，是雪穗最大的一家店。开业前一天她接到一个电话，挂断后坐在椅子上很久没动。第二天她照常到场，剪彩、致辞、接受采访。有人在人群里看见一个穿黑外套的男人，站了一会儿就走了。雪穗剪彩时手抖了一下，剪刀落在地上。她弯腰捡起来，笑着说：不好意思，我太紧张了。开业当天卖出三十七件衣服，其中三件是同一个人买的。店员说那位客人戴着帽子，付现金，没留名字。雪穗听完，只说了句：知道了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/byakuyakou-byx26.jpg" alt="服装店开业的红绸拉在门口，雪穗在围观的人群中准备剪彩。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>分店开业 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -466,9 +467,9 @@ body{
     <p class="hero-deck">大雪把列车困在荒野，一个美国商人死在反锁的包厢里，身上十二处刀伤。十三个人，十三份完美的不在场证明。<br>27 个时间点，从「办完案子的人」到「放行」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>27 个时间点 · 21 位人物</span><i></i>
+      <span>27 个时间点 · 21 位人物 · 7 张插图</span><i></i>
       <span>全本 · 含两种结局</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#oe01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -487,6 +488,7 @@ body{
       <div class="ev-when">1930 年代 冬<em>叙利亚 · 阿勒颇</em></div>
       <h2>办完案子的人</h2>
       <p>波洛在一个军营里办完一桩案子，准备回伦敦。他站在站台上，看着一列火车冒着白汽进站，忽然觉得这趟旅行会很安静。他打算在车上把这几个月没想清楚的事情想清楚。站台上有个军官跟他敬礼，说：先生，一路顺风。他点点头，把大衣的领子立起来。他在站台上买了一份报纸，头版是一桩美国的绑架案，五年前的旧事，凶手至今没抓着。他看了两行就翻过去了。那年冬天欧洲很冷，火车上的人比往年多，多到有些人只能睡在过道里。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/orient-express-oe01.jpg" alt="薄雾升起，波洛裹着大衣站在阿勒颇的站台上，看蒸汽火车进站。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>阿勒颇的站台 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="oe02" style="--c:#5b4436"
@@ -515,6 +517,7 @@ body{
       <div class="ev-when">1930 年代 冬<em>辛普伦东方快车</em></div>
       <h2>一车人</h2>
       <p>餐车里坐着各式各样的人：一个美国老太太，说话声音很大；一位俄国公主，年纪很大，背很直；她的女仆；一对年轻夫妇，男的是伯爵；一个高个子的英国军官；一个瘦削的英国小姐；一个瑞典女人；一个意大利人，一直在讲汽车；一个美国侦探；雷切特和他的秘书、男仆。波洛扫了一圈，说：这一车人，没有一个是我认识的。波洛坐在角落里，慢慢把这十几个人看了一遍。他注意到那个英国小姐的手很稳，那个意大利人的手一直在动，那个瑞典女人的眼睛一直在看别人的盘子。他后来在笔记上写：一车人，没有一个在看窗外。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/orient-express-oe05.jpg" alt="东方快车的餐车里，几桌服饰各异的乘客在暖灯下用餐。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>餐车里的旅客 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="oe06" style="--c:#5b4436"
@@ -522,6 +525,7 @@ body{
       <div class="ev-when">1930 年代 冬 夜<em>车厢 · 走廊</em></div>
       <h2>夜里的声音</h2>
       <p>半夜，波洛被一声响惊醒，像是有人在隔壁撞了一下墙。他听见雷切特房里有人说话，说的是法语：现在没时间，等事情完了再说。然后是一个女人的声音，很轻。波洛起身，从门缝往外看，走廊上有一个穿红色和服的女人背影，走得很急。他看了看表，一点十五分。那个女人的背影很瘦，和服上绣着鹤。波洛在门后站了很久，直到走廊上没有人。他回到床上，没有再睡着。他后来想，如果那天晚上他推门出去，也许这个案子就不会发生。但世上的事，从来没有如果。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/orient-express-oe06.jpg" alt="卧铺车厢的窄走廊只亮着几盏壁灯，一扇包厢门下漏出微光。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>深夜车厢的声音 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -549,6 +553,7 @@ body{
       <div class="ev-when">第二天 上午<em>车厢 · 现场</em></div>
       <h2>物证</h2>
       <p>他们在包厢里找到几样东西：一只烧焦的纸片，上面能认出两个词——黛西·阿姆斯特朗；一块绣着 H 的手帕；一根烟斗通条；一只空了的安眠药瓶；还有一枚制服上的纽扣。窗台上放着一把刀，刀口很薄。波洛把东西一件一件摆在桌上，说：这里面有一样是真的，其余都是假的。那块手帕是上等的亚麻，角上绣着一个花体的 H。波洛把它对着灯看了看，说：这个 H 不是她的。医生说：你怎么知道。波洛说：因为绣得太用力了，一个人给自己绣东西，不会这么用力。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/orient-express-oe09.jpg" alt="小桌上摆着焦纸、绣花手帕和烟斗通条，壁灯照亮桌面。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>包厢里的物证 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="oe10" style="--c:#5b4436"
@@ -596,6 +601,7 @@ body{
       <div class="ev-when">第二天<em>餐车 · 临时审讯室</em></div>
       <h2>公主</h2>
       <p>德拉戈米罗夫公主坐得很直，手上戴满戒指。她说：我这一生见过太多死人，不差这一个。波洛问：你认识雷切特先生吗。她说：不认识，也不想认识。波洛问：那黛西·阿姆斯特朗呢。她的手停了一下，说：那是个可怜的孩子。波洛说：你认识她。她说：我是她的教母。波洛问：你为什么会在这趟车上。她说：我要去巴黎看病。波洛问：你的女仆跟你一起吗。她说：当然。波洛说：她知道你认识那个孩子吗。她说：她什么都知道，她跟我三十年。她说这句话的时候，眼睛看着窗外。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/orient-express-oe15.jpg" alt="德拉戈米罗夫公主端坐餐车桌边，戴满戒指的手放在桌面上，波洛坐在对面。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>公主的证词 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="oe16" style="--c:#5b4436"
@@ -678,6 +684,7 @@ body{
       <div class="ev-when">第二天 夜<em>餐车</em></div>
       <h2>两种解释</h2>
       <p>布克特说：那我们怎么办。波洛说：我给你两个答案。第一个：一个陌生人上车，杀了卡塞蒂，跳车跑了。第二个：十二个人一起杀了他。布克特说：第一个不可能，雪地上没有脚印。波洛说：那我就写第二个。布克特沉默了很久，说：写第一个。波洛说：好。他合上本子，说：我荣幸地退出这个案子。布克特说：你明知道是他们，还要放他们走。波洛说：我不是放他们走，我是把选择交给你。他站起来，把大衣穿上，说：你是这家公司的人，你有权决定这趟车上发生过什么。布克特看着窗外，雪还在下。他后来说：我这一辈子只做过一次这样的决定。</p><p class="ev-src">出处 · 原著第 3 部 末章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/orient-express-oe26.jpg" alt="波洛站在餐车桌旁陈述两种案情解释，聚在他身边的人安静地听着。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>两种解释 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="oe27" style="--c:#5b4436"

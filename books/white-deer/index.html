@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -457,9 +458,9 @@ body{
     <p class="hero-deck">一个族长，一个长工，一个不服管的儿子，一块原上的五十年。<br>15 个时间点，从「皇帝没了」到「结局」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>15 个时间点 · 10 位人物</span><i></i>
+      <span>15 个时间点 · 10 位人物 · 6 张插图</span><i></i>
       <span>全本 · 1911—1949</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#bl01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -478,6 +479,7 @@ body{
       <div class="ev-when">1911 年<em>白鹿原</em></div>
       <h2>皇帝没了</h2>
       <p>辛亥年冬天，白鹿原上的人听说皇帝没了。族长白嘉轩站在祠堂门口，说：皇帝没了，祠堂还在。他这辈子只认两样东西：祠堂和地。长工鹿三说：那以后听谁的。他说：听祖宗的。鹿三说：那我听谁的。他说：听祖宗的。那天晚上他在祠堂里坐到半夜，把乡约从头念了一遍。念完他说：这世道，怕是要变了。他站在祠堂门口，看着那些牌位。他说：你们都在看着。他说：我不怕你们看。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/white-deer-bl01.jpg" alt="关中黄土塬上，白嘉轩立在祠堂外，俯瞰低矮村屋。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>白鹿原 · 祠堂与村落 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="bl02" style="--c:#5b4a34"
@@ -512,6 +514,7 @@ body{
       <div class="ev-when">1926 年<em>白鹿原</em></div>
       <h2>农协</h2>
       <p>鹿兆鹏从外面回来，办农协，斗乡绅，把白嘉轩的牌子摘了。他说：这个世道要变。白嘉轩说：变不了。他说：你等着。他后来被通缉，跑了。他爹鹿子霖在祠堂里跪了一夜。鹿兆鹏站在戏台上讲话，底下的人听不懂，可还是鼓掌。他说：从今天起，没有老爷了。有人喊：那地是谁的。他说：是种地的人的。全场静了一下。鹿兆鹏说：这个世道要变。白嘉轩说：变不了。他说：你等着看。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/white-deer-bl05.jpg" alt="祠堂外的空地上，鹿兆鹏面向聚拢的村民讲话。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>农协 · 乡村集会 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="bl06" style="--c:#5b4a34"
@@ -533,6 +536,7 @@ body{
       <div class="ev-when">1931 年<em>白鹿原</em></div>
       <h2>瘟疫</h2>
       <p>原上闹瘟疫，死了很多人。白嘉轩说：这是天罚。他把自己关在祠堂里，三天没吃饭。仙草说：你出来。他说：我出来做什么。她说：你还有孩子。他出来了。他跪在祖宗牌位前，说：是我没管好这个原。他说：你要收就收我。他跪到第三天，仙草端了一碗粥进来，说：你死了，这个家就散了。他跪在祠堂里，说：祖宗，是我没管好。他说：你们罚我。</p><p class="ev-src">出处 · 原著第 25 章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/white-deer-bl07.jpg" alt="灰黄的天光下，砖塔立在关中村落的空地上。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>瘟疫之后 · 镇塔 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="bl09" style="--c:#5b4a34"
@@ -559,6 +563,7 @@ body{
       <div class="ev-when">1938 年<em>白鹿原</em></div>
       <h2>黑娃回来</h2>
       <p>黑娃当了土匪头子，后来被招安，当了保安团的营长。他回原上祭祖，跪在祠堂门口，说：我回来了。白嘉轩站在台阶上，说：你回来做什么。他说：我认错。白嘉轩说：那你进去。他跪在祠堂门口，说：我黑娃回来了。白嘉轩说：你认得这是哪儿吗。他说：认得。白嘉轩说：那你磕头。他磕了三个，额头磕出血。他跪在祠堂门口，说：我认错。白嘉轩说：你认得这是哪儿吗。他说：认得。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/white-deer-bl11.jpg" alt="黑娃沿黄土路回村，祠堂和低矮屋顶浮现在晨雾中。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>黑娃回来 · 故路 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="bl11b" style="--c:#5b4a34"
@@ -587,6 +592,7 @@ body{
       <div class="ev-when">1949 年<em>白鹿原</em></div>
       <h2>结局</h2>
       <p>白嘉轩老了，眼睛瞎了一只。他坐在门槛上，看着原上的地。他说：这地还是这地。他说：人换了几茬了。他儿子白孝文当了县长，回来给他磕头。他说：你起来吧。他说：这地还是这地。他说：人换了几茬了。他儿子跪在下面，说：爹，我回来了。他说：你起来吧。他说完，把眼睛闭上了。他坐在门槛上，说：这地还是这地。他说：我快看不见了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/white-deer-bl13.jpg" alt="年老的白嘉轩坐在院门前，看向暮色里的田野。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>白鹿原 · 故地 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

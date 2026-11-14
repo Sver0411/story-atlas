@@ -120,6 +120,8 @@ assets/catalog.json         书架元数据
 
 改内容只动 `data.js`，然后 `python3 tools/rebuild.py`、`python3 tools/check.py`。
 
+时间线每本至少收录 5 张场景插图。配图按事件 ID 配置在 [assets/illustrations.json](assets/illustrations.json)，提示词见 [docs/anthology-images.json](docs/anthology-images.json)。《三体》使用独立的时间线页面，保留原有 26 张。
+
 ## 几条约定
 
 - 时间按事件**实际发生**的先后排，不按章节或出版顺序；多卷本在 `scope` 里标卷次。

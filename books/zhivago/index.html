@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -456,9 +457,9 @@ body{
     <p class="hero-deck">一个医生，一个护士，一场革命。他只想安安静静地活，时代不许。<br>14 个时间点，从「母亲的葬礼」到「拉拉最后」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>14 个时间点 · 7 位人物</span><i></i>
+      <span>14 个时间点 · 7 位人物 · 6 张插图</span><i></i>
       <span>全本 · 1903—1929</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#zh01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -477,6 +478,7 @@ body{
       <div class="ev-when">1903 年<em>俄国 · 乌拉尔</em></div>
       <h2>母亲的葬礼</h2>
       <p>尤里十岁，母亲死了，被埋在雪地里。他站在坟前，冷得发抖，看见一个男孩从树后看着他。那个男孩叫帕沙。他们后来都爱过同一个女人，也都在同一年回到这座城。他后来记不清母亲的脸，只记得那天的雪。他跪在坟前，冻得说不出话。那个男孩走过来，说：你别哭。他说：我没哭。他后来写诗的时候，总会想起那场雪。他说：那是我记得的第一件事。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/zhivago-zh01.jpg" alt="幼年的尤里蹲在母亲的坟前，周围积雪未消。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>乌拉尔 · 雪中送别 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="zh02" style="--c:#4f5257"
@@ -503,6 +505,7 @@ body{
       <div class="ev-when">1914 年<em>前线</em></div>
       <h2>护士</h2>
       <p>尤里上了前线做军医，遇见一个护士，叫拉拉。他给她包扎，她低着头不说话。他说：我们见过。她说：没有。他说：那我记错了。他后来一直记得那只手。她给他递纱布，手很凉。他说：你是哪里人。她说：这儿的人。他说：你说话不像。她说：我学过。他后来知道，她什么都学过。她说：你手上的血。他说：不是我的。她说：那是谁的。他说：一个我不认识的人。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/zhivago-zh04.jpg" alt="尤里和拉拉在前线医护站里整理绷带与器具。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>前线 · 军医与护士 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="zh05" style="--c:#4f5257"
@@ -517,6 +520,7 @@ body{
       <div class="ev-when">1918 年<em>乌拉尔</em></div>
       <h2>冬天</h2>
       <p>一家人坐火车去乌拉尔，车厢里挤满了人，没有煤，没有水。走了三个星期。到了瓦雷金诺，他们住进一栋旧房子，种地，劈柴，过的像农民。尤里说：这才是我想要的生活。他说这话的时候，白军正在往东撤。他劈了一整天柴，手上起了泡。晚上他坐在灯下写诗，写完读给托尼娅听。她说：我听不懂。他说：我也听不懂。他劈柴的时候，手上起了泡。他说：这比写诗实在。托尼娅说：你写诗也不差。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/zhivago-zh06.jpg" alt="一列蒸汽火车从积雪覆盖的俄国平原驶过。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>去乌拉尔 · 冬日列车 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="zh07" style="--c:#4f5257"
@@ -546,6 +550,7 @@ body{
       <div class="ev-when">1921 年<em>瓦雷金诺</em></div>
       <h2>托尼娅的信</h2>
       <p>托尼娅来信说：我们要走了，去国外。她说：我知道你跟拉拉在一起。她说：我不怪你，我只是不能再见你。他说：她们走了。拉拉说：那你怎么办。他说：我不知道。他把信读了三遍，折好，放进衣袋。他说：她们走了。她说：那你怎么办。他说：我不知道。他说完，走到窗边，站了很久。他把信读了三遍。他说：她们走了。她说：那你呢。他说：我不知道。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/zhivago-zh10.jpg" alt="尤里在结霜的窗边展开来信，拉拉坐在桌子对面凝望。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>瓦雷金诺 · 托尼娅来信 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="zh11" style="--c:#4f5257"
@@ -565,6 +570,7 @@ body{
       <div class="ev-when">1923 年<em>莫斯科</em></div>
       <h2>回到莫斯科</h2>
       <p>他一个人回到莫斯科。房子被人占了，书房成了一个机关，他被分到一间小屋，靠给人看病和写东西过日子。他写诗，写完藏在抽屉里。他娶了一个叫玛丽娜的姑娘，日子过得不好也不坏。他说：我现在什么都不是。他说：可我能睡觉了。</p><p class="ev-src">出处 · 第 14 章</p>
+      <figure class="ev-fig"><img src="../../img/anthology/zhivago-zh12.jpg" alt="尤里靠着桌灯独自在狭小房间里写诗，窗外是莫斯科。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>莫斯科 · 夜里写诗 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="zh12b" style="--c:#4f5257"

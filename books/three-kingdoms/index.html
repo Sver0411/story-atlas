@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -449,9 +450,9 @@ body{
     <p class="hero-deck">从桃园结义到三家归晋，近百年的征战、结盟与背叛。英雄们在同一张地图上争夺同一个天下，最后谁也没有活着看到它统一。<br>42 个时间点，从「桃园结义」到「三家归晋」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>42 个时间点 · 33 位人物</span><i></i>
+      <span>42 个时间点 · 33 位人物 · 9 张插图</span><i></i>
       <span>通行一百二十回本 · 完整主线</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#tk01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -470,6 +471,7 @@ body{
       <div class="ev-when">184 年<em>涿郡</em></div>
       <h2>桃园结义</h2>
       <p>东汉末年，宦官与外戚轮流把持朝政，土地兼并，灾荒连年。巨鹿人张角以符水治病，十余年间聚众数十万，喊出“苍天已死，黄天当立”，头裹黄巾起事，州郡望风而降。幽州涿郡，刘备编草鞋、织席子为生，看见招兵的榜文，站在墙下长叹。身后一人厉声说：大丈夫不与国家出力，何故长叹？那是张飞，卖酒屠猪，有庄田。两人进店饮酒，又遇一个推车的红脸大汉——关羽，因在家乡杀了恶霸，逃亡江湖五六年。三人次日到张飞庄后的桃园，备下乌牛白马，祭告天地，结为兄弟。誓词里有一句：不求同年同月同日生，但愿同年同月同日死。这一年刘备二十四岁，三个人什么都没有，只有这一句誓。张飞说：我颇有家资，愿与二位共举大事。三人次日到桃园，祭告天地，结为兄弟。这一年刘备二十四岁，关羽二十五，张飞二十。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/three-kingdoms-tk01.jpg" alt="桃花树下，刘备、关羽和张飞站在祭案前。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>桃园 · 三人结义 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tk02" style="--c:#8c3a2e"
@@ -564,6 +566,7 @@ body{
       <div class="ev-when">200 年<em>官渡</em></div>
       <h2>官渡之战</h2>
       <p>建安五年，袁绍率十万大军南下，曹操只有两万余人，退守官渡。两军相持半年，曹军粮草将尽，曹操写信给荀彧，想退兵。荀彧回信说：此用奇之时，不可失也。这时袁绍的谋士许攸因为家人犯法被审配扣押，一怒之下投奔曹操。曹操光着脚出来迎接，说：子远来了，我的事成了。许攸说出袁军粮草全在乌巢，守备松懈。曹操亲率五千步骑，打着袁军旗号，连夜奔袭乌巢，放火烧粮。袁军军心崩溃，张郃、高览阵前投降。袁绍只带八百骑逃回河北，七万余人被坑杀。许攸来投时，曹操光着脚出来迎。许攸问：你还有多少粮？曹操说：一年。许攸说：不对。曹操说：半年。许攸说：你不想赢吗？曹操说：三个月。许攸说：你粮尽了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/three-kingdoms-tk13.jpg" alt="曹操站在官渡营地外，远方的乌巢在夜色中泛起火光。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>官渡 · 夜望乌巢 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tk14" style="--c:#8c3a2e"
@@ -605,6 +608,7 @@ body{
       <div class="ev-when">208 年<em>柴桑</em></div>
       <h2>舌战群儒</h2>
       <p>刘备退到夏口，派诸葛亮随鲁肃去见孙权。东吴朝堂上，张昭、顾雍等一班文臣主张投降，说曹操挟天子以令诸侯，兵多将广，不如早降。诸葛亮逐个驳斥：你们只知其一，不知其二。他分析曹军远来疲敝、不习水战、荆州降卒人心不服，三条都是破绽。孙权在帘后听着，最后拔剑砍掉桌角：再有言降者，与此案同。诸葛亮舌战群儒，张昭说：你自比管仲乐毅，可刘备得了你，反而丢了新野。诸葛亮说：病人要慢慢调，不能下猛药。张昭说不出话。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/three-kingdoms-tk18.jpg" alt="诸葛亮独立厅中，与两侧坐席上的江东群臣辩论。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>江东 · 舌战群儒 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tk19" style="--c:#8c3a2e"
@@ -612,6 +616,7 @@ body{
       <div class="ev-when">208 年<em>赤壁</em></div>
       <h2>赤壁之战</h2>
       <p>周瑜率三万水军与曹军对峙赤壁。曹操的战船首尾相连，人马在船上如履平地。黄盖说：敌众我寡，宜用火攻。他写诈降书，带十艘蒙冲斗舰，装满薪草膏油，外面裹着帷幕，插上降旗。那天东南风起，十艘船驶到江心，同时点火，火船借风直冲曹营。曹军的连环船解不开，烧成一片火海。周瑜、程普率主力跟进，曹军大败。黄盖的船点火时，东南风正急。曹军的船连在一起，烧得解不开。曹操在岸上看着，说：我错了。他转身上马，往华容道跑。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/three-kingdoms-tk19.jpg" alt="宽阔的江面上，远处连排战船燃起火光，近处只见浪与烟。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>赤壁 · 江上火光 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tk20" style="--c:#8c3a2e"
@@ -713,6 +718,7 @@ body{
       <div class="ev-when">223 年<em>白帝城</em></div>
       <h2>白帝托孤</h2>
       <p>刘备退到白帝城，一病不起。他召诸葛亮到永安宫，说：我自得丞相，成帝业；今不幸中道分别，嗣子孱弱，不得不以大事相托。他拉着诸葛亮的手说：若嗣子可辅，则辅之；如其不才，君可自取。诸葛亮跪地流泪：臣敢竭股肱之力，效忠贞之节，继之以死。刘备又对刘禅说：汝与丞相从事，事之如父。四月，刘备死于永安宫，年六十三。刘备托孤时，对诸葛亮说：若嗣子可辅，则辅之；如其不才，君可自取。诸葛亮跪地流泪：臣敢竭股肱之力，继之以死。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/three-kingdoms-tk32.jpg" alt="白帝城内，病中的刘备在榻上托付后事，诸葛亮在一旁听。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>白帝城 · 托孤 · AI 概念插图</figcaption></figure>
     </section>
 
     <div class="era-divider">
@@ -746,6 +752,7 @@ body{
       <div class="ev-when">228 年<em>西城</em></div>
       <h2>空城计</h2>
       <p>建兴六年冬，诸葛亮第二次北伐，出散关，围陈仓。曹真派郝昭守城，郝昭只有千余人，守了二十多天。蜀军粮尽退兵。这时司马懿率大军来追。诸葛亮身边只有老弱残兵，退到西城。他命人打开城门，让几个老兵扫地，自己在城楼上焚香抚琴。司马懿到了城下，听见琴声不乱，说：诸葛亮一生谨慎，不曾弄险，今城门大开，必有埋伏。退兵。空城计里，司马懿到了城下，听见琴声不乱。他说：诸葛亮一生谨慎，不曾弄险。他退兵。诸葛亮在城楼上，手心全是汗。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/three-kingdoms-tk36.jpg" alt="空城城门敞开，诸葛亮坐在城楼上抚琴，远处人马驻足。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>空城 · 城头抚琴 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tk37" style="--c:#8c3a2e"
@@ -753,6 +760,7 @@ body{
       <div class="ev-when">234 年<em>五丈原</em></div>
       <h2>五丈原</h2>
       <p>建兴十二年，诸葛亮第五次北伐，出斜谷，屯五丈原，与司马懿对峙。司马懿坚守不出，诸葛亮派人送去一套女人的衣服。司马懿收下，问使者：丞相饮食如何？使者说：丞相夙兴夜寐，罚二十以上都要亲览，所啖之食，日不过数升。司马懿对诸将说：孔明食少事烦，其能久乎。诸葛亮在帐中点了四十九盏灯，想延寿十二年。魏延闯入报军情，踏灭主灯。诸葛亮说：生死有命。魏延踏灭主灯时，诸葛亮说：生死有命。他对姜维说：我死之后，全军撤退，魏延断后。姜维问：魏延若不听呢？他说：那就随他。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/three-kingdoms-tk37.jpg" alt="五丈原的营帐外，诸葛亮独自望向远山和秋色。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>五丈原 · 秋日军帐 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="tk38" style="--c:#8c3a2e"
@@ -793,6 +801,7 @@ body{
       <div class="ev-when">280 年<em>建业</em></div>
       <h2>三家归晋</h2>
       <p>咸熙二年，司马炎逼魏元帝禅位，建立晋朝。太康元年，晋军六路伐吴。王濬率水军从益州顺江而下，用大木筏冲走铁锥，用火炬烧断铁链，直抵建业。孙皓出降，被押到洛阳。司马炎赐他归命侯。三国归于一统。罗贯中在全书结尾写：纷纷世事无穷尽，天数茫茫不可逃。鼎足三分已成梦，后人凭吊空牢骚。孙皓出降时，司马炎赐他归命侯。孙皓说：我在建业也设了座位，等你来。司马炎笑了。三国归晋，天下重归一统。</p><p class="ev-src">出处 · 毛宗岗本第 119—120 回</p>
+      <figure class="ev-fig"><img src="../../img/anthology/three-kingdoms-tk42.jpg" alt="建业城外江面上排列着晋军舟船，城头的旗帜低垂。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>三分归一 · 江上降幡 · AI 概念插图</figcaption></figure>
     </section>
 
   </article>

@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -459,9 +460,9 @@ body{
     <p class="hero-deck">一个不美、不富、不肯低头的姑娘，爱上一个骗了她的人，然后自己走了出去。<br>28 个时间点，从「红房子」到「眼睛」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>28 个时间点 · 14 位人物</span><i></i>
+      <span>28 个时间点 · 14 位人物 · 5 张插图</span><i></i>
       <span>全本 · 1820—1831</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#je01">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -480,6 +481,7 @@ body{
       <div class="ev-when">1820 年<em>盖茨黑德</em></div>
       <h2>红房子</h2>
       <p>简·爱十岁，父母双亡，住在舅母里德太太家。表哥约翰打她，她反抗了一次，被关进红房子——那是舅舅死去的房间。她在里面看见镜子里的自己，以为看见了鬼，喊到昏过去。醒来的时候，她听见里德太太对佣人说：这孩子心眼坏。她记住了这句话。红房子里有红地毯、红窗帘、红床罩，还有一面大镜子。她坐在镜子前，看见里面有个白脸的小女孩，觉得那不是自己。天黑了，灯没点，她开始敲门。门从外面锁着。她喊：放我出去。没有人来。她后来晕了过去，醒来的时候躺在自己床上，听见佣人在说：这孩子真会演戏。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/jane-eyre-je01.jpg" alt="幼年的简独自站在红帷帐和镜子之间。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>盖茨黑德 · 红房子 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="je02" style="--c:#4f4436"
@@ -506,6 +508,7 @@ body{
       <div class="ev-when">1821 年 1 月<em>洛伍德</em></div>
       <h2>第一顿早饭</h2>
       <p>学校在野地里，冬天很冷，房间里没有火。早饭是烧焦的粥，女孩们吃了一口就放下。一个高年级的女生说：别看了，吃了。简吃了一口，差点吐出来。那个女生叫海伦·彭斯。她后来对简说：这里的规矩是，能忍就忍。简说：可我忍不住。她说：那就学着忍。海伦说：你恨这所学校吗。简说：恨。她说：别恨。她说：你恨它，它也不会变好。简说：那我就恨那些让这里变成这样的人。海伦看着她，说：你会很累。她说：我不怕累。海伦笑了一下，说：我知道你不怕。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/jane-eyre-je04.jpg" alt="洛伍德的学生们坐在长凳上，桌上摆着一碗碗粥。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>洛伍德 · 第一顿早饭 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="je05" style="--c:#4f4436"
@@ -603,6 +606,7 @@ body{
       <div class="ev-when">1829 年 8 月<em>教堂</em></div>
       <h2>打断</h2>
       <p>婚礼进行到一半，有人推门进来，说：这个婚礼不能举行。那个人是梅森。他身后还有一个律师。律师拿出一份文件：罗切斯特在牙买加结过婚，妻子还活着。罗切斯特说：跟我来。他带所有人上了三楼，打开一扇门。门里有个女人，四肢着地，喉咙里发出声音。那个女人穿着一件旧袍子，头发乱着，脸涨得通红。她看见有人进来，发出一种声音，然后扑过来，抓住罗切斯特的衣领。他抱住她，说：好了，好了。她在他怀里挣扎了一会儿，安静下来。所有人站在门口，没有人说话。律师把文件收起来，走了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/jane-eyre-je17.jpg" alt="简和罗切斯特站在祭坛前，门边来人打断仪式。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>教堂 · 被打断的婚礼 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="je18" style="--c:#4f4436"
@@ -669,6 +673,7 @@ body{
       <div class="ev-when">1830 年<em>桑菲尔德</em></div>
       <h2>烧了</h2>
       <p>桑菲尔德成了一片废墟。邻居告诉她：去年秋天，那个疯女人放了一把火，从屋顶跳下来死了。罗切斯特去救她，被烧塌的梁砸中，瞎了一只眼，另一只也坏了，还丢了一只手。他现在住在芬丁，一个林中的小房子里。邻居说：那天晚上火烧得很大，村里人都来救，救不了。他说：那个女人站在屋顶上，头发被风吹起来，像个新娘。他说：罗切斯特先生上去拉她，她跳了。他说：他从上面摔下来，压在梁下面。他说：他现在住在林子里，不怎么见人。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/jane-eyre-je25.jpg" alt="简站在被火毁坏的桑菲尔德宅邸外。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>桑菲尔德 · 废墟 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="je26" style="--c:#4f4436"

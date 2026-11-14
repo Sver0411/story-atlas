@@ -109,10 +109,11 @@ body{
   width:64px;height:1px;background:var(--red);opacity:.55;margin:38px 0 22px;
 }
 .hero-meta{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);
 }
 .hero-meta i{width:3px;height:3px;background:var(--ink-3);border-radius:50%;opacity:.6}
+.hero-art-link{color:var(--ink-2);text-underline-offset:3px}
 .scroll-hint{
   position:absolute;left:56px;bottom:34px;z-index:2;
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);
@@ -461,9 +462,9 @@ body{
     <p class="hero-deck">一个女人为了爱情抛下一切，一个男人在乡下找活着的意义。两条线，一个时代。<br>20 个时间点，从「一个家庭」到「活着」。</p>
     <div class="hero-rule"></div>
     <div class="hero-meta">
-      <span>20 个时间点 · 9 位人物</span><i></i>
+      <span>20 个时间点 · 9 位人物 · 6 张插图</span><i></i>
       <span>全本 · 1873—1877</span><i></i>
-      <span>向下滚动</span>
+      <a class="hero-art-link" href="#ak02">看插图 ↓</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -489,6 +490,7 @@ body{
       <div class="ev-when">1873 年<em>莫斯科 · 车站</em></div>
       <h2>相遇</h2>
       <p>安娜在车站下车，渥伦斯基在站台上等母亲。两个人擦肩而过，都回头看了一眼。那天车站上有人被火车轧死，安娜说：这是不祥的兆头。渥伦斯基没听见。他后来一直记得她回头的那一刻。她说：你母亲在那边。他说：我知道。他说完，没有动。她说：你该过去了。他说：我马上过去。她说：你母亲在那边。他说：我知道。他说完，还是站着没动。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/anna-karenina-ak02.jpg" alt="安娜和渥伦斯基在蒸汽火车旁擦肩而过。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>莫斯科车站 · 初次相遇 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ak03" style="--c:#5c4749"
@@ -530,6 +532,7 @@ body{
       <div class="ev-when">1874 年<em>彼得堡 · 赛马场</em></div>
       <h2>摔倒</h2>
       <p>赛马那天，渥伦斯基的马在跳栏时摔倒，他从马上翻下来。安娜在观众席上叫了一声，站起来，脸色大变。卡列宁扶住她，说：你冷静。她说：我不能。他说：你让别人看见了。她说：我不在乎。那天晚上，他第一次说了「离婚」两个字。回家路上，他说：你今天让我很难堪。她说：我今天才知道，我还能难堪。他说：你变了。她说：我没有变，是你从来没有看见过我。回家路上，他说：你今天让我很难堪。她说：我今天才知道，我还会难堪。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/anna-karenina-ak07.jpg" alt="渥伦斯基在栏杆旁落马，安娜从看台上站起来。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>赛马场 · 安娜起身 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ak08" style="--c:#5c4749"
@@ -544,6 +547,7 @@ body{
       <div class="ev-when">1875 年 夏<em>乡下</em></div>
       <h2>割草</h2>
       <p>列文跟农民一起割了一整天草。他笨，割得慢，手上起了泡。中午吃饭，农民给他一块面包和一把盐，他吃得比什么都香。他后来想：我读过那么多书，不如跟他们干一天活。农民说：先生，你割得不错。列文说：我割得不好。他说：你割得慢，可你没有停。列文后来一直记得这句话。农民说：先生，你割得不错。列文说：我割得不好。他说：你割得慢，可你没停。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/anna-karenina-ak10.jpg" alt="列文和农人沿着草地成排割草。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>乡下 · 列文割草 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ak09" style="--c:#5c4749"
@@ -551,6 +555,7 @@ body{
       <div class="ev-when">1876 年<em>乡下</em></div>
       <h2>列文结婚</h2>
       <p>列文跟基蒂结婚了。婚礼上他把戒指戴错了手，牧师提醒了两次。他们回到乡下，第一天就吵了一架，为了谁坐哪张椅子。第二天就好了。他后来写：婚姻不是幸福，是一件要天天做的事。基蒂说：我们以后会吵很多次架。列文说：那我们吵完就和好。她说：你怎么知道。他说：因为我不会走。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/anna-karenina-ak09.jpg" alt="列文和基蒂并立在烛火照亮的礼拜堂里。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>婚礼 · 列文与基蒂 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ak11" style="--c:#5c4749"
@@ -558,6 +563,7 @@ body{
       <div class="ev-when">1876 年<em>意大利 · 俄国</em></div>
       <h2>想儿子</h2>
       <p>安娜在意大利住了半年，越来越想念儿子谢廖沙。她回彼得堡，偷偷去看他。她在他生日那天早上溜进屋子，抱住他。他哭着说：妈妈，我以为你死了。她只待了十分钟，就被仆人请走了。她说：你还记得我吗。他说：我记得。她说：你记得我什么。他说：你身上有香味。她抱住他，哭了。</p>
+      <figure class="ev-fig"><img src="../../img/anthology/anna-karenina-ak11.jpg" alt="清晨，安娜俯身抱住刚醒的谢廖沙。" width="1200" height="800" loading="lazy" decoding="async" style="aspect-ratio:auto"><figcaption>谢廖沙的生日 · 母子重逢 · AI 概念插图</figcaption></figure>
     </section>
 
     <section class="event" id="ak12" style="--c:#5c4749"
